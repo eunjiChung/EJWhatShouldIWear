@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1022473E71CF6D37CD4F464D /* Pods_EJWhatShouldIWearUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */; };
+		991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22952289720F00FDBC98 /* EJHomeViewController.swift */; };
+		991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F2297228972D300FDBC98 /* EJBaseViewController.swift */; };
+		991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */; };
 		999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B209E22029E660073A0D9 /* AppDelegate.swift */; };
-		999B20A122029E660073A0D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B20A022029E660073A0D9 /* ViewController.swift */; };
 		999B20A422029E660073A0D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 999B20A222029E660073A0D9 /* Main.storyboard */; };
 		999B20A622029E670073A0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 999B20A522029E670073A0D9 /* Assets.xcassets */; };
 		999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 999B20A722029E670073A0D9 /* LaunchScreen.storyboard */; };
@@ -29,9 +31,11 @@
 
 /* Begin PBXFileReference section */
 		1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		991F22952289720F00FDBC98 /* EJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHomeViewController.swift; sourceTree = "<group>"; };
+		991F2297228972D300FDBC98 /* EJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBaseViewController.swift; sourceTree = "<group>"; };
+		991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSideMenuViewController.swift; sourceTree = "<group>"; };
 		999B209B22029E660073A0D9 /* EJWhatShouldIWear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EJWhatShouldIWear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		999B209E22029E660073A0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		999B20A022029E660073A0D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		999B20A322029E660073A0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		999B20A522029E670073A0D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		999B20A822029E670073A0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,6 +90,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		991F229F228973C000FDBC98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				999B20A522029E670073A0D9 /* Assets.xcassets */,
+				999B20A722029E670073A0D9 /* LaunchScreen.storyboard */,
+				999B20AA22029E670073A0D9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		999B209222029E660073A0D9 = {
 			isa = PBXGroup;
 			children = (
@@ -110,11 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				999B209E22029E660073A0D9 /* AppDelegate.swift */,
-				999B20A022029E660073A0D9 /* ViewController.swift */,
 				999B20A222029E660073A0D9 /* Main.storyboard */,
-				999B20A522029E670073A0D9 /* Assets.xcassets */,
-				999B20A722029E670073A0D9 /* LaunchScreen.storyboard */,
-				999B20AA22029E670073A0D9 /* Info.plist */,
+				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
+				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
+				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
+				991F229F228973C000FDBC98 /* Supporting Files */,
 			);
 			path = EJWhatShouldIWear;
 			sourceTree = "<group>";
@@ -237,10 +251,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -304,8 +320,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				999B20A122029E660073A0D9 /* ViewController.swift in Sources */,
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
+				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
+				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
+				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
