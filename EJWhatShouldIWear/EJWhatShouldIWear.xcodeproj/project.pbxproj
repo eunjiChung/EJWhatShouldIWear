@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1022473E71CF6D37CD4F464D /* Pods_EJWhatShouldIWearUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */; };
 		999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B209E22029E660073A0D9 /* AppDelegate.swift */; };
 		999B20A122029E660073A0D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B20A022029E660073A0D9 /* ViewController.swift */; };
 		999B20A422029E660073A0D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 999B20A222029E660073A0D9 /* Main.storyboard */; };
 		999B20A622029E670073A0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 999B20A522029E670073A0D9 /* Assets.xcassets */; };
 		999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 999B20A722029E670073A0D9 /* LaunchScreen.storyboard */; };
 		999B20B422029E670073A0D9 /* EJWhatShouldIWearUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B20B322029E670073A0D9 /* EJWhatShouldIWearUITests.swift */; };
+		9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		999B209B22029E660073A0D9 /* EJWhatShouldIWear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EJWhatShouldIWear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		999B209E22029E660073A0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		999B20A022029E660073A0D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,11 @@
 		999B20AF22029E670073A0D9 /* EJWhatShouldIWearUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EJWhatShouldIWearUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		999B20B322029E670073A0D9 /* EJWhatShouldIWearUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWhatShouldIWearUITests.swift; sourceTree = "<group>"; };
 		999B20B522029E670073A0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
+		B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBDF79756C2795B5E6E0A01F /* Pods-EJWhatShouldIWear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.debug.xcconfig"; sourceTree = "<group>"; };
+		F8C268456BDE3D6566D65402 /* Pods-EJWhatShouldIWearUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1022473E71CF6D37CD4F464D /* Pods_EJWhatShouldIWearUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2070144A60C49D4464C9569E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBDF79756C2795B5E6E0A01F /* Pods-EJWhatShouldIWear.debug.xcconfig */,
+				A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */,
+				F8C268456BDE3D6566D65402 /* Pods-EJWhatShouldIWearUITests.debug.xcconfig */,
+				B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3552DA285A01C2C77E7FE94F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */,
+				BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		999B209222029E660073A0D9 = {
 			isa = PBXGroup;
 			children = (
 				999B209D22029E660073A0D9 /* EJWhatShouldIWear */,
 				999B20B222029E670073A0D9 /* EJWhatShouldIWearUITests */,
 				999B209C22029E660073A0D9 /* Products */,
+				2070144A60C49D4464C9569E /* Pods */,
+				3552DA285A01C2C77E7FE94F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 999B20B822029E670073A0D9 /* Build configuration list for PBXNativeTarget "EJWhatShouldIWear" */;
 			buildPhases = (
+				712FB97C40B8872E780B42AA /* [CP] Check Pods Manifest.lock */,
 				999B209722029E660073A0D9 /* Sources */,
 				999B209822029E660073A0D9 /* Frameworks */,
 				999B209922029E660073A0D9 /* Resources */,
 				999B20BE2202A1F90073A0D9 /* Auto Increment Build Version */,
+				5EA92727452C7BAEEDF5AA48 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -121,6 +155,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 999B20BB22029E670073A0D9 /* Build configuration list for PBXNativeTarget "EJWhatShouldIWearUITests" */;
 			buildPhases = (
+				6203C50B84F1D885347DF571 /* [CP] Check Pods Manifest.lock */,
 				999B20AB22029E670073A0D9 /* Sources */,
 				999B20AC22029E670073A0D9 /* Frameworks */,
 				999B20AD22029E670073A0D9 /* Resources */,
@@ -194,18 +229,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5EA92727452C7BAEEDF5AA48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6203C50B84F1D885347DF571 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EJWhatShouldIWearUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		712FB97C40B8872E780B42AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EJWhatShouldIWear-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		999B20BE2202A1F90073A0D9 /* Auto Increment Build Version */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = "Auto Increment Build Version";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +465,7 @@
 		};
 		999B20B922029E670073A0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBDF79756C2795B5E6E0A01F /* Pods-EJWhatShouldIWear.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -399,6 +485,7 @@
 		};
 		999B20BA22029E670073A0D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -418,6 +505,7 @@
 		};
 		999B20BC22029E670073A0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8C268456BDE3D6566D65402 /* Pods-EJWhatShouldIWearUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -438,6 +526,7 @@
 		};
 		999B20BD22029E670073A0D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
