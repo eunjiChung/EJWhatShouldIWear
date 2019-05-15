@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class EJHomeViewController: UIViewController {
+class EJHomeViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,15 +18,37 @@ class EJHomeViewController: UIViewController {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - UITableView Data Source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 2:
+            // weekely weather
+            return 7
+        default:
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+//        switch indexPath.section
+//        {
+//        case 0:
+//        case 1:
+//        case 2:
+//        case 3:
+//        case 4:
+//        default:
+//        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dummy", for: indexPath)
+        return cell
+    }
+    
+    
 
 }

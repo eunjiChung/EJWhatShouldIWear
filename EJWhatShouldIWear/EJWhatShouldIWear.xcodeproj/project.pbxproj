@@ -100,6 +100,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		998191D5228C133B0063B684 /* HomeViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = HomeViewCells;
+			sourceTree = "<group>";
+		};
+		998191D6228C134A0063B684 /* MenuCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MenuCells;
+			sourceTree = "<group>";
+		};
 		999B209222029E660073A0D9 = {
 			isa = PBXGroup;
 			children = (
@@ -123,11 +137,11 @@
 		999B209D22029E660073A0D9 /* EJWhatShouldIWear */ = {
 			isa = PBXGroup;
 			children = (
+				99E6E527228C0F7300506614 /* Model */,
+				99E6E526228C0F6B00506614 /* Controller */,
+				99E6E525228C0F5F00506614 /* View */,
 				999B209E22029E660073A0D9 /* AppDelegate.swift */,
 				999B20A222029E660073A0D9 /* Main.storyboard */,
-				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
-				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
-				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
 				991F229F228973C000FDBC98 /* Supporting Files */,
 			);
 			path = EJWhatShouldIWear;
@@ -140,6 +154,32 @@
 				999B20B522029E670073A0D9 /* Info.plist */,
 			);
 			path = EJWhatShouldIWearUITests;
+			sourceTree = "<group>";
+		};
+		99E6E525228C0F5F00506614 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99E6E526228C0F6B00506614 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				998191D6228C134A0063B684 /* MenuCells */,
+				998191D5228C133B0063B684 /* HomeViewCells */,
+				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
+				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
+				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		99E6E527228C0F7300506614 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
