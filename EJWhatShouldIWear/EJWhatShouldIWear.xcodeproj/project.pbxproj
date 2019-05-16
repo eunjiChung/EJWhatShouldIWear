@@ -11,6 +11,19 @@
 		991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22952289720F00FDBC98 /* EJHomeViewController.swift */; };
 		991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F2297228972D300FDBC98 /* EJBaseViewController.swift */; };
 		991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */; };
+		998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B8291228D54B80099B71A /* EJSettingViewController.swift */; };
+		998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */; };
+		998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */; };
+		998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B8299228D67540099B71A /* TimeWeahtherTableViewCell.swift */; };
+		998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998B829A228D67540099B71A /* TimeWeahtherTableViewCell.xib */; };
+		998B829F228D67630099B71A /* WeekelyWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B829D228D67630099B71A /* WeekelyWeatherTableViewCell.swift */; };
+		998B82A0228D67630099B71A /* WeekelyWeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998B829E228D67630099B71A /* WeekelyWeatherTableViewCell.xib */; };
+		998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B82A1228D67710099B71A /* AdmobTableViewCell.swift */; };
+		998B82A4228D67710099B71A /* AdmobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998B82A2228D67710099B71A /* AdmobTableViewCell.xib */; };
+		998B82A7228D67810099B71A /* DummyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B82A5228D67810099B71A /* DummyTableViewCell.swift */; };
+		998B82A8228D67810099B71A /* DummyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998B82A6228D67810099B71A /* DummyTableViewCell.xib */; };
+		998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B82A9228D6A110099B71A /* TimeCollectionViewCell.swift */; };
+		998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998B82AA228D6A110099B71A /* TimeCollectionViewCell.xib */; };
 		999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B209E22029E660073A0D9 /* AppDelegate.swift */; };
 		999B20A422029E660073A0D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 999B20A222029E660073A0D9 /* Main.storyboard */; };
 		999B20A622029E670073A0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 999B20A522029E670073A0D9 /* Assets.xcassets */; };
@@ -34,6 +47,19 @@
 		991F22952289720F00FDBC98 /* EJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHomeViewController.swift; sourceTree = "<group>"; };
 		991F2297228972D300FDBC98 /* EJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBaseViewController.swift; sourceTree = "<group>"; };
 		991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSideMenuViewController.swift; sourceTree = "<group>"; };
+		998B8291228D54B80099B71A /* EJSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSettingViewController.swift; sourceTree = "<group>"; };
+		998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowClothTableViewCell.swift; sourceTree = "<group>"; };
+		998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowClothTableViewCell.xib; sourceTree = "<group>"; };
+		998B8299228D67540099B71A /* TimeWeahtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWeahtherTableViewCell.swift; sourceTree = "<group>"; };
+		998B829A228D67540099B71A /* TimeWeahtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeWeahtherTableViewCell.xib; sourceTree = "<group>"; };
+		998B829D228D67630099B71A /* WeekelyWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekelyWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		998B829E228D67630099B71A /* WeekelyWeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekelyWeatherTableViewCell.xib; sourceTree = "<group>"; };
+		998B82A1228D67710099B71A /* AdmobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobTableViewCell.swift; sourceTree = "<group>"; };
+		998B82A2228D67710099B71A /* AdmobTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdmobTableViewCell.xib; sourceTree = "<group>"; };
+		998B82A5228D67810099B71A /* DummyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTableViewCell.swift; sourceTree = "<group>"; };
+		998B82A6228D67810099B71A /* DummyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DummyTableViewCell.xib; sourceTree = "<group>"; };
+		998B82A9228D6A110099B71A /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		998B82AA228D6A110099B71A /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		999B209B22029E660073A0D9 /* EJWhatShouldIWear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EJWhatShouldIWear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		999B209E22029E660073A0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		999B20A322029E660073A0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +129,18 @@
 		998191D5228C133B0063B684 /* HomeViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */,
+				998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */,
+				998B8299228D67540099B71A /* TimeWeahtherTableViewCell.swift */,
+				998B829A228D67540099B71A /* TimeWeahtherTableViewCell.xib */,
+				998B829D228D67630099B71A /* WeekelyWeatherTableViewCell.swift */,
+				998B829E228D67630099B71A /* WeekelyWeatherTableViewCell.xib */,
+				998B82A1228D67710099B71A /* AdmobTableViewCell.swift */,
+				998B82A2228D67710099B71A /* AdmobTableViewCell.xib */,
+				998B82A5228D67810099B71A /* DummyTableViewCell.swift */,
+				998B82A6228D67810099B71A /* DummyTableViewCell.xib */,
+				998B82A9228D6A110099B71A /* TimeCollectionViewCell.swift */,
+				998B82AA228D6A110099B71A /* TimeCollectionViewCell.xib */,
 			);
 			name = HomeViewCells;
 			sourceTree = "<group>";
@@ -171,6 +209,7 @@
 				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
 				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
 				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
+				998B8291228D54B80099B71A /* EJSettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -268,7 +307,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */,
+				998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */,
+				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
+				998B82A0228D67630099B71A /* WeekelyWeatherTableViewCell.xib in Resources */,
+				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
 				999B20A622029E670073A0D9 /* Assets.xcassets in Resources */,
+				998B82A4228D67710099B71A /* AdmobTableViewCell.xib in Resources */,
+				998B82A8228D67810099B71A /* DummyTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,9 +406,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
+				998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */,
+				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
+				998B82A7228D67810099B71A /* DummyTableViewCell.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
+				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
+				998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */,
+				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
+				998B829F228D67630099B71A /* WeekelyWeatherTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

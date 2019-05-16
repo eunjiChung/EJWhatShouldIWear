@@ -21,18 +21,26 @@ class EJSideMenuViewController: UIViewController, UITableViewDataSource {
 
     
     // MARK: - Navigation
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;
+        return 4
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = sideMenuTableView.dequeueReusableCell(withIdentifier: "cell")  else {
-            fatalError()
+        switch indexPath.row {
+        case 0:
+            return tableView.dequeueReusableCell(withIdentifier: "logo", for: indexPath)
+        case 1:
+            return tableView.dequeueReusableCell(withIdentifier: "share", for: indexPath)
+        case 2:
+            return tableView.dequeueReusableCell(withIdentifier: "feedback", for: indexPath)
+        case 3:
+            return tableView.dequeueReusableCell(withIdentifier: "setting", for: indexPath)
+        default:
+            return tableView.dequeueReusableCell(withIdentifier: "logo", for: indexPath)
         }
         
-        return cell
     }
 
 }
