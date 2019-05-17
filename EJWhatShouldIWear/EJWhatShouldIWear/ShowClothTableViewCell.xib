@@ -46,6 +46,9 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="트렌치코트, 야상, 자켓" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVL-UG-S1i">
                         <rect key="frame" x="0.0" y="414" width="414" height="45.5"/>
                         <color key="backgroundColor" red="0.55318976679999998" green="0.48491494530000001" blue="0.46086222290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45.5" id="wa3-Tj-sgI"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
                         <color key="textColor" red="0.42988989637305697" green="0.37509378571145968" blue="0.35994542586121053" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -57,12 +60,15 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제보다" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8U-aG-kZU">
                         <rect key="frame" x="0.0" y="459.5" width="207" height="47"/>
                         <color key="backgroundColor" red="0.55318976679999998" green="0.48491494530000001" blue="0.46086222290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="47" id="5jS-JG-ZP8"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="39"/>
                         <color key="textColor" red="0.42988989640000003" green="0.37509378570000002" blue="0.3599454259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추워요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FE-Ra-EEv">
-                        <rect key="frame" x="207" y="458.5" width="207" height="49"/>
+                        <rect key="frame" x="207" y="459.5" width="207" height="47"/>
                         <color key="backgroundColor" red="0.55318976679999998" green="0.48491494530000001" blue="0.46086222290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="41"/>
                         <color key="textColor" red="0.42988989640000003" green="0.37509378570000002" blue="0.3599454259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,12 +92,14 @@
                     <constraint firstItem="KUY-CS-72v" firstAttribute="top" secondItem="fhh-dM-x67" secondAttribute="bottom" id="WKS-Kt-FV8"/>
                     <constraint firstItem="D3P-zl-9qy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="52" id="aaT-6s-REz"/>
                     <constraint firstItem="oVL-UG-S1i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bVR-YQ-Nlf"/>
+                    <constraint firstItem="6FE-Ra-EEv" firstAttribute="height" secondItem="I8U-aG-kZU" secondAttribute="height" id="c6b-E3-AwE"/>
                     <constraint firstItem="D3P-zl-9qy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fkE-fd-LvZ"/>
                     <constraint firstAttribute="trailing" secondItem="fhh-dM-x67" secondAttribute="trailing" id="mzt-Bz-bng"/>
                     <constraint firstItem="a10-ez-e8W" firstAttribute="leading" secondItem="KUY-CS-72v" secondAttribute="trailing" id="qmm-wj-xcU"/>
                     <constraint firstItem="I8U-aG-kZU" firstAttribute="top" secondItem="oVL-UG-S1i" secondAttribute="bottom" id="rXP-Ln-FWP"/>
                     <constraint firstAttribute="trailing" secondItem="oVL-UG-S1i" secondAttribute="trailing" id="sEF-ko-h6t"/>
                     <constraint firstItem="KUY-CS-72v" firstAttribute="leading" secondItem="8u2-sD-mC3" secondAttribute="trailing" id="tiT-SR-qfh"/>
+                    <constraint firstItem="6FE-Ra-EEv" firstAttribute="centerY" secondItem="I8U-aG-kZU" secondAttribute="centerY" id="vO2-BU-TGc"/>
                     <constraint firstItem="6FE-Ra-EEv" firstAttribute="leading" secondItem="I8U-aG-kZU" secondAttribute="trailing" id="xpe-c4-zhk"/>
                     <constraint firstItem="8u2-sD-mC3" firstAttribute="top" secondItem="fhh-dM-x67" secondAttribute="bottom" id="yX7-dv-tj1"/>
                     <constraint firstItem="8u2-sD-mC3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="z0I-75-UCW"/>
@@ -99,6 +107,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="alcHeightOfClothImageView" destination="MEE-GD-5vy" id="oN4-xU-FFI"/>
+                <outlet property="alcHeightOfSuggestLabel" destination="wa3-Tj-sgI" id="T4X-u1-qcr"/>
+                <outlet property="alcHeightOfYesterdayLabel" destination="5jS-JG-ZP8" id="DA1-FR-BgM"/>
+                <outlet property="alcTopOfCurrentTempLabel" destination="Shh-yd-AIn" id="PVG-pa-7Z1"/>
+                <outlet property="alcTopOfLocationLabel" destination="aaT-6s-REz" id="pw4-R7-0N7"/>
                 <outlet property="currentTempLabel" destination="fhh-dM-x67" id="nBj-Y8-Tqj"/>
                 <outlet property="feelingLabel" destination="6FE-Ra-EEv" id="bVo-TZ-Z6m"/>
                 <outlet property="firstClothImageView" destination="8u2-sD-mC3" id="9sh-N9-aby"/>
@@ -106,6 +119,7 @@
                 <outlet property="secondClothImageview" destination="KUY-CS-72v" id="UOj-41-aMq"/>
                 <outlet property="suggestLabel" destination="oVL-UG-S1i" id="yjn-2T-BRn"/>
                 <outlet property="thirdClothImageView" destination="a10-ez-e8W" id="JZt-Gy-bqx"/>
+                <outlet property="yesterdayLabel" destination="I8U-aG-kZU" id="FL9-ei-Wqu"/>
             </connections>
             <point key="canvasLocation" x="163.19999999999999" y="232.08395802098951"/>
         </tableViewCell>

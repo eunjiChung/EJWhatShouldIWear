@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EJSideMenuViewController: UIViewController, UITableViewDataSource {
+class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource {
     
     @IBOutlet weak var sideMenuTableView: UITableView!
     
@@ -20,8 +20,7 @@ class EJSideMenuViewController: UIViewController, UITableViewDataSource {
     
 
     
-    // MARK: - Navigation
-    
+    // MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }

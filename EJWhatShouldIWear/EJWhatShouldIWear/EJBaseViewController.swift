@@ -12,7 +12,7 @@ import UIKit
 
 // MARK : - Define Segue Identifier
 
-class BaseViewController: UIViewController {
+class EJBaseViewController: UIViewController {
     
     // MARK : - Global Instance
 

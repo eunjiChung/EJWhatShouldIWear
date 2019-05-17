@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EJSettingViewController: UIViewController, UITableViewDataSource {
+class EJSettingViewController: EJBaseViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +17,7 @@ class EJSettingViewController: UIViewController, UITableViewDataSource {
     }
     
 
-    // MARK: - Navigation
-    
+    // MARK : - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }

@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class EJHomeViewController: UIViewController, UITableViewDataSource {
+class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var mainTableView: UITableView!
     
@@ -23,6 +23,7 @@ class EJHomeViewController: UIViewController, UITableViewDataSource {
         mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "WeekelyWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekelyWeatherTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
         
         
     }
@@ -59,11 +60,31 @@ class EJHomeViewController: UIViewController, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: AdmobTableViewCell.identifier, for: indexPath) as! AdmobTableViewCell
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "dummy", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: DummyTableViewCell.identifier, for: indexPath) as! DummyTableViewCell
             return cell
         }
         
     }
+    
+    // MARK : - TableView Delegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.section {
+        case 0:
+            return EJSize(610.0)
+        case 1:
+            return EJSize(200.0)
+        case 2:
+            return EJSize(40.0)
+        case 3:
+            return EJSize(50.0)
+        default:
+            return EJSize(80.0)
+        }
+    }
+    
+    
+    
     
     
 

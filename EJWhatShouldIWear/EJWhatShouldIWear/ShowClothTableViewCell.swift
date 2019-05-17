@@ -25,10 +25,22 @@ class ShowClothTableViewCell: UITableViewCell {
     
     // MARK: - Constraints
     
+    @IBOutlet weak var alcTopOfLocationLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfClothImageView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfCurrentTempLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfSuggestLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfYesterdayLabel: NSLayoutConstraint!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        alcTopOfLocationLabel.constant = EJSize(52.0)
+        alcHeightOfClothImageView.constant = EJSize(256.0)
+        alcTopOfCurrentTempLabel.constant = EJSize(21.0)
+        alcHeightOfSuggestLabel.constant = EJSize(45.5)
+        alcHeightOfYesterdayLabel.constant = EJSize(47.0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
