@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource {
+class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var sideMenuTableView: UITableView!
     
@@ -29,17 +29,27 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            return tableView.dequeueReusableCell(withIdentifier: "logo", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuLogoTableViewCell.identifier, for: indexPath)
         case 1:
-            return tableView.dequeueReusableCell(withIdentifier: "share", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier, for: indexPath)
         case 2:
-            return tableView.dequeueReusableCell(withIdentifier: "feedback", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuFeedbackTableViewCell.identifier, for: indexPath)
         case 3:
-            return tableView.dequeueReusableCell(withIdentifier: "setting", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuSettingTableViewCell.identifier, for: indexPath)
         default:
-            return tableView.dequeueReusableCell(withIdentifier: "logo", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuLogoTableViewCell.identifier, for: indexPath)
         }
-        
+    
+    }
+    
+    // MARK : - TableView Delegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return EJSize(235.0)
+        default:
+            return EJSize(50.0)
+        }
     }
 
 }

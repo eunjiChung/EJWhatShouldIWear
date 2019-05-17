@@ -30,6 +30,10 @@
 		99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0567C228E9CE2002D3B7A /* EJLibrary.swift */; };
 		99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05680228EAA0D002D3B7A /* DummyTableViewCell.swift */; };
 		99A05683228EAA0D002D3B7A /* DummyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A05681228EAA0D002D3B7A /* DummyTableViewCell.xib */; };
+		99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05684228EAE05002D3B7A /* SideMenuShareTableViewCell.swift */; };
+		99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */; };
+		99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */; };
+		99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */; };
 		9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +75,10 @@
 		99A0567C228E9CE2002D3B7A /* EJLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLibrary.swift; sourceTree = "<group>"; };
 		99A05680228EAA0D002D3B7A /* DummyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTableViewCell.swift; sourceTree = "<group>"; };
 		99A05681228EAA0D002D3B7A /* DummyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DummyTableViewCell.xib; sourceTree = "<group>"; };
+		99A05684228EAE05002D3B7A /* SideMenuShareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuShareTableViewCell.swift; sourceTree = "<group>"; };
+		99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
+		99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuFeedbackTableViewCell.swift; sourceTree = "<group>"; };
+		99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuSettingTableViewCell.swift; sourceTree = "<group>"; };
 		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
 		B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +151,10 @@
 				998B82AA228D6A110099B71A /* TimeCollectionViewCell.xib */,
 				99A05680228EAA0D002D3B7A /* DummyTableViewCell.swift */,
 				99A05681228EAA0D002D3B7A /* DummyTableViewCell.xib */,
+				99A05684228EAE05002D3B7A /* SideMenuShareTableViewCell.swift */,
+				99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */,
+				99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */,
+				99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */,
 			);
 			name = HomeViewCells;
 			path = ..;
@@ -394,16 +406,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
+				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
 				998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
+				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
+				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
 				998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */,
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
+				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
 				998B829F228D67630099B71A /* WeekelyWeatherTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
