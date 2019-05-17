@@ -38,7 +38,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="4ra-uw-zRv" firstAttribute="centerY" secondItem="edG-3w-k8z" secondAttribute="centerY" id="4vx-B4-ewY"/>
                     <constraint firstItem="edG-3w-k8z" firstAttribute="leading" secondItem="iwn-j2-ILr" secondAttribute="trailing" constant="81.5" id="5JB-Jk-ztJ"/>
@@ -50,6 +50,7 @@
                     <constraint firstItem="edG-3w-k8z" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tXf-Qs-oKy"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateLabel" destination="iwn-j2-ILr" id="wSA-Ck-Lon"/>

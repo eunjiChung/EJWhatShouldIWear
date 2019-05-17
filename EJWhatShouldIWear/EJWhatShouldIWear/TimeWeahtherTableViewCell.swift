@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TimeWeahtherTableViewCell: UITableViewCell {
+class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     
     static let identifier = "TimeWeahtherTableViewCell"
     
@@ -18,6 +19,11 @@ class TimeWeahtherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        collectionView.dataSource = self as UICollectionViewDataSource
+        collectionView.delegate = self as UICollectionViewDelegate
+        
+        collectionView.register(UINib.init(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: TimeCollectionViewCell.identifier)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,4 +32,22 @@ class TimeWeahtherTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    // MARK : - CollectionView Data Source
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath)
+    }
+    
+    // MARK : - CollectionView FlowLayout Delegate
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: EJSize(100.0), height: EJSize(160.0))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: EJSize(5.0), left: EJSize(5.0), bottom: EJSize(5.0), right: EJSize(5.0))
+    }
 }

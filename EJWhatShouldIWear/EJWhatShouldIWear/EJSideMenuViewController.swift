@@ -48,7 +48,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
         case 0:
             return EJSize(305.0)
         default:
-            return EJSize(80.0)
+            return EJSize(60.0)
         }
     }
     

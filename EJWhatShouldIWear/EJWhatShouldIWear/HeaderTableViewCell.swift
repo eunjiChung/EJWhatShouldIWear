@@ -1,5 +1,5 @@
 //
-//  SideMenuFeedbackTableViewCell.swift
+//  HeaderTableViewCell.swift
 //  EJWhatShouldIWear
 //
 //  Created by DEV_MOBILE_IOS_JUNIOR on 17/05/2019.
@@ -8,21 +8,16 @@
 
 import UIKit
 
-class SideMenuFeedbackTableViewCell: UITableViewCell {
+class HeaderTableViewCell: UITableViewCell {
     
-    static let identifier = "SideMenuFeedbackTableViewCell"
+    static let identifier = "HeaderTableViewCell"
     
-    // MAKR : - Alc Of Constraints
-    @IBOutlet weak var alcLeadingOfFeedbackLabel: NSLayoutConstraint!
-    @IBOutlet weak var alcWidthOfFeedBackImageView: NSLayoutConstraint!
+    // MARK : - IBOutlets
+    @IBOutlet weak var headerLabel: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        alcLeadingOfFeedbackLabel.constant = EJSize(16.0)
-        alcWidthOfFeedBackImageView.constant = EJSize(28.0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,5 +25,5 @@ class SideMenuFeedbackTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

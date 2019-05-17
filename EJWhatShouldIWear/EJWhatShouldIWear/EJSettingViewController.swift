@@ -8,7 +8,9 @@
 
 import UIKit
 
-class EJSettingViewController: EJBaseViewController, UITableViewDataSource {
+class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,15 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            return tableView.dequeueReusableCell(withIdentifier: "location", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath)
         default:
-            return tableView.dequeueReusableCell(withIdentifier: "alarm", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath)
         }
+    }
+    
+    // MARK : - TableView Delegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return EJSize(70.0)
     }
  
 }

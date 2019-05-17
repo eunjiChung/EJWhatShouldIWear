@@ -11,6 +11,10 @@
 		991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22952289720F00FDBC98 /* EJHomeViewController.swift */; };
 		991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F2297228972D300FDBC98 /* EJBaseViewController.swift */; };
 		991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */; };
+		997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */; };
+		997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */; };
+		997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */; };
+		997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */; };
 		998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B8291228D54B80099B71A /* EJSettingViewController.swift */; };
 		998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */; };
 		998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */; };
@@ -52,6 +56,10 @@
 		991F22952289720F00FDBC98 /* EJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHomeViewController.swift; sourceTree = "<group>"; };
 		991F2297228972D300FDBC98 /* EJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBaseViewController.swift; sourceTree = "<group>"; };
 		991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSideMenuViewController.swift; sourceTree = "<group>"; };
+		997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		998B8291228D54B80099B71A /* EJSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSettingViewController.swift; sourceTree = "<group>"; };
 		998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowClothTableViewCell.swift; sourceTree = "<group>"; };
 		998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowClothTableViewCell.xib; sourceTree = "<group>"; };
@@ -136,6 +144,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		997533BB228EEAA7003DAF97 /* SettingViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */,
+				997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */,
+			);
+			name = SettingViewCell;
+			sourceTree = "<group>";
+		};
 		998191D5228C133B0063B684 /* HomeViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +172,8 @@
 				99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */,
 				99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */,
 				99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */,
+				997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */,
+				997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */,
 			);
 			name = HomeViewCells;
 			path = ..;
@@ -205,6 +224,7 @@
 		99E6E525228C0F5F00506614 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				997533BB228EEAA7003DAF97 /* SettingViewCell */,
 				998191D5228C133B0063B684 /* HomeViewCells */,
 			);
 			path = View;
@@ -314,6 +334,7 @@
 				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
 				999B20A622029E670073A0D9 /* Assets.xcassets in Resources */,
 				998B82A4228D67710099B71A /* AdmobTableViewCell.xib in Resources */,
+				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,13 +435,16 @@
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
 				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
+				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
+				997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */,
 				998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */,
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
+				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
 				998B829F228D67630099B71A /* WeekelyWeatherTableViewCell.swift in Sources */,
 			);

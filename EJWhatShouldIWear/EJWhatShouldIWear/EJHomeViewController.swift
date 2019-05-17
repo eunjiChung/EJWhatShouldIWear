@@ -11,8 +11,10 @@ import SideMenu
 
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
 
+    // MARK : - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
     
+    // MARK : - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +31,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 2:
-            // weekely weather
             return 7
         default:
             return 1
@@ -64,11 +65,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
         switch indexPath.section {
         case 0:
-            return EJSize(610.0)
+            return EJSize(540.0)
         case 1:
             return EJSize(200.0)
         case 2:
-            return EJSize(40.0)
+            return EJSize(50.0)
         case 3:
             return EJSize(50.0)
         default:
@@ -76,12 +77,41 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as! HeaderTableViewCell
+        
+        switch section {
+        case 1:
+            cell.headerLabel.text = "오늘 시간대별 날씨"
+        case 2:
+            cell.headerLabel.text = "요번주 날씨"
+        case 3:
+            cell.headerLabel.text = "광고"
+        default:
+            cell.headerLabel.text = ""
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        switch section {
+        case 1, 2, 3:
+            return EJSize(40.0)
+        default:
+            return 0
+        }
+    }
     
     
     // MARK : - Private Method
     private func controlSideMenu() {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuWidth = EJSize(300.0)
+        SideMenuManager.default.menuAnimationFadeStrength = 0.7
+        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.white
     }
     
     private func registerNibs() {
@@ -90,6 +120,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         mainTableView.register(UINib.init(nibName: "WeekelyWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekelyWeatherTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
     }
     
     

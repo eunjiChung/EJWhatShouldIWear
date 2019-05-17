@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gDy-ir-MrN" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="1Bx-h4-VUs"/>
                             <constraint firstItem="bF7-qE-yWx" firstAttribute="top" secondItem="gDy-ir-MrN" secondAttribute="bottom" id="2Nb-6H-kBX"/>
@@ -68,6 +68,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="179" height="250"/>
             <connections>
+                <outlet property="alcHeightOfClothImageView" destination="Rdf-Pu-0us" id="2Qk-ZH-RgG"/>
+                <outlet property="alcHeightOfTempLabel" destination="aBE-FL-NXt" id="nO2-Iw-9x8"/>
                 <outlet property="clothImageView" destination="TRs-tS-ggl" id="OZv-e7-Pac"/>
                 <outlet property="hourLabel" destination="gDy-ir-MrN" id="Xzv-pH-s95"/>
                 <outlet property="tempLabel" destination="bF7-qE-yWx" id="5On-83-gww"/>

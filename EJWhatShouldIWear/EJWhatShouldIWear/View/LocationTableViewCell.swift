@@ -1,5 +1,5 @@
 //
-//  SideMenuSettingTableViewCell.swift
+//  LocationTableViewCell.swift
 //  EJWhatShouldIWear
 //
 //  Created by DEV_MOBILE_IOS_JUNIOR on 17/05/2019.
@@ -8,20 +8,16 @@
 
 import UIKit
 
-class SideMenuSettingTableViewCell: UITableViewCell {
+class LocationTableViewCell: UITableViewCell {
     
-    static let identifier = "SideMenuSettingTableViewCell"
-    
-    // MARK : - Alc Of Constraints
-    @IBOutlet weak var alcWidthOfSettingImageView: NSLayoutConstraint!
-    @IBOutlet weak var alcLeadingOfSettingLabel: NSLayoutConstraint!
+    // MARK : - IBOutlet
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var myLocationLabel: UILabel!
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        alcWidthOfSettingImageView.constant = EJSize(28.0)
-        alcLeadingOfSettingLabel.constant = EJSize(16.0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

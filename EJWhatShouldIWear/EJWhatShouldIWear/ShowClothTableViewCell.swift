@@ -36,7 +36,7 @@ class ShowClothTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        alcTopOfLocationLabel.constant = EJSize(52.0)
+        alcTopOfLocationLabel.constant = EJSize(30.0)
         alcHeightOfClothImageView.constant = EJSize(256.0)
         alcTopOfCurrentTempLabel.constant = EJSize(21.0)
         alcHeightOfSuggestLabel.constant = EJSize(45.5)

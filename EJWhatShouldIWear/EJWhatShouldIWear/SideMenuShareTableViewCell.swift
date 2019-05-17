@@ -24,7 +24,7 @@ class SideMenuShareTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        alcWidthOfShareImageView.constant = EJSize(52.0)
+        alcWidthOfShareImageView.constant = EJSize(28.0)
         alcLeadingOfShareLabel.constant = EJSize(16.0)
     }
 

@@ -19,9 +19,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="122.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NnF-4y-TDN">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NnF-4y-TDN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="122.5"/>
-                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2jH-FM-nVc">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -30,7 +30,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="NnF-4y-TDN" secondAttribute="bottom" id="evT-ws-xU7"/>
                     <constraint firstAttribute="trailing" secondItem="NnF-4y-TDN" secondAttribute="trailing" id="mbE-BT-Giu"/>
@@ -38,6 +38,7 @@
                     <constraint firstItem="NnF-4y-TDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="y86-Nq-UpC"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionView" destination="NnF-4y-TDN" id="I7P-rz-bLM"/>
