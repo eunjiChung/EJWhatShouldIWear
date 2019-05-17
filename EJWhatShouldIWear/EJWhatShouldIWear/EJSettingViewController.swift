@@ -16,6 +16,12 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
     }
     
+    // MARK : - IBOutlet Action
+    @IBAction func didTouchBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 
     // MARK : - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

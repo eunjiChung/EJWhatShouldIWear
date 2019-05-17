@@ -80,7 +80,7 @@
                             <constraint firstItem="GrP-DV-OPP" firstAttribute="leading" secondItem="Cyd-4P-na3" secondAttribute="leading" id="Seg-5l-rUV"/>
                             <constraint firstItem="D2W-SW-6Lm" firstAttribute="leading" secondItem="Cyd-4P-na3" secondAttribute="leading" id="cgJ-Sx-xUD"/>
                             <constraint firstItem="3WV-P4-Caj" firstAttribute="leading" secondItem="Cyd-4P-na3" secondAttribute="leading" id="gnM-dN-bRk"/>
-                            <constraint firstItem="Cyd-4P-na3" firstAttribute="bottom" secondItem="3WV-P4-Caj" secondAttribute="bottom" id="hVT-nV-6eg"/>
+                            <constraint firstAttribute="bottom" secondItem="3WV-P4-Caj" secondAttribute="bottom" id="hVT-nV-6eg"/>
                             <constraint firstItem="GrP-DV-OPP" firstAttribute="trailing" secondItem="Cyd-4P-na3" secondAttribute="trailing" id="j6A-DN-DVW"/>
                             <constraint firstItem="Cyd-4P-na3" firstAttribute="trailing" secondItem="3WV-P4-Caj" secondAttribute="trailing" id="jno-U7-jHd"/>
                             <constraint firstItem="3WV-P4-Caj" firstAttribute="top" secondItem="GrP-DV-OPP" secondAttribute="bottom" id="rHA-T1-R4E"/>
@@ -119,7 +119,7 @@
                                                 <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothes" translatesAutoresizingMaskIntoConstraints="NO" id="p4t-rQ-pxl">
                                                     <rect key="frame" x="15" y="11" width="345" height="165"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT SHOULD I WEAR?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKE-Vz-i6N">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT SHOULD I WEAR?" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKE-Vz-i6N">
                                                     <rect key="frame" x="15" y="176" width="345" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="TCX-p3-3aH"/>
@@ -266,7 +266,7 @@
                         <constraints>
                             <constraint firstItem="Hfi-Cp-NzB" firstAttribute="trailing" secondItem="NbQ-wc-Vjh" secondAttribute="trailing" id="WzA-nm-fSk"/>
                             <constraint firstItem="NbQ-wc-Vjh" firstAttribute="leading" secondItem="Hfi-Cp-NzB" secondAttribute="leading" id="hj9-jg-wQl"/>
-                            <constraint firstItem="Hfi-Cp-NzB" firstAttribute="bottom" secondItem="NbQ-wc-Vjh" secondAttribute="bottom" id="sFC-M5-tlX"/>
+                            <constraint firstAttribute="bottom" secondItem="NbQ-wc-Vjh" secondAttribute="bottom" id="sFC-M5-tlX"/>
                             <constraint firstItem="NbQ-wc-Vjh" firstAttribute="top" secondItem="Hfi-Cp-NzB" secondAttribute="top" id="xxA-wo-xA1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hfi-Cp-NzB"/>
@@ -297,6 +297,9 @@
                                             <constraint firstAttribute="width" constant="46" id="hFZ-GY-yws"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="didTouchBackButton:" destination="7Vh-Qw-4jf" eventType="touchUpInside" id="IDP-fd-Vcu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -81,6 +81,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     // MARK : - Private Method
     private func controlSideMenu() {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
+        SideMenuManager.default.menuWidth = EJSize(300.0)
     }
     
     private func registerNibs() {

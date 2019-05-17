@@ -46,9 +46,18 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return EJSize(235.0)
+            return EJSize(305.0)
         default:
-            return EJSize(50.0)
+            return EJSize(80.0)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 3 {
+            // 이 방법은 틀렸어....ㅠㅠ
+            DispatchQueue.main.async {
+                self.present(EJSettingViewController(), animated: true, completion: nil)
+            }
         }
     }
 
