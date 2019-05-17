@@ -9,6 +9,13 @@
 import UIKit
 
 class WeekelyWeatherTableViewCell: UITableViewCell {
+    
+    static let identifier = "WeekelyWeatherTableViewCell"
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var weatherTellingLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

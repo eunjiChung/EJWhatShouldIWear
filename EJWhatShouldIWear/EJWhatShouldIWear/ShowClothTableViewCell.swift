@@ -9,6 +9,22 @@
 import UIKit
 
 class ShowClothTableViewCell: UITableViewCell {
+    
+    static let identifier = "ShowClothTableViewCell"
+    
+    // MARK: - IBOutlet
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var currentTempLabel: UILabel!
+    
+    @IBOutlet weak var firstClothImageView: UIImageView!
+    @IBOutlet weak var secondClothImageview: UIImageView!
+    @IBOutlet weak var thirdClothImageView: UIImageView!
+    @IBOutlet weak var suggestLabel: UILabel!
+    @IBOutlet weak var yesterdayLabel: UILabel!
+    @IBOutlet weak var feelingLabel: UILabel!
+    
+    // MARK: - Constraints
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

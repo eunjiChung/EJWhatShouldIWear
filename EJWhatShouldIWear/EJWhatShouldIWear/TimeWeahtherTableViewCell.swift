@@ -9,6 +9,11 @@
 import UIKit
 
 class TimeWeahtherTableViewCell: UITableViewCell {
+    
+    static let identifier = "TimeWeahtherTableViewCell"
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,21 +1,60 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WeekelyWeatherTableViewCell" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeekelyWeatherTableViewCell" id="KGk-i7-Jjw" customClass="WeekelyWeatherTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwn-j2-ILr">
+                        <rect key="frame" x="16" y="11.5" width="45" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edG-3w-k8z">
+                        <rect key="frame" x="142.5" y="11.5" width="35.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-uw-zRv">
+                        <rect key="frame" x="188" y="11.5" width="116" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4ra-uw-zRv" firstAttribute="centerY" secondItem="edG-3w-k8z" secondAttribute="centerY" id="4vx-B4-ewY"/>
+                    <constraint firstItem="edG-3w-k8z" firstAttribute="leading" secondItem="iwn-j2-ILr" secondAttribute="trailing" constant="81.5" id="5JB-Jk-ztJ"/>
+                    <constraint firstItem="iwn-j2-ILr" firstAttribute="centerY" secondItem="edG-3w-k8z" secondAttribute="centerY" id="GPv-26-VD4"/>
+                    <constraint firstItem="iwn-j2-ILr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Lm3-fx-ro5"/>
+                    <constraint firstItem="edG-3w-k8z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WCF-EU-cej"/>
+                    <constraint firstItem="4ra-uw-zRv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Y3g-8p-DSW"/>
+                    <constraint firstItem="4ra-uw-zRv" firstAttribute="leading" secondItem="edG-3w-k8z" secondAttribute="trailing" constant="10" id="kxm-RE-HTS"/>
+                    <constraint firstItem="edG-3w-k8z" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tXf-Qs-oKy"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="iwn-j2-ILr" id="wSA-Ck-Lon"/>
+                <outlet property="tempLabel" destination="edG-3w-k8z" id="Ay7-sM-oym"/>
+                <outlet property="weatherTellingLabel" destination="4ra-uw-zRv" id="A5y-wr-AFI"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

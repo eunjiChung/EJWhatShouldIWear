@@ -9,6 +9,8 @@
 import UIKit
 
 class AdmobTableViewCell: UITableViewCell {
+    
+    static let identifier = "AdmobTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

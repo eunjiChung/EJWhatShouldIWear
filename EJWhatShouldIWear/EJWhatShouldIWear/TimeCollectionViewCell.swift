@@ -9,6 +9,14 @@
 import UIKit
 
 class TimeCollectionViewCell: UICollectionViewCell {
+    
+    static let identifier = "TimeCollectionViewCell"
+    
+    // MARK : - Outlets
+    @IBOutlet weak var clothImageView: UIImageView!
+    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
