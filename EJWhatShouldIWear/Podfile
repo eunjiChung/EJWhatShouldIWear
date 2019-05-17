@@ -8,6 +8,7 @@ target 'EJWhatShouldIWear' do
   # Pods for EJWhatShouldIWear
    pod 'Alamofire', '~> 4.7.3'
    pod 'SideMenu', '~> 5.0.3'
+   pod 'Spring', '~> 1.0.5'
 
 
   target 'EJWhatShouldIWearUITests' do
