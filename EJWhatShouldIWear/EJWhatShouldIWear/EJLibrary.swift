@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK : - T Developer Key
-public let tDeveloperKey                               =   ""
+public let tDeveloperKey                               =   "17e86bad-201c-4c32-b827-a3e551cc7c53"
 public let googleAdmobAppID                            =   "ca-app-pub-1994779937843028~3906710093"
 public let googleAdmobUnitID                           =   "ca-app-pub-1994779937843028/3973448265"
 

@@ -53,7 +53,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: AdmobTableViewCell.identifier, for: indexPath) as! AdmobTableViewCell
-            cell.bannerView.adUnitID = googleAdmobUnitID
+//            cell.bannerView.adUnitID = googleAdmobUnitID
 //            cell.bannerView.rootViewController = self
 //            cell.bannerView.load(GADRequest())
             return cell

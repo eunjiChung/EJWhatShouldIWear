@@ -15,6 +15,7 @@
 		997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */; };
 		997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */; };
 		997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */; };
+		9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */; };
 		998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B8291228D54B80099B71A /* EJSettingViewController.swift */; };
 		998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */; };
 		998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */; };
@@ -60,6 +61,7 @@
 		997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHTTPClient.swift; sourceTree = "<group>"; };
 		998B8291228D54B80099B71A /* EJSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSettingViewController.swift; sourceTree = "<group>"; };
 		998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowClothTableViewCell.swift; sourceTree = "<group>"; };
 		998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowClothTableViewCell.xib; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				999B209E22029E660073A0D9 /* AppDelegate.swift */,
 				999B20A222029E660073A0D9 /* Main.storyboard */,
 				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
+				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
 				99E6E526228C0F6B00506614 /* Controller */,
 				99E6E525228C0F5F00506614 /* View */,
 				991F229F228973C000FDBC98 /* Supporting Files */,
@@ -359,7 +362,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -367,7 +370,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +438,7 @@
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
 				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
 				998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */,
+				9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
@@ -614,7 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43GGNY3688;
+				DEVELOPMENT_TEAM = 88356WAKJ6;
 				INFOPLIST_FILE = EJWhatShouldIWear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -634,7 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43GGNY3688;
+				DEVELOPMENT_TEAM = 88356WAKJ6;
 				INFOPLIST_FILE = EJWhatShouldIWear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
