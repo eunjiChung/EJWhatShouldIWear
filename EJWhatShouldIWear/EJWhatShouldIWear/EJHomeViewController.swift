@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import GoogleMobileAds
 
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -52,6 +53,9 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: AdmobTableViewCell.identifier, for: indexPath) as! AdmobTableViewCell
+            cell.bannerView.adUnitID = googleAdmobUnitID
+//            cell.bannerView.rootViewController = self
+//            cell.bannerView.load(GADRequest())
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: DummyTableViewCell.identifier, for: indexPath) as! DummyTableViewCell

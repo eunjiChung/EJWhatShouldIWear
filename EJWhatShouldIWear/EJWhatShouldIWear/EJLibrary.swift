@@ -9,7 +9,9 @@
 import UIKit
 
 // MARK : - T Developer Key
-let tDeveloperKey                               =   ""
+public let tDeveloperKey                               =   ""
+public let googleAdmobAppID                            =   "ca-app-pub-1994779937843028~3906710093"
+public let googleAdmobUnitID                           =   "ca-app-pub-1994779937843028/3973448265"
 
 // MARK : - Screen Size
 public let EJ_SCREEN_WIDTH: CGFloat             =   UIScreen.main.bounds.width

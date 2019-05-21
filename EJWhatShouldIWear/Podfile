@@ -9,6 +9,7 @@ target 'EJWhatShouldIWear' do
    pod 'Alamofire', '~> 4.7.3'
    pod 'SideMenu', '~> 5.0.3'
    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+   pod 'Google-Mobile-Ads-SDK'
 
   target 'EJWhatShouldIWearUITests' do
     inherit! :search_paths

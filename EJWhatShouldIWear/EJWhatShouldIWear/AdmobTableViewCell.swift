@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class AdmobTableViewCell: UITableViewCell {
     
     static let identifier = "AdmobTableViewCell"
+    
+    // MARK : - IBOutlet
+    @IBOutlet weak var bannerView: GADBannerView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
