@@ -28,8 +28,7 @@ class EJWeatherManager: NSObject {
     func CurrentWeatherInfo(success: @escaping (String) -> (),
                             failure: @escaping FailureHandler) {
         httpClient.basicRequest(to: "current/hourly", success: { (response) in
-            let data = response as? [String: Any]
-            let currentTemp = self.getCurrentWeatherInfo(from: data)
+            let currentTemp = self.getCurrentWeatherInfo(from: response)
             success(currentTemp)
         }) { (error) in
             failure(error)
@@ -39,8 +38,7 @@ class EJWeatherManager: NSObject {
     func HourlyWeatherInfo(success: @escaping ([String: Any]) -> (),
                            failure: @escaping FailureHandler) {
         httpClient.basicRequest(to: "forecast/3days", success: { (response) in
-            let data = response as? [String: Any]
-            let result = self.getHourlyWeatherInfo(from: data)
+            let result = self.getHourlyWeatherInfo(from: response)
             success(result)
         }) { (error) in
             failure(error)
@@ -50,7 +48,8 @@ class EJWeatherManager: NSObject {
     func WeekelyWeatherInfo(success: @escaping ([String: Any]) -> (),
                             failure: @escaping FailureHandler) {
         httpClient.basicRequest(to: "forecast/6days", success: { (response) in
-            success()
+            let result = self.getWeekelyWeatherInfo(from: response)
+            success(result)
         }) { (error) in
             failure(error)
         }
