@@ -22,6 +22,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
         controlSideMenu()
         registerNibs()
+        requestWeatherData()
     }
     
     // MARK: - UITableView Data Source
@@ -106,6 +107,16 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             return EJSize(40.0)
         default:
             return 0
+        }
+    }
+    
+    // MARK : - Weather function
+    func requestWeatherData() {
+        
+        WeatherManager.CurrentWeatherInfo(success: { (result) in
+            
+        }) { (error) in
+            print(error)
         }
     }
     

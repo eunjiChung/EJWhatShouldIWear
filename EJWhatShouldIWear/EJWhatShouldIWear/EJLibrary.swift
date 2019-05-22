@@ -8,8 +8,11 @@
 
 import UIKit
 
-// MARK : - T Developer Key
-public let tDeveloperKey                               =   "17e86bad-201c-4c32-b827-a3e551cc7c53"
+// MARK : - API Path
+public let weatherAPIPath                              =   "https://api2.sktelecom.com/weather/"
+
+// MARK : - App Key
+public let tDeveloperKey                               =   "ccdfb3de-58a7-43e1-9dd0-8ac47a44cd3b"
 public let googleAdmobAppID                            =   "ca-app-pub-1994779937843028~3906710093"
 public let googleAdmobUnitID                           =   "ca-app-pub-1994779937843028/3973448265"
 
@@ -25,7 +28,6 @@ let Library = EJLibrary.sharedInstance
 func EJSize(_ standardSize: CGFloat) -> CGFloat {
     return round(standardSize * (EJ_SCREEN_WIDTH / EJ_SCREEN_WIDTH_414))
 }
-
 
 // MARK : - Class EJLibrary
 class EJLibrary: NSObject {
