@@ -11,6 +11,8 @@ import SideMenu
 import GoogleMobileAds
 
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var currentTemp: String?
 
     // MARK : - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
@@ -22,7 +24,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
         controlSideMenu()
         registerNibs()
-        requestWeatherData()
+//        requestWeatherData()
     }
     
     // MARK: - UITableView Data Source
@@ -45,6 +47,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
+//            cell.currentTempLabel.text =
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
@@ -111,10 +114,12 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     // MARK : - Weather function
-    func requestWeatherData() {
-        
+    func requestWeatherData() -> String {
         WeatherManager.CurrentWeatherInfo(success: { (result) in
-            
+            print("This is \(result)")
+//            self.currentTemp = result
+            let temp = result
+//            return temp
         }) { (error) in
             print(error)
         }
