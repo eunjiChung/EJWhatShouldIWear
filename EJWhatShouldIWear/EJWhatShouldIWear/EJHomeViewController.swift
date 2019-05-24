@@ -56,6 +56,10 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekelyWeatherTableViewCell.identifier, for: indexPath) as! WeekelyWeatherTableViewCell
+            
+            let item = indexPath.item
+            cell.setWeekelyInfo(to: item)
+            
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: AdmobTableViewCell.identifier, for: indexPath) as! AdmobTableViewCell

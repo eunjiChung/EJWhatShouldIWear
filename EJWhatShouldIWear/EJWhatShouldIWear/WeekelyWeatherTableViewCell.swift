@@ -27,6 +27,11 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     public func setWeekelyInfo(to index: Int) {
         WeatherManager.WeekelyWeatherInfo(success: { (result) in
             
+            // 오늘 요일을 받아서 그 뒤로 7일까지 추출
+            let currentTemp = result["tmax\(index+2)day"] as! String
+            let temp = WeatherManager.changeValidTempString(currentTemp)
+            self.tempLabel.text = "\(temp)℃"
+            
         }) { (error) in
             print(error)
         }

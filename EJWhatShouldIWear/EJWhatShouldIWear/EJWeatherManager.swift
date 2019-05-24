@@ -83,7 +83,7 @@ class EJWeatherManager: NSObject {
     
     func getWeekelyWeatherInfo(from data: [String: Any]?) -> [String: Any] {
         let json = JSON(data!)
-        let result = json["weather"]["forecast6days"][0]["temperature"].dictionary!
+        let result = json["weather"]["forecast6days"][0]["temperature"].dictionaryObject!
         return result
     }
     
