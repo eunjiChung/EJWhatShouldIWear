@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 // MARK : - Type Alias
-typealias SuccessHandler = ([String: Any]) -> ()
+//typealias SuccessHandler = ([String: Any]) -> ()
 typealias FailureHandler = (Error) -> ()
 
 // MARK : - Shared Instance
@@ -21,7 +21,6 @@ class EJWeatherManager: NSObject {
     static let sharedInstance = EJWeatherManager()
     static var latitude: Double = 37.51151
     static var longitude: Double = 127.0967
-    static var temperature: Double?
     
     let httpClient = EJHTTPClient.init(latitude, longitude)
     

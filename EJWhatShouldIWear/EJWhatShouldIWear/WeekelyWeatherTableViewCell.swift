@@ -17,15 +17,19 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var weatherTellingLabel: UILabel!
     
 
+    // MARK : - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    // MARK : - Public Method
+    public func setWeekelyInfo(to index: Int) {
+        WeatherManager.WeekelyWeatherInfo(success: { (result) in
+            
+        }) { (error) in
+            print(error)
+        }
+    }
+
 }

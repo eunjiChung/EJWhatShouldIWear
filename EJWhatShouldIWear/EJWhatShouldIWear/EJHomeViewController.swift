@@ -53,9 +53,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
-            
-            
-            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekelyWeatherTableViewCell.identifier, for: indexPath) as! WeekelyWeatherTableViewCell
@@ -117,9 +114,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             return 0
         }
     }
-    
-    // MARK : - Private Method : Request
-    
     
     
     // MARK : - Private Method
