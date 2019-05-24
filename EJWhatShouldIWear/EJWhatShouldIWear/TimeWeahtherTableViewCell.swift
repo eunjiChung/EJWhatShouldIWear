@@ -10,8 +10,11 @@ import UIKit
 
 class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
     static let identifier = "TimeWeahtherTableViewCell"
+    var weatherInfo: [String:String]?
+    var timeRelease: String?
+    var timeArray: [String]?
+    var tempArray: [String]?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -23,13 +26,6 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         collectionView.delegate = self as UICollectionViewDelegate
         
         collectionView.register(UINib.init(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: TimeCollectionViewCell.identifier)
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     
@@ -39,7 +35,13 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath) as! TimeCollectionViewCell
+        
+        let item = indexPath.item
+        
+        cell.setHourlyWeather(item)
+        
+        return cell
     }
     
     // MARK : - CollectionView FlowLayout Delegate
@@ -50,4 +52,5 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: EJSize(5.0), left: EJSize(5.0), bottom: EJSize(5.0), right: EJSize(5.0))
     }
+    
 }

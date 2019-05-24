@@ -32,10 +32,11 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var alcHeightOfYesterdayLabel: NSLayoutConstraint!
     
 
+    // MARK : - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
+        // Initialization code
         alcTopOfLocationLabel.constant = EJSize(30.0)
         alcHeightOfClothImageView.constant = EJSize(256.0)
         alcTopOfCurrentTempLabel.constant = EJSize(21.0)
@@ -43,10 +44,18 @@ class ShowClothTableViewCell: UITableViewCell {
         alcHeightOfYesterdayLabel.constant = EJSize(47.0)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // MARK : - Public Method
+    public func setTodayTemperature() {
+        WeatherManager.CurrentWeatherInfo(success: { (result) in
+            let temp = WeatherManager.changeValidTempString(result)
+            self.currentTempLabel.text = "현재 온도 \(temp)℃"
+        }) { (error) in
+            print(error)
+        }
     }
+    
+    
+    
     
 }

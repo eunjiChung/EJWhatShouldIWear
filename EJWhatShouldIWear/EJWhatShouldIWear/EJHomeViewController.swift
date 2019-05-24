@@ -24,7 +24,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
         controlSideMenu()
         registerNibs()
-//        requestWeatherData()
+        
     }
     
     // MARK: - UITableView Data Source
@@ -47,10 +47,15 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
-//            cell.currentTempLabel.text =
+            
+            cell.setTodayTemperature()
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
+            
+            
+            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekelyWeatherTableViewCell.identifier, for: indexPath) as! WeekelyWeatherTableViewCell
@@ -113,17 +118,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         }
     }
     
-    // MARK : - Weather function
-    func requestWeatherData() -> String {
-        WeatherManager.CurrentWeatherInfo(success: { (result) in
-            print("This is \(result)")
-//            self.currentTemp = result
-            let temp = result
-//            return temp
-        }) { (error) in
-            print(error)
-        }
-    }
+    // MARK : - Private Method : Request
+    
     
     
     // MARK : - Private Method

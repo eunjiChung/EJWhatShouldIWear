@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 // MARK : - Type Alias
-//typealias SuccessHandler = (Any) -> ()
+typealias SuccessHandler = ([String: Any]) -> ()
 typealias FailureHandler = (Error) -> ()
 
 // MARK : - Shared Instance
@@ -21,6 +21,7 @@ class EJWeatherManager: NSObject {
     static let sharedInstance = EJWeatherManager()
     static var latitude: Double = 37.51151
     static var longitude: Double = 127.0967
+    static var temperature: Double?
     
     let httpClient = EJHTTPClient.init(latitude, longitude)
     
@@ -35,11 +36,12 @@ class EJWeatherManager: NSObject {
         }
     }
     
-    func HourlyWeatherInfo(success: @escaping ([String: Any]) -> (),
+    func HourlyWeatherInfo(success: @escaping (String, [String: Any]) -> (),
                            failure: @escaping FailureHandler) {
         httpClient.basicRequest(to: "forecast/3days", success: { (response) in
             let result = self.getHourlyWeatherInfo(from: response)
-            success(result)
+            let time = self.getTimeRelease(from: response)
+            success(time, result)
         }) { (error) in
             failure(error)
         }
@@ -66,19 +68,34 @@ class EJWeatherManager: NSObject {
         return result
     }
     
-    func getHourlyWeatherInfo(from data: [String: Any]?) -> [String: Any] {
+    func getTimeRelease(from data: [String: Any]?) -> String {
         let json = JSON(data!)
         let result = json["weather"]["forecast3days"][0]
         let timeRelease = result["timeRelease"].string!
-        let fcst3hour = result["fcst3hour"]["temperature"].dictionary!
-        let dictionary = ["timeRelease" : timeRelease,
-                          "fcst3hour" : fcst3hour] as [String : Any]
-        return dictionary
+        return timeRelease
+    }
+    
+    func getHourlyWeatherInfo(from data: [String: Any]?) -> [String: Any] {
+        let json = JSON(data!)
+        let result = json["weather"]["forecast3days"][0]
+        let fcst3hour = result["fcst3hour"]["temperature"].dictionaryObject!
+        return fcst3hour
     }
     
     func getWeekelyWeatherInfo(from data: [String: Any]?) -> [String: Any] {
         let json = JSON(data!)
         let result = json["weather"]["forecast6days"][0]["temperature"].dictionary!
+        return result
+    }
+    
+    // MARK : - Public Method
+    public func changeValidTempString(_ string: String) -> String {
+        guard let float = Double(string) else {
+            fatalError()
+        }
+        let temp = Int(float)
+        let result = String(temp)
+        
         return result
     }
 }
