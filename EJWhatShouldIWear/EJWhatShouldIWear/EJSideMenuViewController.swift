@@ -42,6 +42,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     
     }
     
+    
     // MARK : - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
@@ -53,11 +54,13 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
-            // 이 방법은 틀렸어....ㅠㅠ
-            DispatchQueue.main.async {
-                self.present(EJSettingViewController(), animated: true, completion: nil)
-            }
+        switch indexPath.row {
+        case 2:
+            print("Mailing...")
+        case 3:
+            self.present(EJSettingViewController(), animated: true, completion: nil)
+        default:
+            print("Nothing")
         }
     }
 

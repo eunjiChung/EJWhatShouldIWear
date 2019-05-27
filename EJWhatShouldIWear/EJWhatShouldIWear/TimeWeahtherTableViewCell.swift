@@ -39,7 +39,7 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         let item = indexPath.item
         
-        cell.setHourlyWeather(item)
+//        cell.setHourlyWeather(item)
         
         return cell
     }

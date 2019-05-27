@@ -49,7 +49,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
-            cell.setTodayTemperature()
+//            cell.setTodayTemperature()
             
             return cell
         case 1:
@@ -59,7 +59,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekelyWeatherTableViewCell.identifier, for: indexPath) as! WeekelyWeatherTableViewCell
             
             let item = indexPath.item
-            cell.setWeekelyInfo(to: item)
+//            cell.setWeekelyInfo(to: item)
             
             return cell
         case 3:
