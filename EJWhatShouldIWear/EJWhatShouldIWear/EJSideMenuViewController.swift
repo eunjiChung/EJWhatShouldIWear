@@ -10,8 +10,11 @@ import UIKit
 
 class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK : - IBOutlets
     @IBOutlet weak var sideMenuTableView: UITableView!
     
+    
+    // MARK : - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,6 +60,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
         switch indexPath.row {
         case 2:
             print("Mailing...")
+            sendEmailWithCompose()
         case 3:
             self.present(EJSettingViewController(), animated: true, completion: nil)
         default:
