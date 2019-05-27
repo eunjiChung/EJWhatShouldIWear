@@ -12,7 +12,7 @@ import UIKit
 public let weatherAPIPath                              =   "https://api2.sktelecom.com/weather/"
 
 // MARK : - App Key
-public let tDeveloperKey                               =   "ccdfb3de-58a7-43e1-9dd0-8ac47a44cd3b"
+public let tDeveloperKey                               =   "caf5a086-90dc-4651-b189-cb8750c53f18"
 public let googleAdmobAppID                            =   "ca-app-pub-1994779937843028~3906710093"
 public let googleAdmobUnitID                           =   "ca-app-pub-1994779937843028/3973448265"
 

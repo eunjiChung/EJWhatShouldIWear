@@ -63,6 +63,7 @@ class EJWeatherManager: NSObject {
     // MARK : - Get Proper Data From HTTP Response by SwiftyJSON
     func getCurrentWeatherInfo(from data: [String: Any]?) -> String {
         let json = JSON(data!)
+        print(json)
         let result = json["weather"]["hourly"][0]["temperature"]["tc"].string!
         return result
     }
