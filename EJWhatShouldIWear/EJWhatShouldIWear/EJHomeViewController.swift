@@ -16,6 +16,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
 
     // MARK : - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     
     // MARK : - View Life Cycle
     override func viewDidLoad() {
@@ -24,7 +26,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
         controlSideMenu()
         registerNibs()
-        
     }
     
     // MARK: - UITableView Data Source
