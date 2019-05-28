@@ -32,8 +32,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             // 새로운 Location 정보 받아오고
             // 해당 Location의 날씨 정보 받아오기
             print("Pull To Refresh")
+            self.updateLocation()
             self.stopPullToRefresh(toScrollView: self.mainTableView)
         }
+        
+        self.checkLocationStatus()
     }
     
     // MARK: - UITableView Data Source
