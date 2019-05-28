@@ -10,7 +10,7 @@ target 'EJWhatShouldIWear' do
    pod 'SideMenu', '~> 5.0.3'
    pod 'Google-Mobile-Ads-SDK'
    pod 'SwiftyJSON', '~> 5.0.0'
-
+   pod 'ESPullToRefresh', '~> 2.9'
 
   target 'EJWhatShouldIWearUITests' do
     inherit! :search_paths

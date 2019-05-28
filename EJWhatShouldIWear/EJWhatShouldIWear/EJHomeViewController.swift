@@ -26,6 +26,14 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
         controlSideMenu()
         registerNibs()
+        
+        // Pull To Refresh
+        addPullToRefreshControl(toScrollView: self.mainTableView) {
+            // 새로운 Location 정보 받아오고
+            // 해당 Location의 날씨 정보 받아오기
+            print("Pull To Refresh")
+            self.stopPullToRefresh(toScrollView: self.mainTableView)
+        }
     }
     
     // MARK: - UITableView Data Source

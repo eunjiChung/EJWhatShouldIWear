@@ -8,6 +8,8 @@
 
 import UIKit
 import MessageUI
+import ESPullToRefresh
+
 
 // MARK : - Define Layout Constant
 
@@ -65,21 +67,20 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     // MARK : - Pull To Refresh
-//    func addPullToRefreshControl(toScrollView: UIScrollView, completionHandler: @escaping () -> ()) {
-//        YHGCDMainAsync {
-//            toScrollView.es.addPullToRefresh {
-//                YHGCDMainAsync {
-//                    completionHandler()
-//                }
-//            }
-//        }
-//    }
-//
-//    // @param toScrollView : TableView or Collection View
-//    func stopPullToRefresh(toScrollView: UIScrollView) {
-//        YHGCDMainAsync {
-//            toScrollView.es.stopPullToRefresh()
-//        }
-//    }
+    func addPullToRefreshControl(toScrollView: UIScrollView, completionHandler: @escaping () -> ()) {
+        DispatchQueue.main.async {
+            toScrollView.es.addPullToRefresh {
+                DispatchQueue.main.async {
+                    completionHandler()
+                }
+            }
+        }
+    }
+    
+    func stopPullToRefresh(toScrollView: UIScrollView) {
+        DispatchQueue.main.async {
+            toScrollView.es.stopPullToRefresh()
+        }
+    }
 
 }
