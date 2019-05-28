@@ -39,7 +39,6 @@
 		99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */; };
 		99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */; };
 		99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */; };
-		99CC5116229D22C800192450 /* EJLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC5115229D22C800192450 /* EJLocationManager.swift */; };
 		99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC5117229D22CF00192450 /* EJLocationViewController.swift */; };
 		99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */; };
 		9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */; };
@@ -92,7 +91,6 @@
 		99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
 		99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuFeedbackTableViewCell.swift; sourceTree = "<group>"; };
 		99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuSettingTableViewCell.swift; sourceTree = "<group>"; };
-		99CC5115229D22C800192450 /* EJLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJLocationManager.swift; sourceTree = "<group>"; };
 		99CC5117229D22CF00192450 /* EJLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJLocationViewController.swift; sourceTree = "<group>"; };
 		99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherManager.swift; sourceTree = "<group>"; };
 		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
@@ -214,10 +212,10 @@
 				999B20A222029E660073A0D9 /* Main.storyboard */,
 				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
 				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
-				99CC5115229D22C800192450 /* EJLocationManager.swift */,
 				99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */,
 				99E6E526228C0F6B00506614 /* Controller */,
 				99E6E525228C0F5F00506614 /* View */,
+				99CC5119229D2F8700192450 /* Model */,
 				991F229F228973C000FDBC98 /* Supporting Files */,
 			);
 			path = EJWhatShouldIWear;
@@ -230,6 +228,13 @@
 				999B20B522029E670073A0D9 /* Info.plist */,
 			);
 			path = EJWhatShouldIWearUITests;
+			sourceTree = "<group>";
+		};
+		99CC5119229D2F8700192450 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		99E6E525228C0F5F00506614 /* View */ = {
@@ -451,7 +456,6 @@
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
-				99CC5116229D22C800192450 /* EJLocationManager.swift in Sources */,
 				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
 				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,

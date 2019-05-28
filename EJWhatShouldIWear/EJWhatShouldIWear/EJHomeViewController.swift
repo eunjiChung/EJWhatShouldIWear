@@ -13,6 +13,7 @@ import GoogleMobileAds
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     var currentTemp: String?
+    var currentLocation : String?
 
     // MARK : - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
@@ -26,6 +27,9 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
         controlSideMenu()
         registerNibs()
+        
+        checkLocationStatus()
+        updateLocation()
     }
     
     // MARK: - UITableView Data Source
