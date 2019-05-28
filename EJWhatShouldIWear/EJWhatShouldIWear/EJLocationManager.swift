@@ -10,5 +10,13 @@ import UIKit
 import CoreLocation
 
 class EJLocationManager: NSObject {
+    
+    static var currentLocation : String?
+    
+    // MARK : - Public Method
+    func getCurrentLocation() -> String {
+        let location = ""
+        return location
+    }
 
 }
