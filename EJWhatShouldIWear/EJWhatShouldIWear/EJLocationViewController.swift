@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EJLocationViewController: UIViewController {
+class EJLocationViewController: EJBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

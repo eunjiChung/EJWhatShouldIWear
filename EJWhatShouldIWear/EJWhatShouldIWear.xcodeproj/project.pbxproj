@@ -249,9 +249,9 @@
 		99E6E526228C0F6B00506614 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
 				99CC5117229D22CF00192450 /* EJLocationViewController.swift */,
 				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
-				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
 				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
 				998B8291228D54B80099B71A /* EJSettingViewController.swift */,
 			);

@@ -9,8 +9,6 @@
 import UIKit
 
 class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +32,11 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         
         switch indexPath.row {
         case 0:
-            return tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
+            
+            cell.myLocationLabel.text = self.location
+            
+            return cell
         default:
             return tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath)
         }

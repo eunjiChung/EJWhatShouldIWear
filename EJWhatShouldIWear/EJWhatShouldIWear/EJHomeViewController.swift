@@ -9,8 +9,9 @@
 import UIKit
 import SideMenu
 import GoogleMobileAds
+import CoreLocation
 
-class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
+class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate  {
     
     var currentTemp: String?
 
@@ -36,8 +37,76 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             self.stopPullToRefresh(toScrollView: self.mainTableView)
         }
         
+        // Location
+        locationManager.delegate = self as CLLocationManagerDelegate
         self.checkLocationStatus()
     }
+    
+    
+    
+    
+    // MARK : - Location Func
+    func checkLocationStatus() {
+        let status = CLLocationManager.authorizationStatus()
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse:
+            updateLocation()
+        default:
+            print("location miss")
+        }
+    }
+    
+    func updateLocation() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func setSettingsLocation() {
+        
+    }
+    
+    
+    // MARK : - CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let current = locations.last {
+            // current.coordinate = 위도와 경도 정보 저장
+            
+            let geoCoder = CLGeocoder()
+            geoCoder.reverseGeocodeLocation(current) { (list, error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    if let first = list?.first {
+                        if let gu = first.locality, let dong = first.subLocality {
+                            let newlocation = "\(gu) \(dong)"
+                            self.location = newlocation
+                            
+                            // 근데 이걸 여기서 하는게 맞나?
+                            self.mainTableView.reloadData()
+                        } else {
+                            print("알 수 없는 지역")
+                        }
+                    }
+                }
+            }
+        }
+        
+        locationManager.stopUpdatingLocation()
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse:
+            updateLocation()
+        default:
+            print("error")
+        }
+    }
+    
+    
+    
     
     // MARK: - UITableView Data Source
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,6 +129,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
+            cell.locationLabel.text = self.location
 //            cell.setTodayTemperature()
             
             return cell
