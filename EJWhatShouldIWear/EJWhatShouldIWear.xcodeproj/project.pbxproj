@@ -39,6 +39,7 @@
 		99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */; };
 		99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */; };
 		99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */; };
+		99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BB080C229E748400E454B8 /* EJShareViewController.swift */; };
 		99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC5117229D22CF00192450 /* EJLocationViewController.swift */; };
 		99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */; };
 		9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */; };
@@ -91,6 +92,7 @@
 		99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
 		99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuFeedbackTableViewCell.swift; sourceTree = "<group>"; };
 		99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuSettingTableViewCell.swift; sourceTree = "<group>"; };
+		99BB080C229E748400E454B8 /* EJShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJShareViewController.swift; sourceTree = "<group>"; };
 		99CC5117229D22CF00192450 /* EJLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJLocationViewController.swift; sourceTree = "<group>"; };
 		99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherManager.swift; sourceTree = "<group>"; };
 		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
 				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
 				998B8291228D54B80099B71A /* EJSettingViewController.swift */,
+				99BB080C229E748400E454B8 /* EJShareViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */,
 				99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */,
 				998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */,
+				99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */,
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
