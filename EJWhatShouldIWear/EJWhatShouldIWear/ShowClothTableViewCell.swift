@@ -30,18 +30,19 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var alcTopOfCurrentTempLabel: NSLayoutConstraint!
     @IBOutlet weak var alcHeightOfSuggestLabel: NSLayoutConstraint!
     @IBOutlet weak var alcHeightOfYesterdayLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfYesterdayLabel: NSLayoutConstraint!
     
-
     // MARK : - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Initialization code
-        alcTopOfLocationLabel.constant = EJSize(30.0)
-        alcHeightOfClothImageView.constant = EJSize(256.0)
-        alcTopOfCurrentTempLabel.constant = EJSize(21.0)
+        alcTopOfLocationLabel.constant = EJSize(20.0)
+        alcHeightOfClothImageView.constant = EJSize(250.0)
+//        alcTopOfCurrentTempLabel.constant = EJSize(21.0)
         alcHeightOfSuggestLabel.constant = EJSize(45.5)
         alcHeightOfYesterdayLabel.constant = EJSize(47.0)
+        alcBottomOfYesterdayLabel.constant = EJSize(30.0)
     }
 
     

@@ -19,27 +19,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWT-MY-6KS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWT-MY-6KS">
+                        <rect key="frame" x="5" y="43" width="310" height="0.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="DIY-MO-j0J"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrV-hz-RLT">
                         <rect key="frame" x="16" y="11" width="288" height="22"/>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="cWT-MY-6KS" secondAttribute="bottom" id="3x6-lk-4MN"/>
                     <constraint firstItem="xrV-hz-RLT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4Sp-EH-rle"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xrV-hz-RLT" secondAttribute="trailing" id="EJj-e5-vuz"/>
+                    <constraint firstItem="cWT-MY-6KS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Hob-hl-kBm"/>
                     <constraint firstAttribute="bottomMargin" secondItem="xrV-hz-RLT" secondAttribute="bottom" id="KK3-Hx-aJg"/>
-                    <constraint firstAttribute="bottom" secondItem="cWT-MY-6KS" secondAttribute="bottom" id="Psg-sm-fYP"/>
-                    <constraint firstAttribute="trailing" secondItem="cWT-MY-6KS" secondAttribute="trailing" id="drj-uc-98h"/>
+                    <constraint firstAttribute="trailing" secondItem="cWT-MY-6KS" secondAttribute="trailing" constant="5" id="OhA-Jc-CHE"/>
                     <constraint firstItem="xrV-hz-RLT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="rgr-BW-dT0"/>
-                    <constraint firstItem="cWT-MY-6KS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="srs-25-GyQ"/>
-                    <constraint firstItem="cWT-MY-6KS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wMg-sl-MwF"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
