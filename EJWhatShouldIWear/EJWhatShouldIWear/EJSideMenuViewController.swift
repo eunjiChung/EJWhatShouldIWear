@@ -21,7 +21,6 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
         // Do any additional setup after loading the view.
     }
     
-
     
     // MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

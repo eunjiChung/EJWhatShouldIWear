@@ -24,7 +24,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         controlSideMenu()
         registerNibs()
         
@@ -32,9 +31,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         addPullToRefreshControl(toScrollView: self.mainTableView) {
             // 새로운 Location 정보 받아오고
             // 해당 Location의 날씨 정보 받아오기
-            print("Pull To Refresh")
             self.updateLocation()
-            self.stopPullToRefresh(toScrollView: self.mainTableView)
         }
         
         // Location
@@ -60,10 +57,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     func updateLocation() {
         locationManager.startUpdatingLocation()
-    }
-    
-    func setSettingsLocation() {
-        
     }
     
     
@@ -93,6 +86,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         }
         
         locationManager.stopUpdatingLocation()
+        
+        self.stopPullToRefresh(toScrollView: self.mainTableView)
     }
     
     
@@ -156,6 +151,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
     }
     
+    
     // MARK : - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -198,6 +194,18 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             return EJSize(40.0)
         default:
             return 0
+        }
+    }
+    
+    // MARK : - Prepare for Segue
+    func setSettingsLocation() {
+        self.performSegue(withIdentifier: "home_setting_segue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "home_setting_segue" {
+            let settingVC = segue.destination as! EJSettingViewController
+            settingVC.curLocation = self.location
         }
     }
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O3e-6i-eYV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night_background" translatesAutoresizingMaskIntoConstraints="NO" id="SAF-JO-H0v">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunset_background" translatesAutoresizingMaskIntoConstraints="NO" id="SAF-JO-H0v">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTH-i6-lnv">
@@ -54,7 +54,7 @@
                                         </constraints>
                                         <state key="normal" image="gear2"/>
                                         <connections>
-                                            <segue destination="7Vh-Qw-4jf" kind="show" identifier="setting_segue" id="Yi0-Bh-cfi"/>
+                                            <segue destination="7Vh-Qw-4jf" kind="show" identifier="home_setting_segue" id="Yi0-Bh-cfi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oY-2G-p5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="536.58170914542734"/>
+            <point key="canvasLocation" x="2423.1999999999998" y="536.58170914542734"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="E7P-ep-LZu">
@@ -128,7 +128,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night_background" translatesAutoresizingMaskIntoConstraints="NO" id="yKi-aR-R1M">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunset_background" translatesAutoresizingMaskIntoConstraints="NO" id="yKi-aR-R1M">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
                                                 </imageView>
                                                 <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothes" translatesAutoresizingMaskIntoConstraints="NO" id="p4t-rQ-pxl">
@@ -297,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hkb-b7-QiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3024.8000000000002" y="536.58170914542734"/>
+            <point key="canvasLocation" x="3964" y="536.58170914542734"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="oYH-7t-lIE">
@@ -318,7 +318,7 @@
                                         </constraints>
                                         <state key="normal" image="back"/>
                                         <connections>
-                                            <action selector="didTouchBackButton:" destination="7Vh-Qw-4jf" eventType="touchUpInside" id="IDP-fd-Vcu"/>
+                                            <action selector="didTouchBackButton:" destination="7Vh-Qw-4jf" eventType="touchUpInside" id="BoN-IH-C6d"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -329,9 +329,9 @@
                                     <constraint firstItem="fBA-Yv-KSu" firstAttribute="leading" secondItem="CKX-62-YnO" secondAttribute="leading" constant="10" id="bDH-vy-Nvu"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQd-JA-CVf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQd-JA-CVf">
                                 <rect key="frame" x="0.0" y="82" width="375" height="585"/>
-                                <color key="backgroundColor" red="0.65201211560000005" green="1" blue="0.94253284159999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationTableViewCell" rowHeight="59" id="QKh-3V-GTK" customClass="LocationTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="59"/>
@@ -342,13 +342,13 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUB-Yk-wKZ">
                                                     <rect key="frame" x="15" y="11" width="64" height="37"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <color key="textColor" red="0.409710978" green="0.35748698229999998" blue="0.34304968250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw7-nl-zb0">
-                                                    <rect key="frame" x="292" y="11" width="42" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="301.5" y="11" width="32.5" height="37"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" red="0.55318976679999998" green="0.48491494530000001" blue="0.46086222290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -378,7 +378,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbU-FC-tzL">
                                                     <rect key="frame" x="15" y="11" width="64" height="37"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <color key="textColor" red="0.42916126939999999" green="0.37445803350000001" blue="0.35933534890000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -415,10 +415,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1zn-ct-NkT"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="WQd-JA-CVf" id="GNk-Zi-aPv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs4-DD-9dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="1301.1994002998501"/>
+            <point key="canvasLocation" x="2423" y="1300"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="zOK-nb-ngg">
@@ -433,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kt2-Lu-R3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2289" y="1301"/>
+            <point key="canvasLocation" x="3204" y="1301"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="qc1-BU-T47">
@@ -453,7 +456,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNs-KI-PYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2264.8000000000002" y="536.58170914542734"/>
+            <point key="canvasLocation" x="3204" y="536.58170914542734"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CFe-Cj-MRt">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cwv-Gp-8SM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="qEl-Z0-wJf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tRO-oF-LDO">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O3e-6i-eYV" kind="relationship" relationship="rootViewController" id="m5h-lN-As1"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1663" y="537"/>
         </scene>
     </scenes>
     <resources>
@@ -463,7 +483,7 @@
         <image name="email" width="256" height="256"/>
         <image name="gear2" width="512" height="512"/>
         <image name="menu" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="night_background" width="2304" height="3456"/>
         <image name="share" width="256" height="256"/>
+        <image name="sunset_background" width="4000" height="6000"/>
     </resources>
 </document>

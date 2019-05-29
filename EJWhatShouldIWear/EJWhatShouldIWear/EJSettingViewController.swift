@@ -9,7 +9,12 @@
 import UIKit
 
 class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
+    // MARK : - Instance
+    var curLocation : String? = nil
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +23,8 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     
     // MARK : - IBOutlet Action
     @IBAction func didTouchBackButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        print("dismiss...?")
+        navigationController?.popViewController(animated: true)
     }
     
     
@@ -34,7 +40,7 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
             
-            cell.myLocationLabel.text = self.location
+            cell.myLocationLabel.text = curLocation
             
             return cell
         default:

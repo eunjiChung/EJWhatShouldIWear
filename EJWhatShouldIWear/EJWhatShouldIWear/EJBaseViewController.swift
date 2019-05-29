@@ -12,6 +12,11 @@ import ESPullToRefresh
 import CoreLocation
 
 
+
+// MARK : - Define Segue Identifier
+let EJSegueSetting                      = "setting_segue"
+
+
 class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate{
     
     // MARK : - Global instance
