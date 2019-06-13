@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oY-2G-p5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423.1999999999998" y="536.58170914542734"/>
+            <point key="canvasLocation" x="2402" y="537"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="E7P-ep-LZu">
@@ -596,10 +596,10 @@
             </objects>
             <point key="canvasLocation" x="3964" y="1299.400299850075"/>
         </scene>
-        <!--Side Menu Navigation Controller-->
+        <!--My Side Menu Navigation Controller-->
         <scene sceneID="qc1-BU-T47">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GNz-Gy-ew7" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GNz-Gy-ew7" customClass="MySideMenuNavigationController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fac-tU-Xoe">
                         <autoresizingMask key="autoresizingMask"/>

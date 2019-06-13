@@ -11,6 +11,7 @@
 		991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22952289720F00FDBC98 /* EJHomeViewController.swift */; };
 		991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F2297228972D300FDBC98 /* EJBaseViewController.swift */; };
 		991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */; };
+		993BD4EE22AE58BB0009A590 /* MySideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993BD4ED22AE58BB0009A590 /* MySideMenuNavigationController.swift */; };
 		997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */; };
 		997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */; };
 		997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 		991F22952289720F00FDBC98 /* EJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHomeViewController.swift; sourceTree = "<group>"; };
 		991F2297228972D300FDBC98 /* EJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBaseViewController.swift; sourceTree = "<group>"; };
 		991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSideMenuViewController.swift; sourceTree = "<group>"; };
+		993BD4ED22AE58BB0009A590 /* MySideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySideMenuNavigationController.swift; sourceTree = "<group>"; };
 		997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
 				998B8291228D54B80099B71A /* EJSettingViewController.swift */,
 				99BB080C229E748400E454B8 /* EJShareViewController.swift */,
+				993BD4ED22AE58BB0009A590 /* MySideMenuNavigationController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
+				993BD4EE22AE58BB0009A590 /* MySideMenuNavigationController.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
