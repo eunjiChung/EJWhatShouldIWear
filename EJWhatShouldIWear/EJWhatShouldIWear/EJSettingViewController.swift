@@ -23,8 +23,7 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     
     // MARK : - IBOutlet Action
     @IBAction func didTouchBackButton(_ sender: Any) {
-        print("dismiss...?")
-        navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -51,6 +50,16 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     // MARK : - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return EJSize(70.0)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            self.performSegue(withIdentifier: "showLocationSegue", sender: self)
+        default:
+            print("Nothing...")
+        }
     }
  
 }

@@ -215,7 +215,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuWidth = EJSize(300.0)
         SideMenuManager.default.menuAnimationFadeStrength = 0.7
-        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.white
+        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
+        SideMenuManager.default.menuShadowColor = UIColor.clear
     }
     
     private func registerNibs() {
