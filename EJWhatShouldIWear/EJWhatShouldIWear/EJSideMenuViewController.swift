@@ -58,14 +58,13 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
-            print("Share with other people")
-            self.present(EJShareViewController(), animated: true, completion: nil)
+            let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController")
+            self.navigationController?.pushViewController(shareVC!, animated: true)
         case 2:
-            print("Mailing...")
             sendEmailWithCompose()
         case 3:
-            print("Show Setting")
-            self.present(EJSettingViewController(), animated: true, completion: nil)
+            let setVC = self.storyboard?.instantiateViewController(withIdentifier: "EJSettingViewController")
+            self.navigationController?.pushViewController(setVC!, animated: true)
         default:
             print("Nothing")
         }

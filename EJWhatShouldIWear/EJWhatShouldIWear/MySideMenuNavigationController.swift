@@ -17,15 +17,15 @@ class MySideMenuNavigationController: UISideMenuNavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        sideMenuManager = customSideMenuManager
+//        sideMenuManager = customSideMenuManager
     }
     
     // MARK: - Custom SideMenu Navigation Controller
     // 다른 destination으로 가도록 custom 설정...
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let sideMenuNavigationController = segue.destination as? UISideMenuNavigationController {
-            sideMenuNavigationController.sideMenuManager = customSideMenuManager
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let sideMenuNavigationController = segue.destination as? UISideMenuNavigationController {
+//            sideMenuNavigationController.sideMenuManager = customSideMenuManager
+//        }
+//    }
 
 }

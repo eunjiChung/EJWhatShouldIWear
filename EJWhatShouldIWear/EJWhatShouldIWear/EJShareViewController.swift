@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EJShareViewController: UIViewController {
+class EJShareViewController: EJBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,10 @@ class EJShareViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func didTouchBackBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     // 카카오톡 공융하기 기능 추가...
+    
 }

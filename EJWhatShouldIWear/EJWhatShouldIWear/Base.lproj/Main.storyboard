@@ -46,7 +46,7 @@
                                         </constraints>
                                         <state key="normal" image="bell"/>
                                         <connections>
-                                            <segue destination="kd8-jy-ZeT" kind="presentation" id="JsV-f3-FVw"/>
+                                            <segue destination="kd8-jy-ZeT" kind="show" id="uxB-f7-c8c"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgQ-Fr-FdZ">
@@ -305,7 +305,7 @@
         <!--Setting View Controller-->
         <scene sceneID="oYH-7t-lIE">
             <objects>
-                <viewController id="7Vh-Qw-4jf" customClass="EJSettingViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EJSettingViewController" id="7Vh-Qw-4jf" customClass="EJSettingViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="62W-gB-vMk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -497,7 +497,7 @@
         <!--Share View Controller-->
         <scene sceneID="zI7-qo-w8F">
             <objects>
-                <viewController id="kd8-jy-ZeT" customClass="EJShareViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EJShareViewController" id="kd8-jy-ZeT" customClass="EJShareViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hFl-ka-Ifi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -513,6 +513,7 @@
                                         </constraints>
                                         <state key="normal" image="back"/>
                                         <connections>
+                                            <action selector="didTouchBackBtn:" destination="kd8-jy-ZeT" eventType="touchUpInside" id="rIU-ce-T6c"/>
                                             <action selector="didTouchBackButton:" destination="7Vh-Qw-4jf" eventType="touchUpInside" id="Vf6-5s-KnG"/>
                                         </connections>
                                     </button>
@@ -596,10 +597,10 @@
             </objects>
             <point key="canvasLocation" x="3964" y="1299.400299850075"/>
         </scene>
-        <!--My Side Menu Navigation Controller-->
+        <!--Side Menu Navigation Controller-->
         <scene sceneID="qc1-BU-T47">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GNz-Gy-ew7" customClass="MySideMenuNavigationController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GNz-Gy-ew7" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fac-tU-Xoe">
                         <autoresizingMask key="autoresizingMask"/>
@@ -609,7 +610,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="JcY-8w-5X4" kind="relationship" relationship="rootViewController" id="HTa-BH-dce"/>
+                        <segue destination="JcY-8w-5X4" kind="relationship" relationship="rootViewController" id="2ai-8N-Sw8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNs-KI-PYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
