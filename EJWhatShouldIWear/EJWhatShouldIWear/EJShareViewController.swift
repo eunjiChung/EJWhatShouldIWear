@@ -46,14 +46,14 @@ class EJShareViewController: EJBaseViewController {
                 contentBuilder.desc = self.mainLabel.text ?? "오늘모입지 앱을 사용해보세요:)"
                 contentBuilder.imageURL = URL(string: "file:///Users/ios-junior/Documents/TEST/KakaoTest/KakaoTest/Assets.xcassets/RoundedIcon.imageset/RoundedIcon.png")! // ...?
                 contentBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in
-                    linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear"
+                    linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear" // App Store URL이 들어가야 함
                 })
             })
             
             feedTemplateBuilder.addButton(KMTButtonObject.init(builderBlock: { (buttonBuilder) in
                 buttonBuilder.title = "앱에서 보기"
                 buttonBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in
-                    linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear"
+                    linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear" // App Store URL이 들어가야 함
                 })
             }))
             
