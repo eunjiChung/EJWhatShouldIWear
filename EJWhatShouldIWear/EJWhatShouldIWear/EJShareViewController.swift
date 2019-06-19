@@ -8,33 +8,53 @@
 
 import UIKit
 
-class EJShareViewController: EJBaseViewController {
+class EJShareViewController: EJBaseViewController, UITextFieldDelegate {
     
+    // MARK : - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
     
-
+    @IBOutlet weak var alcBottomOfSendBtn: NSLayoutConstraint!
+    
     // MARK : - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        textField.placeholder = "데일리룩은 <오늘모입지?>와 함께하세요!"
+        registerKeyboardNotification()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // MARK : - KeyBoard Related Method
+    func registerKeyboardNotification () {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        titleLabel.text = "사랑하는 오빠에게"
-        mainLabel.text = "옷 따뜻하게 입고다녀~!"
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    @objc func keyboardWillShow(_ sender: Notification) {
+        alcBottomOfSendBtn.constant = EJSize(290.0)
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        alcBottomOfSendBtn.constant = EJSize(10.0)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     
     // MARK : - Action Method
     @IBAction func didTouchBackBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
     
     // MARK : - Kakao Share Link Method
     @IBAction func didTouchShareBtn(_ sender: Any) {
@@ -43,7 +63,7 @@ class EJShareViewController: EJBaseViewController {
             
             feedTemplateBuilder.content = KMTContentObject(builderBlock: { (contentBuilder) in
                 contentBuilder.title = self.titleLabel.text ?? "오늘모입지?"
-                contentBuilder.desc = self.mainLabel.text ?? "오늘모입지 앱을 사용해보세요:)"
+                contentBuilder.desc = self.textField.text ?? self.textField.placeholder
                 contentBuilder.imageURL = URL(string: "file:///Users/ios-junior/Documents/TEST/KakaoTest/KakaoTest/Assets.xcassets/RoundedIcon.imageset/RoundedIcon.png")! // ...?
                 contentBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in
                     linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear" // App Store URL이 들어가야 함

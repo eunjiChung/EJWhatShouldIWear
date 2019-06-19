@@ -519,7 +519,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99050873517990112" green="0.91057080030441284" blue="0.77925950288772583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.90161624813326902" green="0.82632669302077832" blue="0.71694967116915009" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="19h-EK-Oks" firstAttribute="leading" secondItem="bV6-nz-9LR" secondAttribute="leading" constant="10" id="448-uF-x4p"/>
                                     <constraint firstItem="19h-EK-Oks" firstAttribute="centerY" secondItem="bV6-nz-9LR" secondAttribute="centerY" id="kfr-Ey-f2a"/>
@@ -546,8 +546,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-ob-XbF">
-                                <rect key="frame" x="16" y="607" width="343" height="40"/>
-                                <color key="backgroundColor" red="0.58373095222858296" green="0.88586633465966425" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="617" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.57945895195007324" green="0.80762267112731934" blue="0.74397855997085571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="itl-Fd-MxN"/>
                                 </constraints>
@@ -559,12 +559,15 @@
                                     <action selector="didTouchShareBtn:" destination="kd8-jy-ZeT" eventType="touchUpInside" id="oHo-Qk-sBj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etr-Vp-iNK">
-                                <rect key="frame" x="16" y="297" width="343" height="300"/>
-                                <color key="backgroundColor" red="1" green="0.87657974599999999" blue="0.83309968940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="etr-Vp-iNK">
+                                <rect key="frame" x="16" y="304" width="343" height="303"/>
+                                <color key="backgroundColor" red="0.95006993984311361" green="0.87073425435093532" blue="0.7554792101057306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kd8-jy-ZeT" id="sht-4C-3Ak"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.90830994707513169" blue="0.7807036297827471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -575,16 +578,16 @@
                             <constraint firstItem="bV6-nz-9LR" firstAttribute="leading" secondItem="a9U-X1-d2a" secondAttribute="leading" id="6ki-lw-iph"/>
                             <constraint firstItem="4Nl-zl-5cl" firstAttribute="top" secondItem="FoQ-O3-zya" secondAttribute="bottom" constant="8" id="909-bc-qoh"/>
                             <constraint firstItem="qdJ-BJ-IaG" firstAttribute="top" secondItem="4Nl-zl-5cl" secondAttribute="bottom" constant="8" id="GF8-3f-ee3"/>
+                            <constraint firstItem="a9U-X1-d2a" firstAttribute="bottom" secondItem="rvV-ob-XbF" secondAttribute="bottom" constant="10" id="HuO-Jl-pcF"/>
                             <constraint firstItem="4Nl-zl-5cl" firstAttribute="trailing" secondItem="hFl-ka-Ifi" secondAttribute="trailingMargin" id="JTD-mK-xis"/>
                             <constraint firstItem="qdJ-BJ-IaG" firstAttribute="leading" secondItem="4Nl-zl-5cl" secondAttribute="leading" id="KMz-lC-nYJ"/>
+                            <constraint firstItem="rvV-ob-XbF" firstAttribute="top" secondItem="etr-Vp-iNK" secondAttribute="bottom" constant="10" id="LRw-AT-Sfy"/>
                             <constraint firstItem="FoQ-O3-zya" firstAttribute="top" secondItem="bV6-nz-9LR" secondAttribute="bottom" id="TzQ-VO-Zs7"/>
                             <constraint firstItem="bV6-nz-9LR" firstAttribute="trailing" secondItem="a9U-X1-d2a" secondAttribute="trailing" id="WWb-Xm-2sR"/>
                             <constraint firstItem="etr-Vp-iNK" firstAttribute="leading" secondItem="a9U-X1-d2a" secondAttribute="leading" constant="16" id="YhZ-xE-VJJ"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="rvV-ob-XbF" secondAttribute="bottom" constant="20" id="Z1J-Pb-JrN"/>
                             <constraint firstItem="bV6-nz-9LR" firstAttribute="top" secondItem="a9U-X1-d2a" secondAttribute="top" id="ZwU-ti-bmk"/>
                             <constraint firstItem="FoQ-O3-zya" firstAttribute="leading" secondItem="hFl-ka-Ifi" secondAttribute="leadingMargin" constant="16" id="Zyo-oj-clP"/>
-                            <constraint firstItem="rvV-ob-XbF" firstAttribute="top" secondItem="etr-Vp-iNK" secondAttribute="bottom" constant="10" id="euP-qe-3GK"/>
-                            <constraint firstItem="etr-Vp-iNK" firstAttribute="top" secondItem="qdJ-BJ-IaG" secondAttribute="bottom" constant="8" id="fYb-pj-2ld"/>
+                            <constraint firstItem="etr-Vp-iNK" firstAttribute="top" secondItem="qdJ-BJ-IaG" secondAttribute="bottom" constant="15" id="fYb-pj-2ld"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FoQ-O3-zya" secondAttribute="trailing" constant="16" id="jDc-zk-CEI"/>
                             <constraint firstItem="qdJ-BJ-IaG" firstAttribute="trailing" secondItem="4Nl-zl-5cl" secondAttribute="trailing" id="l2t-g3-9iS"/>
                             <constraint firstItem="a9U-X1-d2a" firstAttribute="trailing" secondItem="etr-Vp-iNK" secondAttribute="trailing" constant="16" id="oyr-BH-S8e"/>
@@ -592,7 +595,9 @@
                         <viewLayoutGuide key="safeArea" id="a9U-X1-d2a"/>
                     </view>
                     <connections>
+                        <outlet property="alcBottomOfSendBtn" destination="HuO-Jl-pcF" id="8hO-Gh-c4S"/>
                         <outlet property="mainLabel" destination="qdJ-BJ-IaG" id="Vor-6l-Mmu"/>
+                        <outlet property="textField" destination="etr-Vp-iNK" id="dU8-PT-meH"/>
                         <outlet property="titleLabel" destination="4Nl-zl-5cl" id="1ZL-HD-hrm"/>
                     </connections>
                 </viewController>
