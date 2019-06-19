@@ -9,18 +9,35 @@
 import UIKit
 
 class EJShareViewController: EJBaseViewController {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var mainLabel: UILabel!
+    
 
+    // MARK : - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        titleLabel.text = "사랑하는 오빠에게"
+        mainLabel.text = "옷 따뜻하게 입고다녀~!"
+    }
+    
+    
+    
+    // MARK : - Action Method
     @IBAction func didTouchBackBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // 카카오톡 공융하기 기능 추가...
+    
+    // MARK : - Kakao Share Link Method
+    // 카카오톡 공융하기 기능 수정...
     @IBAction func didTouchShareBtn(_ sender: Any) {
         
         // Location 타입 템플릿 오브젝트 생성
@@ -31,12 +48,13 @@ class EJShareViewController: EJBaseViewController {
             locationTemplateBuilder.addressTitle = "카카오 판교오피스 카페톡"
             
             // 컨텐츠
+            // KMTContentObject는 템플릿의 컨텐츠를 설정
             locationTemplateBuilder.content = KMTContentObject(builderBlock: { (contentBuilder) in
-                contentBuilder.title = "오늘 모입지?"
-                contentBuilder.desc = "이번 주는 따숩게 입으세용"
+                contentBuilder.title = self.titleLabel.text ?? "오늘모입지?"
+                contentBuilder.desc = self.mainLabel.text ?? "따숩게 입어~💝"
                 contentBuilder.imageURL = URL(string: "http://mud-kage.kakao.co.kr/dn/bSbH9w/btqgegaEDfW/vD9KKV0hEintg6bZT4v4WK/kakaolink40_original.png")!
                 contentBuilder.link = KMTLinkObject(builderBlock: { (linkBuilder) in
-                    linkBuilder.mobileWebURL = URL(string: "https://developers.kakao.com")
+                    linkBuilder.mobileWebURL = URL(string: "https://developers.kakao.com")  // 등록된 도메인을 써라...
                 })
             })
             

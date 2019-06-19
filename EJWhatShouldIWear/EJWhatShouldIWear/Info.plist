@@ -23,19 +23,19 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakaof0efd751f4d1c2e3a49e110a012ebbca</string>
+				<string>kakaod3137624e928073f093bea7c121e86d5</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>568</string>
+	<string>575</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1994779937843028~3906710093</string>
 	<key>KAKAO_APP_KEY</key>
-	<string>f0efd751f4d1c2e3a49e110a012ebbca</string>
+	<string>d3137624e928073f093bea7c121e86d5</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>kakaof0efd751f4d1c2e3a49e110a012ebbca</string>
+		<string>kakaod3137624e928073f093bea7c121e86d5</string>
 		<string>kakaolink</string>
 		<string>kakaotalk-5.9.7</string>
 	</array>

@@ -558,11 +558,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-ob-XbF">
                                 <rect key="frame" x="16" y="607" width="343" height="40"/>
-                                <color key="backgroundColor" red="0.99784403300000002" green="1" blue="0.68005642249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.58373095222858296" green="0.88586633465966425" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="itl-Fd-MxN"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <state key="normal" title="사랑하는 사람에게 보내기">
+                                    <color key="titleColor" red="0.55318976679999998" green="0.48491494530000001" blue="0.46086222290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didTouchShareBtn:" destination="kd8-jy-ZeT" eventType="touchUpInside" id="oHo-Qk-sBj"/>
                                 </connections>
@@ -596,6 +599,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a9U-X1-d2a"/>
                     </view>
+                    <connections>
+                        <outlet property="mainLabel" destination="qdJ-BJ-IaG" id="Vor-6l-Mmu"/>
+                        <outlet property="titleLabel" destination="4Nl-zl-5cl" id="1ZL-HD-hrm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20g-vy-vVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
