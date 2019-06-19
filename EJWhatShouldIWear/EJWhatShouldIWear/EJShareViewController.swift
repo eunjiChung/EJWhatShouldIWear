@@ -8,12 +8,12 @@
 
 import UIKit
 
-class EJShareViewController: EJBaseViewController, UITextFieldDelegate {
+class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     // MARK : - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var alcBottomOfSendBtn: NSLayoutConstraint!
     
@@ -22,7 +22,7 @@ class EJShareViewController: EJBaseViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        textField.placeholder = "데일리룩은 <오늘모입지?>와 함께하세요!"
+        textView.text = "<오늘모입지?>와 함께 사랑하는 사람을 챙겨보세요~!\nEx)오늘 날이 춥대~옷 따뜻하게 잘 입구다녀~^^"
         registerKeyboardNotification()
     }
     
@@ -41,13 +41,18 @@ class EJShareViewController: EJBaseViewController, UITextFieldDelegate {
         alcBottomOfSendBtn.constant = EJSize(10.0)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if textView.text == "<오늘모입지?>와 함께 사랑하는 사람을 챙겨보세요~!\nEx)오늘 날이 춥대~옷 따뜻하게 잘 입구다녀~^^" {
+            textView.text = ""
+            textView.textColor = UIColor.darkGray
+        }
+        
+        textView.textColor = UIColor.darkGray
     }
     
     
@@ -63,7 +68,7 @@ class EJShareViewController: EJBaseViewController, UITextFieldDelegate {
             
             feedTemplateBuilder.content = KMTContentObject(builderBlock: { (contentBuilder) in
                 contentBuilder.title = self.titleLabel.text ?? "오늘모입지?"
-                contentBuilder.desc = self.textField.text ?? self.textField.placeholder
+                contentBuilder.desc = self.textView.text
                 contentBuilder.imageURL = URL(string: "file:///Users/ios-junior/Documents/TEST/KakaoTest/KakaoTest/Assets.xcassets/RoundedIcon.imageset/RoundedIcon.png")! // ...?
                 contentBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in
                     linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear" // App Store URL이 들어가야 함
