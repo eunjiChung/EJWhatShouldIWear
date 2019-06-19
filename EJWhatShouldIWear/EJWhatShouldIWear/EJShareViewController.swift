@@ -37,52 +37,39 @@ class EJShareViewController: EJBaseViewController {
     
     
     // MARK : - Kakao Share Link Method
-    // 카카오톡 공융하기 기능 수정...
     @IBAction func didTouchShareBtn(_ sender: Any) {
         
-        // Location 타입 템플릿 오브젝트 생성
-        let template = KMTLocationTemplate { (locationTemplateBuilder) in
+        let template = KMTFeedTemplate { (feedTemplateBuilder) in
             
-            // 주소
-            locationTemplateBuilder.address = "경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 8층"
-            locationTemplateBuilder.addressTitle = "카카오 판교오피스 카페톡"
-            
-            // 컨텐츠
-            // KMTContentObject는 템플릿의 컨텐츠를 설정
-            locationTemplateBuilder.content = KMTContentObject(builderBlock: { (contentBuilder) in
+            feedTemplateBuilder.content = KMTContentObject(builderBlock: { (contentBuilder) in
                 contentBuilder.title = self.titleLabel.text ?? "오늘모입지?"
-                contentBuilder.desc = self.mainLabel.text ?? "따숩게 입어~💝"
-                contentBuilder.imageURL = URL(string: "http://mud-kage.kakao.co.kr/dn/bSbH9w/btqgegaEDfW/vD9KKV0hEintg6bZT4v4WK/kakaolink40_original.png")!
-                contentBuilder.link = KMTLinkObject(builderBlock: { (linkBuilder) in
-                    linkBuilder.mobileWebURL = URL(string: "https://developers.kakao.com")  // 등록된 도메인을 써라...
+                contentBuilder.desc = self.mainLabel.text ?? "오늘모입지 앱을 사용해보세요:)"
+                contentBuilder.imageURL = URL(string: "file:///Users/ios-junior/Documents/TEST/KakaoTest/KakaoTest/Assets.xcassets/RoundedIcon.imageset/RoundedIcon.png")! // ...?
+                contentBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in
+                    linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear"
                 })
             })
             
-            // 소셜
-            locationTemplateBuilder.social = KMTSocialObject(builderBlock: { (socialBuilder) in
-                socialBuilder.likeCount = 286
-                socialBuilder.commnentCount = 45
-                socialBuilder.sharedCount = 845
-            })
+            feedTemplateBuilder.addButton(KMTButtonObject.init(builderBlock: { (buttonBuilder) in
+                buttonBuilder.title = "앱에서 보기"
+                buttonBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in
+                    linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear"
+                })
+            }))
+            
         }
         
-        // 서버에서 콜백으로 받을 정보
-        let serverCallbackArgs = ["user_id": "abcd",
-                                  "product_id": "1234"]
-        
-        // 카카오링크 실행
-        KLKTalkLinkCenter.shared().sendDefault(with: template, serverCallbackArgs: serverCallbackArgs, success: { (warningMsg, argumentMsg) in
+        KLKTalkLinkCenter.shared().sendDefault(with: template, success: { (warningMsg, argumentMsg) in
             
             // 성공
             print("warning message: \(String(describing: warningMsg))")
             print("argument message: \(String(describing: argumentMsg))")
             
-        }, failure: { (error) in
-            
+        }) { (error) in
             // 실패
             print("error \(error)")
-            
-        })
+        }
+        
         
     }
     
