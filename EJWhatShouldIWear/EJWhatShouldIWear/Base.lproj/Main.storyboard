@@ -563,6 +563,9 @@
                                     <constraint firstAttribute="height" constant="40" id="itl-Fd-MxN"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTouchShareBtn:" destination="kd8-jy-ZeT" eventType="touchUpInside" id="oHo-Qk-sBj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

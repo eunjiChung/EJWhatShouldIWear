@@ -11,7 +11,9 @@
 		991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22952289720F00FDBC98 /* EJHomeViewController.swift */; };
 		991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F2297228972D300FDBC98 /* EJBaseViewController.swift */; };
 		991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */; };
-		993BD4EE22AE58BB0009A590 /* MySideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993BD4ED22AE58BB0009A590 /* MySideMenuNavigationController.swift */; };
+		9947053222BA029F00474C02 /* KakaoLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947052F22BA029F00474C02 /* KakaoLink.framework */; };
+		9947053322BA029F00474C02 /* KakaoMessageTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */; };
+		9947053422BA029F00474C02 /* KakaoCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947053122BA029F00474C02 /* KakaoCommon.framework */; };
 		997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */; };
 		997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */; };
 		997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */; };
@@ -61,7 +63,10 @@
 		991F22952289720F00FDBC98 /* EJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHomeViewController.swift; sourceTree = "<group>"; };
 		991F2297228972D300FDBC98 /* EJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBaseViewController.swift; sourceTree = "<group>"; };
 		991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSideMenuViewController.swift; sourceTree = "<group>"; };
-		993BD4ED22AE58BB0009A590 /* MySideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySideMenuNavigationController.swift; sourceTree = "<group>"; };
+		9947052F22BA029F00474C02 /* KakaoLink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoLink.framework; sourceTree = "<group>"; };
+		9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoMessageTemplate.framework; sourceTree = "<group>"; };
+		9947053122BA029F00474C02 /* KakaoCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoCommon.framework; sourceTree = "<group>"; };
+		9947053522BA02A700474C02 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
 		997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -109,6 +114,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9947053222BA029F00474C02 /* KakaoLink.framework in Frameworks */,
+				9947053422BA029F00474C02 /* KakaoCommon.framework in Frameworks */,
+				9947053322BA029F00474C02 /* KakaoMessageTemplate.framework in Frameworks */,
 				9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +146,9 @@
 		3552DA285A01C2C77E7FE94F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9947053122BA029F00474C02 /* KakaoCommon.framework */,
+				9947052F22BA029F00474C02 /* KakaoLink.framework */,
+				9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */,
 				1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */,
 				BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */,
 			);
@@ -192,6 +203,7 @@
 		999B209222029E660073A0D9 = {
 			isa = PBXGroup;
 			children = (
+				9947053522BA02A700474C02 /* KakaoOpenSDK-Bridging-Header.h */,
 				999B209D22029E660073A0D9 /* EJWhatShouldIWear */,
 				999B20B222029E670073A0D9 /* EJWhatShouldIWearUITests */,
 				999B209C22029E660073A0D9 /* Products */,
@@ -259,7 +271,6 @@
 				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
 				998B8291228D54B80099B71A /* EJSettingViewController.swift */,
 				99BB080C229E748400E454B8 /* EJShareViewController.swift */,
-				993BD4ED22AE58BB0009A590 /* MySideMenuNavigationController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -468,7 +479,6 @@
 				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
-				993BD4EE22AE58BB0009A590 /* MySideMenuNavigationController.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
@@ -647,14 +657,79 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EJWhatShouldIWear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-.EJWhatShouldIWear";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"ESPullToRefresh\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SideMenu\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunji.EJWhatShouldIWear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -667,14 +742,79 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EJWhatShouldIWear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-.EJWhatShouldIWear";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"ESPullToRefresh\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SideMenu\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunji.EJWhatShouldIWear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
