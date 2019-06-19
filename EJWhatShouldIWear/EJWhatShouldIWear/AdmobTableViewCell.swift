@@ -12,19 +12,20 @@ import GoogleMobileAds
 class AdmobTableViewCell: UITableViewCell {
     
     static let identifier = "AdmobTableViewCell"
+    var banner: GADBannerView!
     
-    // MARK : - IBOutlet
-    @IBOutlet weak var bannerView: GADBannerView!
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        banner = GADBannerView(adSize: kGADAdSizeBanner)
+        self.addSubview(banner)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    // MARK : - Admob Method
+    func createAdmob(_ viewController: UIViewController) {
+        banner.adUnitID = googleAdmobUnitID
+        banner.rootViewController = viewController
+        banner.load(GADRequest())
     }
     
 }
