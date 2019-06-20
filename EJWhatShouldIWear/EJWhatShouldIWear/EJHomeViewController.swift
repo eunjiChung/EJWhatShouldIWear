@@ -41,68 +41,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     
     
-    
-    // MARK : - Location Func
-    func checkLocationStatus() {
-        let status = CLLocationManager.authorizationStatus()
-        switch status {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .authorizedWhenInUse:
-            updateLocation()
-        default:
-            print("location miss")
-        }
-    }
-    
-    func updateLocation() {
-        locationManager.startUpdatingLocation()
-    }
-    
-    
-    // MARK : - CLLocationManagerDelegate
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let current = locations.last {
-            // current.coordinate = 위도와 경도 정보 저장
-            
-            let geoCoder = CLGeocoder()
-            geoCoder.reverseGeocodeLocation(current) { (list, error) in
-                if let error = error {
-                    print(error)
-                } else {
-                    if let first = list?.first {
-                        if let gu = first.locality, let dong = first.subLocality {
-                            let newlocation = "\(gu) \(dong)"
-                            self.location = newlocation
-                            
-                            // 근데 이걸 여기서 하는게 맞나?
-                            self.mainTableView.reloadData()
-                        } else {
-                            print("알 수 없는 지역")
-                        }
-                    }
-                }
-            }
-        }
-        
-        locationManager.stopUpdatingLocation()
-        
-        self.stopPullToRefresh(toScrollView: self.mainTableView)
-    }
-    
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedWhenInUse:
-            updateLocation()
-        default:
-            print("error")
-        }
-    }
-    
-    
-    
-    
     // MARK: - UITableView Data Source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
@@ -196,14 +134,27 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     // MARK : - Prepare for Segue
+    @IBAction func didTouchMenuBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "home_sidemenu_segue", sender: self)
+    }
+    
     func setSettingsLocation() {
         self.performSegue(withIdentifier: "home_setting_segue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "home_setting_segue" {
+        
+        switch segue.identifier {
+        case "home_setting_segue":
             let settingVC = segue.destination as! EJSettingViewController
             settingVC.curLocation = self.location
+        case "home_sidemenu_segue":
+            //******NavigationController가 끼어있으면 통해서 전달하면 된다!!!
+            let navVC = segue.destination as! UISideMenuNavigationController
+            let tableVC = navVC.viewControllers.first as! EJSideMenuViewController
+            tableVC.curLocation = self.location
+        default:
+            print("Nothing...")
         }
     }
     
@@ -224,6 +175,48 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
+    }
+    
+    
+    
+    // MARK : - CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let current = locations.last {
+            // current.coordinate = 위도와 경도 정보 저장
+            
+            let geoCoder = CLGeocoder()
+            geoCoder.reverseGeocodeLocation(current) { (list, error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    if let first = list?.first {
+                        if let gu = first.locality, let dong = first.subLocality {
+                            let newlocation = "\(gu) \(dong)"
+                            self.location = newlocation
+                            
+                            // 근데 이걸 여기서 하는게 맞나?
+                            self.mainTableView.reloadData()
+                        } else {
+                            print("알 수 없는 지역")
+                        }
+                    }
+                }
+            }
+        }
+        
+        locationManager.stopUpdatingLocation()
+        
+        self.stopPullToRefresh(toScrollView: self.mainTableView)
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse:
+            updateLocation()
+        default:
+            print("error")
+        }
     }
     
     

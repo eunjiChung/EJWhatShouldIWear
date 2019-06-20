@@ -12,6 +12,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     
     // MARK : - IBOutlets
     @IBOutlet weak var sideMenuTableView: UITableView!
+    var curLocation: String?
     
     
     // MARK : - View Life Cycle
@@ -63,10 +64,18 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
         case 2:
             sendEmailWithCompose()
         case 3:
-            let setVC = self.storyboard?.instantiateViewController(withIdentifier: "EJSettingViewController")
-            self.navigationController?.pushViewController(setVC!, animated: true)
+            self.performSegue(withIdentifier: "sidemenu_setting_segue", sender: self)
         default:
             print("Nothing")
+        }
+    }
+    
+    // MARK : - Private Method
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "sidemenu_setting_segue" {
+            let settingVC = segue.destination as! EJSettingViewController
+            settingVC.curLocation = self.curLocation
         }
     }
 

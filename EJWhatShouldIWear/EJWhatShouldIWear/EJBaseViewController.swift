@@ -38,6 +38,22 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
         print("\(self.navigationController?.viewControllers)")
     }
     
+    // MARK : - Location Method
+    func checkLocationStatus() {
+        let status = CLLocationManager.authorizationStatus()
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse:
+            updateLocation()
+        default:
+            print("location miss")
+        }
+    }
+    
+    func updateLocation() {
+        locationManager.startUpdatingLocation()
+    }
     
     
     // MARK : - Instance for View Controller

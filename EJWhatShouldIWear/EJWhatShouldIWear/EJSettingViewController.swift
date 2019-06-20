@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -26,8 +27,6 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-
     // MARK : - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2

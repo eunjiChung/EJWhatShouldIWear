@@ -35,7 +35,7 @@
                                         </constraints>
                                         <state key="normal" image="menu"/>
                                         <connections>
-                                            <segue destination="GNz-Gy-ew7" kind="presentation" id="e2i-0M-ZMi"/>
+                                            <action selector="didTouchMenuBtn:" destination="O3e-6i-eYV" eventType="touchUpInside" id="1fG-lI-R71"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNv-MU-9mE">
@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="SAF-JO-H0v" id="sUk-Iy-S9z"/>
                         <outlet property="mainTableView" destination="3WV-P4-Caj" id="NzG-op-dJh"/>
+                        <segue destination="GNz-Gy-ew7" kind="presentation" identifier="home_sidemenu_segue" id="rya-Qe-XdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oY-2G-p5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -296,6 +297,7 @@
                     <navigationItem key="navigationItem" id="Efo-z0-LW2"/>
                     <connections>
                         <outlet property="sideMenuTableView" destination="NbQ-wc-Vjh" id="oO1-lk-uE2"/>
+                        <segue destination="7Vh-Qw-4jf" kind="show" identifier="sidemenu_setting_segue" id="GAp-ka-gNi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hkb-b7-QiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -424,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs4-DD-9dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423" y="1300"/>
+            <point key="canvasLocation" x="2401" y="1370"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="zOK-nb-ngg">
@@ -654,4 +656,7 @@
         <image name="menu" width="409.60000610351562" height="409.60000610351562"/>
         <image name="share" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GAp-ka-gNi"/>
+    </inferredMetricsTieBreakers>
 </document>
