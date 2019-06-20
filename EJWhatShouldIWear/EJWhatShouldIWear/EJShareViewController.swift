@@ -21,7 +21,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView.text = "300자 제한\nEx)오늘 날이 춥다~옷 따뜻하게 입구다녀~^^"
+        textView.text = "40자 제한\nEx)오늘 날이 춥다~옷 따뜻하게 입구다녀~^^"
         registerKeyboardNotification()
     }
     
@@ -45,12 +45,19 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if textView.text == "300자 제한\nEx)오늘 날이 춥다~옷 따뜻하게 입구다녀~^^" {
+        if textView.text == "40자 제한\nEx)오늘 날이 춥다~옷 따뜻하게 입구다녀~^^" {
             textView.text = ""
             textView.textColor = UIColor.darkGray
         }
         
         textView.textColor = UIColor.darkGray
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let text = textView.text else { return false }
+        guard let stringRange = Range(range, in: text) else { return false }
+        let changedText = text.replacingCharacters(in: stringRange, with: text)
+        return changedText.count <= 80
     }
     
     
