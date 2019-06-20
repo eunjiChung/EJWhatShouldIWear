@@ -17,7 +17,10 @@ class AdmobTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        banner = GADBannerView(adSize: kGADAdSizeBanner)
+        let bounds = UIScreen.main.bounds
+        let screenWidth = bounds.width
+        let size = CGSize.init(width: screenWidth, height: EJSize(60.0))
+        banner = GADBannerView(adSize: GADAdSizeFromCGSize(size))
         self.addSubview(banner)
     }
 
