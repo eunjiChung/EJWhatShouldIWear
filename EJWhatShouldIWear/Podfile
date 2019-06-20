@@ -6,6 +6,7 @@ target 'EJWhatShouldIWear' do
   use_frameworks!
 
   # Pods for EJWhatShouldIWear
+   pod 'Firebase/Core'
    pod 'Alamofire', '~> 4.7.3'
    pod 'SideMenu', '~> 5.0.3'
    pod 'Google-Mobile-Ads-SDK'
