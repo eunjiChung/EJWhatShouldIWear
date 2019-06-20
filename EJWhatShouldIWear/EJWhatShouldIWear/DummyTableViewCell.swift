@@ -11,10 +11,14 @@ import UIKit
 class DummyTableViewCell: UITableViewCell {
     
     static let identifier = "DummyTableViewCell"
+    
+    @IBOutlet weak var copyrightLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        copyrightLabel.text = "Copyright By EunjiChung"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
