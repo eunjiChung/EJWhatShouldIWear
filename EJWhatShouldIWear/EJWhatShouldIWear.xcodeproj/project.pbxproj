@@ -44,6 +44,7 @@
 		99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */; };
 		99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BB080C229E748400E454B8 /* EJShareViewController.swift */; };
 		99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC5117229D22CF00192450 /* EJLocationViewController.swift */; };
+		99DC5C3D22BB339F005661F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99DC5C3C22BB339F005661F3 /* GoogleService-Info.plist */; };
 		99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */; };
 		9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuSettingTableViewCell.swift; sourceTree = "<group>"; };
 		99BB080C229E748400E454B8 /* EJShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJShareViewController.swift; sourceTree = "<group>"; };
 		99CC5117229D22CF00192450 /* EJLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJLocationViewController.swift; sourceTree = "<group>"; };
+		99DC5C3C22BB339F005661F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherManager.swift; sourceTree = "<group>"; };
 		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
 		B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		991F229F228973C000FDBC98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				99DC5C3C22BB339F005661F3 /* GoogleService-Info.plist */,
 				999B20A522029E670073A0D9 /* Assets.xcassets */,
 				999B20A722029E670073A0D9 /* LaunchScreen.storyboard */,
 				999B20AA22029E670073A0D9 /* Info.plist */,
@@ -368,6 +371,7 @@
 				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
 				999B20A622029E670073A0D9 /* Assets.xcassets in Resources */,
 				998B82A4228D67710099B71A /* AdmobTableViewCell.xib in Resources */,
+				99DC5C3D22BB339F005661F3 /* GoogleService-Info.plist in Resources */,
 				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,
 			);
