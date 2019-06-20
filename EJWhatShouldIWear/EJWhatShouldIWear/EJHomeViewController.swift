@@ -24,7 +24,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        controlSideMenu()
+        configureSideMenu()
         registerNibs()
         
         // Pull To Refresh
@@ -203,7 +203,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     
     // MARK : - Private Method
-    private func controlSideMenu() {
+    private func configureSideMenu() {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuWidth = EJSize(300.0)
         SideMenuManager.default.menuAnimationFadeStrength = 0.7
