@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.7.3)
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
   - ESPullToRefresh (2.9)
+  - Fabric (1.9.0)
   - Firebase/Core (5.20.2):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.8.1)
@@ -58,7 +61,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.3)
+  - Crashlytics (~> 3.12.0)
   - ESPullToRefresh (~> 2.9)
+  - Fabric (~> 1.9.0)
   - Firebase/Core
   - Google-Mobile-Ads-SDK
   - SideMenu (~> 5.0.3)
@@ -67,7 +72,9 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Crashlytics
     - ESPullToRefresh
+    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -81,7 +88,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   ESPullToRefresh: ce058a36454a5032519cc9d8b45da217728cf104
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
   FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
   FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
@@ -93,6 +102,6 @@ SPEC CHECKSUMS:
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 6630cdfa61b77b5e58b805812a456082cfd2c105
+PODFILE CHECKSUM: a5cf426ceb726728bf3592def8188f5c37c8a42e
 
 COCOAPODS: 1.5.3
