@@ -13,19 +13,18 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     
     // MARK : - Instance
     var curLocation : String? = nil
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
     
     // MARK : - IBOutlet Action
     @IBAction func didTouchBackButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     
     // MARK : - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

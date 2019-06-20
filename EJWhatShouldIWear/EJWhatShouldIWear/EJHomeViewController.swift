@@ -159,25 +159,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     
-    // MARK : - Private Method
-    private func controlSideMenu() {
-        SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = EJSize(300.0)
-        SideMenuManager.default.menuAnimationFadeStrength = 0.7
-        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
-        SideMenuManager.default.menuShadowColor = UIColor.clear
-    }
-    
-    private func registerNibs() {
-        mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "WeekelyWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekelyWeatherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
-    }
-    
-    
     
     // MARK : - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -220,6 +201,24 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     
+    
+    // MARK : - Private Method
+    private func controlSideMenu() {
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+        SideMenuManager.default.menuWidth = EJSize(300.0)
+        SideMenuManager.default.menuAnimationFadeStrength = 0.7
+        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
+        SideMenuManager.default.menuShadowColor = UIColor.clear
+    }
+    
+    private func registerNibs() {
+        mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "WeekelyWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekelyWeatherTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
+    }
     
 
 }

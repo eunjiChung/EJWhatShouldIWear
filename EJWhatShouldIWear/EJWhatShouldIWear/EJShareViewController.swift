@@ -21,15 +21,13 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        textView.text = "<오늘모입지?>와 함께 사랑하는 사람을 챙겨보세요~!\nEx)오늘 날이 춥대~옷 따뜻하게 잘 입구다녀~^^"
+        textView.text = "300자 제한\nEx)오늘 날이 춥다~옷 따뜻하게 입구다녀~^^"
         registerKeyboardNotification()
     }
     
     // MARK : - KeyBoard Related Method
     func registerKeyboardNotification () {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -47,13 +45,15 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if textView.text == "<오늘모입지?>와 함께 사랑하는 사람을 챙겨보세요~!\nEx)오늘 날이 춥대~옷 따뜻하게 잘 입구다녀~^^" {
+        if textView.text == "300자 제한\nEx)오늘 날이 춥다~옷 따뜻하게 입구다녀~^^" {
             textView.text = ""
             textView.textColor = UIColor.darkGray
         }
         
         textView.textColor = UIColor.darkGray
     }
+    
+    
     
     
     // MARK : - Action Method
