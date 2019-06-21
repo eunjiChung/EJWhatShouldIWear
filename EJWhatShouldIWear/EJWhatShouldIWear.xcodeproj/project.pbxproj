@@ -11,6 +11,22 @@
 		991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22952289720F00FDBC98 /* EJHomeViewController.swift */; };
 		991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F2297228972D300FDBC98 /* EJBaseViewController.swift */; };
 		991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */; };
+		992B098922BD53C200FF94B7 /* EJFiveDaysCoord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098022BD53C100FF94B7 /* EJFiveDaysCoord.swift */; };
+		992B098A22BD53C200FF94B7 /* EJFiveDaysWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098122BD53C100FF94B7 /* EJFiveDaysWeather.swift */; };
+		992B098B22BD53C200FF94B7 /* EJFiveDaysWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098222BD53C100FF94B7 /* EJFiveDaysWind.swift */; };
+		992B098C22BD53C200FF94B7 /* EJFiveDaysWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098322BD53C100FF94B7 /* EJFiveDaysWeatherModel.swift */; };
+		992B098D22BD53C200FF94B7 /* EJFiveDaysList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098422BD53C100FF94B7 /* EJFiveDaysList.swift */; };
+		992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098522BD53C100FF94B7 /* EJFiveDaysSys.swift */; };
+		992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098622BD53C100FF94B7 /* EJFiveDaysCity.swift */; };
+		992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098722BD53C100FF94B7 /* EJFiveDaysMain.swift */; };
+		992B099122BD53C200FF94B7 /* EJFiveDaysClouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B098822BD53C100FF94B7 /* EJFiveDaysClouds.swift */; };
+		992B099922BD53CF00FF94B7 /* EJWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B099222BD53CF00FF94B7 /* EJWeather.swift */; };
+		992B099A22BD53CF00FF94B7 /* EJClouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B099322BD53CF00FF94B7 /* EJClouds.swift */; };
+		992B099B22BD53CF00FF94B7 /* EJMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B099422BD53CF00FF94B7 /* EJMain.swift */; };
+		992B099C22BD53CF00FF94B7 /* EJCurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B099522BD53CF00FF94B7 /* EJCurrentWeather.swift */; };
+		992B099D22BD53CF00FF94B7 /* EJWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B099622BD53CF00FF94B7 /* EJWind.swift */; };
+		992B099E22BD53CF00FF94B7 /* EJCoord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B099722BD53CF00FF94B7 /* EJCoord.swift */; };
+		992B099F22BD53CF00FF94B7 /* EJSys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B099822BD53CF00FF94B7 /* EJSys.swift */; };
 		9947053222BA029F00474C02 /* KakaoLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947052F22BA029F00474C02 /* KakaoLink.framework */; };
 		9947053322BA029F00474C02 /* KakaoMessageTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */; };
 		9947053422BA029F00474C02 /* KakaoCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947053122BA029F00474C02 /* KakaoCommon.framework */; };
@@ -64,6 +80,22 @@
 		991F22952289720F00FDBC98 /* EJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHomeViewController.swift; sourceTree = "<group>"; };
 		991F2297228972D300FDBC98 /* EJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBaseViewController.swift; sourceTree = "<group>"; };
 		991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSideMenuViewController.swift; sourceTree = "<group>"; };
+		992B098022BD53C100FF94B7 /* EJFiveDaysCoord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysCoord.swift; sourceTree = "<group>"; };
+		992B098122BD53C100FF94B7 /* EJFiveDaysWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysWeather.swift; sourceTree = "<group>"; };
+		992B098222BD53C100FF94B7 /* EJFiveDaysWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysWind.swift; sourceTree = "<group>"; };
+		992B098322BD53C100FF94B7 /* EJFiveDaysWeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysWeatherModel.swift; sourceTree = "<group>"; };
+		992B098422BD53C100FF94B7 /* EJFiveDaysList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysList.swift; sourceTree = "<group>"; };
+		992B098522BD53C100FF94B7 /* EJFiveDaysSys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysSys.swift; sourceTree = "<group>"; };
+		992B098622BD53C100FF94B7 /* EJFiveDaysCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysCity.swift; sourceTree = "<group>"; };
+		992B098722BD53C100FF94B7 /* EJFiveDaysMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysMain.swift; sourceTree = "<group>"; };
+		992B098822BD53C100FF94B7 /* EJFiveDaysClouds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJFiveDaysClouds.swift; sourceTree = "<group>"; };
+		992B099222BD53CF00FF94B7 /* EJWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJWeather.swift; sourceTree = "<group>"; };
+		992B099322BD53CF00FF94B7 /* EJClouds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJClouds.swift; sourceTree = "<group>"; };
+		992B099422BD53CF00FF94B7 /* EJMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJMain.swift; sourceTree = "<group>"; };
+		992B099522BD53CF00FF94B7 /* EJCurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJCurrentWeather.swift; sourceTree = "<group>"; };
+		992B099622BD53CF00FF94B7 /* EJWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJWind.swift; sourceTree = "<group>"; };
+		992B099722BD53CF00FF94B7 /* EJCoord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJCoord.swift; sourceTree = "<group>"; };
+		992B099822BD53CF00FF94B7 /* EJSys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJSys.swift; sourceTree = "<group>"; };
 		9947052F22BA029F00474C02 /* KakaoLink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoLink.framework; sourceTree = "<group>"; };
 		9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoMessageTemplate.framework; sourceTree = "<group>"; };
 		9947053122BA029F00474C02 /* KakaoCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoCommon.framework; sourceTree = "<group>"; };
@@ -168,6 +200,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		992B096F22BD512900FF94B7 /* CurrentWeather */ = {
+			isa = PBXGroup;
+			children = (
+				992B099322BD53CF00FF94B7 /* EJClouds.swift */,
+				992B099722BD53CF00FF94B7 /* EJCoord.swift */,
+				992B099522BD53CF00FF94B7 /* EJCurrentWeather.swift */,
+				992B099422BD53CF00FF94B7 /* EJMain.swift */,
+				992B099822BD53CF00FF94B7 /* EJSys.swift */,
+				992B099222BD53CF00FF94B7 /* EJWeather.swift */,
+				992B099622BD53CF00FF94B7 /* EJWind.swift */,
+			);
+			name = CurrentWeather;
+			sourceTree = "<group>";
+		};
+		992B097122BD513B00FF94B7 /* 5daysWeather */ = {
+			isa = PBXGroup;
+			children = (
+				992B098622BD53C100FF94B7 /* EJFiveDaysCity.swift */,
+				992B098822BD53C100FF94B7 /* EJFiveDaysClouds.swift */,
+				992B098022BD53C100FF94B7 /* EJFiveDaysCoord.swift */,
+				992B098422BD53C100FF94B7 /* EJFiveDaysList.swift */,
+				992B098722BD53C100FF94B7 /* EJFiveDaysMain.swift */,
+				992B098522BD53C100FF94B7 /* EJFiveDaysSys.swift */,
+				992B098122BD53C100FF94B7 /* EJFiveDaysWeather.swift */,
+				992B098322BD53C100FF94B7 /* EJFiveDaysWeatherModel.swift */,
+				992B098222BD53C100FF94B7 /* EJFiveDaysWind.swift */,
+			);
+			name = 5daysWeather;
+			sourceTree = "<group>";
+		};
 		997533BB228EEAA7003DAF97 /* SettingViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +314,8 @@
 		99CC5119229D2F8700192450 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				992B096F22BD512900FF94B7 /* CurrentWeather */,
+				992B097122BD513B00FF94B7 /* 5daysWeather */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -493,27 +557,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
+				992B099922BD53CF00FF94B7 /* EJWeather.swift in Sources */,
+				992B099E22BD53CF00FF94B7 /* EJCoord.swift in Sources */,
 				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
+				992B098A22BD53C200FF94B7 /* EJFiveDaysWeather.swift in Sources */,
+				992B098B22BD53C200FF94B7 /* EJFiveDaysWind.swift in Sources */,
 				998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */,
+				992B099122BD53C200FF94B7 /* EJFiveDaysClouds.swift in Sources */,
 				9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */,
+				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
+				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
+				992B099D22BD53CF00FF94B7 /* EJWind.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
+				992B098D22BD53C200FF94B7 /* EJFiveDaysList.swift in Sources */,
 				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
+				992B099C22BD53CF00FF94B7 /* EJCurrentWeather.swift in Sources */,
 				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
+				992B099B22BD53CF00FF94B7 /* EJMain.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
+				992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
 				997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */,
 				99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */,
+				992B098C22BD53C200FF94B7 /* EJFiveDaysWeatherModel.swift in Sources */,
 				998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */,
+				992B098922BD53C200FF94B7 /* EJFiveDaysCoord.swift in Sources */,
 				99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */,
+				992B099F22BD53CF00FF94B7 /* EJSys.swift in Sources */,
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
+				992B099A22BD53CF00FF94B7 /* EJClouds.swift in Sources */,
 				998B829F228D67630099B71A /* WeekelyWeatherTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

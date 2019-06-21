@@ -25,8 +25,8 @@ class EJHTTPClient: NSObject {
     func basicRequest(to type:String,
                       success: @escaping ([String: Any]) -> (),
                       failure: @escaping (Error) -> ()) {
-        
-        let url = "https://api2.sktelecom.com/weather/\(type)?version=1&lat=\(self.latitude)&lon=\(self.longitude)&appKey=\(tDeveloperKey)"
+    
+        let url = owmAPIPath + "lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
         
         guard let result = URL(string: url) else {
             fatalError()
@@ -36,9 +36,9 @@ class EJHTTPClient: NSObject {
             
             if response.result.isSuccess
             {
-                if let data = response.result.value as? [String: Any]
+                if let result = response.result.value as? [String: Any]
                 {
-                    success(data)
+                    success(result)
                 }
                 
             } else {
