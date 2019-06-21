@@ -24,24 +24,24 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     }
     
     // MARK : - Public Method
-    public func setWeekelyInfo(to index: Int) {
-        WeatherManager.WeekelyWeatherInfo(success: { (result) in
-            
-            // 오늘 요일을 받아서 그 뒤로 7일까지 추출
-            self.dateLabel.text = "\(self.getWeekday(of: index))요일"
-            
-            // 해당 요일 온도 추출
-            let currentTemp = result["tmax\(index+2)day"] as! String
-            let temp = WeatherManager.changeValidTempString(currentTemp)
-            self.tempLabel.text = "\(temp)℃"
-            
-            // 어제보다 어떤지 얘기
-            self.weatherTellingLabel.text = self.tellWeatherCondition(of: "27.0", of: "28.0")
-            
-        }) { (error) in
-            print(error)
-        }
-    }
+//    public func setWeekelyInfo(to index: Int) {
+//        WeatherManager.WeekelyWeatherInfo(success: { (result) in
+//
+//            // 오늘 요일을 받아서 그 뒤로 7일까지 추출
+//            self.dateLabel.text = "\(self.getWeekday(of: index))요일"
+//
+//            // 해당 요일 온도 추출
+//            let currentTemp = result["tmax\(index+2)day"] as! String
+//            let temp = WeatherManager.changeValidTempString(currentTemp)
+//            self.tempLabel.text = "\(temp)℃"
+//
+//            // 어제보다 어떤지 얘기
+//            self.weatherTellingLabel.text = self.tellWeatherCondition(of: "27.0", of: "28.0")
+//            
+//        }) { (error) in
+//            print(error)
+//        }
+//    }
     
     // MARK : - Private Method
     private func getWeekday(of index: Int) -> String {

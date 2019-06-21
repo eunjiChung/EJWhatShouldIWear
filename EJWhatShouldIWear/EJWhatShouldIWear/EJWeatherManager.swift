@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 // MARK : - Type Alias
-//typealias SuccessHandler = ([String: Any]) -> ()
+typealias SuccessHandler = (Any) -> ()
 typealias FailureHandler = (Error) -> ()
 
 // MARK : - Shared Instance
@@ -19,46 +19,40 @@ let WeatherManager = EJWeatherManager.sharedInstance
 class EJWeatherManager: NSObject {
     
     static let sharedInstance = EJWeatherManager()
-    static var latitude: Double = 37.51151
-    static var longitude: Double = 127.0967
+    var latitude: Double = 0//37.51151
+    var longitude: Double = 0//127.0967
     
-    let httpClient = EJHTTPClient.init(latitude, longitude)
+    let httpClient = EJHTTPClient.init()
     
     // MARK : - HTTP Request
-    func CurrentWeatherInfo(success: @escaping (String) -> (),
+    func CurrentWeatherInfo(success: @escaping SuccessHandler,
                             failure: @escaping FailureHandler) {
-        httpClient.basicRequest(to: "current/hourly", success: { (response) in
-            let currentTemp = self.getCurrentWeatherInfo(from: response)
-            success(currentTemp)
-        }) { (error) in
-            failure(error)
-        }
-    }
-    
-    func HourlyWeatherInfo(success: @escaping (String, [String: Any]) -> (),
-                           failure: @escaping FailureHandler) {
-        httpClient.basicRequest(to: "forecast/3days", success: { (response) in
-            let result = self.getHourlyWeatherInfo(from: response)
-            let time = self.getTimeRelease(from: response)
-            success(time, result)
-        }) { (error) in
-            failure(error)
-        }
-    }
-    
-    func WeekelyWeatherInfo(success: @escaping ([String: Any]) -> (),
-                            failure: @escaping FailureHandler) {
-        httpClient.basicRequest(to: "forecast/6days", success: { (response) in
-            let result = self.getWeekelyWeatherInfo(from: response)
-            success(result)
-        }) { (error) in
-            failure(error)
-        }
-    }
-    
-    func YesterdayWeatherInfo() {
         
+        httpClient.weatherRequest(lat:latitude, lon:longitude, to: "weather",
+                                         success: success,
+                                         failure: failure)
     }
+    
+//    func HourlyWeatherInfo(success: @escaping (String, [String: Any]) -> (),
+//                           failure: @escaping FailureHandler) {
+//        httpClient.basicRequest(to: "forecast/3days", success: { (response) in
+//            let result = self.getHourlyWeatherInfo(from: response)
+//            let time = self.getTimeRelease(from: response)
+//            success(time, result)
+//        }) { (error) in
+//            failure(error)
+//        }
+//    }
+//
+//    func WeekelyWeatherInfo(success: @escaping ([String: Any]) -> (),
+//                            failure: @escaping FailureHandler) {
+//        httpClient.basicRequest(to: "forecast/6days", success: { (response) in
+//            let result = self.getWeekelyWeatherInfo(from: response)
+//            success(result)
+//        }) { (error) in
+//            failure(error)
+//        }
+//    }
     
     // MARK : - Get Proper Data From HTTP Response by SwiftyJSON
     func getCurrentWeatherInfo(from data: [String: Any]?) -> String {

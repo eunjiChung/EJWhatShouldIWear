@@ -32,22 +32,22 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     
     // MARK : - Public Method
-    public func setHourlyWeather(_ index: Int) {
-        WeatherManager.HourlyWeatherInfo(success: { (time, hourArray) in
-            
-            let timeGap = self.timeJump(index)
-            let hour = self.getTime(from: time, to: timeGap)
-            let newArray = hourArray
-            let currentTemp = newArray["temp\(timeGap)hour"] as! String
-            let temp = WeatherManager.changeValidTempString(currentTemp)
-            
-            self.hourLabel.text = "\(hour)시"
-            self.tempLabel.text = "\(temp)℃"
-            
-        }) { (error) in
-            print(error)
-        }
-    }
+//    public func setHourlyWeather(_ index: Int) {
+//        WeatherManager.HourlyWeatherInfo(success: { (time, hourArray) in
+//
+//            let timeGap = self.timeJump(index)
+//            let hour = self.getTime(from: time, to: timeGap)
+//            let newArray = hourArray
+//            let currentTemp = newArray["temp\(timeGap)hour"] as! String
+//            let temp = WeatherManager.changeValidTempString(currentTemp)
+//
+//            self.hourLabel.text = "\(hour)시"
+//            self.tempLabel.text = "\(temp)℃"
+//
+//        }) { (error) in
+//            print(error)
+//        }
+//    }
     
     // MARK : - Private Method
     fileprivate func getTime(from string: String, to index: Int) -> Int {

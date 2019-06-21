@@ -63,6 +63,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
             cell.locationLabel.text = self.location
+            cell.currentTempLabel.text = self.currentTemp
 //            cell.setTodayTemperature()
             
             return cell
@@ -163,26 +164,40 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     // MARK : - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let current = locations.last {
-            // current.coordinate = 위도와 경도 정보 저장
             
-            let geoCoder = CLGeocoder()
-            geoCoder.reverseGeocodeLocation(current) { (list, error) in
-                if let error = error {
-                    print(error)
-                } else {
-                    if let first = list?.first {
-                        if let gu = first.locality, let dong = first.subLocality {
-                            let newlocation = "\(gu) \(dong)"
-                            self.location = newlocation
-                            
-                            // 근데 이걸 여기서 하는게 맞나?
-                            self.mainTableView.reloadData()
-                        } else {
-                            print("알 수 없는 지역")
+            let coordinate = current.coordinate
+            WeatherManager.latitude = coordinate.latitude
+            WeatherManager.longitude = coordinate.longitude
+            
+            WeatherManager.CurrentWeatherInfo(success: { (result) in
+                
+                let currentModel = EJCurrentWeather.init(object: result)
+                let mainModel = currentModel.main!
+                self.currentTemp = "\(Int(mainModel.temp! - 273.15))도"
+                
+                let geoCoder = CLGeocoder()
+                geoCoder.reverseGeocodeLocation(current) { (list, error) in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        if let first = list?.first {
+                            if let gu = first.locality, let dong = first.subLocality {
+                                let newlocation = "\(gu) \(dong)"
+                                self.location = newlocation
+                                
+                                // 근데 이걸 여기서 하는게 맞나? - 맞아!
+                                self.mainTableView.reloadData()
+                            } else {
+                                print("알 수 없는 지역")
+                            }
                         }
                     }
                 }
+                
+            }) { (error) in
+                print(error)
             }
+            
         }
         
         locationManager.stopUpdatingLocation()
