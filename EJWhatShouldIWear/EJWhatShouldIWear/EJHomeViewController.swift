@@ -145,6 +145,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         }
     }
     
+    
     // MARK : - Splash Method
     func removeSplashScene() {
         if self.splashContainer != nil {
@@ -262,6 +263,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(current) { (list, error) in
             if let error = error {
+                self.removeSplashScene()
                 print(error)
             } else {
                 if let first = list?.first {
