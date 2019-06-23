@@ -96,7 +96,6 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
         }
         
         KLKTalkLinkCenter.shared().sendDefault(with: template, success: { (warningMsg, argumentMsg) in
-            
             // 성공
             print("warning message: \(String(describing: warningMsg))")
             print("argument message: \(String(describing: argumentMsg))")
