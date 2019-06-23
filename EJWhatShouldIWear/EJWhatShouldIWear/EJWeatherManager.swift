@@ -48,46 +48,7 @@ class EJWeatherManager: NSObject {
         
     }
     
-    
-    // MARK : - Get Proper Data From HTTP Response by SwiftyJSON
-    func getCurrentWeatherInfo(from data: [String: Any]?) -> String {
-        let json = JSON(data!)
-        print(json)
-        let result = json["weather"]["hourly"][0]["temperature"]["tc"].string!
-        return result
-    }
-    
-    func getTimeRelease(from data: [String: Any]?) -> String {
-        let json = JSON(data!)
-        let result = json["weather"]["forecast3days"][0]
-        let timeRelease = result["timeRelease"].string!
-        return timeRelease
-    }
-    
-    func getHourlyWeatherInfo(from data: [String: Any]?) -> [String: Any] {
-        let json = JSON(data!)
-        let result = json["weather"]["forecast3days"][0]
-        let fcst3hour = result["fcst3hour"]["temperature"].dictionaryObject!
-        return fcst3hour
-    }
-    
-    func getWeekelyWeatherInfo(from data: [String: Any]?) -> [String: Any] {
-        let json = JSON(data!)
-        let result = json["weather"]["forecast6days"][0]["temperature"].dictionaryObject!
-        return result
-    }
-    
     // MARK : - Public Method
-    public func changeValidTempString(_ string: String) -> String {
-        guard let float = Double(string) else {
-            fatalError()
-        }
-        let temp = Int(float)
-        let result = String(temp)
-        
-        return result
-    }
-    
     public func weatherCondition(of id:Int) -> String {
         if 200 <= id {
             return "비와요"
