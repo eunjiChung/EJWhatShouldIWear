@@ -19,8 +19,8 @@ let WeatherManager = EJWeatherManager.sharedInstance
 class EJWeatherManager: NSObject {
     
     static let sharedInstance = EJWeatherManager()
-    var latitude: Double = 0//37.51151
-    var longitude: Double = 0//127.0967
+    var latitude: Double = 0    //37.51151
+    var longitude: Double = 0   //127.0967
     
     let httpClient = EJHTTPClient.init()
     
