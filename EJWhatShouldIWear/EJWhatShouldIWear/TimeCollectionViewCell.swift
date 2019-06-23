@@ -25,42 +25,34 @@ class TimeCollectionViewCell: UICollectionViewCell {
     // MARK : - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         alcHeightOfClothImageView.constant = EJSize(120.0)
         alcHeightOfTempLabel.constant = EJSize(15.0)
     }
     
     
     // MARK : - Public Method
-    public func setHourlyWeather(_ index: Int) {
+    public func setHourlyWeather(by info: EJFiveDaysList) {
         
-//        WeatherManager.HourlyWeatherInfo(success: { (time, hourArray) in
-//
-//            let timeGap = self.timeJump(index)
-//            let hour = self.getTime(from: time, to: timeGap)
-//            let newArray = hourArray
-//            let currentTemp = newArray["temp\(timeGap)hour"] as! String
-//            let temp = WeatherManager.changeValidTempString(currentTemp)
-//
-//            self.hourLabel.text = "\(hour)시"
-//            self.tempLabel.text = "\(temp)℃"
-//
-//        }) { (error) in
-//            print(error)
-//        }
+        let weatherInfo = info.main
+        if let dateInfo = info.dtTxt {
+            let time = getTime(from: dateInfo)
+            hourLabel.text = "\(time)시"
+        }
+        
+        if let floatTemp = weatherInfo?.temp {
+            let temp = Int(floatTemp) - 273
+            tempLabel.text = "\(temp)도"
+        }
     }
     
     // MARK : - Private Method
-    fileprivate func getTime(from string: String, to index: Int) -> Int {
+    fileprivate func getTime(from string: String) -> Int {
         let array = string.components(separatedBy: " ")
         let onlyTime = array[1]
         let timeArray = onlyTime.components(separatedBy: ":")
         let currentHour = timeArray[0]
         let currentIntHour = Int(currentHour)!
-        return (currentIntHour + index) % 24
-    }
-    
-    fileprivate func timeJump(_ index: Int) -> Int {
-        return 4 + 3 * index
+        return currentIntHour % 24
     }
 }

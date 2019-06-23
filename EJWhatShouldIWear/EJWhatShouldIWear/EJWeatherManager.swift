@@ -87,4 +87,20 @@ class EJWeatherManager: NSObject {
         
         return result
     }
+    
+    public func weatherCondition(of id:Int) -> String {
+        if 200 <= id {
+            return "비와요"
+        } else if 600 <= id {
+            return "눈와요"
+        } else if 700 <= id {
+            return ""
+        } else if id == 800 {
+            return "맑아요"
+        } else if 800 <= id {
+            return "흐려요"
+        }
+        
+        return ""
+    }
 }

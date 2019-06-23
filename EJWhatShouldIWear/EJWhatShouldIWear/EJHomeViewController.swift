@@ -50,7 +50,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 2:
-            return 7
+            return 4
         default:
             return 1
         }
@@ -63,7 +63,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
-            
             if let info = WeatherInfo, let description = WeatherDescript {
                 cell.setCurrentLocality(by: self.location)
                 cell.setWeatherInfo(by: info, with: description)
@@ -73,8 +72,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
             
-            if let list = FiveDaysWeatherList {
-                cell.setTimelyTable(info:list)
+            if let info = FiveDaysWeatherList {
+                cell.setTimelyTable(by:info)
             }
             
             return cell
@@ -82,7 +81,10 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekelyWeatherTableViewCell.identifier, for: indexPath) as! WeekelyWeatherTableViewCell
             
             let item = indexPath.item
-//            cell.setWeekelyInfo(to: item)
+            
+            if let info = FiveDaysWeatherList {
+                cell.setWeekelyInfo(by: info, to: item)
+            }
             
             return cell
         case 3:

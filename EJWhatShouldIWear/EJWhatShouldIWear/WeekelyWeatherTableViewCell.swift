@@ -12,6 +12,12 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     
     static let identifier = "WeekelyWeatherTableViewCell"
     
+    let today = Date()
+    let dateFormatter = DateFormatter()
+    let calendar = Calendar(identifier: .gregorian)
+    
+    var weatherList:[EJFiveDaysList]?
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherTellingLabel: UILabel!
@@ -20,67 +26,96 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     // MARK : - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
     }
     
     // MARK : - Public Method
-//    public func setWeekelyInfo(to index: Int) {
-//        WeatherManager.WeekelyWeatherInfo(success: { (result) in
-//
-//            // 오늘 요일을 받아서 그 뒤로 7일까지 추출
-//            self.dateLabel.text = "\(self.getWeekday(of: index))요일"
-//
-//            // 해당 요일 온도 추출
-//            let currentTemp = result["tmax\(index+2)day"] as! String
-//            let temp = WeatherManager.changeValidTempString(currentTemp)
-//            self.tempLabel.text = "\(temp)℃"
-//
-//            // 어제보다 어떤지 얘기
-//            self.weatherTellingLabel.text = self.tellWeatherCondition(of: "27.0", of: "28.0")
-//            
-//        }) { (error) in
-//            print(error)
-//        }
-//    }
+    public func setWeekelyInfo(by info: [EJFiveDaysList],to index: Int) {
+        self.weatherList = info
+        dateLabel.text = "\(getWeekday(of: index))요일"
+        tempLabel.text = "\(getTemp(of: index))도"
+        weatherTellingLabel.text = "\(tellWeatherCondition(of: index))"
+    }
     
     // MARK : - Private Method
     private func getWeekday(of index: Int) -> String {
         var weekDay = ["일", "월", "화", "수", "목", "금", "토"]
         
         // 1. 오늘 요일을 구한다
-        let calendar = Calendar(identifier: .gregorian)
-        let now = Date()
-        let component = calendar.dateComponents([.weekday], from: now)
+        let component = calendar.dateComponents([.weekday], from: today)
         
         // 2. 오늘 요일로부터 지난 시간을 index로 계산한다
+        print("Today is \(weekDay[component.weekday!])") // 왜 월요일인데...?
         let day = (component.weekday! + index) % 7
         
         // 3. 해당 day만큼 weekDay 문자열 배열에 있는 값을 리턴한다
         return weekDay[day]
     }
     
-    private func tellWeatherCondition(of yesterday: String, of today: String) -> String {
-        var result = "전날과 비슷해요"
-        
-        guard let todayTemp = Double(today) else {
-            fatalError()
+    private func getTemp(of index: Int) -> Int {
+        guard let oneDay = returnCertainWeather(of: index) else { return 0}
+        guard let floatTemp = oneDay.temp else { return 0 }
+        let temp = Int(floatTemp) - 273
+        return temp
+    }
+    
+    private func tellWeatherCondition(of index: Int) -> String {
+        let day = getDay(from: index)
+        guard let oneDayWeather = weatherInfo(which: "weather", of: day) else { return "" }
+        let oneDay = oneDayWeather as? EJFiveDaysWeather
+        if let weatherID = oneDay?.id {
+            return WeatherManager.weatherCondition(of: weatherID)
         }
-        guard let yesterdayTemp = Double(yesterday) else {
-            fatalError()
+        
+        return ""
+    }
+    
+    private func returnCertainWeather(of index: Int) -> EJFiveDaysMain? {
+        let day = getDay(from: index)
+        guard let oneDayWeather = weatherInfo(which: "main", of: day) else { return nil }
+        return oneDayWeather as? EJFiveDaysMain
+    }
+    
+    
+    // MARK : - Date Method
+    func getTodayDate() -> String {
+        let dateString = dateFormatter.string(from: today)
+        return dateString
+    }
+    
+    func getDay(from index: Int) -> String {
+        let offset = DateComponents(day: index+1)
+        guard let dayOffset = calendar.date(byAdding: offset, to: today) else {
+            return ""
         }
+        let day = dateFormatter.string(from: dayOffset)
         
-        let difference = abs(todayTemp - yesterdayTemp)
+        return day
+    }
+    
+    func weatherInfo(which type:String, of day:String) -> Any? {
+        guard let list = weatherList else { return nil }
         
-        if difference > 3 {
-            if todayTemp > yesterdayTemp
+        for weather in list
+        {
+            if weather.dtTxt == day
             {
-                result = "전날보다 더워요"
-            } else {
-                result = "전날보다 추워요"
+                switch type
+                {
+                case "main":
+                    if let main = weather.main{
+                        return main
+                    }
+                default:
+                    if let weather = weather.weather {
+                        return weather.first
+                    }
+                    
+                }
             }
         }
-        
-        return result
+        return nil
     }
-
+    
 }

@@ -51,19 +51,11 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     public func setWeatherInfo(by info: EJMain, with description:EJWeather) {
-        if let temp = info.temp, let condition = description.main {
+        if let temp = info.temp, let id = description.id{
             let intTemp = Int(temp) - 273
             currentTempLabel.text = "\(intTemp)℃"
-            yesterdayLabel.text = condition
+            yesterdayLabel.text = WeatherManager.weatherCondition(of: id)
         }
     }
-    
-    // MARK : - Private Method
-    private func specifyWeatherCondition() {
-        
-    }
-    
-    
-    
     
 }

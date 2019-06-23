@@ -21,15 +21,15 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         collectionView.dataSource = self as UICollectionViewDataSource
         collectionView.delegate = self as UICollectionViewDelegate
         
         collectionView.register(UINib.init(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: TimeCollectionViewCell.identifier)
     }
     
-    // MARK : -
-    func setTimelyTable(info: [EJFiveDaysList]) {
+    // MARK : - Setting WeatherInfo Method
+    func setTimelyTable(by info: [EJFiveDaysList]) {
         weatherInfo = info
         collectionView.reloadData()
     }
@@ -45,7 +45,10 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         let item = indexPath.item
         
-        cell.setHourlyWeather(item)
+        if let info = weatherInfo {
+            let indexWeatherInfo = info[item]
+            cell.setHourlyWeather(by: indexWeatherInfo)
+        }
         
         return cell
     }

@@ -42,30 +42,6 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     
-    
-    
-    
-    // MARK : - Date Method
-    func getTodayDate() -> String {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .medium
-//        dateFormatter.timeStyle = .medium
-//        dateFormatter.dateFormat = "======================================YYYY-MM-d hh:00:00"
-        dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
-        let dateString = dateFormatter.string(from: date)
-//        print(dateFormatter.string(from: date))
-        return dateString
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     // MARK : - Location Method
     func checkLocationStatus() {
         let status = CLLocationManager.authorizationStatus()
