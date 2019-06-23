@@ -19,11 +19,10 @@ let EJSegueSetting                      = "setting_segue"
 
 class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate{
     
-    
-    
     // MARK : - Global instance
     let composeVC = MFMailComposeViewController()
     var location: String = "알 수 없는 지역"
+    var splashVC: UIViewController?
     
     lazy var locationManager: CLLocationManager = {
         let m = CLLocationManager()
@@ -32,14 +31,15 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     }()
     
     
-    
-    
-    // MARK : - View Life Cycle
+    // MARK : - View Life Cycle    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //        print("\(self.navigationController?.viewControllers)")
     }
+    
+    
+    // MARK : - Splash Method
     
     
     // MARK : - Location Method

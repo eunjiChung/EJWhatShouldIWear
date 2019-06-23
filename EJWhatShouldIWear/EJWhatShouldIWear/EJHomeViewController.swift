@@ -23,6 +23,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     // MARK : - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var splashContainer: UIView!
     
     
     // MARK : - View Life Cycle
@@ -144,6 +145,18 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         }
     }
     
+    // MARK : - Splash Method
+    func removeSplashScene() {
+        if self.splashContainer != nil {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
+                    self.splashContainer.alpha = 0.0
+                }, completion: { (success) in
+                    self.splashContainer =  nil
+                })
+            }
+        }
+    }
     
     
     // MARK : - Prepare for Segue
@@ -255,6 +268,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                     if let gu = first.locality, let dong = first.subLocality {
                         self.location = "\(gu) \(dong)"
                         self.mainTableView.reloadData()
+                        self.removeSplashScene()
                     } else {
                         print("알 수 없는 지역")
                     }
