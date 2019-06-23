@@ -33,14 +33,15 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     // MARK : - Public Method
     public func setWeekelyInfo(by info: [EJFiveDaysList],to index: Int) {
         self.weatherList = info
-        dateLabel.text = "\(getWeekday(of: index))요일"
-        tempLabel.text = "\(getTemp(of: index))도"
+        
+        dateLabel.text = "\(getWeekday(of: index))"
+        tempLabel.text = "\(getTemp(of: index))\(LocalizedString(with: "temp"))"
         weatherTellingLabel.text = "\(tellWeatherCondition(of: index))"
     }
     
     // MARK : - Private Method
     private func getWeekday(of index: Int) -> String {
-        var weekDay = ["일", "월", "화", "수", "목", "금", "토"]
+        var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
         
         // 1. 오늘 요일을 구한다
         let component = calendar.dateComponents([.weekday], from: today)
@@ -50,7 +51,7 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
         let day = (component.weekday! + index) % 7
         
         // 3. 해당 day만큼 weekDay 문자열 배열에 있는 값을 리턴한다
-        return weekDay[day]
+        return LocalizedString(with: weekDay[day]) 
     }
     
     private func getTemp(of index: Int) -> Int {

@@ -123,11 +123,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
         switch section {
         case 1:
-            cell.headerLabel.text = "오늘 시간대별 날씨"
+            cell.headerLabel.text = LocalizedString(with: "main_timely")
         case 2:
-            cell.headerLabel.text = "요번주 날씨"
+            cell.headerLabel.text = LocalizedString(with: "main_weekely")
         case 3:
-            cell.headerLabel.text = "광고"
+            cell.headerLabel.text = LocalizedString(with: "main_ad")
         default:
             cell.headerLabel.text = ""
         }

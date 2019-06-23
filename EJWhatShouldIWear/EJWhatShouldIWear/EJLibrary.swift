@@ -84,6 +84,11 @@ func EJLocalizedString(withKey: String) -> String {
     return "Localizable Error"
 }
 
+func LocalizedString(with key: String) -> String {
+    let localString = NSLocalizedString(key, comment: "")
+    return localString
+}
+
 // MARK : - Class EJLibrary
 class EJLibrary: NSObject {
     static let sharedInstance = EJLibrary()

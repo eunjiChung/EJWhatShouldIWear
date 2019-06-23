@@ -6,7 +6,6 @@
   Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 */
 
-// week_date
 "monday" = "thứ hai";
 "tuesday" = "thứ ba";
 "wednesday" = "thứ tư";
@@ -15,13 +14,11 @@
 "saturday" = "thứ bảy";
 "sunday" = "chủ nhật";
 
-// weather_condition
 "sunny" = "trời trong";
 "rainy" = "trời mưa";
 "cloudy" = "trời có mây";
 "snowy" = "Mắt";
 
-// etc
 "share" = "Chia sẻ";
 "send_mail" = "gửi thư";
 "setting" = "Cài đặt";
@@ -40,7 +37,6 @@
 "temp" = "℃";
 "unknown" = "Vị trí không xác định";
 
-// alert
 "mail_warning_title" = "Lỗi cài đặt ứng dụng thư";
 "mail_warning_message" = "Nhập thông tin người gửi trong ứng dụng thư";
 "btn_ok" = "đồng ý";

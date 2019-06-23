@@ -21,7 +21,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView.text = "40자 제한\nEx)오늘 날이 춥다~옷 따뜻하게 입구다녀~^^"
+        textView.text = LocalizedString(with: "share_placeholder")
         registerKeyboardNotification()
     }
     
@@ -45,7 +45,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if textView.text == "40자 제한\nEx)오늘 날이 춥다~옷 따뜻하게 입구다녀~^^" {
+        if textView.text == LocalizedString(with: "share_placeholder") {
             textView.text = ""
             textView.textColor = UIColor.darkGray
         }

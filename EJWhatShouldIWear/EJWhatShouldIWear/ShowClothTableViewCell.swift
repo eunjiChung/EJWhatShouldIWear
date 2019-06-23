@@ -51,7 +51,8 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     public func setWeatherInfo(by info: EJMain, with description:EJWeather) {
-        if let temp = info.temp, let id = description.id{
+        if let temp = info.temp, let id = description.id {
+            // 나라별 온도 사용 단위
             let intTemp = Int(temp) - 273
             currentTempLabel.text = "\(intTemp)℃"
             yesterdayLabel.text = WeatherManager.weatherCondition(of: id)

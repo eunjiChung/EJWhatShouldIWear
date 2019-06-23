@@ -51,15 +51,16 @@ class EJWeatherManager: NSObject {
     // MARK : - Public Method
     public func weatherCondition(of id:Int) -> String {
         if 200 <= id {
-            return "비와요"
+            return LocalizedString(with: "rainy")
         } else if 600 <= id {
-            return "눈와요"
+            return LocalizedString(with: "snowy")
         } else if 700 <= id {
             return ""
         } else if id == 800 {
             return "맑아요"
+            return LocalizedString(with: "sunny")
         } else if 800 <= id {
-            return "흐려요"
+            return LocalizedString(with: "cloudy")
         }
         
         return ""

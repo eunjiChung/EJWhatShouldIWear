@@ -21,7 +21,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     // MARK : - Global instance
     let composeVC = MFMailComposeViewController()
-    var location: String = "알 수 없는 지역"
+    var location: String = LocalizedString(with: "unknown")
     
     lazy var locationManager: CLLocationManager = {
         let m = CLLocationManager()
@@ -59,12 +59,12 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
         if MFMailComposeViewController.canSendMail() {
             composeVC.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
             composeVC.setToRecipients(["twih1203@gmail.com"])
-            composeVC.setSubject("건의 드립니다.")
-            composeVC.setMessageBody("불편사항 건의 드립니다~", isHTML: false)
+            composeVC.setSubject(LocalizedString(with: "send_title"))
+            composeVC.setMessageBody(LocalizedString(with: "send_message"), isHTML: false)
             
             self.present(composeVC, animated: true, completion: nil)
         } else {
-            popAlertVC(self, with: "메일 앱 미구성!", "메일 앱에서 발신자 정보를 설정하세요")
+            popAlertVC(self, with: LocalizedString(with: "mail_warning_title"), LocalizedString(with: "mail_warning_message"))
         }
     }
    
@@ -78,7 +78,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     // MARK : - Alert Controller
     func popAlertVC(_ controller: UIViewController, with title:String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: LocalizedString(with: "btn_ok"), style: .default, handler: nil))
         controller.present(alert, animated: true, completion: nil)
     }
     

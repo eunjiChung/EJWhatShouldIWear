@@ -6,7 +6,6 @@
   Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 */
 
-// week_date
 "monday"  = "月曜日";
 "tuesday" = "火曜日";
 "wednesday" = "水曜日";
@@ -15,13 +14,11 @@
 "saturday" = "土曜日";
 "sunday" = "日曜日";
 
-// weather_condition
 "sunny" = "晴れ";
 "rainy" = "非降りる";
 "cloudy" = "曇り";
 "snowy" = "雪下ろし";
 
-// etc
 "share" = "愛する人と共有する";
 "send_mail" = "提案を送る";
 "setting" = "設定";
@@ -40,7 +37,6 @@
 "temp" = "℃";
 "unknown" = "未知の場所";
 
-// alert
 "mail_warning_title" = "メールアプリケーション設定エラー";
 "mail_warning_message" = "メールアプリケーションに送信者情報を入力してください";
 "btn_ok" = "確認";

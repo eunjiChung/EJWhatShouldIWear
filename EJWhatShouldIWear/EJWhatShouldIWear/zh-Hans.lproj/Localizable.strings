@@ -6,7 +6,6 @@
   Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 */
 
-// week_date
 "monday" = "星期月";
 "tuesday" = "星期火";
 "wednesday" = "星期水";
@@ -15,13 +14,11 @@
 "saturday" = "星期土";
 "sunday" = "星期日";
 
-// weather_condition
 "sunny" = "晴间多云";
 "rainy" = "雨";
 "cloudy" = "模糊";
 "snowy" = "雪";
 
-// etc
 "share" = "与亲人分享";
 "send_mail" = "发送建议";
 "setting" = "设定";
@@ -40,7 +37,6 @@
 "temp" = "℃";
 "unknown" = "未知的地方";
 
-// alert
 "mail_warning_title" = "邮件应用程序设置错误";
 "mail_warning_message" = "在邮件应用程序中输入发件人信息";
 "btn_ok" = "确认";

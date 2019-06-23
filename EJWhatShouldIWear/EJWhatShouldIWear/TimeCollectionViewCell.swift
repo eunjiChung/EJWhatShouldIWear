@@ -34,15 +34,18 @@ class TimeCollectionViewCell: UICollectionViewCell {
     // MARK : - Public Method
     public func setHourlyWeather(by info: EJFiveDaysList) {
         
+        let hour = LocalizedString(with: "hour")
+        let unit = LocalizedString(with: "temp")
+        
         let weatherInfo = info.main
         if let dateInfo = info.dtTxt {
             let time = getTime(from: dateInfo)
-            hourLabel.text = "\(time)시"
+            hourLabel.text = "\(time)\(hour)"
         }
         
         if let floatTemp = weatherInfo?.temp {
             let temp = Int(floatTemp) - 273
-            tempLabel.text = "\(temp)도"
+            tempLabel.text = "\(temp)\(unit)"
         }
     }
     
