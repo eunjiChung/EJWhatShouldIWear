@@ -14,6 +14,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var btnLabel: UIButton!
     
     @IBOutlet weak var alcBottomOfSendBtn: NSLayoutConstraint!
     
@@ -21,7 +22,10 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        titleLabel.text = LocalizedString(with: "share_title")
         textView.text = LocalizedString(with: "share_placeholder")
+        mainLabel.text = LocalizedString(with: "share_limit")
+        btnLabel.setTitle(LocalizedString(with: "share_btn"), for: .normal)
         registerKeyboardNotification()
     }
     

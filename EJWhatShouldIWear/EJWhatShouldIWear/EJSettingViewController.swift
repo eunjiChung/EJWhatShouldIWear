@@ -13,7 +13,9 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     
     // MARK : - Instance
     var curLocation : String? = nil
+    
     @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

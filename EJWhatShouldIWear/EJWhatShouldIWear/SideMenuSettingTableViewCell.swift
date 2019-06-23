@@ -15,19 +15,14 @@ class SideMenuSettingTableViewCell: UITableViewCell {
     // MARK : - Alc Of Constraints
     @IBOutlet weak var alcWidthOfSettingImageView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSettingLabel: NSLayoutConstraint!
+    @IBOutlet weak var setLabel: UILabel!
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         alcWidthOfSettingImageView.constant = EJSize(28.0)
         alcLeadingOfSettingLabel.constant = EJSize(16.0)
+        setLabel.text = LocalizedString(with: "setting")
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

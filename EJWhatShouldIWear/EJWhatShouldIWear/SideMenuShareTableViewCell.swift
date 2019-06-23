@@ -23,15 +23,9 @@ class SideMenuShareTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         alcWidthOfShareImageView.constant = EJSize(28.0)
         alcLeadingOfShareLabel.constant = EJSize(16.0)
+        shareLabel.text = LocalizedString(with: "share")
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

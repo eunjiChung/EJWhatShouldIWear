@@ -17,7 +17,8 @@ class LocationTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        titleLabel.text = LocalizedString(with: "setting_local")
     }
 
 }

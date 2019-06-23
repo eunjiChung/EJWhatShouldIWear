@@ -249,6 +249,7 @@
                                         <connections>
                                             <outlet property="alcLeadingOfFeedbackLabel" destination="RIh-Ez-6qi" id="XWX-Jv-fN8"/>
                                             <outlet property="alcWidthOfFeedBackImageView" destination="1fE-ya-zjf" id="1dk-IU-9F0"/>
+                                            <outlet property="mailLabel" destination="HO6-Wa-7Ma" id="8ug-P6-AQh"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SideMenuSettingTableViewCell" rowHeight="50" id="QBa-Q5-aBN" customClass="SideMenuSettingTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
@@ -285,6 +286,7 @@
                                         <connections>
                                             <outlet property="alcLeadingOfSettingLabel" destination="BIc-f6-x4T" id="2Gh-JM-fv3"/>
                                             <outlet property="alcWidthOfSettingImageView" destination="okV-FS-GVB" id="HVh-59-I6u"/>
+                                            <outlet property="setLabel" destination="9J3-z1-BgQ" id="QBq-tw-j7v"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -408,6 +410,9 @@
                                                 <constraint firstItem="pbU-FC-tzL" firstAttribute="bottom" secondItem="CMI-HR-ypw" secondAttribute="bottomMargin" id="nSb-Do-SPE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="notiSetLabel" destination="pbU-FC-tzL" id="6kP-ux-zfi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -607,6 +612,7 @@
                     </view>
                     <connections>
                         <outlet property="alcBottomOfSendBtn" destination="HuO-Jl-pcF" id="8hO-Gh-c4S"/>
+                        <outlet property="btnLabel" destination="rvV-ob-XbF" id="2z0-9G-h5j"/>
                         <outlet property="mainLabel" destination="qdJ-BJ-IaG" id="Vor-6l-Mmu"/>
                         <outlet property="textView" destination="GKW-Ko-UnK" id="Rk7-NC-vle"/>
                         <outlet property="titleLabel" destination="4Nl-zl-5cl" id="1ZL-HD-hrm"/>

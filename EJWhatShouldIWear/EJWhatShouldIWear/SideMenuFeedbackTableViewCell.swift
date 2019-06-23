@@ -15,20 +15,16 @@ class SideMenuFeedbackTableViewCell: UITableViewCell {
     // MAKR : - Alc Of Constraints
     @IBOutlet weak var alcLeadingOfFeedbackLabel: NSLayoutConstraint!
     @IBOutlet weak var alcWidthOfFeedBackImageView: NSLayoutConstraint!
+    @IBOutlet weak var mailLabel: UILabel!
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         alcLeadingOfFeedbackLabel.constant = EJSize(16.0)
         alcWidthOfFeedBackImageView.constant = EJSize(28.0)
+        mailLabel.text = LocalizedString(with: "send_mail")
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }
