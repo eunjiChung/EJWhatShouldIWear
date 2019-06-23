@@ -6,17 +6,17 @@
   Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 */
 
-// App
-"APP_NAME" = "WSIW지역화시트";
+// week_date
+"monday" = "thứ hai";
 "tuesday" = "thứ ba";
 "wednesday" = "thứ tư";
 "thursday" = "thứ năm";
 "friday" = "thứ sáu";
 "saturday" = "thứ bảy";
 "sunday" = "chủ nhật";
-"sunny" = "trời trong";
 
 // weather_condition
+"sunny" = "trời trong";
 "rainy" = "trời mưa";
 "cloudy" = "trời có mây";
 "snowy" = "Mắt";

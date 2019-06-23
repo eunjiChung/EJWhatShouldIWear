@@ -6,17 +6,17 @@
   Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 */
 
-// App
-"APP_NAME" = "WSIW지역화시트";
+// week_date
+"monday" = "월요일";
 "tuesday" = "화요일";
 "wednesday" = "수요일";
 "thursday" = "목요일";
 "friday" = "금요일";
 "saturday" = "토요일";
 "sunday" = "일요일";
-"sunny" = "맑아요";
 
 // weather_condition
+"sunny" = "맑아요";
 "rainy" = "비와요";
 "cloudy" = "흐려요";
 "snowy" = "눈와요";
