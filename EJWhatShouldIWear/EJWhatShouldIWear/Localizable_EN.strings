@@ -1,0 +1,38 @@
+// App
+"APP_NAME" = "WSIW지역화시트";
+"tuesday" = "Tue";
+"wednesday" = "Wed";
+"thursday" = "Thu";
+"friday" = "Fri";
+"saturday" = "Sat";
+"sunday" = "Sun";
+"sunny" = "It's sunny day";
+
+// weather_condition
+"rainy" = "It's rainy day";
+"cloudy" = "It's cloudy";
+"snowy" = "It's snowy";
+
+// etc
+"share" = "Share with loved ones";
+"send_mail" = "Send suggestion";
+"setting" = "Setting";
+"share_title" = "Take care of your loved ones with <WhatShouldIWear>";
+"share_limit" = "40 char limit";
+"share_placeholder" = "ex) It's cold today. Warm up!";
+"share_btn" = "Share with loved ones";
+"setting_local" = "Set Location";
+"setting_noti" = "Set Notification";
+"send_title" = "Suggestion";
+"send_message" = "Please fix the followings";
+"main_timely" = "Today Timely Weather";
+"main_weekely" = "Weekely Weather";
+"main_ad" = "Advertisement";
+"hour" = "H";
+"temp" = "℃";
+"unknown" = "Unknown location";
+
+// alert
+"mail_warning_title" = "Mail App setting error";
+"mail_warning_message" = "Enter sender information in mail app";
+"btn_ok" = "Ok";

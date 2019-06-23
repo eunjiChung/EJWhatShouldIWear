@@ -30,8 +30,61 @@ func EJSize(_ standardSize: CGFloat) -> CGFloat {
     return round(standardSize * (EJ_SCREEN_WIDTH / EJ_SCREEN_WIDTH_414))
 }
 
+// MARK : - Localizable
+fileprivate let EJLocalizableResourceName = "Localizable"
+fileprivate let EJLocalizableTypeName = "strings"
+
+func languageCode() -> String {
+    guard let lc = Locale.preferredLanguages.first else {
+        return "en"
+    }
+    
+    return lc
+}
+
+func STNLanguageCode() -> String {
+    var primaryCode = languageCode()
+    if primaryCode.contains("zh-Hant") { // 중국어 번체일때
+        primaryCode = "en-US"
+    }
+    
+    // ex. zh-hans => zh, hans
+    let seperatedComponents = primaryCode.components(separatedBy: "-")
+    if let languageCode = seperatedComponents.first {
+        if languageCode == "ko" || languageCode == "ja" || languageCode == "zh" {
+            return languageCode
+        }
+    }
+    
+    return "en"
+}
+
+func STNLocalizedString(withKey: String) -> String {
+    
+    var languageCode = STNLanguageCode()
+    
+    if languageCode == "en" {
+        languageCode = "Base"
+    }
+    
+    if languageCode == "zh" {
+        languageCode = "zh-Hans"
+    }
+    
+    if let resourcePath = Bundle.main.path(forResource: STNLocalizableResourceName, ofType: STNLocalizableTypeName, inDirectory: nil, forLocalization: languageCode) {
+        if let resourceData = try? Data.init(contentsOf: URL.init(fileURLWithPath: resourcePath)) {
+            if let resouceObject = try? PropertyListSerialization.propertyList(from: resourceData, format: nil) as? [String: Any] {
+                if let localizedString = resouceObject![withKey] as? String {
+                    return localizedString
+                }
+            }
+        }
+    }
+    
+    return "Localizable Error"
+}
+
 // MARK : - Class EJLibrary
 class EJLibrary: NSObject {
     static let sharedInstance = EJLibrary()
-
 }

@@ -1,0 +1,38 @@
+// App
+"APP_NAME" = "WSIW지역화시트";
+"tuesday" = "thứ ba";
+"wednesday" = "thứ tư";
+"thursday" = "thứ năm";
+"friday" = "thứ sáu";
+"saturday" = "thứ bảy";
+"sunday" = "chủ nhật";
+"sunny" = "trời trong";
+
+// weather_condition
+"rainy" = "trời mưa";
+"cloudy" = "trời có mây";
+"snowy" = "Mắt";
+
+// etc
+"share" = "Chia sẻ";
+"send_mail" = "gửi thư";
+"setting" = "Cài đặt";
+"share_title" = "Chăm sóc những người thân yêu của bạn với <WhatShouldIWear>";
+"share_limit" = "Giới hạn 40 ký tự";
+"share_placeholder" = "ex) Hôm nay trời lạnh.";
+"share_btn" = "Chia sẻ";
+"setting_local" = "Thiết lập địa điểm";
+"setting_noti" = "Đặt thông báo";
+"send_title" = "Gợi ý";
+"send_message" = "vui lòng điều chỉnh các điều sau đây";
+"main_timely" = "Thời tiết theo múi giờ";
+"main_weekely" = "Thời tiết tuần này";
+"main_ad" = "Quảng cáo";
+"hour" = "H";
+"temp" = "℃";
+"unknown" = "Vị trí không xác định";
+
+// alert
+"mail_warning_title" = "Lỗi cài đặt ứng dụng thư";
+"mail_warning_message" = "Nhập thông tin người gửi trong ứng dụng thư";
+"btn_ok" = "đồng ý";

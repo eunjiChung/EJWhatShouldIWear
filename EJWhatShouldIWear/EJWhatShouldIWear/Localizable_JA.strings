@@ -1,0 +1,38 @@
+// App
+"APP_NAME" = "WSIW지역화시트";
+"tuesday" = "火曜日";
+"wednesday" = "水曜日";
+"thursday" = "木曜日";
+"friday" = "金曜日";
+"saturday" = "土曜日";
+"sunday" = "日曜日";
+"sunny" = "晴れ";
+
+// weather_condition
+"rainy" = "非降りる";
+"cloudy" = "曇り";
+"snowy" = "雪下ろし";
+
+// etc
+"share" = "愛する人と共有する";
+"send_mail" = "提案を送る";
+"setting" = "設定";
+"share_title" = "<WhatShouldIWear>であなたの愛する人の世話をします";
+"share_limit" = "40文字以内";
+"share_placeholder" = "ex) 今日は寒いです. 準備し始める";
+"share_btn" = "愛する人と共有する";
+"setting_local" = "場所を設定";
+"setting_noti" = "通知を設定";
+"send_title" = "提案する";
+"send_message" = "以下を修正してください";
+"main_timely" = "時間帯別の天気";
+"main_weekely" = "今週の天気";
+"main_ad" = "広告";
+"hour" = "時";
+"temp" = "℃";
+"unknown" = "未知の場所";
+
+// alert
+"mail_warning_title" = "メールアプリケーション設定エラー";
+"mail_warning_message" = "メールアプリケーションに送信者情報を入力してください";
+"btn_ok" = "確認";

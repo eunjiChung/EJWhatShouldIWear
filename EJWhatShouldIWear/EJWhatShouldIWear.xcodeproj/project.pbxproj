@@ -27,6 +27,11 @@
 		992B09AC22BF849100FF94B7 /* EJWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B09A522BF849100FF94B7 /* EJWind.swift */; };
 		992B09AD22BF849100FF94B7 /* EJCoord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B09A622BF849100FF94B7 /* EJCoord.swift */; };
 		992B09AE22BF849100FF94B7 /* EJSys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B09A722BF849100FF94B7 /* EJSys.swift */; };
+		992B0A2B22BFE5F100FF94B7 /* Localizable_KO.strings in Resources */ = {isa = PBXBuildFile; fileRef = 992B0A2622BFE5F100FF94B7 /* Localizable_KO.strings */; };
+		992B0A2C22BFE5F100FF94B7 /* Localizable_VN.strings in Resources */ = {isa = PBXBuildFile; fileRef = 992B0A2722BFE5F100FF94B7 /* Localizable_VN.strings */; };
+		992B0A2D22BFE5F100FF94B7 /* Localizable_JA.strings in Resources */ = {isa = PBXBuildFile; fileRef = 992B0A2822BFE5F100FF94B7 /* Localizable_JA.strings */; };
+		992B0A2E22BFE5F100FF94B7 /* Localizable_ZH.strings in Resources */ = {isa = PBXBuildFile; fileRef = 992B0A2922BFE5F100FF94B7 /* Localizable_ZH.strings */; };
+		992B0A2F22BFE5F100FF94B7 /* Localizable_EN.strings in Resources */ = {isa = PBXBuildFile; fileRef = 992B0A2A22BFE5F100FF94B7 /* Localizable_EN.strings */; };
 		9947053222BA029F00474C02 /* KakaoLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947052F22BA029F00474C02 /* KakaoLink.framework */; };
 		9947053322BA029F00474C02 /* KakaoMessageTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */; };
 		9947053422BA029F00474C02 /* KakaoCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9947053122BA029F00474C02 /* KakaoCommon.framework */; };
@@ -96,6 +101,11 @@
 		992B09A522BF849100FF94B7 /* EJWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJWind.swift; sourceTree = "<group>"; };
 		992B09A622BF849100FF94B7 /* EJCoord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJCoord.swift; sourceTree = "<group>"; };
 		992B09A722BF849100FF94B7 /* EJSys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJSys.swift; sourceTree = "<group>"; };
+		992B0A2622BFE5F100FF94B7 /* Localizable_KO.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable_KO.strings; sourceTree = "<group>"; };
+		992B0A2722BFE5F100FF94B7 /* Localizable_VN.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable_VN.strings; sourceTree = "<group>"; };
+		992B0A2822BFE5F100FF94B7 /* Localizable_JA.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable_JA.strings; sourceTree = "<group>"; };
+		992B0A2922BFE5F100FF94B7 /* Localizable_ZH.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable_ZH.strings; sourceTree = "<group>"; };
+		992B0A2A22BFE5F100FF94B7 /* Localizable_EN.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable_EN.strings; sourceTree = "<group>"; };
 		9947052F22BA029F00474C02 /* KakaoLink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoLink.framework; sourceTree = "<group>"; };
 		9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoMessageTemplate.framework; sourceTree = "<group>"; };
 		9947053122BA029F00474C02 /* KakaoCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoCommon.framework; sourceTree = "<group>"; };
@@ -192,6 +202,7 @@
 		991F229F228973C000FDBC98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				992B0A1B22BFDB4B00FF94B7 /* Language */,
 				99DC5C3C22BB339F005661F3 /* GoogleService-Info.plist */,
 				999B20A522029E670073A0D9 /* Assets.xcassets */,
 				999B20A722029E670073A0D9 /* LaunchScreen.storyboard */,
@@ -228,6 +239,18 @@
 				992B09A522BF849100FF94B7 /* EJWind.swift */,
 			);
 			name = CurrentWeather;
+			sourceTree = "<group>";
+		};
+		992B0A1B22BFDB4B00FF94B7 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				992B0A2A22BFE5F100FF94B7 /* Localizable_EN.strings */,
+				992B0A2822BFE5F100FF94B7 /* Localizable_JA.strings */,
+				992B0A2622BFE5F100FF94B7 /* Localizable_KO.strings */,
+				992B0A2722BFE5F100FF94B7 /* Localizable_VN.strings */,
+				992B0A2922BFE5F100FF94B7 /* Localizable_ZH.strings */,
+			);
+			name = Language;
 			sourceTree = "<group>";
 		};
 		997533BB228EEAA7003DAF97 /* SettingViewCell */ = {
@@ -430,12 +453,17 @@
 			files = (
 				999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */,
 				998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */,
+				992B0A2F22BFE5F100FF94B7 /* Localizable_EN.strings in Resources */,
+				992B0A2D22BFE5F100FF94B7 /* Localizable_JA.strings in Resources */,
 				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
 				998B82A0228D67630099B71A /* WeekelyWeatherTableViewCell.xib in Resources */,
 				99A05683228EAA0D002D3B7A /* DummyTableViewCell.xib in Resources */,
+				992B0A2B22BFE5F100FF94B7 /* Localizable_KO.strings in Resources */,
+				992B0A2E22BFE5F100FF94B7 /* Localizable_ZH.strings in Resources */,
 				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
 				999B20A622029E670073A0D9 /* Assets.xcassets in Resources */,
 				998B82A4228D67710099B71A /* AdmobTableViewCell.xib in Resources */,
+				992B0A2C22BFE5F100FF94B7 /* Localizable_VN.strings in Resources */,
 				99DC5C3D22BB339F005661F3 /* GoogleService-Info.plist in Resources */,
 				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,

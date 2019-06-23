@@ -64,7 +64,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             self.present(composeVC, animated: true, completion: nil)
         } else {
-            popAlertVC(self, with: "메일 앱 미구성!", "아이폰 메일앱에 보내는 분 정보를 넣어주세요")
+            popAlertVC(self, with: "메일 앱 미구성!", "메일 앱에서 발신자 정보를 설정하세요")
         }
     }
    

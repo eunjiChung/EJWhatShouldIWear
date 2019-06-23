@@ -1,0 +1,38 @@
+// App
+"APP_NAME" = "WSIW지역화시트";
+"tuesday" = "星期火";
+"wednesday" = "星期水";
+"thursday" = "星期木";
+"friday" = "星期金";
+"saturday" = "星期土";
+"sunday" = "星期日";
+"sunny" = "晴间多云";
+
+// weather_condition
+"rainy" = "雨";
+"cloudy" = "模糊";
+"snowy" = "雪";
+
+// etc
+"share" = "与亲人分享";
+"send_mail" = "发送建议";
+"setting" = "设定";
+"share_title" = "<WhatShouldIWear>照顾你的亲人";
+"share_limit" = "40个字符限制";
+"share_placeholder" = "ex) 今天很冷. 暖身.";
+"share_btn" = "与亲人分享";
+"setting_local" = "设置位置";
+"setting_noti" = "设置通知";
+"send_title" = "建议";
+"send_message" = "请更正以下内容";
+"main_timely" = "小时天气";
+"main_weekely" = "本周天气";
+"main_ad" = "广告";
+"hour" = "点";
+"temp" = "℃";
+"unknown" = "未知的地方";
+
+// alert
+"mail_warning_title" = "邮件应用程序设置错误";
+"mail_warning_message" = "在邮件应用程序中输入发件人信息";
+"btn_ok" = "确认";
