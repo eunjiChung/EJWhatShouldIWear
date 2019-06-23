@@ -42,7 +42,7 @@ func languageCode() -> String {
     return lc
 }
 
-func STNLanguageCode() -> String {
+func EJLanguageCode() -> String {
     var primaryCode = languageCode()
     if primaryCode.contains("zh-Hant") { // 중국어 번체일때
         primaryCode = "en-US"
@@ -59,9 +59,9 @@ func STNLanguageCode() -> String {
     return "en"
 }
 
-func STNLocalizedString(withKey: String) -> String {
+func EJLocalizedString(withKey: String) -> String {
     
-    var languageCode = STNLanguageCode()
+    var languageCode = EJLanguageCode()
     
     if languageCode == "en" {
         languageCode = "Base"
@@ -71,7 +71,7 @@ func STNLocalizedString(withKey: String) -> String {
         languageCode = "zh-Hans"
     }
     
-    if let resourcePath = Bundle.main.path(forResource: STNLocalizableResourceName, ofType: STNLocalizableTypeName, inDirectory: nil, forLocalization: languageCode) {
+    if let resourcePath = Bundle.main.path(forResource: EJLocalizableResourceName, ofType: EJLocalizableTypeName, inDirectory: nil, forLocalization: languageCode) {
         if let resourceData = try? Data.init(contentsOf: URL.init(fileURLWithPath: resourcePath)) {
             if let resouceObject = try? PropertyListSerialization.propertyList(from: resourceData, format: nil) as? [String: Any] {
                 if let localizedString = resouceObject![withKey] as? String {

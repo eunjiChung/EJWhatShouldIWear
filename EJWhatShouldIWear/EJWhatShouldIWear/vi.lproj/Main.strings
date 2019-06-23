@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "주변인에게 공유하기"; ObjectID = "17u-AW-0ZH"; */
+"17u-AW-0ZH.text" = "주변인에게 공유하기";
+
+/* Class = "UILabel"; text = "<오늘모입지?>와 함께 사랑하는 사람을 챙겨보세요"; ObjectID = "4Nl-zl-5cl"; */
+"4Nl-zl-5cl.text" = "<오늘모입지?>와 함께 사랑하는 사람을 챙겨보세요";
+
+/* Class = "UILabel"; text = "설정"; ObjectID = "9J3-z1-BgQ"; */
+"9J3-z1-BgQ.text" = "설정";
+
+/* Class = "UILabel"; text = "불편/건의 메일 보내기"; ObjectID = "HO6-Wa-7Ma"; */
+"HO6-Wa-7Ma.text" = "불편/건의 메일 보내기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "a5x-RQ-PQG"; */
+"a5x-RQ-PQG.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cCu-Sx-uGk"; */
+"cCu-Sx-uGk.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "지역 설정"; ObjectID = "kUB-Yk-wKZ"; */
+"kUB-Yk-wKZ.text" = "지역 설정";
+
+/* Class = "UILabel"; text = "알림 설정"; ObjectID = "pbU-FC-tzL"; */
+"pbU-FC-tzL.text" = "알림 설정";
+
+/* Class = "UILabel"; text = "300자 제한"; ObjectID = "qdJ-BJ-IaG"; */
+"qdJ-BJ-IaG.text" = "300자 제한";
+
+/* Class = "UIButton"; normalTitle = "사랑하는 사람에게 보내기"; ObjectID = "rvV-ob-XbF"; */
+"rvV-ob-XbF.normalTitle" = "사랑하는 사람에게 보내기";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "uXt-Hh-okx"; */
+"uXt-Hh-okx.text" = "Label";
+
+/* Class = "UILabel"; text = "WHAT SHOULD I WEAR?"; ObjectID = "zKE-Vz-i6N"; */
+"zKE-Vz-i6N.text" = "WHAT SHOULD I WEAR?";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zw7-nl-zb0"; */
+"zw7-nl-zb0.text" = "Label";
