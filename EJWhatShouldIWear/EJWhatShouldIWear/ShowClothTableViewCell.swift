@@ -50,9 +50,16 @@ class ShowClothTableViewCell: UITableViewCell {
         locationLabel.text = locationStr
     }
     
-    public func setTodayTemperature(by list: [EJFiveDaysList]) {
-
-        currentTempLabel.text = "현재 온도 ℃"
+    public func setWeatherInfo(by info: EJMain, with description:EJWeather) {
+        if let temp = info.temp, let condition = description.main {
+            let intTemp = Int(temp) - 273
+            currentTempLabel.text = "\(intTemp)℃"
+            yesterdayLabel.text = condition
+        }
+    }
+    
+    // MARK : - Private Method
+    private func specifyWeatherCondition() {
         
     }
     

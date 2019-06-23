@@ -63,9 +63,10 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
-            if let list = FiveDaysWeatherList {
+            
+            if let info = WeatherInfo, let description = WeatherDescript {
                 cell.setCurrentLocality(by: self.location)
-                cell.setTodayTemperature(by: list)
+                cell.setWeatherInfo(by: info, with: description)
             }
             
             return cell
