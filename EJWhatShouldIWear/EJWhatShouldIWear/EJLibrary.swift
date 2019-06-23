@@ -31,59 +31,6 @@ func EJSize(_ standardSize: CGFloat) -> CGFloat {
 }
 
 // MARK : - Localizable
-fileprivate let EJLocalizableResourceName = "Localizable"
-fileprivate let EJLocalizableTypeName = "strings"
-
-func languageCode() -> String {
-    guard let lc = Locale.preferredLanguages.first else {
-        return "en"
-    }
-    
-    return lc
-}
-
-func EJLanguageCode() -> String {
-    var primaryCode = languageCode()
-    if primaryCode.contains("zh-Hant") { // 중국어 번체일때
-        primaryCode = "en-US"
-    }
-    
-    // ex. zh-hans => zh, hans
-    let seperatedComponents = primaryCode.components(separatedBy: "-")
-    if let languageCode = seperatedComponents.first {
-        if languageCode == "ko" || languageCode == "ja" || languageCode == "zh" {
-            return languageCode
-        }
-    }
-    
-    return "en"
-}
-
-func EJLocalizedString(withKey: String) -> String {
-    
-    var languageCode = EJLanguageCode()
-    
-    if languageCode == "en" {
-        languageCode = "Base"
-    }
-    
-    if languageCode == "zh" {
-        languageCode = "zh-Hans"
-    }
-    
-    if let resourcePath = Bundle.main.path(forResource: EJLocalizableResourceName, ofType: EJLocalizableTypeName, inDirectory: nil, forLocalization: languageCode) {
-        if let resourceData = try? Data.init(contentsOf: URL.init(fileURLWithPath: resourcePath)) {
-            if let resouceObject = try? PropertyListSerialization.propertyList(from: resourceData, format: nil) as? [String: Any] {
-                if let localizedString = resouceObject![withKey] as? String {
-                    return localizedString
-                }
-            }
-        }
-    }
-    
-    return "Localizable Error"
-}
-
 func LocalizedString(with key: String) -> String {
     let localString = NSLocalizedString(key, comment: "")
     return localString
