@@ -27,32 +27,27 @@ class EJWeatherManager: NSObject {
     // MARK : - HTTP Request
     func CurrentWeatherInfo(success: @escaping SuccessHandler,
                             failure: @escaping FailureHandler) {
+        print("Locality : \(latitude), \(longitude)")
         
-        httpClient.weatherRequest(lat:latitude, lon:longitude, to: "forecast",
-                                         success: success,
-                                         failure: failure)
+        httpClient.weatherRequest(lat:latitude,
+                                  lon:longitude,
+                                  to: "weather",
+                                  success: success,
+                                  failure: failure)
     }
     
-//    func HourlyWeatherInfo(success: @escaping (String, [String: Any]) -> (),
-//                           failure: @escaping FailureHandler) {
-//        httpClient.basicRequest(to: "forecast/3days", success: { (response) in
-//            let result = self.getHourlyWeatherInfo(from: response)
-//            let time = self.getTimeRelease(from: response)
-//            success(time, result)
-//        }) { (error) in
-//            failure(error)
-//        }
-//    }
-//
-//    func WeekelyWeatherInfo(success: @escaping ([String: Any]) -> (),
-//                            failure: @escaping FailureHandler) {
-//        httpClient.basicRequest(to: "forecast/6days", success: { (response) in
-//            let result = self.getWeekelyWeatherInfo(from: response)
-//            success(result)
-//        }) { (error) in
-//            failure(error)
-//        }
-//    }
+    func FiveDaysWeatherInfo(success: @escaping SuccessHandler,
+                             failure: @escaping FailureHandler) {
+        print("Locality : \(latitude), \(longitude)")
+        
+        httpClient.weatherRequest(lat: latitude,
+                                  lon: longitude,
+                                  to: "forecast",
+                                  success: success,
+                                  failure: failure)
+        
+    }
+    
     
     // MARK : - Get Proper Data From HTTP Response by SwiftyJSON
     func getCurrentWeatherInfo(from data: [String: Any]?) -> String {

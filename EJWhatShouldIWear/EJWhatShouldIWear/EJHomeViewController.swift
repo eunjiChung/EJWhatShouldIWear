@@ -14,9 +14,12 @@ import CoreLocation
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate  {
     
     // MARK : - Data
-    var WeatherList: [EJFiveDaysList]?
+    var WeatherDescript: EJWeather?
+    var WeatherInfo: EJMain?
+    var FiveDaysWeatherList: [EJFiveDaysList]?
     var currentTemp: String?
 
+    
     // MARK : - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -29,16 +32,12 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         configureSideMenu()
         registerNibs()
         
-        // Pull To Refresh
         addPullToRefreshControl(toScrollView: self.mainTableView) {
-            // 새로운 Location 정보 받아오고
-            // 해당 Location의 날씨 정보 받아오기
             self.updateLocation()
         }
         
-        // Location
         locationManager.delegate = self as CLLocationManagerDelegate
-        self.checkLocationStatus()
+        checkLocationStatus()
     }
     
     
@@ -64,15 +63,16 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
-            if let list = WeatherList {
-                cell.setTodayTemperature(by: list, location: self.location)
+            if let list = FiveDaysWeatherList {
+                cell.setCurrentLocality(by: self.location)
+                cell.setTodayTemperature(by: list)
             }
             
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
             
-            if let list = WeatherList {
+            if let list = FiveDaysWeatherList {
                 cell.setTimelyTable(info:list)
             }
             
@@ -141,6 +141,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         }
     }
     
+    
+    
     // MARK : - Prepare for Segue
     @IBAction func didTouchMenuBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "home_sidemenu_segue", sender: self)
@@ -164,15 +166,18 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         default:
             print("Nothing...")
         }
+        
     }
     
     
     
     // MARK : - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         if let current = locations.last {
-            setCurrentCoordinate(by: current.coordinate)
-            requestWeather(which: current)
+            setCurrentLocation(from: current.coordinate)
+            requestCurrentWeather(of: current)
+            requestFiveDaysWeatherList(of: current)
         }
         
         locationManager.stopUpdatingLocation()
@@ -210,22 +215,34 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
     }
     
-    private func setCurrentCoordinate(by info:CLLocationCoordinate2D) {
-        WeatherManager.latitude = info.latitude
-        WeatherManager.longitude = info.longitude
+    
+    // MARK : - Request Weather Info
+    private func setCurrentLocation(from coordinate:CLLocationCoordinate2D) {
+        WeatherManager.latitude = coordinate.latitude
+        WeatherManager.longitude = coordinate.longitude
     }
     
-    private func requestWeather(which current: CLLocation) {
+    private func requestCurrentWeather(of location: CLLocation) {
         WeatherManager.CurrentWeatherInfo(success: { (result) in
-            let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
-            self.WeatherList = fivedaysWeather.list
-            self.setCurrentLocation(which: current)
+            let currentWeatherInfo = EJCurrentWeather.init(object: result)
+            self.WeatherInfo = currentWeatherInfo.main
+            self.WeatherDescript = currentWeatherInfo.weather?.first
         }) { (error) in
             print(error)
         }
     }
     
-    private func setCurrentLocation(which current: CLLocation) {
+    private func requestFiveDaysWeatherList(of current: CLLocation) {
+        WeatherManager.FiveDaysWeatherInfo(success: { (result) in
+            let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
+            self.FiveDaysWeatherList = fivedaysWeather.list
+            self.setLocationText(of: current)
+        }) { (error) in
+            print(error)
+        }
+    }
+    
+    private func setLocationText(of current: CLLocation) {
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(current) { (list, error) in
             if let error = error {
@@ -234,8 +251,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                 if let first = list?.first {
                     if let gu = first.locality, let dong = first.subLocality {
                         self.location = "\(gu) \(dong)"
-                        
-                        // 근데 이걸 여기서 하는게 맞나? - 맞아!
                         self.mainTableView.reloadData()
                     } else {
                         print("알 수 없는 지역")

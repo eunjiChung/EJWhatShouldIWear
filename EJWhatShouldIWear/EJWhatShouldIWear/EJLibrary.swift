@@ -16,8 +16,8 @@ public let owmAPIPath                                  =   "http://api.openweath
 public let tDeveloperKey                               =   "caf5a086-90dc-4651-b189-cb8750c53f18"
 public let owmAppKey                                   =   "a773e2be7cd5ee1befcfc2fc349d43ad"
 public let googleAdmobAppID                            =   "ca-app-pub-1994779937843028~3906710093"
-//public let googleAdmobUnitID                           =   "ca-app-pub-1994779937843028/3973448265"
-public let googleAdmobUnitID                           =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
+public let googleAdmobUnitID                           =   "ca-app-pub-1994779937843028/3973448265"
+//public let googleAdmobUnitID                           =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
 
 // MARK : - Screen Size
 public let EJ_SCREEN_WIDTH: CGFloat             =   UIScreen.main.bounds.width

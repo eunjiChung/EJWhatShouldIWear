@@ -15,7 +15,6 @@ class ShowClothTableViewCell: UITableViewCell {
     // MARK: - IBOutlet
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
-    
     @IBOutlet weak var firstClothImageView: UIImageView!
     @IBOutlet weak var secondClothImageview: UIImageView!
     @IBOutlet weak var thirdClothImageView: UIImageView!
@@ -47,9 +46,12 @@ class ShowClothTableViewCell: UITableViewCell {
 
     
     // MARK : - Public Method
-    public func setTodayTemperature(by list: [EJFiveDaysList], location: String) {
-        
-        locationLabel.text = location
+    public func setCurrentLocality(by locationStr:String) {
+        locationLabel.text = locationStr
+    }
+    
+    public func setTodayTemperature(by list: [EJFiveDaysList]) {
+
         currentTempLabel.text = "현재 온도 ℃"
         
     }
