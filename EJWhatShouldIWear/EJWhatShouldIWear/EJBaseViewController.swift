@@ -19,6 +19,8 @@ let EJSegueSetting                      = "setting_segue"
 
 class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate{
     
+    
+    
     // MARK : - Global instance
     let composeVC = MFMailComposeViewController()
     var location: String = "알 수 없는 지역"
@@ -30,13 +32,39 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     }()
     
     
+    
+    
     // MARK : - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        print("\(self.navigationController?.viewControllers)")
+        //        print("\(self.navigationController?.viewControllers)")
     }
+    
+    
+    
+    
+    
+    // MARK : - Date Method
+    func getTodayDate() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+//        dateFormatter.dateStyle = .medium
+//        dateFormatter.timeStyle = .medium
+//        dateFormatter.dateFormat = "======================================YYYY-MM-d hh:00:00"
+        dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
+        let dateString = dateFormatter.string(from: date)
+//        print(dateFormatter.string(from: date))
+        return dateString
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     // MARK : - Location Method
     func checkLocationStatus() {

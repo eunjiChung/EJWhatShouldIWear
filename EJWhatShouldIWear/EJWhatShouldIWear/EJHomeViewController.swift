@@ -13,6 +13,8 @@ import CoreLocation
 
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate  {
     
+    // MARK : - Data
+    var WeatherList: [EJFiveDaysList]?
     var currentTemp: String?
 
     // MARK : - IBOutlet
@@ -62,13 +64,18 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
-            cell.locationLabel.text = self.location
-            cell.currentTempLabel.text = self.currentTemp
-//            cell.setTodayTemperature()
+            if let list = WeatherList {
+                cell.setTodayTemperature(by: list, location: self.location)
+            }
             
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
+            
+            if let list = WeatherList {
+                cell.setTimelyTable(info:list)
+            }
+            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekelyWeatherTableViewCell.identifier, for: indexPath) as! WeekelyWeatherTableViewCell
@@ -164,40 +171,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     // MARK : - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let current = locations.last {
-            
-            let coordinate = current.coordinate
-            WeatherManager.latitude = coordinate.latitude
-            WeatherManager.longitude = coordinate.longitude
-            
-            WeatherManager.CurrentWeatherInfo(success: { (result) in
-                
-                let currentModel = EJCurrentWeather.init(object: result)
-                let mainModel = currentModel.main!
-                self.currentTemp = "\(Int(mainModel.temp! - 273.15))도"
-                
-                let geoCoder = CLGeocoder()
-                geoCoder.reverseGeocodeLocation(current) { (list, error) in
-                    if let error = error {
-                        print(error)
-                    } else {
-                        if let first = list?.first {
-                            if let gu = first.locality, let dong = first.subLocality {
-                                let newlocation = "\(gu) \(dong)"
-                                self.location = newlocation
-                                
-                                // 근데 이걸 여기서 하는게 맞나? - 맞아!
-                                self.mainTableView.reloadData()
-                            } else {
-                                print("알 수 없는 지역")
-                            }
-                        }
-                    }
-                }
-                
-            }) { (error) in
-                print(error)
-            }
-            
+            setCurrentCoordinate(by: current.coordinate)
+            requestWeather(which: current)
         }
         
         locationManager.stopUpdatingLocation()
@@ -235,5 +210,39 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
     }
     
+    private func setCurrentCoordinate(by info:CLLocationCoordinate2D) {
+        WeatherManager.latitude = info.latitude
+        WeatherManager.longitude = info.longitude
+    }
+    
+    private func requestWeather(which current: CLLocation) {
+        WeatherManager.CurrentWeatherInfo(success: { (result) in
+            let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
+            self.WeatherList = fivedaysWeather.list
+            self.setCurrentLocation(which: current)
+        }) { (error) in
+            print(error)
+        }
+    }
+    
+    private func setCurrentLocation(which current: CLLocation) {
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(current) { (list, error) in
+            if let error = error {
+                print(error)
+            } else {
+                if let first = list?.first {
+                    if let gu = first.locality, let dong = first.subLocality {
+                        self.location = "\(gu) \(dong)"
+                        
+                        // 근데 이걸 여기서 하는게 맞나? - 맞아!
+                        self.mainTableView.reloadData()
+                    } else {
+                        print("알 수 없는 지역")
+                    }
+                }
+            }
+        }
+    }
 
 }

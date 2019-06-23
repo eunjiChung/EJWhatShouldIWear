@@ -11,7 +11,7 @@ import UIKit
 class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     static let identifier = "TimeWeahtherTableViewCell"
-    var weatherInfo: [String:String]?
+    var weatherInfo: [EJFiveDaysList]?
     var timeRelease: String?
     var timeArray: [String]?
     var tempArray: [String]?
@@ -28,10 +28,16 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         collectionView.register(UINib.init(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: TimeCollectionViewCell.identifier)
     }
     
+    // MARK : -
+    func setTimelyTable(info: [EJFiveDaysList]) {
+        weatherInfo = info
+        collectionView.reloadData()
+    }
+    
     
     // MARK : - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -39,7 +45,7 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         let item = indexPath.item
         
-//        cell.setHourlyWeather(item)
+        cell.setHourlyWeather(item)
         
         return cell
     }

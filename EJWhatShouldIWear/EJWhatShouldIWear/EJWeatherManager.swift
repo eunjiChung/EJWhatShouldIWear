@@ -28,7 +28,7 @@ class EJWeatherManager: NSObject {
     func CurrentWeatherInfo(success: @escaping SuccessHandler,
                             failure: @escaping FailureHandler) {
         
-        httpClient.weatherRequest(lat:latitude, lon:longitude, to: "weather",
+        httpClient.weatherRequest(lat:latitude, lon:longitude, to: "forecast",
                                          success: success,
                                          failure: failure)
     }

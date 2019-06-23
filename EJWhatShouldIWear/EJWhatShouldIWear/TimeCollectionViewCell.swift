@@ -32,7 +32,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     
     // MARK : - Public Method
-//    public func setHourlyWeather(_ index: Int) {
+    public func setHourlyWeather(_ index: Int) {
+        
 //        WeatherManager.HourlyWeatherInfo(success: { (time, hourArray) in
 //
 //            let timeGap = self.timeJump(index)
@@ -47,7 +48,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
 //        }) { (error) in
 //            print(error)
 //        }
-//    }
+    }
     
     // MARK : - Private Method
     fileprivate func getTime(from string: String, to index: Int) -> Int {

@@ -47,14 +47,12 @@ class ShowClothTableViewCell: UITableViewCell {
 
     
     // MARK : - Public Method
-//    public func setTodayTemperature() {
-//        WeatherManager.CurrentWeatherInfo(success: { (result) in
-//            let temp = WeatherManager.changeValidTempString(result)
-//            self.currentTempLabel.text = "현재 온도 \(temp)℃"
-//        }) { (error) in
-//            print(error)
-//        }
-//    }
+    public func setTodayTemperature(by list: [EJFiveDaysList], location: String) {
+        
+        locationLabel.text = location
+        currentTempLabel.text = "현재 온도 ℃"
+        
+    }
     
     
     
