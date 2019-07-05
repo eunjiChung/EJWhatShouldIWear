@@ -13,20 +13,20 @@ import CoreLocation
 
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate  {
     
-    // MARK : - Data
+    // MARK: - Data
     var WeatherDescript: EJWeather?
     var WeatherInfo: EJMain?
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var currentTemp: String?
 
     
-    // MARK : - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var splashContainer: UIView!
     
     
-    // MARK : - View Life Cycle
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -100,7 +100,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     
-    // MARK : - TableView Delegate
+    // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
@@ -146,7 +146,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     
-    // MARK : - Splash Method
+    // MARK: - Splash Method
     func removeSplashScene() {
         if self.splashContainer != nil {
             DispatchQueue.main.async {
@@ -160,7 +160,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     
-    // MARK : - Prepare for Segue
+    // MARK: - Prepare for Segue
     @IBAction func didTouchMenuBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "home_sidemenu_segue", sender: self)
     }
@@ -188,7 +188,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     
     
-    // MARK : - CLLocationManagerDelegate
+    // MARK: - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if let current = locations.last {
@@ -214,7 +214,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     
     
-    // MARK : - Private Method
+    // MARK: - Private Method
     private func configureSideMenu() {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuWidth = EJSize(300.0)
@@ -233,7 +233,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     
-    // MARK : - Request Weather Info
+    // MARK: - Request Weather Info
     private func setCurrentLocation(from coordinate:CLLocationCoordinate2D) {
         WeatherManager.latitude = coordinate.latitude
         WeatherManager.longitude = coordinate.longitude

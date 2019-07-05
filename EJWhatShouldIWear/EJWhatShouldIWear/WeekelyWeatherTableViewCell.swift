@@ -23,14 +23,14 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var weatherTellingLabel: UILabel!
     
 
-    // MARK : - View Life Cycle
+    // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
         dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
     }
     
-    // MARK : - Public Method
+    // MARK: - Public Method
     public func setWeekelyInfo(by info: [EJFiveDaysList],to index: Int) {
         self.weatherList = info
         
@@ -39,7 +39,7 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
         weatherTellingLabel.text = "\(tellWeatherCondition(of: index))"
     }
     
-    // MARK : - Private Method
+    // MARK: - Private Method
     private func getWeekday(of index: Int) -> String {
         var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
         
@@ -79,7 +79,7 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     }
     
     
-    // MARK : - Date Method
+    // MARK: - Date Method
     func getTodayDate() -> String {
         let dateString = dateFormatter.string(from: today)
         return dateString

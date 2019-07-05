@@ -22,7 +22,7 @@ class AdmobTableViewCell: UITableViewCell {
         self.addSubview(banner)
     }
 
-    // MARK : - Admob Method
+    // MARK: - Admob Method
     func createAdmob(_ viewController: UIViewController) {
         banner.adUnitID = googleAdmobUnitID
         banner.rootViewController = viewController

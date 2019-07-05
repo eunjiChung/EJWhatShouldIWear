@@ -10,7 +10,7 @@ import UIKit
 
 class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
-    // MARK : - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -18,7 +18,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     @IBOutlet weak var alcBottomOfSendBtn: NSLayoutConstraint!
     
-    // MARK : - View Life Cycle
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +29,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
         registerKeyboardNotification()
     }
     
-    // MARK : - KeyBoard Related Method
+    // MARK: - KeyBoard Related Method
     func registerKeyboardNotification () {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -67,12 +67,12 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     
     
-    // MARK : - Action Method
+    // MARK: - Action Method
     @IBAction func didTouchBackBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK : - Kakao Share Link Method
+    // MARK: - Kakao Share Link Method
     @IBAction func didTouchShareBtn(_ sender: Any) {
         
         let template = KMTFeedTemplate { (feedTemplateBuilder) in

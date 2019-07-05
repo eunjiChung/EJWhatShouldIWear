@@ -12,7 +12,7 @@ class SideMenuFeedbackTableViewCell: UITableViewCell {
     
     static let identifier = "SideMenuFeedbackTableViewCell"
     
-    // MAKR : - Alc Of Constraints
+    // MAKR: - Alc Of Constraints
     @IBOutlet weak var alcLeadingOfFeedbackLabel: NSLayoutConstraint!
     @IBOutlet weak var alcWidthOfFeedBackImageView: NSLayoutConstraint!
     @IBOutlet weak var mailLabel: UILabel!

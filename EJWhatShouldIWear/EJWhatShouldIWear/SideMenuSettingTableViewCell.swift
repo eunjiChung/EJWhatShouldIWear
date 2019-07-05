@@ -12,7 +12,7 @@ class SideMenuSettingTableViewCell: UITableViewCell {
     
     static let identifier = "SideMenuSettingTableViewCell"
     
-    // MARK : - Alc Of Constraints
+    // MARK: - Alc Of Constraints
     @IBOutlet weak var alcWidthOfSettingImageView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSettingLabel: NSLayoutConstraint!
     @IBOutlet weak var setLabel: UILabel!

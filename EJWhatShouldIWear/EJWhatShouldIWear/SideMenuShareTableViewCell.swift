@@ -12,11 +12,11 @@ class SideMenuShareTableViewCell: UITableViewCell {
     
     static let identifier = "SideMenuShareTableViewCell"
     
-    // MARK : - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var shareLabel: UILabel!
     
-    // MARK : - Alc Of Constraints
+    // MARK: - Alc Of Constraints
     @IBOutlet weak var alcWidthOfShareImageView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfShareLabel: NSLayoutConstraint!
     

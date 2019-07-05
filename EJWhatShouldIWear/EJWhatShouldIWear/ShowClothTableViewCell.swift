@@ -31,7 +31,7 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var alcHeightOfYesterdayLabel: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfYesterdayLabel: NSLayoutConstraint!
     
-    // MARK : - View Life Cycle
+    // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -45,7 +45,7 @@ class ShowClothTableViewCell: UITableViewCell {
     }
 
     
-    // MARK : - Public Method
+    // MARK: - Public Method
     public func setCurrentLocality(by locationStr:String) {
         locationLabel.text = locationStr
     }

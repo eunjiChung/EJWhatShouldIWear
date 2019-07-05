@@ -9,11 +9,11 @@
 import UIKit
 import SwiftyJSON
 
-// MARK : - Type Alias
+// MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
 typealias FailureHandler = (Error) -> ()
 
-// MARK : - Shared Instance
+// MARK: - Shared Instance
 let WeatherManager = EJWeatherManager.sharedInstance
 
 class EJWeatherManager: NSObject {
@@ -24,7 +24,7 @@ class EJWeatherManager: NSObject {
     
     let httpClient = EJHTTPClient.init()
     
-    // MARK : - HTTP Request
+    // MARK: - HTTP Request
     func CurrentWeatherInfo(success: @escaping SuccessHandler,
                             failure: @escaping FailureHandler) {
         print("Locality : \(latitude), \(longitude)")
@@ -48,7 +48,7 @@ class EJWeatherManager: NSObject {
         
     }
     
-    // MARK : - Public Method
+    // MARK: - Public Method
     public func weatherCondition(of id:Int) -> String {
         if 200 <= id && id < 600 {
             return LocalizedString(with: "rainy")

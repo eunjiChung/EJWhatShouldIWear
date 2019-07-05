@@ -10,12 +10,12 @@ import UIKit
 
 class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // MARK : - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var sideMenuTableView: UITableView!
     var curLocation: String?
     
     
-    // MARK : - View Life Cycle
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -44,7 +44,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     }
     
     
-    // MARK : - TableView Delegate
+    // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
@@ -68,7 +68,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
         }
     }
     
-    // MARK : - Private Method
+    // MARK: - Private Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "sidemenu_setting_segue" {

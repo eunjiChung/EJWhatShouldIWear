@@ -8,35 +8,35 @@
 
 import UIKit
 
-// MARK : - API Path
+// MARK: - API Path
 public let owmAPIPath                                  =   "http://api.openweathermap.org/data/2.5/"
 
-// MARK : - App Key
+// MARK: - App Key
 public let owmAppKey                                   =   "a773e2be7cd5ee1befcfc2fc349d43ad"
 public let googleAdmobAppID                            =   "ca-app-pub-1994779937843028~3906710093"
 public let googleAdmobUnitID                           =   "ca-app-pub-1994779937843028/3973448265"
 //public let googleAdmobUnitID                           =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
 
-// MARK : - Screen Size
+// MARK: - Screen Size
 public let EJ_SCREEN_WIDTH: CGFloat             =   UIScreen.main.bounds.width
 public let EJ_SCREEN_HEIGHT: CGFloat            =   UIScreen.main.bounds.height
 public let EJ_SCREEN_WIDTH_414: CGFloat         =   414.0
 
-// MARK : - Shared Instance
+// MARK: - Shared Instance
 let Library = EJLibrary.sharedInstance
 
-// MARK : - Auto Layout
+// MARK: - Auto Layout
 func EJSize(_ standardSize: CGFloat) -> CGFloat {
     return round(standardSize * (EJ_SCREEN_WIDTH / EJ_SCREEN_WIDTH_414))
 }
 
-// MARK : - Localizable
+// MARK: - Localizable
 func LocalizedString(with key: String) -> String {
     let localString = NSLocalizedString(key, comment: "")
     return localString
 }
 
-// MARK : - Class EJLibrary
+// MARK: - Class EJLibrary
 class EJLibrary: NSObject {
     static let sharedInstance = EJLibrary()
 }

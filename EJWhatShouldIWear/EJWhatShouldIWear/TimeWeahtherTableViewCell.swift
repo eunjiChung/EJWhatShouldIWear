@@ -28,14 +28,14 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         collectionView.register(UINib.init(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: TimeCollectionViewCell.identifier)
     }
     
-    // MARK : - Setting WeatherInfo Method
+    // MARK: - Setting WeatherInfo Method
     func setTimelyTable(by info: [EJFiveDaysList]) {
         weatherInfo = info
         collectionView.reloadData()
     }
     
     
-    // MARK : - CollectionView Data Source
+    // MARK: - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
     }
@@ -53,7 +53,7 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         return cell
     }
     
-    // MARK : - CollectionView FlowLayout Delegate
+    // MARK: - CollectionView FlowLayout Delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: EJSize(100.0), height: EJSize(160.0))
     }

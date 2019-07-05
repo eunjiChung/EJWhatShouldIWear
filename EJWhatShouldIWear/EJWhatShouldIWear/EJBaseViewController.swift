@@ -19,7 +19,7 @@ let EJSegueSetting                      = "setting_segue"
 
 class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate{
     
-    // MARK : - Global instance
+    // MARK: - Global instance
     let composeVC = MFMailComposeViewController()
     var location: String = LocalizedString(with: "unknown")
     
@@ -30,13 +30,13 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     }()
     
     
-    // MARK : - View Life Cycle    
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     
-    // MARK : - Location Method
+    // MARK: - Location Method
     func checkLocationStatus() {
         let status = CLLocationManager.authorizationStatus()
         switch status {
@@ -54,7 +54,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     
-    // MARK : - Instance for View Controller
+    // MARK: - Instance for View Controller
     func sendEmailWithCompose() {
         if MFMailComposeViewController.canSendMail() {
             composeVC.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
@@ -68,14 +68,14 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
         }
     }
    
-    // MARK : - MFMailComposeViewControllerDelegate
+    // MARK: - MFMailComposeViewControllerDelegate
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
     
     
     
-    // MARK : - Alert Controller
+    // MARK: - Alert Controller
     func popAlertVC(_ controller: UIViewController, with title:String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: LocalizedString(with: "btn_ok"), style: .default, handler: nil))
@@ -84,7 +84,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     
     
-    // MARK : - Pull To Refresh
+    // MARK: - Pull To Refresh
     func addPullToRefreshControl(toScrollView: UIScrollView, completionHandler: @escaping () -> ()) {
         DispatchQueue.main.async {
             toScrollView.es.addPullToRefresh {

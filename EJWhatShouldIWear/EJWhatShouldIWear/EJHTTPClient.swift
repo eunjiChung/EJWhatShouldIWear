@@ -12,12 +12,12 @@ import SwiftyJSON
 
 class EJHTTPClient: NSObject {
     
-    // MARK : - Initialize
+    // MARK: - Initialize
     override init() {
         super.init()
     }
     
-    // MARK : - Alamofire
+    // MARK: - Alamofire
     func weatherRequest(lat:Double, lon:Double, to type:String,
                       success: @escaping ([String: Any]) -> (),
                       failure: @escaping (Error) -> ()) {

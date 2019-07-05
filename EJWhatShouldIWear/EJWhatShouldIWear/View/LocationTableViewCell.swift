@@ -10,7 +10,7 @@ import UIKit
 
 class LocationTableViewCell: UITableViewCell {
     
-    // MARK : - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var myLocationLabel: UILabel!
     

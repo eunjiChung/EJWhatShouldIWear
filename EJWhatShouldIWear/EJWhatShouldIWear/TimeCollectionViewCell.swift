@@ -12,7 +12,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TimeCollectionViewCell"
     
-    // MARK : - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var clothImageView: UIImageView!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -22,7 +22,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcHeightOfTempLabel: NSLayoutConstraint!
     
 
-    // MARK : - View Life Cycle
+    // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -31,7 +31,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     }
     
     
-    // MARK : - Public Method
+    // MARK: - Public Method
     public func setHourlyWeather(by info: EJFiveDaysList) {
         
         let hour = LocalizedString(with: "hour")
@@ -49,7 +49,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    // MARK : - Private Method
+    // MARK: - Private Method
     fileprivate func getTime(from string: String) -> Int {
         let array = string.components(separatedBy: " ")
         let onlyTime = array[1]

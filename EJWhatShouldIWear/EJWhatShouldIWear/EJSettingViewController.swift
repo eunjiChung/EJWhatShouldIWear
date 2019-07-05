@@ -11,7 +11,7 @@ import CoreLocation
 
 class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // MARK : - Instance
+    // MARK: - Instance
     var curLocation : String? = nil
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,13 +22,13 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     }
     
     
-    // MARK : - IBOutlet Action
+    // MARK: - IBOutlet Action
     @IBAction func didTouchBackButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     
-    // MARK : - TableView Data Source
+    // MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -47,7 +47,7 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         }
     }
     
-    // MARK : - TableView Delegate
+    // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return EJSize(70.0)
     }

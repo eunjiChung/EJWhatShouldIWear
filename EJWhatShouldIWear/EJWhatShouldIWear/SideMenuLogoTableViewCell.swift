@@ -12,10 +12,10 @@ class SideMenuLogoTableViewCell: UITableViewCell {
     
     static let identifier = "SideMenuLogoTableViewCell"
     
-    // MARK : - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var logoImageView: UIImageView!
     
-    // MARK : - Contraints
+    // MARK: - Contraints
     @IBOutlet weak var alcHeightOfWSIWLabel: NSLayoutConstraint!
     
 
