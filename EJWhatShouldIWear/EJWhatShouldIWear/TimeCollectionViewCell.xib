@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,48 +13,45 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCollectionViewCell" id="gTV-IL-0wX" customClass="TimeCollectionViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="179" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="67" height="131"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="179" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="67" height="131"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNK-z9-CNr">
-                        <rect key="frame" x="0.0" y="0.0" width="179" height="250"/>
+                        <rect key="frame" x="0.0" y="0.0" width="67" height="131"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frock" translatesAutoresizingMaskIntoConstraints="NO" id="TRs-tS-ggl">
-                                <rect key="frame" x="0.0" y="0.0" width="179" height="150"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_hot_pants_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TRs-tS-ggl">
+                                <rect key="frame" x="0.0" y="78" width="67" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Rdf-Pu-0us"/>
+                                    <constraint firstAttribute="height" constant="44" id="ZJe-cG-GTK"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00시" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDy-ir-MrN">
-                                <rect key="frame" x="0.0" y="150" width="179" height="50"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="7" width="67" height="16"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-qE-yWx">
-                                <rect key="frame" x="0.0" y="200" width="179" height="50"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="45" width="67" height="24"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <color key="textColor" red="0.29803921568627451" green="0.30588235294117649" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gDy-ir-MrN" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="1Bx-h4-VUs"/>
-                            <constraint firstItem="bF7-qE-yWx" firstAttribute="top" secondItem="gDy-ir-MrN" secondAttribute="bottom" id="2Nb-6H-kBX"/>
-                            <constraint firstItem="bF7-qE-yWx" firstAttribute="top" secondItem="gDy-ir-MrN" secondAttribute="bottom" id="4z5-ck-7Ww"/>
-                            <constraint firstItem="TRs-tS-ggl" firstAttribute="top" secondItem="uNK-z9-CNr" secondAttribute="top" id="CW1-vv-PY0"/>
-                            <constraint firstItem="gDy-ir-MrN" firstAttribute="top" secondItem="TRs-tS-ggl" secondAttribute="bottom" id="GCD-um-ehT"/>
-                            <constraint firstAttribute="trailing" secondItem="bF7-qE-yWx" secondAttribute="trailing" id="JgV-pF-OGr"/>
-                            <constraint firstItem="TRs-tS-ggl" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="Pnd-pD-bAi"/>
-                            <constraint firstAttribute="trailing" secondItem="TRs-tS-ggl" secondAttribute="trailing" id="Rzu-cM-D2o"/>
-                            <constraint firstAttribute="trailing" secondItem="gDy-ir-MrN" secondAttribute="trailing" id="Yc8-Fg-8L5"/>
-                            <constraint firstItem="bF7-qE-yWx" firstAttribute="height" secondItem="gDy-ir-MrN" secondAttribute="height" id="aBE-FL-NXt"/>
-                            <constraint firstItem="bF7-qE-yWx" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="fdR-pl-tQd"/>
-                            <constraint firstAttribute="bottom" secondItem="bF7-qE-yWx" secondAttribute="bottom" id="vOa-Xo-LFS"/>
+                            <constraint firstAttribute="trailing" secondItem="TRs-tS-ggl" secondAttribute="trailing" id="0nk-hy-ilP"/>
+                            <constraint firstAttribute="trailing" secondItem="bF7-qE-yWx" secondAttribute="trailing" id="4Fk-gD-Laj"/>
+                            <constraint firstItem="gDy-ir-MrN" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="8Un-Fx-kKs"/>
+                            <constraint firstAttribute="trailing" secondItem="gDy-ir-MrN" secondAttribute="trailing" id="8W9-cs-rx8"/>
+                            <constraint firstItem="TRs-tS-ggl" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="BN2-3Z-W8d"/>
+                            <constraint firstItem="bF7-qE-yWx" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="H2U-Mf-8YN"/>
+                            <constraint firstItem="TRs-tS-ggl" firstAttribute="top" secondItem="bF7-qE-yWx" secondAttribute="bottom" constant="9" id="ela-Kc-jeV"/>
+                            <constraint firstItem="gDy-ir-MrN" firstAttribute="top" secondItem="uNK-z9-CNr" secondAttribute="top" constant="7" id="kAL-bT-79p"/>
+                            <constraint firstItem="bF7-qE-yWx" firstAttribute="top" secondItem="gDy-ir-MrN" secondAttribute="bottom" constant="22" id="uOU-fS-3ed"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -68,16 +65,14 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="179" height="250"/>
             <connections>
-                <outlet property="alcHeightOfClothImageView" destination="Rdf-Pu-0us" id="2Qk-ZH-RgG"/>
-                <outlet property="alcHeightOfTempLabel" destination="aBE-FL-NXt" id="nO2-Iw-9x8"/>
                 <outlet property="clothImageView" destination="TRs-tS-ggl" id="OZv-e7-Pac"/>
                 <outlet property="hourLabel" destination="gDy-ir-MrN" id="Xzv-pH-s95"/>
                 <outlet property="tempLabel" destination="bF7-qE-yWx" id="5On-83-gww"/>
             </connections>
-            <point key="canvasLocation" x="156" y="138.53073463268368"/>
+            <point key="canvasLocation" x="156" y="138.0809595202399"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="frock" width="256" height="256"/>
+        <image name="big_hot_pants_icon" width="105" height="105"/>
     </resources>
 </document>
