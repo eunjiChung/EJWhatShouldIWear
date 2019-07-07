@@ -22,7 +22,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     // MARK: - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
-    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var splashContainer: UIView!
     
     
@@ -49,12 +48,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 2:
-            return 4
-        default:
-            return 1
-        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,13 +73,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: WeekelyWeatherTableViewCell.identifier, for: indexPath) as! WeekelyWeatherTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: WeekContainerTableViewCell.identifier, for: indexPath) as! WeekContainerTableViewCell
             
-            let item = indexPath.item
-            
-            if let info = FiveDaysWeatherList {
-                cell.setWeekelyInfo(by: info, to: item)
-            }
+//            if let info = FiveDaysWeatherList {
+//                cell.setWeekelyTimeTable(by:info)
+//            }
             
             return cell
         case 3:
@@ -105,13 +97,13 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
         switch indexPath.section {
         case 0:
-            return EJSize(540.0)
+            return EJSize(392.0)
         case 1:
-            return EJSize(200.0)
+            return EJSize(261.0)
         case 2:
-            return EJSize(50.0)
+            return EJSize(220.0)
         case 3:
-            return EJSize(50.0)
+            return EJSize(60.0)
         default:
             return EJSize(80.0)
         }
@@ -120,18 +112,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as! HeaderTableViewCell
-        
-        switch section {
-        case 1:
-            cell.headerLabel.text = LocalizedString(with: "main_timely")
-        case 2:
-            cell.headerLabel.text = LocalizedString(with: "main_weekely")
-        case 3:
-            cell.headerLabel.text = LocalizedString(with: "main_ad")
-        default:
-            cell.headerLabel.text = ""
-        }
-        
         return cell
     }
     
@@ -139,7 +119,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
         switch section {
         case 1, 2, 3:
-            return EJSize(40.0)
+            return EJSize(7.0)
         default:
             return 0
         }
@@ -217,7 +197,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     // MARK: - Private Method
     private func configureSideMenu() {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = EJSize(300.0)
+        SideMenuManager.default.menuWidth = EJSize(263.0)
         SideMenuManager.default.menuAnimationFadeStrength = 0.7
         SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
         SideMenuManager.default.menuShadowColor = UIColor.clear
@@ -226,7 +206,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     private func registerNibs() {
         mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "WeekelyWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekelyWeatherTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "WeekContainerTableViewCell", bundle: nil), forCellReuseIdentifier: WeekContainerTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)

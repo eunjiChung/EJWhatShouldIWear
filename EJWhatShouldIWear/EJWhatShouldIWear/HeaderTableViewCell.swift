@@ -13,8 +13,6 @@ class HeaderTableViewCell: UITableViewCell {
     static let identifier = "HeaderTableViewCell"
     
     // MARK: - IBOutlets
-    @IBOutlet weak var headerLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

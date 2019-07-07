@@ -17,15 +17,11 @@ class SideMenuShareTableViewCell: UITableViewCell {
     @IBOutlet weak var shareLabel: UILabel!
     
     // MARK: - Alc Of Constraints
-    @IBOutlet weak var alcWidthOfShareImageView: NSLayoutConstraint!
-    @IBOutlet weak var alcLeadingOfShareLabel: NSLayoutConstraint!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        alcWidthOfShareImageView.constant = EJSize(28.0)
-        alcLeadingOfShareLabel.constant = EJSize(16.0)
         shareLabel.text = LocalizedString(with: "share")
     }
 }

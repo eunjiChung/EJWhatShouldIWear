@@ -1,16 +1,16 @@
 //
-//  WeekelyWeatherTableViewCell.swift
+//  WeekelyCollectionViewCell.swift
 //  EJWhatShouldIWear
 //
-//  Created by DEV_MOBILE_IOS_JUNIOR on 16/05/2019.
+//  Created by CHUNGEUNJI on 07/07/2019.
 //  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 //
 
 import UIKit
 
-class WeekelyWeatherTableViewCell: UITableViewCell {
-    
-    static let identifier = "WeekelyWeatherTableViewCell"
+class WeekelyCollectionViewCell: UICollectionViewCell {
+ 
+    static let identifier = "WeekelyCollectionViewCell"
     
     let today = Date()
     let dateFormatter = DateFormatter()
@@ -22,7 +22,7 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherTellingLabel: UILabel!
     
-
+    
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +51,7 @@ class WeekelyWeatherTableViewCell: UITableViewCell {
         let day = (component.weekday! + index) % 7
         
         // 3. 해당 day만큼 weekDay 문자열 배열에 있는 값을 리턴한다
-        return LocalizedString(with: weekDay[day]) 
+        return LocalizedString(with: weekDay[day])
     }
     
     private func getTemp(of index: Int) -> Int {

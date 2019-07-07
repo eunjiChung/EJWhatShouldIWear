@@ -16,19 +16,10 @@ class SideMenuLogoTableViewCell: UITableViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
     
     // MARK: - Contraints
-    @IBOutlet weak var alcHeightOfWSIWLabel: NSLayoutConstraint!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        alcHeightOfWSIWLabel.constant = EJSize(48.0)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
