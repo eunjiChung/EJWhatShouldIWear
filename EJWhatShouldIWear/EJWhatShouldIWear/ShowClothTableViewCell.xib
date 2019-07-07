@@ -150,11 +150,15 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="currentTempLabel" destination="OFe-WJ-bMy" id="ZWK-Ob-cLr"/>
                 <outlet property="firstClothImageView" destination="8u2-sD-mC3" id="9sh-N9-aby"/>
+                <outlet property="firstClothLabel" destination="ZZq-nP-c8R" id="1j8-Vq-vUE"/>
                 <outlet property="locationLabel" destination="D3P-zl-9qy" id="Uhc-uw-OrU"/>
                 <outlet property="secondClothImageview" destination="KUY-CS-72v" id="UOj-41-aMq"/>
+                <outlet property="secondClothLabel" destination="kAK-qB-R9s" id="9m3-lS-p2b"/>
+                <outlet property="suggestLabel" destination="I8U-aG-kZU" id="hPy-oN-Usg"/>
                 <outlet property="thirdClothImageView" destination="a10-ez-e8W" id="JZt-Gy-bqx"/>
-                <outlet property="yesterdayLabel" destination="I8U-aG-kZU" id="FL9-ei-Wqu"/>
+                <outlet property="thirdClothLabel" destination="zeG-WP-atu" id="VD1-vN-aqe"/>
             </connections>
             <point key="canvasLocation" x="162.40000000000001" y="232.01970443349754"/>
         </tableViewCell>

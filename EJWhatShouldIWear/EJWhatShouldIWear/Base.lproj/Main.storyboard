@@ -640,6 +640,7 @@
                         <viewLayoutGuide key="safeArea" id="a9U-X1-d2a"/>
                     </view>
                     <connections>
+                        <outlet property="alcBottomOfSendBtn" destination="h8f-g1-6Ri" id="wDY-lm-S54"/>
                         <outlet property="btnLabel" destination="rvV-ob-XbF" id="2z0-9G-h5j"/>
                         <outlet property="textView" destination="GKW-Ko-UnK" id="Rk7-NC-vle"/>
                     </connections>

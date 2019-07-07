@@ -19,29 +19,17 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var secondClothImageview: UIImageView!
     @IBOutlet weak var thirdClothImageView: UIImageView!
     @IBOutlet weak var suggestLabel: UILabel!
-    @IBOutlet weak var yesterdayLabel: UILabel!
-    @IBOutlet weak var feelingLabel: UILabel!
+    @IBOutlet weak var firstClothLabel: UILabel!
+    @IBOutlet weak var secondClothLabel: UILabel!
+    @IBOutlet weak var thirdClothLabel: UILabel!
     
     // MARK: - Constraints
-    
-    @IBOutlet weak var alcTopOfLocationLabel: NSLayoutConstraint!
-    @IBOutlet weak var alcHeightOfClothImageView: NSLayoutConstraint!
-    @IBOutlet weak var alcTopOfCurrentTempLabel: NSLayoutConstraint!
-    @IBOutlet weak var alcHeightOfSuggestLabel: NSLayoutConstraint!
-    @IBOutlet weak var alcHeightOfYesterdayLabel: NSLayoutConstraint!
-    @IBOutlet weak var alcBottomOfYesterdayLabel: NSLayoutConstraint!
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Initialization code
-        alcTopOfLocationLabel.constant = EJSize(20.0)
-        alcHeightOfClothImageView.constant = EJSize(250.0)
-//        alcTopOfCurrentTempLabel.constant = EJSize(21.0)
-        alcHeightOfSuggestLabel.constant = EJSize(45.5)
-        alcHeightOfYesterdayLabel.constant = EJSize(47.0)
-        alcBottomOfYesterdayLabel.constant = EJSize(30.0)
     }
 
     
@@ -55,7 +43,7 @@ class ShowClothTableViewCell: UITableViewCell {
             // 나라별 온도 사용 단위
             let intTemp = Int(temp) - 273
             currentTempLabel.text = "\(intTemp)℃"
-            yesterdayLabel.text = WeatherManager.weatherCondition(of: id)
+            suggestLabel.text = WeatherManager.weatherCondition(of: id)
         }
     }
     

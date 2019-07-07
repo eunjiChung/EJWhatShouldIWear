@@ -13,9 +13,9 @@ class WeekContainerTableViewCell: UITableViewCell, UICollectionViewDataSource, U
     // MARK: - Instances
     static let identifier = "WeekContainerTableViewCell"
     var weatherInfo: [EJFiveDaysList]?
-    var timeRelease: String?
-    var timeArray: [String]?
-    var tempArray: [String]?
+//    var timeRelease: String?
+//    var timeArray: [String]?
+//    var tempArray: [String]?
     
     // MARK: - IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,6 +27,12 @@ class WeekContainerTableViewCell: UITableViewCell, UICollectionViewDataSource, U
         collectionView.delegate = self as UICollectionViewDelegate
         
         collectionView.register(UINib.init(nibName: "WeekelyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: WeekelyCollectionViewCell.identifier)
+    }
+    
+    
+    func setWeekelyTimeTable(by info: [EJFiveDaysList]) {
+        weatherInfo = info
+        collectionView.reloadData()
     }
     
     // MARK: - CollectionView DataSource

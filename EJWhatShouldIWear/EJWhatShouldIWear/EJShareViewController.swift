@@ -22,9 +22,9 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = LocalizedString(with: "share_title")
+//        titleLabel.text = LocalizedString(with: "share_title")
         textView.text = LocalizedString(with: "share_placeholder")
-        mainLabel.text = LocalizedString(with: "share_limit")
+//        mainLabel.text = LocalizedString(with: "share_limit")
         btnLabel.setTitle(LocalizedString(with: "share_btn"), for: .normal)
         registerKeyboardNotification()
     }

@@ -18,16 +18,10 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tempLabel: UILabel!
     
     // MARK: - Alc of Constraints
-    @IBOutlet weak var alcHeightOfClothImageView: NSLayoutConstraint!
-    @IBOutlet weak var alcHeightOfTempLabel: NSLayoutConstraint!
-    
 
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        alcHeightOfClothImageView.constant = EJSize(120.0)
-        alcHeightOfTempLabel.constant = EJSize(15.0)
     }
     
     

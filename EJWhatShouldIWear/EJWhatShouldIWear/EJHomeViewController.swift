@@ -75,9 +75,9 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekContainerTableViewCell.identifier, for: indexPath) as! WeekContainerTableViewCell
             
-//            if let info = FiveDaysWeatherList {
-//                cell.setWeekelyTimeTable(by:info)
-//            }
+            if let info = FiveDaysWeatherList {
+                cell.setWeekelyTimeTable(by:info)
+            }
             
             return cell
         case 3:
