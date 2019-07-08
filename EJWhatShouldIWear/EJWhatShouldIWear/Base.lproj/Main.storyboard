@@ -123,10 +123,10 @@
                             <constraint firstItem="GrP-DV-OPP" firstAttribute="top" secondItem="NXU-VR-YB0" secondAttribute="top" id="PEM-lt-tXg"/>
                             <constraint firstItem="hrt-2V-87B" firstAttribute="top" secondItem="NXU-VR-YB0" secondAttribute="top" id="PTr-LL-gWf"/>
                             <constraint firstItem="GrP-DV-OPP" firstAttribute="leading" secondItem="Cyd-4P-na3" secondAttribute="leading" id="Seg-5l-rUV"/>
-                            <constraint firstItem="3WV-P4-Caj" firstAttribute="leading" secondItem="Cyd-4P-na3" secondAttribute="leading" id="gnM-dN-bRk"/>
+                            <constraint firstItem="3WV-P4-Caj" firstAttribute="leading" secondItem="NXU-VR-YB0" secondAttribute="leading" id="gnM-dN-bRk"/>
                             <constraint firstAttribute="bottom" secondItem="3WV-P4-Caj" secondAttribute="bottom" id="hVT-nV-6eg"/>
                             <constraint firstItem="GrP-DV-OPP" firstAttribute="trailing" secondItem="Cyd-4P-na3" secondAttribute="trailing" id="j6A-DN-DVW"/>
-                            <constraint firstItem="Cyd-4P-na3" firstAttribute="trailing" secondItem="3WV-P4-Caj" secondAttribute="trailing" id="jno-U7-jHd"/>
+                            <constraint firstAttribute="trailing" secondItem="3WV-P4-Caj" secondAttribute="trailing" id="jno-U7-jHd"/>
                             <constraint firstItem="3WV-P4-Caj" firstAttribute="top" secondItem="GrP-DV-OPP" secondAttribute="bottom" id="rHA-T1-R4E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cyd-4P-na3"/>
