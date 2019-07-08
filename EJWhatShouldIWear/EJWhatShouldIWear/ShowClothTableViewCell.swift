@@ -28,7 +28,6 @@ class ShowClothTableViewCell: UITableViewCell {
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     
@@ -43,6 +42,17 @@ class ShowClothTableViewCell: UITableViewCell {
             let intTemp = Int(temp) - 273
             currentTempLabel.text = "\(intTemp)"
             suggestLabel.text = WeatherManager.weatherCondition(of: id)
+            
+            let weatherStyle = WeatherManager.setTodayStyle(by: intTemp, id: id)
+            let weatherClothes = weatherStyle.keys.map { $0 }
+            
+            firstClothImageView.image = weatherClothes[0]
+            firstClothLabel.text = weatherStyle[weatherClothes[0]]
+            secondClothImageview.image = weatherClothes[1]
+            secondClothLabel.text = weatherStyle[weatherClothes[1]]
+            thirdClothImageView.image = weatherClothes[2]
+            thirdClothLabel.text = weatherStyle[weatherClothes[2]]
+            
         }
     }
     
