@@ -73,7 +73,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: WeekContainerTableViewCell.identifier, for: indexPath) as! WeekContainerTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: WeekWeatherTableViewCell.identifier, for: indexPath) as! WeekWeatherTableViewCell
             
             if let info = FiveDaysWeatherList {
                 cell.setWeekelyTimeTable(by:info)
@@ -206,7 +206,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     private func registerNibs() {
         mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "WeekContainerTableViewCell", bundle: nil), forCellReuseIdentifier: WeekContainerTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "WeekWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekWeatherTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)

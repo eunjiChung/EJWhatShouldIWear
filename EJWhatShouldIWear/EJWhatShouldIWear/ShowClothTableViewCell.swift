@@ -29,7 +29,6 @@ class ShowClothTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Initialization code
     }
 
     
@@ -42,7 +41,7 @@ class ShowClothTableViewCell: UITableViewCell {
         if let temp = info.temp, let id = description.id {
             // 나라별 온도 사용 단위
             let intTemp = Int(temp) - 273
-            currentTempLabel.text = "\(intTemp)℃"
+            currentTempLabel.text = "\(intTemp)"
             suggestLabel.text = WeatherManager.weatherCondition(of: id)
         }
     }

@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1022473E71CF6D37CD4F464D /* Pods_EJWhatShouldIWearUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */; };
-		72CA9B0E22D2085A00EFA227 /* WeekContainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B0C22D2085A00EFA227 /* WeekContainerTableViewCell.swift */; };
-		72CA9B0F22D2085A00EFA227 /* WeekContainerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B0D22D2085A00EFA227 /* WeekContainerTableViewCell.xib */; };
 		72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */; };
 		72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */; };
+		72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */; };
+		72CA9B1922D38CD000EFA227 /* WeekWeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B1722D38CD000EFA227 /* WeekWeatherTableViewCell.xib */; };
 		991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22952289720F00FDBC98 /* EJHomeViewController.swift */; };
 		991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F2297228972D300FDBC98 /* EJBaseViewController.swift */; };
 		991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */; };
@@ -80,10 +80,10 @@
 
 /* Begin PBXFileReference section */
 		1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		72CA9B0C22D2085A00EFA227 /* WeekContainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekContainerTableViewCell.swift; sourceTree = "<group>"; };
-		72CA9B0D22D2085A00EFA227 /* WeekContainerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekContainerTableViewCell.xib; sourceTree = "<group>"; };
 		72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
+		72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		72CA9B1722D38CD000EFA227 /* WeekWeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekWeatherTableViewCell.xib; sourceTree = "<group>"; };
 		991F22952289720F00FDBC98 /* EJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHomeViewController.swift; sourceTree = "<group>"; };
 		991F2297228972D300FDBC98 /* EJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBaseViewController.swift; sourceTree = "<group>"; };
 		991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSideMenuViewController.swift; sourceTree = "<group>"; };
@@ -287,8 +287,8 @@
 				99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */,
 				997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */,
 				997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */,
-				72CA9B0C22D2085A00EFA227 /* WeekContainerTableViewCell.swift */,
-				72CA9B0D22D2085A00EFA227 /* WeekContainerTableViewCell.xib */,
+				72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */,
+				72CA9B1722D38CD000EFA227 /* WeekWeatherTableViewCell.xib */,
 			);
 			name = HomeViewCells;
 			path = ..;
@@ -472,7 +472,7 @@
 				72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */,
 				99DC5C3D22BB339F005661F3 /* GoogleService-Info.plist in Resources */,
 				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
-				72CA9B0F22D2085A00EFA227 /* WeekContainerTableViewCell.xib in Resources */,
+				72CA9B1922D38CD000EFA227 /* WeekWeatherTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,7 +593,6 @@
 			files = (
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
 				992B09A822BF849100FF94B7 /* EJWeather.swift in Sources */,
-				72CA9B0E22D2085A00EFA227 /* WeekContainerTableViewCell.swift in Sources */,
 				992B09AD22BF849100FF94B7 /* EJCoord.swift in Sources */,
 				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
 				992B098A22BD53C200FF94B7 /* EJFiveDaysWeather.swift in Sources */,
@@ -603,6 +602,7 @@
 				9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */,
 				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
+				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				992B09AC22BF849100FF94B7 /* EJWind.swift in Sources */,
