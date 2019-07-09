@@ -17,15 +17,32 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     @IBOutlet weak var share2TextLabel: UILabel!
     @IBOutlet weak var share3TextLabel: UILabel!
     @IBOutlet weak var alcBottomOfSendBtn: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfBackIcon: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfBackIcon: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfTitleView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
+    
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        alcTopOfBackIcon.constant = EJSizeHeight(46.0)
+        alcLeadingOfBackIcon.constant = EJSize(25.0)
+        alcHeightOfTitleView.constant = EJSizeHeight(299.0)
+        alcTopOfStackView.constant = EJSizeHeight(180.0)
+        
         textView.text = LocalizedString(with: "share_placeholder")
         share1TextLabel.text = LocalizedString(with: "share1")
         share2TextLabel.text = LocalizedString(with: "share2")
         share3TextLabel.text = LocalizedString(with: "share3")
+        share1TextLabel.adjustsFontSizeToFitWidth = true
+        share1TextLabel.minimumScaleFactor = 0
+        share2TextLabel.adjustsFontSizeToFitWidth = true
+        share2TextLabel.minimumScaleFactor = 0
+        share3TextLabel.adjustsFontSizeToFitWidth = true
+        share3TextLabel.minimumScaleFactor = 0
+        
         
         registerKeyboardNotification()
     }

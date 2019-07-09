@@ -15,10 +15,15 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     var curLocation : String? = nil
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var alcTopOfBackIcon: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfBackIcon: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        alcTopOfBackIcon.constant = EJSizeHeight(46.0)
+        alcLeadingOfBackIcon.constant = EJSize(25.0)
     }
     
     
