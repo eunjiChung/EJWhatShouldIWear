@@ -1,12 +1,5 @@
-/* 
-  Localizable.strings
-  EJWhatShouldIWear
-
-  Created by DEV_MOBILE_IOS_JUNIOR on 24/06/2019.
-  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
-*/
-
-"monday" = "월요일";
+// App
+"APP_NAME" = "WSIW지역화";
 "tuesday" = "화요일";
 "wednesday" = "수요일";
 "thursday" = "목요일";
@@ -14,29 +7,63 @@
 "saturday" = "토요일";
 "sunday" = "일요일";
 
+// weather_condition
 "sunny" = "맑아요";
 "rainy" = "비와요";
 "cloudy" = "흐려요";
 "snowy" = "눈와요";
 
-"share" = "사랑하는 사람한테 공유하기";
+// etc
+"share1" = "사랑하는 사람";
+"share2" = "에게";
+"share3" = "전해보세요";
 "send_mail" = "불편/건의 메일 보내기";
 "setting" = "설정";
 "share_title" = "<오늘모입지?>와 함께 사랑하는 사람을 챙겨주세요.";
 "share_limit" = "40자 제한";
 "share_placeholder" = "ex)오늘 날이 춥다~옷 따뜻하게 입고 다녀 ^^";
-"share_btn" = "사랑하는 사람에게 보내기";
+"share_btn" = "보내기";
 "setting_local" = "지역 설정";
 "setting_noti" = "알림 설정";
 "send_title" = "건의합니다";
 "send_message" = "불편사항 건의합니다";
-"main_timely" = "오늘 시간대별 날씨";
+"main_timely" = "오늘 날씨";
 "main_weekely" = "요번주 날씨";
 "main_ad" = "광고";
 "hour" = "시";
-"temp" = "도";
+"temp" = "℃";
 "unknown" = "알 수 없는 지역";
 
+// alert
 "mail_warning_title" = "메일앱 설정 오류";
 "mail_warning_message" = "메일 앱에서 발신자 정보를 설정하세요";
 "btn_ok" = "확인";
+"alarm_message" = "매일 아침 9시 알림을 받아보세요";
+
+// clothes
+"blouse" = "블라우스";
+"blue_jean_jacket" = "청자켓";
+"blue_jeans" = "청바지";
+"cardigan" = "가디건";
+"checked_shirt" = "체크셔츠";
+"coat" = "코트";
+"cotton_pants" = "면바지";
+"fur_gloves" = "털장갑";
+"fur_hat" = "털모자";
+"hot_pants" = "반바지";
+"jacket" = "자켓";
+"knitwear" = "니트";
+"long_skirt" = "롱스커트";
+"mask" = "마스크";
+"muffler" = "목도리";
+"one_piece" = "원피스";
+"padding" = "패딩";
+"padding_vest" = "패딩조끼";
+"shirt" = "셔츠";
+"short_skirt" = "치마";
+"short_sleeved_t_shirt" = "반팔티";
+"slacks" = "슬랙스";
+"sleeveless_shirt" = "민소매";
+"sweatshirt" = "맨투맨";
+"trench_coat" = "트렌치코트";
+"umbrella" = "우산";

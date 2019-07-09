@@ -1,12 +1,5 @@
-/* 
-  Localizable.strings
-  EJWhatShouldIWear
-
-  Created by DEV_MOBILE_IOS_JUNIOR on 24/06/2019.
-  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
-*/
-
-"monday" = "星期月";
+// App
+"APP_NAME" = "WSIW지역화";
 "tuesday" = "星期火";
 "wednesday" = "星期水";
 "thursday" = "星期木";
@@ -14,12 +7,16 @@
 "saturday" = "星期土";
 "sunday" = "星期日";
 
+// weather_condition
 "sunny" = "晴间多云";
 "rainy" = "雨";
 "cloudy" = "模糊";
 "snowy" = "雪";
 
-"share" = "与亲人分享";
+// etc
+"share1" = "";
+"share2" = "";
+"share3" = "与亲人分享";
 "send_mail" = "发送建议";
 "setting" = "设定";
 "share_title" = "<WhatShouldIWear>照顾你的亲人";
@@ -37,6 +34,36 @@
 "temp" = "℃";
 "unknown" = "未知的地方";
 
+// alert
 "mail_warning_title" = "邮件应用程序设置错误";
 "mail_warning_message" = "在邮件应用程序中输入发件人信息";
 "btn_ok" = "确认";
+"alarm_message" = "每天早上9点钟通知";
+
+// clothes
+"blouse" = "衬衫";
+"blue_jean_jacket" = "颊布";
+"blue_jeans" = "牛仔裤";
+"cardigan" = "羊毛衣";
+"checked_shirt" = "检查衬衫";
+"coat" = "法庭";
+"cotton_pants" = "棉裤";
+"fur_gloves" = "毛皮手套";
+"fur_hat" = "裘皮帽";
+"hot_pants" = "短裤";
+"jacket" = "夹克";
+"knitwear" = "针织的";
+"long_skirt" = "长裙";
+"mask" = "面膜";
+"muffler" = "围巾";
+"one_piece" = "海贼王";
+"padding" = "填充";
+"padding_vest" = "衬垫背心";
+"shirt" = "衬衫";
+"short_skirt" = "裙子";
+"short_sleeved_t_shirt" = "短袖T恤";
+"slacks" = "西裤";
+"sleeveless_shirt" = "无袖";
+"sweatshirt" = "一对一";
+"trench_coat" = "风衣";
+"umbrella" = "伞";

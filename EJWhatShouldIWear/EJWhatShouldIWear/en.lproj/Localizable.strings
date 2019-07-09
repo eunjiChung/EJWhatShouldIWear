@@ -1,12 +1,5 @@
-/* 
-  Localizable.strings
-  EJWhatShouldIWear
-
-  Created by DEV_MOBILE_IOS_JUNIOR on 24/06/2019.
-  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
-*/
-
-"monday" = "Mon";
+// App
+"APP_NAME" = "WSIW지역화";
 "tuesday" = "Tue";
 "wednesday" = "Wed";
 "thursday" = "Thu";
@@ -14,12 +7,16 @@
 "saturday" = "Sat";
 "sunday" = "Sun";
 
-"sunny" = "It's sunny day";
-"rainy" = "It's rainy day";
-"cloudy" = "It's cloudy";
-"snowy" = "It's snowy";
+// weather_condition
+"sunny" = "Sunny";
+"rainy" = "Rainy";
+"cloudy" = "Cloudy";
+"snowy" = "Snowy";
 
-"share" = "Share with loved ones";
+// etc
+"share1" = "Share ";
+"share2" = "with";
+"share3" = "Loved Ones";
 "send_mail" = "Send suggestion";
 "setting" = "Setting";
 "share_title" = "Take care of your loved ones with <WhatShouldIWear>";
@@ -30,13 +27,43 @@
 "setting_noti" = "Set Notification";
 "send_title" = "Suggestion";
 "send_message" = "Please fix the followings";
-"main_timely" = "Today Timely Weather";
+"main_timely" = "Today Weather";
 "main_weekely" = "Weekely Weather";
 "main_ad" = "Advertisement";
 "hour" = "H";
 "temp" = "℉";
 "unknown" = "Unknown location";
 
+// alert
 "mail_warning_title" = "Mail App setting error";
 "mail_warning_message" = "Enter sender information in mail app";
 "btn_ok" = "Ok";
+"alarm_message" = "Get a 9 o'clock notice every morning";
+
+// clothes
+"blouse" = "Blouse";
+"blue_jean_jacket" = "Blue Jean Jacket";
+"blue_jeans" = "Blue Jeans";
+"cardigan" = "Cardigan";
+"checked_shirt" = "Checked Shirt";
+"coat" = "Coat";
+"cotton_pants" = "Cotton pants";
+"fur_gloves" = "Fur Gloves";
+"fur_hat" = "Fur Hat";
+"hot_pants" = "Hot Pants";
+"jacket" = "Jacekt";
+"knitwear" = "KnitWear";
+"long_skirt" = "Long Skirt";
+"mask" = "Mask";
+"muffler" = "Muffler";
+"one_piece" = "Onepiece";
+"padding" = "Padding";
+"padding_vest" = "Padding vest";
+"shirt" = "Shirt";
+"short_skirt" = "Short Skirt";
+"short_sleeved_t_shirt" = "T-Shirt";
+"slacks" = "Slacks";
+"sleeveless_shirt" = "Sleeveless Shirt";
+"sweatshirt" = "Sweat Shirt";
+"trench_coat" = "Trench Coat";
+"umbrella" = "Umbrella";

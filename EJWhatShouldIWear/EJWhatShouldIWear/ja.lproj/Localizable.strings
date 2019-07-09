@@ -1,12 +1,5 @@
-/* 
-  Localizable.strings
-  EJWhatShouldIWear
-
-  Created by DEV_MOBILE_IOS_JUNIOR on 24/06/2019.
-  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
-*/
-
-"monday"  = "月曜日";
+// App
+"APP_NAME" = "WSIW지역화";
 "tuesday" = "火曜日";
 "wednesday" = "水曜日";
 "thursday" = "木曜日";
@@ -14,12 +7,16 @@
 "saturday" = "土曜日";
 "sunday" = "日曜日";
 
+// weather_condition
 "sunny" = "晴れ";
 "rainy" = "非降りる";
 "cloudy" = "曇り";
 "snowy" = "雪下ろし";
 
-"share" = "愛する人と共有する";
+// etc
+"share1" = "";
+"share2" = "";
+"share3" = "愛する人と共有する";
 "send_mail" = "提案を送る";
 "setting" = "設定";
 "share_title" = "<WhatShouldIWear>であなたの愛する人の世話をします";
@@ -37,6 +34,36 @@
 "temp" = "℃";
 "unknown" = "未知の場所";
 
+// alert
 "mail_warning_title" = "メールアプリケーション設定エラー";
 "mail_warning_message" = "メールアプリケーションに送信者情報を入力してください";
 "btn_ok" = "確認";
+"alarm_message" = "毎朝9時の通知を受け取る";
+
+// clothes
+"blouse" = "ブラウス";
+"blue_jean_jacket" = "ブルージーンズジャケット";
+"blue_jeans" = "ジーンズ";
+"cardigan" = "カーディガン";
+"checked_shirt" = "チェックシャツ";
+"coat" = "コート";
+"cotton_pants" = "綿";
+"fur_gloves" = "毛の手袋";
+"fur_hat" = "毛の帽子";
+"hot_pants" = "ショーツ";
+"jacket" = "ジャケット";
+"knitwear" = "ニット";
+"long_skirt" = "ロングスカート";
+"mask" = "マスク";
+"muffler" = "ショール";
+"one_piece" = "ワンピース";
+"padding" = "パディング";
+"padding_vest" = "パディングベスト";
+"shirt" = "シャツ";
+"short_skirt" = "スカート";
+"short_sleeved_t_shirt" = "半袖Tシャツ";
+"slacks" = "スラックス";
+"sleeveless_shirt" = "ノースリーブ";
+"sweatshirt" = "マンツーマン";
+"trench_coat" = "レンチコート";
+"umbrella" = "傘";
