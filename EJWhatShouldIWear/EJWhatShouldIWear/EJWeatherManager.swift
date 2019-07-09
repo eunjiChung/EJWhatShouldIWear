@@ -55,7 +55,7 @@ class EJWeatherManager: NSObject {
         } else if 600 <= id && id < 700{
             return LocalizedString(with: "snowy")
         } else if 700 <= id && id < 800{
-            return "안개가 꼈어요"
+            return "Fog"
         } else if id == 800 {
             return LocalizedString(with: "sunny")
         } else if 800 < id {
@@ -73,72 +73,72 @@ class EJWeatherManager: NSObject {
         switch temp {
         case 28...:
             first = UIImage.init(named: "big_sleeveless_shirt_icon")!
-            firstTag = "민소매"
+            firstTag = LocalizedString(with: "sleeveless_shirt")
             second = UIImage.init(named: "big_short_sleeved_t_shirt_icon")!
-            secondTag = "반팔티"
+            secondTag = LocalizedString(with: "short_sleeved_t_shirt")
             third = UIImage.init(named: "big_hot_pants_icon")!
-            thirdTag = "반바지"
+            thirdTag = LocalizedString(with: "hot_pants")
         case 23...27:
             first = UIImage.init(named: "big_one_piece_icon")!
-            firstTag = "원피스"
+            firstTag = LocalizedString(with: "one_piece")
             second = UIImage.init(named: "big_short_sleeved_t_shirt_icon")!
-            secondTag = "반팔티"
+            secondTag = LocalizedString(with: "short_sleeved_t_shirt")
             third = UIImage.init(named: "big_cotton_pants_icon")!
-            thirdTag = "면바지"
+            thirdTag = LocalizedString(with: "cotton_pants")
         case 20...22:
             first = UIImage.init(named: "big_shirt_icon")!
-            firstTag = "긴팔"
+            firstTag = LocalizedString(with: "shirt")
             second = UIImage.init(named: "big_blouse_icon")!
-            secondTag = "블라우스"
+            secondTag = LocalizedString(with: "blouse")
             third = UIImage.init(named: "big_blue_jeans_icon")!
-            thirdTag = "청바지"
+            thirdTag = LocalizedString(with: "blue_jeans")
         case 17...19:
             first = UIImage.init(named: "big_blue_jean_jacket_icon")!
-            firstTag = "청자켓"
+            firstTag = LocalizedString(with: "blue_jean_jacket")
             second = UIImage.init(named: "big_cardigan_icon")!
-            secondTag = "가디건"
+            secondTag = LocalizedString(with: "cardigan")
             third = UIImage.init(named: "big_blue_jeans_icon")!
-            thirdTag = "청바지"
+            thirdTag = LocalizedString(with: "blue_jeans")
         case 12...16:
             first = UIImage.init(named: "big_sweatshirt_icon")!
-            firstTag = "맨투맨"
+            firstTag = LocalizedString(with: "sweatshirt")
             second = UIImage.init(named: "big_checked_shirt_icon")!
-            secondTag = "체크셔츠"
+            secondTag = LocalizedString(with: "checked_shirt")
             third = UIImage.init(named: "big_cotton_pants_icon")!
-            thirdTag = "면바지"
+            thirdTag = LocalizedString(with: "cotton_pants")
         case 9...11:
             first = UIImage.init(named: "big_trench_coat_icon")!
-            firstTag = "트렌치코트"
+            firstTag = LocalizedString(with: "trench_coat")
             second = UIImage.init(named: "big_jacket_icon")!
-            secondTag = "자켓"
+            secondTag = LocalizedString(with: "jacket")
             third = UIImage.init(named: "big_slacks_icon")!
-            thirdTag = "슬랙스"
+            thirdTag = LocalizedString(with: "slacks")
         case 5...8:
             first = UIImage.init(named: "big_coat_icon")!
-            firstTag = "코트"
+            firstTag = LocalizedString(with: "coat")
             second = UIImage.init(named: "big_knitwear_icon")!
-            secondTag = "니트"
+            secondTag = LocalizedString(with: "knitwear")
             third = UIImage.init(named: "big_long_skirt_icon")!
-            thirdTag = "롱스커트"
+            thirdTag = LocalizedString(with: "long_skirt")
         case ...4:
             first = UIImage.init(named: "big_muffler_icon")!
-            firstTag = "목도리"
+            firstTag = LocalizedString(with: "muffler")
             second = UIImage.init(named: "big_padding_icon")!
-            secondTag = "패딩"
+            secondTag = LocalizedString(with: "padding")
             third = UIImage.init(named: "big_fur_gloves_icon")!
-            thirdTag = "털장갑"
+            thirdTag = LocalizedString(with: "fur_gloves")
         default:
             first = UIImage.init(named: "big_blouse_icon")!
-            firstTag = "블라우스"
+            firstTag = LocalizedString(with: "blouse")
             second = UIImage.init(named: "big_cardigan_icon")!
-            secondTag = "가디건"
+            secondTag = LocalizedString(with: "cardigan")
             third = UIImage.init(named: "big_one_piece_icon")!
-            thirdTag = "원피스"
+            thirdTag = LocalizedString(with: "one_piece")
         }
         
         if 200 <= id && id < 600 {
             first = UIImage.init(named: "big_umbrella_icon")!
-            firstTag = "우산"
+            firstTag = LocalizedString(with: "umbrella")
         }
         
         images = [first:firstTag, second:secondTag, third:thirdTag]

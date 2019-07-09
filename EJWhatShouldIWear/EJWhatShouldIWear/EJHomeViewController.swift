@@ -128,19 +128,22 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     // MARK: - Splash Method
     func removeSplashScene() {
-        if self.splashContainer != nil {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
-                    print(self.splashContainer)
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
+                
+                if self.splashContainer != nil {
                     if let splash = self.splashContainer {
                         splash.alpha = 0.0
                     }
-//                    self.splashContainer.alpha = 0.0
-                }, completion: { (success) in
-                    self.splashContainer =  nil
-                })
-            }
+                } else {
+                    self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "")
+                }
+                //                    self.splashContainer.alpha = 0.0
+            }, completion: { (success) in
+                self.splashContainer =  nil
+            })
         }
+        
     }
     
     
@@ -257,7 +260,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                         self.removeSplashScene()
                     } else {
                         print("알 수 없는 지역")
-                        self.popAlertVC(self, with: "네트워크 연결 불안정", "다시 시도해주세요")
+                        self.popAlertVC(self, with: LocalizedString(with: "network_error"), "Please try again")
                     }
                 }
             }
