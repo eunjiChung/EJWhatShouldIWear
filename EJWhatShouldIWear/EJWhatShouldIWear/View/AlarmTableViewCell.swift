@@ -11,10 +11,12 @@ import UIKit
 class AlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var notiSetLabel: UILabel!
+    @IBOutlet weak var descriptLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         notiSetLabel.text = LocalizedString(with: "setting_noti")
+        descriptLabel.text = LocalizedString(with: "alarm_message")
     }
 
     

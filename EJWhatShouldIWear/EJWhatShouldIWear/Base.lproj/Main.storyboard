@@ -431,6 +431,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="descriptLabel" destination="IV7-2M-XVK" id="g3z-1G-xXb"/>
                                             <outlet property="notiSetLabel" destination="pbU-FC-tzL" id="6kP-ux-zfi"/>
                                         </connections>
                                     </tableViewCell>
