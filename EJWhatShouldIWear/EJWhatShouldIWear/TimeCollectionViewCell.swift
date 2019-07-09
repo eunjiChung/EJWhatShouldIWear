@@ -27,9 +27,9 @@ class TimeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        alcTopOfHourLabel.constant = EJSize(7.0)
-        alcTopOfTempLabel.constant = EJSize(22.0)
-        alcTopOfClothImage.constant = EJSize(9.0)
+        alcTopOfHourLabel.constant = EJSizeHeight(7.0)
+        alcTopOfTempLabel.constant = EJSizeHeight(22.0)
+        alcTopOfClothImage.constant = EJSizeHeight(9.0)
     }
     
     

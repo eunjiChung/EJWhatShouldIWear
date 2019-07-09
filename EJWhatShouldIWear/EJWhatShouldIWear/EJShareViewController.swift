@@ -37,11 +37,11 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     }
     
     @objc func keyboardWillShow(_ sender: Notification) {
-        alcBottomOfSendBtn.constant = EJSize(290.0)
+        alcBottomOfSendBtn.constant = EJSizeHeight(290.0)
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
-        alcBottomOfSendBtn.constant = EJSize(10.0)
+        alcBottomOfSendBtn.constant = EJSizeHeight(10.0)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

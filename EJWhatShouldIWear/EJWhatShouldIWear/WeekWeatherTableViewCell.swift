@@ -27,10 +27,10 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        alcTopOfTitleLabel.constant = EJSize(38.0)
+        alcTopOfTitleLabel.constant = EJSizeHeight(38.0)
         alcLeadingOfTitleLabel.constant = EJSize(20.0)
-        alcBottomOfCollectionView.constant = EJSize(50.0)
-        alcTopOfCollectionView.constant = EJSize(16.0)
+        alcBottomOfCollectionView.constant = EJSizeHeight(50.0)
+        alcTopOfCollectionView.constant = EJSizeHeight(16.0)
         
         titleLabel.text = LocalizedString(with: "main_weekely")
 
@@ -66,11 +66,11 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     // MARK: - UICollectionView Delegate FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: EJSize(65.0), height: EJSize(97.0))
+        return CGSize.init(width: EJSize(65.0), height: EJSizeHeight(97.0))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: EJSize(0.0), left: EJSize(22.0), bottom: EJSize(0.0), right: EJSize(0.0))
+        return UIEdgeInsets.init(top: EJSizeHeight(0.0), left: EJSize(22.0), bottom: EJSizeHeight(0.0), right: EJSize(0.0))
     }
     
 }

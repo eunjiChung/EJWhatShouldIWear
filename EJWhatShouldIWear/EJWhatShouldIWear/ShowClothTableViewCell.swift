@@ -39,9 +39,9 @@ class ShowClothTableViewCell: UITableViewCell {
         
         alcLeadingOfLocationLabel.constant = EJSize(14.0)
         alcLeadingOfCurrentTempLabel.constant = EJSize(64.0)
-//        alcHeightOfFirstView.constant = EJSize(256.0)
-//        alcTopOfHomeBoxImageView.constant = EJSize(62.0)
-//        alcHeightOfClothHangerImageView.constant = EJSize(146.0)
+//        alcHeightOfFirstView.constant = EJSizeHeight(256.0)
+//        alcTopOfHomeBoxImageView.constant = EJSizeHeight(62.0)
+//        alcHeightOfClothHangerImageView.constant = EJSizeHeight(146.0)
     }
 
     

@@ -36,11 +36,11 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         titleLabel.text = LocalizedString(with: "main_timely")
         
-        alcTopConstraintOfTextLabel.constant = EJSize(43.0)
+        alcTopConstraintOfTextLabel.constant = EJSizeHeight(43.0)
         alcLeadingConstraintOfTextLabel.constant = EJSize(20.0)
-        alcTopConstraintOfCollectionView.constant = EJSize(18.0)
-        alcBottomConstraintOfCollectionView.constant = EJSize(50.0)
-        alcHeightOfCollectionView.constant = EJSize(131.0)
+        alcTopConstraintOfCollectionView.constant = EJSizeHeight(18.0)
+        alcBottomConstraintOfCollectionView.constant = EJSizeHeight(50.0)
+        alcHeightOfCollectionView.constant = EJSizeHeight(131.0)
         
         
         collectionView.dataSource = self as UICollectionViewDataSource
@@ -77,12 +77,12 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     
     // MARK: - CollectionView FlowLayout Delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: EJSize(65.0), height: EJSize(131.0))
+        return CGSize.init(width: EJSize(65.0), height: EJSizeHeight(131.0))
     }
     
     // 22pt...
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: EJSize(0.0), left: EJSize(22.0), bottom: EJSize(0.0), right: EJSize(0.0))
+        return UIEdgeInsets.init(top: EJSizeHeight(0.0), left: EJSize(22.0), bottom: EJSizeHeight(0.0), right: EJSize(0.0))
     }
     
 }

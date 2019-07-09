@@ -33,9 +33,9 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        alcTopOfDateLabel.constant = EJSize(9.0)
-        alcTopOfTempLabel.constant = EJSize(23.0)
-        alcTopOfWeatherTellingLabel.constant = EJSize(4.0)
+        alcTopOfDateLabel.constant = EJSizeHeight(9.0)
+        alcTopOfTempLabel.constant = EJSizeHeight(23.0)
+        alcTopOfWeatherTellingLabel.constant = EJSizeHeight(4.0)
         
         dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
     }

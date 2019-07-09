@@ -24,6 +24,12 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var splashContainer: UIView!
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfNavigationBar: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfSideBackButton: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfSettingButton: NSLayoutConstraint!
+    @IBOutlet weak var alcTrailingOfSettingButton: NSLayoutConstraint!
+    
     
     
     // MARK: - View Life Cycle
@@ -31,6 +37,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
 
         alcTopOfStackView.constant = EJSizeHeight(414.0)
+        alcHeightOfNavigationBar.constant = EJSizeHeight(76.0)
+        alcLeadingOfSideBackButton.constant = EJSize(18.0)
+        alcTopOfSideBackButton.constant = EJSizeHeight(46.0)
+        alcTopOfSettingButton.constant = EJSizeHeight(46.0)
+        alcTrailingOfSettingButton.constant = EJSize(20.0)
         
         configureSideMenu()
         registerNibs()
@@ -100,15 +111,15 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
         switch indexPath.section {
         case 0:
-            return EJSize(424.0)
+            return EJSizeHeight(424.0)
         case 1:
-            return EJSize(261.0)
+            return EJSizeHeight(261.0)
         case 2:
-            return EJSize(220.0)
+            return EJSizeHeight(220.0)
         case 3:
-            return EJSize(60.0)
+            return EJSizeHeight(60.0)
         default:
-            return EJSize(80.0)
+            return EJSizeHeight(80.0)
         }
     }
     
@@ -122,7 +133,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
         switch section {
         case 2, 3:
-            return EJSize(7.0)
+            return EJSizeHeight(7.0)
         default:
             return 0
         }
@@ -131,22 +142,22 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     // MARK: - Splash Method
     func removeSplashScene() {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
-                
-                if self.splashContainer != nil {
-                    if let splash = self.splashContainer {
-                        splash.alpha = 0.0
+        if self.splashContainer != nil {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
+                    if self.splashContainer != nil {
+                        if let splash = self.splashContainer {
+                            splash.alpha = 0.0
+                            print("THIS ", splash)
+                            splash.removeFromSuperview()
+                        }
+                    } else {
+                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "")
                     }
-                } else {
-                    self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "")
-                }
-                //                    self.splashContainer.alpha = 0.0
-            }, completion: { (success) in
-                self.splashContainer =  nil
-            })
+                }, completion: { (success) in
+                })
+            }
         }
-        
     }
     
     

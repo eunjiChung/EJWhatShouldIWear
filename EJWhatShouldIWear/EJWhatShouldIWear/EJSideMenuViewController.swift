@@ -48,9 +48,9 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return EJSize(305.0)
+            return EJSizeHeight(305.0)
         default:
-            return EJSize(60.0)
+            return EJSizeHeight(60.0)
         }
     }
     
