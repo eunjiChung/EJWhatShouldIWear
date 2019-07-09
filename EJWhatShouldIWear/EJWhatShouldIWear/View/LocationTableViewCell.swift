@@ -19,6 +19,8 @@ class LocationTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         titleLabel.text = LocalizedString(with: "setting_local")
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0
     }
 
 }
