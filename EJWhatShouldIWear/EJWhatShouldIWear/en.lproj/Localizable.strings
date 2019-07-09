@@ -40,6 +40,10 @@
 "btn_ok" = "Ok";
 "alarm_message" = "Get a 9 o'clock notice every morning";
 
+// error
+"unknown_error" = "Unknown Error";
+"network_error" = "Network instability";
+
 // clothes
 "blouse" = "Blouse";
 "blue_jean_jacket" = "Blue Jean Jacket";

@@ -40,6 +40,10 @@
 "btn_ok" = "đồng ý";
 "alarm_message" = "Nhận thông báo 9 giờ mỗi sáng";
 
+// error
+"unknown_error" = "Lỗi không rõ";
+"network_error" = "mất ổn định mạng";
+
 // clothes
 "blouse" = "áo cánh";
 "blue_jean_jacket" = "áo khoác jean màu xanh";

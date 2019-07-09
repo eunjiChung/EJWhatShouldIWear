@@ -40,6 +40,10 @@
 "btn_ok" = "確認";
 "alarm_message" = "毎朝9時の通知を受け取る";
 
+// error
+"unknown_error" = "未知のエラー";
+"network_error" = "ネットワーク不安定性";
+
 // clothes
 "blouse" = "ブラウス";
 "blue_jean_jacket" = "ブルージーンズジャケット";

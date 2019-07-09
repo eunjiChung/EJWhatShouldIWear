@@ -40,6 +40,10 @@
 "btn_ok" = "确认";
 "alarm_message" = "每天早上9点钟通知";
 
+// error
+"unknown_error" = "未知错误";
+"network_error" = "网络不稳定";
+
 // clothes
 "blouse" = "衬衫";
 "blue_jean_jacket" = "颊布";

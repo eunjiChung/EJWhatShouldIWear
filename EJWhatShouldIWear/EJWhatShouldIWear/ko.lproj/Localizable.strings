@@ -40,6 +40,10 @@
 "btn_ok" = "확인";
 "alarm_message" = "매일 아침 9시 알림을 받아보세요";
 
+// error
+"unknown_error" = "알 수 없는 오류";
+"network_error" = "네트워크가 불안정합니다";
+
 // clothes
 "blouse" = "블라우스";
 "blue_jean_jacket" = "청자켓";
