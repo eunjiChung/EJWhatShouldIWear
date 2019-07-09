@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -305,8 +305,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Hfi-Cp-NzB" firstAttribute="trailing" secondItem="NbQ-wc-Vjh" secondAttribute="trailing" id="WzA-nm-fSk"/>
-                            <constraint firstItem="NbQ-wc-Vjh" firstAttribute="leading" secondItem="Hfi-Cp-NzB" secondAttribute="leading" id="hj9-jg-wQl"/>
+                            <constraint firstAttribute="trailing" secondItem="NbQ-wc-Vjh" secondAttribute="trailing" id="WzA-nm-fSk"/>
+                            <constraint firstItem="NbQ-wc-Vjh" firstAttribute="leading" secondItem="h7E-vv-rn6" secondAttribute="leading" id="hj9-jg-wQl"/>
                             <constraint firstAttribute="bottom" secondItem="NbQ-wc-Vjh" secondAttribute="bottom" id="sFC-M5-tlX"/>
                             <constraint firstItem="NbQ-wc-Vjh" firstAttribute="top" secondItem="h7E-vv-rn6" secondAttribute="top" id="xxA-wo-xA1"/>
                         </constraints>
@@ -701,6 +701,6 @@
         <image name="splash_img" width="375" height="812"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yi0-Bh-cfi"/>
+        <segue reference="GAp-ka-gNi"/>
     </inferredMetricsTieBreakers>
 </document>

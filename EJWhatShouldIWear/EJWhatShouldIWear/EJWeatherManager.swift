@@ -144,4 +144,14 @@ class EJWeatherManager: NSObject {
         images = [first:firstTag, second:secondTag, third:thirdTag]
         return images
     }
+    
+    public func getValidTemperature(by temperature:Float) -> Int {
+        var temp = Int(temperature)
+        
+        if !Library.systemLanguage.contains("en") {
+            temp = Int(temperature) - 273
+        }
+        
+        return temp
+    }
 }

@@ -46,7 +46,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
         }
         
         if let floatTemp = weatherInfo?.temp {
-            let temp = Int(floatTemp) - 273
+            let temp = WeatherManager.getValidTemperature(by: floatTemp)
             tempLabel.text = "\(temp)\(unit)"
         }
     }

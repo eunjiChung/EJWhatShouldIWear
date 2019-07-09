@@ -39,4 +39,13 @@ func LocalizedString(with key: String) -> String {
 // MARK: - Class EJLibrary
 class EJLibrary: NSObject {
     static let sharedInstance = EJLibrary()
+    var systemLanguage = ""
+    
+    override init() {
+        let locale = NSLocale.autoupdatingCurrent
+        let code = locale.languageCode!
+        let language = locale.localizedString(forLanguageCode: code)!
+        systemLanguage = language
+    }
+    
 }

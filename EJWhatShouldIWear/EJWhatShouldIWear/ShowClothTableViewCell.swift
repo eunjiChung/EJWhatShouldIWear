@@ -22,6 +22,7 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var firstClothLabel: UILabel!
     @IBOutlet weak var secondClothLabel: UILabel!
     @IBOutlet weak var thirdClothLabel: UILabel!
+    @IBOutlet weak var unitLabel: UILabel!
     
     // MARK: - Constraints
     
@@ -39,8 +40,9 @@ class ShowClothTableViewCell: UITableViewCell {
     public func setWeatherInfo(by info: EJMain, with description:EJWeather) {
         if let temp = info.temp, let id = description.id {
             // 나라별 온도 사용 단위
-            let intTemp = Int(temp) - 273
+            let intTemp = WeatherManager.getValidTemperature(by: temp)
             currentTempLabel.text = "\(intTemp)"
+            unitLabel.text = LocalizedString(with: "temp")
             suggestLabel.text = WeatherManager.weatherCondition(of: id)
             
             let weatherStyle = WeatherManager.setTodayStyle(by: intTemp, id: id)
