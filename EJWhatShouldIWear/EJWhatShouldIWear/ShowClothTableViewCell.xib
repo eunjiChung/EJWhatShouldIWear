@@ -23,25 +23,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFe-WJ-bMy">
-                                <rect key="frame" x="64" y="107" width="75" height="90"/>
+                                <rect key="frame" x="64" y="113" width="75" height="84"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="75"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUV-X9-Ztw">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="℃" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUV-X9-Ztw">
                                 <rect key="frame" x="139" y="112.99999999999999" width="26.666666666666657" height="42.333333333333329"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="35"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3P-zl-9qy">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3P-zl-9qy">
                                 <rect key="frame" x="179.66666666666666" y="121.99999999999999" width="59.666666666666657" height="19.333333333333329"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제보다" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8U-aG-kZU">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제보다" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8U-aG-kZU">
                                 <rect key="frame" x="179.66666666666666" y="147.33333333333334" width="69.333333333333343" height="24"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
@@ -51,32 +51,31 @@
                         </subviews>
                         <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I8U-aG-kZU" secondAttribute="trailing" constant="64" id="2cs-kX-0jY"/>
                             <constraint firstItem="D3P-zl-9qy" firstAttribute="leading" secondItem="TUV-X9-Ztw" secondAttribute="trailing" constant="14" id="4I6-PW-tTR"/>
                             <constraint firstItem="D3P-zl-9qy" firstAttribute="top" secondItem="Bdq-Ys-Imd" secondAttribute="top" constant="122" id="DLN-t2-cpG"/>
                             <constraint firstItem="I8U-aG-kZU" firstAttribute="leading" secondItem="D3P-zl-9qy" secondAttribute="leading" id="Dmd-BG-TwE"/>
                             <constraint firstAttribute="height" constant="256" id="FXX-4n-SMr"/>
+                            <constraint firstItem="TUV-X9-Ztw" firstAttribute="top" secondItem="OFe-WJ-bMy" secondAttribute="top" id="LkP-Df-7QR"/>
                             <constraint firstItem="OFe-WJ-bMy" firstAttribute="leading" secondItem="Bdq-Ys-Imd" secondAttribute="leading" constant="64" id="kzb-jM-Eis"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D3P-zl-9qy" secondAttribute="trailing" constant="64" id="oAK-cx-l4N"/>
                             <constraint firstAttribute="bottom" secondItem="OFe-WJ-bMy" secondAttribute="bottom" constant="59" id="pJ8-ic-LTy"/>
                             <constraint firstItem="I8U-aG-kZU" firstAttribute="top" secondItem="D3P-zl-9qy" secondAttribute="bottom" constant="6" id="sx7-Ny-M7a"/>
                             <constraint firstItem="TUV-X9-Ztw" firstAttribute="top" secondItem="Bdq-Ys-Imd" secondAttribute="top" constant="113" id="wFC-O6-fyk"/>
                             <constraint firstItem="TUV-X9-Ztw" firstAttribute="leading" secondItem="OFe-WJ-bMy" secondAttribute="trailing" id="yXh-dr-fIw"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_box_img" translatesAutoresizingMaskIntoConstraints="NO" id="Gvc-0x-pYa">
+                        <rect key="frame" x="20" y="208" width="335" height="170"/>
+                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothes_hanger_img" translatesAutoresizingMaskIntoConstraints="NO" id="Gen-Fw-Bdb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="146" id="dKl-Kz-4iS"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_box_img" translatesAutoresizingMaskIntoConstraints="NO" id="Gvc-0x-pYa">
-                        <rect key="frame" x="20" y="208" width="335" height="170"/>
-                    </imageView>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bE7-HZ-EpO">
                         <rect key="frame" x="20" y="208" width="335" height="170"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_blouse_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-sD-mC3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_blouse_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-sD-mC3">
                                 <rect key="frame" x="23" y="29" width="80" height="84"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -84,11 +83,11 @@
                                     <constraint firstAttribute="width" constant="80" id="jqM-cF-dsN"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_one_piece_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KUY-CS-72v">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_one_piece_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KUY-CS-72v">
                                 <rect key="frame" x="127" y="29" width="80" height="84"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_long_skirt_icon" translatesAutoresizingMaskIntoConstraints="NO" id="a10-ez-e8W">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_long_skirt_icon" translatesAutoresizingMaskIntoConstraints="NO" id="a10-ez-e8W">
                                 <rect key="frame" x="231" y="29" width="80" height="84"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -152,6 +151,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="alcHeightOfClothHangerImageView" destination="dKl-Kz-4iS" id="0ef-4r-eQf"/>
+                <outlet property="alcHeightOfFirstView" destination="FXX-4n-SMr" id="jzN-gi-hzQ"/>
+                <outlet property="alcLeadingOfCurrentTempLabel" destination="kzb-jM-Eis" id="bdk-eW-4CO"/>
+                <outlet property="alcLeadingOfLocationLabel" destination="4I6-PW-tTR" id="bqY-Qy-zBz"/>
+                <outlet property="alcTopOfHomeBoxImageView" destination="tie-vW-yhq" id="tdl-jN-5Gk"/>
                 <outlet property="currentTempLabel" destination="OFe-WJ-bMy" id="ZWK-Ob-cLr"/>
                 <outlet property="firstClothImageView" destination="8u2-sD-mC3" id="9sh-N9-aby"/>
                 <outlet property="firstClothLabel" destination="ZZq-nP-c8R" id="1j8-Vq-vUE"/>

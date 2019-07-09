@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNK-z9-CNr">
                         <rect key="frame" x="0.0" y="0.0" width="67" height="131"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_hot_pants_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TRs-tS-ggl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_hot_pants_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TRs-tS-ggl">
                                 <rect key="frame" x="0.0" y="78" width="67" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ZJe-cG-GTK"/>

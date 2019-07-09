@@ -25,11 +25,23 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var unitLabel: UILabel!
     
     // MARK: - Constraints
+    @IBOutlet weak var alcLeadingOfLocationLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfCurrentTempLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfFirstView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfHomeBoxImageView: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfClothHangerImageView: NSLayoutConstraint!
+    
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadow()
+        
+        alcLeadingOfLocationLabel.constant = EJSize(14.0)
+        alcLeadingOfCurrentTempLabel.constant = EJSize(64.0)
+//        alcHeightOfFirstView.constant = EJSize(256.0)
+//        alcTopOfHomeBoxImageView.constant = EJSize(62.0)
+//        alcHeightOfClothHangerImageView.constant = EJSize(146.0)
     }
 
     

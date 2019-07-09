@@ -20,14 +20,21 @@ public let googleAdmobUnitID                           =   "ca-app-pub-394025609
 // MARK: - Screen Size
 public let EJ_SCREEN_WIDTH: CGFloat             =   UIScreen.main.bounds.width
 public let EJ_SCREEN_HEIGHT: CGFloat            =   UIScreen.main.bounds.height
+public let EJ_SCREEN_HEIGHT_812 : CGFloat       =   812.0
 public let EJ_SCREEN_WIDTH_414: CGFloat         =   414.0
+public let EJ_SCREEN_WIDTH_375: CGFloat         =   375.0
 
 // MARK: - Shared Instance
 let Library = EJLibrary.sharedInstance
 
 // MARK: - Auto Layout
 func EJSize(_ standardSize: CGFloat) -> CGFloat {
-    return round(standardSize * (EJ_SCREEN_WIDTH / EJ_SCREEN_WIDTH_414))
+    // iPhoneX 기준으로 잡음
+    return round(standardSize * (EJ_SCREEN_WIDTH / EJ_SCREEN_WIDTH_375))
+}
+
+func EJSizeHeight(_ size: CGFloat) -> CGFloat {
+    return round(size * (EJ_SCREEN_HEIGHT / EJ_SCREEN_HEIGHT_812))
 }
 
 // MARK: - Localizable

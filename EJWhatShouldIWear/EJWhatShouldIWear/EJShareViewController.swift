@@ -11,21 +11,22 @@ import UIKit
 class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var btnLabel: UIButton!
-    
+    @IBOutlet weak var share1TextLabel: UILabel!
+    @IBOutlet weak var share2TextLabel: UILabel!
+    @IBOutlet weak var share3TextLabel: UILabel!
     @IBOutlet weak var alcBottomOfSendBtn: NSLayoutConstraint!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        titleLabel.text = LocalizedString(with: "share_title")
         textView.text = LocalizedString(with: "share_placeholder")
-//        mainLabel.text = LocalizedString(with: "share_limit")
-        btnLabel.setTitle(LocalizedString(with: "share_btn"), for: .normal)
+        share1TextLabel.text = LocalizedString(with: "share1")
+        share2TextLabel.text = LocalizedString(with: "share2")
+        share3TextLabel.text = LocalizedString(with: "share3")
+        
         registerKeyboardNotification()
     }
     
@@ -78,7 +79,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
         let template = KMTFeedTemplate { (feedTemplateBuilder) in
             
             feedTemplateBuilder.content = KMTContentObject(builderBlock: { (contentBuilder) in
-                contentBuilder.title = self.titleLabel.text ?? "오늘모입지?"
+                contentBuilder.title = "오늘모입지?"
                 contentBuilder.desc = self.textView.text
                 contentBuilder.imageURL = URL(string: "file:///Users/ios-junior/Documents/TEST/KakaoTest/KakaoTest/Assets.xcassets/RoundedIcon.imageset/RoundedIcon.png")! // ...?
                 contentBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in

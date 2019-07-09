@@ -23,12 +23,15 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     // MARK: - IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var splashContainer: UIView!
+    @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
     
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        alcTopOfStackView.constant = EJSizeHeight(414.0)
+        
         configureSideMenu()
         registerNibs()
         

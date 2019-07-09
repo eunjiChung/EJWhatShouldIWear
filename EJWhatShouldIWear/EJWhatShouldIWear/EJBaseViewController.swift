@@ -19,7 +19,6 @@ let EJSegueSetting                      = "setting_segue"
 class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate{
     
     // MARK: - Global instance
-    let composeVC = MFMailComposeViewController()
     var location: String = LocalizedString(with: "unknown")
     
     lazy var locationManager: CLLocationManager = {
@@ -32,6 +31,8 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
     
     // MARK: - Status Bar
@@ -61,6 +62,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     // MARK: - Instance for View Controller
     func sendEmailWithCompose() {
         if MFMailComposeViewController.canSendMail() {
+            let composeVC = MFMailComposeViewController()
             composeVC.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
             composeVC.setToRecipients(["twih1203@gmail.com"])
             composeVC.setSubject(LocalizedString(with: "send_title"))
