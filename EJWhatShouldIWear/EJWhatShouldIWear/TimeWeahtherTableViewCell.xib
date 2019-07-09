@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,7 +52,13 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="alcBottomConstraintOfCollectionView" destination="JUQ-V9-FqT" id="pAN-hz-siV"/>
+                <outlet property="alcHeightOfCollectionView" destination="RUs-b3-111" id="0rI-fH-pq0"/>
+                <outlet property="alcLeadingConstraintOfTextLabel" destination="2T2-ww-EOC" id="Q5o-u5-Yll"/>
+                <outlet property="alcTopConstraintOfCollectionView" destination="41N-lO-qRK" id="6Ga-BH-Hvp"/>
+                <outlet property="alcTopConstraintOfTextLabel" destination="Kti-lt-WZf" id="7ku-zc-0S2"/>
                 <outlet property="collectionView" destination="NnF-4y-TDN" id="I7P-rz-bLM"/>
+                <outlet property="titleLabel" destination="k1I-Rw-uFP" id="gDE-N3-lRT"/>
             </connections>
             <point key="canvasLocation" x="170.40000000000001" y="131.89655172413794"/>
         </tableViewCell>

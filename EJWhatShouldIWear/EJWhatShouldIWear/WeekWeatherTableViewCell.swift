@@ -13,11 +13,27 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     static let identifier = "WeekWeatherTableViewCell"
     var weatherInfo: [EJFiveDaysList]?
     
+    // MARK: - Layout Constraints
+    @IBOutlet weak var alcTopOfTitleLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfTitleLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfCollectionView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfCollectionView: NSLayoutConstraint!
+    
+    
+    // MARK: - IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        alcTopOfTitleLabel.constant = EJSize(38.0)
+        alcLeadingOfTitleLabel.constant = EJSize(20.0)
+        alcBottomOfCollectionView.constant = EJSize(50.0)
+        alcTopOfCollectionView.constant = EJSize(16.0)
+        
+        titleLabel.text = LocalizedString(with: "main_weekely")
+
         collectionView.dataSource = self
         collectionView.delegate = self
         

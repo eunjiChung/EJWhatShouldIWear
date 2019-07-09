@@ -16,11 +16,32 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     var timeArray: [String]?
     var tempArray: [String]?
     
+    
+    // MARK: - Constraints
+    @IBOutlet weak var alcTopConstraintOfTextLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingConstraintOfTextLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcTopConstraintOfCollectionView: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomConstraintOfCollectionView: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfCollectionView: NSLayoutConstraint!
+    
+    
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var titleLabel: UILabel!
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        titleLabel.text = LocalizedString(with: "main_timely")
+        
+        alcTopConstraintOfTextLabel.constant = EJSize(43.0)
+        alcLeadingConstraintOfTextLabel.constant = EJSize(20.0)
+        alcTopConstraintOfCollectionView.constant = EJSize(18.0)
+        alcBottomConstraintOfCollectionView.constant = EJSize(50.0)
+        alcHeightOfCollectionView.constant = EJSize(131.0)
+        
         
         collectionView.dataSource = self as UICollectionViewDataSource
         collectionView.delegate = self as UICollectionViewDelegate

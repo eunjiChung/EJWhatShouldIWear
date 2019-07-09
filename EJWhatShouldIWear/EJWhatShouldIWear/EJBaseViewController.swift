@@ -35,6 +35,11 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
         super.viewDidLoad()
     }
     
+    // MARK: - Status Bar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     
     // MARK: - Location Method
     func checkLocationStatus() {

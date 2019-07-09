@@ -79,7 +79,7 @@ class EJWeatherManager: NSObject {
             third = UIImage.init(named: "big_hot_pants_icon")!
             thirdTag = "반바지"
         case 23...27:
-            first = UIImage.init(named: "bit_one_piece_icon")!
+            first = UIImage.init(named: "big_one_piece_icon")!
             firstTag = "원피스"
             second = UIImage.init(named: "big_short_sleeved_t_shirt_icon")!
             secondTag = "반팔티"

@@ -18,14 +18,24 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
     
     var weatherList:[EJFiveDaysList]?
     
+    // MARK: - IBOutlet
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherTellingLabel: UILabel!
+    
+    // MARK: - Layout Constraints
+    @IBOutlet weak var alcTopOfDateLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfTempLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfWeatherTellingLabel: NSLayoutConstraint!
     
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        alcTopOfDateLabel.constant = EJSize(9.0)
+        alcTopOfTempLabel.constant = EJSize(23.0)
+        alcTopOfWeatherTellingLabel.constant = EJSize(4.0)
         
         dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
     }
