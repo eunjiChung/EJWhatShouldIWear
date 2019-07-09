@@ -40,14 +40,19 @@ class TimeCollectionViewCell: UICollectionViewCell {
         let unit = LocalizedString(with: "temp")
         
         let weatherInfo = info.main
+        let weatherID = info.weather
         if let dateInfo = info.dtTxt {
             let time = getTime(from: dateInfo)
             hourLabel.text = "\(time)\(hour)"
         }
         
-        if let floatTemp = weatherInfo?.temp {
+        if let floatTemp = weatherInfo?.temp, let id = weatherID?.first?.id {
             let temp = WeatherManager.getValidTemperature(by: floatTemp)
             tempLabel.text = "\(temp)\(unit)"
+            
+            let style = WeatherManager.setTodayStyle(by: temp, id: id)
+            let image = style.keys.map { $0 }
+            clothImageView.image = image[0]
         }
     }
     

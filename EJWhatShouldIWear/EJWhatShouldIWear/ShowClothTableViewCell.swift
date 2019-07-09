@@ -29,6 +29,7 @@ class ShowClothTableViewCell: UITableViewCell {
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        addShadow()
     }
 
     
@@ -39,7 +40,6 @@ class ShowClothTableViewCell: UITableViewCell {
     
     public func setWeatherInfo(by info: EJMain, with description:EJWeather) {
         if let temp = info.temp, let id = description.id {
-            // 나라별 온도 사용 단위
             let intTemp = WeatherManager.getValidTemperature(by: temp)
             currentTempLabel.text = "\(intTemp)"
             unitLabel.text = LocalizedString(with: "temp")
@@ -56,6 +56,15 @@ class ShowClothTableViewCell: UITableViewCell {
             thirdClothLabel.text = weatherStyle[weatherClothes[2]]
             
         }
+    }
+    
+    // MARK: - Private Shadow
+    private func addShadow() {
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shadowOpacity = 0.05
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 2
+        self.layer.masksToBounds = false
     }
     
 }

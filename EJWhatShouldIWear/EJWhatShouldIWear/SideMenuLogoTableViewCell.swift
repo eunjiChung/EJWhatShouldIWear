@@ -20,6 +20,16 @@ class SideMenuLogoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        addShadow()
+    }
+    
+    // MARK: - Private Method
+    private func addShadow() {
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shadowOpacity = 0.05
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 2
+        self.layer.masksToBounds = false
     }
 
 }

@@ -118,7 +118,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         switch section {
-        case 1, 2, 3:
+        case 2, 3:
             return EJSize(7.0)
         default:
             return 0
@@ -131,7 +131,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         if self.splashContainer != nil {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
-                    self.splashContainer.alpha = 0.0
+                    print(self.splashContainer)
+                    if let splash = self.splashContainer {
+                        splash.alpha = 0.0
+                    }
+//                    self.splashContainer.alpha = 0.0
                 }, completion: { (success) in
                     self.splashContainer =  nil
                 })
@@ -253,6 +257,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                         self.removeSplashScene()
                     } else {
                         print("알 수 없는 지역")
+                        self.popAlertVC(self, with: "네트워크 연결 불안정", "다시 시도해주세요")
                     }
                 }
             }

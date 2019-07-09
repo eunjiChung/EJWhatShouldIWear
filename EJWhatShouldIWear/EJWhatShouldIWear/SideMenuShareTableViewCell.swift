@@ -23,5 +23,7 @@ class SideMenuShareTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         shareLabel.text = LocalizedString(with: "share")
+        shareLabel.adjustsFontSizeToFitWidth = true
+        shareLabel.minimumScaleFactor = 0
     }
 }

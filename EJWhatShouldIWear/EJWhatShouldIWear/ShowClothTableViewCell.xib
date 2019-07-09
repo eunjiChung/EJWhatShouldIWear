@@ -51,11 +51,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I8U-aG-kZU" secondAttribute="trailing" constant="64" id="2cs-kX-0jY"/>
                             <constraint firstItem="D3P-zl-9qy" firstAttribute="leading" secondItem="TUV-X9-Ztw" secondAttribute="trailing" constant="14" id="4I6-PW-tTR"/>
                             <constraint firstItem="D3P-zl-9qy" firstAttribute="top" secondItem="Bdq-Ys-Imd" secondAttribute="top" constant="122" id="DLN-t2-cpG"/>
                             <constraint firstItem="I8U-aG-kZU" firstAttribute="leading" secondItem="D3P-zl-9qy" secondAttribute="leading" id="Dmd-BG-TwE"/>
                             <constraint firstAttribute="height" constant="256" id="FXX-4n-SMr"/>
                             <constraint firstItem="OFe-WJ-bMy" firstAttribute="leading" secondItem="Bdq-Ys-Imd" secondAttribute="leading" constant="64" id="kzb-jM-Eis"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D3P-zl-9qy" secondAttribute="trailing" constant="64" id="oAK-cx-l4N"/>
                             <constraint firstAttribute="bottom" secondItem="OFe-WJ-bMy" secondAttribute="bottom" constant="59" id="pJ8-ic-LTy"/>
                             <constraint firstItem="I8U-aG-kZU" firstAttribute="top" secondItem="D3P-zl-9qy" secondAttribute="bottom" constant="6" id="sx7-Ny-M7a"/>
                             <constraint firstItem="TUV-X9-Ztw" firstAttribute="top" secondItem="Bdq-Ys-Imd" secondAttribute="top" constant="113" id="wFC-O6-fyk"/>

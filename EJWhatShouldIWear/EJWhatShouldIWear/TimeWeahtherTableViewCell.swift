@@ -68,6 +68,7 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         if let info = weatherInfo {
             let indexWeatherInfo = info[item]
+            
             cell.setHourlyWeather(by: indexWeatherInfo)
         }
         
