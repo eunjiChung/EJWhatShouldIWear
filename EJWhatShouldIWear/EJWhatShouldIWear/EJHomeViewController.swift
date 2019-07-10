@@ -283,7 +283,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                         }
                     } else {
                         print("알 수 없는 지역 :", first)
-                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "Unknown locality")
+//                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "Unknown locality")
                         self.removeSplashScene()
                     }
                 }
