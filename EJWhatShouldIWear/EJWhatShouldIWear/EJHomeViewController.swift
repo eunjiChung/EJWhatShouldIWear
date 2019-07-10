@@ -24,11 +24,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var splashContainer: UIView!
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
-    @IBOutlet weak var alcHeightOfNavigationBar: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfSideBackButton: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfSettingButton: NSLayoutConstraint!
     @IBOutlet weak var alcTrailingOfSettingButton: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfMenuButton: NSLayoutConstraint!
     
     
     
@@ -37,11 +37,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
 
         alcTopOfStackView.constant = EJSizeHeight(414.0)
-        alcHeightOfNavigationBar.constant = EJSizeHeight(76.0)
         alcLeadingOfSideBackButton.constant = EJSize(18.0)
         alcTopOfSideBackButton.constant = EJSizeHeight(46.0)
         alcTopOfSettingButton.constant = EJSizeHeight(46.0)
         alcTrailingOfSettingButton.constant = EJSize(20.0)
+        alcBottomOfMenuButton.constant = EJSizeHeight(8.0)
         
         configureSideMenu()
         registerNibs()
