@@ -66,11 +66,11 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     // MARK: - UICollectionView Delegate FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: EJSize(65.0), height: EJSizeHeight(97.0))
+        return CGSize.init(width: EJSize((EJ_SCREEN_WIDTH_375-44)/4), height: EJSizeHeight(110.0))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: EJSizeHeight(0.0), left: EJSize(22.0), bottom: EJSizeHeight(0.0), right: EJSize(0.0))
+        return UIEdgeInsets.init(top: EJSizeHeight(0.0), left: EJSize(22.0), bottom: EJSizeHeight(0.0), right: EJSize(22.0))
     }
     
 }

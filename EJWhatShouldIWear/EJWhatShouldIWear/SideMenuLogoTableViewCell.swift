@@ -42,7 +42,6 @@ class SideMenuLogoTableViewCell: UITableViewCell {
         self.layer.masksToBounds = false
         self.layer.shadowOffset = .zero // 뷰로부터 얼마나 멀어질건지
         self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath // 그림자의 모양 (뷰에 맞추는 정도)
-        
     }
 
 }

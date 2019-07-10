@@ -42,6 +42,8 @@
 "alarm_message" = "每天早上9点钟通知";
 
 // error
+"localizing_error" = "Cannot use GPS";
+"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
 "unknown_error" = "未知错误";
 "network_error" = "网络不稳定";
 

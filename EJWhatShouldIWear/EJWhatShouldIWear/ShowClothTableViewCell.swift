@@ -25,23 +25,29 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var unitLabel: UILabel!
     
     // MARK: - Constraints
-    @IBOutlet weak var alcLeadingOfLocationLabel: NSLayoutConstraint!
-    @IBOutlet weak var alcLeadingOfCurrentTempLabel: NSLayoutConstraint!
-    @IBOutlet weak var alcHeightOfFirstView: NSLayoutConstraint!
-    @IBOutlet weak var alcTopOfHomeBoxImageView: NSLayoutConstraint!
-    @IBOutlet weak var alcHeightOfClothHangerImageView: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfContainerView: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfStackView: NSLayoutConstraint!
+    @IBOutlet weak var alcTrailingOfStackView: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfStackView: NSLayoutConstraint!
+    @IBOutlet weak var alcHeightOfHangerImage: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfFirstClothImageView: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfFirstImageview: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfSecondImageView: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfThirdImageView: NSLayoutConstraint!
+    @IBOutlet weak var alcTrailingOfThirdImageView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfFirstLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfFirstLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcLeadingOfClothView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfClothView: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfClothView: NSLayoutConstraint!
+    @IBOutlet weak var alcTrailingOfClothView: NSLayoutConstraint!
     
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadow()
-        
-        alcLeadingOfLocationLabel.constant = EJSize(14.0)
-        alcLeadingOfCurrentTempLabel.constant = EJSize(64.0)
-//        alcHeightOfFirstView.constant = EJSizeHeight(256.0)
-//        alcTopOfHomeBoxImageView.constant = EJSizeHeight(62.0)
-//        alcHeightOfClothHangerImageView.constant = EJSizeHeight(146.0)
+        setLayoutConstraints()
     }
 
     
@@ -72,11 +78,32 @@ class ShowClothTableViewCell: UITableViewCell {
     
     // MARK: - Private Shadow
     private func addShadow() {
-        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        self.layer.shadowOpacity = 0.05
-        self.layer.shadowOffset = CGSize.zero
-        self.layer.shadowRadius = 2
+        //        self.backgroundColor = .clear
+        self.layer.shadowOpacity = 0.1 // 투명 효과
+        self.layer.shadowColor = UIColor.gray.cgColor // 그림자 색깔
+        self.layer.shadowRadius = 10 // 블러효과
         self.layer.masksToBounds = false
+        self.layer.shadowOffset = .zero // 뷰로부터 얼마나 멀어질건지
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath // 그림자의 모양 (뷰에 맞추는 정도)
+    }
+    
+    private func setLayoutConstraints() {
+        alcHeightOfContainerView.constant = EJSizeHeight(256.0)
+        alcLeadingOfStackView.constant = EJSize(64.0)
+        alcTrailingOfStackView.constant = EJSize(64.0)
+        alcBottomOfStackView.constant = EJSizeHeight(56.0)
+        alcHeightOfHangerImage.constant = EJSizeHeight(146.0)
+        alcTopOfFirstClothImageView.constant = EJSizeHeight(15.0)
+        alcLeadingOfFirstImageview.constant = EJSize(29.0)
+        alcLeadingOfSecondImageView.constant = EJSize(20.0)
+        alcLeadingOfThirdImageView.constant = EJSize(20.0)
+        alcTrailingOfThirdImageView.constant = EJSize(29.0)
+//        alcTopOfFirstLabel.constant = EJSizeHeight(12.0)
+        alcBottomOfFirstLabel.constant = EJSizeHeight(15.0)
+        alcLeadingOfClothView.constant = EJSize(20.0)
+        alcTopOfClothView.constant = EJSizeHeight(62.0)
+        alcBottomOfClothView.constant = EJSizeHeight(34.0)
+        alcTrailingOfClothView.constant = EJSize(20.0)
     }
     
 }

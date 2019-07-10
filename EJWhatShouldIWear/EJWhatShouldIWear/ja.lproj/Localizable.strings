@@ -42,6 +42,8 @@
 "alarm_message" = "毎朝9時の通知を受け取る";
 
 // error
+"localizing_error" = "Cannot use GPS";
+"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
 "unknown_error" = "未知のエラー";
 "network_error" = "ネットワーク不安定性";
 

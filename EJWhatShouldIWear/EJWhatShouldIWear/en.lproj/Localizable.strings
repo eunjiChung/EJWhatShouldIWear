@@ -42,6 +42,8 @@
 "alarm_message" = "Get a 9 o'clock notice every morning";
 
 // error
+"localizing_error" = "Cannot use GPS";
+"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
 "unknown_error" = "Unknown Error";
 "network_error" = "Network instability";
 

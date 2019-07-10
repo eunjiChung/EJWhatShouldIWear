@@ -111,11 +111,12 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
 
         switch indexPath.section {
         case 0:
-            return EJSizeHeight(424.0)
+            return EJSizeHeight(146.0+62.0+179.67+34.0)
+//            return EJSizeHeight(500.0)
         case 1:
-            return EJSizeHeight(261.0)
+            return EJSizeHeight(131.0+50.0+18.0+43.0+18.67)
         case 2:
-            return EJSizeHeight(220.0)
+            return EJSizeHeight(38.0+16.0+20.0+97.0+50.0+13.0)
         case 3:
             return EJSizeHeight(60.0)
         default:
@@ -210,7 +211,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case .authorizedWhenInUse:
             updateLocation()
         default:
-            print("error")
+            self.popAlertVC(self, with: LocalizedString(with: "localizing_error"), LocalizedString(with: "localizing_error_msg"))
+            print("error1")
         }
     }
     

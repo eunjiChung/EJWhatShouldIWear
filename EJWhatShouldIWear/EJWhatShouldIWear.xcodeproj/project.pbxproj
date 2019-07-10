@@ -209,6 +209,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		72BF779822D636E400B2E121 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				998B82A9228D6A110099B71A /* TimeCollectionViewCell.swift */,
+				998B82AA228D6A110099B71A /* TimeCollectionViewCell.xib */,
+				72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */,
+				72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */,
+			);
+			name = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		72BF779922D6370F00B2E121 /* SideMenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				99A05684228EAE05002D3B7A /* SideMenuShareTableViewCell.swift */,
+				99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */,
+				99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */,
+				99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */,
+			);
+			name = SideMenuCell;
+			sourceTree = "<group>";
+		};
 		991F229F228973C000FDBC98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,22 +293,16 @@
 		998191D5228C133B0063B684 /* HomeViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				72BF779922D6370F00B2E121 /* SideMenuCell */,
+				72BF779822D636E400B2E121 /* CollectionViewCell */,
 				998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */,
 				998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */,
 				998B8299228D67540099B71A /* TimeWeahtherTableViewCell.swift */,
 				998B829A228D67540099B71A /* TimeWeahtherTableViewCell.xib */,
-				72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */,
-				72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */,
 				998B82A1228D67710099B71A /* AdmobTableViewCell.swift */,
 				998B82A2228D67710099B71A /* AdmobTableViewCell.xib */,
-				998B82A9228D6A110099B71A /* TimeCollectionViewCell.swift */,
-				998B82AA228D6A110099B71A /* TimeCollectionViewCell.xib */,
 				99A05680228EAA0D002D3B7A /* DummyTableViewCell.swift */,
 				99A05681228EAA0D002D3B7A /* DummyTableViewCell.xib */,
-				99A05684228EAE05002D3B7A /* SideMenuShareTableViewCell.swift */,
-				99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */,
-				99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */,
-				99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */,
 				997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */,
 				997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */,
 				72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */,

@@ -21,6 +21,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcTopOfHourLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfTempLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfClothImage: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfClothImage: NSLayoutConstraint!
     
 
     // MARK: - View Life Cycle
@@ -29,7 +30,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
         
         alcTopOfHourLabel.constant = EJSizeHeight(7.0)
         alcTopOfTempLabel.constant = EJSizeHeight(22.0)
-        alcTopOfClothImage.constant = EJSizeHeight(9.0)
+        alcTopOfClothImage.constant = EJSizeHeight(6.0)
+        alcBottomOfClothImage.constant = EJSizeHeight(10.0)
     }
     
     
