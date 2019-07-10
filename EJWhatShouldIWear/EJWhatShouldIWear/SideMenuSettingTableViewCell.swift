@@ -38,3 +38,4 @@ class SideMenuSettingTableViewCell: UITableViewCell {
         alcTrailingOfLabel.constant = EJSize(21.0)
     }
 }
+

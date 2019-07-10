@@ -10,40 +10,31 @@ import UIKit
 
 class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
+    // MARK: - Global Instance
+    let titleFontSize = EJSizeHeight(30.0)
+    
     // MARK: - IBOutlets
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var btnLabel: UIButton!
     @IBOutlet weak var share1TextLabel: UILabel!
     @IBOutlet weak var share2TextLabel: UILabel!
     @IBOutlet weak var share3TextLabel: UILabel!
+    
+    // MARK: - Layout constraints
     @IBOutlet weak var alcBottomOfSendBtn: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfBackIcon: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfBackIcon: NSLayoutConstraint!
     @IBOutlet weak var alcHeightOfTitleView: NSLayoutConstraint!
-    @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfStackView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfButtonLabel: NSLayoutConstraint!
     
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        alcTopOfBackIcon.constant = EJSizeHeight(46.0)
-        alcLeadingOfBackIcon.constant = EJSize(25.0)
-        alcHeightOfTitleView.constant = EJSizeHeight(299.0)
-        alcTopOfStackView.constant = EJSizeHeight(180.0)
         
-        textView.text = LocalizedString(with: "share_placeholder")
-        share1TextLabel.text = LocalizedString(with: "share1")
-        share2TextLabel.text = LocalizedString(with: "share2")
-        share3TextLabel.text = LocalizedString(with: "share3")
-        share1TextLabel.adjustsFontSizeToFitWidth = true
-        share1TextLabel.minimumScaleFactor = 0
-        share2TextLabel.adjustsFontSizeToFitWidth = true
-        share2TextLabel.minimumScaleFactor = 0
-        share3TextLabel.adjustsFontSizeToFitWidth = true
-        share3TextLabel.minimumScaleFactor = 0
-        
-        
+        setLayoutConstraints()
+        setTitleLabel()
         registerKeyboardNotification()
     }
     
@@ -126,4 +117,35 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
         
     }
     
+    // MARK: - Private Method
+    private func setTitleLabel() {
+        textView.text = LocalizedString(with: "share_placeholder")
+        share1TextLabel.text = LocalizedString(with: "share1")
+        share2TextLabel.text = LocalizedString(with: "share2")
+        share3TextLabel.text = LocalizedString(with: "share3")
+        share1TextLabel.font = share1TextLabel.font.withSize(titleFontSize)
+        share2TextLabel.font = share2TextLabel.font.withSize(titleFontSize)
+        share3TextLabel.font = share3TextLabel.font.withSize(titleFontSize)
+        btnLabel.setTitle(LocalizedString(with: "share"), for: .normal)
+    }
+    
+    private func setLayoutConstraints() {
+        // Set Button Corner
+        btnLabel.layer.cornerRadius = 3.0
+        alcTopOfButtonLabel.constant = EJSizeHeight(10.0)
+        
+        // Back Icon
+        alcTopOfBackIcon.constant = EJSizeHeight(46.0)
+        alcLeadingOfBackIcon.constant = EJSize(18.0)
+        
+        // First BackgroundView
+        alcHeightOfTitleView.constant = EJSizeHeight(299.0)
+        
+        // StackView
+        if LocalizedString(with: "share1") == "" {
+            alcBottomOfStackView.constant = EJSizeHeight(40.0)
+        } else {
+            alcBottomOfStackView.constant = EJSizeHeight(20.0)
+        }
+    }
 }

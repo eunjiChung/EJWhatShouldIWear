@@ -23,7 +23,7 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         
         alcTopOfBackIcon.constant = EJSizeHeight(46.0)
-        alcLeadingOfBackIcon.constant = EJSize(25.0)
+        alcLeadingOfBackIcon.constant = EJSize(18.0)
     }
     
     

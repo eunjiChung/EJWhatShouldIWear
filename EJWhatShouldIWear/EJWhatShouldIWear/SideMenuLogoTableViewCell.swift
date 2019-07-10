@@ -36,7 +36,7 @@ class SideMenuLogoTableViewCell: UITableViewCell {
     // MARK: - Private Method
     private func addShadow() {
 //        self.backgroundColor = .clear
-        self.layer.shadowOpacity = 0.05 // 투명 효과
+        self.layer.shadowOpacity = 0.1 // 투명 효과
         self.layer.shadowColor = UIColor.gray.cgColor // 그림자 색깔
         self.layer.shadowRadius = 10 // 블러효과
         self.layer.masksToBounds = false

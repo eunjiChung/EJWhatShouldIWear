@@ -108,7 +108,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+
         switch indexPath.section {
         case 0:
             return EJSizeHeight(424.0)
@@ -270,13 +270,18 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                 print(error)
             } else {
                 if let first = list?.first {
-                    if let gu = first.locality, let dong = first.subLocality {
-                        self.location = "\(gu) \(dong)"
-                        self.mainTableView.reloadData()
-                        self.removeSplashScene()
+                    if let gu = first.locality {
+                        if let dong = first.subLocality {
+                            self.location = "\(gu) \(dong)"
+                            self.mainTableView.reloadData()
+                            self.removeSplashScene()
+                        } else {
+                            print("Cannot know sublocality")
+                            self.removeSplashScene()
+                        }
                     } else {
                         print("알 수 없는 지역 :", first)
-                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "Unknown locality \(first)")
+                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "Unknown locality")
                         self.removeSplashScene()
                     }
                 }
