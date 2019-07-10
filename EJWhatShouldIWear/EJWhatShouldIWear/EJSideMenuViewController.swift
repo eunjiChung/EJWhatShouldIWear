@@ -45,14 +45,16 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     
     
     // MARK: - TableView Delegate
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return EJSizeHeight(305.0)
-        default:
-            return EJSizeHeight(60.0)
-        }
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        switch indexPath.row {
+//        case 0:
+//            return EJSizeHeight(258.0)
+//        case 1:
+//            return EJSizeHeight(30.0)
+//        default:
+//            return EJSizeHeight(60.0)
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {

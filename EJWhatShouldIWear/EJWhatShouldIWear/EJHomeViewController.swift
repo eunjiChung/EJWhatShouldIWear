@@ -152,7 +152,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                             splash.removeFromSuperview()
                         }
                     } else {
-                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "")
+//                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "")
+                        print("Splash screen already missed")
                     }
                 }, completion: { (success) in
                 })
@@ -264,6 +265,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(current) { (list, error) in
             if let error = error {
+                self.popAlertVC(self, with: LocalizedString(with: "network_error"), error.localizedDescription)
                 self.removeSplashScene()
                 print(error)
             } else {
@@ -273,8 +275,9 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                         self.mainTableView.reloadData()
                         self.removeSplashScene()
                     } else {
-                        print("알 수 없는 지역")
-                        self.popAlertVC(self, with: LocalizedString(with: "network_error"), "Please try again")
+                        print("알 수 없는 지역 :", first)
+                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "Unknown locality \(first)")
+                        self.removeSplashScene()
                     }
                 }
             }
