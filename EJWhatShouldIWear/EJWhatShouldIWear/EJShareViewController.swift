@@ -81,7 +81,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - Kakao Share Link Method
+    // MARK: - Share Link Method
     @IBAction func didTouchShareBtn(_ sender: Any) {
         
         guard let text = self.textView.text else { return }

@@ -18,31 +18,12 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>kakaod3137624e928073f093bea7c121e86d5</string>
-			</array>
-		</dict>
-	</array>
 	<key>CFBundleVersion</key>
-	<string>1292</string>
+	<string>1301</string>
 	<key>FirebaseScreenReportingEnabled</key>
 	<false/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1994779937843028~3906710093</string>
-	<key>KAKAO_APP_KEY</key>
-	<string>d3137624e928073f093bea7c121e86d5</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>kakaod3137624e928073f093bea7c121e86d5</string>
-		<string>kakaolink</string>
-		<string>kakaotalk-5.9.7</string>
-	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
