@@ -208,11 +208,12 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
-        case .authorizedWhenInUse:
+        case .restricted, .denied:
+            self.popAlertVC(self, with: LocalizedString(with: "localizing_error"), LocalizedString(with: "localizing_error_msg"))
+        case .authorizedWhenInUse, .authorizedAlways:
             updateLocation()
         default:
-            self.popAlertVC(self, with: LocalizedString(with: "localizing_error"), LocalizedString(with: "localizing_error_msg"))
-            print("error1")
+            print(status)
         }
     }
     
