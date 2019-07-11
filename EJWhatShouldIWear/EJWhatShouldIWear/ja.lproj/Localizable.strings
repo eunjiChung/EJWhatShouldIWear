@@ -1,5 +1,8 @@
 // App
 "APP_NAME" = "WSIW지역화";
+
+// week_date
+"monday" = "月曜日";
 "tuesday" = "火曜日";
 "wednesday" = "水曜日";
 "thursday" = "木曜日";
@@ -42,35 +45,35 @@
 "alarm_message" = "毎朝9時の通知を受け取る";
 
 // error
-"localizing_error" = "Cannot use GPS";
-"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
+"localizing_error" = "";
+"localizing_error_msg" = "";
 "unknown_error" = "未知のエラー";
 "network_error" = "ネットワーク不安定性";
 
 // clothes
-"blouse" = "ブラウス";
-"blue_jean_jacket" = "ブルージーンズジャケット";
-"blue_jeans" = "ジーンズ";
-"cardigan" = "カーディガン";
-"checked_shirt" = "チェックシャツ";
-"coat" = "コート";
-"cotton_pants" = "綿";
-"fur_gloves" = "毛の手袋";
-"fur_hat" = "毛の帽子";
-"hot_pants" = "ショーツ";
-"jacket" = "ジャケット";
-"knitwear" = "ニット";
-"long_skirt" = "ロングスカート";
-"mask" = "マスク";
-"muffler" = "ショール";
-"one_piece" = "ワンピース";
-"padding" = "パディング";
-"padding_vest" = "パディングベスト";
-"shirt" = "シャツ";
-"short_skirt" = "スカート";
-"short_sleeved_t_shirt" = "半袖Tシャツ";
-"slacks" = "スラックス";
-"sleeveless_shirt" = "ノースリーブ";
-"sweatshirt" = "マンツーマン";
-"trench_coat" = "レンチコート";
-"umbrella" = "傘";
+"big_blouse_icon" = "ブラウス";
+"big_blue_jean_jacket_icon" = "ブルージーンズジャケット";
+"big_blue_jeans_icon" = "ジーンズ";
+"big_cardigan_icon" = "カーディガン";
+"big_checked_shirt_icon" = "チェックシャツ";
+"big_coat_icon" = "コート";
+"big_cotton_pants_icon" = "綿";
+"big_fur_gloves_icon" = "毛の手袋";
+"big_fur_hat_icon" = "毛の帽子";
+"big_hot_pants_icon" = "ショーツ";
+"big_jacket_icon" = "ジャケット";
+"big_knitwear_icon" = "ニット";
+"big_long_skirt_icon" = "ロングスカート";
+"big_mask_icon" = "マスク";
+"big_muffler_icon" = "ショール";
+"big_one_piece_icon" = "ワンピース";
+"big_padding_icon" = "パディング";
+"big_padding_vest_icon" = "パディングベスト";
+"big_shirt_icon" = "シャツ";
+"big_short_skirt_icon" = "スカート";
+"big_short_sleeved_t_shirt_icon" = "半袖Tシャツ";
+"big_slacks_icon" = "スラックス";
+"big_sleeveless_shirt_icon" = "ノースリーブ";
+"big_sweatshirt_icon" = "マンツーマン";
+"big_trench_coat_icon" = "レンチコート";
+"big_umbrella_icon" = "傘";

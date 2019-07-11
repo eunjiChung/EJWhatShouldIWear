@@ -1,5 +1,8 @@
 // App
 "APP_NAME" = "WSIW지역화";
+
+// week_date
+"monday" = "월요일";
 "tuesday" = "화요일";
 "wednesday" = "수요일";
 "thursday" = "목요일";
@@ -48,29 +51,29 @@
 "network_error" = "네트워크가 불안정합니다";
 
 // clothes
-"blouse" = "블라우스";
-"blue_jean_jacket" = "청자켓";
-"blue_jeans" = "청바지";
-"cardigan" = "가디건";
-"checked_shirt" = "체크셔츠";
-"coat" = "코트";
-"cotton_pants" = "면바지";
-"fur_gloves" = "털장갑";
-"fur_hat" = "털모자";
-"hot_pants" = "반바지";
-"jacket" = "자켓";
-"knitwear" = "니트";
-"long_skirt" = "롱스커트";
-"mask" = "마스크";
-"muffler" = "목도리";
-"one_piece" = "원피스";
-"padding" = "패딩";
-"padding_vest" = "패딩조끼";
-"shirt" = "셔츠";
-"short_skirt" = "치마";
-"short_sleeved_t_shirt" = "반팔티";
-"slacks" = "슬랙스";
-"sleeveless_shirt" = "민소매";
-"sweatshirt" = "맨투맨";
-"trench_coat" = "트렌치코트";
-"umbrella" = "우산";
+"big_blouse_icon" = "블라우스";
+"big_blue_jean_jacket_icon" = "청자켓";
+"big_blue_jeans_icon" = "청바지";
+"big_cardigan_icon" = "가디건";
+"big_checked_shirt_icon" = "체크셔츠";
+"big_coat_icon" = "코트";
+"big_cotton_pants_icon" = "면바지";
+"big_fur_gloves_icon" = "털장갑";
+"big_fur_hat_icon" = "털모자";
+"big_hot_pants_icon" = "반바지";
+"big_jacket_icon" = "자켓";
+"big_knitwear_icon" = "니트";
+"big_long_skirt_icon" = "롱스커트";
+"big_mask_icon" = "마스크";
+"big_muffler_icon" = "목도리";
+"big_one_piece_icon" = "원피스";
+"big_padding_icon" = "패딩";
+"big_padding_vest_icon" = "패딩조끼";
+"big_shirt_icon" = "셔츠";
+"big_short_skirt_icon" = "치마";
+"big_short_sleeved_t_shirt_icon" = "반팔티";
+"big_slacks_icon" = "슬랙스";
+"big_sleeveless_shirt_icon" = "민소매";
+"big_sweatshirt_icon" = "맨투맨";
+"big_trench_coat_icon" = "트렌치코트";
+"big_umbrella_icon" = "우산";

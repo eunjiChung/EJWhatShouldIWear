@@ -1,5 +1,8 @@
 // App
 "APP_NAME" = "WSIW지역화";
+
+// week_date
+"monday" = "Mon";
 "tuesday" = "Tue";
 "wednesday" = "Wed";
 "thursday" = "Thu";
@@ -48,29 +51,29 @@
 "network_error" = "Network instability";
 
 // clothes
-"blouse" = "Blouse";
-"blue_jean_jacket" = "Blue Jean Jacket";
-"blue_jeans" = "Blue Jeans";
-"cardigan" = "Cardigan";
-"checked_shirt" = "Checked Shirt";
-"coat" = "Coat";
-"cotton_pants" = "Cotton pants";
-"fur_gloves" = "Fur Gloves";
-"fur_hat" = "Fur Hat";
-"hot_pants" = "Hot Pants";
-"jacket" = "Jacekt";
-"knitwear" = "KnitWear";
-"long_skirt" = "Long Skirt";
-"mask" = "Mask";
-"muffler" = "Muffler";
-"one_piece" = "Onepiece";
-"padding" = "Padding";
-"padding_vest" = "Padding vest";
-"shirt" = "Shirt";
-"short_skirt" = "Short Skirt";
-"short_sleeved_t_shirt" = "T-Shirt";
-"slacks" = "Slacks";
-"sleeveless_shirt" = "Sleeveless Shirt";
-"sweatshirt" = "Sweat Shirt";
-"trench_coat" = "Trench Coat";
-"umbrella" = "Umbrella";
+"big_blouse_icon" = "Blouse";
+"big_blue_jean_jacket_icon" = "Blue Jean Jacket";
+"big_blue_jeans_icon" = "Blue Jeans";
+"big_cardigan_icon" = "Cardigan";
+"big_checked_shirt_icon" = "Checked Shirt";
+"big_coat_icon" = "Coat";
+"big_cotton_pants_icon" = "Cotton pants";
+"big_fur_gloves_icon" = "Fur Gloves";
+"big_fur_hat_icon" = "Fur Hat";
+"big_hot_pants_icon" = "Hot Pants";
+"big_jacket_icon" = "Jacekt";
+"big_knitwear_icon" = "KnitWear";
+"big_long_skirt_icon" = "Long Skirt";
+"big_mask_icon" = "Mask";
+"big_muffler_icon" = "Muffler";
+"big_one_piece_icon" = "Onepiece";
+"big_padding_icon" = "Padding";
+"big_padding_vest_icon" = "Padding vest";
+"big_shirt_icon" = "Shirt";
+"big_short_skirt_icon" = "Short Skirt";
+"big_short_sleeved_t_shirt_icon" = "T-Shirt";
+"big_slacks_icon" = "Slacks";
+"big_sleeveless_shirt_icon" = "Sleeveless Shirt";
+"big_sweatshirt_icon" = "Sweat Shirt";
+"big_trench_coat_icon" = "Trench Coat";
+"big_umbrella_icon" = "Umbrella";

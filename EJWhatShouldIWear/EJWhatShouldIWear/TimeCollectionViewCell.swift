@@ -53,8 +53,9 @@ class TimeCollectionViewCell: UICollectionViewCell {
             tempLabel.text = "\(temp)\(unit)"
             
             let style = WeatherManager.setTodayStyle(by: temp, id: id)
-            let image = style.keys.map { $0 }
-            clothImageView.image = image[0]
+            let image = style.sorted(by: >)
+            print("IMAGE: ", image)
+            clothImageView.image = UIImage.init(named: image[0])
         }
     }
     

@@ -1,5 +1,8 @@
 // App
 "APP_NAME" = "WSIW지역화";
+
+// week_date
+"monday" = "星期月";
 "tuesday" = "星期火";
 "wednesday" = "星期水";
 "thursday" = "星期木";
@@ -42,35 +45,35 @@
 "alarm_message" = "每天早上9点钟通知";
 
 // error
-"localizing_error" = "Cannot use GPS";
-"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
+"localizing_error" = "";
+"localizing_error_msg" = "";
 "unknown_error" = "未知错误";
 "network_error" = "网络不稳定";
 
 // clothes
-"blouse" = "衬衫";
-"blue_jean_jacket" = "颊布";
-"blue_jeans" = "牛仔裤";
-"cardigan" = "羊毛衣";
-"checked_shirt" = "检查衬衫";
-"coat" = "法庭";
-"cotton_pants" = "棉裤";
-"fur_gloves" = "毛皮手套";
-"fur_hat" = "裘皮帽";
-"hot_pants" = "短裤";
-"jacket" = "夹克";
-"knitwear" = "针织的";
-"long_skirt" = "长裙";
-"mask" = "面膜";
-"muffler" = "围巾";
-"one_piece" = "海贼王";
-"padding" = "填充";
-"padding_vest" = "衬垫背心";
-"shirt" = "衬衫";
-"short_skirt" = "裙子";
-"short_sleeved_t_shirt" = "短袖T恤";
-"slacks" = "西裤";
-"sleeveless_shirt" = "无袖";
-"sweatshirt" = "一对一";
-"trench_coat" = "风衣";
-"umbrella" = "伞";
+"big_blouse_icon" = "衬衫";
+"big_blue_jean_jacket_icon" = "颊布";
+"big_blue_jeans_icon" = "牛仔裤";
+"big_cardigan_icon" = "羊毛衣";
+"big_checked_shirt_icon" = "检查衬衫";
+"big_coat_icon" = "法庭";
+"big_cotton_pants_icon" = "棉裤";
+"big_fur_gloves_icon" = "毛皮手套";
+"big_fur_hat_icon" = "裘皮帽";
+"big_hot_pants_icon" = "短裤";
+"big_jacket_icon" = "夹克";
+"big_knitwear_icon" = "针织的";
+"big_long_skirt_icon" = "长裙";
+"big_mask_icon" = "面膜";
+"big_muffler_icon" = "围巾";
+"big_one_piece_icon" = "海贼王";
+"big_padding_icon" = "填充";
+"big_padding_vest_icon" = "衬垫背心";
+"big_shirt_icon" = "衬衫";
+"big_short_skirt_icon" = "裙子";
+"big_short_sleeved_t_shirt_icon" = "短袖T恤";
+"big_slacks_icon" = "西裤";
+"big_sleeveless_shirt_icon" = "无袖";
+"big_sweatshirt_icon" = "一对一";
+"big_trench_coat_icon" = "风衣";
+"big_umbrella_icon" = "伞";

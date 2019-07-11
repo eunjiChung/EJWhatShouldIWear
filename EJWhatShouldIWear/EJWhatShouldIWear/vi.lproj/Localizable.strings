@@ -1,5 +1,8 @@
 // App
 "APP_NAME" = "WSIW지역화";
+
+// week_date
+"monday" = "thứ hai";
 "tuesday" = "thứ ba";
 "wednesday" = "thứ tư";
 "thursday" = "thứ năm";
@@ -42,35 +45,35 @@
 "alarm_message" = "Nhận thông báo 9 giờ mỗi sáng";
 
 // error
-"localizing_error" = "Cannot use GPS";
-"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
+"localizing_error" = "";
+"localizing_error_msg" = "";
 "unknown_error" = "Lỗi không rõ";
 "network_error" = "mất ổn định mạng";
 
 // clothes
-"blouse" = "áo cánh";
-"blue_jean_jacket" = "áo khoác jean màu xanh";
-"blue_jeans" = "quần jean xanh";
-"cardigan" = "áo nịt";
-"checked_shirt" = "Áo đã được kiểm tra";
-"coat" = "áo khoác";
-"cotton_pants" = "quần cotton";
-"fur_gloves" = "găng tay lông thú";
-"fur_hat" = "mũ lông";
-"hot_pants" = "quần nóng";
-"jacket" = "Áo khoác";
-"knitwear" = "hàng dệt kim";
-"long_skirt" = "váy dài";
-"mask" = "mặt nạ";
-"muffler" = "ống giảm thanh";
-"one_piece" = "một mảnh";
-"padding" = "đệm";
-"padding_vest" = "đệm lót";
-"shirt" = "áo sơ mi";
-"short_skirt" = "váy ngắn";
-"short_sleeved_t_shirt" = "Áo thun";
-"slacks" = "quần lót";
-"sleeveless_shirt" = "áo không tay";
-"sweatshirt" = "áo thấm mồ hôi";
-"trench_coat" = "áo choàng";
-"umbrella" = "ô";
+"big_blouse_icon" = "áo cánh";
+"big_blue_jean_jacket_icon" = "áo khoác jean màu xanh";
+"big_blue_jeans_icon" = "quần jean xanh";
+"big_cardigan_icon" = "áo nịt";
+"big_checked_shirt_icon" = "Áo đã được kiểm tra";
+"big_coat_icon" = "áo khoác";
+"big_cotton_pants_icon" = "quần cotton";
+"big_fur_gloves_icon" = "găng tay lông thú";
+"big_fur_hat_icon" = "mũ lông";
+"big_hot_pants_icon" = "quần nóng";
+"big_jacket_icon" = "Áo khoác";
+"big_knitwear_icon" = "hàng dệt kim";
+"big_long_skirt_icon" = "váy dài";
+"big_mask_icon" = "mặt nạ";
+"big_muffler_icon" = "ống giảm thanh";
+"big_one_piece_icon" = "một mảnh";
+"big_padding_icon" = "đệm";
+"big_padding_vest_icon" = "đệm lót";
+"big_shirt_icon" = "áo sơ mi";
+"big_short_skirt_icon" = "váy ngắn";
+"big_short_sleeved_t_shirt_icon" = "Áo thun";
+"big_slacks_icon" = "quần lót";
+"big_sleeveless_shirt_icon" = "áo không tay";
+"big_sweatshirt_icon" = "áo thấm mồ hôi";
+"big_trench_coat_icon" = "áo choàng";
+"big_umbrella_icon" = "ô";

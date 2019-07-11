@@ -64,14 +64,14 @@ class ShowClothTableViewCell: UITableViewCell {
             suggestLabel.text = WeatherManager.weatherCondition(of: id)
             
             let weatherStyle = WeatherManager.setTodayStyle(by: intTemp, id: id)
-            let weatherClothes = weatherStyle.keys.map { $0 }
+            let weatherClothes = weatherStyle.sorted(by: >)
             
-            firstClothImageView.image = weatherClothes[0]
-            firstClothLabel.text = weatherStyle[weatherClothes[0]]
-            secondClothImageview.image = weatherClothes[1]
-            secondClothLabel.text = weatherStyle[weatherClothes[1]]
-            thirdClothImageView.image = weatherClothes[2]
-            thirdClothLabel.text = weatherStyle[weatherClothes[2]]
+            firstClothImageView.image = UIImage.init(named: weatherClothes[0])
+            firstClothLabel.text = LocalizedString(with: weatherClothes[0])
+            secondClothImageview.image = UIImage.init(named: weatherClothes[1])
+            secondClothLabel.text = LocalizedString(with: weatherClothes[1])
+            thirdClothImageView.image = UIImage.init(named: weatherClothes[2])
+            thirdClothLabel.text = LocalizedString(with: weatherClothes[2])
             
         }
     }
