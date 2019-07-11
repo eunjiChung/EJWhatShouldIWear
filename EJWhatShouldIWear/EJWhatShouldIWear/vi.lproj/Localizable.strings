@@ -2,6 +2,7 @@
 "APP_NAME" = "WSIW지역화";
 
 // week_date
+"today" = "Hôm nay";
 "monday" = "thứ hai";
 "tuesday" = "thứ ba";
 "wednesday" = "thứ tư";

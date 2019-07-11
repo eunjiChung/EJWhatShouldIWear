@@ -56,14 +56,15 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Private Method
     private func getWeekday(of index: Int) -> String {
+        // Weekday Component는 일요일 1 ~ 토요일 7까지
         var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
         
         // 1. 오늘 요일을 구한다
         let component = calendar.dateComponents([.weekday], from: today)
         
         // 2. 오늘 요일로부터 지난 시간을 index로 계산한다
-        print("Today is \(weekDay[component.weekday!])")
-        let day = (component.weekday! + index) % 7
+        if index == 0 { return LocalizedString(with: "today") }
+        let day = (component.weekday! + index - 1) % 7
         
         // 3. 해당 day만큼 weekDay 문자열 배열에 있는 값을 리턴한다
         return LocalizedString(with: weekDay[day])
