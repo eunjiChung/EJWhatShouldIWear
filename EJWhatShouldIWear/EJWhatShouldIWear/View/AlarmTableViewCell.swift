@@ -12,12 +12,25 @@ class AlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var notiSetLabel: UILabel!
     @IBOutlet weak var descriptLabel: UILabel!
+    @IBOutlet weak var notificationSwitch: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         notiSetLabel.text = LocalizedString(with: "setting_noti")
         descriptLabel.text = LocalizedString(with: "alarm_message")
+        
+        notificationSwitch.isOn = myUserDefaults.bool(forKey:SWITCH_ID)
     }
 
+    @IBAction func didChangeNotificationState(_ sender: Any) {
+        if notificationSwitch.isOn {
+            notificationSwitch.setOn(false, animated: true)
+            Library.deniedNotification()
+        } else {
+            notificationSwitch.setOn(true, animated: true)
+            Library.allowNotification()
+        }
+    }
+    
     
 }

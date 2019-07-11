@@ -1,5 +1,6 @@
 // App
-"APP_NAME" = "WSIW지역화";
+"APP_NAME" = "WHAT SHOUD I WEAR?";
+"noti_body" = "Check today's weather and outfit:)";
 
 // week_date
 "today" = "今天";

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1022473E71CF6D37CD4F464D /* Pods_EJWhatShouldIWearUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */; };
+		724A173822D77C9B008FDCB6 /* cardigan.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173522D77C9B008FDCB6 /* cardigan.png */; };
+		724A173922D77C9B008FDCB6 /* tshirt.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173622D77C9B008FDCB6 /* tshirt.png */; };
+		724A173A22D77C9B008FDCB6 /* blouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173722D77C9B008FDCB6 /* blouse.png */; };
+		724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */; };
+		724A174E22D7817F008FDCB6 /* muffler.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A174D22D7817F008FDCB6 /* muffler.png */; };
 		72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */; };
 		72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */; };
 		72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */; };
@@ -66,6 +71,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		724A174822D77F87008FDCB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 999B209322029E660073A0D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 999B209A22029E660073A0D9;
+			remoteInfo = EJWhatShouldIWear;
+		};
 		999B20B022029E670073A0D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 999B209322029E660073A0D9 /* Project object */;
@@ -77,6 +89,13 @@
 
 /* Begin PBXFileReference section */
 		1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		724A173522D77C9B008FDCB6 /* cardigan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardigan.png; sourceTree = "<group>"; };
+		724A173622D77C9B008FDCB6 /* tshirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tshirt.png; sourceTree = "<group>"; };
+		724A173722D77C9B008FDCB6 /* blouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blouse.png; sourceTree = "<group>"; };
+		724A174322D77F87008FDCB6 /* EJWhatShouldIWearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EJWhatShouldIWearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWhatShouldIWearTests.swift; sourceTree = "<group>"; };
+		724A174722D77F87008FDCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		724A174D22D7817F008FDCB6 /* muffler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muffler.png; sourceTree = "<group>"; };
 		72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherTableViewCell.swift; sourceTree = "<group>"; };
@@ -158,6 +177,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		724A174022D77F87008FDCB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		999B209822029E660073A0D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,6 +226,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		724A173422D77C01008FDCB6 /* Image Resource */ = {
+			isa = PBXGroup;
+			children = (
+				724A174D22D7817F008FDCB6 /* muffler.png */,
+				724A173722D77C9B008FDCB6 /* blouse.png */,
+				724A173522D77C9B008FDCB6 /* cardigan.png */,
+				724A173622D77C9B008FDCB6 /* tshirt.png */,
+			);
+			name = "Image Resource";
+			sourceTree = "<group>";
+		};
+		724A174422D77F87008FDCB6 /* EJWhatShouldIWearTests */ = {
+			isa = PBXGroup;
+			children = (
+				724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */,
+				724A174722D77F87008FDCB6 /* Info.plist */,
+			);
+			path = EJWhatShouldIWearTests;
+			sourceTree = "<group>";
+		};
 		72BF779822D636E400B2E121 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +271,7 @@
 		991F229F228973C000FDBC98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				724A173422D77C01008FDCB6 /* Image Resource */,
 				992B0A1B22BFDB4B00FF94B7 /* Language */,
 				999B20A522029E670073A0D9 /* Assets.xcassets */,
 				990E595A22D71598000728A1 /* GoogleService-Info.plist */,
@@ -308,6 +355,7 @@
 			children = (
 				999B209D22029E660073A0D9 /* EJWhatShouldIWear */,
 				999B20B222029E670073A0D9 /* EJWhatShouldIWearUITests */,
+				724A174422D77F87008FDCB6 /* EJWhatShouldIWearTests */,
 				999B209C22029E660073A0D9 /* Products */,
 				2070144A60C49D4464C9569E /* Pods */,
 				3552DA285A01C2C77E7FE94F /* Frameworks */,
@@ -319,6 +367,7 @@
 			children = (
 				999B209B22029E660073A0D9 /* EJWhatShouldIWear.app */,
 				999B20AF22029E670073A0D9 /* EJWhatShouldIWearUITests.xctest */,
+				724A174322D77F87008FDCB6 /* EJWhatShouldIWearTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -382,6 +431,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		724A174222D77F87008FDCB6 /* EJWhatShouldIWearTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 724A174A22D77F87008FDCB6 /* Build configuration list for PBXNativeTarget "EJWhatShouldIWearTests" */;
+			buildPhases = (
+				724A173F22D77F87008FDCB6 /* Sources */,
+				724A174022D77F87008FDCB6 /* Frameworks */,
+				724A174122D77F87008FDCB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				724A174922D77F87008FDCB6 /* PBXTargetDependency */,
+			);
+			name = EJWhatShouldIWearTests;
+			productName = EJWhatShouldIWearTests;
+			productReference = 724A174322D77F87008FDCB6 /* EJWhatShouldIWearTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		999B209A22029E660073A0D9 /* EJWhatShouldIWear */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 999B20B822029E670073A0D9 /* Build configuration list for PBXNativeTarget "EJWhatShouldIWear" */;
@@ -428,10 +495,14 @@
 		999B209322029E660073A0D9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = DEV_MOBILE_IOS_JUNIOR;
 				TargetAttributes = {
+					724A174222D77F87008FDCB6 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 999B209A22029E660073A0D9;
+					};
 					999B209A22029E660073A0D9 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -460,20 +531,32 @@
 			targets = (
 				999B209A22029E660073A0D9 /* EJWhatShouldIWear */,
 				999B20AE22029E670073A0D9 /* EJWhatShouldIWearUITests */,
+				724A174222D77F87008FDCB6 /* EJWhatShouldIWearTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		724A174122D77F87008FDCB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		999B209922029E660073A0D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724A173922D77C9B008FDCB6 /* tshirt.png in Resources */,
+				724A174E22D7817F008FDCB6 /* muffler.png in Resources */,
 				990E595B22D71598000728A1 /* GoogleService-Info.plist in Resources */,
 				992B0A3522BFE72900FF94B7 /* Localizable.strings in Resources */,
 				999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */,
 				998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */,
+				724A173822D77C9B008FDCB6 /* cardigan.png in Resources */,
 				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
+				724A173A22D77C9B008FDCB6 /* blouse.png in Resources */,
 				99A05683228EAA0D002D3B7A /* DummyTableViewCell.xib in Resources */,
 				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
 				999B20A622029E670073A0D9 /* Assets.xcassets in Resources */,
@@ -595,6 +678,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		724A173F22D77F87008FDCB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		999B209722029E660073A0D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -653,6 +744,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		724A174922D77F87008FDCB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 999B209A22029E660073A0D9 /* EJWhatShouldIWear */;
+			targetProxy = 724A174822D77F87008FDCB6 /* PBXContainerItemProxy */;
+		};
 		999B20B122029E670073A0D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 999B209A22029E660073A0D9 /* EJWhatShouldIWear */;
@@ -700,6 +796,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		724A174B22D77F87008FDCB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88356WAKJ6;
+				INFOPLIST_FILE = EJWhatShouldIWearTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.EJWhatShouldIWearTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EJWhatShouldIWear.app/EJWhatShouldIWear";
+			};
+			name = Debug;
+		};
+		724A174C22D77F87008FDCB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88356WAKJ6;
+				INFOPLIST_FILE = EJWhatShouldIWearTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.EJWhatShouldIWearTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EJWhatShouldIWear.app/EJWhatShouldIWear";
+			};
+			name = Release;
+		};
 		999B20B622029E670073A0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1041,6 +1179,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		724A174A22D77F87008FDCB6 /* Build configuration list for PBXNativeTarget "EJWhatShouldIWearTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				724A174B22D77F87008FDCB6 /* Debug */,
+				724A174C22D77F87008FDCB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		999B209622029E660073A0D9 /* Build configuration list for PBXProject "EJWhatShouldIWear" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

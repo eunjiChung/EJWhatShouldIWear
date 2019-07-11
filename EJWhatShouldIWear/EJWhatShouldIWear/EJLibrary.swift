@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 // MARK: - API Path
 public let owmAPIPath                                  =   "http://api.openweathermap.org/data/2.5/"
@@ -24,8 +25,11 @@ public let EJ_SCREEN_HEIGHT_812 : CGFloat       =   812.0
 public let EJ_SCREEN_WIDTH_414: CGFloat         =   414.0
 public let EJ_SCREEN_WIDTH_375: CGFloat         =   375.0
 
+public let SWITCH_ID : String          =  "stateSwitch"
+
 // MARK: - Shared Instance
 let Library = EJLibrary.sharedInstance
+let myUserDefaults = UserDefaults.standard
 
 // MARK: - Auto Layout
 func EJSize(_ standardSize: CGFloat) -> CGFloat {
@@ -53,6 +57,51 @@ class EJLibrary: NSObject {
         let code = locale.languageCode!
         let language = locale.localizedString(forLanguageCode: code)!
         systemLanguage = language
+    }
+    
+    
+    
+    func allowNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = LocalizedString(with: "APP_NAME")
+        content.body = LocalizedString(with: "noti_body")
+        
+        let today = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM"
+        let dateString = Int(dateFormatter.string(from: today))
+        
+        var imageName = ""
+        if let month = dateString {
+            switch month {
+            case 3...5:
+                imageName = "blouse"
+            case 6...8:
+                imageName = "tshirt"
+            case 9...11:
+                imageName = "cardigan"
+            default:
+                imageName = "muffler"
+            }
+        }
+        
+        guard let imageURL = Bundle.main.url(forResource: imageName, withExtension: ".png") else { return }
+        let attachment = try!  UNNotificationAttachment(identifier: imageName, url: imageURL, options: .none)
+        content.attachments = [attachment]
+        
+        var date = DateComponents()
+        date.hour = 9
+        date.minute = 0
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: "test", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+    }
+    
+    func deniedNotification() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
 }

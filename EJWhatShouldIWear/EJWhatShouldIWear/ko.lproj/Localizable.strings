@@ -1,5 +1,6 @@
 // App
-"APP_NAME" = "WSIW지역화";
+"APP_NAME" = "오늘모입지?";
+"noti_body" = "오늘 날씨와 옷차림을 확인해보세요!";
 
 // week_date
 "today" = "오늘";

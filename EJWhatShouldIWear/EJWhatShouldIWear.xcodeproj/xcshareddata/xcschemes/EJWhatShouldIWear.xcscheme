@@ -38,6 +38,16 @@
                ReferencedContainer = "container:EJWhatShouldIWear.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "724A174222D77F87008FDCB6"
+               BuildableName = "EJWhatShouldIWearTests.xctest"
+               BlueprintName = "EJWhatShouldIWearTests"
+               ReferencedContainer = "container:EJWhatShouldIWear.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
