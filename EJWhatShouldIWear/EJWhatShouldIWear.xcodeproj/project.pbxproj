@@ -12,6 +12,7 @@
 		72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */; };
 		72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */; };
 		72CA9B1922D38CD000EFA227 /* WeekWeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B1722D38CD000EFA227 /* WeekWeatherTableViewCell.xib */; };
+		990E595B22D71598000728A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 990E595A22D71598000728A1 /* GoogleService-Info.plist */; };
 		991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22952289720F00FDBC98 /* EJHomeViewController.swift */; };
 		991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F2297228972D300FDBC98 /* EJBaseViewController.swift */; };
 		991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */; };
@@ -58,10 +59,8 @@
 		99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */; };
 		99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */; };
 		99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */; };
-		99A61D4822D5C48900F24CFD /* SideMenuDummyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A61D4722D5C48900F24CFD /* SideMenuDummyTableViewCell.swift */; };
 		99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BB080C229E748400E454B8 /* EJShareViewController.swift */; };
 		99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC5117229D22CF00192450 /* EJLocationViewController.swift */; };
-		99DC5C3D22BB339F005661F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99DC5C3C22BB339F005661F3 /* GoogleService-Info.plist */; };
 		99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */; };
 		9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +81,7 @@
 		72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		72CA9B1722D38CD000EFA227 /* WeekWeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekWeatherTableViewCell.xib; sourceTree = "<group>"; };
+		990E595A22D71598000728A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		991F22952289720F00FDBC98 /* EJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJHomeViewController.swift; sourceTree = "<group>"; };
 		991F2297228972D300FDBC98 /* EJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBaseViewController.swift; sourceTree = "<group>"; };
 		991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSideMenuViewController.swift; sourceTree = "<group>"; };
@@ -147,10 +147,8 @@
 		99A05686228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
 		99A05688228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuFeedbackTableViewCell.swift; sourceTree = "<group>"; };
 		99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuSettingTableViewCell.swift; sourceTree = "<group>"; };
-		99A61D4722D5C48900F24CFD /* SideMenuDummyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuDummyTableViewCell.swift; sourceTree = "<group>"; };
 		99BB080C229E748400E454B8 /* EJShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJShareViewController.swift; sourceTree = "<group>"; };
 		99CC5117229D22CF00192450 /* EJLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJLocationViewController.swift; sourceTree = "<group>"; };
-		99DC5C3C22BB339F005661F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherManager.swift; sourceTree = "<group>"; };
 		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
 		B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,8 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				992B0A1B22BFDB4B00FF94B7 /* Language */,
-				99DC5C3C22BB339F005661F3 /* GoogleService-Info.plist */,
 				999B20A522029E670073A0D9 /* Assets.xcassets */,
+				990E595A22D71598000728A1 /* GoogleService-Info.plist */,
 				999B20A722029E670073A0D9 /* LaunchScreen.storyboard */,
 				999B20AA22029E670073A0D9 /* Info.plist */,
 			);
@@ -300,7 +298,6 @@
 				997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */,
 				72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */,
 				72CA9B1722D38CD000EFA227 /* WeekWeatherTableViewCell.xib */,
-				99A61D4722D5C48900F24CFD /* SideMenuDummyTableViewCell.swift */,
 			);
 			name = HomeViewCells;
 			path = ..;
@@ -472,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990E595B22D71598000728A1 /* GoogleService-Info.plist in Resources */,
 				992B0A3522BFE72900FF94B7 /* Localizable.strings in Resources */,
 				999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */,
 				998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */,
@@ -481,7 +479,6 @@
 				999B20A622029E670073A0D9 /* Assets.xcassets in Resources */,
 				998B82A4228D67710099B71A /* AdmobTableViewCell.xib in Resources */,
 				72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */,
-				99DC5C3D22BB339F005661F3 /* GoogleService-Info.plist in Resources */,
 				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
 				72CA9B1922D38CD000EFA227 /* WeekWeatherTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,
@@ -615,7 +612,6 @@
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
-				99A61D4822D5C48900F24CFD /* SideMenuDummyTableViewCell.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				992B09AC22BF849100FF94B7 /* EJWind.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
