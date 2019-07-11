@@ -62,7 +62,7 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
         let component = calendar.dateComponents([.weekday], from: today)
         
         // 2. 오늘 요일로부터 지난 시간을 index로 계산한다
-        print("Today is \(weekDay[component.weekday!])") // 왜 월요일인데...?
+        print("Today is \(weekDay[component.weekday!])")
         let day = (component.weekday! + index) % 7
         
         // 3. 해당 day만큼 weekDay 문자열 배열에 있는 값을 리턴한다

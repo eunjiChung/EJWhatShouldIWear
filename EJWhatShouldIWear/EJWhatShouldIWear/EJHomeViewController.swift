@@ -149,11 +149,9 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                     if self.splashContainer != nil {
                         if let splash = self.splashContainer {
                             splash.alpha = 0.0
-                            print("THIS ", splash)
                             splash.removeFromSuperview()
                         }
                     } else {
-//                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "")
                         print("Splash screen already missed")
                     }
                 }, completion: { (success) in
@@ -272,19 +270,23 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                 self.removeSplashScene()
                 print(error)
             } else {
-                if let first = list?.first {
-                    if let gu = first.locality {
-                        if let dong = first.subLocality {
+                if let first = list?.first
+                {
+                    if let gu = first.locality
+                    {
+                        if let dong = first.subLocality
+                        {
                             self.location = "\(gu) \(dong)"
-                            self.mainTableView.reloadData()
-                            self.removeSplashScene()
                         } else {
-                            print("Cannot know sublocality")
-                            self.removeSplashScene()
+                            print("Cannot know sublocality :", first)
+                            self.location = "\(gu)"
                         }
+                        
+                        self.mainTableView.reloadData()
+                        self.removeSplashScene()
                     } else {
                         print("알 수 없는 지역 :", first)
-//                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "Unknown locality")
+                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "Unknown locality. Please refresh the view.")
                         self.removeSplashScene()
                     }
                 }

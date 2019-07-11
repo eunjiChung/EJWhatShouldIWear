@@ -66,7 +66,6 @@ class EJWeatherManager: NSObject {
     
     public func setTodayStyle(by temp:Int, id:Int) -> [String] {
         var images = [String]()
-        var first, second, third: UIImage
         var firstTag, secondTag, thirdTag: String
         
         

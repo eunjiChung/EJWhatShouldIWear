@@ -54,7 +54,6 @@ class TimeCollectionViewCell: UICollectionViewCell {
             
             let style = WeatherManager.setTodayStyle(by: temp, id: id)
             let image = style.sorted(by: >)
-            print("IMAGE: ", image)
             clothImageView.image = UIImage.init(named: image[0])
         }
     }
