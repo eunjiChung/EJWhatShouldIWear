@@ -84,36 +84,13 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     // MARK: - Kakao Share Link Method
     @IBAction func didTouchShareBtn(_ sender: Any) {
         
-        let template = KMTFeedTemplate { (feedTemplateBuilder) in
-            
-            feedTemplateBuilder.content = KMTContentObject(builderBlock: { (contentBuilder) in
-                contentBuilder.title = "오늘모입지?"
-                contentBuilder.desc = self.textView.text
-                contentBuilder.imageURL = URL(string: "file:///Users/ios-junior/Documents/TEST/KakaoTest/KakaoTest/Assets.xcassets/RoundedIcon.imageset/RoundedIcon.png")! // ...?
-                contentBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in
-                    linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear" // App Store URL이 들어가야 함
-                })
-            })
-            
-            feedTemplateBuilder.addButton(KMTButtonObject.init(builderBlock: { (buttonBuilder) in
-                buttonBuilder.title = "앱에서 보기"
-                buttonBuilder.link = KMTLinkObject(builderBlock: { (linkeBuilder) in
-                    linkeBuilder.iosExecutionParams = "com.eunji.EJWhatShouldIWear" // App Store URL이 들어가야 함
-                })
-            }))
-            
-        }
+        guard let text = self.textView.text else { return }
+        let appStoreURL = "This is URL"
+        let textToShare = [text, appStoreURL]
         
-        KLKTalkLinkCenter.shared().sendDefault(with: template, success: { (warningMsg, argumentMsg) in
-            // 성공
-            print("warning message: \(String(describing: warningMsg))")
-            print("argument message: \(String(describing: argumentMsg))")
-            
-        }) { (error) in
-            // 실패
-            print("error \(error)")
-        }
-        
+        let activityVC = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
         
     }
     
