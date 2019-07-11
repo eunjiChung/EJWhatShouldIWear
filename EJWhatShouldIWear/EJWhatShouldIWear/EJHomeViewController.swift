@@ -264,13 +264,13 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     private func setLocationText(of current: CLLocation) {
         let geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(current) { (list, error) in
+        geoCoder.reverseGeocodeLocation(current) { (placemark, error) in
             if let error = error {
                 self.popAlertVC(self, with: LocalizedString(with: "network_error"), error.localizedDescription)
                 self.removeSplashScene()
                 print(error)
             } else {
-                if let first = list?.first
+                if let first = placemark?.first
                 {
                     if let gu = first.locality
                     {
