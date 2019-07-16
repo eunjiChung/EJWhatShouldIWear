@@ -1,9 +1,11 @@
 // App
-"APP_NAME" = "WHAT SHOUD I WEAR?";
+"APP_NAME" = "WSIW지역화";
+
+// app_name
+"app_name" = "What Should I Wear?";
 "noti_body" = "Check today's weather and outfit:)";
 
 // week_date
-"today" = "今日";
 "monday" = "月曜日";
 "tuesday" = "火曜日";
 "wednesday" = "水曜日";
@@ -31,6 +33,7 @@
 "share_btn" = "愛する人と共有する";
 "setting_local" = "場所を設定";
 "setting_noti" = "通知を設定";
+"setting_info" = "開発者向け情報";
 "send_title" = "提案する";
 "send_message" = "以下を修正してください";
 "main_timely" = "時間帯別の天気";
@@ -47,8 +50,8 @@
 "alarm_message" = "毎朝9時の通知を受け取る";
 
 // error
-"localizing_error" = "";
-"localizing_error_msg" = "";
+"localizing_error" = "Cannot use GPS";
+"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
 "unknown_error" = "未知のエラー";
 "network_error" = "ネットワーク不安定性";
 

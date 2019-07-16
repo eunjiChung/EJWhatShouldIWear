@@ -59,6 +59,25 @@ class EJLibrary: NSObject {
         systemLanguage = language
     }
     
+    func requestNotificationAuthenticate() {
+        print("requesting Notification")
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (didAllow, error) in
+            print("UserNotiAutehntication!!!!!!!")
+            if error == nil {
+                if didAllow {
+                    print("Allowing Auth")
+                    myUserDefaults.set(true, forKey: SWITCH_ID)
+                    Library.allowNotification()
+                } else {
+                    print("Disallow Auth")
+                    myUserDefaults.set(false, forKey: SWITCH_ID)
+                }
+            } else {
+                print("ERROR============================================")
+                print(error as Any)
+            }
+        }
+    }
     
     
     func allowNotification() {

@@ -1,9 +1,11 @@
 // App
-"APP_NAME" = "WHAT SHOUD I WEAR?";
+"APP_NAME" = "WSIW지역화";
+
+// app_name
+"app_name" = "What Should I Wear?";
 "noti_body" = "Check today's weather and outfit:)";
 
 // week_date
-"today" = "Hôm nay";
 "monday" = "thứ hai";
 "tuesday" = "thứ ba";
 "wednesday" = "thứ tư";
@@ -31,6 +33,7 @@
 "share_btn" = "Chia sẻ";
 "setting_local" = "Thiết lập địa điểm";
 "setting_noti" = "Đặt thông báo";
+"setting_info" = "Thông tin nhà phát triển";
 "send_title" = "Gợi ý";
 "send_message" = "vui lòng điều chỉnh các điều sau đây";
 "main_timely" = "Thời tiết theo múi giờ";
@@ -47,8 +50,8 @@
 "alarm_message" = "Nhận thông báo 9 giờ mỗi sáng";
 
 // error
-"localizing_error" = "";
-"localizing_error_msg" = "";
+"localizing_error" = "Cannot use GPS";
+"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
 "unknown_error" = "Lỗi không rõ";
 "network_error" = "mất ổn định mạng";
 

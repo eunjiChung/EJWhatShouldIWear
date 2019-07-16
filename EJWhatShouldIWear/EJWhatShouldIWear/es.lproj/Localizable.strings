@@ -1,0 +1,84 @@
+// App
+"APP_NAME" = "WSIW지역화";
+
+// app_name
+"app_name" = "What Should I Wear?";
+"noti_body" = "Check today's weather and outfit:)";
+
+// week_date
+"monday" = "lunes";
+"tuesday" = "martes";
+"wednesday" = "miércoles";
+"thursday" = "jueves";
+"friday" = "viernes";
+"saturday" = "sábado";
+"sunday" = "domingo";
+
+// weather_condition
+"sunny" = "soleado";
+"rainy" = "lluvioso";
+"cloudy" = "nublado";
+"snowy" = "nevado";
+
+// etc
+"share" = "compartir con la amada";
+"share1" = "compartir";
+"share2" = "con la";
+"share3" = "amada";
+"send_mail" = "enviar la sugerencia";
+"setting" = "el escenario";
+"share_title" = "Ten cuidado con <Qué vestiré hoy?> a tu cariño";
+"share_limit" = "40 chalar restrictivamente";
+"share_placeholder" = "ex) Hace frío. Ponte más gordo";
+"share_btn" = "share";
+"setting_local" = "establecer ubicación";
+"setting_noti" = "establecer notificación";
+"setting_info" = "Información del desarrollador";
+"send_title" = "sugerir";
+"send_message" = "arreglar esto por favor";
+"main_timely" = "el tiempo de hoy";
+"main_weekely" = "el tiempo de esta semana";
+"main_ad" = "anuncio";
+"hour" = "la hora";
+"temp" = "℃";
+"unknown" = "la ubicación desconocido";
+
+// alert
+"mail_warning_title" = "Error al establecer de la aplicación e-mail";
+"mail_warning_message" = "entrar la información del remitente";
+"btn_ok" = "Vale";
+"alarm_message" = "Recibir la alarma en todas las mañana";
+
+// error
+"localizing_error" = "no puede utilizar tu GPS";
+"localizing_error_msg" = "Por favor permita el escenario>La privacidad>servicio de localización";
+"unknown_error" = "error desconocido";
+"network_error" = "inestabilidad de la red";
+
+// clothes
+"big_blouse_icon" = "la blusa";
+"big_blue_jean_jacket_icon" = "la chaqueta de jean azul";
+"big_blue_jeans_icon" = "los vaqueros";
+"big_cardigan_icon" = "el cárdigan";
+"big_checked_shirt_icon" = "camisa revisada";
+"big_coat_icon" = "el chaquetón";
+"big_cotton_pants_icon" = "pantalones de algodón";
+"big_fur_gloves_icon" = "guantes de piel";
+"big_fur_hat_icon" = "sombrero de piel";
+"big_hot_pants_icon" = "pantalones calientes";
+"big_jacket_icon" = "la chaqueta";
+"big_knitwear_icon" = "vestido de punto";
+"big_long_skirt_icon" = "la falda larga";
+"big_mask_icon" = "la máscara";
+"big_muffler_icon" = "la bufanda";
+"big_one_piece_icon" = "el vestido";
+"big_padding_icon" = "Padding";
+"big_padding_vest_icon" = "Padding Vest";
+"big_shirt_icon" = "la camisa";
+"big_short_skirt_icon" = "la falda corta";
+"big_short_sleeved_t_shirt_icon" = "la camiseta cortada";
+"big_slacks_icon" = "los pantalones";
+"big_sleeveless_shirt_icon" = "la camiseta sin mangas";
+"big_sweatshirt_icon" = "la sudadera";
+"big_trench_coat_icon" = "la gabardina";
+"big_umbrella_icon" = "el paraguas";

@@ -46,7 +46,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
         configureSideMenu()
         registerNibs()
-        requestNotificationAuthenticate()
         
         addPullToRefreshControl(toScrollView: self.mainTableView) {
             self.updateLocation()
@@ -219,26 +218,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     
     // MARK: - Private Method
-    private func requestNotificationAuthenticate() {
-        print("requesting Notification")
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (didAllow, error) in
-            print("UserNotiAutehntication!!!!!!!")
-            if error == nil {
-                if didAllow {
-                    print("Allowing Auth")
-                    myUserDefaults.set(true, forKey: SWITCH_ID)
-                    Library.allowNotification()
-                } else {
-                    print("Disallow Auth")
-                    myUserDefaults.set(false, forKey: SWITCH_ID)
-                }
-            } else {
-                print("ERROR============================================")
-                print(error)
-            }
-        }
-    }
-    
     private func configureSideMenu() {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuWidth = EJSize(263.0)

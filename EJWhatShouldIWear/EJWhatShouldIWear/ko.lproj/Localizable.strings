@@ -1,9 +1,11 @@
 // App
-"APP_NAME" = "오늘모입지?";
+"APP_NAME" = "WSIW지역화";
+
+// app_name
+"app_name" = "오늘모입지?";
 "noti_body" = "오늘 날씨와 옷차림을 확인해보세요!";
 
 // week_date
-"today" = "오늘";
 "monday" = "월요일";
 "tuesday" = "화요일";
 "wednesday" = "수요일";
@@ -31,6 +33,7 @@
 "share_btn" = "보내기";
 "setting_local" = "지역 설정";
 "setting_noti" = "알림 설정";
+"setting_info" = "개발자 정보";
 "send_title" = "건의합니다";
 "send_message" = "불편사항 건의합니다";
 "main_timely" = "오늘 날씨";

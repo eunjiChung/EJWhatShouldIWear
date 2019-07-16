@@ -53,7 +53,9 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
             
             return cell
         default:
-            return tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath)
+//            return tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
+            return cell
         }
     }
     
@@ -67,6 +69,8 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         switch indexPath.row {
         case 0:
             self.performSegue(withIdentifier: "showLocationSegue", sender: self)
+        case 1:
+            self.performSegue(withIdentifier: "set_info_segue", sender: self)
         default:
             print("Nothing...")
         }

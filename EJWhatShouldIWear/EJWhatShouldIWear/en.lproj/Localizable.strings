@@ -1,9 +1,11 @@
 // App
-"APP_NAME" = "WHAT SHOUD I WEAR?";
+"APP_NAME" = "WSIW지역화";
+
+// app_name
+"app_name" = "What Should I Wear?";
 "noti_body" = "Check today's weather and outfit:)";
 
 // week_date
-"today" = "Today";
 "monday" = "Mon";
 "tuesday" = "Tue";
 "wednesday" = "Wed";
@@ -31,6 +33,7 @@
 "share_btn" = "Share with loved ones";
 "setting_local" = "Set Location";
 "setting_noti" = "Set Notification";
+"setting_info" = "Developer Information";
 "send_title" = "Suggestion";
 "send_message" = "Please fix the followings";
 "main_timely" = "Today Weather";

@@ -1,9 +1,11 @@
 // App
-"APP_NAME" = "WHAT SHOUD I WEAR?";
+"APP_NAME" = "WSIW지역화";
+
+// app_name
+"app_name" = "What Should I Wear?";
 "noti_body" = "Check today's weather and outfit:)";
 
 // week_date
-"today" = "今天";
 "monday" = "星期月";
 "tuesday" = "星期火";
 "wednesday" = "星期水";
@@ -31,6 +33,7 @@
 "share_btn" = "与亲人分享";
 "setting_local" = "设置位置";
 "setting_noti" = "设置通知";
+"setting_info" = "开发者信息";
 "send_title" = "建议";
 "send_message" = "请更正以下内容";
 "main_timely" = "小时天气";
@@ -47,8 +50,8 @@
 "alarm_message" = "每天早上9点钟通知";
 
 // error
-"localizing_error" = "";
-"localizing_error_msg" = "";
+"localizing_error" = "Cannot use GPS";
+"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
 "unknown_error" = "未知错误";
 "network_error" = "网络不稳定";
 
