@@ -1,0 +1,5 @@
+
+// localize
+
+CFBundleDisplayName = "WhatShouldIWear?";
+NSLocationWhenInUseUsageDescription = "Ứng dụng này cần truy cập GPS để thời tiết chính xác hơn và khuyến cáo lựa chọn kiểu tóc phù hợp.";

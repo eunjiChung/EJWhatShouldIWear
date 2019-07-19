@@ -1,0 +1,4 @@
+// localize
+
+CFBundleDisplayName = "오늘모입지?";
+NSLocationWhenInUseUsageDescription = "위치정보 접근을 허용해주시면 더 정확한 날씨정보와 옷차림을 추천해드릴 수 있어요:)";

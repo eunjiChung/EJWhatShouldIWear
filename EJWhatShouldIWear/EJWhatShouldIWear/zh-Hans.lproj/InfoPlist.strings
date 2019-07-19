@@ -1,0 +1,4 @@
+// localize
+
+CFBundleDisplayName = "WhatShouldIWear?";
+NSLocationWhenInUseUsageDescription = "这个应用程序是为了更准确的天气而需要接入GPS,推荐你选择适合你的款式。";
