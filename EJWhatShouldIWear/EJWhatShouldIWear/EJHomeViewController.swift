@@ -32,6 +32,14 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     @IBOutlet weak var alcBottomOfMenuButton: NSLayoutConstraint!
     
     
+    // MARK: - Global instance
+    var location: String = LocalizedString(with: "unknown")
+    
+    lazy var locationManager: CLLocationManager = {
+        let m = CLLocationManager()
+        m.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        return m
+    }()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -48,11 +56,10 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         registerNibs()
         
         addPullToRefreshControl(toScrollView: self.mainTableView) {
-            self.updateLocation()
+            self.checkLocationStatus()
         }
         
         locationManager.delegate = self as CLLocationManagerDelegate
-        checkLocationStatus()
     }
     
     
@@ -188,30 +195,72 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     
-    
     // MARK: - CLLocationManagerDelegate
+    
+    // 시작할 때 자동적으로 이 메소드가 실행된다
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            self.popAlertVC(self, title: LocalizedString(with: "localizing_error"), message: LocalizedString(with: "localizing_error_msg"))
+            updateDefaultLocation()
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Update New Location")
         
         if let current = locations.last {
-            setCurrentLocation(from: current.coordinate)
-            requestCurrentWeather(of: current)
-            requestFiveDaysWeatherList(of: current)
+            let lat = current.coordinate.latitude
+            let lon = current.coordinate.longitude
+            let newCoordinate = ["latitude": lat, "longitude": lon]
+            myUserDefaults.set(newCoordinate, forKey: LOCATION_KEY)
+            generateInfo(from: current)
         }
         
         locationManager.stopUpdatingLocation()
+        self.stopPullToRefresh(toScrollView: self.mainTableView)
+    }
+    
+    // MARK: Location Method
+    func updateDefaultLocation() {
+        if myUserDefaults.dictionary(forKey: LOCATION_KEY) == nil {
+            let dictionary = ["latitude" : 37.50587, "longitude" : 127.11246]
+            myUserDefaults.set(dictionary, forKey: LOCATION_KEY)
+        }
+        
+        if let location = myUserDefaults.dictionary(forKey: LOCATION_KEY)
+        {
+            let lat = location["latitude"] as! Double
+            let lon = location["longitude"] as! Double
+            let defaultLocation = CLLocation(latitude: lat, longitude: lon)
+            generateInfo(from: defaultLocation)
+        }
         
         self.stopPullToRefresh(toScrollView: self.mainTableView)
     }
     
+    func generateInfo(from location: CLLocation) {
+        setCurrentLocation(from: location.coordinate)
+        requestCurrentWeather(of: location)
+        requestFiveDaysWeatherList(of: location)
+    }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    // 얘가 굳이 필요할까?
+    func checkLocationStatus() {
+        let status = CLLocationManager.authorizationStatus()
+        
         switch status {
+        case .notDetermined:
+            // 설정이 안돼있으면 request하기
+            locationManager.requestWhenInUseAuthorization()
         case .restricted, .denied:
-            self.popAlertVC(self, with: LocalizedString(with: "localizing_error"), LocalizedString(with: "localizing_error_msg"))
-        case .authorizedWhenInUse, .authorizedAlways:
-            updateLocation()
-        default:
-            print(status)
+            updateDefaultLocation()
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
         }
     }
     
@@ -264,9 +313,10 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     private func setLocationText(of current: CLLocation) {
         let geoCoder = CLGeocoder()
+        
         geoCoder.reverseGeocodeLocation(current) { (placemark, error) in
             if let error = error {
-                self.popAlertVC(self, with: LocalizedString(with: "network_error"), error.localizedDescription)
+                self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
                 self.removeSplashScene()
                 print(error)
             } else {
@@ -286,7 +336,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                         self.removeSplashScene()
                     } else {
                         print("알 수 없는 지역 :", first)
-                        self.popAlertVC(self, with: LocalizedString(with: "unknown_error"), "Unknown locality. Please refresh the view.")
+                        self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
                         self.removeSplashScene()
                     }
                 }

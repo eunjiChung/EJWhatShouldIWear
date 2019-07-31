@@ -10,13 +10,13 @@ import UIKit
 import UserNotifications
 
 // MARK: - API Path
-public let owmAPIPath                                  =   "http://api.openweathermap.org/data/2.5/"
+public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
 
 // MARK: - App Key
-public let owmAppKey                                   =   "a773e2be7cd5ee1befcfc2fc349d43ad"
-public let googleAdmobAppID                            =   "ca-app-pub-1994779937843028~3906710093"
-public let googleAdmobUnitID                           =   "ca-app-pub-1994779937843028/3973448265"
-//public let googleAdmobUnitID                           =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
+public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"
+public let googleAdmobAppID                     =   "ca-app-pub-1994779937843028~3906710093"
+public let googleAdmobUnitID                    =   "ca-app-pub-1994779937843028/3973448265"
+//public let googleAdmobUnitID                    =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
 
 // MARK: - Screen Size
 public let EJ_SCREEN_WIDTH: CGFloat             =   UIScreen.main.bounds.width
@@ -25,9 +25,11 @@ public let EJ_SCREEN_HEIGHT_812 : CGFloat       =   812.0
 public let EJ_SCREEN_WIDTH_414: CGFloat         =   414.0
 public let EJ_SCREEN_WIDTH_375: CGFloat         =   375.0
 
-public let SWITCH_ID : String          =  "stateSwitch"
+// MARK: UserDefaults Keys
+public let LOCATION_KEY : String                =   "location"
+public let SWITCH_ID : String                   =   "switchState"
 
-// MARK: - Shared Instance
+// MARK: - Global Instance
 let Library = EJLibrary.sharedInstance
 let myUserDefaults = UserDefaults.standard
 

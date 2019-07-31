@@ -9,7 +9,6 @@
 import UIKit
 import MessageUI
 import ESPullToRefresh
-import CoreLocation
 
 
 
@@ -17,16 +16,6 @@ import CoreLocation
 let EJSegueSetting                      = "setting_segue"
 
 class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate{
-    
-    // MARK: - Global instance
-    var location: String = LocalizedString(with: "unknown")
-    
-    lazy var locationManager: CLLocationManager = {
-        let m = CLLocationManager()
-        m.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        return m
-    }()
-    
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -36,24 +25,6 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     // MARK: - Status Bar
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    
-    // MARK: - Location Method
-    func checkLocationStatus() {
-        let status = CLLocationManager.authorizationStatus()
-        switch status {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .authorizedWhenInUse:
-            updateLocation()
-        default:
-            print("location miss")
-        }
-    }
-    
-    func updateLocation() {
-        locationManager.startUpdatingLocation()
     }
     
     
@@ -68,7 +39,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             self.present(composeVC, animated: true, completion: nil)
         } else {
-            popAlertVC(self, with: LocalizedString(with: "mail_warning_title"), LocalizedString(with: "mail_warning_message"))
+            popAlertVC(self, title: LocalizedString(with: "mail_warning_title"), message: LocalizedString(with: "mail_warning_message"))
         }
     }
    
@@ -80,7 +51,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     
     // MARK: - Alert Controller
-    func popAlertVC(_ controller: UIViewController, with title:String, _ message: String) {
+    func popAlertVC(_ controller: UIViewController, title:String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: LocalizedString(with: "btn_ok"), style: .default, handler: nil))
         controller.present(alert, animated: true, completion: nil)
