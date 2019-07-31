@@ -1,0 +1,84 @@
+// App
+"APP_NAME" = "WSIW지역화";
+
+// app_name
+"app_name" = "What Should I Wear?";
+"noti_body" = "Check today's weather and outfit:)";
+
+// week_date
+"monday" = "Mon";
+"tuesday" = "Tue";
+"wednesday" = "Wed";
+"thursday" = "Thu";
+"friday" = "Fri";
+"saturday" = "Sat";
+"sunday" = "Sun";
+
+// weather_condition
+"sunny" = "Sunny";
+"rainy" = "Rainy";
+"cloudy" = "Cloudy";
+"snowy" = "Snowy";
+
+// etc
+"share" = "Share with loved ones";
+"share1" = "Share ";
+"share2" = "with";
+"share3" = "Loved Ones";
+"send_mail" = "Send suggestion";
+"setting" = "Setting";
+"share_title" = "Take care of your loved ones with <WhatShouldIWear>";
+"share_limit" = "40 char limit";
+"share_placeholder" = "ex) It's cold today. Warm up!";
+"share_btn" = "Share with loved ones";
+"setting_local" = "Set Location";
+"setting_noti" = "Set Notification";
+"setting_info" = "Developer Information";
+"send_title" = "Suggestion";
+"send_message" = "Please fix the followings";
+"main_timely" = "Today Weather";
+"main_weekely" = "Weekely Weather";
+"main_ad" = "Advertisement";
+"hour" = "H";
+"temp" = "℉";
+"unknown" = "Unknown location";
+
+// alert
+"mail_warning_title" = "Mail App setting error";
+"mail_warning_message" = "Enter sender information in mail app";
+"btn_ok" = "Ok";
+"alarm_message" = "Get a 9 o'clock notice every morning";
+
+// error
+"localizing_error" = "Cannot use GPS";
+"localizing_error_msg" = "Please allow Setting>Privacy>Location Service";
+"unknown_error" = "Unknown Error";
+"network_error" = "Network instability";
+
+// clothes
+"big_blouse_icon" = "Blouse";
+"big_blue_jean_jacket_icon" = "Blue Jean Jacket";
+"big_blue_jeans_icon" = "Blue Jeans";
+"big_cardigan_icon" = "Cardigan";
+"big_checked_shirt_icon" = "Checked Shirt";
+"big_coat_icon" = "Coat";
+"big_cotton_pants_icon" = "Cotton pants";
+"big_fur_gloves_icon" = "Fur Gloves";
+"big_fur_hat_icon" = "Fur Hat";
+"big_hot_pants_icon" = "Hot Pants";
+"big_jacket_icon" = "Jacekt";
+"big_knitwear_icon" = "KnitWear";
+"big_long_skirt_icon" = "Long Skirt";
+"big_mask_icon" = "Mask";
+"big_muffler_icon" = "Muffler";
+"big_one_piece_icon" = "Onepiece";
+"big_padding_icon" = "Padding";
+"big_padding_vest_icon" = "Padding vest";
+"big_shirt_icon" = "Shirt";
+"big_short_skirt_icon" = "Short Skirt";
+"big_short_sleeved_t_shirt_icon" = "T-Shirt";
+"big_slacks_icon" = "Slacks";
+"big_sleeveless_shirt_icon" = "Sleeveless Shirt";
+"big_sweatshirt_icon" = "Sweat Shirt";
+"big_trench_coat_icon" = "Trench Coat";
+"big_umbrella_icon" = "Umbrella";
