@@ -45,21 +45,15 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        alcTopOfStackView.constant = EJSizeHeight(414.0)
-        alcLeadingOfSideBackButton.constant = EJSize(18.0)
-        alcTopOfSideBackButton.constant = EJSizeHeight(46.0)
-        alcTopOfSettingButton.constant = EJSizeHeight(46.0)
-        alcTrailingOfSettingButton.constant = EJSize(20.0)
-        alcBottomOfMenuButton.constant = EJSizeHeight(8.0)
-        
+        layout()
         configureSideMenu()
         registerNibs()
+        
+        locationManager.delegate = self as CLLocationManagerDelegate
         
         addPullToRefreshControl(toScrollView: self.mainTableView) {
             self.checkLocationStatus()
         }
-        
-        locationManager.delegate = self as CLLocationManagerDelegate
     }
     
     
@@ -132,21 +126,19 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as! HeaderTableViewCell
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        switch section {
+        switch section
+        {
         case 2, 3:
             return EJSizeHeight(7.0)
         default:
             return 0
         }
     }
-    
     
     // MARK: - Splash Method
     func removeSplashScene() {
@@ -178,7 +170,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         switch segue.identifier {
         case "home_setting_segue":
             let settingVC = segue.destination as! EJSettingViewController
@@ -264,27 +255,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         }
     }
     
-    
-    
-    // MARK: - Private Method
-    private func configureSideMenu() {
-        SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = EJSize(263.0)
-        SideMenuManager.default.menuAnimationFadeStrength = 0.7
-        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
-        SideMenuManager.default.menuShadowColor = UIColor.clear
-    }
-    
-    private func registerNibs() {
-        mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "WeekWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekWeatherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
-    }
-    
-    
     // MARK: - Request Weather Info
     private func setCurrentLocation(from coordinate:CLLocationCoordinate2D) {
         WeatherManager.latitude = coordinate.latitude
@@ -342,6 +312,34 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                 }
             }
         }
+    }
+    
+    
+    // MARK: - Private Method
+    private func layout() {
+        alcTopOfStackView.constant = EJSizeHeight(414.0)
+        alcLeadingOfSideBackButton.constant = EJSize(18.0)
+        alcTopOfSideBackButton.constant = EJSizeHeight(46.0)
+        alcTopOfSettingButton.constant = EJSizeHeight(46.0)
+        alcTrailingOfSettingButton.constant = EJSize(20.0)
+        alcBottomOfMenuButton.constant = EJSizeHeight(8.0)
+    }
+    
+    private func configureSideMenu() {
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+        SideMenuManager.default.menuWidth = EJSize(263.0)
+        SideMenuManager.default.menuAnimationFadeStrength = 0.7
+        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
+        SideMenuManager.default.menuShadowColor = UIColor.clear
+    }
+    
+    private func registerNibs() {
+        mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "WeekWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekWeatherTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
     }
 
 }

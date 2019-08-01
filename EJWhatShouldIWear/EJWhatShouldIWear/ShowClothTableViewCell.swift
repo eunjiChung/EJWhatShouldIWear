@@ -73,10 +73,25 @@ class ShowClothTableViewCell: UITableViewCell {
             thirdClothImageView.image = UIImage.init(named: weatherClothes[2])
             thirdClothLabel.text = LocalizedString(with: weatherClothes[2])
             
+            addAnimation()
         }
     }
     
     // MARK: - Private Shadow
+    private func addAnimation() {
+        let firstImageCenterY = firstClothImageView.center.y
+        let secondImageCenterY = secondClothImageview.center.y
+        let thirdImageCenterY = thirdClothImageView.center.y
+        
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [.curveEaseInOut, .repeat, .autoreverse], animations: {
+            
+            self.firstClothImageView.center.y = firstImageCenterY + 7
+            self.secondClothImageview.center.y = secondImageCenterY + 8
+            self.thirdClothImageView.center.y = thirdImageCenterY + 10
+            
+        }, completion: nil)
+    }
+    
     private func addShadow() {
         //        self.backgroundColor = .clear
         self.layer.shadowOpacity = 0.1 // 투명 효과
