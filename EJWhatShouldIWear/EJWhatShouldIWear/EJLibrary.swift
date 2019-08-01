@@ -11,6 +11,7 @@ import UserNotifications
 
 // MARK: - API Path
 public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
+public let AppStoreURL                          =   "https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EB%AA%A8%EC%9E%85%EC%A7%80/id1469342013"
 
 // MARK: - App Key
 public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"

@@ -85,7 +85,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     @IBAction func didTouchShareBtn(_ sender: Any) {
         
         guard let text = self.textView.text else { return }
-        let appStoreURL = "This is URL"
+        let appStoreURL = AppStoreURL
         let textToShare = [text, appStoreURL]
         
         let activityVC = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
