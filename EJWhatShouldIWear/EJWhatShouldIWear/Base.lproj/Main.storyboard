@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,14 +99,19 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="b6Q-P9-kUi">
+                                        <rect key="frame" x="177.66666666666666" y="464" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99784403300000002" green="1" blue="0.68005642249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="b6Q-P9-kUi" firstAttribute="top" secondItem="Q6j-I7-4LC" secondAttribute="bottom" constant="26" id="3zc-ck-S9q"/>
                                     <constraint firstItem="fcn-Wg-uYI" firstAttribute="leading" secondItem="hrt-2V-87B" secondAttribute="leading" id="8Qn-nE-zUW"/>
                                     <constraint firstItem="Q6j-I7-4LC" firstAttribute="top" secondItem="hrt-2V-87B" secondAttribute="top" constant="414" id="EoF-yl-nWe"/>
                                     <constraint firstAttribute="bottom" secondItem="fcn-Wg-uYI" secondAttribute="bottom" id="JT9-cl-BvJ"/>
                                     <constraint firstAttribute="trailing" secondItem="fcn-Wg-uYI" secondAttribute="trailing" id="TWb-eb-Kpm"/>
                                     <constraint firstItem="Q6j-I7-4LC" firstAttribute="centerX" secondItem="hrt-2V-87B" secondAttribute="centerX" id="a3m-dg-gRg"/>
+                                    <constraint firstItem="b6Q-P9-kUi" firstAttribute="centerX" secondItem="Q6j-I7-4LC" secondAttribute="centerX" id="b4H-Sn-3w3"/>
                                     <constraint firstItem="fcn-Wg-uYI" firstAttribute="top" secondItem="hrt-2V-87B" secondAttribute="top" id="kMh-M4-pNm"/>
                                 </constraints>
                             </view>
@@ -135,6 +140,7 @@
                         <outlet property="alcTopOfSideBackButton" destination="pST-r6-bXJ" id="3A3-IW-ekm"/>
                         <outlet property="alcTopOfStackView" destination="EoF-yl-nWe" id="P7r-df-mSq"/>
                         <outlet property="alcTrailingOfSettingButton" destination="EZR-Sk-ZMq" id="X4R-ir-0bc"/>
+                        <outlet property="loadingIndicator" destination="b6Q-P9-kUi" id="J0Y-sg-olY"/>
                         <outlet property="mainTableView" destination="3WV-P4-Caj" id="NzG-op-dJh"/>
                         <outlet property="splashContainer" destination="hrt-2V-87B" id="CgE-E8-noS"/>
                         <segue destination="GNz-Gy-ew7" kind="presentation" identifier="home_sidemenu_segue" id="rya-Qe-XdW"/>

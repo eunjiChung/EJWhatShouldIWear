@@ -31,6 +31,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     @IBOutlet weak var alcTrailingOfSettingButton: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfMenuButton: NSLayoutConstraint!
     
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     // MARK: - Global instance
     var location: String = LocalizedString(with: "unknown")
@@ -45,6 +46,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        startLoadingIndicator()
         layout()
         configureSideMenu()
         registerNibs()
@@ -146,8 +148,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
                     if self.splashContainer != nil {
-                        if let splash = self.splashContainer {
+                        if let splash = self.splashContainer, let indicator = self.loadingIndicator {
                             splash.alpha = 0.0
+                            indicator.alpha = 0.0
+                            
+                            indicator.removeFromSuperview()
                             splash.removeFromSuperview()
                         }
                     } else {
@@ -316,6 +321,13 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     
     // MARK: - Private Method
+    private func startLoadingIndicator() {
+        // 얘는 없으면 자동적으로 동작하지 않는가...?
+        if loadingIndicator == nil { return }
+        loadingIndicator.startAnimating()
+    }
+    
+    
     private func layout() {
         alcTopOfStackView.constant = EJSizeHeight(414.0)
         alcLeadingOfSideBackButton.constant = EJSize(18.0)
