@@ -79,15 +79,15 @@ class ShowClothTableViewCell: UITableViewCell {
     
     // MARK: - Private Shadow
     private func addAnimation() {
-        let firstImageCenterY = firstClothImageView.center.y
-        let secondImageCenterY = secondClothImageview.center.y
-        let thirdImageCenterY = thirdClothImageView.center.y
+        let firstImageCenterY = firstClothImageView.center.y - 7
+        let secondImageCenterY = secondClothImageview.center.y - 8
+        let thirdImageCenterY = thirdClothImageView.center.y - 10
         
         UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [.curveEaseInOut, .repeat, .autoreverse], animations: {
             
-            self.firstClothImageView.center.y = firstImageCenterY + 7
-            self.secondClothImageview.center.y = secondImageCenterY + 8
-            self.thirdClothImageView.center.y = thirdImageCenterY + 10
+            self.firstClothImageView.center.y = firstImageCenterY + 14
+            self.secondClothImageview.center.y = secondImageCenterY + 16
+            self.thirdClothImageView.center.y = thirdImageCenterY + 20
             
         }, completion: nil)
     }
