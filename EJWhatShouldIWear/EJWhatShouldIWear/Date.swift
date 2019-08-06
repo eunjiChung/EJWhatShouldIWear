@@ -16,9 +16,20 @@ extension String {
         dateFormatter.timeZone = TimeZone(secondsFromGMT: -timezone)
         return dateFormatter.date(from: self)!
     }
+    
+    func onlyDate() -> String {
+        guard let date = self.components(separatedBy: " ").first else { return "" }
+        return date
+    }
 }
 
 extension Date {
+    func todayDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: self)
+    }
+    
     func toHourString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"

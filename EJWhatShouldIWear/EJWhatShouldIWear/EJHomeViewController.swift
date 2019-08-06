@@ -77,6 +77,10 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
+            if let model = FiveDaysWeatherModel {
+                cell.generateMain(by: model)
+            }
+            
             if let info = WeatherInfo, let description = WeatherDescript {
                 cell.setCurrentLocality(by: self.location)
                 cell.setWeatherInfo(by: info, with: description)
@@ -87,7 +91,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
             
             if let model = FiveDaysWeatherModel {
-//                cell.setTimelyTable(by:info)
                 cell.setTimelyTable(of: model)
             }
             

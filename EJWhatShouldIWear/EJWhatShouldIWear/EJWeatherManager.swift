@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import CoreLocation
 
+
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
 typealias FailureHandler = (Error) -> ()
@@ -50,6 +51,25 @@ class EJWeatherManager: NSObject {
     }
     
     // MARK: - Public Method
+    public func generateWeatherConditon(by list: [EJFiveDaysList]) {
+        
+        let weatherList = list.map { return $0.weather?.first }
+        let mainList = list.map { $0.main! }
+        
+        criticalWeather(weatherList)
+        
+        // 3. 날씨 중에서 크리티컬한 날씨 정보 살펴보기
+        // - 비, 눈, 천둥번개, 미세먼지가 있을 경우 첫번째 옷 설정
+        // - 없을 경우 다음 온도로 설정
+        
+        // 4. 제일 높은 온도, 낮은 온도 가져오기
+        // - 제일 높은 온도, 낮은 온도에 맞춰서 옷 설정 (setTodayStyle 수정)
+        // - description 셋팅
+        
+        var maxTemp = 100
+        var minTemp = -100
+    }
+
     public func weatherCondition(of id:Int) -> String {
         switch id {
         case 200 ..< 600:
@@ -129,6 +149,7 @@ class EJWeatherManager: NSObject {
         return temp
     }
     
+    
     // MARK: Locality
     public func getLocationInfo(of current: CLLocation,
                                  success: @escaping (String) -> (),
@@ -158,6 +179,48 @@ class EJWeatherManager: NSObject {
                 else
                 {
                     success(result)
+                }
+            }
+        }
+    }
+    
+    
+    // MARK: - Private Method
+    private func criticalWeather(_ list: [EJFiveDaysWeather?]) {
+        var criticalID = 1000
+        
+        for item in list {
+            if let item = item, let id = item.id {
+                
+                // 그냥 흐리거나, 그냥 맑거나
+                if id >= 800 { return }
+                
+                // Atmosphere
+                if id >= 700 {
+                    if id == 781 || id == 762 {
+                        criticalID = id
+                        return
+                    }
+                }
+                
+                // Snow
+                if id >= 600 {
+                    criticalID = id
+                }
+                
+                // Rain
+                if id >= 500 {
+                    
+                }
+                
+                // drizzle
+                if id >= 300 {
+                    
+                }
+                
+                // thunderStorm
+                if id >= 200 {
+                    
                 }
             }
         }

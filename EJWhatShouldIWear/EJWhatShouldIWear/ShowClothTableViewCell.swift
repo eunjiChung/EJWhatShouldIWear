@@ -52,11 +52,33 @@ class ShowClothTableViewCell: UITableViewCell {
 
     
     // MARK: - Public Method
-    public func setCurrentLocality(by locationStr:String) {
-        locationLabel.text = locationStr
+    public func setCurrentLocality(by location:String) {
+        locationLabel.text = location
+    }
+    
+    public func generateMain(by model: EJFiveDaysWeatherModel) {
+        let unit = LocalizedString(with: "temp")
+        
+        guard let city = model.city, let timezone = city.timezone else { return }
+        guard let list = model.list else { return }
+        
+        // 1. 원하는 날짜 받아오기
+        // 일단은 오늘...
+        let date = Date()
+        let today = date.todayDate()
+        
+        // 2. 날짜에 해당하는 날씨 가져오기
+        let todayWeatherList = list.filter {
+            if let date = $0.dtTxt { return today == date.onlyDate() }
+            return false
+        }
+        
+        WeatherManager.generateWeatherConditon(by: todayWeatherList)
+        
     }
     
     public func setWeatherInfo(by info: EJMain, with description:EJWeather) {
+        
         if let temp = info.temp, let id = description.id {
             let intTemp = WeatherManager.getValidTemperature(by: temp)
             currentTempLabel.text = "\(intTemp)"
@@ -77,7 +99,12 @@ class ShowClothTableViewCell: UITableViewCell {
         }
     }
     
+    
     // MARK: - Private Shadow
+    private func generateCloth() {
+        
+    }
+    
     private func addAnimation() {
         let firstImageCenterY = firstClothImageView.center.y - 7
         let secondImageCenterY = secondClothImageview.center.y - 8
@@ -92,6 +119,7 @@ class ShowClothTableViewCell: UITableViewCell {
         }, completion: nil)
     }
     
+    // MARK: Layout
     private func addShadow() {
         //        self.backgroundColor = .clear
         self.layer.shadowOpacity = 0.1 // 투명 효과
