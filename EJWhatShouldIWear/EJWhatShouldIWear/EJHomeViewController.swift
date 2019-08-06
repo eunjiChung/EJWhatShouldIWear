@@ -18,10 +18,11 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     var WeatherDescript: EJWeather?
     var WeatherInfo: EJMain?
     var FiveDaysWeatherList: [EJFiveDaysList]?
+    var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var currentTemp: String?
 
     
-    // MARK: - IBOutlet
+    // MARK: IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var splashContainer: UIView!
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
@@ -30,10 +31,10 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     @IBOutlet weak var alcTopOfSettingButton: NSLayoutConstraint!
     @IBOutlet weak var alcTrailingOfSettingButton: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfMenuButton: NSLayoutConstraint!
-    
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    // MARK: - Global instance
+    
+    // MARK: Global instance
     var location: String = LocalizedString(with: "unknown")
     
     lazy var locationManager: CLLocationManager = {
@@ -85,8 +86,9 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
             
-            if let info = FiveDaysWeatherList {
-                cell.setTimelyTable(by:info)
+            if let model = FiveDaysWeatherModel {
+//                cell.setTimelyTable(by:info)
+                cell.setTimelyTable(of: model)
             }
             
             return cell
@@ -158,8 +160,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                     } else {
                         print("Splash screen already missed")
                     }
-                }, completion: { (success) in
-                })
+                }, completion: nil)
             }
         }
     }
@@ -207,9 +208,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Update New Location")
-        
-        if let current = locations.last {
+        if let current = locations.last
+        {
             let lat = current.coordinate.latitude
             let lon = current.coordinate.longitude
             let newCoordinate = ["latitude": lat, "longitude": lon]
@@ -279,6 +279,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     private func requestFiveDaysWeatherList(of current: CLLocation) {
         WeatherManager.FiveDaysWeatherInfo(success: { (result) in
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
+            self.FiveDaysWeatherModel = fivedaysWeather
             self.FiveDaysWeatherList = fivedaysWeather.list
             self.setLocationText(of: current)
         }) { (error) in
@@ -287,35 +288,20 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     }
     
     private func setLocationText(of current: CLLocation) {
-        let geoCoder = CLGeocoder()
-        
-        geoCoder.reverseGeocodeLocation(current) { (placemark, error) in
-            if let error = error {
-                self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+        WeatherManager.getLocationInfo(of: current,
+                                        success: { result in
+            if result != "" {
+                self.location = result
+                self.mainTableView.reloadData()
                 self.removeSplashScene()
-                print(error)
             } else {
-                if let first = placemark?.first
-                {
-                    if let gu = first.locality
-                    {
-                        if let dong = first.subLocality
-                        {
-                            self.location = "\(gu) \(dong)"
-                        } else {
-                            print("Cannot know sublocality :", first)
-                            self.location = "\(gu)"
-                        }
-                        
-                        self.mainTableView.reloadData()
-                        self.removeSplashScene()
-                    } else {
-                        print("알 수 없는 지역 :", first)
-                        self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
-                        self.removeSplashScene()
-                    }
-                }
+                self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
+                self.removeSplashScene()
             }
+            
+        }) { error in
+            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+            self.removeSplashScene()
         }
     }
     

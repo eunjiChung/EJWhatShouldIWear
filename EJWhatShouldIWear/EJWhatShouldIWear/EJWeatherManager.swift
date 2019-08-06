@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import CoreLocation
 
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
@@ -23,7 +24,7 @@ class EJWeatherManager: NSObject {
     var longitude: Double = 0   //127.0967
     
     let httpClient = EJHTTPClient.init()
-    
+        
     // MARK: - HTTP Request
     func CurrentWeatherInfo(success: @escaping SuccessHandler,
                             failure: @escaping FailureHandler) {
@@ -126,6 +127,40 @@ class EJWeatherManager: NSObject {
         }
         
         return temp
+    }
+    
+    // MARK: Locality
+    public func getLocationInfo(of current: CLLocation,
+                                 success: @escaping (String) -> (),
+                                 failure: @escaping (Error) -> ())
+    {
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(current) { (placemark, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                var result = ""
+                
+                if let placemark = placemark, let first = placemark.first
+                {
+                    if let firstLocality = first.locality
+                    {
+                        result += "\(firstLocality)"
+                        
+                        if let subLocality = first.subLocality
+                        {
+                            result += "\(subLocality)"
+                        }
+                    }
+                    success(result)
+                }
+                else
+                {
+                    success(result)
+                }
+            }
+        }
     }
     
 }

@@ -36,35 +36,29 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: - Public Method
-    public func setHourlyWeather(by info: EJFiveDaysList) {
-        
+    public func setHourlyWeather(of model: EJFiveDaysWeatherModel, at index: Int) {
         let hour = LocalizedString(with: "hour")
         let unit = LocalizedString(with: "temp")
         
-        let weatherInfo = info.main
-        let weatherID = info.weather
-        if let dateInfo = info.dtTxt {
-            let time = getTime(from: dateInfo)
-            hourLabel.text = "\(time)\(hour)"
+        guard let city = model.city, let timezone = city.timezone else { return }
+        guard let list = model.list else { return }
+        let item = list[index]
+        
+        if let time = item.dtTxt {
+            let date = time.toDate(timezone)
+            let time = date.toHourString()
+            hourLabel.text = "\(time) \(hour)"
         }
         
-        if let floatTemp = weatherInfo?.temp, let id = weatherID?.first?.id {
-            let temp = WeatherManager.getValidTemperature(by: floatTemp)
-            tempLabel.text = "\(temp)\(unit)"
-            
-            let style = WeatherManager.setTodayStyle(by: temp, id: id)
-            let image = style.sorted(by: >)
-            clothImageView.image = UIImage.init(named: image[0])
+        if let weatherInfo = item.main, let weatherID = item.weather {
+            if let floatTemp = weatherInfo.temp, let id = weatherID.first?.id {
+                let temp = WeatherManager.getValidTemperature(by: floatTemp)
+                tempLabel.text = "\(temp)\(unit)"
+                
+                let style = WeatherManager.setTodayStyle(by: temp, id: id)
+                let image = style.sorted(by: >)
+                clothImageView.image = UIImage.init(named: image[0])
+            }
         }
-    }
-    
-    // MARK: - Private Method
-    fileprivate func getTime(from string: String) -> Int {
-        let array = string.components(separatedBy: " ")
-        let onlyTime = array[1]
-        let timeArray = onlyTime.components(separatedBy: ":")
-        let currentHour = timeArray[0]
-        let currentIntHour = Int(currentHour)!
-        return currentIntHour % 24
     }
 }

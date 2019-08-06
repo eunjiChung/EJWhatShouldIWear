@@ -11,7 +11,8 @@ import UIKit
 class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     static let identifier = "TimeWeahtherTableViewCell"
-    var weatherInfo: [EJFiveDaysList]?
+//    var weatherInfo: [EJFiveDaysList]?
+    var weatherModel: EJFiveDaysWeatherModel?
     var timeRelease: String?
     var timeArray: [String]?
     var tempArray: [String]?
@@ -50,8 +51,8 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     }
     
     // MARK: - Setting WeatherInfo Method
-    func setTimelyTable(by info: [EJFiveDaysList]) {
-        weatherInfo = info
+    func setTimelyTable(of model: EJFiveDaysWeatherModel) {
+        weatherModel = model
         collectionView.reloadData()
     }
     
@@ -64,12 +65,12 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath) as! TimeCollectionViewCell
         
-        let item = indexPath.item
+        let index = indexPath.item
         
-        if let info = weatherInfo {
-            let indexWeatherInfo = info[item]
-            
-            cell.setHourlyWeather(by: indexWeatherInfo)
+        if let model = weatherModel {
+//            let indexWeatherInfo = info[item]
+//            cell.setHourlyWeather(by: indexWeatherInfo)
+            cell.setHourlyWeather(of: model, at: index)
         }
         
         return cell

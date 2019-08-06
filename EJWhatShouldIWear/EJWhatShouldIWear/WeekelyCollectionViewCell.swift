@@ -54,6 +54,9 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
         weatherTellingLabel.text = "\(tellWeatherCondition(of: index))"
     }
     
+    
+    
+    
     // MARK: - Private Method
     private func getWeekday(of index: Int) -> String {
         // Weekday Component는 일요일 1 ~ 토요일 7까지
