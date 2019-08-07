@@ -69,8 +69,8 @@ class EJWeatherManager: NSObject {
     // MARK: - Public Method
     public func generateWeatherCondition(by list: [EJFiveDaysList]) -> WeatherMain {
         
-        var maxTemp:Float = 100
-        var minTemp:Float = -100
+        var maxTemp:Float = -1000
+        var minTemp:Float = 1000
         var totalTemp:Float = 0
         var weatherType: WeatherCondition = .clear
         
@@ -85,8 +85,11 @@ class EJWeatherManager: NSObject {
         let averageTemp = totalTemp / Float(list.count)
         WeatherClass.mainTemp = getValidTemperature(by: averageTemp)
         WeatherClass.criticCondition = weatherType
+        print("Critic Weather:", weatherType)
         WeatherClass.minTemp = getValidTemperature(by: minTemp)
+        print("Min Temp:", WeatherClass.minTemp)
         WeatherClass.maxTemp = getValidTemperature(by: maxTemp)
+        print("Max Temp:", WeatherClass.maxTemp)
         
         // 3. 날씨 중에서 크리티컬한 날씨 정보 살펴보기
         if weatherType != .clear && weatherType != .cloud {
@@ -137,7 +140,8 @@ class EJWeatherManager: NSObject {
             description += "더위 조심하세요!"
         } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
             description += "일교차가 커요.\n"
-            description += "꼭 \(WeatherClass.secondCloth)를 챙기세요"
+            let cloth = LocalizedString(with: WeatherClass.secondCloth)
+            description += "꼭 \(cloth)를 챙기세요"
         }
         
         return description

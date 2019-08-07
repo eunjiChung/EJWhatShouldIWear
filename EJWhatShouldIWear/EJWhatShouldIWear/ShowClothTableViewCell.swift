@@ -42,12 +42,19 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var alcBottomOfClothView: NSLayoutConstraint!
     @IBOutlet weak var alcTrailingOfClothView: NSLayoutConstraint!
     
+    var firstImageCenterY: CGFloat = 0.0
+    var secondImageCenterY: CGFloat = 0.0
+    var thirdImageCenterY: CGFloat = 0.0
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadow()
         setLayoutConstraints()
+        
+        firstImageCenterY = firstClothImageView.center.y - 7
+        secondImageCenterY = secondClothImageview.center.y - 8
+        thirdImageCenterY = thirdClothImageView.center.y - 10
     }
 
     
@@ -91,16 +98,10 @@ class ShowClothTableViewCell: UITableViewCell {
     
     // MARK: - Private Shadow
     private func addAnimation() {
-        let firstImageCenterY = firstClothImageView.center.y - 7
-        let secondImageCenterY = secondClothImageview.center.y - 8
-        let thirdImageCenterY = thirdClothImageView.center.y - 10
-        
         UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [.curveEaseInOut, .repeat, .autoreverse], animations: {
-            
-            self.firstClothImageView.center.y = firstImageCenterY + 14
-            self.secondClothImageview.center.y = secondImageCenterY + 16
-            self.thirdClothImageView.center.y = thirdImageCenterY + 20
-            
+            self.firstClothImageView.center.y = self.firstImageCenterY + 14
+            self.secondClothImageview.center.y = self.secondImageCenterY + 16
+            self.thirdClothImageView.center.y = self.thirdImageCenterY + 20
         }, completion: nil)
     }
     
