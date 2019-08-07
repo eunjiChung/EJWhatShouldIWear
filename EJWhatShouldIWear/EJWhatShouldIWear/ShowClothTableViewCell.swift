@@ -67,8 +67,7 @@ class ShowClothTableViewCell: UITableViewCell {
         guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }
         
-        // 1. 원하는 날짜 받아오기
-        // 일단은 오늘...
+        // 1. 원하는 날짜 받아오기≈
         let date = Date()
         let today = date.todayDate()
         
