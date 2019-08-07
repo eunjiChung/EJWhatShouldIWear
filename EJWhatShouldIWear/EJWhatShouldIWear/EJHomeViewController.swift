@@ -15,8 +15,6 @@ import UserNotifications
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate  {
     
     // MARK: - Data
-    var WeatherDescript: EJWeather?
-    var WeatherInfo: EJMain?
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var currentTemp: String?
@@ -78,12 +76,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
             if let model = FiveDaysWeatherModel {
-                cell.generateMain(by: model)
-            }
-            
-            if let info = WeatherInfo, let description = WeatherDescript {
                 cell.setCurrentLocality(by: self.location)
-                cell.setWeatherInfo(by: info, with: description)
+                cell.generateMain(by: model)
             }
             
             return cell
@@ -244,7 +238,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     func generateInfo(from location: CLLocation) {
         setCurrentLocation(from: location.coordinate)
-        requestCurrentWeather(of: location)
         requestFiveDaysWeatherList(of: location)
     }
     
@@ -267,16 +260,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     private func setCurrentLocation(from coordinate:CLLocationCoordinate2D) {
         WeatherManager.latitude = coordinate.latitude
         WeatherManager.longitude = coordinate.longitude
-    }
-    
-    private func requestCurrentWeather(of location: CLLocation) {
-        WeatherManager.CurrentWeatherInfo(success: { (result) in
-            let currentWeatherInfo = EJCurrentWeather.init(object: result)
-            self.WeatherInfo = currentWeatherInfo.main
-            self.WeatherDescript = currentWeatherInfo.weather?.first
-        }) { (error) in
-            print(error)
-        }
     }
     
     private func requestFiveDaysWeatherList(of current: CLLocation) {

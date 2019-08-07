@@ -10,6 +10,21 @@ import UIKit
 import SwiftyJSON
 import CoreLocation
 
+// MARK: - Weather Condition
+enum WeatherCondition: Int {
+    case tornado = 0
+    case squall = 1
+    case ash = 2
+    case thunderstorm = 3
+    case snow = 4
+    case rain = 5
+    case drizzle = 6
+    case dust = 7
+    case haze = 8
+    case fog = 9
+    case cloud = 10
+    case clear = 11
+}
 
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
@@ -25,6 +40,7 @@ class EJWeatherManager: NSObject {
     var longitude: Double = 0   //127.0967
     
     let httpClient = EJHTTPClient.init()
+    let WeatherClass = WeatherMain()
         
     // MARK: - HTTP Request
     func CurrentWeatherInfo(success: @escaping SuccessHandler,
@@ -51,47 +67,104 @@ class EJWeatherManager: NSObject {
     }
     
     // MARK: - Public Method
-    public func generateWeatherConditon(by list: [EJFiveDaysList]) {
+    public func generateWeatherCondition(by list: [EJFiveDaysList]) -> WeatherMain {
         
-        let weatherList = list.map { return $0.weather?.first }
-        let mainList = list.map { $0.main! }
+        var maxTemp:Float = 100
+        var minTemp:Float = -100
+        var totalTemp:Float = 0
+        var weatherType: WeatherCondition = .clear
         
-        criticalWeather(weatherList)
+        for item in list {
+            weatherType = criticalWeather(weatherType, item)
+            let tempDictionary = weatherTemp(of: maxTemp, minTemp, item)
+            minTemp = tempDictionary["min"]!
+            maxTemp = tempDictionary["max"]!
+            totalTemp += tempDictionary["total"]!
+        }
+        
+        let averageTemp = totalTemp / Float(list.count)
+        WeatherClass.mainTemp = getValidTemperature(by: averageTemp)
+        WeatherClass.criticCondition = weatherType
+        WeatherClass.minTemp = getValidTemperature(by: minTemp)
+        WeatherClass.maxTemp = getValidTemperature(by: maxTemp)
         
         // 3. 날씨 중에서 크리티컬한 날씨 정보 살펴보기
-        // - 비, 눈, 천둥번개, 미세먼지가 있을 경우 첫번째 옷 설정
-        // - 없을 경우 다음 온도로 설정
+        if weatherType != .clear && weatherType != .cloud {
+            WeatherClass.firstCloth = setClothByCondition(weatherType)
+        } else {
+            WeatherClass.firstCloth = setClothByTemp(WeatherClass.mainTemp)
+        }
         
-        // 4. 제일 높은 온도, 낮은 온도 가져오기
-        // - 제일 높은 온도, 낮은 온도에 맞춰서 옷 설정 (setTodayStyle 수정)
-        // - description 셋팅
+        WeatherClass.secondCloth = setClothByTemp(WeatherClass.maxTemp)
+        WeatherClass.thirdCloth = setClothByTemp(WeatherClass.minTemp)
+        WeatherClass.weatherDescription = weatherDescription()
         
-        var maxTemp = 100
-        var minTemp = -100
+        return WeatherClass
     }
 
-    public func weatherCondition(of id:Int) -> String {
-        switch id {
-        case 200 ..< 600:
-            return LocalizedString(with: "rainy")
-        case 600 ..< 700:
-            return LocalizedString(with: "snowy")
-        case 700 ..< 800:
-            return LocalizedString(with: "rainy")
-        case 800:
-            return LocalizedString(with: "sunny")
-        case 801... :
-            return LocalizedString(with: "cloudy")
-        default:
-            return ""
+    public func weatherDescription() -> String {
+        var description = "오늘은 "
+        
+        switch WeatherClass.criticCondition {
+        case .clear:
+            description += "날씨가 맑아요!"
+        case .cloud:
+            description += "날이 흐려요.."
+        case .tornado:
+            description += "토네이도! 위험!"
+        case .ash:
+            description = "화산재 조심하세요!"
+        case .squall:
+            description += "스콜 조심하세요!"
+        case .thunderstorm:
+            description += "천둥번개에 유의하세요!"
+        case .dust, .haze:
+            description += "공기가 안좋아요"
+        case .snow:
+            description += "눈이 와요"
+        case .rain:
+            description += "비가 와요"
+        case .drizzle:
+            description += "가벼운 비가 와요"
+        case .fog:
+            description += "안개가 꼈어요"
         }
+        description += "\n"
+        
+        if WeatherClass.maxTemp < 15 {
+            description += "따뜻하게 입으세요!"
+        } else if WeatherClass.minTemp > 23 {
+            description += "더위 조심하세요!"
+        } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
+            description += "일교차가 커요.\n"
+            description += "꼭 \(WeatherClass.secondCloth)를 챙기세요"
+        }
+        
+        return description
     }
     
-    public func setTodayStyle(by temp:Int, id:Int) -> [String] {
+    public func setClothByCondition(_ condition:WeatherCondition) -> String {
+        var tag: String
+        
+        switch condition {
+        case .tornado, .ash, .dust, .haze:
+            tag = "big_mask_icon"
+        case .squall, .thunderstorm, .snow, .rain, .drizzle:
+            tag = "big_umbrella_icon"
+        case .fog:
+            tag = "big_cardigan_icon"
+        default:
+            tag = "big_blue_jean_jacket_icon"
+        }
+        
+        return tag
+    }
+    
+    public func setClothByTemp(_ temp:Int) -> String {
         var images = [String]()
         var firstTag, secondTag, thirdTag: String
         
-        
+        // 미국 화씨를 계산 안 했다...
         switch temp {
         case 28...:
             firstTag = "big_sleeveless_shirt_icon"
@@ -131,12 +204,8 @@ class EJWeatherManager: NSObject {
             thirdTag = "big_one_piece_icon"
         }
         
-        if 200 <= id && id < 600 {
-            firstTag = "big_umbrella_icon"
-        }
-        
         images = [firstTag, secondTag, thirdTag]
-        return images
+        return images.randomElement()!
     }
     
     public func getValidTemperature(by temperature:Float) -> Int {
@@ -184,45 +253,81 @@ class EJWeatherManager: NSObject {
         }
     }
     
-    
     // MARK: - Private Method
-    private func criticalWeather(_ list: [EJFiveDaysWeather?]) {
-        var criticalID = 1000
+    private func weatherTemp(of originMaxTemp: Float, _ originMinTemp: Float, _ item: EJFiveDaysList) -> [String:Float] {
+        var maxTemp: Float = originMaxTemp
+        var minTemp: Float = originMinTemp
+        var totalTemp: Float = 0.0
         
-        for item in list {
-            if let item = item, let id = item.id {
-                
-                // 그냥 흐리거나, 그냥 맑거나
-                if id >= 800 { return }
-                
-                // Atmosphere
-                if id >= 700 {
-                    if id == 781 || id == 762 {
-                        criticalID = id
-                        return
-                    }
-                }
-                
-                // Snow
-                if id >= 600 {
-                    criticalID = id
-                }
-                
-                // Rain
-                if id >= 500 {
-                    
-                }
-                
-                // drizzle
-                if id >= 300 {
-                    
-                }
-                
-                // thunderStorm
-                if id >= 200 {
-                    
-                }
+        if let main = item.main, let itemMaxTemp = main.tempMax, let itemMinTemp = main.tempMin, let temp = main.temp {
+            maxTemp = max(itemMaxTemp, maxTemp)
+            minTemp = min(itemMinTemp, minTemp)
+            totalTemp = temp
+        }
+        
+        return ["min": minTemp, "max": maxTemp, "total": totalTemp]
+    }
+    
+    private func criticalWeather(_ originType: WeatherCondition, _ item: EJFiveDaysList) -> WeatherCondition {
+        var resultType:WeatherCondition = originType
+        
+        if let weather = item.weather, let id = weather.first?.id
+        {
+            let currentItemType:WeatherCondition = weatherCondition(of: id)
+            
+            if currentItemType.rawValue < originType.rawValue {
+                resultType = currentItemType
             }
+        }
+        
+        return resultType
+    }
+    
+    private func weatherCondition(of id: Int) -> WeatherCondition {
+        
+        let result = id / 100
+        var type: WeatherCondition
+        
+        switch result {
+        case 2:
+            type = .thunderstorm
+        case 3:
+            type = .drizzle
+        case 5:
+            type = .rain
+        case 6:
+            type = .snow
+        case 7:
+            type = atmosphereCondition(of: id)
+        case 8:
+            if id == 800 {
+                type = .clear
+            } else {
+                type = .cloud
+            }
+        default:
+            type = .clear
+        }
+        
+        return type
+    }
+    
+    private func atmosphereCondition(of id: Int) -> WeatherCondition {
+        switch id {
+        case 701, 741:
+            return .fog
+        case 711, 721:
+            return .haze
+        case 731, 751, 761:
+            return .dust
+        case 762:
+            return .ash
+        case 771:
+            return .squall
+        case 781:
+            return .tornado
+        default:
+            return .fog
         }
     }
     

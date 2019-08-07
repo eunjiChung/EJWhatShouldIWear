@@ -57,8 +57,6 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     public func generateMain(by model: EJFiveDaysWeatherModel) {
-        let unit = LocalizedString(with: "temp")
-        
         guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }
         
@@ -73,38 +71,25 @@ class ShowClothTableViewCell: UITableViewCell {
             return false
         }
         
-        WeatherManager.generateWeatherConditon(by: todayWeatherList)
+        let weather = WeatherManager.generateWeatherCondition(by: todayWeatherList)
         
-    }
-    
-    public func setWeatherInfo(by info: EJMain, with description:EJWeather) {
+        currentTempLabel.text = "\(weather.mainTemp)"
+        unitLabel.text = LocalizedString(with: "temp")
+        suggestLabel.text = weather.weatherDescription
+        print("Description: \(weather.weatherDescription)")
         
-        if let temp = info.temp, let id = description.id {
-            let intTemp = WeatherManager.getValidTemperature(by: temp)
-            currentTempLabel.text = "\(intTemp)"
-            unitLabel.text = LocalizedString(with: "temp")
-            suggestLabel.text = WeatherManager.weatherCondition(of: id)
-            
-            let weatherStyle = WeatherManager.setTodayStyle(by: intTemp, id: id)
-            let weatherClothes = weatherStyle.sorted(by: >)
-            
-            firstClothImageView.image = UIImage.init(named: weatherClothes[0])
-            firstClothLabel.text = LocalizedString(with: weatherClothes[0])
-            secondClothImageview.image = UIImage.init(named: weatherClothes[1])
-            secondClothLabel.text = LocalizedString(with: weatherClothes[1])
-            thirdClothImageView.image = UIImage.init(named: weatherClothes[2])
-            thirdClothLabel.text = LocalizedString(with: weatherClothes[2])
-            
-            addAnimation()
-        }
+        firstClothImageView.image = UIImage(named: weather.firstCloth)
+        firstClothLabel.text = LocalizedString(with: weather.firstCloth)
+        secondClothImageview.image = UIImage(named: weather.secondCloth)
+        secondClothLabel.text = LocalizedString(with: weather.secondCloth)
+        thirdClothImageView.image = UIImage(named: weather.thirdCloth)
+        thirdClothLabel.text = LocalizedString(with: weather.thirdCloth)
+        
+        addAnimation()
     }
     
     
     // MARK: - Private Shadow
-    private func generateCloth() {
-        
-    }
-    
     private func addAnimation() {
         let firstImageCenterY = firstClothImageView.center.y - 7
         let secondImageCenterY = secondClothImageview.center.y - 8

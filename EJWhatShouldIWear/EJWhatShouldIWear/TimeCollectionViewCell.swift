@@ -50,14 +50,13 @@ class TimeCollectionViewCell: UICollectionViewCell {
             hourLabel.text = "\(time) \(hour)"
         }
         
-        if let weatherInfo = item.main, let weatherID = item.weather {
-            if let floatTemp = weatherInfo.temp, let id = weatherID.first?.id {
+        if let weatherInfo = item.main {
+            if let floatTemp = weatherInfo.temp {
                 let temp = WeatherManager.getValidTemperature(by: floatTemp)
                 tempLabel.text = "\(temp)\(unit)"
                 
-                let style = WeatherManager.setTodayStyle(by: temp, id: id)
-                let image = style.sorted(by: >)
-                clothImageView.image = UIImage.init(named: image[0])
+                let style = WeatherManager.setClothByTemp(temp)
+                clothImageView.image = UIImage.init(named: style)
             }
         }
     }
