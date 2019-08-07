@@ -43,6 +43,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     
     }
     
+    //
     
     // MARK: - TableView Delegate
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
