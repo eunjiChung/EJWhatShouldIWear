@@ -82,16 +82,13 @@ class EJWeatherManager: NSObject {
             totalTemp += tempDictionary["total"]!
         }
         
+        WeatherClass.criticCondition = weatherType
+        
         let averageTemp = totalTemp / Float(list.count)
         WeatherClass.mainTemp = getValidTemperature(by: averageTemp)
-        WeatherClass.criticCondition = weatherType
-        print("Critic Weather:", weatherType)
         WeatherClass.minTemp = getValidTemperature(by: minTemp)
-        print("Min Temp:", WeatherClass.minTemp)
         WeatherClass.maxTemp = getValidTemperature(by: maxTemp)
-        print("Max Temp:", WeatherClass.maxTemp)
         
-        // 3. 날씨 중에서 크리티컬한 날씨 정보 살펴보기
         if weatherType != .clear && weatherType != .cloud {
             WeatherClass.firstCloth = setClothByCondition(weatherType)
         } else {
@@ -106,7 +103,7 @@ class EJWeatherManager: NSObject {
     }
 
     public func weatherDescription() -> String {
-        var description = "오늘은 "
+        var description = "오늘 "
         
         switch WeatherClass.criticCondition {
         case .clear:
@@ -153,10 +150,10 @@ class EJWeatherManager: NSObject {
         switch condition {
         case .tornado, .ash, .dust, .haze:
             tag = "big_mask_icon"
-        case .squall, .thunderstorm, .snow, .rain, .drizzle:
+        case .squall, .thunderstorm, .rain, .drizzle:
             tag = "big_umbrella_icon"
-        case .fog:
-            tag = "big_cardigan_icon"
+        case .snow:
+            tag = ["big_fur_gloves_icon", "big_fur_hat_icon", "big_muffler_icon"].randomElement()!
         default:
             tag = "big_blue_jean_jacket_icon"
         }
@@ -164,52 +161,62 @@ class EJWeatherManager: NSObject {
         return tag
     }
     
-    public func setClothByTemp(_ temp:Int) -> String {
-        var images = [String]()
-        var firstTag, secondTag, thirdTag: String
+    public func setClothByTemp() -> [String:String] {
+        var images = [String: String]()
+        var top, bottom, third, outer: String
+        
         
         // 미국 화씨를 계산 안 했다...
         switch temp {
         case 28...:
-            firstTag = "big_sleeveless_shirt_icon"
-            secondTag = "big_short_sleeved_t_shirt_icon"
-            thirdTag = "big_hot_pants_icon"
+            top = "big_sleeveless_shirt_icon"
+            bottom = "big_hot_pants_icon"
+            third = "big_short_sleeved_t_shirt_icon"
+            outer = ""
         case 23...27:
-            firstTag = "big_one_piece_icon"
-            secondTag = "big_short_sleeved_t_shirt_icon"
-            thirdTag = "big_cotton_pants_icon"
+            top = "big_short_sleeved_t_shirt_icon"
+            bottom = "big_cotton_pants_icon"
+            third = "big_one_piece_icon"
+            outer = ""
         case 20...22:
-            firstTag = "big_shirt_icon"
-            secondTag = "big_blouse_icon"
-            thirdTag = "big_blue_jeans_icon"
+            top = "big_shirt_icon"
+            bottom = "big_blue_jeans_icon"
+            third = "big_blouse_icon"
+            outer = ""
         case 17...19:
-            firstTag = "big_blue_jean_jacket_icon"
-            secondTag = "big_cardigan_icon"
-            thirdTag = "big_blue_jeans_icon"
+            top = "big_blouse_icon"
+            bottom = "big_blue_jeans_icon"
+            third = "big_blue_jean_jacket_icon"
+            outer = "big_cardigan_icon"
         case 12...16:
-            firstTag = "big_sweatshirt_icon"
-            secondTag = "big_checked_shirt_icon"
-            thirdTag = "big_cotton_pants_icon"
+            top = "big_sweatshirt_icon"
+            bottom = "big_cotton_pants_icon"
+            third = ""
+            outer = "big_checked_shirt_icon"
         case 9...11:
-            firstTag = "big_trench_coat_icon"
-            secondTag = "big_jacket_icon"
-            thirdTag = "big_slacks_icon"
+            top = "big_jacket_icon"
+            bottom = "big_slacks_icon"
+            third = ""
+            outer = "big_trench_coat_icon"
         case 5...8:
-            firstTag = "big_coat_icon"
-            secondTag = "big_knitwear_icon"
-            thirdTag = "big_long_skirt_icon"
+            top = "big_knitwear_icon"
+            bottom = "big_long_skirt_icon"
+            third = ""
+            outer = "big_coat_icon"
         case ...4:
-            firstTag = "big_muffler_icon"
-            secondTag = "big_padding_icon"
-            thirdTag = "big_fur_gloves_icon"
+            top = "big_sweatshirt_icon"
+            bottom = "big_cotton_pants_icon"
+            third = "big_padding_vest_icon"
+            outer = "big_padding_icon"
         default:
-            firstTag = "big_blouse_icon"
-            secondTag = "big_cardigan_icon"
-            thirdTag = "big_one_piece_icon"
+            top = "big_blouse_icon"
+            bottom = "big_cardigan_icon"
+            third = ""
+            outer = "big_one_piece_icon"
         }
         
-        images = [firstTag, secondTag, thirdTag]
-        return images.randomElement()!
+        images = ["top":top, "bottom":bottom, "third":third, "outer":outer]
+        return images
     }
     
     public func getValidTemperature(by temperature:Float) -> Int {
