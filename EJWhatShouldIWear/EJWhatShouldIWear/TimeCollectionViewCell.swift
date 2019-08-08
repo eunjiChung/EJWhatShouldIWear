@@ -55,7 +55,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
                 let temp = WeatherManager.getValidTemperature(by: floatTemp)
                 tempLabel.text = "\(temp)\(unit)"
                 
-                let style = WeatherManager.setClothByTemp(temp)
+                let style = WeatherManager.setTopCloth(by: temp)
                 clothImageView.image = UIImage.init(named: style)
             }
         }

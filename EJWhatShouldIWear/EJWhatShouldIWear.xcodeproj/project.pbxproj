@@ -71,6 +71,7 @@
 		99FC4AC122DDCED9002DD721 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC4AC022DDCED9002DD721 /* InfoTableViewCell.swift */; };
 		99FC4AC622DDD32B002DD721 /* DevInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */; };
 		9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */; };
+		B603890B22FBE9D500F36416 /* Cloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603890A22FBE9D500F36416 /* Cloth.swift */; };
 		B6262C2722FA771A009FC744 /* WeatherMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6262C2622FA771A009FC744 /* WeatherMain.swift */; };
 		B62E8B8E22F9464C00055A0E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E8B8D22F9464C00055A0E /* Date.swift */; };
 /* End PBXBuildFile section */
@@ -186,6 +187,7 @@
 		99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevInfoViewController.swift; sourceTree = "<group>"; };
 		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
 		B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B603890A22FBE9D500F36416 /* Cloth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloth.swift; sourceTree = "<group>"; };
 		B6262C2622FA771A009FC744 /* WeatherMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMain.swift; sourceTree = "<group>"; };
 		B62E8B8D22F9464C00055A0E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -431,6 +433,7 @@
 				992B09A022BF833900FF94B7 /* CurrentWeather */,
 				992B097122BD513B00FF94B7 /* 5daysWeather */,
 				B6262C2622FA771A009FC744 /* WeatherMain.swift */,
+				B603890A22FBE9D500F36416 /* Cloth.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */,
 				992B098C22BD53C200FF94B7 /* EJFiveDaysWeatherModel.swift in Sources */,
 				998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */,
+				B603890B22FBE9D500F36416 /* Cloth.swift in Sources */,
 				992B098922BD53C200FF94B7 /* EJFiveDaysCoord.swift in Sources */,
 				99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */,
 				992B09AE22BF849100FF94B7 /* EJSys.swift in Sources */,

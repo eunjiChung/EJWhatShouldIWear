@@ -10,6 +10,10 @@ import UIKit
 import SwiftyJSON
 import CoreLocation
 
+// MARK: - Type Alias
+typealias SuccessHandler = (Any) -> ()
+typealias FailureHandler = (Error) -> ()
+
 // MARK: - Weather Condition
 enum WeatherCondition: Int {
     case tornado = 0
@@ -25,10 +29,6 @@ enum WeatherCondition: Int {
     case cloud = 10
     case clear = 11
 }
-
-// MARK: - Type Alias
-typealias SuccessHandler = (Any) -> ()
-typealias FailureHandler = (Error) -> ()
 
 // MARK: - Shared Instance
 let WeatherManager = EJWeatherManager.sharedInstance
@@ -90,13 +90,13 @@ class EJWeatherManager: NSObject {
         WeatherClass.maxTemp = getValidTemperature(by: maxTemp)
         
         if weatherType != .clear && weatherType != .cloud {
-            WeatherClass.firstCloth = setClothByCondition(weatherType)
+            WeatherClass.criticCloth = setClothByCondition(weatherType)
         } else {
-            WeatherClass.firstCloth = setClothByTemp(WeatherClass.mainTemp)
+            WeatherClass.criticCloth = setOuterCloth(by: WeatherClass.mainTemp)
         }
         
-        WeatherClass.secondCloth = setClothByTemp(WeatherClass.maxTemp)
-        WeatherClass.thirdCloth = setClothByTemp(WeatherClass.minTemp)
+        WeatherClass.maxCloth = setTopCloth(by: WeatherClass.maxTemp)
+        WeatherClass.minCloth = setBottomCloth(by: WeatherClass.minTemp)
         WeatherClass.weatherDescription = weatherDescription()
         
         return WeatherClass
@@ -137,7 +137,7 @@ class EJWeatherManager: NSObject {
             description += "더위 조심하세요!"
         } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
             description += "일교차가 커요.\n"
-            let cloth = LocalizedString(with: WeatherClass.secondCloth)
+            let cloth = LocalizedString(with: WeatherClass.criticCloth)
             description += "꼭 \(cloth)를 챙기세요"
         }
         
@@ -149,74 +149,98 @@ class EJWeatherManager: NSObject {
         
         switch condition {
         case .tornado, .ash, .dust, .haze:
-            tag = "big_mask_icon"
+            tag = MASK
         case .squall, .thunderstorm, .rain, .drizzle:
-            tag = "big_umbrella_icon"
+            tag = UMBRELLA
         case .snow:
-            tag = ["big_fur_gloves_icon", "big_fur_hat_icon", "big_muffler_icon"].randomElement()!
+            tag = [FUR_GLOVES, FUR_HAT, MUFFLER].randomElement()!
         default:
-            tag = "big_blue_jean_jacket_icon"
+            tag = BLUE_JEAN_JACKET
         }
         
         return tag
     }
     
-    public func setClothByTemp() -> [String:String] {
-        var images = [String: String]()
-        var top, bottom, third, outer: String
+    public func setTopCloth(by temp: Int) -> String {
+        var cloth = ""
         
-        
-        // 미국 화씨를 계산 안 했다...
         switch temp {
-        case 28...:
-            top = "big_sleeveless_shirt_icon"
-            bottom = "big_hot_pants_icon"
-            third = "big_short_sleeved_t_shirt_icon"
-            outer = ""
-        case 23...27:
-            top = "big_short_sleeved_t_shirt_icon"
-            bottom = "big_cotton_pants_icon"
-            third = "big_one_piece_icon"
-            outer = ""
-        case 20...22:
-            top = "big_shirt_icon"
-            bottom = "big_blue_jeans_icon"
-            third = "big_blouse_icon"
-            outer = ""
-        case 17...19:
-            top = "big_blouse_icon"
-            bottom = "big_blue_jeans_icon"
-            third = "big_blue_jean_jacket_icon"
-            outer = "big_cardigan_icon"
-        case 12...16:
-            top = "big_sweatshirt_icon"
-            bottom = "big_cotton_pants_icon"
-            third = ""
-            outer = "big_checked_shirt_icon"
-        case 9...11:
-            top = "big_jacket_icon"
-            bottom = "big_slacks_icon"
-            third = ""
-            outer = "big_trench_coat_icon"
-        case 5...8:
-            top = "big_knitwear_icon"
-            bottom = "big_long_skirt_icon"
-            third = ""
-            outer = "big_coat_icon"
-        case ...4:
-            top = "big_sweatshirt_icon"
-            bottom = "big_cotton_pants_icon"
-            third = "big_padding_vest_icon"
-            outer = "big_padding_icon"
+        case TempRange.temp_28:
+            cloth = Top._28.randomElement()!
+        case TempRange.temp_23_27:
+            cloth = Top._23_27.randomElement()!
+        case TempRange.temp_20_22:
+            cloth = Top._20_22.randomElement()!
+        case TempRange.temp_17_19:
+            cloth = Top._17_19.randomElement()!
+        case TempRange.temp_12_16:
+            cloth = Top._12_16.randomElement()!
+        case TempRange.temp_9_11:
+            cloth = Top._9_11.randomElement()!
+        case TempRange.temp_5_8:
+            cloth = Top._5_8.randomElement()!
+        case TempRange.temp_4:
+            cloth = Top._4.randomElement()!
         default:
-            top = "big_blouse_icon"
-            bottom = "big_cardigan_icon"
-            third = ""
-            outer = "big_one_piece_icon"
+            cloth = Top._23_27.randomElement()!
         }
         
-        images = ["top":top, "bottom":bottom, "third":third, "outer":outer]
-        return images
+        return cloth
+    }
+    
+    
+    public func setBottomCloth(by temp: Int) -> String {
+        var cloth = ""
+        
+        switch temp {
+        case TempRange.temp_28:
+            cloth = Bottom._28.randomElement()!
+        case TempRange.temp_23_27:
+            cloth = Bottom._23_27.randomElement()!
+        case TempRange.temp_20_22:
+            cloth = Bottom._20_22.randomElement()!
+        case TempRange.temp_17_19:
+            cloth = Bottom._17_19.randomElement()!
+        case TempRange.temp_12_16:
+            cloth = Bottom._12_16.randomElement()!
+        case TempRange.temp_9_11:
+            cloth = Bottom._9_11.randomElement()!
+        case TempRange.temp_5_8:
+            cloth = Bottom._5_8.randomElement()!
+        case TempRange.temp_4:
+            cloth = Bottom._4.randomElement()!
+        default:
+            cloth = Bottom._23_27.randomElement()!
+        }
+        
+        return cloth
+    }
+    
+    public func setOuterCloth(by temp: Int) -> String {
+        var cloth = ""
+        
+        switch temp {
+        case TempRange.temp_28:
+            cloth = Top._28.randomElement()!
+        case TempRange.temp_23_27:
+            cloth = Top._23_27.randomElement()!
+        case TempRange.temp_20_22:
+            cloth = Outer._20_22.randomElement()!
+        case TempRange.temp_17_19:
+            cloth = Outer._17_19.randomElement()!
+        case TempRange.temp_12_16:
+            cloth = Outer._12_16.randomElement()!
+        case TempRange.temp_9_11:
+            cloth = Outer._9_11.randomElement()!
+        case TempRange.temp_5_8:
+            cloth = Outer._5_8.randomElement()!
+        case TempRange.temp_4:
+            cloth = Outer._4.randomElement()!
+        default:
+            cloth = Outer._20_22.randomElement()!
+        }
+        
+        return cloth
     }
     
     public func getValidTemperature(by temperature:Float) -> Int {

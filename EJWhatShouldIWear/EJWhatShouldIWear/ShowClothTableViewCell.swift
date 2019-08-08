@@ -84,12 +84,12 @@ class ShowClothTableViewCell: UITableViewCell {
         suggestLabel.text = weather.weatherDescription
         print("Description: \(weather.weatherDescription)")
         
-        firstClothImageView.image = UIImage(named: weather.firstCloth)
-        firstClothLabel.text = LocalizedString(with: weather.firstCloth)
-        secondClothImageview.image = UIImage(named: weather.secondCloth)
-        secondClothLabel.text = LocalizedString(with: weather.secondCloth)
-        thirdClothImageView.image = UIImage(named: weather.thirdCloth)
-        thirdClothLabel.text = LocalizedString(with: weather.thirdCloth)
+        firstClothImageView.image = UIImage(named: weather.criticCloth)
+        firstClothLabel.text = LocalizedString(with: weather.criticCloth)
+        secondClothImageview.image = UIImage(named: weather.maxCloth)
+        secondClothLabel.text = LocalizedString(with: weather.maxCloth)
+        thirdClothImageView.image = UIImage(named: weather.minCloth)
+        thirdClothLabel.text = LocalizedString(with: weather.minCloth)
         
         addAnimation()
     }
