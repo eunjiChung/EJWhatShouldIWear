@@ -88,31 +88,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="335" height="179.66666666666666"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_blouse_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-sD-mC3">
-                                <rect key="frame" x="29" y="15" width="81" height="105"/>
+                                <rect key="frame" x="25" y="15" width="85" height="105"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_one_piece_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KUY-CS-72v">
-                                <rect key="frame" x="130" y="15" width="81" height="105"/>
+                                <rect key="frame" x="125" y="15" width="85" height="105"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_long_skirt_icon" translatesAutoresizingMaskIntoConstraints="NO" id="a10-ez-e8W">
-                                <rect key="frame" x="231" y="15" width="81" height="105"/>
+                                <rect key="frame" x="225" y="15" width="85" height="105"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZq-nP-c8R">
-                                <rect key="frame" x="55" y="120.00000000000001" width="29" height="44.666666666666671"/>
+                                <rect key="frame" x="53" y="120.00000000000001" width="29" height="44.666666666666671"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-qB-R9s">
-                                <rect key="frame" x="156" y="120.00000000000001" width="29" height="44.666666666666671"/>
+                                <rect key="frame" x="153" y="120.00000000000001" width="29" height="44.666666666666671"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeG-WP-atu">
-                                <rect key="frame" x="257" y="120.00000000000001" width="29" height="44.666666666666671"/>
+                                <rect key="frame" x="253" y="120.00000000000001" width="29" height="44.666666666666671"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -122,18 +122,18 @@
                         <constraints>
                             <constraint firstItem="zeG-WP-atu" firstAttribute="top" secondItem="ZZq-nP-c8R" secondAttribute="top" id="0WF-45-8Z3"/>
                             <constraint firstAttribute="bottom" secondItem="ZZq-nP-c8R" secondAttribute="bottom" constant="15" id="3b2-7n-KxQ"/>
-                            <constraint firstItem="8u2-sD-mC3" firstAttribute="leading" secondItem="bE7-HZ-EpO" secondAttribute="leading" constant="29" id="3uS-7e-FBb"/>
+                            <constraint firstItem="8u2-sD-mC3" firstAttribute="leading" secondItem="bE7-HZ-EpO" secondAttribute="leading" constant="25" id="3uS-7e-FBb"/>
                             <constraint firstAttribute="bottom" secondItem="Gvc-0x-pYa" secondAttribute="bottom" id="6o7-Vp-oc2"/>
-                            <constraint firstItem="a10-ez-e8W" firstAttribute="leading" secondItem="KUY-CS-72v" secondAttribute="trailing" constant="20" id="6rc-TZ-D1K"/>
+                            <constraint firstItem="a10-ez-e8W" firstAttribute="leading" secondItem="KUY-CS-72v" secondAttribute="trailing" constant="15" id="6rc-TZ-D1K"/>
                             <constraint firstItem="a10-ez-e8W" firstAttribute="top" secondItem="8u2-sD-mC3" secondAttribute="top" id="9Be-RT-yPt"/>
                             <constraint firstItem="Gvc-0x-pYa" firstAttribute="leading" secondItem="bE7-HZ-EpO" secondAttribute="leading" id="DGR-QJ-2b7"/>
-                            <constraint firstItem="KUY-CS-72v" firstAttribute="leading" secondItem="8u2-sD-mC3" secondAttribute="trailing" constant="20" id="GCw-SP-GWb"/>
+                            <constraint firstItem="KUY-CS-72v" firstAttribute="leading" secondItem="8u2-sD-mC3" secondAttribute="trailing" constant="15" id="GCw-SP-GWb"/>
                             <constraint firstItem="kAK-qB-R9s" firstAttribute="top" secondItem="ZZq-nP-c8R" secondAttribute="top" id="Go1-NA-IRT"/>
                             <constraint firstItem="KUY-CS-72v" firstAttribute="width" secondItem="8u2-sD-mC3" secondAttribute="width" id="JYB-3g-mEG"/>
                             <constraint firstItem="a10-ez-e8W" firstAttribute="width" secondItem="8u2-sD-mC3" secondAttribute="width" id="K1r-gg-Yji"/>
                             <constraint firstItem="kAK-qB-R9s" firstAttribute="bottom" secondItem="ZZq-nP-c8R" secondAttribute="bottom" id="Mrz-9Y-G8h"/>
                             <constraint firstItem="KUY-CS-72v" firstAttribute="bottom" secondItem="8u2-sD-mC3" secondAttribute="bottom" id="PF5-17-GUQ"/>
-                            <constraint firstAttribute="trailing" secondItem="a10-ez-e8W" secondAttribute="trailing" constant="23" id="SUu-mq-Sba"/>
+                            <constraint firstAttribute="trailing" secondItem="a10-ez-e8W" secondAttribute="trailing" constant="25" id="SUu-mq-Sba"/>
                             <constraint firstItem="ZZq-nP-c8R" firstAttribute="centerX" secondItem="8u2-sD-mC3" secondAttribute="centerX" id="YZO-yH-Mas"/>
                             <constraint firstItem="a10-ez-e8W" firstAttribute="bottom" secondItem="8u2-sD-mC3" secondAttribute="bottom" id="eRd-0U-3Uv"/>
                             <constraint firstItem="8u2-sD-mC3" firstAttribute="top" secondItem="bE7-HZ-EpO" secondAttribute="top" constant="15" id="hVP-cQ-Pou"/>

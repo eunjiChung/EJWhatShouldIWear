@@ -103,42 +103,42 @@ class EJWeatherManager: NSObject {
     }
 
     public func weatherDescription() -> String {
-        var description = "오늘 "
+        var description = LocalizedString(with: "desc_tody") + " "
         
         switch WeatherClass.criticCondition {
         case .clear:
-            description += "날씨가 맑아요!"
+            description += LocalizedString(with: "desc_clear")
         case .cloud:
-            description += "날이 흐려요.."
+            description += LocalizedString(with: "desc_cloud")
         case .tornado:
-            description += "토네이도! 위험!"
+            description += LocalizedString(with: "desc_tornado")
         case .ash:
-            description = "화산재 조심하세요!"
+            description = LocalizedString(with: "desc_ash")
         case .squall:
-            description += "스콜 조심하세요!"
+            description += LocalizedString(with: "desc_squall")
         case .thunderstorm:
-            description += "천둥번개에 유의하세요!"
+            description += LocalizedString(with: "desc_thunderstorm")
         case .dust, .haze:
-            description += "공기가 안좋아요"
+            description += LocalizedString(with: "desc_dust")
         case .snow:
-            description += "눈이 와요"
+            description += LocalizedString(with: "desc_snow")
         case .rain:
-            description += "비가 와요"
+            description += LocalizedString(with: "desc_rain")
         case .drizzle:
-            description += "가벼운 비가 와요"
+            description += LocalizedString(with: "desc_drizzle")
         case .fog:
-            description += "안개가 꼈어요"
+            description += LocalizedString(with: "desc_fog")
         }
         description += "\n"
         
         if WeatherClass.maxTemp < 15 {
-            description += "따뜻하게 입으세요!"
+            description += LocalizedString(with: "desc_add_warm")
         } else if WeatherClass.minTemp > 23 {
-            description += "더위 조심하세요!"
+            description += LocalizedString(with: "desc_add_cool")
         } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
-            description += "일교차가 커요.\n"
+            description = description + LocalizedString(with: "desc_add_cross") + "\n"
             let cloth = LocalizedString(with: WeatherClass.criticCloth)
-            description += "꼭 \(cloth)를 챙기세요"
+            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
         }
         
         return description
