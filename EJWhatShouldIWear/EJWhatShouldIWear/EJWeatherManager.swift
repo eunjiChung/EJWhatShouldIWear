@@ -137,8 +137,10 @@ class EJWeatherManager: NSObject {
             description += LocalizedString(with: "desc_add_cool")
         } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
             description = description + LocalizedString(with: "desc_add_cross") + "\n"
-            let cloth = LocalizedString(with: WeatherClass.criticCloth)
-            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
+            
+            // 추천 로직은 보류...
+//            let cloth = LocalizedString(with: WeatherClass.criticCloth)
+//            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
         }
         
         return description
