@@ -277,7 +277,7 @@ class EJWeatherManager: NSObject {
                         
                         if let subLocality = first.subLocality
                         {
-                            result += "\(subLocality)"
+                            result += " \(subLocality)"
                         }
                     }
                     success(result)
