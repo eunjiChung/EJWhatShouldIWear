@@ -165,6 +165,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     // MARK: - Prepare for Segue
     @IBAction func didTouchMenuBtn(_ sender: Any) {
+        Library.selectionHapticFeedback()
         self.performSegue(withIdentifier: "home_sidemenu_segue", sender: self)
     }
     

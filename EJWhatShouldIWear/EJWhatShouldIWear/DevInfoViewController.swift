@@ -27,6 +27,7 @@ class DevInfoViewController: UIViewController {
     }
     
     @IBAction func didTouchBackBtn(_ sender: Any) {
+        Library.selectionHapticFeedback()
         self.dismiss(animated: true, completion: nil)
     }
 }

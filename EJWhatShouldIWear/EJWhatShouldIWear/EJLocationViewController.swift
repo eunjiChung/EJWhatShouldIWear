@@ -15,6 +15,7 @@ class EJLocationViewController: EJBaseViewController {
     }
     
     @IBAction func didTouchBackBtn(_ sender: Any) {
+        Library.selectionHapticFeedback()
         self.navigationController?.popViewController(animated: true)
     }
     

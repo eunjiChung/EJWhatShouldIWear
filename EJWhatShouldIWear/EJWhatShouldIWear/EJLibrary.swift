@@ -52,8 +52,11 @@ func LocalizedString(with key: String) -> String {
 
 // MARK: - Class EJLibrary
 class EJLibrary: NSObject {
+    
     static let sharedInstance = EJLibrary()
     var systemLanguage = ""
+    
+    var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
     
     override init() {
         let locale = NSLocale.autoupdatingCurrent
@@ -124,6 +127,12 @@ class EJLibrary: NSObject {
     
     func deniedNotification() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+    
+    
+    // MARK: - User Feedback
+    func selectionHapticFeedback() {
+        self.selectionFeedbackGenerator.selectionChanged()
     }
     
 }

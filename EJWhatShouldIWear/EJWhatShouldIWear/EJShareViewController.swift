@@ -78,11 +78,13 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     // MARK: - Action Method
     @IBAction func didTouchBackBtn(_ sender: Any) {
+        Library.selectionHapticFeedback()
         self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Share Link Method
     @IBAction func didTouchShareBtn(_ sender: Any) {
+        Library.selectionHapticFeedback()
         
         guard let text = self.textView.text else { return }
         let appStoreURL = AppStoreURL

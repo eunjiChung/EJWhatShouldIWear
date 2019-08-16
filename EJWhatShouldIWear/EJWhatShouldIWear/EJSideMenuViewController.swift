@@ -58,6 +58,8 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
 //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Library.selectionHapticFeedback()
+        
         switch indexPath.row {
         case 1:
             let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController")
