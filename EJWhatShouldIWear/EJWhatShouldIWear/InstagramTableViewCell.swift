@@ -9,16 +9,20 @@
 import UIKit
 
 class InstagramTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var infoTitleLabel: UILabel!
+    @IBOutlet weak var tableButton: UIButton!
+    
+    var typeOfButton: String?
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func didTouchButton(_ sender: Any) {
     }
-
+    
 }

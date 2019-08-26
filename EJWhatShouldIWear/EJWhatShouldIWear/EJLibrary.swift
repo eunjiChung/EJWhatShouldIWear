@@ -142,4 +142,9 @@ class EJLibrary: NSObject {
         return mainBundle.object(forInfoDictionaryKey: "CFBundleVersion") as! String
     }
     
+    public func appVersion() -> String {
+        let mainBundle = Bundle.main
+        return mainBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    }
+    
 }
