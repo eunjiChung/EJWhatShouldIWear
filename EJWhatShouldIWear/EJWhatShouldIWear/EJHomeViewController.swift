@@ -145,6 +145,10 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     // MARK: - Splash Method
     func removeSplashScene() {
         if self.splashContainer != nil {
+            
+            // I put this method here...But this is not proper location 
+            self.requestAppVersionInfo()
+            
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
                     if self.splashContainer != nil {
