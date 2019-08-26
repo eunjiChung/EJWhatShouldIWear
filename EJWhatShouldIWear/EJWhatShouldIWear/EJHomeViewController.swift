@@ -11,6 +11,7 @@ import SideMenu
 import GoogleMobileAds
 import CoreLocation
 import UserNotifications
+import FirebaseAnalytics
 
 class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate  {
     
@@ -167,6 +168,13 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     @IBAction func didTouchMenuBtn(_ sender: Any) {
         Library.selectionHapticFeedback()
         self.performSegue(withIdentifier: "home_sidemenu_segue", sender: self)
+        
+        let title = "didTouchMenuBtn"
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-\(title)",
+            AnalyticsParameterItemName: title,
+            AnalyticsParameterContentType: "cont"
+            ])
     }
     
     func setSettingsLocation() {
