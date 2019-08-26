@@ -9,6 +9,8 @@
 import UIKit
 import MessageUI
 import ESPullToRefresh
+import Firebase
+import SwiftyJSON
 
 
 
@@ -75,5 +77,119 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
             toScrollView.es.stopPullToRefresh()
         }
     }
+    
+    
+    
+    // MARK: Firebase Remote Config
+    func requestAppVersionInfo() {
+        self.firebaseRemote({ (success) in
+            
+            if success {
+                self.successCompletionOfReqAppVersionInfoWithResult()
+            } else {
+                // No need to update
+            }
+        }) { (error) in
+            if let error = error {
+                self.popAlertVC(self, title: "", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    fileprivate func firebaseRemote(_ success: @escaping (_ success: Bool) -> Void,
+                        failure: @escaping (_ error: Error?) -> Void) {
+        let remoteConfig = RemoteConfig.remoteConfig()
+        
+        #if DEBUG
+        let remoteConfigSetting = RemoteConfigSettings(developerModeEnabled: true)
+        remoteConfig.configSettings = remoteConfigSetting
+        #endif
+        
+        var expirationDuration: TimeInterval = 3600
+        if remoteConfig.configSettings.isDeveloperModeEnabled {
+            expirationDuration = 0
+        }
+        
+        remoteConfig.fetch(withExpirationDuration: expirationDuration) { (status, error) in
+            if status == .success {
+                remoteConfig.activateFetched()
+                
+                let value: RemoteConfigValue = remoteConfig["validate_version"]
+                
+                do {
+                    let data: JSON = try JSON(data: value.dataValue)
+                    let validBuildVersion: Int = data["build_version"].intValue
+                    let required: Bool = data["required"].boolValue
+                    
+                    guard let currentBuildVersion = Int(Library.buildVersion()) else { return }
+                    
+                    if currentBuildVersion < validBuildVersion {
+                        if required {
+                            success(true)
+                        } else {
+                            success(false)
+                        }
+                    } else {
+                        failure(error)
+                    }
+                } catch {
+                    
+                }
+            } else {
+                print("Config not fetched")
+                
+                if let error = error {
+                    failure(error)
+                }
+            }
+        }
+    }
+    
+    fileprivate func successCompletionOfReqAppVersionInfoWithResult() {
+        DispatchQueue.main.async {
+//            let alertController = UIAlertController.init(title: LocalizedString(with: "dialog_btn_update"), message: LocalizedString(with: "dialog_msg_force_update"), preferredStyle: .alert)
+//            let updateAction = UIAlertAction.init(title: LocalizedString(with: "dialog_btn_update"), style: .default, handler: { (alertAction) in
+//                self.moveToAppStore(storeId: "")
+//            })
+//            let cancelAction = UIAlertAction.init(title: LocalizedString(with: "dialog_btn_cancel"), style: .cancel, handler: { (alertAction) in
+//            })
+            let alertController = UIAlertController.init(title: "업데이트", message: "최신버전으로 업데이트를 진행하시겠습니까?", preferredStyle: .alert)
+            let updateAction = UIAlertAction.init(title: "Update", style: .default, handler: { (alertAction) in
+                self.moveToAppStore(storeId: appStoreID)
+            })
+            let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (alertAction) in
+            })
+            
+            alertController.addAction(updateAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 
+    fileprivate func moveToAppStore(storeId: String?) {
+        DispatchQueue.main.async {
+            if storeId != nil {
+                self.openAppStore(withIdentifier: storeId!, completionHandler:{})
+            } else {
+                print("'storeId is nil!'")
+            }
+        }
+    }
+    
+    func openAppStore(withIdentifier: String, completionHandler: @escaping () -> Void) {
+        
+        let storeViewController = SKStoreProductViewController()
+        
+        storeViewController.delegate = self as? SKStoreProductViewControllerDelegate
+        storeViewController.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier : withIdentifier],
+                                        completionBlock: { (success, error) in
+                                            
+                                            if success {
+                                                completionHandler()
+                                            }
+        })
+        
+        self.present(storeViewController, animated: true, completion: nil)
+    }
 }

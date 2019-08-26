@@ -19,7 +19,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var currentTemp: String?
-
+    
     
     // MARK: IBOutlet
     @IBOutlet weak var mainTableView: UITableView!
@@ -45,7 +45,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         startLoadingIndicator()
         layout()
         configureSideMenu()
@@ -112,7 +112,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
+        
         switch indexPath.section {
         case 0:
             return EJSizeHeight(146.0+62.0+179.67+34.0)
@@ -284,16 +284,16 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     private func setLocationText(of current: CLLocation) {
         WeatherManager.getLocationInfo(of: current,
-                                        success: { result in
-            if result != "" {
-                self.location = result
-                self.mainTableView.reloadData()
-                self.removeSplashScene()
-            } else {
-                self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
-                self.removeSplashScene()
-            }
-            
+                                       success: { result in
+                                        
+                                        if result != "" {
+                                            self.location = result
+                                            self.mainTableView.reloadData()
+                                        } else {
+                                            self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
+                                        }
+                                        
+                                        self.removeSplashScene()
         }) { error in
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
             self.removeSplashScene()
@@ -334,5 +334,5 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
     }
-
+    
 }

@@ -17,6 +17,7 @@ public let AppStoreURL                          =   "https://apps.apple.com/kr/a
 public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"
 public let googleAdmobAppID                     =   "ca-app-pub-1994779937843028~3906710093"
 public let googleAdmobUnitID                    =   "ca-app-pub-1994779937843028/3973448265"
+public let appStoreID                           =   "1469342013"
 //public let googleAdmobUnitID                    =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
 
 // MARK: - Screen Size
@@ -133,6 +134,12 @@ class EJLibrary: NSObject {
     // MARK: - User Feedback
     func selectionHapticFeedback() {
         self.selectionFeedbackGenerator.selectionChanged()
+    }
+    
+    // MARK: - Device
+    public func buildVersion() -> String {
+        let mainBundle = Bundle.main
+        return mainBundle.object(forInfoDictionaryKey: "CFBundleVersion") as! String
     }
     
 }

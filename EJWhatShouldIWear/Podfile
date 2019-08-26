@@ -9,6 +9,7 @@ target 'EJWhatShouldIWear' do
    pod 'Fabric', '~> 1.9.0'
    pod 'Crashlytics', '~> 3.12.0'
    pod 'Firebase/Analytics'
+   pod 'Firebase/RemoteConfig'
    
    pod 'Alamofire', '~> 4.7.3'
    pod 'SideMenu', '~> 5.0.3'
