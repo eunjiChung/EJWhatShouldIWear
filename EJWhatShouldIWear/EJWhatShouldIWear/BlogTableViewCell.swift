@@ -20,7 +20,12 @@ class BlogTableViewCell: UITableViewCell {
     }
     
     @IBAction func didTouchBlogBtn(_ sender: Any) {
-        print("Touched Blog button")
+        let blogString = "https://klala1203.tistory.com/"
+        guard let blogUrl = URL(string: blogString) else { return }
+        
+        if UIApplication.shared.canOpenURL(blogUrl) {
+            UIApplication.shared.open(blogUrl, options: [:], completionHandler: nil)
+        }
     }
     
 }

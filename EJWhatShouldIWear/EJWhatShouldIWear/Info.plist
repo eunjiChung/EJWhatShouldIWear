@@ -19,13 +19,17 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1776</string>
+	<string>1785</string>
 	<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
 	<true/>
 	<key>FirebaseScreenReportingEnabled</key>
 	<true/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1994779937843028~3906710093</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>instagram</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
