@@ -44,7 +44,7 @@
 "unknown" = "Unknown location";
 "developer_info" = "Developer Information";
 "app_version" = "App Version";
-"app_description" = "What Should I Wear?' provides the weather data by OpenWeatherMap API to display various weather information. Because of this, depending on the server situation at that site, the information might not be displayed. Please also understand that all forecasts do not match 100%. More detailed use and development stories for applications are available in the blog.";
+"app_description" = "'What Should I Wear?' provides the weather data by OpenWeatherMap API to display various weather information. Because of this, depending on the server situation at that site, the information might not be displayed. Please also understand that all forecasts do not match 100%. More detailed use and development stories for applications are available in the blog.";
 "blog" = "Blog";
 "instagram" = "Instagram";
 "goto_blog" = "Go to Blog";
