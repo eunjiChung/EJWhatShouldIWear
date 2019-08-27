@@ -23,6 +23,7 @@ class InstagramTableViewCell: UITableViewCell {
 
     
     @IBAction func didTouchButton(_ sender: Any) {
+        print("Touched Instagram Button")
     }
     
 }

@@ -20,7 +20,7 @@ class BlogTableViewCell: UITableViewCell {
     }
     
     @IBAction func didTouchBlogBtn(_ sender: Any) {
-        
+        print("Touched Blog button")
     }
     
 }
