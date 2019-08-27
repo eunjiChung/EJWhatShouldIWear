@@ -42,12 +42,22 @@
 "hour" = "H";
 "temp" = "℉";
 "unknown" = "Unknown location";
+"developer_info" = "Developer Information";
+"app_version" = "App Version";
+"app_description" = "What Should I Wear?' provides the weather data by OpenWeatherMap API to display various weather information. Because of this, depending on the server situation at that site, the information might not be displayed. Please also understand that all forecasts do not match 100%. More detailed use and development stories for applications are available in the blog.";
+"blog" = "Blog";
+"instagram" = "Instagram";
+"goto_blog" = "Go to Blog";
+"goto_instagram" = "Go to Instagram";
 
 // alert
 "mail_warning_title" = "Mail App setting error";
 "mail_warning_message" = "Enter sender information in mail app";
 "btn_ok" = "Ok";
 "alarm_message" = "Get a 9 o'clock notice every morning";
+"update_title" = "Update";
+"update_message" = "Do you want to proceed with the update to the latest version?";
+"btn_cancel" = "Cancel";
 
 // error
 "localizing_error" = "Cannot use GPS";

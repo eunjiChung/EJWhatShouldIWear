@@ -147,17 +147,11 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     fileprivate func successCompletionOfReqAppVersionInfoWithResult() {
         DispatchQueue.main.async {
-//            let alertController = UIAlertController.init(title: LocalizedString(with: "dialog_btn_update"), message: LocalizedString(with: "dialog_msg_force_update"), preferredStyle: .alert)
-//            let updateAction = UIAlertAction.init(title: LocalizedString(with: "dialog_btn_update"), style: .default, handler: { (alertAction) in
-//                self.moveToAppStore(storeId: "")
-//            })
-//            let cancelAction = UIAlertAction.init(title: LocalizedString(with: "dialog_btn_cancel"), style: .cancel, handler: { (alertAction) in
-//            })
-            let alertController = UIAlertController.init(title: "업데이트", message: "최신버전으로 업데이트를 진행하시겠습니까?", preferredStyle: .alert)
-            let updateAction = UIAlertAction.init(title: "Update", style: .default, handler: { (alertAction) in
-                self.moveToAppStore(storeId: appStoreID)
+            let alertController = UIAlertController.init(title: LocalizedString(with: "update_title"), message: LocalizedString(with: "update_message"), preferredStyle: .alert)
+            let updateAction = UIAlertAction.init(title: LocalizedString(with: "update_title"), style: .default, handler: { (alertAction) in
+                self.moveToAppStore(storeId: "")
             })
-            let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (alertAction) in
+            let cancelAction = UIAlertAction.init(title: LocalizedString(with: "btn_cancel"), style: .cancel, handler: { (alertAction) in
             })
             
             alertController.addAction(updateAction)

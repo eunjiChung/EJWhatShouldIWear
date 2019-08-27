@@ -33,7 +33,7 @@ class DevInfoViewController: UIViewController, UITableViewDataSource, UITableVie
         case 0:
             return LocalizedString(with: "app_name")
         default:
-            return "개발자 정보"
+            return LocalizedString(with: "developer_info")
         }
     }
     
@@ -56,12 +56,12 @@ class DevInfoViewController: UIViewController, UITableViewDataSource, UITableVie
             switch indexPath.row {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperTableViewCell") as! DeveloperTableViewCell
-                cell.InfoTitleLabel.text = "App Version"
+                cell.InfoTitleLabel.text = LocalizedString(with: "app_version")
                 cell.infoDescriptionLabel.text = Library.appVersion()
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-                cell.descriptionCell.text = "'오늘모입지?'는 OpenWeatherMap에서 제공하는 데이터로 각종 기상 정보를 표시합니다. 때문에 해당 사이트의 서버 사정에 따라 정보가 표시되지 않을 수 있습니다. 또한 모든 예보가 100% 일치하지 않는다는 점을 이해해 주시기 바랍니다. 어플리케이션에 대한 보다 자세한 사용방법 및 개발 이야기는 블로그에 수록되어 있습니다."
+                cell.descriptionCell.text = LocalizedString(with: "app_description")
                 return cell
             default:
                 print("Nothing...")
@@ -74,16 +74,14 @@ class DevInfoViewController: UIViewController, UITableViewDataSource, UITableVie
                 cell.infoDescriptionLabel.text = ""
                 return cell
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramTableViewCell") as! InstagramTableViewCell
-                cell.infoTitleLabel.text = "Blog"
-                cell.typeOfButton = "Blog"
-                cell.tableButton.titleLabel?.text = "Blog"
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BlogTableViewCell") as! BlogTableViewCell
+                cell.cellTitleLabel.text = LocalizedString(with: "blog")
+                cell.blogButton.setTitle(LocalizedString(with: "goto_blog"), for: .normal)
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramTableViewCell") as! InstagramTableViewCell
-                cell.infoTitleLabel.text = "Instagram"
-                cell.typeOfButton = "Instagram"
-                cell.tableButton.titleLabel?.text = "Instagram"
+                cell.infoTitleLabel.text = LocalizedString(with: "instagram")
+                cell.tableButton.setTitle(LocalizedString(with: "goto_instagram"), for: .normal)
                 return cell
             default:
                 print("Nothing...")

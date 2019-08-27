@@ -42,12 +42,22 @@
 "hour" = "H";
 "temp" = "℃";
 "unknown" = "Vị trí không xác định";
+"developer_info" = "thông tin của người phát triển";
+"app_version" = "App Version";
+"app_description" = "What Should I Wear?'Mình sẽ đánh dấu các thông tin khí tượng bằng dữ liệu được cung cấp trong OPEN'. Do đó, thông tin có thể không được hiển thị theo lịch trình máy chủ của trang web. Hơn nữa, xin hãy hiểu rằng tất cả mọi ví dụ không đồng nhất 100%. Câu chuyện phát triển và phương pháp sử dụng chi tiết hơn đối với ứng dụng được ghi chép lại trên blog.";
+"blog" = "Blog";
+"instagram" = "Instagram";
+"goto_blog" = "Go to Blog";
+"goto_instagram" = "Go to Instagram";
 
 // alert
 "mail_warning_title" = "Lỗi cài đặt ứng dụng thư";
 "mail_warning_message" = "Nhập thông tin người gửi trong ứng dụng thư";
 "btn_ok" = "đồng ý";
 "alarm_message" = "Nhận thông báo 9 giờ mỗi sáng";
+"update_title" = "cập nhật";
+"update_message" = "Bạn có muốn thực hiện cập nhật với phiên bản mới nhất không?";
+"btn_cancel" = "sự huỷ bỏ";
 
 // error
 "localizing_error" = "Cannot use GPS";

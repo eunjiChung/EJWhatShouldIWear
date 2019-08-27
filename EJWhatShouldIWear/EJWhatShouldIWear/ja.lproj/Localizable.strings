@@ -42,12 +42,22 @@
 "hour" = "時";
 "temp" = "℃";
 "unknown" = "未知の場所";
+"developer_info" = "開発者情報";
+"app_version" = "App Version";
+"app_description" = "What Should I Wear?' は,OpenWeatherMapで提供するデータで各種気象情報を表示します。 そのため,該当サイトのサーバー事情により,情報が表示されないことがあります。 また、全ての予報が100%一致しないという点を理解してください。 アプリケーションについてのより詳しい使い方および開発の話はブログに収録されています。";
+"blog" = "ブログ";
+"instagram" = "Instagram";
+"goto_blog" = "Go to Blog";
+"goto_instagram" = "Go to Instagram";
 
 // alert
 "mail_warning_title" = "メールアプリケーション設定エラー";
 "mail_warning_message" = "メールアプリケーションに送信者情報を入力してください";
 "btn_ok" = "確認";
 "alarm_message" = "毎朝9時の通知を受け取る";
+"update_title" = "アップデート";
+"update_message" = "最新バージョンにアップデートを行いますか。";
+"btn_cancel" = "キャンセル";
 
 // error
 "localizing_error" = "Cannot use GPS";

@@ -42,12 +42,22 @@
 "hour" = "点";
 "temp" = "℃";
 "unknown" = "未知的地方";
+"developer_info" = "Infobox 开发者";
+"app_version" = "App Version";
+"app_description" = "What Should I Wear?'用OpenWeatherMap提供的数据显示各种气象信息。 所以根据该网站服务器的情况,信息可能无法显示。 另外,请理解为所有预报100%不一致。 关于应用的更详细的使用方法及开发故事收录在博客中。";
+"blog" = "博客";
+"instagram" = "Instagram";
+"goto_blog" = "Go to Blog";
+"goto_instagram" = "Go to Instagram";
 
 // alert
 "mail_warning_title" = "邮件应用程序设置错误";
 "mail_warning_message" = "在邮件应用程序中输入发件人信息";
 "btn_ok" = "确认";
 "alarm_message" = "每天早上9点钟通知";
+"update_title" = "更新";
+"update_message" = "确定要更新到最新版本吗?";
+"btn_cancel" = "取消";
 
 // error
 "localizing_error" = "Cannot use GPS";
