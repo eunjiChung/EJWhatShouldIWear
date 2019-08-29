@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import CoreLocation
+import Crashlytics
 
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
@@ -246,6 +247,15 @@ class EJWeatherManager: NSObject {
     }
     
     public func getValidTemperature(by temperature:Float) -> Int {
+        
+        // Non fatal Error
+        let errorInfo = [
+            NSLocalizedDescriptionKey : "Temperature",
+            "temperature" : "\(temperature)"
+        ]
+        let errorLog = NSError.init(domain: "GetValidTemperature", code: -1001, userInfo: errorInfo)
+        Crashlytics.sharedInstance().recordError(errorLog)
+        
         var temp = Int(temperature)
         
         if !Library.systemLanguage.contains("en") {
