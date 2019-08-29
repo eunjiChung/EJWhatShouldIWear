@@ -84,6 +84,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/RemoteConfig
   - Google-Mobile-Ads-SDK
+  - Protobuf
   - SideMenu (~> 5.0.3)
   - SwiftyJSON (~> 5.0.0)
 
@@ -126,6 +127,6 @@ SPEC CHECKSUMS:
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 27829e2a585eb84b6171d9547ac6b658468362d1
+PODFILE CHECKSUM: d3cfad41be51c334ab639f2846a524de26b4dca9
 
 COCOAPODS: 1.7.5
