@@ -66,7 +66,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J6s-ml-Q6b" firstAttribute="leading" secondItem="Bdq-Ys-Imd" secondAttribute="leading" constant="64" id="QUt-PB-eW0"/>
                             <constraint firstAttribute="trailing" secondItem="J6s-ml-Q6b" secondAttribute="trailing" constant="64" id="bFL-A7-3Fh"/>
@@ -75,17 +75,11 @@
                             <constraint firstAttribute="bottom" secondItem="J6s-ml-Q6b" secondAttribute="bottom" constant="56" id="oET-Em-QBt"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothes_hanger_img" translatesAutoresizingMaskIntoConstraints="NO" id="Gen-Fw-Bdb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="146" id="cBB-KA-dGv"/>
-                        </constraints>
-                    </imageView>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bE7-HZ-EpO">
-                        <rect key="frame" x="20" y="208" width="335" height="179.66666666666663"/>
+                        <rect key="frame" x="20" y="217.66666666666663" width="335" height="170"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_box_img" translatesAutoresizingMaskIntoConstraints="NO" id="Gvc-0x-pYa">
-                                <rect key="frame" x="0.0" y="0.0" width="335" height="179.66666666666666"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_box_img" translatesAutoresizingMaskIntoConstraints="NO" id="Gvc-0x-pYa">
+                                <rect key="frame" x="0.0" y="0.0" width="335" height="170"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_blouse_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-sD-mC3">
                                 <rect key="frame" x="25" y="15" width="85" height="105"/>
@@ -100,19 +94,19 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZq-nP-c8R">
-                                <rect key="frame" x="53" y="120.00000000000001" width="29" height="44.666666666666671"/>
+                                <rect key="frame" x="53" y="120.00000000000003" width="29" height="35"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-qB-R9s">
-                                <rect key="frame" x="153" y="120.00000000000001" width="29" height="44.666666666666671"/>
+                                <rect key="frame" x="153" y="120.00000000000003" width="29" height="35"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeG-WP-atu">
-                                <rect key="frame" x="253" y="120.00000000000001" width="29" height="44.666666666666671"/>
+                                <rect key="frame" x="253" y="120.00000000000003" width="29" height="35"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -147,17 +141,13 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="Gen-Fw-Bdb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2Vf-fL-9uu"/>
                     <constraint firstAttribute="trailing" secondItem="bE7-HZ-EpO" secondAttribute="trailing" constant="20" id="5vE-3t-v4R"/>
                     <constraint firstAttribute="bottom" secondItem="bE7-HZ-EpO" secondAttribute="bottom" constant="34" id="8hx-wd-Dnw"/>
                     <constraint firstItem="Bdq-Ys-Imd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="G8N-ye-T5I"/>
                     <constraint firstItem="bE7-HZ-EpO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="GTr-J6-nub"/>
-                    <constraint firstItem="bE7-HZ-EpO" firstAttribute="top" secondItem="Gen-Fw-Bdb" secondAttribute="bottom" constant="62" id="NYG-ZY-Qnw"/>
-                    <constraint firstItem="Gen-Fw-Bdb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Nmw-Wr-hML"/>
                     <constraint firstItem="Bdq-Ys-Imd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aGe-Jh-x1f"/>
-                    <constraint firstAttribute="trailing" secondItem="Gen-Fw-Bdb" secondAttribute="trailing" id="bJ7-mj-aHR"/>
                     <constraint firstAttribute="trailing" secondItem="Bdq-Ys-Imd" secondAttribute="trailing" id="lJu-Pt-MND"/>
                 </constraints>
             </tableViewCellContentView>
@@ -168,13 +158,11 @@
                 <outlet property="alcBottomOfFirstLabel" destination="3b2-7n-KxQ" id="5Dc-mD-kZP"/>
                 <outlet property="alcBottomOfStackView" destination="oET-Em-QBt" id="IKi-DB-UZI"/>
                 <outlet property="alcHeightOfContainerView" destination="lvJ-6o-xYJ" id="Rhy-2x-SuD"/>
-                <outlet property="alcHeightOfHangerImage" destination="cBB-KA-dGv" id="dki-BE-dVT"/>
                 <outlet property="alcLeadingOfClothView" destination="GTr-J6-nub" id="EJn-xU-373"/>
                 <outlet property="alcLeadingOfFirstImageview" destination="3uS-7e-FBb" id="Ql3-Q0-okZ"/>
                 <outlet property="alcLeadingOfSecondImageView" destination="GCw-SP-GWb" id="gfg-TQ-wac"/>
                 <outlet property="alcLeadingOfStackView" destination="QUt-PB-eW0" id="D2G-o9-wPe"/>
                 <outlet property="alcLeadingOfThirdImageView" destination="6rc-TZ-D1K" id="9np-sX-764"/>
-                <outlet property="alcTopOfClothView" destination="NYG-ZY-Qnw" id="JhG-uJ-1ml"/>
                 <outlet property="alcTopOfFirstClothImageView" destination="hVP-cQ-Pou" id="C9Q-eO-G6z"/>
                 <outlet property="alcTopOfFirstLabel" destination="zZc-Hs-sLI" id="1nV-sa-ftl"/>
                 <outlet property="alcTrailingOfClothView" destination="5vE-3t-v4R" id="JrB-KV-zOM"/>
@@ -197,7 +185,6 @@
     <resources>
         <image name="big_long_skirt_icon" width="105" height="105"/>
         <image name="big_one_piece_icon" width="105" height="105"/>
-        <image name="clothes_hanger_img" width="375" height="148"/>
         <image name="home_box_img" width="355" height="170"/>
         <image name="small_blouse_icon" width="58" height="58"/>
     </resources>

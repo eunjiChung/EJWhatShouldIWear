@@ -120,7 +120,7 @@ class ShowClothTableViewCell: UITableViewCell {
         alcLeadingOfStackView.constant = EJSize(64.0)
         alcTrailingOfStackView.constant = EJSize(64.0)
         alcBottomOfStackView.constant = EJSizeHeight(56.0)
-        alcHeightOfHangerImage.constant = EJSizeHeight(146.0)
+//        alcHeightOfHangerImage.constant = EJSizeHeight(146.0)
         alcTopOfFirstClothImageView.constant = EJSizeHeight(15.0)
         alcLeadingOfFirstImageview.constant = EJSize(25.0)
         alcLeadingOfSecondImageView.constant = EJSize(15.0)
@@ -129,7 +129,7 @@ class ShowClothTableViewCell: UITableViewCell {
 //        alcTopOfFirstLabel.constant = EJSizeHeight(12.0)
         alcBottomOfFirstLabel.constant = EJSizeHeight(15.0)
         alcLeadingOfClothView.constant = EJSize(20.0)
-        alcTopOfClothView.constant = EJSizeHeight(62.0)
+//        alcTopOfClothView.constant = EJSizeHeight(62.0)
         alcBottomOfClothView.constant = EJSizeHeight(34.0)
         alcTrailingOfClothView.constant = EJSize(20.0)
     }
