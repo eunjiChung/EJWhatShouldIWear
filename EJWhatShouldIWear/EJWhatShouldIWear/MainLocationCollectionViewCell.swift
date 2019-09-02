@@ -1,5 +1,5 @@
 //
-//  LocationCollectionViewCell.swift
+//  MainLocationCollectionViewCell.swift
 //  EJWhatShouldIWear
 //
 //  Created by CHUNGEUNJI on 02/09/2019.
@@ -8,8 +8,6 @@
 
 import UIKit
 
-class LocationCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var locationLabel: UILabel!
+class MainLocationCollectionViewCell: UICollectionViewCell {
     
 }

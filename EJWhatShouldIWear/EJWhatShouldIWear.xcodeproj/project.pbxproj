@@ -15,6 +15,7 @@
 		724A174E22D7817F008FDCB6 /* muffler.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A174D22D7817F008FDCB6 /* muffler.png */; };
 		729DF29A231D46A200D3C5E6 /* TestMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DF299231D46A200D3C5E6 /* TestMainViewController.swift */; };
 		729DF29C231D471600D3C5E6 /* LocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DF29B231D471600D3C5E6 /* LocationCollectionViewCell.swift */; };
+		729DF29E231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DF29D231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift */; };
 		72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */; };
 		72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */; };
 		72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */; };
@@ -110,6 +111,7 @@
 		724A174D22D7817F008FDCB6 /* muffler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muffler.png; sourceTree = "<group>"; };
 		729DF299231D46A200D3C5E6 /* TestMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMainViewController.swift; sourceTree = "<group>"; };
 		729DF29B231D471600D3C5E6 /* LocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		729DF29D231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherTableViewCell.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			children = (
 				729DF299231D46A200D3C5E6 /* TestMainViewController.swift */,
 				729DF29B231D471600D3C5E6 /* LocationCollectionViewCell.swift */,
+				729DF29D231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
 				B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */,
+				729DF29E231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift in Sources */,
 				997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */,
 				B602935D230FD5FD002BDA5E /* InstagramTableViewCell.swift in Sources */,
 				99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */,

@@ -44,18 +44,18 @@
                                     <constraint firstItem="8F1-UB-nqS" firstAttribute="top" secondItem="8FL-lP-Hic" secondAttribute="topMargin" constant="10" id="txq-hH-Wvn"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="37p-s6-mCk">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="37p-s6-mCk">
                                 <rect key="frame" x="0.0" y="140" width="375" height="638"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="arK-Ip-W6R">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="arK-Ip-W6R">
                                     <size key="itemSize" width="365" height="637"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LocationCollectionViewCell" id="g0i-Dz-PCi" customClass="LocationCollectionViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="0.0" width="365" height="637"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainLocationCollectionViewCell" id="g0i-Dz-PCi" customClass="MainLocationCollectionViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.66666666666666663" width="365" height="637"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="637"/>
@@ -94,7 +94,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VJq-Lh-NCN">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LocationCollectionViewCell" id="VJq-Lh-NCN" customClass="LocationCollectionViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="95" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -102,7 +102,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIO-mI-pEW">
-                                                            <rect key="frame" x="26" y="15" width="42" height="21"/>
+                                                            <rect key="frame" x="26.666666666666671" y="14.666666666666664" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -113,8 +113,14 @@
                                                     <constraint firstItem="IIO-mI-pEW" firstAttribute="centerY" secondItem="VJq-Lh-NCN" secondAttribute="centerY" id="8sP-zH-uAc"/>
                                                     <constraint firstItem="IIO-mI-pEW" firstAttribute="centerX" secondItem="VJq-Lh-NCN" secondAttribute="centerX" id="LK8-XI-pX7"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="locationLabel" destination="IIO-mI-pEW" id="Iq2-nd-4Ky"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="WG4-5o-Xa6" id="Mab-Xx-4f5"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,8 +153,8 @@
                         <viewLayoutGuide key="safeArea" id="3m9-zs-i67"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="37p-s6-mCk" id="8MN-6k-6Vg"/>
-                        <outlet property="locationCollectionView" destination="DQD-FR-UZZ" id="zxQ-i1-0CX"/>
+                        <outlet property="locationCollectionView" destination="DQD-FR-UZZ" id="YgQ-Mp-SVg"/>
+                        <outlet property="mainCollectionView" destination="37p-s6-mCk" id="jOy-1I-nGS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zi8-o8-KlE" userLabel="First Responder" sceneMemberID="firstResponder"/>

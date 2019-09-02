@@ -10,7 +10,7 @@ import UIKit
 
 class TestMainViewController: UIViewController, UICollectionViewDataSource {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var locationCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -23,9 +23,16 @@ class TestMainViewController: UIViewController, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationCollectionViewCell", for: indexPath) as! LocationCollectionViewCell
+        switch collectionView {
+        case locationCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationCollectionViewCell", for: indexPath) as! LocationCollectionViewCell
+            cell.locationLabel.text = "OH"
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainLocationCollectionViewCell", for: indexPath) as! MainLocationCollectionViewCell
+            return cell
+        }
         
-        return cell
     }
 
 }
