@@ -115,7 +115,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         
         switch indexPath.section {
         case 0:
-            return EJSizeHeight(146.0+62.0+179.67+34.0)
+            return EJSizeHeight(350.0)
         case 1:
             return EJSizeHeight(131.0+50.0+18.0+43.0+18.67)
         case 2:
