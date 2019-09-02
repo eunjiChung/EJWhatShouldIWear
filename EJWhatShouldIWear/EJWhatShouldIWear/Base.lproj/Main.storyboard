@@ -68,13 +68,40 @@
                                                     </constraints>
                                                     <color key="pageIndicatorTintColor" red="0.29803921570000003" green="0.30588235289999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </pageControl>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-FZ-iz9">
+                                                    <rect key="frame" x="8" y="52" width="349" height="565"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G71-1M-LYc">
+                                                        <size key="itemSize" width="349" height="547"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="WeatherCollectionViewCell" reuseIdentifier="WeatherCollectionViewCell" id="LhC-hv-ulJ" customClass="WeatherCollectionViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="9" width="349" height="547"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="349" height="547"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </view>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="QSi-FZ-iz9" firstAttribute="leading" secondItem="g0i-Dz-PCi" secondAttribute="leadingMargin" id="8V9-dK-XLC"/>
+                                            <constraint firstItem="QSi-FZ-iz9" firstAttribute="top" secondItem="g0i-Dz-PCi" secondAttribute="topMargin" id="Mre-ew-mQl"/>
                                             <constraint firstItem="S93-36-YBp" firstAttribute="leading" secondItem="g0i-Dz-PCi" secondAttribute="leading" id="N4B-2Z-WQF"/>
+                                            <constraint firstItem="S93-36-YBp" firstAttribute="top" secondItem="QSi-FZ-iz9" secondAttribute="bottom" id="OCz-x5-Jpp"/>
                                             <constraint firstAttribute="trailing" secondItem="S93-36-YBp" secondAttribute="trailing" id="SGt-MB-TT0"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="QSi-FZ-iz9" secondAttribute="trailing" id="fwX-Mb-RRc"/>
                                             <constraint firstAttribute="bottom" secondItem="S93-36-YBp" secondAttribute="bottom" id="i7S-VK-BmD"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="collectionView" destination="QSi-FZ-iz9" id="GM6-eW-Gvj"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

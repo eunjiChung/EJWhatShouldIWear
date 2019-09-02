@@ -16,6 +16,7 @@
 		729DF29A231D46A200D3C5E6 /* TestMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DF299231D46A200D3C5E6 /* TestMainViewController.swift */; };
 		729DF29C231D471600D3C5E6 /* LocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DF29B231D471600D3C5E6 /* LocationCollectionViewCell.swift */; };
 		729DF29E231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DF29D231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift */; };
+		729DF2A0231D50C600D3C5E6 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DF29F231D50C600D3C5E6 /* WeatherCollectionViewCell.swift */; };
 		72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */; };
 		72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */; };
 		72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */; };
@@ -112,6 +113,7 @@
 		729DF299231D46A200D3C5E6 /* TestMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMainViewController.swift; sourceTree = "<group>"; };
 		729DF29B231D471600D3C5E6 /* LocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		729DF29D231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		729DF29F231D50C600D3C5E6 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherTableViewCell.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				729DF299231D46A200D3C5E6 /* TestMainViewController.swift */,
 				729DF29B231D471600D3C5E6 /* LocationCollectionViewCell.swift */,
 				729DF29D231D4D2600D3C5E6 /* MainLocationCollectionViewCell.swift */,
+				729DF29F231D50C600D3C5E6 /* WeatherCollectionViewCell.swift */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				B6029359230FD5E5002BDA5E /* DescriptionTableViewCell.swift in Sources */,
+				729DF2A0231D50C600D3C5E6 /* WeatherCollectionViewCell.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
