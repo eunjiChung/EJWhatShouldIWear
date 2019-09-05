@@ -61,25 +61,6 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     
     
-    // MARK: - Pull To Refresh
-    func addPullToRefreshControl(toScrollView: UIScrollView, completionHandler: @escaping () -> ()) {
-        DispatchQueue.main.async {
-            toScrollView.es.addPullToRefresh {
-                DispatchQueue.main.async {
-                    completionHandler()
-                }
-            }
-        }
-    }
-    
-    func stopPullToRefresh(toScrollView: UIScrollView) {
-        DispatchQueue.main.async {
-            toScrollView.es.stopPullToRefresh()
-        }
-    }
-    
-    
-    
     // MARK: Firebase Remote Config
     func requestAppVersionInfo() {
         self.firebaseRemote({ (success) in

@@ -15,16 +15,13 @@ import FirebaseAnalytics
 
 class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
-    
     // MARK: - Data
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var currentTemp: String?
     
-    
     // MARK: IBOutlet
     @IBOutlet weak var mainCollectionView: UICollectionView!
-    
     @IBOutlet weak var splashContainer: UIView!
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
@@ -53,21 +50,22 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         configureSideMenu()
         
         locationManager.delegate = self as CLLocationManagerDelegate
-        
-//        addPullToRefreshControl(toScrollView: self.mainTableView) {
-//            self.checkLocationStatus()
-//        }
     }
     
     
-    
-    // MARK: - UITableView Data Source
+    // MARK: - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
+        
+        cell.FiveDaysWeatherList = self.FiveDaysWeatherList
+        cell.FiveDaysWeatherModel = self.FiveDaysWeatherModel
+        cell.currentTemp = self.currentTemp
+        cell.location = self.location
         
         return cell
     }
@@ -103,6 +101,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     // MARK: - Prepare for Segue
     @IBAction func didTouchMenuBtn(_ sender: Any) {
         Library.selectionHapticFeedback()
+        
         self.performSegue(withIdentifier: "home_sidemenu_segue", sender: self)
         
         let title = "didTouchMenuBtn"

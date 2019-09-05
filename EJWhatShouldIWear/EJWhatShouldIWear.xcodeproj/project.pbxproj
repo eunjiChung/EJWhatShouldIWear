@@ -453,7 +453,6 @@
 			children = (
 				997533BB228EEAA7003DAF97 /* SettingViewCell */,
 				998191D5228C133B0063B684 /* HomeViewCells */,
-				B617E51F2320FC5900DBC0D2 /* MainCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,6 +462,7 @@
 			children = (
 				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
 				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
+				B617E51F2320FC5900DBC0D2 /* MainCollectionViewCell.swift */,
 				99CC5117229D22CF00192450 /* EJLocationViewController.swift */,
 				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
 				998B8291228D54B80099B71A /* EJSettingViewController.swift */,

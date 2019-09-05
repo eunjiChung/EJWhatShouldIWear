@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import ESPullToRefresh
 
 // MARK: - OpenWeatherMAP
 public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
@@ -156,5 +157,24 @@ class EJLibrary: NSObject {
         let mainBundle = Bundle.main
         return mainBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     }
+    
+    // MARK: - Pull To Refresh
+    func addPullToRefreshControl(toScrollView: UIScrollView, completionHandler: @escaping () -> ()) {
+        DispatchQueue.main.async {
+            toScrollView.es.addPullToRefresh {
+                DispatchQueue.main.async {
+                    completionHandler()
+                }
+            }
+        }
+    }
+    
+    func stopPullToRefresh(toScrollView: UIScrollView) {
+        DispatchQueue.main.async {
+            toScrollView.es.stopPullToRefresh()
+        }
+    }
+    
+    
     
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ESPullToRefresh
 
 class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
     
@@ -24,10 +25,14 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     // MARK: View Life Cycle
     override func awakeFromNib() {
         
-        mainTableView.dataSource = self as? UITableViewDataSource
-        mainTableView.delegate = self as? UITableViewDelegate
+        mainTableView.dataSource = self as UITableViewDataSource
+        mainTableView.delegate = self as UITableViewDelegate
         
         registerNibs()
+        
+        Library.addPullToRefreshControl(toScrollView: self.mainTableView) {
+            print("Pull To Refresh")
+        }
     }
     
     // MARK: TableView Data Source
