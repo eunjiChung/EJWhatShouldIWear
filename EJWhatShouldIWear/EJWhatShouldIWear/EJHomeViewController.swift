@@ -13,7 +13,8 @@ import CoreLocation
 import UserNotifications
 import FirebaseAnalytics
 
-class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate  {
+class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+    
     
     // MARK: - Data
     var FiveDaysWeatherList: [EJFiveDaysList]?
@@ -22,7 +23,8 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     
     // MARK: IBOutlet
-    @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var mainCollectionView: UICollectionView!
+    
     @IBOutlet weak var splashContainer: UIView!
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
@@ -49,98 +51,28 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         startLoadingIndicator()
         layout()
         configureSideMenu()
-        registerNibs()
         
         locationManager.delegate = self as CLLocationManagerDelegate
         
-        addPullToRefreshControl(toScrollView: self.mainTableView) {
-            self.checkLocationStatus()
-        }
+//        addPullToRefreshControl(toScrollView: self.mainTableView) {
+//            self.checkLocationStatus()
+//        }
     }
     
     
     
     // MARK: - UITableView Data Source
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
         
-        switch indexPath.section
-        {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
-            
-            if let model = FiveDaysWeatherModel {
-                cell.setCurrentLocality(by: self.location)
-                cell.generateMain(by: model)
-            }
-            
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
-            
-            if let model = FiveDaysWeatherModel {
-                cell.setTimelyTable(of: model)
-            }
-            
-            return cell
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: WeekWeatherTableViewCell.identifier, for: indexPath) as! WeekWeatherTableViewCell
-            
-            if let info = FiveDaysWeatherList {
-                cell.setWeekelyTimeTable(by:info)
-            }
-            
-            return cell
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: AdmobTableViewCell.identifier, for: indexPath) as! AdmobTableViewCell
-            cell.createAdmob(self)
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DummyTableViewCell.identifier, for: indexPath) as! DummyTableViewCell
-            return cell
-        }
-        
-    }
-    
-    
-    // MARK: - TableView Delegate
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        switch indexPath.section {
-        case 0:
-            return EJSizeHeight(350.0)
-        case 1:
-            return EJSizeHeight(131.0+50.0+18.0+43.0+18.67)
-        case 2:
-            return EJSizeHeight(38.0+16.0+20.0+97.0+50.0+13.0)
-        case 3:
-            return EJSizeHeight(60.0)
-        default:
-            return EJSizeHeight(80.0)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as! HeaderTableViewCell
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section
-        {
-        case 2, 3:
-            return EJSizeHeight(7.0)
-        default:
-            return 0
-        }
-    }
+    
     
     // MARK: - Splash Method
     func removeSplashScene() {
@@ -203,7 +135,6 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
     
     
     // MARK: - CLLocationManagerDelegate
-    
     // 시작할 때 자동적으로 이 메소드가 실행된다
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -228,7 +159,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         }
         
         locationManager.stopUpdatingLocation()
-        self.stopPullToRefresh(toScrollView: self.mainTableView)
+//        self.stopPullToRefresh(toScrollView: self.mainTableView)
     }
     
     // MARK: Location Method
@@ -246,7 +177,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
             generateInfo(from: defaultLocation)
         }
         
-        self.stopPullToRefresh(toScrollView: self.mainTableView)
+//        self.stopPullToRefresh(toScrollView: self.mainTableView)
     }
     
     func generateInfo(from location: CLLocation) {
@@ -292,7 +223,7 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
                                         
                                         if result != "" {
                                             self.location = result
-                                            self.mainTableView.reloadData()
+//                                            self.mainTableView.reloadData()
                                         } else {
                                             self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
                                         }
@@ -329,14 +260,4 @@ class EJHomeViewController: EJBaseViewController, UITableViewDataSource, UITable
         SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
         SideMenuManager.default.menuShadowColor = UIColor.clear
     }
-    
-    private func registerNibs() {
-        mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "WeekWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekWeatherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
-    }
-    
 }

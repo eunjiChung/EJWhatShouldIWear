@@ -36,7 +36,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Ycx-l7-ssm" secondAttribute="bottom" constant="50" id="3fl-U8-m1T"/>
                     <constraint firstItem="A3q-hP-X83" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="38" id="B39-Vd-aUE"/>
@@ -46,7 +46,7 @@
                     <constraint firstAttribute="trailing" secondItem="Ycx-l7-ssm" secondAttribute="trailing" id="oN4-AE-Akk"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="alcBottomOfCollectionView" destination="3fl-U8-m1T" id="R1K-jQ-pjo"/>
