@@ -37,7 +37,6 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         registerNibs()
         
         Library.addPullToRefreshControl(toScrollView: self.mainTableView) {
-            print("Pull To Refresh")
             self.locationDelegate?.updateLocation()
             self.mainTableView.reloadData()
         }
@@ -45,18 +44,16 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     
     // MARK: Control TableView delegate
     func reloadTableView() {
-        print("=================================")
         self.mainTableView.reloadData()
     }
     
     func stopPullToRefreshTable() {
-        print("Stop!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         Library.stopPullToRefresh(toScrollView: self.mainTableView)
     }
     
     // MARK: TableView Data Source
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,8 +130,8 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section
         {
-        case 2, 3:
-            return EJSizeHeight(7.0)
+        case 1, 2, 3:
+            return EJSizeHeight(0.5)
         default:
             return 0
         }

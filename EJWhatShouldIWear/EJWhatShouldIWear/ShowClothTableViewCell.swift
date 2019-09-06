@@ -33,7 +33,7 @@ class ShowClothTableViewCell: UITableViewCell {
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        addShadow()
+//        addShadow()
         setLayoutConstraints()
         
         firstImageCenterY = firstClothImageView.center.y - 7

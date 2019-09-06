@@ -11,6 +11,7 @@ import UIKit
 class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     static let identifier = "TimeWeahtherTableViewCell"
+    
 //    var weatherInfo: [EJFiveDaysList]?
     var weatherModel: EJFiveDaysWeatherModel?
     var timeRelease: String?
@@ -37,7 +38,7 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         titleLabel.text = LocalizedString(with: "main_timely")
         
-        alcTopConstraintOfTextLabel.constant = EJSizeHeight(43.0)
+        alcTopConstraintOfTextLabel.constant = EJSizeHeight(20.0)
         alcLeadingConstraintOfTextLabel.constant = EJSize(20.0)
         alcTopConstraintOfCollectionView.constant = EJSizeHeight(18.0)
         alcBottomConstraintOfCollectionView.constant = EJSizeHeight(50.0)

@@ -33,7 +33,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간대별 날씨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1I-Rw-uFP">
-                        <rect key="frame" x="20" y="43" width="87.333333333333329" height="18.666666666666671"/>
+                        <rect key="frame" x="20" y="19.999999999999996" width="87.333333333333329" height="41.666666666666657"/>
                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
                         <color key="textColor" red="0.29803921568627451" green="0.30588235294117649" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                     <constraint firstAttribute="trailing" secondItem="NnF-4y-TDN" secondAttribute="trailing" id="A9W-Wl-8TY"/>
                     <constraint firstItem="NnF-4y-TDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Iry-ph-Aod"/>
                     <constraint firstAttribute="bottom" secondItem="NnF-4y-TDN" secondAttribute="bottom" constant="50" id="JUQ-V9-FqT"/>
-                    <constraint firstItem="k1I-Rw-uFP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="43" id="Kti-lt-WZf"/>
+                    <constraint firstItem="k1I-Rw-uFP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Kti-lt-WZf"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
