@@ -20,15 +20,20 @@ protocol ControlTableDelegate {
 
 class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, LocationDelegate  {
     
-    var delegate: ControlTableDelegate?
     
-    // MARK: - Data
+    // MARK: - Properties
+    var locations = ["송파", "강동", "성동"]
+    var myPickerView: UIPickerView!
+    
+    var tableDelegate: ControlTableDelegate?
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var currentTemp: String?
     
     // MARK: IBOutlet
     @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var myLocationField: UITextField!
+    
     @IBOutlet weak var splashContainer: UIView!
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
@@ -74,7 +79,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         cell.currentTemp = self.currentTemp
         cell.location = self.location
         cell.admobViewController = self
-        self.delegate = cell
+        self.tableDelegate = cell
         cell.locationDelegate = self
         
         return cell
@@ -173,8 +178,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         }
         
         locationManager.stopUpdatingLocation()
-//        self.stopPullToRefresh(toScrollView: self.mainTableView)
-        delegate?.stopPullToRefreshTable()
+        tableDelegate?.stopPullToRefreshTable()
     }
     
     // MARK: Location Method
@@ -192,8 +196,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             generateInfo(from: defaultLocation)
         }
         
-//        self.stopPullToRefresh(toScrollView: self.mainTableView)
-        delegate?.stopPullToRefreshTable()
+        tableDelegate?.stopPullToRefreshTable()
     }
     
     func generateInfo(from location: CLLocation) {
@@ -239,9 +242,10 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
                                         
                                         if result != "" {
                                             self.location = result
+                                            self.myLocationField.text = self.location
                                             
                                             self.mainCollectionView.reloadData()
-                                            self.delegate?.reloadTableView()
+                                            self.tableDelegate?.reloadTableView()
                                         } else {
                                             self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
                                         }
@@ -255,6 +259,37 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     
     // MARK: - Private Method
+    private func pickUpLocation(_ myTextField: UITextField) {
+        
+        // 1. PickerView 정의
+        myPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: EJSizeHeight(216.0)))
+        myPickerView.delegate = self
+        myPickerView.dataSource = self
+        myTextField.inputView = myPickerView
+        
+        // 2. ToolBar() 정의
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        
+        // 3. 툴바에 버튼 추가
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneClick))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelClick))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        myTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc private func doneClick() {
+        myLocationField.resignFirstResponder()
+    }
+    
+    @objc private func cancelClick() {
+        myLocationField.resignFirstResponder()
+    }
+    
     private func startLoadingIndicator() {
         // 얘는 없으면 자동적으로 동작하지 않는가...?
         if loadingIndicator == nil { return }
@@ -277,5 +312,30 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         SideMenuManager.default.menuAnimationFadeStrength = 0.7
         SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
         SideMenuManager.default.menuShadowColor = UIColor.clear
+    }
+}
+
+extension EJHomeViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    // MARK: - PickerView Delegate
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return locations.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return locations[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.myLocationField.text = locations[row]
+    }
+
+    // MARK: - TextField Delegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    
+        pickUpLocation(myLocationField)
     }
 }

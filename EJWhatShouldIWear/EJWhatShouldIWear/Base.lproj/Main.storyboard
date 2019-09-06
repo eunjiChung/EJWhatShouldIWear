@@ -113,7 +113,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GrP-DV-OPP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmH-vN-Pe1">
+                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmH-vN-Pe1">
                                         <rect key="frame" x="18" y="46" width="20" height="22"/>
                                         <state key="normal" image="menu_icon"/>
                                         <connections>
@@ -142,15 +142,26 @@
                                             <segue destination="kd8-jy-ZeT" kind="show" id="uxB-f7-c8c"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgD-CS-bCa">
+                                        <rect key="frame" x="182.66666666666666" y="45" width="10" height="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="O3e-6i-eYV" id="QZn-pQ-jPN"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="GgD-CS-bCa" firstAttribute="centerY" secondItem="YmH-vN-Pe1" secondAttribute="centerY" id="86X-ou-3gh"/>
                                     <constraint firstItem="TgQ-Fr-FdZ" firstAttribute="top" secondItem="GrP-DV-OPP" secondAttribute="top" constant="45" id="Aou-tB-ig8"/>
                                     <constraint firstItem="TgQ-Fr-FdZ" firstAttribute="leading" secondItem="jNv-MU-9mE" secondAttribute="trailing" constant="21" id="Dqi-oi-Gaf"/>
                                     <constraint firstAttribute="trailing" secondItem="TgQ-Fr-FdZ" secondAttribute="trailing" constant="20" id="EZR-Sk-ZMq"/>
                                     <constraint firstItem="jNv-MU-9mE" firstAttribute="centerY" secondItem="TgQ-Fr-FdZ" secondAttribute="centerY" id="Jyz-j2-ioN"/>
                                     <constraint firstItem="YmH-vN-Pe1" firstAttribute="leading" secondItem="GrP-DV-OPP" secondAttribute="leading" constant="18" id="QnF-0e-iCb"/>
                                     <constraint firstAttribute="bottom" secondItem="YmH-vN-Pe1" secondAttribute="bottom" constant="8" id="huX-3C-z6f"/>
+                                    <constraint firstItem="GgD-CS-bCa" firstAttribute="centerX" secondItem="GrP-DV-OPP" secondAttribute="centerX" id="ltf-75-ai1"/>
                                     <constraint firstItem="YmH-vN-Pe1" firstAttribute="top" secondItem="GrP-DV-OPP" secondAttribute="top" constant="46" id="pST-r6-bXJ"/>
                                 </constraints>
                             </view>
@@ -189,6 +200,7 @@
                         <outlet property="alcTrailingOfSettingButton" destination="EZR-Sk-ZMq" id="X4R-ir-0bc"/>
                         <outlet property="loadingIndicator" destination="b6Q-P9-kUi" id="J0Y-sg-olY"/>
                         <outlet property="mainCollectionView" destination="KYY-W4-Zk5" id="Yry-Dt-Bra"/>
+                        <outlet property="myLocationField" destination="GgD-CS-bCa" id="1ac-4M-RRq"/>
                         <outlet property="splashContainer" destination="hrt-2V-87B" id="CgE-E8-noS"/>
                         <segue destination="GNz-Gy-ew7" kind="presentation" identifier="home_sidemenu_segue" id="rya-Qe-XdW"/>
                     </connections>
