@@ -7,14 +7,20 @@
 //
 
 import UIKit
-import ESPullToRefresh
 
-class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
+protocol LocationDelegate {
+    func updateLocation()
+}
+
+class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate, ControlTableDelegate {
     
     // MARK: - Variables
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var currentTemp: String?
+    var admobViewController: UIViewController?
+    
+    var locationDelegate: LocationDelegate?
     
     // MARK: Global instance
     var location: String = LocalizedString(with: "unknown")
@@ -32,7 +38,20 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         
         Library.addPullToRefreshControl(toScrollView: self.mainTableView) {
             print("Pull To Refresh")
+            self.locationDelegate?.updateLocation()
+            self.mainTableView.reloadData()
         }
+    }
+    
+    // MARK: Control TableView delegate
+    func reloadTableView() {
+        print("=================================")
+        self.mainTableView.reloadData()
+    }
+    
+    func stopPullToRefreshTable() {
+        print("Stop!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        Library.stopPullToRefresh(toScrollView: self.mainTableView)
     }
     
     // MARK: TableView Data Source
@@ -75,7 +94,11 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: AdmobTableViewCell.identifier, for: indexPath) as! AdmobTableViewCell
-//            cell.createAdmob(self)
+            
+            if let viewController = admobViewController {
+                cell.createAdmob(viewController)
+            }
+            
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: DummyTableViewCell.identifier, for: indexPath) as! DummyTableViewCell

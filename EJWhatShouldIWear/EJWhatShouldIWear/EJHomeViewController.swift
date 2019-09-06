@@ -13,7 +13,14 @@ import CoreLocation
 import UserNotifications
 import FirebaseAnalytics
 
-class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+protocol ControlTableDelegate {
+    func reloadTableView()
+    func stopPullToRefreshTable()
+}
+
+class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, LocationDelegate  {
+    
+    var delegate: ControlTableDelegate?
     
     // MARK: - Data
     var FiveDaysWeatherList: [EJFiveDaysList]?
@@ -66,10 +73,17 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         cell.FiveDaysWeatherModel = self.FiveDaysWeatherModel
         cell.currentTemp = self.currentTemp
         cell.location = self.location
+        cell.admobViewController = self
+        self.delegate = cell
+        cell.locationDelegate = self
         
         return cell
     }
     
+    // MARK: - Location Delegate
+    func updateLocation() {
+        checkLocationStatus()
+    }
     
     
     // MARK: - Splash Method
@@ -105,6 +119,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         self.performSegue(withIdentifier: "home_sidemenu_segue", sender: self)
         
         let title = "didTouchMenuBtn"
+        
         Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
             AnalyticsParameterItemID: "id-\(title)",
             AnalyticsParameterItemName: title,
@@ -159,6 +174,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         
         locationManager.stopUpdatingLocation()
 //        self.stopPullToRefresh(toScrollView: self.mainTableView)
+        delegate?.stopPullToRefreshTable()
     }
     
     // MARK: Location Method
@@ -177,6 +193,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         }
         
 //        self.stopPullToRefresh(toScrollView: self.mainTableView)
+        delegate?.stopPullToRefreshTable()
     }
     
     func generateInfo(from location: CLLocation) {
@@ -222,7 +239,9 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
                                         
                                         if result != "" {
                                             self.location = result
-//                                            self.mainTableView.reloadData()
+                                            
+                                            self.mainCollectionView.reloadData()
+                                            self.delegate?.reloadTableView()
                                         } else {
                                             self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
                                         }
