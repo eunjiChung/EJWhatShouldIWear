@@ -11,6 +11,19 @@ import SwiftyJSON
 import CoreLocation
 import Crashlytics
 
+
+// MARK: - OpenWeatherMAP
+public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
+public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"
+
+// MARK: - SK Weather Planet
+public let skWPHourlyAPI                        =   "https://apis.openapi.sk.com/weather/current/hourly"
+public let skWPMinuteAPI                        =   "https://apis.openapi.sk.com/weather/current/minutely"
+public let skWPYesterdayAPI                     =   "https://apis.openapi.sk.com/weather/yesterday"
+public let skWPSixDaysAPI                       =   "https://apis.openapi.sk.com/weather/forecast/6days"
+public let skWPThreeDaysAPI                     =   "https://apis.openapi.sk.com/weather/forecast/3days"
+public let skAppKey                             =   "cd0c9c72-6e32-4181-9291-9340adb8d0dc"
+
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
 typealias FailureHandler = (Error) -> ()
@@ -39,32 +52,84 @@ class EJWeatherManager: NSObject {
     static let sharedInstance = EJWeatherManager()
     var latitude: Double = 0    //37.51151
     var longitude: Double = 0   //127.0967
+    var country: String = ""
     
     let httpClient = EJHTTPClient.init()
     let WeatherClass = WeatherMain()
-        
+    
     // MARK: - HTTP Request
-    func CurrentWeatherInfo(success: @escaping SuccessHandler,
-                            failure: @escaping FailureHandler) {
-        print("Locality : \(latitude), \(longitude)")
-        
-        httpClient.weatherRequest(lat:latitude,
+    func owmCurrentWeatherInfo(success: @escaping SuccessHandler,
+                               failure: @escaping FailureHandler) {
+        let url = owmAPIPath + "weather?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
+        httpClient.weatherRequest(url: url,
+                                  lat:latitude,
                                   lon:longitude,
-                                  to: "weather",
                                   success: success,
                                   failure: failure)
     }
     
-    func FiveDaysWeatherInfo(success: @escaping SuccessHandler,
-                             failure: @escaping FailureHandler) {
-        print("Locality : \(latitude), \(longitude)")
-        
-        httpClient.weatherRequest(lat: latitude,
+    func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
+                                failure: @escaping FailureHandler) {
+        let url = owmAPIPath + "forecast?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
+        httpClient.weatherRequest(url: url,
+                                  lat: latitude,
                                   lon: longitude,
-                                  to: "forecast",
                                   success: success,
                                   failure: failure)
         
+    }
+    
+    func skwpHourlyWeatherInfo(success: @escaping (SKHourlyHourlyBase) -> (),
+                               failure: @escaping FailureHandler) {
+        let url = skWPHourlyAPI + "?appKey=\(skAppKey)&lat=\(latitude)&lon=\(longitude)"
+        
+        httpClient.weatherRequest(url: url,
+                                  lat: latitude,
+                                  lon: longitude,
+                                  success: { (result) in
+                                    let hourlybase = SKHourlyHourlyBase(object: result)
+                                    success(hourlybase)
+        },
+                                  failure: failure)
+    }
+    
+    func skwpYesterdayWeatherInfo(success: @escaping (SKYesterdayYesterdayBase) -> (),
+                                  failure: @escaping FailureHandler) {
+        let url = skWPYesterdayAPI + "?appKey=\(skAppKey)&lat=\(latitude)&lon=\(longitude)"
+        httpClient.weatherRequest(url: url,
+                                  lat: latitude,
+                                  lon: longitude,
+                                  success: { result in
+                                    let yesterdayBase = SKYesterdayYesterdayBase(object: result)
+                                    success(yesterdayBase)
+        },
+                                  failure: failure)
+    }
+    
+    func skwpSixDaysWeatherInfo(success: @escaping (SKSixSixdaysBase) -> (),
+                                failure: @escaping FailureHandler) {
+        let url = skWPSixDaysAPI + "?appKey=\(skAppKey)&lat=\(latitude)&lon=\(longitude)"
+        httpClient.weatherRequest(url: url,
+                                  lat: latitude,
+                                  lon: longitude,
+                                  success: { result in
+                                    let sixdaysBase = SKSixSixdaysBase(object: result)
+                                    success(sixdaysBase)
+        },
+                                  failure: failure)
+    }
+    
+    func skwpThreeDaysWeatherInfo(success: @escaping (SKThreeThreedays) -> (),
+                                  failure: @escaping FailureHandler) {
+        let url = skWPThreeDaysAPI + "?appKey=\(skAppKey)&lat=\(latitude)&lon=\(longitude)"
+        httpClient.weatherRequest(url: url,
+                                  lat: latitude,
+                                  lon: longitude,
+                                  success: { result in
+                                    let threedaysBase = SKThreeThreedays(object: result)
+                                    success(threedaysBase)
+        },
+                                  failure: failure)
     }
     
     // MARK: - Public Method
@@ -102,7 +167,7 @@ class EJWeatherManager: NSObject {
         
         return WeatherClass
     }
-
+    
     public func weatherDescription() -> String {
         var description = LocalizedString(with: "desc_tody") + " "
         
@@ -140,8 +205,8 @@ class EJWeatherManager: NSObject {
             description = description + LocalizedString(with: "desc_add_cross") + "\n"
             
             // 추천 로직은 보류...
-//            let cloth = LocalizedString(with: WeatherClass.criticCloth)
-//            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
+            //            let cloth = LocalizedString(with: WeatherClass.criticCloth)
+            //            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
         }
         
         return description
@@ -268,8 +333,8 @@ class EJWeatherManager: NSObject {
     
     // MARK: Locality
     public func getLocationInfo(of current: CLLocation,
-                                 success: @escaping (String) -> (),
-                                 failure: @escaping (Error) -> ())
+                                success: @escaping (String, String) -> (),
+                                failure: @escaping (Error) -> ())
     {
         let geoCoder = CLGeocoder()
         
@@ -279,7 +344,7 @@ class EJWeatherManager: NSObject {
             } else {
                 var result = ""
                 
-                if let placemark = placemark, let first = placemark.first
+                if let placemark = placemark, let first = placemark.first, let country = first.country
                 {
                     if let firstLocality = first.locality
                     {
@@ -290,11 +355,14 @@ class EJWeatherManager: NSObject {
                             result += " \(subLocality)"
                         }
                     }
-                    success(result)
+                    
+                    self.country = country
+                    
+                    success(country, result)
                 }
                 else
                 {
-                    success(result)
+                    success("", result)
                 }
             }
         }

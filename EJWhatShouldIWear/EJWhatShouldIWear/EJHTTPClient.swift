@@ -18,11 +18,12 @@ class EJHTTPClient: NSObject {
     }
     
     // MARK: - Alamofire
-    func weatherRequest(lat:Double, lon:Double, to type:String,
+    func weatherRequest(url: String,
+                        lat:Double,
+                        lon:Double,
                       success: @escaping ([String: Any]) -> (),
                       failure: @escaping (Error) -> ()) {
     
-        let url = owmAPIPath + type + "?lat=\(lat)&lon=\(lon)&apiKey=\(owmAppKey)"
         
         guard let result = URL(string: url) else {
             fatalError()

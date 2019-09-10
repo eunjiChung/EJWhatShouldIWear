@@ -10,18 +10,6 @@ import UIKit
 import UserNotifications
 import ESPullToRefresh
 
-// MARK: - OpenWeatherMAP
-public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
-public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"
-
-// MARK: - SK Weather Planet
-public let skWPHourlyAPI                        =   "https://apis.openapi.sk.com/weather/current/hourly"
-public let skWPMinuteAPI                        =   "https://apis.openapi.sk.com/weather/current/minutely"
-public let skWPYesterdayAPI                     =   "https://apis.openapi.sk.com/weather/yesterday"
-public let skWPSixDaysAPI                       =   "https://apis.openapi.sk.com/weather/forecast/6days"
-public let skWPThreeDaysAPI                     =   "https://apis.openapi.sk.com/weather/forecast/3days"
-public let skAppKey                             =   "cd0c9c72-6e32-4181-9291-9340adb8d0dc"
-
 // MARK: - App Store URL
 public let AppStoreURL                          =   "https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EB%AA%A8%EC%9E%85%EC%A7%80/id1469342013"
 public let appStoreID                           =   "1469342013"

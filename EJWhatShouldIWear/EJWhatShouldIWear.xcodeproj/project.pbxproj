@@ -79,6 +79,51 @@
 		B6262C2722FA771A009FC744 /* WeatherMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6262C2622FA771A009FC744 /* WeatherMain.swift */; };
 		B62E8B8E22F9464C00055A0E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E8B8D22F9464C00055A0E /* Date.swift */; };
 		B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */; };
+		B6F74F1B2327922D00CDD4A6 /* SKHourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */; };
+		B6F74F1C2327922D00CDD4A6 /* SKHourlyWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */; };
+		B6F74F1D2327922D00CDD4A6 /* SKHourlyPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */; };
+		B6F74F1E2327922D00CDD4A6 /* SKHourlySky.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F142327922D00CDD4A6 /* SKHourlySky.swift */; };
+		B6F74F1F2327922D00CDD4A6 /* SKHourlyHourly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F152327922D00CDD4A6 /* SKHourlyHourly.swift */; };
+		B6F74F202327922D00CDD4A6 /* SKHourlyTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F162327922D00CDD4A6 /* SKHourlyTemperature.swift */; };
+		B6F74F212327922D00CDD4A6 /* SKHourlyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F172327922D00CDD4A6 /* SKHourlyResult.swift */; };
+		B6F74F222327922D00CDD4A6 /* SKHourlyGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F182327922D00CDD4A6 /* SKHourlyGrid.swift */; };
+		B6F74F232327922D00CDD4A6 /* SKHourlyCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F192327922D00CDD4A6 /* SKHourlyCommon.swift */; };
+		B6F74F242327922D00CDD4A6 /* SKHourlyHourlyBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F1A2327922D00CDD4A6 /* SKHourlyHourlyBase.swift */; };
+		B6F74F312327923B00CDD4A6 /* SKYesterdayTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F252327923B00CDD4A6 /* SKYesterdayTemperature.swift */; };
+		B6F74F322327923B00CDD4A6 /* SKYesterdayGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F262327923B00CDD4A6 /* SKYesterdayGrid.swift */; };
+		B6F74F332327923B00CDD4A6 /* SKYesterdayDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F272327923B00CDD4A6 /* SKYesterdayDay.swift */; };
+		B6F74F342327923B00CDD4A6 /* SKYesterdayCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F282327923B00CDD4A6 /* SKYesterdayCommon.swift */; };
+		B6F74F352327923B00CDD4A6 /* SKYesterdayResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F292327923B00CDD4A6 /* SKYesterdayResult.swift */; };
+		B6F74F362327923B00CDD4A6 /* SKYesterdayPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F2A2327923B00CDD4A6 /* SKYesterdayPrecipitation.swift */; };
+		B6F74F372327923B00CDD4A6 /* SKYesterdayHourly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F2B2327923B00CDD4A6 /* SKYesterdayHourly.swift */; };
+		B6F74F382327923B00CDD4A6 /* SKYesterdaySky.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F2C2327923B00CDD4A6 /* SKYesterdaySky.swift */; };
+		B6F74F392327923B00CDD4A6 /* SKYesterdayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F2D2327923B00CDD4A6 /* SKYesterdayWeather.swift */; };
+		B6F74F3A2327923B00CDD4A6 /* SKYesterdayWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F2E2327923B00CDD4A6 /* SKYesterdayWind.swift */; };
+		B6F74F3B2327923B00CDD4A6 /* SKYesterdayYesterday.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F2F2327923B00CDD4A6 /* SKYesterdayYesterday.swift */; };
+		B6F74F3C2327923B00CDD4A6 /* SKYesterdayYesterdayBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F302327923B00CDD4A6 /* SKYesterdayYesterdayBase.swift */; };
+		B6F74F4B2327924800CDD4A6 /* SKThreeFcst6hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F3D2327924800CDD4A6 /* SKThreeFcst6hour.swift */; };
+		B6F74F4C2327924800CDD4A6 /* SKThreeFcst3hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F3E2327924800CDD4A6 /* SKThreeFcst3hour.swift */; };
+		B6F74F4D2327924800CDD4A6 /* SKThreeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F3F2327924800CDD4A6 /* SKThreeResult.swift */; };
+		B6F74F4E2327924800CDD4A6 /* SKThreeWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F402327924800CDD4A6 /* SKThreeWeather.swift */; };
+		B6F74F4F2327924800CDD4A6 /* SKThreePrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F412327924800CDD4A6 /* SKThreePrecipitation.swift */; };
+		B6F74F502327924800CDD4A6 /* SKThreeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F422327924800CDD4A6 /* SKThreeCommon.swift */; };
+		B6F74F512327924800CDD4A6 /* SKThreeWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F432327924800CDD4A6 /* SKThreeWind.swift */; };
+		B6F74F522327924800CDD4A6 /* SKThreeHumidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F442327924800CDD4A6 /* SKThreeHumidity.swift */; };
+		B6F74F532327924800CDD4A6 /* SKThreeGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F452327924800CDD4A6 /* SKThreeGrid.swift */; };
+		B6F74F542327924800CDD4A6 /* SKThreeForecast3days.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F462327924800CDD4A6 /* SKThreeForecast3days.swift */; };
+		B6F74F552327924800CDD4A6 /* SKThreeTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F472327924800CDD4A6 /* SKThreeTemperature.swift */; };
+		B6F74F562327924800CDD4A6 /* SKThreeSky.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F482327924800CDD4A6 /* SKThreeSky.swift */; };
+		B6F74F572327924800CDD4A6 /* SKThreeFcstdaily.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F492327924800CDD4A6 /* SKThreeFcstdaily.swift */; };
+		B6F74F582327924800CDD4A6 /* SKThreeThreedays.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F4A2327924800CDD4A6 /* SKThreeThreedays.swift */; };
+		B6F74F622327925400CDD4A6 /* SKSixGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F592327925400CDD4A6 /* SKSixGrid.swift */; };
+		B6F74F632327925400CDD4A6 /* SKSixResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F5A2327925400CDD4A6 /* SKSixResult.swift */; };
+		B6F74F642327925400CDD4A6 /* SKSixTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F5B2327925400CDD4A6 /* SKSixTemperature.swift */; };
+		B6F74F652327925400CDD4A6 /* SKSixWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F5C2327925400CDD4A6 /* SKSixWeather.swift */; };
+		B6F74F662327925400CDD4A6 /* SKSixSky.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F5D2327925400CDD4A6 /* SKSixSky.swift */; };
+		B6F74F672327925400CDD4A6 /* SKSixLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F5E2327925400CDD4A6 /* SKSixLocation.swift */; };
+		B6F74F682327925400CDD4A6 /* SKSixForecast6days.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F5F2327925400CDD4A6 /* SKSixForecast6days.swift */; };
+		B6F74F692327925400CDD4A6 /* SKSixSixdaysBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F602327925400CDD4A6 /* SKSixSixdaysBase.swift */; };
+		B6F74F6A2327925400CDD4A6 /* SKSixCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F612327925400CDD4A6 /* SKSixCommon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +245,51 @@
 		B6262C2622FA771A009FC744 /* WeatherMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMain.swift; sourceTree = "<group>"; };
 		B62E8B8D22F9464C00055A0E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
+		B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWeather.swift; sourceTree = "<group>"; };
+		B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWind.swift; sourceTree = "<group>"; };
+		B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyPrecipitation.swift; sourceTree = "<group>"; };
+		B6F74F142327922D00CDD4A6 /* SKHourlySky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlySky.swift; sourceTree = "<group>"; };
+		B6F74F152327922D00CDD4A6 /* SKHourlyHourly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyHourly.swift; sourceTree = "<group>"; };
+		B6F74F162327922D00CDD4A6 /* SKHourlyTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyTemperature.swift; sourceTree = "<group>"; };
+		B6F74F172327922D00CDD4A6 /* SKHourlyResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyResult.swift; sourceTree = "<group>"; };
+		B6F74F182327922D00CDD4A6 /* SKHourlyGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyGrid.swift; sourceTree = "<group>"; };
+		B6F74F192327922D00CDD4A6 /* SKHourlyCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyCommon.swift; sourceTree = "<group>"; };
+		B6F74F1A2327922D00CDD4A6 /* SKHourlyHourlyBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyHourlyBase.swift; sourceTree = "<group>"; };
+		B6F74F252327923B00CDD4A6 /* SKYesterdayTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayTemperature.swift; sourceTree = "<group>"; };
+		B6F74F262327923B00CDD4A6 /* SKYesterdayGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayGrid.swift; sourceTree = "<group>"; };
+		B6F74F272327923B00CDD4A6 /* SKYesterdayDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayDay.swift; sourceTree = "<group>"; };
+		B6F74F282327923B00CDD4A6 /* SKYesterdayCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayCommon.swift; sourceTree = "<group>"; };
+		B6F74F292327923B00CDD4A6 /* SKYesterdayResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayResult.swift; sourceTree = "<group>"; };
+		B6F74F2A2327923B00CDD4A6 /* SKYesterdayPrecipitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayPrecipitation.swift; sourceTree = "<group>"; };
+		B6F74F2B2327923B00CDD4A6 /* SKYesterdayHourly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayHourly.swift; sourceTree = "<group>"; };
+		B6F74F2C2327923B00CDD4A6 /* SKYesterdaySky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdaySky.swift; sourceTree = "<group>"; };
+		B6F74F2D2327923B00CDD4A6 /* SKYesterdayWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayWeather.swift; sourceTree = "<group>"; };
+		B6F74F2E2327923B00CDD4A6 /* SKYesterdayWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayWind.swift; sourceTree = "<group>"; };
+		B6F74F2F2327923B00CDD4A6 /* SKYesterdayYesterday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayYesterday.swift; sourceTree = "<group>"; };
+		B6F74F302327923B00CDD4A6 /* SKYesterdayYesterdayBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYesterdayYesterdayBase.swift; sourceTree = "<group>"; };
+		B6F74F3D2327924800CDD4A6 /* SKThreeFcst6hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeFcst6hour.swift; sourceTree = "<group>"; };
+		B6F74F3E2327924800CDD4A6 /* SKThreeFcst3hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeFcst3hour.swift; sourceTree = "<group>"; };
+		B6F74F3F2327924800CDD4A6 /* SKThreeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeResult.swift; sourceTree = "<group>"; };
+		B6F74F402327924800CDD4A6 /* SKThreeWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeWeather.swift; sourceTree = "<group>"; };
+		B6F74F412327924800CDD4A6 /* SKThreePrecipitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreePrecipitation.swift; sourceTree = "<group>"; };
+		B6F74F422327924800CDD4A6 /* SKThreeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeCommon.swift; sourceTree = "<group>"; };
+		B6F74F432327924800CDD4A6 /* SKThreeWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeWind.swift; sourceTree = "<group>"; };
+		B6F74F442327924800CDD4A6 /* SKThreeHumidity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeHumidity.swift; sourceTree = "<group>"; };
+		B6F74F452327924800CDD4A6 /* SKThreeGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeGrid.swift; sourceTree = "<group>"; };
+		B6F74F462327924800CDD4A6 /* SKThreeForecast3days.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeForecast3days.swift; sourceTree = "<group>"; };
+		B6F74F472327924800CDD4A6 /* SKThreeTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeTemperature.swift; sourceTree = "<group>"; };
+		B6F74F482327924800CDD4A6 /* SKThreeSky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeSky.swift; sourceTree = "<group>"; };
+		B6F74F492327924800CDD4A6 /* SKThreeFcstdaily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeFcstdaily.swift; sourceTree = "<group>"; };
+		B6F74F4A2327924800CDD4A6 /* SKThreeThreedays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeThreedays.swift; sourceTree = "<group>"; };
+		B6F74F592327925400CDD4A6 /* SKSixGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixGrid.swift; sourceTree = "<group>"; };
+		B6F74F5A2327925400CDD4A6 /* SKSixResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixResult.swift; sourceTree = "<group>"; };
+		B6F74F5B2327925400CDD4A6 /* SKSixTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixTemperature.swift; sourceTree = "<group>"; };
+		B6F74F5C2327925400CDD4A6 /* SKSixWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixWeather.swift; sourceTree = "<group>"; };
+		B6F74F5D2327925400CDD4A6 /* SKSixSky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixSky.swift; sourceTree = "<group>"; };
+		B6F74F5E2327925400CDD4A6 /* SKSixLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixLocation.swift; sourceTree = "<group>"; };
+		B6F74F5F2327925400CDD4A6 /* SKSixForecast6days.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixForecast6days.swift; sourceTree = "<group>"; };
+		B6F74F602327925400CDD4A6 /* SKSixSixdaysBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixSixdaysBase.swift; sourceTree = "<group>"; };
+		B6F74F612327925400CDD4A6 /* SKSixCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixCommon.swift; sourceTree = "<group>"; };
 		BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDF79756C2795B5E6E0A01F /* Pods-EJWhatShouldIWear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C268456BDE3D6566D65402 /* Pods-EJWhatShouldIWearUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -440,6 +530,7 @@
 		99CC5119229D2F8700192450 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6F74E342327878500CDD4A6 /* SKWeatherPlanet */,
 				992B09A022BF833900FF94B7 /* CurrentWeather */,
 				992B097122BD513B00FF94B7 /* 5daysWeather */,
 				B6262C2622FA771A009FC744 /* WeatherMain.swift */,
@@ -490,6 +581,90 @@
 				B62E8B8D22F9464C00055A0E /* Date.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		B6F74E342327878500CDD4A6 /* SKWeatherPlanet */ = {
+			isa = PBXGroup;
+			children = (
+				B6F74F102327921D00CDD4A6 /* Sixdays */,
+				B6F74F0F2327921700CDD4A6 /* Threedays */,
+				B6F74F0D2327920E00CDD4A6 /* Yesterday */,
+				B6F74F0C2327920900CDD4A6 /* Hourly */,
+			);
+			name = SKWeatherPlanet;
+			sourceTree = "<group>";
+		};
+		B6F74F0C2327920900CDD4A6 /* Hourly */ = {
+			isa = PBXGroup;
+			children = (
+				B6F74F192327922D00CDD4A6 /* SKHourlyCommon.swift */,
+				B6F74F182327922D00CDD4A6 /* SKHourlyGrid.swift */,
+				B6F74F152327922D00CDD4A6 /* SKHourlyHourly.swift */,
+				B6F74F1A2327922D00CDD4A6 /* SKHourlyHourlyBase.swift */,
+				B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */,
+				B6F74F172327922D00CDD4A6 /* SKHourlyResult.swift */,
+				B6F74F142327922D00CDD4A6 /* SKHourlySky.swift */,
+				B6F74F162327922D00CDD4A6 /* SKHourlyTemperature.swift */,
+				B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */,
+				B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */,
+			);
+			path = Hourly;
+			sourceTree = "<group>";
+		};
+		B6F74F0D2327920E00CDD4A6 /* Yesterday */ = {
+			isa = PBXGroup;
+			children = (
+				B6F74F282327923B00CDD4A6 /* SKYesterdayCommon.swift */,
+				B6F74F272327923B00CDD4A6 /* SKYesterdayDay.swift */,
+				B6F74F262327923B00CDD4A6 /* SKYesterdayGrid.swift */,
+				B6F74F2B2327923B00CDD4A6 /* SKYesterdayHourly.swift */,
+				B6F74F2A2327923B00CDD4A6 /* SKYesterdayPrecipitation.swift */,
+				B6F74F292327923B00CDD4A6 /* SKYesterdayResult.swift */,
+				B6F74F2C2327923B00CDD4A6 /* SKYesterdaySky.swift */,
+				B6F74F252327923B00CDD4A6 /* SKYesterdayTemperature.swift */,
+				B6F74F2D2327923B00CDD4A6 /* SKYesterdayWeather.swift */,
+				B6F74F2E2327923B00CDD4A6 /* SKYesterdayWind.swift */,
+				B6F74F2F2327923B00CDD4A6 /* SKYesterdayYesterday.swift */,
+				B6F74F302327923B00CDD4A6 /* SKYesterdayYesterdayBase.swift */,
+			);
+			path = Yesterday;
+			sourceTree = "<group>";
+		};
+		B6F74F0F2327921700CDD4A6 /* Threedays */ = {
+			isa = PBXGroup;
+			children = (
+				B6F74F422327924800CDD4A6 /* SKThreeCommon.swift */,
+				B6F74F3E2327924800CDD4A6 /* SKThreeFcst3hour.swift */,
+				B6F74F3D2327924800CDD4A6 /* SKThreeFcst6hour.swift */,
+				B6F74F492327924800CDD4A6 /* SKThreeFcstdaily.swift */,
+				B6F74F462327924800CDD4A6 /* SKThreeForecast3days.swift */,
+				B6F74F452327924800CDD4A6 /* SKThreeGrid.swift */,
+				B6F74F442327924800CDD4A6 /* SKThreeHumidity.swift */,
+				B6F74F412327924800CDD4A6 /* SKThreePrecipitation.swift */,
+				B6F74F3F2327924800CDD4A6 /* SKThreeResult.swift */,
+				B6F74F482327924800CDD4A6 /* SKThreeSky.swift */,
+				B6F74F472327924800CDD4A6 /* SKThreeTemperature.swift */,
+				B6F74F4A2327924800CDD4A6 /* SKThreeThreedays.swift */,
+				B6F74F402327924800CDD4A6 /* SKThreeWeather.swift */,
+				B6F74F432327924800CDD4A6 /* SKThreeWind.swift */,
+			);
+			path = Threedays;
+			sourceTree = "<group>";
+		};
+		B6F74F102327921D00CDD4A6 /* Sixdays */ = {
+			isa = PBXGroup;
+			children = (
+				B6F74F612327925400CDD4A6 /* SKSixCommon.swift */,
+				B6F74F5F2327925400CDD4A6 /* SKSixForecast6days.swift */,
+				B6F74F592327925400CDD4A6 /* SKSixGrid.swift */,
+				B6F74F5E2327925400CDD4A6 /* SKSixLocation.swift */,
+				B6F74F5A2327925400CDD4A6 /* SKSixResult.swift */,
+				B6F74F602327925400CDD4A6 /* SKSixSixdaysBase.swift */,
+				B6F74F5D2327925400CDD4A6 /* SKSixSky.swift */,
+				B6F74F5B2327925400CDD4A6 /* SKSixTemperature.swift */,
+				B6F74F5C2327925400CDD4A6 /* SKSixWeather.swift */,
+			);
+			path = Sixdays;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -745,54 +920,99 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F74F582327924800CDD4A6 /* SKThreeThreedays.swift in Sources */,
 				B617E5202320FC5900DBC0D2 /* MainCollectionViewCell.swift in Sources */,
 				99FC4AC622DDD32B002DD721 /* DevInfoViewController.swift in Sources */,
+				B6F74F4C2327924800CDD4A6 /* SKThreeFcst3hour.swift in Sources */,
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
 				992B09A822BF849100FF94B7 /* EJWeather.swift in Sources */,
 				992B09AD22BF849100FF94B7 /* EJCoord.swift in Sources */,
 				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
 				992B098A22BD53C200FF94B7 /* EJFiveDaysWeather.swift in Sources */,
 				992B098B22BD53C200FF94B7 /* EJFiveDaysWind.swift in Sources */,
+				B6F74F6A2327925400CDD4A6 /* SKSixCommon.swift in Sources */,
+				B6F74F552327924800CDD4A6 /* SKThreeTemperature.swift in Sources */,
 				998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */,
 				992B099122BD53C200FF94B7 /* EJFiveDaysClouds.swift in Sources */,
+				B6F74F532327924800CDD4A6 /* SKThreeGrid.swift in Sources */,
 				9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */,
+				B6F74F202327922D00CDD4A6 /* SKHourlyTemperature.swift in Sources */,
+				B6F74F3B2327923B00CDD4A6 /* SKYesterdayYesterday.swift in Sources */,
 				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				B6029359230FD5E5002BDA5E /* DescriptionTableViewCell.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
+				B6F74F562327924800CDD4A6 /* SKThreeSky.swift in Sources */,
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
+				B6F74F642327925400CDD4A6 /* SKSixTemperature.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
+				B6F74F222327922D00CDD4A6 /* SKHourlyGrid.swift in Sources */,
 				992B09AC22BF849100FF94B7 /* EJWind.swift in Sources */,
+				B6F74F322327923B00CDD4A6 /* SKYesterdayGrid.swift in Sources */,
+				B6F74F1E2327922D00CDD4A6 /* SKHourlySky.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
+				B6F74F4F2327924800CDD4A6 /* SKThreePrecipitation.swift in Sources */,
 				992B098D22BD53C200FF94B7 /* EJFiveDaysList.swift in Sources */,
 				B62E8B8E22F9464C00055A0E /* Date.swift in Sources */,
+				B6F74F672327925400CDD4A6 /* SKSixLocation.swift in Sources */,
 				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
+				B6F74F392327923B00CDD4A6 /* SKYesterdayWeather.swift in Sources */,
 				992B09AB22BF849100FF94B7 /* EJCurrentWeather.swift in Sources */,
+				B6F74F242327922D00CDD4A6 /* SKHourlyHourlyBase.swift in Sources */,
+				B6F74F4D2327924800CDD4A6 /* SKThreeResult.swift in Sources */,
+				B6F74F692327925400CDD4A6 /* SKSixSixdaysBase.swift in Sources */,
+				B6F74F362327923B00CDD4A6 /* SKYesterdayPrecipitation.swift in Sources */,
 				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
+				B6F74F1F2327922D00CDD4A6 /* SKHourlyHourly.swift in Sources */,
 				992B09AA22BF849100FF94B7 /* EJMain.swift in Sources */,
 				99FC4AC122DDCED9002DD721 /* InfoTableViewCell.swift in Sources */,
+				B6F74F652327925400CDD4A6 /* SKSixWeather.swift in Sources */,
+				B6F74F3A2327923B00CDD4A6 /* SKYesterdayWind.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
 				992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
+				B6F74F542327924800CDD4A6 /* SKThreeForecast3days.swift in Sources */,
 				B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */,
 				997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */,
 				B602935D230FD5FD002BDA5E /* InstagramTableViewCell.swift in Sources */,
 				99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */,
+				B6F74F3C2327923B00CDD4A6 /* SKYesterdayYesterdayBase.swift in Sources */,
+				B6F74F312327923B00CDD4A6 /* SKYesterdayTemperature.swift in Sources */,
+				B6F74F522327924800CDD4A6 /* SKThreeHumidity.swift in Sources */,
+				B6F74F682327925400CDD4A6 /* SKSixForecast6days.swift in Sources */,
 				992B098C22BD53C200FF94B7 /* EJFiveDaysWeatherModel.swift in Sources */,
+				B6F74F662327925400CDD4A6 /* SKSixSky.swift in Sources */,
+				B6F74F622327925400CDD4A6 /* SKSixGrid.swift in Sources */,
+				B6F74F232327922D00CDD4A6 /* SKHourlyCommon.swift in Sources */,
 				998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */,
 				B603890B22FBE9D500F36416 /* Cloth.swift in Sources */,
+				B6F74F212327922D00CDD4A6 /* SKHourlyResult.swift in Sources */,
 				992B098922BD53C200FF94B7 /* EJFiveDaysCoord.swift in Sources */,
+				B6F74F382327923B00CDD4A6 /* SKYesterdaySky.swift in Sources */,
+				B6F74F352327923B00CDD4A6 /* SKYesterdayResult.swift in Sources */,
+				B6F74F1C2327922D00CDD4A6 /* SKHourlyWind.swift in Sources */,
+				B6F74F4B2327924800CDD4A6 /* SKThreeFcst6hour.swift in Sources */,
 				99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */,
+				B6F74F4E2327924800CDD4A6 /* SKThreeWeather.swift in Sources */,
+				B6F74F342327923B00CDD4A6 /* SKYesterdayCommon.swift in Sources */,
 				992B09AE22BF849100FF94B7 /* EJSys.swift in Sources */,
+				B6F74F372327923B00CDD4A6 /* SKYesterdayHourly.swift in Sources */,
+				B6F74F1B2327922D00CDD4A6 /* SKHourlyWeather.swift in Sources */,
 				B6262C2722FA771A009FC744 /* WeatherMain.swift in Sources */,
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				B602935B230FD5F3002BDA5E /* DeveloperTableViewCell.swift in Sources */,
+				B6F74F502327924800CDD4A6 /* SKThreeCommon.swift in Sources */,
+				B6F74F332327923B00CDD4A6 /* SKYesterdayDay.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
+				B6F74F512327924800CDD4A6 /* SKThreeWind.swift in Sources */,
+				B6F74F1D2327922D00CDD4A6 /* SKHourlyPrecipitation.swift in Sources */,
+				B6F74F572327924800CDD4A6 /* SKThreeFcstdaily.swift in Sources */,
+				B6F74F632327925400CDD4A6 /* SKSixResult.swift in Sources */,
 				72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */,
 				992B09A922BF849100FF94B7 /* EJClouds.swift in Sources */,
 			);

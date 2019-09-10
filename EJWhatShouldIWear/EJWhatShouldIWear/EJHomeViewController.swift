@@ -16,6 +16,7 @@ import FirebaseAnalytics
 protocol ControlTableDelegate {
     func reloadTableView()
     func stopPullToRefreshTable()
+    
 }
 
 class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, LocationDelegate  {
@@ -28,7 +29,10 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     var tableDelegate: ControlTableDelegate?
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
+    var weatherInfo: Any?
     var currentTemp: String?
+    
+    var weekCell = 4
     
     // MARK: IBOutlet
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -78,6 +82,8 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         cell.FiveDaysWeatherModel = self.FiveDaysWeatherModel
         cell.currentTemp = self.currentTemp
         cell.location = self.location
+        cell.weekCell = self.weekCell
+        cell.weatherInfo = weatherInfo
         cell.admobViewController = self
         self.tableDelegate = cell
         cell.locationDelegate = self
@@ -201,7 +207,8 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     func generateInfo(from location: CLLocation) {
         setCurrentLocation(from: location.coordinate)
-        requestFiveDaysWeatherList(of: location)
+        setWeatherInfo(of: location)
+//        requestFiveDaysWeatherList(of: location)
     }
     
     // 얘가 굳이 필요할까?
@@ -219,14 +226,34 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         }
     }
     
+    
     // MARK: - Request Weather Info
     private func setCurrentLocation(from coordinate:CLLocationCoordinate2D) {
         WeatherManager.latitude = coordinate.latitude
         WeatherManager.longitude = coordinate.longitude
     }
     
+    private func setWeatherInfo(of currentLocation: CLLocation) {
+        WeatherManager.getLocationInfo(of: currentLocation, success: { country, result in
+            if country == "대한민국" {
+                self.weekCell = 7
+                print("=======================여긴 대한민국이다!")
+                self.requestSKWPWeekWeatherList()
+            } else {
+                print("=======================여긴 외국이다!")
+                self.requestFiveDaysWeatherList(of: currentLocation)
+            }
+        }) { (error) in
+            print(error)
+        }
+    }
+    
+    private func requestSKWPWeekWeatherList() {
+        
+    }
+    
     private func requestFiveDaysWeatherList(of current: CLLocation) {
-        WeatherManager.FiveDaysWeatherInfo(success: { (result) in
+        WeatherManager.owmFiveDaysWeatherInfo(success: { (result) in
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
             self.FiveDaysWeatherModel = fivedaysWeather
             self.FiveDaysWeatherList = fivedaysWeather.list
@@ -238,7 +265,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     private func setLocationText(of current: CLLocation) {
         WeatherManager.getLocationInfo(of: current,
-                                       success: { result in
+                                       success: { country, result in
                                         
                                         if result != "" {
                                             self.location = result
@@ -256,7 +283,6 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             self.removeSplashScene()
         }
     }
-    
     
     // MARK: - Private Method
     private func pickUpLocation(_ myTextField: UITextField) {

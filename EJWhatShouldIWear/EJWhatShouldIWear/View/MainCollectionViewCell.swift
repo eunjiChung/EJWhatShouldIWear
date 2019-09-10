@@ -19,6 +19,8 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var currentTemp: String?
     var admobViewController: UIViewController?
+    var weekCell = 0
+    var weatherInfo: Any?
     
     var locationDelegate: LocationDelegate?
     
