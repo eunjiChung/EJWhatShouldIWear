@@ -58,16 +58,6 @@ class EJWeatherManager: NSObject {
     let WeatherClass = WeatherMain()
     
     // MARK: - HTTP Request
-    func owmCurrentWeatherInfo(success: @escaping SuccessHandler,
-                               failure: @escaping FailureHandler) {
-        let url = owmAPIPath + "weather?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
-        httpClient.weatherRequest(url: url,
-                                  lat:latitude,
-                                  lon:longitude,
-                                  success: success,
-                                  failure: failure)
-    }
-    
     func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
                                 failure: @escaping FailureHandler) {
         let url = owmAPIPath + "forecast?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
@@ -366,6 +356,13 @@ class EJWeatherManager: NSObject {
                 }
             }
         }
+    }
+    
+    public func isLocationKorea() -> Bool {
+        if country == "대한민국" {
+            return true
+        }
+        return false
     }
     
     // MARK: - Private Method

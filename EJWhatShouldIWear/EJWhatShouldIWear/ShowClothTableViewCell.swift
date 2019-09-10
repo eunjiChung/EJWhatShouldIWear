@@ -47,6 +47,23 @@ class ShowClothTableViewCell: UITableViewCell {
         locationLabel.text = location
     }
     
+    public func generateKoreaMain(by model: SKHourlyHourlyBase) {
+        guard let weather = model.weather else { return }
+        print("Generate 1: \(weather)")
+        guard let hourly = weather.hourly else { return }
+        print("Generate 2: \(hourly)")
+        guard let first = hourly.first else { return }
+        print("Generate 3: \(first)")
+        guard let temp = first.temperature else { return }
+        print("Generate 4: \(temp)")
+        guard let tc = temp.tc else { return }
+        print("Generate 5: \(tc)")
+        guard let currentTemp = Int(tc) else { return }
+        print("Generate 6: \(currentTemp)")
+       
+        currentTempLabel.text = "??????"
+    }
+    
     public func generateMain(by model: EJFiveDaysWeatherModel) {
         guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }

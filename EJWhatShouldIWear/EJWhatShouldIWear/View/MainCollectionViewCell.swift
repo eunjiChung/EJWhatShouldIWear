@@ -17,9 +17,9 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     // MARK: - Variables
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
+    var HourlyWeatherModel: SKHourlyHourlyBase?
     var currentTemp: String?
     var admobViewController: UIViewController?
-    var weekCell = 0
     var weatherInfo: Any?
     
     var locationDelegate: LocationDelegate?
@@ -69,9 +69,21 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
-            if let model = FiveDaysWeatherModel {
-                cell.setCurrentLocality(by: self.location)
-                cell.generateMain(by: model)
+            cell.setCurrentLocality(by: self.location)
+            
+            print("Weather country : \(WeatherManager.country)")
+            
+            if WeatherManager.isLocationKorea() {
+                print("Location Korea")
+                if let model = HourlyWeatherModel {
+                    print("Location Hourly")
+                    cell.generateKoreaMain(by: model)
+                }
+            } else {
+                print("Location Not Korea")
+                if let model = FiveDaysWeatherModel {
+                    cell.generateMain(by: model)
+                }
             }
             
             return cell

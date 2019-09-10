@@ -29,10 +29,9 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     var tableDelegate: ControlTableDelegate?
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
+    var SKHourlyModel: SKHourlyHourlyBase?
     var weatherInfo: Any?
     var currentTemp: String?
-    
-    var weekCell = 4
     
     // MARK: IBOutlet
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -78,15 +77,20 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
         
-        cell.FiveDaysWeatherList = self.FiveDaysWeatherList
-        cell.FiveDaysWeatherModel = self.FiveDaysWeatherModel
-        cell.currentTemp = self.currentTemp
-        cell.location = self.location
-        cell.weekCell = self.weekCell
-        cell.weatherInfo = weatherInfo
-        cell.admobViewController = self
+        // Delegate
         self.tableDelegate = cell
         cell.locationDelegate = self
+        
+        // Weather Info
+        cell.FiveDaysWeatherList = self.FiveDaysWeatherList
+        cell.FiveDaysWeatherModel = self.FiveDaysWeatherModel
+        cell.HourlyWeatherModel = self.SKHourlyModel
+        cell.currentTemp = self.currentTemp
+        cell.location = self.location
+        cell.weatherInfo = weatherInfo
+        
+        // Admob
+        cell.admobViewController = self
         
         return cell
     }
@@ -235,8 +239,15 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     private func setWeatherInfo(of currentLocation: CLLocation) {
         WeatherManager.getLocationInfo(of: currentLocation, success: { country, result in
-            if country == "대한민국" {
-                self.weekCell = 7
+            
+            if result != "" {
+                self.location = result
+                self.myLocationField.text = self.location
+            } else {
+                self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
+            }
+            
+            if WeatherManager.isLocationKorea() {
                 print("=======================여긴 대한민국이다!")
                 self.requestSKWPWeekWeatherList()
             } else {
@@ -244,12 +255,23 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
                 self.requestFiveDaysWeatherList(of: currentLocation)
             }
         }) { (error) in
-            print(error)
+            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
         }
     }
     
     private func requestSKWPWeekWeatherList() {
-        
+        WeatherManager.skwpHourlyWeatherInfo(success: { (result) in
+            self.SKHourlyModel = result
+            
+            print("===========================절취선")
+            
+            self.mainCollectionView.reloadData()
+            self.tableDelegate?.reloadTableView()
+            self.removeSplashScene()
+        }) { (error) in
+            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+            self.removeSplashScene()
+        }
     }
     
     private func requestFiveDaysWeatherList(of current: CLLocation) {
@@ -257,28 +279,12 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
             self.FiveDaysWeatherModel = fivedaysWeather
             self.FiveDaysWeatherList = fivedaysWeather.list
-            self.setLocationText(of: current)
+//            self.setLocationText(of: current)
+            
+            self.mainCollectionView.reloadData()
+//            self.tableDelegate?.reloadTableView()
+            self.removeSplashScene()
         }) { (error) in
-            print(error)
-        }
-    }
-    
-    private func setLocationText(of current: CLLocation) {
-        WeatherManager.getLocationInfo(of: current,
-                                       success: { country, result in
-                                        
-                                        if result != "" {
-                                            self.location = result
-                                            self.myLocationField.text = self.location
-                                            
-                                            self.mainCollectionView.reloadData()
-                                            self.tableDelegate?.reloadTableView()
-                                        } else {
-                                            self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
-                                        }
-                                        
-                                        self.removeSplashScene()
-        }) { error in
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
             self.removeSplashScene()
         }
