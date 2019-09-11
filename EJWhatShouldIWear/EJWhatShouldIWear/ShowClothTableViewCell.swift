@@ -13,6 +13,7 @@ class ShowClothTableViewCell: UITableViewCell {
     static let identifier = "ShowClothTableViewCell"
     
     // MARK: - IBOutlet
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var firstClothImageView: UIImageView!
     @IBOutlet weak var secondClothImageview: UIImageView!
@@ -48,11 +49,16 @@ class ShowClothTableViewCell: UITableViewCell {
         guard let first = hourly.first, let temp = first.temperature else { return }
         guard let tc = temp.tc, let doubleTc = Double(tc) else { return }
         let currentTemp = Int(doubleTc)
-       
-        currentTempLabel.text = "\(currentTemp)"
-        unitLabel.text = LocalizedString(with: "temp")
         
+        // 1. 원하는 날짜 받아오기
+        let date = Date()
+        let today = date.todayDateString()
+        dateLabel.text = today
+       
         let weather = WeatherManager.generateWeatherConditionKR()
+        
+        currentTempLabel.text = "\(weather.mainTemp)"
+        unitLabel.text = LocalizedString(with: "temp")
         generateClothRecommendation(weather)
     }
     
@@ -63,6 +69,8 @@ class ShowClothTableViewCell: UITableViewCell {
         // 1. 원하는 날짜 받아오기
         let date = Date()
         let today = date.todayDate()
+        // 지역화하기!!!!!!
+        dateLabel.text = date.todayDateString()
         
         // 2. 날짜에 해당하는 날씨 가져오기
         let todayWeatherList = list.filter {

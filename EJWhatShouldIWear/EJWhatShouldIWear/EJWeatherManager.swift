@@ -124,7 +124,6 @@ class EJWeatherManager: NSObject {
     
     // MARK: - Public Method
     public func generateWeatherCondition(by list: [EJFiveDaysList]) -> WeatherMain {
-        
         var maxTemp:Float = -1000
         var minTemp:Float = 1000
         var totalTemp:Float = 0
@@ -160,6 +159,10 @@ class EJWeatherManager: NSObject {
     
     // 한국의 날씨 정보 받아오기
     public func generateWeatherConditionKR() -> WeatherMain {
+        var maxTemp:Float = -1000
+        var minTemp:Float = 1000
+        var totalTemp:Float = 0
+        var weatherType: WeatherCondition = .clear
         
         return WeatherClass
     }
@@ -386,6 +389,7 @@ class EJWeatherManager: NSObject {
         return ["min": minTemp, "max": maxTemp, "total": totalTemp]
     }
     
+    // desc : 위험한 날씨(호우, 황사, 태풍, 폭염 등) 경보가 있을 경우 그 정보를 리턴한다
     private func criticalWeather(_ originType: WeatherCondition, _ item: EJFiveDaysList) -> WeatherCondition {
         var resultType:WeatherCondition = originType
         

@@ -30,6 +30,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func todayDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM월 dd일 HH시"
+        return dateFormatter.string(from: self)
+    }
+    
     func toHourString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"

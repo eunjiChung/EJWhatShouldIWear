@@ -57,16 +57,25 @@
                                 <rect key="frame" x="156.33333333333337" y="0.0" width="218.66666666666663" height="150"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제보다" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8U-aG-kZU">
-                                        <rect key="frame" x="0.0" y="15" width="210.66666666666666" height="115"/>
+                                        <rect key="frame" x="0.0" y="48.666666666666664" width="210.66666666666666" height="81.333333333333343"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9월 11일" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex7-Qm-P2r">
+                                        <rect key="frame" x="0.0" y="15" width="210.66666666666666" height="33.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Ex7-Qm-P2r" firstAttribute="leading" secondItem="I8U-aG-kZU" secondAttribute="leading" id="9kf-VB-Rku"/>
                                     <constraint firstAttribute="bottom" secondItem="I8U-aG-kZU" secondAttribute="bottom" constant="20" id="Yjw-n5-HLl"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Ex7-Qm-P2r" secondAttribute="trailing" id="jda-3Z-fXE"/>
+                                    <constraint firstItem="I8U-aG-kZU" firstAttribute="top" secondItem="Ex7-Qm-P2r" secondAttribute="bottom" id="noG-Wk-AhW"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="I8U-aG-kZU" secondAttribute="trailing" id="ok5-Cq-E3n"/>
                                     <constraint firstItem="I8U-aG-kZU" firstAttribute="leading" secondItem="7hG-KB-vh6" secondAttribute="leading" id="pwZ-kt-RBH"/>
                                 </constraints>
@@ -80,8 +89,9 @@
                             <constraint firstItem="7hG-KB-vh6" firstAttribute="leading" secondItem="jCg-DW-cT8" secondAttribute="trailing" id="XpK-FM-cn0"/>
                             <constraint firstItem="7hG-KB-vh6" firstAttribute="top" secondItem="Bdq-Ys-Imd" secondAttribute="top" id="bal-rC-NyP"/>
                             <constraint firstItem="jCg-DW-cT8" firstAttribute="leading" secondItem="Bdq-Ys-Imd" secondAttribute="leading" id="hyf-wW-ba5"/>
-                            <constraint firstItem="I8U-aG-kZU" firstAttribute="top" secondItem="TUV-X9-Ztw" secondAttribute="top" id="mOq-xn-Wxz"/>
                             <constraint firstAttribute="trailing" secondItem="7hG-KB-vh6" secondAttribute="trailing" id="maF-wM-8OX"/>
+                            <constraint firstItem="Ex7-Qm-P2r" firstAttribute="top" secondItem="TUV-X9-Ztw" secondAttribute="top" id="qLC-fT-AZh"/>
+                            <constraint firstItem="Ex7-Qm-P2r" firstAttribute="bottom" secondItem="TUV-X9-Ztw" secondAttribute="bottom" id="sAt-Nr-QRX"/>
                         </constraints>
                     </view>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bE7-HZ-EpO">
@@ -162,6 +172,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="currentTempLabel" destination="OFe-WJ-bMy" id="GwN-Vo-quB"/>
+                <outlet property="dateLabel" destination="Ex7-Qm-P2r" id="ZAh-43-fSW"/>
                 <outlet property="firstClothImageView" destination="8u2-sD-mC3" id="9sh-N9-aby"/>
                 <outlet property="firstClothLabel" destination="ZZq-nP-c8R" id="1j8-Vq-vUE"/>
                 <outlet property="secondClothImageview" destination="KUY-CS-72v" id="UOj-41-aMq"/>
