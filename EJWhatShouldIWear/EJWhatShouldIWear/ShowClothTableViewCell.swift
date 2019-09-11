@@ -48,27 +48,35 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     public func generateKoreaMain(by model: SKHourlyHourlyBase) {
-        guard let weather = model.weather else { return }
-        print("Generate 1: \(weather)")
-        guard let hourly = weather.hourly else { return }
-        print("Generate 2: \(hourly)")
-        guard let first = hourly.first else { return }
-        print("Generate 3: \(first)")
-        guard let temp = first.temperature else { return }
-        print("Generate 4: \(temp)")
-        guard let tc = temp.tc else { return }
-        print("Generate 5: \(tc)")
-        guard let currentTemp = Int(tc) else { return }
-        print("Generate 6: \(currentTemp)")
+        guard let weatherModel = model.weather, let hourly = weatherModel.hourly else { return }
+        guard let first = hourly.first, let temp = first.temperature else { return }
+        guard let tc = temp.tc, let doubleTc = Double(tc) else { return }
+        let currentTemp = Int(doubleTc)
        
-        currentTempLabel.text = "??????"
+        currentTempLabel.text = "\(currentTemp)"
+        unitLabel.text = LocalizedString(with: "temp")
+        
+        // 날씨 컨디션(weather description) 받아오기
+        let weather = WeatherManager.generateWeatherConditionKR()
+        suggestLabel.text = weather.weatherDescription
+        
+        // 첫번째, 두번째, 세번째 옷을 넣는다
+        firstClothImageView.image = UIImage(named: weather.criticCloth)
+        firstClothLabel.text = LocalizedString(with: weather.criticCloth)
+        secondClothImageview.image = UIImage(named: weather.maxCloth)
+        secondClothLabel.text = LocalizedString(with: weather.maxCloth)
+        thirdClothImageView.image = UIImage(named: weather.minCloth)
+        thirdClothLabel.text = LocalizedString(with: weather.minCloth)
+        
+        // 애니메이션 넣기
+        addAnimation()
     }
     
     public func generateMain(by model: EJFiveDaysWeatherModel) {
         guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }
         
-        // 1. 원하는 날짜 받아오기≈
+        // 1. 원하는 날짜 받아오기
         let date = Date()
         let today = date.todayDate()
         
@@ -83,7 +91,6 @@ class ShowClothTableViewCell: UITableViewCell {
         currentTempLabel.text = "\(weather.mainTemp)"
         unitLabel.text = LocalizedString(with: "temp")
         suggestLabel.text = weather.weatherDescription
-        print("Description: \(weather.weatherDescription)")
         
         firstClothImageView.image = UIImage(named: weather.criticCloth)
         firstClothLabel.text = LocalizedString(with: weather.criticCloth)

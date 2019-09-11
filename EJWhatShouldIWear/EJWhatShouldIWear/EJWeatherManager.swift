@@ -158,6 +158,12 @@ class EJWeatherManager: NSObject {
         return WeatherClass
     }
     
+    // 한국의 날씨 정보 받아오기
+    public func generateWeatherConditionKR() -> WeatherMain {
+        
+        return WeatherClass
+    }
+    
     public func weatherDescription() -> String {
         var description = LocalizedString(with: "desc_tody") + " "
         

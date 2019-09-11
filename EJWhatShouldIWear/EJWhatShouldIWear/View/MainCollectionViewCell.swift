@@ -69,14 +69,14 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
-            cell.setCurrentLocality(by: self.location)
             
+            cell.setCurrentLocality(by: self.location)
             print("Weather country : \(WeatherManager.country)")
             
             if WeatherManager.isLocationKorea() {
                 print("Location Korea")
                 if let model = HourlyWeatherModel {
-                    print("Location Hourly")
+//                    print("Location Hourly")
                     cell.generateKoreaMain(by: model)
                 }
             } else {
