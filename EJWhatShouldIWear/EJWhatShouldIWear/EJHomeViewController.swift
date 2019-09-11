@@ -212,7 +212,6 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     func generateInfo(from location: CLLocation) {
         setCurrentLocation(from: location.coordinate)
         setWeatherInfo(of: location)
-//        requestFiveDaysWeatherList(of: location)
     }
     
     // 얘가 굳이 필요할까?
@@ -248,10 +247,8 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             }
             
             if WeatherManager.isLocationKorea() {
-                print("=======================여긴 대한민국이다!")
                 self.requestSKWPWeekWeatherList()
             } else {
-                print("=======================여긴 외국이다!")
                 self.requestFiveDaysWeatherList(of: currentLocation)
             }
         }) { (error) in
@@ -262,8 +259,6 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     private func requestSKWPWeekWeatherList() {
         WeatherManager.skwpHourlyWeatherInfo(success: { (result) in
             self.SKHourlyModel = result
-            
-            print("===========================절취선")
             
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
