@@ -22,7 +22,7 @@ public final class SKThreeFcst3hour: NSCoding {
   // MARK: Properties
   public var humidity: SKThreeHumidity?
   public var sky: SKThreeSky?
-  public var temperature: SKThreeTemperature?
+  public var temperature: SKThreeFcstTemperature?
   public var wind: SKThreeWind?
   public var precipitation: SKThreePrecipitation?
 
@@ -41,7 +41,7 @@ public final class SKThreeFcst3hour: NSCoding {
   public required init(json: JSON) {
     humidity = SKThreeHumidity(json: json[SerializationKeys.humidity])
     sky = SKThreeSky(json: json[SerializationKeys.sky])
-    temperature = SKThreeTemperature(json: json[SerializationKeys.temperature])
+    temperature = SKThreeFcstTemperature(json: json[SerializationKeys.temperature])
     wind = SKThreeWind(json: json[SerializationKeys.wind])
     precipitation = SKThreePrecipitation(json: json[SerializationKeys.precipitation])
   }
@@ -63,7 +63,7 @@ public final class SKThreeFcst3hour: NSCoding {
   required public init(coder aDecoder: NSCoder) {
     self.humidity = aDecoder.decodeObject(forKey: SerializationKeys.humidity) as? SKThreeHumidity
     self.sky = aDecoder.decodeObject(forKey: SerializationKeys.sky) as? SKThreeSky
-    self.temperature = aDecoder.decodeObject(forKey: SerializationKeys.temperature) as? SKThreeTemperature
+    self.temperature = aDecoder.decodeObject(forKey: SerializationKeys.temperature) as? SKThreeFcstTemperature
     self.wind = aDecoder.decodeObject(forKey: SerializationKeys.wind) as? SKThreeWind
     self.precipitation = aDecoder.decodeObject(forKey: SerializationKeys.precipitation) as? SKThreePrecipitation
   }

@@ -44,18 +44,18 @@ class ShowClothTableViewCell: UITableViewCell {
 
     
     // MARK: - Public Method
-    public func generateKoreaMain(by model: SKHourlyHourlyBase) {
-        guard let weatherModel = model.weather, let hourly = weatherModel.hourly else { return }
-        guard let first = hourly.first, let temp = first.temperature else { return }
-        guard let tc = temp.tc, let doubleTc = Double(tc) else { return }
-        let currentTemp = Int(doubleTc)
+    public func generateKoreaMain(by model: SKThreeThreedays) {
+        guard let weatherModel = model.weather, let forecast = weatherModel.forecast3days?.first else { return }
+        guard let fcst3hour = forecast.fcst3hour, let timeRelease = forecast.timeRelease else { return }
+        
+        // 현재 온도 받아와야 되는거 아니야...?
         
         // 1. 원하는 날짜 받아오기
         let date = Date()
         let today = date.todayDateString()
         dateLabel.text = today
        
-        let weather = WeatherManager.generateWeatherConditionKR()
+        let weather = WeatherManager.generateWeatherConditionKR(fcst3hour, timeRelease)
         
         currentTempLabel.text = "\(weather.mainTemp)"
         unitLabel.text = LocalizedString(with: "temp")

@@ -79,6 +79,7 @@
 		B6262C2722FA771A009FC744 /* WeatherMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6262C2622FA771A009FC744 /* WeatherMain.swift */; };
 		B62E8B8E22F9464C00055A0E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E8B8D22F9464C00055A0E /* Date.swift */; };
 		B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */; };
+		B6A2D0B4232F9021006515FC /* SKThreeFcstTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */; };
 		B6F74F1B2327922D00CDD4A6 /* SKHourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */; };
 		B6F74F1C2327922D00CDD4A6 /* SKHourlyWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */; };
 		B6F74F1D2327922D00CDD4A6 /* SKHourlyPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */; };
@@ -245,6 +246,7 @@
 		B6262C2622FA771A009FC744 /* WeatherMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMain.swift; sourceTree = "<group>"; };
 		B62E8B8D22F9464C00055A0E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
+		B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeFcstTemperature.swift; sourceTree = "<group>"; };
 		B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWeather.swift; sourceTree = "<group>"; };
 		B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWind.swift; sourceTree = "<group>"; };
 		B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyPrecipitation.swift; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 		B6F74F0F2327921700CDD4A6 /* Threedays */ = {
 			isa = PBXGroup;
 			children = (
+				B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */,
 				B6F74F422327924800CDD4A6 /* SKThreeCommon.swift */,
 				B6F74F3E2327924800CDD4A6 /* SKThreeFcst3hour.swift */,
 				B6F74F3D2327924800CDD4A6 /* SKThreeFcst6hour.swift */,
@@ -995,6 +998,7 @@
 				B6F74F352327923B00CDD4A6 /* SKYesterdayResult.swift in Sources */,
 				B6F74F1C2327922D00CDD4A6 /* SKHourlyWind.swift in Sources */,
 				B6F74F4B2327924800CDD4A6 /* SKThreeFcst6hour.swift in Sources */,
+				B6A2D0B4232F9021006515FC /* SKThreeFcstTemperature.swift in Sources */,
 				99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */,
 				B6F74F4E2327924800CDD4A6 /* SKThreeWeather.swift in Sources */,
 				B6F74F342327923B00CDD4A6 /* SKYesterdayCommon.swift in Sources */,

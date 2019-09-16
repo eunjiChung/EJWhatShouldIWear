@@ -17,6 +17,15 @@ extension String {
         return dateFormatter.date(from: self)!
     }
     
+    func onlyKRTime() -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:00:00"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: -9)
+        let dateTime = dateFormatter.date(from: self)!
+        let timeInt = Int(dateTime.toHourString())!
+        return timeInt
+    }
+    
     func onlyDate() -> String {
         guard let date = self.components(separatedBy: " ").first else { return "" }
         return date

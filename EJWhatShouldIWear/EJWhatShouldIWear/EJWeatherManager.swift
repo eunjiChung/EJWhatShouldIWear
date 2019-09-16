@@ -44,6 +44,7 @@ enum WeatherCondition: Int {
     case clear = 11
 }
 
+
 // MARK: - Shared Instance
 let WeatherManager = EJWeatherManager.sharedInstance
 
@@ -158,11 +159,53 @@ class EJWeatherManager: NSObject {
     }
     
     // 한국의 날씨 정보 받아오기
-    public func generateWeatherConditionKR() -> WeatherMain {
-        var maxTemp:Float = -1000
-        var minTemp:Float = 1000
+    // TODO: - 특보 유무, 태풍 유무 받아오기...
+    public func generateWeatherConditionKR(_ list: SKThreeFcst3hour, _ timeRelease: String) -> WeatherMain {
+        guard let sky = list.sky, let temp = list.temperature else { return WeatherClass }
+        
         var totalTemp:Float = 0
-        var weatherType: WeatherCondition = .clear
+        var time = 4
+        let currentHour = timeRelease.onlyKRTime()
+        let skyList = sky.dictionaryRepresentation()
+        let tempList = temp.dictionaryRepresentation()
+        var originalCode = 0
+        var count = 0
+        
+        repeat {
+            // 1-1. sky를 돌면서 critic weather가 있나 보기
+            let code = skyList["code\(time)hour"] as! String
+            originalCode = compareWeatherCode(code, originalCode)
+            
+            // 1-2. temperature를 돌면서 오늘에 해당하는 기온 합치기
+            let fcstTempString = tempList["temp\(time)hour"] as! String
+            let fcstTemp = Float(fcstTempString)!
+            totalTemp += fcstTemp
+            
+            // 1-2-1. 오늘 8시 이후에는 다음날 날씨 표시하기
+            time += 3
+            count += 1
+        } while currentHour + time < 24
+        
+        // 2. WeatherClass의 Critic Weather 설정
+        WeatherClass.criticCondition = generateKRWeatherCondition(of: originalCode)
+        
+        // 3. Average Temp 설정
+        let averageTemp = totalTemp / Float(count)
+        WeatherClass.mainTemp = getValidKRTemperature(by: averageTemp)
+        
+        // 4. Weather가 clear나 cloud일때와 아닐때 구분
+        if WeatherClass.criticCondition != .clear && WeatherClass.criticCondition != .cloud {
+            WeatherClass.criticCloth = setClothByCondition(WeatherClass.criticCondition)
+        } else {
+            WeatherClass.criticCloth = setOuterCloth(by: WeatherClass.mainTemp)
+        }
+        
+        // 5. MaxCloth, MinCloth 설정
+        WeatherClass.maxCloth = setTopCloth(by: WeatherClass.mainTemp)
+        WeatherClass.minCloth = setBottomCloth(by: WeatherClass.mainTemp)
+        
+        // 6. WeatherDescription 설정
+        WeatherClass.weatherDescription = weatherDescription()
         
         return WeatherClass
     }
@@ -329,6 +372,20 @@ class EJWeatherManager: NSObject {
         return temp
     }
     
+    public func getValidKRTemperature(by temperature:Float) -> Int {
+        
+        // Non fatal Error
+        let errorInfo = [
+            NSLocalizedDescriptionKey : "Temperature",
+            "temperature" : "\(temperature)"
+        ]
+        let errorLog = NSError.init(domain: "GetValidTemperature", code: -1001, userInfo: errorInfo)
+        Crashlytics.sharedInstance().recordError(errorLog)
+        
+        var temp = Int(temperature)
+        return temp
+    }
+    
     
     // MARK: Locality
     public func getLocationInfo(of current: CLLocation,
@@ -403,6 +460,41 @@ class EJWeatherManager: NSObject {
         }
         
         return resultType
+    }
+    
+    private func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
+        var resultCode = originalCode
+
+        let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "S"]).joined()
+        print(codeNumber)
+        let currentCodeNum = Int(codeNumber)!
+        
+        if resultCode < currentCodeNum {
+            resultCode = currentCodeNum
+        }
+        
+        return resultCode
+    }
+    
+    private func generateKRWeatherCondition(of code: Int) -> WeatherCondition {
+        var type: WeatherCondition
+        
+        switch code {
+        case 1:
+            type = .clear
+        case 2, 3, 7:
+            type = .cloud
+        case 4, 8:
+            type = .rain
+        case 5, 6, 9, 10:
+            type = .snow
+        case 11, 12, 13, 14:
+            type = .thunderstorm
+        default:
+            type = .clear
+        }
+        
+        return type
     }
     
     private func weatherCondition(of id: Int) -> WeatherCondition {
