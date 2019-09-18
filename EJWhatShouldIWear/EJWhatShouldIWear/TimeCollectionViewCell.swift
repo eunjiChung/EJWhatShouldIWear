@@ -23,7 +23,10 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcTopOfClothImage: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfClothImage: NSLayoutConstraint!
     
-
+    let hour = LocalizedString(with: "hour")
+    let unit = WeatherManager.getValidUnit()
+    
+    
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,28 +39,57 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: - Public Method
-    public func setHourlyWeather(of model: EJFiveDaysWeatherModel, at index: Int) {
-        let hour = LocalizedString(with: "hour")
-        let unit = LocalizedString(with: "temp")
+    public func setKRHourlyWeather(of model: SKThreeThreedays, at index: Int) {
+        print("----------------------------------------Korea!!!!!!!!!")
         
+        // 1. 현재 시간 받아오기
+        let date = Date()
+        let currentHour = date.todayHourString().onlyKRTime()
+        
+        // 2. 시간별 온도(fcst3hour-sky&temperature) 정보 받아오기
+        guard let weather = model.weather, let fcst3days = weather.forecast3days, let fcst3hour = fcst3days.first?.fcst3hour else { return }
+        // 현재 sky 정보 뿌릴 Label이 없음..
+        guard let sky = fcst3hour.sky, let temp = fcst3hour.temperature else { return }
+        
+        // 3. 향후 3일 날씨까지 뿌리기
+        var time = 4
+        let tempList = temp.dictionaryRepresentation()
+        
+        repeat {
+            let futureHour = (currentHour + time) % 24
+            hourLabel.text = "\(futureHour) \(hour)"
+            
+            let strTemp = tempList["temp\(time)hour"] as! String
+            if strTemp != "", let floatTemp = Float(strTemp) {
+                let intTemp = Int(floatTemp)
+                tempLabel.text = "\(intTemp)\(unit)"
+                
+                let style = WeatherManager.setTopCloth(by: intTemp)
+                clothImageView.image = UIImage.init(named: style)
+            }
+            
+            time += 3
+        } while time <= 67
+    }
+    
+    public func setHourlyWeather(of model: EJFiveDaysWeatherModel, at index: Int) {
         guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }
         let item = list[index]
         
         if let time = item.dtTxt {
             let date = time.toDate(timezone)
-            let time = date.toHourString()
+            let time = date.todayHourString()
             hourLabel.text = "\(time) \(hour)"
         }
         
-        if let weatherInfo = item.main {
-            if let floatTemp = weatherInfo.temp {
-                let temp = WeatherManager.getValidTemperature(by: floatTemp)
-                tempLabel.text = "\(temp)\(unit)"
-                
-                let style = WeatherManager.setTopCloth(by: temp)
-                clothImageView.image = UIImage.init(named: style)
-            }
+        if let weatherInfo = item.main, let floatTemp = weatherInfo.temp {
+            let temp = WeatherManager.getValidTemperature(by: floatTemp)
+            tempLabel.text = "\(temp)\(unit)"
+            
+            let style = WeatherManager.setTopCloth(by: temp)
+            clothImageView.image = UIImage.init(named: style)
+            
         }
     }
 }

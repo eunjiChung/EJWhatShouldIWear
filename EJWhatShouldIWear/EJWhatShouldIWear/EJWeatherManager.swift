@@ -353,6 +353,14 @@ class EJWeatherManager: NSObject {
         return cloth
     }
     
+    public func getValidUnit() -> String {
+        if self.country == "대한민국" {
+            return "℃"
+        }
+        
+        return LocalizedString(with: "temp")
+    }
+    
     public func getValidTemperature(by temperature:Float) -> Int {
         
         // Non fatal Error

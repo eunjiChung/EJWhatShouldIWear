@@ -274,10 +274,9 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
             self.FiveDaysWeatherModel = fivedaysWeather
             self.FiveDaysWeatherList = fivedaysWeather.list
-//            self.setLocationText(of: current)
             
             self.mainCollectionView.reloadData()
-//            self.tableDelegate?.reloadTableView()
+            self.tableDelegate?.reloadTableView()
             self.removeSplashScene()
         }) { (error) in
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)

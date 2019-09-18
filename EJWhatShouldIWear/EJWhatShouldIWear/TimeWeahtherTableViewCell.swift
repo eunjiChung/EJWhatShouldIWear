@@ -12,8 +12,8 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     
     static let identifier = "TimeWeahtherTableViewCell"
     
-//    var weatherInfo: [EJFiveDaysList]?
-    var weatherModel: EJFiveDaysWeatherModel?
+    var weatherModel: EJFiveDaysWeatherModel?    // Other Country Weather Model
+    var ThreeDaysWeatherModel: SKThreeThreedays? // Korea Weather Model
     var timeRelease: String?
     var timeArray: [String]?
     var tempArray: [String]?
@@ -57,6 +57,11 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         collectionView.reloadData()
     }
     
+    func setKRTimelyTable(of model: SKThreeThreedays) {
+        ThreeDaysWeatherModel = model
+        collectionView.reloadData()
+    }
+    
     
     // MARK: - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -68,10 +73,14 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         let index = indexPath.item
         
-        if let model = weatherModel {
-//            let indexWeatherInfo = info[item]
-//            cell.setHourlyWeather(by: indexWeatherInfo)
-            cell.setHourlyWeather(of: model, at: index)
+        if WeatherManager.isLocationKorea() {
+            if let model = ThreeDaysWeatherModel {
+                cell.setKRHourlyWeather(of: model, at: index)
+            }
+        } else {
+            if let model = weatherModel {
+                cell.setHourlyWeather(of: model, at: index)
+            }
         }
         
         return cell

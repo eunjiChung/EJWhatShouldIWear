@@ -83,8 +83,15 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
             
-            if let model = FiveDaysWeatherModel {
-                cell.setTimelyTable(of: model)
+            if WeatherManager.isLocationKorea() {
+                if let model = ThreeDaysWeatherModel {
+                    // 3시간 단위 날씨 제공
+                    
+                }
+            } else {
+                if let model = FiveDaysWeatherModel {
+                    cell.setTimelyTable(of: model)
+                }
             }
             
             return cell

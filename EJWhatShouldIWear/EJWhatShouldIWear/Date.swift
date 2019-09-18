@@ -22,7 +22,7 @@ extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:00:00"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: -9)
         let dateTime = dateFormatter.date(from: self)!
-        let timeInt = Int(dateTime.toHourString())!
+        let timeInt = Int(dateTime.todayHourString())!
         return timeInt
     }
     
@@ -45,7 +45,7 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func toHourString() -> String {
+    func todayHourString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)

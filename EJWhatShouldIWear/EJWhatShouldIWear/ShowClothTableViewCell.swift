@@ -58,7 +58,7 @@ class ShowClothTableViewCell: UITableViewCell {
         let weather = WeatherManager.generateWeatherConditionKR(fcst3hour, timeRelease)
         
         currentTempLabel.text = "\(weather.mainTemp)"
-        unitLabel.text = LocalizedString(with: "temp")
+        unitLabel.text = WeatherManager.getValidUnit()
         generateClothRecommendation(weather)
     }
     
@@ -81,7 +81,7 @@ class ShowClothTableViewCell: UITableViewCell {
         let weather = WeatherManager.generateWeatherCondition(by: todayWeatherList)
         
         currentTempLabel.text = "\(weather.mainTemp)"
-        unitLabel.text = LocalizedString(with: "temp")
+        unitLabel.text = WeatherManager.getValidUnit()
         generateClothRecommendation(weather)
     }
     
