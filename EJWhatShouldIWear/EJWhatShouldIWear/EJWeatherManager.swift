@@ -353,8 +353,9 @@ class EJWeatherManager: NSObject {
         return cloth
     }
     
+    // TODO: - 지명 지역화
     public func getValidUnit() -> String {
-        if self.country == "대한민국" {
+        if self.country == "South Korea" {
             return "℃"
         }
         
@@ -432,6 +433,7 @@ class EJWeatherManager: NSObject {
         }
     }
     
+    // TODO: - 나라 지역화
     public func isLocationKorea() -> Bool {
         if country == "대한민국" {
             return true

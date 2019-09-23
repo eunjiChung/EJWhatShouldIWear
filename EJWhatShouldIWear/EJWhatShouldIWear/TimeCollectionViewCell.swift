@@ -24,7 +24,6 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcBottomOfClothImage: NSLayoutConstraint!
     
     let hour = LocalizedString(with: "hour")
-    let unit = WeatherManager.getValidUnit()
     
     
     // MARK: - View Life Cycle
@@ -40,11 +39,9 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Public Method
     public func setKRHourlyWeather(of model: SKThreeThreedays, at index: Int) {
-        print("----------------------------------------Korea!!!!!!!!!")
-        
         // 1. 현재 시간 받아오기
         let date = Date()
-        let currentHour = date.todayHourString().onlyKRTime()
+        guard let currentHour = Int(date.todayHourString()) else { return }
         
         // 2. 시간별 온도(fcst3hour-sky&temperature) 정보 받아오기
         guard let weather = model.weather, let fcst3days = weather.forecast3days, let fcst3hour = fcst3days.first?.fcst3hour else { return }
@@ -55,8 +52,10 @@ class TimeCollectionViewCell: UICollectionViewCell {
         var time = 4
         let tempList = temp.dictionaryRepresentation()
         
+        let unit = WeatherManager.getValidUnit()
         repeat {
             let futureHour = (currentHour + time) % 24
+            print("Future Hour?? \(futureHour)")
             hourLabel.text = "\(futureHour) \(hour)"
             
             let strTemp = tempList["temp\(time)hour"] as! String
@@ -83,6 +82,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
             hourLabel.text = "\(time) \(hour)"
         }
         
+        let unit = WeatherManager.getValidUnit()
         if let weatherInfo = item.main, let floatTemp = weatherInfo.temp {
             let temp = WeatherManager.getValidTemperature(by: floatTemp)
             tempLabel.text = "\(temp)\(unit)"

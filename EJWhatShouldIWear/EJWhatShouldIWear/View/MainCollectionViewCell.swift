@@ -69,6 +69,8 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
+            print("Location Show cloth")
+            
             if WeatherManager.isLocationKorea() {
                 if let model = ThreeDaysWeatherModel {
                     cell.generateKoreaMain(by: model)
@@ -83,10 +85,12 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
             
+            print("Location Time Weather")
+            
             if WeatherManager.isLocationKorea() {
                 if let model = ThreeDaysWeatherModel {
                     // 3시간 단위 날씨 제공
-                    
+                    cell.setKRTimelyTable(of: model)
                 }
             } else {
                 if let model = FiveDaysWeatherModel {

@@ -65,6 +65,12 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     
     // MARK: - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let model = ThreeDaysWeatherModel {
+            guard let weather = model.weather, let fcst3days = weather.forecast3days, let fcst3hour = fcst3days.first?.fcst3hour else { return 6 }
+            guard let sky = fcst3hour.sky, let temp = fcst3hour.temperature else { return 6 }
+            return temp.dictionaryRepresentation().count
+        }
+        
         return 6
     }
     
@@ -73,14 +79,12 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         let index = indexPath.item
         
-        if WeatherManager.isLocationKorea() {
-            if let model = ThreeDaysWeatherModel {
-                cell.setKRHourlyWeather(of: model, at: index)
-            }
-        } else {
-            if let model = weatherModel {
-                cell.setHourlyWeather(of: model, at: index)
-            }
+        if let model = ThreeDaysWeatherModel {
+            cell.setKRHourlyWeather(of: model, at: index)
+        }
+        
+        if let model = weatherModel {
+            cell.setHourlyWeather(of: model, at: index)
         }
         
         return cell
