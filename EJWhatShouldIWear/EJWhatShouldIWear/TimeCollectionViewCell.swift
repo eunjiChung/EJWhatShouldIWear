@@ -42,33 +42,26 @@ class TimeCollectionViewCell: UICollectionViewCell {
         // 1. 현재 시간 받아오기
         let date = Date()
         guard let currentHour = Int(date.todayHourString()) else { return }
-        
         // 2. 시간별 온도(fcst3hour-sky&temperature) 정보 받아오기
         guard let weather = model.weather, let fcst3days = weather.forecast3days, let fcst3hour = fcst3days.first?.fcst3hour else { return }
         // 현재 sky 정보 뿌릴 Label이 없음..
         guard let sky = fcst3hour.sky, let temp = fcst3hour.temperature else { return }
-        
         // 3. 향후 3일 날씨까지 뿌리기
-        var time = 4
         let tempList = temp.dictionaryRepresentation()
-        
         let unit = WeatherManager.getValidUnit()
-        repeat {
-            let futureHour = (currentHour + time) % 24
-            print("Future Hour?? \(futureHour)")
-            hourLabel.text = "\(futureHour) \(hour)"
+        let timeIndex = 4 + 3 * index
+        
+        let futureHour = (currentHour + timeIndex) % 24
+        hourLabel.text = "\(futureHour) \(hour)"
+        
+        let strTemp = tempList["temp\(timeIndex)hour"] as! String
+        if strTemp != "", let floatTemp = Float(strTemp) {
+            let intTemp = Int(floatTemp)
+            tempLabel.text = "\(intTemp)\(unit)"
             
-            let strTemp = tempList["temp\(time)hour"] as! String
-            if strTemp != "", let floatTemp = Float(strTemp) {
-                let intTemp = Int(floatTemp)
-                tempLabel.text = "\(intTemp)\(unit)"
-                
-                let style = WeatherManager.setTopCloth(by: intTemp)
-                clothImageView.image = UIImage.init(named: style)
-            }
-            
-            time += 3
-        } while time <= 67
+            let style = WeatherManager.setTopCloth(by: intTemp)
+            clothImageView.image = UIImage.init(named: style)
+        }
     }
     
     public func setHourlyWeather(of model: EJFiveDaysWeatherModel, at index: Int) {
