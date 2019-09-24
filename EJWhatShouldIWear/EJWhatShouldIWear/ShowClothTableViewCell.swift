@@ -34,7 +34,6 @@ class ShowClothTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        addShadow()
         setLayoutConstraints()
         
         firstImageCenterY = firstClothImageView.center.y - 7

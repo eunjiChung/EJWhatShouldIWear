@@ -27,7 +27,6 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcBottomOfClothImage: NSLayoutConstraint!
     
     let hour = LocalizedString(with: "hour")
-    static var countFlag = 1.0
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
@@ -63,18 +62,17 @@ class TimeCollectionViewCell: UICollectionViewCell {
         let currentDate = timeRelease.toDate(0)
         guard let releaseHour = Int(currentDate.todayHourString()) else { return }
         let futureHour = (releaseHour + timeIndex) % 24
+        let num = Double((releaseHour + timeIndex) / 24)
         hourLabel.text = "\(futureHour) \(hour)"
         
         // dateLabel
-        dateLabel.text = "-"
-        if index == 0 {
+        if num == 0 && index == 0 {
             dateLabel.text = date.dateCompose()
         } else {
             if futureHour == 0 || futureHour == 1 || futureHour == 2 {
-                let future = Date(timeIntervalSinceNow: 86400 * TimeCollectionViewCell.countFlag).dateCompose()
-                dateLabel.text = future
-                TimeCollectionViewCell.countFlag += 1.0
-                TimeCollectionViewCell.countFlag = TimeCollectionViewCell.countFlag.truncatingRemainder(dividingBy: 4.0)
+                dateLabel.text = Date(timeIntervalSinceNow: 86400 * num).dateCompose()
+            } else {
+                dateLabel.text = "-"
             }
         }
         
@@ -112,6 +110,4 @@ class TimeCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Private Method
-    
-    
 }

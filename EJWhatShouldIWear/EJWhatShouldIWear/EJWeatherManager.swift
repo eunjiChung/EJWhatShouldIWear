@@ -16,13 +16,16 @@ import Crashlytics
 public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
 public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"
 
-// MARK: - SK Weather Planet
+// MARK: - SK Weather Planet API
 public let skWPHourlyAPI                        =   "https://apis.openapi.sk.com/weather/current/hourly"
 public let skWPMinuteAPI                        =   "https://apis.openapi.sk.com/weather/current/minutely"
 public let skWPYesterdayAPI                     =   "https://apis.openapi.sk.com/weather/yesterday"
 public let skWPSixDaysAPI                       =   "https://apis.openapi.sk.com/weather/forecast/6days"
 public let skWPThreeDaysAPI                     =   "https://apis.openapi.sk.com/weather/forecast/3days"
-public let skAppKey                             =   "cd0c9c72-6e32-4181-9291-9340adb8d0dc"
+
+public let skPublic3daysAppKey                  =   "6ebc2338-3b54-4ad2-a92c-55dddb172a5a"
+public let skPublic6daysAppKey                  =   "73f51154-b4cc-485c-b9ce-85130eac089d"
+public let skDebugAppKey                        =   "cd0c9c72-6e32-4181-9291-9340adb8d0dc"
 
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
@@ -58,6 +61,14 @@ class EJWeatherManager: NSObject {
     let httpClient = EJHTTPClient.init()
     let WeatherClass = WeatherMain()
     
+    #if DEBUG
+    let sk3DaysKey = skDebugAppKey
+    let sk6DaysKey = skDebugAppKey
+    #else
+    let sk3DaysKey = skPublic3daysAppKey
+    let sk6DaysKey = skPublic6daysAppKey
+    #endif
+    
     // MARK: - HTTP Request
     func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
                                 failure: @escaping FailureHandler) {
@@ -72,7 +83,7 @@ class EJWeatherManager: NSObject {
     
     func skwpHourlyWeatherInfo(success: @escaping (SKHourlyHourlyBase) -> (),
                                failure: @escaping FailureHandler) {
-        let url = skWPHourlyAPI + "?appKey=\(skAppKey)&lat=\(latitude)&lon=\(longitude)"
+        let url = skWPHourlyAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
         
         httpClient.weatherRequest(url: url,
                                   lat: latitude,
@@ -86,7 +97,7 @@ class EJWeatherManager: NSObject {
     
     func skwpYesterdayWeatherInfo(success: @escaping (SKYesterdayYesterdayBase) -> (),
                                   failure: @escaping FailureHandler) {
-        let url = skWPYesterdayAPI + "?appKey=\(skAppKey)&lat=\(latitude)&lon=\(longitude)"
+        let url = skWPYesterdayAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   lat: latitude,
                                   lon: longitude,
@@ -99,7 +110,7 @@ class EJWeatherManager: NSObject {
     
     func skwpSixDaysWeatherInfo(success: @escaping (SKSixSixdaysBase) -> (),
                                 failure: @escaping FailureHandler) {
-        let url = skWPSixDaysAPI + "?appKey=\(skAppKey)&lat=\(latitude)&lon=\(longitude)"
+        let url = skWPSixDaysAPI + "?appKey=\(sk6DaysKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   lat: latitude,
                                   lon: longitude,
@@ -112,7 +123,8 @@ class EJWeatherManager: NSObject {
     
     func skwpThreeDaysWeatherInfo(success: @escaping (SKThreeThreedays) -> (),
                                   failure: @escaping FailureHandler) {
-        let url = skWPThreeDaysAPI + "?appKey=\(skAppKey)&lat=\(latitude)&lon=\(longitude)"
+        print("Called!!!!!!!!!!!")
+        let url = skWPThreeDaysAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   lat: latitude,
                                   lon: longitude,
