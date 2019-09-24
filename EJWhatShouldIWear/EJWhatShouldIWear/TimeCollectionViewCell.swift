@@ -46,7 +46,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
         let date = Date()
         guard let currentHour = Int(date.todayHourString()) else { return }
         // 2. 시간별 온도(fcst3hour-sky&temperature) 정보 받아오기
-        guard let weather = model.weather, let fcst3days = weather.forecast3days, let fcst3hour = fcst3days.first?.fcst3hour else { return }
+        guard let weather = model.weather, let fcst3days = weather.forecast3days else { return }
+        guard let fcst3hour = fcst3days.first?.fcst3hour, let timeRelease = fcst3days.first?.timeRelease else { return }
         // 현재 sky 정보 뿌릴 Label이 없음..
         guard let sky = fcst3hour.sky, let temp = fcst3hour.temperature else { return }
         // 3. 향후 3일 날씨까지 뿌리기
@@ -59,7 +60,9 @@ class TimeCollectionViewCell: UICollectionViewCell {
         let skyCondition = skyList["name\(timeIndex)hour"] as! String
         
         // hourLabel
-        let futureHour = (currentHour + timeIndex) % 24
+        let currentDate = timeRelease.toDate(0)
+        guard let releaseHour = Int(currentDate.todayHourString()) else { return }
+        let futureHour = (releaseHour + timeIndex) % 24
         hourLabel.text = "\(futureHour) \(hour)"
         
         // dateLabel
@@ -68,6 +71,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
             dateLabel.text = date.dateCompose()
         }
         if index != 0 && futureHour == 1 {
+            print("Index : \(index)")
             let future = Date(timeIntervalSinceNow: 86400).dateCompose()
             dateLabel.text = future
         }
