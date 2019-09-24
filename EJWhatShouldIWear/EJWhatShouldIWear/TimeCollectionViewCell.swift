@@ -27,6 +27,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcBottomOfClothImage: NSLayoutConstraint!
     
     let hour = LocalizedString(with: "hour")
+    static var countFlag = 1.0
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
@@ -44,7 +45,6 @@ class TimeCollectionViewCell: UICollectionViewCell {
     public func setKRHourlyWeather(of model: SKThreeThreedays, at index: Int) {
         // 1. 현재 시간 받아오기
         let date = Date()
-        guard let currentHour = Int(date.todayHourString()) else { return }
         // 2. 시간별 온도(fcst3hour-sky&temperature) 정보 받아오기
         guard let weather = model.weather, let fcst3days = weather.forecast3days else { return }
         guard let fcst3hour = fcst3days.first?.fcst3hour, let timeRelease = fcst3days.first?.timeRelease else { return }
@@ -69,11 +69,13 @@ class TimeCollectionViewCell: UICollectionViewCell {
         dateLabel.text = "-"
         if index == 0 {
             dateLabel.text = date.dateCompose()
-        }
-        if index != 0 && futureHour == 1 {
-            print("Index : \(index)")
-            let future = Date(timeIntervalSinceNow: 86400).dateCompose()
-            dateLabel.text = future
+        } else {
+            if futureHour == 0 || futureHour == 1 || futureHour == 2 {
+                let future = Date(timeIntervalSinceNow: 86400 * TimeCollectionViewCell.countFlag).dateCompose()
+                dateLabel.text = future
+                TimeCollectionViewCell.countFlag += 1.0
+                TimeCollectionViewCell.countFlag = TimeCollectionViewCell.countFlag.truncatingRemainder(dividingBy: 4.0)
+            }
         }
         
         // tempLabel, skyConditionLabel, clothImageView 구성
@@ -108,4 +110,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
             
         }
     }
+    
+    // MARK: - Private Method
+    
+    
 }
