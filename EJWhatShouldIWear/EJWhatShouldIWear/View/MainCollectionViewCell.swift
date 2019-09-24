@@ -69,29 +69,27 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
             
-            if WeatherManager.isLocationKorea() {
-                if let model = ThreeDaysWeatherModel {
-                    cell.generateKoreaMain(by: model)
-                }
-            } else {
-                if let model = FiveDaysWeatherModel {
-                    cell.generateMain(by: model)
-                }
+            // 한국일 경우
+            if let model = ThreeDaysWeatherModel {
+                cell.generateKoreaMain(by: model)
             }
+            // 외국일 경우
+            if let model = FiveDaysWeatherModel {
+                cell.generateMain(by: model)
+            }
+            
             
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
-            
-            if WeatherManager.isLocationKorea() {
-                if let model = ThreeDaysWeatherModel {
-                    // 3시간 단위 날씨 제공
-                    cell.setKRTimelyTable(of: model)
-                }
-            } else {
-                if let model = FiveDaysWeatherModel {
-                    cell.setTimelyTable(of: model)
-                }
+        
+            // 한국일 경우
+            if let model = ThreeDaysWeatherModel {
+                cell.setKRTimelyTable(of: model)
+            }
+            // 외국일 경우
+            if let model = FiveDaysWeatherModel {
+                cell.setTimelyTable(of: model)
             }
             
             return cell
@@ -126,9 +124,9 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 0:
             return EJSizeHeight(350.0)
         case 1:
-            return EJSizeHeight(131.0+50.0+18.0+43.0+18.67)
+            return EJSizeHeight(290.0)
         case 2:
-            return EJSizeHeight(38.0+16.0+20.0+97.0+50.0+13.0)
+            return EJSizeHeight(234.0)
         case 3:
             return EJSizeHeight(60.0)
         default:

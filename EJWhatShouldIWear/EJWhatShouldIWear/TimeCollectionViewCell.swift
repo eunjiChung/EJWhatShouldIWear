@@ -13,27 +13,30 @@ class TimeCollectionViewCell: UICollectionViewCell {
     static let identifier = "TimeCollectionViewCell"
     
     // MARK: - Outlets
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var clothImageView: UIImageView!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var skyConditionLabel: UILabel!
     
     // MARK: - Alc of Constraints
     @IBOutlet weak var alcTopOfHourLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfTempLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfSkyConditionLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfClothImage: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfClothImage: NSLayoutConstraint!
     
     let hour = LocalizedString(with: "hour")
     
-    
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        alcTopOfHourLabel.constant = EJSizeHeight(7.0)
-        alcTopOfTempLabel.constant = EJSizeHeight(22.0)
-        alcTopOfClothImage.constant = EJSizeHeight(6.0)
-        alcBottomOfClothImage.constant = EJSizeHeight(10.0)
+        alcTopOfHourLabel.constant = EJSizeHeight(3.0)
+        alcTopOfTempLabel.constant = EJSizeHeight(8.0)
+        alcTopOfSkyConditionLabel.constant = EJSizeHeight(3.0)
+        alcTopOfClothImage.constant = EJSizeHeight(10.0)
+        alcBottomOfClothImage.constant = EJSizeHeight(7.0)
     }
     
     
@@ -47,17 +50,33 @@ class TimeCollectionViewCell: UICollectionViewCell {
         // 현재 sky 정보 뿌릴 Label이 없음..
         guard let sky = fcst3hour.sky, let temp = fcst3hour.temperature else { return }
         // 3. 향후 3일 날씨까지 뿌리기
-        let tempList = temp.dictionaryRepresentation()
         let unit = WeatherManager.getValidUnit()
         let timeIndex = 4 + 3 * index
         
+        let tempList = temp.dictionaryRepresentation()
+        let skyList = sky.dictionaryRepresentation()
+        let strTemp = tempList["temp\(timeIndex)hour"] as! String
+        let skyCondition = skyList["name\(timeIndex)hour"] as! String
+        
+        // hourLabel
         let futureHour = (currentHour + timeIndex) % 24
         hourLabel.text = "\(futureHour) \(hour)"
         
-        let strTemp = tempList["temp\(timeIndex)hour"] as! String
+        // dateLabel
+        dateLabel.text = "-"
+        if index == 0 {
+            dateLabel.text = date.dateCompose()
+        }
+        if index != 0 && futureHour == 1 {
+            let future = Date(timeIntervalSinceNow: 86400).dateCompose()
+            dateLabel.text = future
+        }
+        
+        // tempLabel, skyConditionLabel, clothImageView 구성
         if strTemp != "", let floatTemp = Float(strTemp) {
             let intTemp = Int(floatTemp)
             tempLabel.text = "\(intTemp)\(unit)"
+            skyConditionLabel.text = skyCondition
             
             let style = WeatherManager.setTopCloth(by: intTemp)
             clothImageView.image = UIImage.init(named: style)

@@ -39,6 +39,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func dateCompose() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        return dateFormatter.string(from: self)
+    }
+    
     func todayDateString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM월 dd일 HH시"

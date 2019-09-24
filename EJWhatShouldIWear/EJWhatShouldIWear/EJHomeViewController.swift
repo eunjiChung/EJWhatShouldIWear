@@ -286,7 +286,6 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     // MARK: - Private Method
     private func pickUpLocation(_ myTextField: UITextField) {
-        
         // 1. PickerView 정의
         myPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: EJSizeHeight(216.0)))
         myPickerView.delegate = self
@@ -342,7 +341,6 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
 }
 
 extension EJHomeViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
     // MARK: - PickerView Delegate
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -361,7 +359,6 @@ extension EJHomeViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPic
 
     // MARK: - TextField Delegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
-    
         pickUpLocation(myLocationField)
     }
 }

@@ -38,12 +38,10 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         
         titleLabel.text = LocalizedString(with: "main_timely")
         
-        alcTopConstraintOfTextLabel.constant = EJSizeHeight(20.0)
+        alcTopConstraintOfTextLabel.constant = EJSizeHeight(38.0)
         alcLeadingConstraintOfTextLabel.constant = EJSize(20.0)
         alcTopConstraintOfCollectionView.constant = EJSizeHeight(18.0)
         alcBottomConstraintOfCollectionView.constant = EJSizeHeight(50.0)
-        alcHeightOfCollectionView.constant = EJSizeHeight(131.0)
-        
         
         collectionView.dataSource = self as UICollectionViewDataSource
         collectionView.delegate = self as UICollectionViewDelegate
@@ -92,12 +90,7 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     
     // MARK: - CollectionView FlowLayout Delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: EJSize((375-44)/6), height: EJSizeHeight(131.0))
-    }
-    
-    // 22pt...
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: EJSizeHeight(0.0), left: EJSize(22.0), bottom: EJSizeHeight(0.0), right: EJSize(22.0))
+        return CGSize.init(width: EJSize(80.0), height: EJSizeHeight(160.0))
     }
     
 }
