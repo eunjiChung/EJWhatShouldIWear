@@ -407,6 +407,37 @@ class EJWeatherManager: NSObject {
         return temp
     }
     
+    public func getBackgroundImageName() -> String {
+        let date = Date()
+        
+        if date.currentHourInt() >= 20 {
+            let array = ["night1", "night2"]
+            return array.randomElement()!
+        } else if date.currentHourInt() >= 17 {
+            let array = ["sunset1", "sunset2", "sunset3", "sunset4"]
+            return array.randomElement()!
+        } else {
+            switch WeatherClass.criticCondition {
+            case .clear:
+                return "clear"
+            case .cloud:
+                return "cloud"
+            case .drizzle, .rain, .squall:
+                return "rainy"
+            case .dust, .haze:
+                return "dust"
+            case .thunderstorm, .tornado:
+                return "storm"
+            case .ash:
+                return "ash"
+            default:
+                return "background"
+            }
+        }
+        
+        return "background"
+    }
+    
     
     // MARK: Locality
     public func getLocationInfo(of current: CLLocation,

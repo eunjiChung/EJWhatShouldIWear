@@ -24,9 +24,9 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var thirdClothLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+       
     
-    
-    // MARK: - Constraints
+    // MARK: - Animation Constraints
     var firstImageCenterY: CGFloat = 0.0
     var secondImageCenterY: CGFloat = 0.0
     var thirdImageCenterY: CGFloat = 0.0
@@ -43,6 +43,7 @@ class ShowClothTableViewCell: UITableViewCell {
         thirdImageCenterY = thirdClothImageView.center.y - 10
         
         titleLabel.text = LocalizedString(with: "show_cloth_title")
+        
     }
 
     
@@ -53,13 +54,18 @@ class ShowClothTableViewCell: UITableViewCell {
         
         // 1. 원하는 날짜 받아오기
         let date = Date()
-        let today = date.todayDateString()
+        let today = date.todayDateKRString()
         dateLabel.text = today
        
         let weather = WeatherManager.generateWeatherConditionKR(fcst3hour, timeRelease)
         
         currentTempLabel.text = "\(weather.mainTemp)"
         unitLabel.text = WeatherManager.getValidUnit()
+        
+        // 배경바꾸기
+        let name = WeatherManager.getBackgroundImageName()
+        // NSNotificationCenter로 바꿔야할듯....
+        
         generateClothRecommendation(weather)
     }
     
@@ -70,7 +76,6 @@ class ShowClothTableViewCell: UITableViewCell {
         // 1. 원하는 날짜 받아오기
         let date = Date()
         let today = date.todayDate()
-        // 지역화하기!!!!!!
         dateLabel.text = date.todayDateString()
         
         // 2. 날짜에 해당하는 날씨 가져오기
@@ -109,6 +114,7 @@ class ShowClothTableViewCell: UITableViewCell {
         addAnimation()
     }
     
+    
     // MARK: Layout
     private func addShadow() {
         self.layer.shadowOpacity = 0.1 // 투명 효과
@@ -117,10 +123,6 @@ class ShowClothTableViewCell: UITableViewCell {
         self.layer.masksToBounds = false
         self.layer.shadowOffset = .zero // 뷰로부터 얼마나 멀어질건지
         self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath // 그림자의 모양 (뷰에 맞추는 정도)
-    }
-    
-    private func setLayoutConstraints() {
-        
     }
     
 }

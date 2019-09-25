@@ -16,11 +16,9 @@ import FirebaseAnalytics
 protocol ControlTableDelegate {
     func reloadTableView()
     func stopPullToRefreshTable()
-    
 }
 
 class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, LocationDelegate  {
-    
     
     // MARK: - Properties
     var locations = ["송파", "강동", "성동"]
@@ -34,6 +32,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     var currentTemp: String?
     
     // MARK: IBOutlet
+    @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var myLocationField: UITextField!
     

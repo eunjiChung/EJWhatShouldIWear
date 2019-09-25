@@ -196,6 +196,7 @@
                         <outlet property="alcTopOfSideBackButton" destination="pST-r6-bXJ" id="3A3-IW-ekm"/>
                         <outlet property="alcTopOfStackView" destination="EoF-yl-nWe" id="P7r-df-mSq"/>
                         <outlet property="alcTrailingOfSettingButton" destination="EZR-Sk-ZMq" id="X4R-ir-0bc"/>
+                        <outlet property="backgroundView" destination="18D-rx-As1" id="POD-xt-PwV"/>
                         <outlet property="loadingIndicator" destination="b6Q-P9-kUi" id="J0Y-sg-olY"/>
                         <outlet property="mainCollectionView" destination="KYY-W4-Zk5" id="Yry-Dt-Bra"/>
                         <outlet property="myLocationField" destination="GgD-CS-bCa" id="1ac-4M-RRq"/>
@@ -236,19 +237,19 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9H-8A-Roz">
                                                     <rect key="frame" x="81.333333333333329" y="188" width="212.66666666666669" height="24"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT SHOULD I " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK0-lp-NJV">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="WHAT SHOULD I " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK0-lp-NJV">
                                                             <rect key="frame" x="0.0" y="0.0" width="143.66666666666666" height="24"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
                                                             <color key="textColor" red="0.29803921570000003" green="0.30588235289999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WEAR " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shm-3g-uLv">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="WEAR " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shm-3g-uLv">
                                                             <rect key="frame" x="143.66666666666669" y="0.0" width="60.333333333333343" height="24"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                                             <color key="textColor" red="0.29803921570000003" green="0.30588235289999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-ey-oOv">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="?" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-ey-oOv">
                                                             <rect key="frame" x="204" y="0.0" width="8.6666666666666572" height="24"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
                                                             <color key="textColor" red="0.29803921570000003" green="0.30588235289999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>

@@ -45,9 +45,16 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func todayDateKRString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M월dd일 HH시 기준"
+        return dateFormatter.string(from: self)
+    }
+    
+    
     func todayDateString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM월 dd일 HH시"
+        dateFormatter.dateFormat = "MM/dd HHo'clock"
         return dateFormatter.string(from: self)
     }
     
@@ -56,5 +63,11 @@ extension Date {
         dateFormatter.dateFormat = "HH"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return dateFormatter.string(from: self)
+    }
+    
+    func currentHourInt() -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        return Int(dateFormatter.string(from: self))!
     }
 }
