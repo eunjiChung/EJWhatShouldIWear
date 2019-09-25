@@ -63,14 +63,16 @@ class TimeCollectionViewCell: UICollectionViewCell {
         guard let releaseHour = Int(currentDate.todayHourString()) else { return }
         let futureHour = (releaseHour + timeIndex) % 24
         let num = Double((releaseHour + timeIndex) / 24)
+        let dayArray = [LocalizedString(with: "today"), LocalizedString(with: "tomorrow"), LocalizedString(with: "day_after_tomorrow"), Date(timeIntervalSinceNow: 86400 * 3).dateCompose()]
+        
         hourLabel.text = "\(futureHour) \(hour)"
         
         // dateLabel
         if num == 0 && index == 0 {
-            dateLabel.text = date.dateCompose()
+            dateLabel.text = dayArray[0]
         } else {
             if futureHour == 0 || futureHour == 1 || futureHour == 2 {
-                dateLabel.text = Date(timeIntervalSinceNow: 86400 * num).dateCompose()
+                dateLabel.text = dayArray[Int(num)]
             } else {
                 dateLabel.text = "-"
             }

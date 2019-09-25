@@ -24,8 +24,6 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     @IBOutlet weak var alcLeadingConstraintOfTextLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopConstraintOfCollectionView: NSLayoutConstraint!
     @IBOutlet weak var alcBottomConstraintOfCollectionView: NSLayoutConstraint!
-    @IBOutlet weak var alcHeightOfCollectionView: NSLayoutConstraint!
-    
     
     
     // MARK: - IBOutlets

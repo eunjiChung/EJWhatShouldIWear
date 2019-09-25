@@ -23,6 +23,8 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var secondClothLabel: UILabel!
     @IBOutlet weak var thirdClothLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     
     // MARK: - Constraints
     var firstImageCenterY: CGFloat = 0.0
@@ -39,6 +41,8 @@ class ShowClothTableViewCell: UITableViewCell {
         firstImageCenterY = firstClothImageView.center.y - 7
         secondImageCenterY = secondClothImageview.center.y - 8
         thirdImageCenterY = thirdClothImageView.center.y - 10
+        
+        titleLabel.text = LocalizedString(with: "show_cloth_title")
     }
 
     
@@ -46,8 +50,6 @@ class ShowClothTableViewCell: UITableViewCell {
     public func generateKoreaMain(by model: SKThreeThreedays) {
         guard let weatherModel = model.weather, let forecast = weatherModel.forecast3days?.first else { return }
         guard let fcst3hour = forecast.fcst3hour, let timeRelease = forecast.timeRelease else { return }
-        
-        // 현재 온도 받아와야 되는거 아니야...?
         
         // 1. 원하는 날짜 받아오기
         let date = Date()

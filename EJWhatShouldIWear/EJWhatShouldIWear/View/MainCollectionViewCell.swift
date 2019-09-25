@@ -55,7 +55,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     
     // MARK: TableView Data Source
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

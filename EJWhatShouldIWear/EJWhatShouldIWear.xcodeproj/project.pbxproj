@@ -367,7 +367,7 @@
 			path = EJWhatShouldIWearTests;
 			sourceTree = "<group>";
 		};
-		72BF779822D636E400B2E121 /* CollectionViewCell */ = {
+		72BF779822D636E400B2E121 /* InsideCells */ = {
 			isa = PBXGroup;
 			children = (
 				998B82A9228D6A110099B71A /* TimeCollectionViewCell.swift */,
@@ -375,7 +375,7 @@
 				72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */,
 				72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */,
 			);
-			name = CollectionViewCell;
+			name = InsideCells;
 			sourceTree = "<group>";
 		};
 		72BF779922D6370F00B2E121 /* SideMenuCell */ = {
@@ -387,6 +387,7 @@
 				99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */,
 			);
 			name = SideMenuCell;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		991F229F228973C000FDBC98 /* Supporting Files */ = {
@@ -454,8 +455,7 @@
 		998191D5228C133B0063B684 /* HomeViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				72BF779922D6370F00B2E121 /* SideMenuCell */,
-				72BF779822D636E400B2E121 /* CollectionViewCell */,
+				72BF779822D636E400B2E121 /* InsideCells */,
 				998B8293228D671B0099B71A /* ShowClothTableViewCell.swift */,
 				998B8294228D671B0099B71A /* ShowClothTableViewCell.xib */,
 				998B8299228D67540099B71A /* TimeWeahtherTableViewCell.swift */,
@@ -545,8 +545,9 @@
 			isa = PBXGroup;
 			children = (
 				B617E51F2320FC5900DBC0D2 /* MainCollectionViewCell.swift */,
-				997533BB228EEAA7003DAF97 /* SettingViewCell */,
 				998191D5228C133B0063B684 /* HomeViewCells */,
+				72BF779922D6370F00B2E121 /* SideMenuCell */,
+				997533BB228EEAA7003DAF97 /* SettingViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
