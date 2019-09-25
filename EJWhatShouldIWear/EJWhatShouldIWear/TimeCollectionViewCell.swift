@@ -41,6 +41,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: - Public Method
+    // TODO: 여기 정리해야돼...
     public func setKRHourlyWeather(of model: SKThreeThreedays, at index: Int) {
         // 1. 현재 시간 받아오기
         let date = Date()
@@ -72,7 +73,11 @@ class TimeCollectionViewCell: UICollectionViewCell {
             dateLabel.text = dayArray[0]
         } else {
             if futureHour == 0 || futureHour == 1 || futureHour == 2 {
-                dateLabel.text = dayArray[Int(num)]
+                if dayArray[Int(num)] != "" {
+                    dateLabel.text = Date(timeIntervalSinceNow: 86400 * num).dateCompose()
+                } else {
+                    dateLabel.text = dayArray[Int(num)]
+                }
             } else {
                 dateLabel.text = "-"
             }

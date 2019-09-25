@@ -84,6 +84,7 @@
 		B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */; };
 		B6F1025D233B4413000C3DCD /* AppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025C233B4413000C3DCD /* AppStoreReviewManager.swift */; };
 		B6F1025F233B4479000C3DCD /* UserDefaults+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025E233B4479000C3DCD /* UserDefaults+Key.swift */; };
+		B6F10261233B4870000C3DCD /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10260233B4870000C3DCD /* ImageView.swift */; };
 		B6F74F1B2327922D00CDD4A6 /* SKHourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */; };
 		B6F74F1C2327922D00CDD4A6 /* SKHourlyWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */; };
 		B6F74F1D2327922D00CDD4A6 /* SKHourlyPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */; };
@@ -257,6 +258,7 @@
 		B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothCollectionViewCell.xib; sourceTree = "<group>"; };
 		B6F1025C233B4413000C3DCD /* AppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewManager.swift; sourceTree = "<group>"; };
 		B6F1025E233B4479000C3DCD /* UserDefaults+Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Key.swift"; sourceTree = "<group>"; };
+		B6F10260233B4870000C3DCD /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWeather.swift; sourceTree = "<group>"; };
 		B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWind.swift; sourceTree = "<group>"; };
 		B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyPrecipitation.swift; sourceTree = "<group>"; };
@@ -600,6 +602,7 @@
 			children = (
 				B62E8B8D22F9464C00055A0E /* Date.swift */,
 				B6F1025E233B4479000C3DCD /* UserDefaults+Key.swift */,
+				B6F10260233B4870000C3DCD /* ImageView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -1039,6 +1042,7 @@
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
 				B6F74F512327924800CDD4A6 /* SKThreeWind.swift in Sources */,
+				B6F10261233B4870000C3DCD /* ImageView.swift in Sources */,
 				B6F74F1D2327922D00CDD4A6 /* SKHourlyPrecipitation.swift in Sources */,
 				B6F74F572327924800CDD4A6 /* SKThreeFcstdaily.swift in Sources */,
 				B6F74F632327925400CDD4A6 /* SKSixResult.swift in Sources */,
