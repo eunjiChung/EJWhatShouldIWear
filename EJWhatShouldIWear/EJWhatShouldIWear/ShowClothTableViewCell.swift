@@ -36,8 +36,6 @@ class ShowClothTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setLayoutConstraints()
-        
         firstImageCenterY = firstClothImageView.center.y - 7
         secondImageCenterY = secondClothImageview.center.y - 8
         thirdImageCenterY = thirdClothImageView.center.y - 10
