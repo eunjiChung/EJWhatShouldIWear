@@ -12,9 +12,9 @@ class ClothCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "ClothCollectionViewCell"
     
-    @IBOutlet weak var clothImage: UIImageView!
-    @IBOutlet weak var clothTitle: UILabel!
-
+    @IBOutlet weak var topImage: UIImageView!
+    @IBOutlet weak var bottomImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

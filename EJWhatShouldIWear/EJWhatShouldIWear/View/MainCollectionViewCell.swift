@@ -133,7 +133,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
             if indexPath.row == 0 {
                 return EJSizeHeight(350.0)
             } else {
-                return EJSizeHeight(150.0)
+                return EJSizeHeight(120.0)
             }
         case 1:
             return EJSizeHeight(290.0)
