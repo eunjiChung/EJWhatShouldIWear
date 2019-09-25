@@ -65,7 +65,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
             let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController")
             self.navigationController?.pushViewController(shareVC!, animated: true)
         case 2:
-            sendEmailWithCompose()
+            writeReview()
         case 3:
             self.performSegue(withIdentifier: "sidemenu_setting_segue", sender: self)
         default:
@@ -75,11 +75,21 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     
     // MARK: - Private Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "sidemenu_setting_segue" {
             let settingVC = segue.destination as! EJSettingViewController
             settingVC.curLocation = self.curLocation
         }
+    }
+    
+    private func writeReview() {
+        guard let productURL = URL(string: AppStoreURL) else { return }
+        var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)
+        components?.queryItems = [
+          URLQueryItem(name: "action", value: "write-review")
+        ]
+        
+        guard let writeReviewURL = components?.url else { return }
+        UIApplication.shared.open(writeReviewURL)
     }
 
 }

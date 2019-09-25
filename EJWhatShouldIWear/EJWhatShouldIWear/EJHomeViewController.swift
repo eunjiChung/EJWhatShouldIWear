@@ -65,6 +65,9 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         configureSideMenu()
         
         locationManager.delegate = self as CLLocationManagerDelegate
+        
+        // 3회 방문시 스토어 리뷰 요청
+        AppStoreReviewManager.requestReviewIfAppropriate()
     }
     
     

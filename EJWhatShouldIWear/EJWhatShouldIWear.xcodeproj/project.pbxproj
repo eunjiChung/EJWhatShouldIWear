@@ -82,6 +82,8 @@
 		B6A2D0B4232F9021006515FC /* SKThreeFcstTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */; };
 		B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */; };
 		B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */; };
+		B6F1025D233B4413000C3DCD /* AppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025C233B4413000C3DCD /* AppStoreReviewManager.swift */; };
+		B6F1025F233B4479000C3DCD /* UserDefaults+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025E233B4479000C3DCD /* UserDefaults+Key.swift */; };
 		B6F74F1B2327922D00CDD4A6 /* SKHourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */; };
 		B6F74F1C2327922D00CDD4A6 /* SKHourlyWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */; };
 		B6F74F1D2327922D00CDD4A6 /* SKHourlyPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */; };
@@ -253,6 +255,8 @@
 		B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeFcstTemperature.swift; sourceTree = "<group>"; };
 		B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothCollectionViewCell.xib; sourceTree = "<group>"; };
+		B6F1025C233B4413000C3DCD /* AppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewManager.swift; sourceTree = "<group>"; };
+		B6F1025E233B4479000C3DCD /* UserDefaults+Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Key.swift"; sourceTree = "<group>"; };
 		B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWeather.swift; sourceTree = "<group>"; };
 		B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWind.swift; sourceTree = "<group>"; };
 		B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyPrecipitation.swift; sourceTree = "<group>"; };
@@ -549,6 +553,7 @@
 				992B097122BD513B00FF94B7 /* 5daysWeather */,
 				B6262C2622FA771A009FC744 /* WeatherMain.swift */,
 				B603890A22FBE9D500F36416 /* Cloth.swift */,
+				B6F1025C233B4413000C3DCD /* AppStoreReviewManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				B62E8B8D22F9464C00055A0E /* Date.swift */,
+				B6F1025E233B4479000C3DCD /* UserDefaults+Key.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -954,6 +960,7 @@
 				992B099122BD53C200FF94B7 /* EJFiveDaysClouds.swift in Sources */,
 				B6F74F532327924800CDD4A6 /* SKThreeGrid.swift in Sources */,
 				9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */,
+				B6F1025F233B4479000C3DCD /* UserDefaults+Key.swift in Sources */,
 				B6F74F202327922D00CDD4A6 /* SKHourlyTemperature.swift in Sources */,
 				B6F74F3B2327923B00CDD4A6 /* SKYesterdayYesterday.swift in Sources */,
 				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
@@ -1024,6 +1031,7 @@
 				B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */,
 				B6262C2722FA771A009FC744 /* WeatherMain.swift in Sources */,
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
+				B6F1025D233B4413000C3DCD /* AppStoreReviewManager.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				B602935B230FD5F3002BDA5E /* DeveloperTableViewCell.swift in Sources */,
 				B6F74F502327924800CDD4A6 /* SKThreeCommon.swift in Sources */,
