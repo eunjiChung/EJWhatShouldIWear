@@ -26,6 +26,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     
     // MARK: Global instance
     var location: String = LocalizedString(with: "unknown")
+    var cellOpened = false
     
     // MARK: IBOutlets
     @IBOutlet weak var mainTableView: UITableView!
@@ -53,36 +54,43 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         Library.stopPullToRefresh(toScrollView: self.mainTableView)
     }
     
+    
     // MARK: TableView Data Source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if cellOpened == true && section == 0 {
+            return 2
+        }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section
         {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
-            
-            // 한국일 경우
-            if let model = ThreeDaysWeatherModel {
-                cell.generateKoreaMain(by: model)
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
+                
+                // 한국일 경우
+                if let model = ThreeDaysWeatherModel {
+                    cell.generateKoreaMain(by: model)
+                }
+                // 외국일 경우
+                if let model = FiveDaysWeatherModel {
+                    cell.generateMain(by: model)
+                }
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ClothsCollectionTableViewCell.identifier, for: indexPath) as! ClothsCollectionTableViewCell
+                return cell
             }
-            // 외국일 경우
-            if let model = FiveDaysWeatherModel {
-                cell.generateMain(by: model)
-            }
-            
-            
-            return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
-        
+            
             // 한국일 경우
             if let model = ThreeDaysWeatherModel {
                 cell.setKRTimelyTable(of: model)
@@ -122,7 +130,11 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         
         switch indexPath.section {
         case 0:
-            return EJSizeHeight(350.0)
+            if indexPath.row == 0 {
+                return EJSizeHeight(350.0)
+            } else {
+                return EJSizeHeight(150.0)
+            }
         case 1:
             return EJSizeHeight(290.0)
         case 2:
@@ -149,6 +161,22 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 && indexPath.section == 0 {
+            if cellOpened == true {
+                cellOpened = false
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
+                tableView.endUpdates()
+            } else {
+                cellOpened = true
+                tableView.beginUpdates()
+                tableView.insertRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
+                tableView.endUpdates()
+            }
+        }
+    }
+    
     
     // MARK: Private method
     private func registerNibs() {
@@ -158,6 +186,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
+        mainTableView.register(UINib.init(nibName: ClothsCollectionTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ClothsCollectionTableViewCell.identifier)
     }
     
 }

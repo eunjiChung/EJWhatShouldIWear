@@ -80,6 +80,8 @@
 		B62E8B8E22F9464C00055A0E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E8B8D22F9464C00055A0E /* Date.swift */; };
 		B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */; };
 		B6A2D0B4232F9021006515FC /* SKThreeFcstTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */; };
+		B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */; };
+		B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */; };
 		B6F74F1B2327922D00CDD4A6 /* SKHourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */; };
 		B6F74F1C2327922D00CDD4A6 /* SKHourlyWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */; };
 		B6F74F1D2327922D00CDD4A6 /* SKHourlyPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */; };
@@ -125,6 +127,8 @@
 		B6F74F682327925400CDD4A6 /* SKSixForecast6days.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F5F2327925400CDD4A6 /* SKSixForecast6days.swift */; };
 		B6F74F692327925400CDD4A6 /* SKSixSixdaysBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F602327925400CDD4A6 /* SKSixSixdaysBase.swift */; };
 		B6F74F6A2327925400CDD4A6 /* SKSixCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F612327925400CDD4A6 /* SKSixCommon.swift */; };
+		B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */; };
+		B6FA52CE233B1982006E03A6 /* ClothsCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +251,8 @@
 		B62E8B8D22F9464C00055A0E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeFcstTemperature.swift; sourceTree = "<group>"; };
+		B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothCollectionViewCell.xib; sourceTree = "<group>"; };
 		B6F74F112327922D00CDD4A6 /* SKHourlyWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWeather.swift; sourceTree = "<group>"; };
 		B6F74F122327922D00CDD4A6 /* SKHourlyWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyWind.swift; sourceTree = "<group>"; };
 		B6F74F132327922D00CDD4A6 /* SKHourlyPrecipitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKHourlyPrecipitation.swift; sourceTree = "<group>"; };
@@ -292,6 +298,8 @@
 		B6F74F5F2327925400CDD4A6 /* SKSixForecast6days.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixForecast6days.swift; sourceTree = "<group>"; };
 		B6F74F602327925400CDD4A6 /* SKSixSixdaysBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixSixdaysBase.swift; sourceTree = "<group>"; };
 		B6F74F612327925400CDD4A6 /* SKSixCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSixCommon.swift; sourceTree = "<group>"; };
+		B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothsCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothsCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDF79756C2795B5E6E0A01F /* Pods-EJWhatShouldIWear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C268456BDE3D6566D65402 /* Pods-EJWhatShouldIWearUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -374,6 +382,8 @@
 				998B82AA228D6A110099B71A /* TimeCollectionViewCell.xib */,
 				72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */,
 				72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */,
+				B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */,
+				B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */,
 			);
 			name = InsideCells;
 			sourceTree = "<group>";
@@ -468,6 +478,8 @@
 				997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */,
 				72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */,
 				72CA9B1722D38CD000EFA227 /* WeekWeatherTableViewCell.xib */,
+				B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */,
+				B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */,
 			);
 			name = HomeViewCells;
 			path = ..;
@@ -801,6 +813,7 @@
 				724A173822D77C9B008FDCB6 /* cardigan.png in Resources */,
 				997A6A1922E1994A007AC760 /* InfoPlist.strings in Resources */,
 				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
+				B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */,
 				724A173A22D77C9B008FDCB6 /* blouse.png in Resources */,
 				99A05683228EAA0D002D3B7A /* DummyTableViewCell.xib in Resources */,
 				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
@@ -810,6 +823,7 @@
 				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
 				72CA9B1922D38CD000EFA227 /* WeekWeatherTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,
+				B6FA52CE233B1982006E03A6 /* ClothsCollectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,6 +998,7 @@
 				B602935D230FD5FD002BDA5E /* InstagramTableViewCell.swift in Sources */,
 				99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */,
 				B6F74F3C2327923B00CDD4A6 /* SKYesterdayYesterdayBase.swift in Sources */,
+				B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */,
 				B6F74F312327923B00CDD4A6 /* SKYesterdayTemperature.swift in Sources */,
 				B6F74F522327924800CDD4A6 /* SKThreeHumidity.swift in Sources */,
 				B6F74F682327925400CDD4A6 /* SKSixForecast6days.swift in Sources */,
@@ -1006,6 +1021,7 @@
 				992B09AE22BF849100FF94B7 /* EJSys.swift in Sources */,
 				B6F74F372327923B00CDD4A6 /* SKYesterdayHourly.swift in Sources */,
 				B6F74F1B2327922D00CDD4A6 /* SKHourlyWeather.swift in Sources */,
+				B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */,
 				B6262C2722FA771A009FC744 /* WeatherMain.swift in Sources */,
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
