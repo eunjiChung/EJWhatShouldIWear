@@ -163,6 +163,8 @@
 "desc_rain" = "비가 와요";
 "desc_drizzle" = "가볍게 비와요";
 "desc_fog" = "안개가 꼈어요";
+
+//
 "desc_add_warm" = "따뜻하게 입으세요";
 "desc_add_cool" = "더위 조심하세요!";
 "desc_add_cross" = "일교차가 큰 날이에요";

@@ -183,6 +183,9 @@ class EJWeatherManager: NSObject {
         var originalCode = 0
         var count = 0
         
+        var minTemp = 100
+        var maxTemp = -100
+        
         repeat {
             // 1-1. sky를 돌면서 critic weather가 있나 보기
             let code = skyList["code\(time)hour"] as! String
@@ -193,7 +196,16 @@ class EJWeatherManager: NSObject {
             let fcstTemp = Float(fcstTempString)!
             totalTemp += fcstTemp
             
+            // 1-3. temperature를 돌면서 오늘의 최저, 최고기온 발견하기
+            if Int(fcstTemp) < minTemp {
+                minTemp = Int(fcstTemp)
+            }
+            if Int(fcstTemp) > maxTemp {
+                maxTemp = Int(fcstTemp)
+            }
+            
             // 1-2-1. 오늘 8시 이후에는 다음날 날씨 표시하기
+            // TODO: 이거 문제될 것 같은데...공지해야될듯
             time += 3
             count += 1
         } while currentHour + time < 24
@@ -202,8 +214,11 @@ class EJWeatherManager: NSObject {
         WeatherClass.criticCondition = generateKRWeatherCondition(of: originalCode)
         
         // 3. Average Temp 설정
+        // TODO: max temp와 min temp도 설정해야함!!
         let averageTemp = totalTemp / Float(count)
         WeatherClass.mainTemp = getValidKRTemperature(by: averageTemp)
+        WeatherClass.maxTemp = Int(maxTemp)
+        WeatherClass.minTemp = Int(minTemp)
         
         // 4. Weather가 clear나 cloud일때와 아닐때 구분
         if WeatherClass.criticCondition != .clear && WeatherClass.criticCondition != .cloud {
@@ -213,8 +228,8 @@ class EJWeatherManager: NSObject {
         }
         
         // 5. MaxCloth, MinCloth 설정
-        WeatherClass.maxCloth = setTopCloth(by: WeatherClass.mainTemp)
-        WeatherClass.minCloth = setBottomCloth(by: WeatherClass.mainTemp)
+        WeatherClass.maxCloth = setTopCloth(by: WeatherClass.minTemp)
+        WeatherClass.minCloth = setBottomCloth(by: WeatherClass.maxTemp)
         
         // 6. WeatherDescription 설정
         WeatherClass.weatherDescription = weatherDescription()
@@ -252,12 +267,16 @@ class EJWeatherManager: NSObject {
         description += "\n"
         
         if WeatherClass.maxTemp < 15 {
+            print("Description : 따뜻하게 입으세요 \(WeatherClass.maxTemp)도")
             description += LocalizedString(with: "desc_add_warm")
         } else if WeatherClass.minTemp > 23 {
+            print("Description : 더위 조심하세요")
             description += LocalizedString(with: "desc_add_cool")
         } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
+            print("Description : 일교차가 큰 날이에요")
             description = description + LocalizedString(with: "desc_add_cross") + "\n"
             
+            // TODO: 몇 도씨 미만이고, 일교차가 크면 겉옷을 챙기도록 추천! 
             // 추천 로직은 보류...
             //            let cloth = LocalizedString(with: WeatherClass.criticCloth)
             //            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
