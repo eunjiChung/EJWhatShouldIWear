@@ -276,10 +276,9 @@ class EJWeatherManager: NSObject {
             print("Description : 일교차가 큰 날이에요")
             description = description + LocalizedString(with: "desc_add_cross") + "\n"
             
-            // TODO: 몇 도씨 미만이고, 일교차가 크면 겉옷을 챙기도록 추천! 
-            // 추천 로직은 보류...
-            //            let cloth = LocalizedString(with: WeatherClass.criticCloth)
-            //            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
+            // TODO: 몇 도씨 미만이고, 일교차가 크면 겉옷을 챙기도록 추천!
+            let cloth = LocalizedString(with: WeatherClass.criticCloth)
+            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
         }
         
         return description
@@ -536,7 +535,7 @@ class EJWeatherManager: NSObject {
     
     private func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
         var resultCode = originalCode
-
+        
         let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "S"]).joined()
         print(codeNumber)
         let currentCodeNum = Int(codeNumber)!
