@@ -123,7 +123,6 @@ class EJWeatherManager: NSObject {
     
     func skwpThreeDaysWeatherInfo(success: @escaping (SKThreeThreedays) -> (),
                                   failure: @escaping FailureHandler) {
-        print("Called!!!!!!!!!!!")
         let url = skWPThreeDaysAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   lat: latitude,
