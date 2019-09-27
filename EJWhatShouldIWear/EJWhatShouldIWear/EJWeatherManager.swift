@@ -135,6 +135,11 @@ class EJWeatherManager: NSObject {
     }
     
     // MARK: - Public Method
+    public func requestWeatherInfo(success: @escaping (SKThreeThreedays, SKSixSixdaysBase) -> (), failure: @escaping FailureHandler) {
+        print("===============================Dispatch Group")
+        
+    }
+    
     public func generateWeatherCondition(by list: [EJFiveDaysList]) -> WeatherMain {
         var maxTemp:Float = -1000
         var minTemp:Float = 1000

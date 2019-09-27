@@ -132,6 +132,7 @@
 		B6F74F6A2327925400CDD4A6 /* SKSixCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F74F612327925400CDD4A6 /* SKSixCommon.swift */; };
 		B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */; };
 		B6FA52CE233B1982006E03A6 /* ClothsCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */; };
+		C31526B39157335301A756E5 /* Pods_EJWhatShouldIWearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C563592EC60267E4D1F641 /* Pods_EJWhatShouldIWearTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,9 @@
 
 /* Begin PBXFileReference section */
 		1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34C563592EC60267E4D1F641 /* Pods_EJWhatShouldIWearTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4296309E4C1B9726C6DC4463 /* Pods-EJWhatShouldIWearTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearTests/Pods-EJWhatShouldIWearTests.release.xcconfig"; sourceTree = "<group>"; };
+		5932A35C12B40E6C3C924431 /* Pods-EJWhatShouldIWearTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearTests/Pods-EJWhatShouldIWearTests.debug.xcconfig"; sourceTree = "<group>"; };
 		724A173522D77C9B008FDCB6 /* cardigan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardigan.png; sourceTree = "<group>"; };
 		724A173622D77C9B008FDCB6 /* tshirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tshirt.png; sourceTree = "<group>"; };
 		724A173722D77C9B008FDCB6 /* blouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blouse.png; sourceTree = "<group>"; };
@@ -316,6 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31526B39157335301A756E5 /* Pods_EJWhatShouldIWearTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +350,8 @@
 				A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */,
 				F8C268456BDE3D6566D65402 /* Pods-EJWhatShouldIWearUITests.debug.xcconfig */,
 				B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */,
+				5932A35C12B40E6C3C924431 /* Pods-EJWhatShouldIWearTests.debug.xcconfig */,
+				4296309E4C1B9726C6DC4463 /* Pods-EJWhatShouldIWearTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -357,6 +364,7 @@
 				9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */,
 				1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */,
 				BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */,
+				34C563592EC60267E4D1F641 /* Pods_EJWhatShouldIWearTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -699,6 +707,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 724A174A22D77F87008FDCB6 /* Build configuration list for PBXNativeTarget "EJWhatShouldIWearTests" */;
 			buildPhases = (
+				857C218BF33C82DDAD43344E /* [CP] Check Pods Manifest.lock */,
 				724A173F22D77F87008FDCB6 /* Sources */,
 				724A174022D77F87008FDCB6 /* Frameworks */,
 				724A174122D77F87008FDCB6 /* Resources */,
@@ -893,6 +902,28 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-EJWhatShouldIWear-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		857C218BF33C82DDAD43344E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EJWhatShouldIWearTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1131,10 +1162,12 @@
 /* Begin XCBuildConfiguration section */
 		724A174B22D77F87008FDCB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5932A35C12B40E6C3C924431 /* Pods-EJWhatShouldIWearTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = EJWhatShouldIWearTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1152,10 +1185,12 @@
 		};
 		724A174C22D77F87008FDCB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4296309E4C1B9726C6DC4463 /* Pods-EJWhatShouldIWearTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = EJWhatShouldIWearTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (

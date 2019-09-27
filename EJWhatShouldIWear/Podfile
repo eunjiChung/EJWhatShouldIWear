@@ -18,9 +18,15 @@ target 'EJWhatShouldIWear' do
    pod 'ESPullToRefresh', '~> 2.9'
    pod 'Protobuf', :inhibit_warnings => true
 
+   target 'EJWhatShouldIWearTests' do
+    inherit! :search_paths
+ 
+   end
+
   target 'EJWhatShouldIWearUITests' do
     inherit! :search_paths
     # Pods for testing
+    
   end
 
 end

@@ -6,29 +6,38 @@
 //  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 //
 
+
 import XCTest
+import Firebase
+@testable import EJWhatShouldIWear
 
 class EJWhatShouldIWearTests: XCTestCase {
+    
+    var sut: EJWeatherManager!
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        sut = EJWeatherManager()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        super.tearDown()
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testDispatchGroup() {
+        // 1. given
+        let dispatchGroup = DispatchGroup()
         
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        dispatchGroup.enter()
+        DispatchQueue.global().async {
+            
         }
+        
+        // 2. when
+        // 3. then
     }
 
 }

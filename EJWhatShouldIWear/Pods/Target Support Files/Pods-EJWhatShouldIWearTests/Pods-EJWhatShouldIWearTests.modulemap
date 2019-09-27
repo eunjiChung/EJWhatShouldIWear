@@ -1,0 +1,6 @@
+framework module Pods_EJWhatShouldIWearTests {
+  umbrella header "Pods-EJWhatShouldIWearTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
