@@ -135,9 +135,47 @@ class EJWeatherManager: NSObject {
     }
     
     // MARK: - Public Method
-    public func requestWeatherInfo(success: @escaping (SKThreeThreedays, SKSixSixdaysBase) -> (), failure: @escaping FailureHandler) {
-        print("===============================Dispatch Group")
+    public func callWeatherInfo(success: @escaping (SKThreeThreedays, SKSixSixdaysBase) -> (), failure: @escaping FailureHandler) {
         
+        var threeDaysWeather: SKThreeThreedays?
+        var sixDaysWeather: SKSixSixdaysBase?
+        var resultError: Error?
+        
+        let dispatchGroup = DispatchGroup()
+        let dispatchQueue = DispatchQueue.global()
+        print("=============== Dispatch Group ===== START! ==============")
+        
+        dispatchGroup.enter()
+        dispatchQueue.async {
+            self.skwpThreeDaysWeatherInfo(success: { (result) in
+                threeDaysWeather = result
+                dispatchGroup.leave()
+            }) { (error) in
+                resultError = error
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.enter()
+        dispatchQueue.async {
+            self.skwpSixDaysWeatherInfo(success: { (result) in
+                sixDaysWeather = result
+                dispatchGroup.leave()
+            }) { (error) in
+                resultError = error
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("=============== Dispatch Group ===== Done! ==============")
+            
+            if let three = threeDaysWeather, let six = sixDaysWeather {
+                success(three, six)
+            } else {
+                if let error = resultError { failure(error) }
+            }
+        }
     }
     
     public func generateWeatherCondition(by list: [EJFiveDaysList]) -> WeatherMain {

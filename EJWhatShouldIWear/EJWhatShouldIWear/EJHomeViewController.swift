@@ -28,6 +28,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var SK3daysWeatherModel: SKThreeThreedays?
+    var SK6daysWeatherModel: SKSixSixdaysBase?
     var weatherInfo: Any?
     var currentTemp: String?
     
@@ -259,8 +260,11 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     }
     
     private func requestSKWPWeekWeatherList() {
-        WeatherManager.skwpThreeDaysWeatherInfo(success: { (result) in
-            self.SK3daysWeatherModel = result
+        WeatherManager.callWeatherInfo(success: { (hourlyWeather, weekelyWeather) in
+            self.SK3daysWeatherModel = hourlyWeather
+            self.SK6daysWeatherModel = weekelyWeather
+            print("Weather 3 result: \(self.SK3daysWeatherModel)")
+            print("Weather 6 result: \(self.SK6daysWeatherModel)")
             
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
