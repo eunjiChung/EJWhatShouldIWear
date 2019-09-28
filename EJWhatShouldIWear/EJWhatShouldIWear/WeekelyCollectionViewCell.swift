@@ -54,7 +54,17 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
         weatherTellingLabel.text = "\(tellWeatherCondition(of: index))"
     }
     
-    
+    public func setKoreaWeekelyInfo(_ sky: SKSixSky, _ temp: SKSixTemperature, to index: Int) {
+        let skyList = sky.dictionaryRepresentation()
+        let tempList = temp.dictionaryRepresentation()
+        
+        let minTemp = tempList["tmin\(index+2)day"] as! String
+        let maxTemp = tempList["tmax\(index+2)day"] as! String
+        let description = skyList["pmName\(index+2)day"] as! String
+        dateLabel.text = "\(getWeekday(of: index))"
+        tempLabel.text = "최저\(minTemp)-최고\(maxTemp)"
+        weatherTellingLabel.text = description
+    }
     
     
     // MARK: - Private Method

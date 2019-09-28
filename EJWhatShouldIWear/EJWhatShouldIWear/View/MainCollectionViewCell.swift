@@ -18,6 +18,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var ThreeDaysWeatherModel: SKThreeThreedays?
+    var WeekelyWeatherModel: SKSixSixdaysBase?
     var currentTemp: String?
     var admobViewController: UIViewController?
     var weatherInfo: Any?
@@ -104,6 +105,11 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekWeatherTableViewCell.identifier, for: indexPath) as! WeekWeatherTableViewCell
             
+            // 한국일 경우
+            if let model = WeekelyWeatherModel {
+                cell.setKoreaWeekelyTimeTable(by: model)
+            }
+            // 외국일 경우
             if let info = FiveDaysWeatherList {
                 cell.setWeekelyTimeTable(by:info)
             }

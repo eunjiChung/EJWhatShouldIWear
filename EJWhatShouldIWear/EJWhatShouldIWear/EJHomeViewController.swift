@@ -88,6 +88,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         cell.FiveDaysWeatherList = self.FiveDaysWeatherList
         cell.FiveDaysWeatherModel = self.FiveDaysWeatherModel
         cell.ThreeDaysWeatherModel = self.SK3daysWeatherModel
+        cell.WeekelyWeatherModel = self.SK6daysWeatherModel
         cell.currentTemp = self.currentTemp
         cell.location = self.location
         cell.weatherInfo = weatherInfo
@@ -263,8 +264,6 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         WeatherManager.callWeatherInfo(success: { (hourlyWeather, weekelyWeather) in
             self.SK3daysWeatherModel = hourlyWeather
             self.SK6daysWeatherModel = weekelyWeather
-            print("Weather 3 result: \(self.SK3daysWeatherModel)")
-            print("Weather 6 result: \(self.SK6daysWeatherModel)")
             
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
