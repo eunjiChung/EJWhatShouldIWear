@@ -401,11 +401,13 @@
 				72A5D5732340C6C70068D33D /* BackView.swift */,
 			);
 			name = "Custom View";
+			path = View;
 			sourceTree = "<group>";
 		};
 		72BF779822D636E400B2E121 /* InsideCells */ = {
 			isa = PBXGroup;
 			children = (
+				72A5D5702340C56A0068D33D /* Custom View */,
 				998B82A9228D6A110099B71A /* TimeCollectionViewCell.swift */,
 				998B82AA228D6A110099B71A /* TimeCollectionViewCell.xib */,
 				72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */,
@@ -587,7 +589,6 @@
 		99E6E525228C0F5F00506614 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				72A5D5702340C56A0068D33D /* Custom View */,
 				B617E51F2320FC5900DBC0D2 /* MainCollectionViewCell.swift */,
 				998191D5228C133B0063B684 /* HomeViewCells */,
 				72BF779922D6370F00B2E121 /* SideMenuCell */,

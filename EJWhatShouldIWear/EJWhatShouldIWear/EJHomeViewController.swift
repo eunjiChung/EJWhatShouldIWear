@@ -265,6 +265,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             self.SK3daysWeatherModel = hourlyWeather
             self.SK6daysWeatherModel = weekelyWeather
             
+            self.backgroundView.image = WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel)
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
             self.removeSplashScene()

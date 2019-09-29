@@ -212,6 +212,66 @@ class EJWeatherManager: NSObject {
         return WeatherClass
     }
     
+    public func generateKoreaBackgroundView(by model: SKThreeThreedays?) -> UIImage {
+        let date = Date()
+        // TODO: 현재 한국시간 기준...TimeZone 설정해야함
+        let time = Int(date.todayHourString())! + 9
+        
+        if time >= 20 || time < 6{
+            let night = ["night1", "night2"]
+            let pic = night.randomElement()!
+            return UIImage(named: pic)!
+        } else if time >= 18 {
+            let sunsets = ["sunset1", "sunset2", "sunset3", "sunset4"]
+            let pic = sunsets.randomElement()!
+            return UIImage(named: pic)!
+        } else if time >= 6 {
+            if let model = model, let threeWeather = model.weather, let fcst3days = threeWeather.forecast3days {
+                if let fcst = fcst3days.first, let fcst3hour = fcst.fcst3hour {
+                    if let sky = fcst3hour.sky, let timeRelease = fcst.timeRelease {
+                        var time = 4
+                        let currentHour = timeRelease.onlyKRTime()
+                        let list = sky.dictionaryRepresentation()
+                        var originalCode = 0
+                        var count = 0
+                        
+                        repeat {
+                            let code = list["code\(time)hour"] as! String
+                            originalCode = compareWeatherCode(code, originalCode)
+                            
+                            time += 3
+                            count += 1
+                        } while currentHour + time < 24
+                        
+                        let weatherCondition = generateKRWeatherCondition(of: originalCode)
+                        var name = "background"
+                        
+                        switch weatherCondition {
+                        case .clear:
+                            name = "clear"
+                        case .cloud:
+                            name = "cloud"
+                        case .drizzle, .rain, .squall:
+                            name = "rainy"
+                        case .tornado, .thunderstorm:
+                            name = "storm"
+                        case .ash:
+                            name = "ash"
+                        case .snow:
+                            name = "snow"
+                        case .haze, .fog, .dust:
+                            name = "dust"
+                        }
+                        
+                        return UIImage(named: name)!
+                    }
+                }
+            }
+        }
+        
+        return UIImage(named: "background")!
+    }
+    
     // 한국의 날씨 정보 받아오기
     // TODO: - 특보 유무, 태풍 유무 받아오기...
     public func generateWeatherConditionKR(_ list: SKThreeFcst3hour, _ timeRelease: String) -> WeatherMain {
@@ -577,7 +637,6 @@ class EJWeatherManager: NSObject {
     
     private func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
         var resultCode = originalCode
-        
         let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "S"]).joined()
         print(codeNumber)
         let currentCodeNum = Int(codeNumber)!
