@@ -16,6 +16,7 @@
 		72A5D56E2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */; };
 		72A5D56F2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */; };
 		72A5D5742340C6C70068D33D /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D5732340C6C70068D33D /* BackView.swift */; };
+		72A5D5762340DB0B0068D33D /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D5752340DB0B0068D33D /* CountryCode.swift */; };
 		72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */; };
 		72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */; };
 		72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */; };
@@ -170,6 +171,7 @@
 		72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72A5D5732340C6C70068D33D /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackView.swift; path = EJWhatShouldIWear/BackView.swift; sourceTree = SOURCE_ROOT; };
+		72A5D5752340DB0B0068D33D /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		72CA9B1022D21C7A00EFA227 /* WeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CA9B1122D21C7A00EFA227 /* WeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72CA9B1622D38CD000EFA227 /* WeekWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherTableViewCell.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 				B6262C2622FA771A009FC744 /* WeatherMain.swift */,
 				B603890A22FBE9D500F36416 /* Cloth.swift */,
 				B6F1025C233B4413000C3DCD /* AppStoreReviewManager.swift */,
+				72A5D5752340DB0B0068D33D /* CountryCode.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1088,6 +1091,7 @@
 				B6F1025D233B4413000C3DCD /* AppStoreReviewManager.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				B602935B230FD5F3002BDA5E /* DeveloperTableViewCell.swift in Sources */,
+				72A5D5762340DB0B0068D33D /* CountryCode.swift in Sources */,
 				72A5D56E2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift in Sources */,
 				B6F74F502327924800CDD4A6 /* SKThreeCommon.swift in Sources */,
 				B6F74F332327923B00CDD4A6 /* SKYesterdayDay.swift in Sources */,
