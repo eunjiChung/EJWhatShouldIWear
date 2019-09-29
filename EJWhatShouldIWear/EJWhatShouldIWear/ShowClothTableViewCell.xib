@@ -39,6 +39,12 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohh-sC-yuE">
+                                        <rect key="frame" x="18" y="15" width="23" height="16"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -47,9 +53,11 @@
                                     <constraint firstItem="OFe-WJ-bMy" firstAttribute="top" secondItem="TUV-X9-Ztw" secondAttribute="top" id="HsT-nO-Pjv"/>
                                     <constraint firstAttribute="trailing" secondItem="TUV-X9-Ztw" secondAttribute="trailing" constant="5" id="NfA-3s-tN2"/>
                                     <constraint firstAttribute="width" constant="156.33000000000001" id="Rzn-OX-d05"/>
+                                    <constraint firstItem="Ohh-sC-yuE" firstAttribute="top" secondItem="OFe-WJ-bMy" secondAttribute="top" id="Wgj-Nw-d0n"/>
                                     <constraint firstItem="TUV-X9-Ztw" firstAttribute="leading" secondItem="OFe-WJ-bMy" secondAttribute="trailing" id="YEq-zA-Jxt"/>
                                     <constraint firstAttribute="bottom" secondItem="OFe-WJ-bMy" secondAttribute="bottom" constant="10" id="Zya-e3-ZbT"/>
                                     <constraint firstItem="OFe-WJ-bMy" firstAttribute="leading" secondItem="jCg-DW-cT8" secondAttribute="leading" constant="30" id="ggN-yc-HKy"/>
+                                    <constraint firstItem="Ohh-sC-yuE" firstAttribute="leading" secondItem="jCg-DW-cT8" secondAttribute="leading" constant="18" id="n3k-sf-PCx"/>
                                     <constraint firstItem="TUV-X9-Ztw" firstAttribute="top" secondItem="jCg-DW-cT8" secondAttribute="top" constant="15" id="tbB-Bo-w4N"/>
                                 </constraints>
                             </view>
@@ -180,6 +188,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="averageLabel" destination="Ohh-sC-yuE" id="Ada-JC-5Ax"/>
                 <outlet property="currentTempLabel" destination="OFe-WJ-bMy" id="GwN-Vo-quB"/>
                 <outlet property="dateLabel" destination="Ex7-Qm-P2r" id="ZAh-43-fSW"/>
                 <outlet property="firstClothImageView" destination="8u2-sD-mC3" id="9sh-N9-aby"/>

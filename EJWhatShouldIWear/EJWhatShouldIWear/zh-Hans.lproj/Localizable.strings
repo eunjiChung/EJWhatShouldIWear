@@ -55,6 +55,7 @@
 "goto_blog" = "Go to Blog";
 "goto_instagram" = "Go to Instagram";
 "show_cloth_title" = "今天推荐的衣服";
+"average_label" = "平均";
 
 // alert
 "mail_warning_title" = "邮件应用程序设置错误";

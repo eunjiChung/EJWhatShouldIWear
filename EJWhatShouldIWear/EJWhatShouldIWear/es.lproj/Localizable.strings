@@ -55,6 +55,7 @@
 "goto_blog" = "Go to Blog";
 "goto_instagram" = "Go to Instagram";
 "show_cloth_title" = "traje de recomendación de hoy";
+"average_label" = "Promedio";
 
 // alert
 "mail_warning_title" = "Error al establecer de la aplicación e-mail";

@@ -99,6 +99,11 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         return cell
     }
     
+    // MARK: - CollectionView Delegate FlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+    }
+    
     // MARK: - Location Delegate
     func updateLocation() {
         checkLocationStatus()

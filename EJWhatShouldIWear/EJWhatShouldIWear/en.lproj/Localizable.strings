@@ -55,6 +55,7 @@
 "goto_blog" = "Go to Blog";
 "goto_instagram" = "Go to Instagram";
 "show_cloth_title" = "Today's Recommends";
+"average_label" = "Average";
 
 // alert
 "mail_warning_title" = "Mail App setting error";

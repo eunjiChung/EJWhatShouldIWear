@@ -24,7 +24,8 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var thirdClothLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-       
+    @IBOutlet weak var averageLabel: UILabel!
+    
     
     // MARK: - Animation Constraints
     var firstImageCenterY: CGFloat = 0.0
@@ -41,7 +42,7 @@ class ShowClothTableViewCell: UITableViewCell {
         thirdImageCenterY = thirdClothImageView.center.y - 10
         
         titleLabel.text = LocalizedString(with: "show_cloth_title")
-        
+        averageLabel.text = LocalizedString(with: "average_label")
     }
 
     

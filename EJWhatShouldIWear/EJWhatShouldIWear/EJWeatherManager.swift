@@ -219,7 +219,7 @@ class EJWeatherManager: NSObject {
     public func generateKoreaBackgroundView(by model: SKThreeThreedays?) -> UIImage {
         let date = Date()
         // TODO: 현재 한국시간 기준...TimeZone 설정해야함
-        let time = Int(date.todayHourString())! + 9
+        let time = (Int(date.todayHourString())! + 9) % 24
         
         if time >= 20 || time < 6{
             let night = ["night1", "night2"]
