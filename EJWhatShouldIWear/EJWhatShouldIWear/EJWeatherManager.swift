@@ -207,9 +207,13 @@ class EJWeatherManager: NSObject {
         
         WeatherClass.maxCloth = setTopCloth(by: WeatherClass.maxTemp)
         WeatherClass.minCloth = setBottomCloth(by: WeatherClass.minTemp)
-        WeatherClass.weatherDescription = weatherDescription()
+        WeatherClass.weatherDescription = weatherDescription(WeatherClass.criticCondition)
         
         return WeatherClass
+    }
+    
+    public func generateBackgroundView() -> UIImage {
+        return UIImage(named: "background")!
     }
     
     public func generateKoreaBackgroundView(by model: SKThreeThreedays?) -> UIImage {
@@ -316,7 +320,6 @@ class EJWeatherManager: NSObject {
         WeatherClass.criticCondition = generateKRWeatherCondition(of: originalCode)
         
         // 3. Average Temp 설정
-        // TODO: max temp와 min temp도 설정해야함!!
         let averageTemp = totalTemp / Float(count)
         WeatherClass.mainTemp = getValidKRTemperature(by: averageTemp)
         WeatherClass.maxTemp = Int(maxTemp)
@@ -334,15 +337,15 @@ class EJWeatherManager: NSObject {
         WeatherClass.minCloth = setBottomCloth(by: WeatherClass.maxTemp)
         
         // 6. WeatherDescription 설정
-        WeatherClass.weatherDescription = weatherDescription()
+        WeatherClass.weatherDescription = weatherDescription(WeatherClass.criticCondition)
         
         return WeatherClass
     }
     
-    public func weatherDescription() -> String {
+    public func weatherDescription(_ condition: WeatherCondition) -> String {
         var description = LocalizedString(with: "desc_tody") + " "
         
-        switch WeatherClass.criticCondition {
+        switch condition {
         case .clear:
             description += LocalizedString(with: "desc_clear")
         case .cloud:
@@ -380,7 +383,7 @@ class EJWeatherManager: NSObject {
             
             // TODO: 몇 도씨 미만이고, 일교차가 크면 겉옷을 챙기도록 추천!
             let cloth = LocalizedString(with: WeatherClass.criticCloth)
-            description = description + LocalizedString(with: "desc_add_cloth") + " \(cloth)"
+            description = description + " \(cloth) " + LocalizedString(with: "desc_add_cloth")
         }
         
         return description
@@ -428,6 +431,41 @@ class EJWeatherManager: NSObject {
         }
         
         return cloth
+    }
+    
+    public func getClothList(_ minTemp: Int, _ maxTemp: Int) -> [String] {
+        var list = [String]()
+        
+        switch maxTemp {
+        case TempRange.temp_28:
+            list += Top._28
+            if !TempRange.temp_28.contains(minTemp) { fallthrough }
+        case TempRange.temp_23_27:
+            list += Top._23_27
+            if !TempRange.temp_23_27.contains(minTemp) { fallthrough }
+        case TempRange.temp_20_22:
+            list += Top._20_22
+            if !TempRange.temp_20_22.contains(minTemp) { fallthrough }
+        case TempRange.temp_17_19:
+            list += Top._17_19
+            if !TempRange.temp_17_19.contains(minTemp) { fallthrough }
+        case TempRange.temp_12_16:
+            list += Top._12_16
+            if !TempRange.temp_12_16.contains(minTemp) { fallthrough }
+        case TempRange.temp_9_11:
+            list += Top._9_11
+            if !TempRange.temp_9_11.contains(minTemp) { fallthrough }
+        case TempRange.temp_5_8:
+            list += Top._5_8
+            if !TempRange.temp_5_8.contains(minTemp) { fallthrough }
+        case TempRange.temp_4:
+            list += Top._4
+            if !TempRange.temp_4.contains(minTemp) { fallthrough }
+        default:
+            list = Top._23_27
+        }
+        
+        return list
     }
     
     
@@ -527,38 +565,6 @@ class EJWeatherManager: NSObject {
         return temp
     }
     
-    public func getBackgroundImageName() -> String {
-        let date = Date()
-        
-        if date.currentHourInt() >= 20 {
-            let array = ["night1", "night2"]
-            return array.randomElement()!
-        } else if date.currentHourInt() >= 17 {
-            let array = ["sunset1", "sunset2", "sunset3", "sunset4"]
-            return array.randomElement()!
-        } else {
-            switch WeatherClass.criticCondition {
-            case .clear:
-                return "clear"
-            case .cloud:
-                return "cloud"
-            case .drizzle, .rain, .squall:
-                return "rainy"
-            case .dust, .haze:
-                return "dust"
-            case .thunderstorm, .tornado:
-                return "storm"
-            case .ash:
-                return "ash"
-            default:
-                return "background"
-            }
-        }
-        
-        return "background"
-    }
-    
-    
     // MARK: Locality
     public func getLocationInfo(of current: CLLocation,
                                 success: @escaping (String, String) -> (),
@@ -604,6 +610,51 @@ class EJWeatherManager: NSObject {
         return false
     }
     
+    public func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
+        var resultCode = originalCode
+        let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "S"]).joined()
+        let currentCodeNum = Int(codeNumber)!
+        
+        if resultCode < currentCodeNum {
+            resultCode = currentCodeNum
+        }
+        
+        return resultCode
+    }
+    
+    public func compareKRWeatherCode(_ currentCode: String, _ originalCode: Int) -> Int {
+        var resultCode = originalCode
+        let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "W"]).joined()
+        let currentCodeNum = Int(codeNumber)!
+        
+        if resultCode < currentCodeNum {
+            resultCode = currentCodeNum
+        }
+        
+        return resultCode
+    }
+    
+    public func generateKRWeatherCondition(of code: Int) -> WeatherCondition {
+        var type: WeatherCondition
+        
+        switch code {
+        case 1:
+            type = .clear
+        case 2, 3, 7:
+            type = .cloud
+        case 4, 8:
+            type = .rain
+        case 5, 6, 9, 10:
+            type = .snow
+        case 11, 12, 13, 14:
+            type = .thunderstorm
+        default:
+            type = .clear
+        }
+        
+        return type
+    }
+    
     // MARK: - Private Method
     private func weatherTemp(of originMaxTemp: Float, _ originMinTemp: Float, _ item: EJFiveDaysList) -> [String:Float] {
         var maxTemp: Float = originMaxTemp
@@ -633,40 +684,6 @@ class EJWeatherManager: NSObject {
         }
         
         return resultType
-    }
-    
-    private func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
-        var resultCode = originalCode
-        let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "S"]).joined()
-        print(codeNumber)
-        let currentCodeNum = Int(codeNumber)!
-        
-        if resultCode < currentCodeNum {
-            resultCode = currentCodeNum
-        }
-        
-        return resultCode
-    }
-    
-    private func generateKRWeatherCondition(of code: Int) -> WeatherCondition {
-        var type: WeatherCondition
-        
-        switch code {
-        case 1:
-            type = .clear
-        case 2, 3, 7:
-            type = .cloud
-        case 4, 8:
-            type = .rain
-        case 5, 6, 9, 10:
-            type = .snow
-        case 11, 12, 13, 14:
-            type = .thunderstorm
-        default:
-            type = .clear
-        }
-        
-        return type
     }
     
     private func weatherCondition(of id: Int) -> WeatherCondition {

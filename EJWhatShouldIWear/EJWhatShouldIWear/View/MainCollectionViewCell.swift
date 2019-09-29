@@ -87,6 +87,11 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ClothsCollectionTableViewCell.identifier, for: indexPath) as! ClothsCollectionTableViewCell
+                
+                if let model = ThreeDaysWeatherModel {
+                    cell.clothList(by: model)
+                }
+                
                 return cell
             }
         case 1:
@@ -139,7 +144,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
             if indexPath.row == 0 {
                 return EJSizeHeight(350.0)
             } else {
-                return EJSizeHeight(120.0)
+                return EJSizeHeight(150.0)
             }
         case 1:
             return EJSizeHeight(290.0)

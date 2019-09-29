@@ -13,11 +13,19 @@ class ClothCollectionViewCell: UICollectionViewCell {
     static let identifier = "ClothCollectionViewCell"
     
     @IBOutlet weak var topImage: UIImageView!
-    @IBOutlet weak var bottomImage: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    let attribute = ["더위타는 편이면", "추위타는 편이면"]
 
+    func setCloth(_ name: String) {
+        topImage.image = UIImage(named: name)
+        descriptionLabel.text = LocalizedString(with: name)
+    }
+    
+    
 }

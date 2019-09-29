@@ -20,12 +20,17 @@
 "cloudy" = "Cloudy";
 "snowy" = "Snowy";
 
+// day_expression
+"today" = "Today";
+"tomorrow" = "Tomorrow";
+"day_after_tomorrow" = "";
+
 // etc
 "share" = "Share with loved ones";
 "share1" = "Share ";
 "share2" = "with";
 "share3" = "Loved Ones";
-"send_mail" = "Send suggestion";
+"write_review" = "Write Review";
 "setting" = "Setting";
 "share_title" = "Take care of your loved ones with <WhatShouldIWear>";
 "share_limit" = "40 char limit";
@@ -36,7 +41,7 @@
 "setting_info" = "Developer Information";
 "send_title" = "Suggestion";
 "send_message" = "Please fix the followings";
-"main_timely" = "Today Weather";
+"main_timely" = "3hour weather";
 "main_weekely" = "Weekely Weather";
 "main_ad" = "Advertisement";
 "hour" = "H";
@@ -44,11 +49,12 @@
 "unknown" = "Unknown location";
 "developer_info" = "Developer Information";
 "app_version" = "App Version";
-"app_description" = "'What Should I Wear?' provides the weather data by OpenWeatherMap API to display various weather information. Because of this, depending on the server situation at that site, the information might not be displayed. Please also understand that all forecasts do not match 100%. More detailed use and development stories for applications are available in the blog.";
+"app_description" = "What Should I Wear?' provides the weather data by OpenWeatherMap API to display various weather information. Because of this, depending on the server situation at that site, the information might not be displayed. Please also understand that all forecasts do not match 100%. More detailed use and development stories for applications are available in the blog.";
 "blog" = "Blog";
 "instagram" = "Instagram";
 "goto_blog" = "Go to Blog";
 "goto_instagram" = "Go to Instagram";
+"show_cloth_title" = "Today's Recommends";
 
 // alert
 "mail_warning_title" = "Mail App setting error";

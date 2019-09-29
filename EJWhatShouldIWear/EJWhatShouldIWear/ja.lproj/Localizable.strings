@@ -20,12 +20,17 @@
 "cloudy" = "曇り";
 "snowy" = "雪下ろし";
 
+// day_expression
+"today" = "今日";
+"tomorrow" = "明日";
+"day_after_tomorrow" = "あさって";
+
 // etc
 "share" = "愛する人と共有する";
 "share1" = "";
 "share2" = "";
 "share3" = "愛する人と共有する";
-"send_mail" = "提案を送る";
+"write_review" = "レビュー書き";
 "setting" = "設定";
 "share_title" = "<WhatShouldIWear>であなたの愛する人の世話をします";
 "share_limit" = "40文字以内";
@@ -36,7 +41,7 @@
 "setting_info" = "開発者向け情報";
 "send_title" = "提案する";
 "send_message" = "以下を修正してください";
-"main_timely" = "時間帯別の天気";
+"main_timely" = "3時間の天気";
 "main_weekely" = "今週の天気";
 "main_ad" = "広告";
 "hour" = "時";
@@ -44,11 +49,12 @@
 "unknown" = "未知の場所";
 "developer_info" = "開発者情報";
 "app_version" = "App Version";
-"app_description" = "'What Should I Wear?' は,OpenWeatherMapで提供するデータで各種気象情報を表示します。 そのため,該当サイトのサーバー事情により,情報が表示されないことがあります。 また、全ての予報が100%一致しないという点を理解してください。 アプリケーションについてのより詳しい使い方および開発の話はブログに収録されています。";
+"app_description" = "What Should I Wear?' は,OpenWeatherMapで提供するデータで各種気象情報を表示します。 そのため,該当サイトのサーバー事情により,情報が表示されないことがあります。 また、全ての予報が100%一致しないという点を理解してください。 アプリケーションについてのより詳しい使い方および開発の話はブログに収録されています。";
 "blog" = "ブログ";
 "instagram" = "Instagram";
 "goto_blog" = "Go to Blog";
 "goto_instagram" = "Go to Instagram";
+"show_cloth_title" = "今日のおすすめの服";
 
 // alert
 "mail_warning_title" = "メールアプリケーション設定エラー";

@@ -31,7 +31,6 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
     }
     
@@ -41,13 +40,33 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
         
         let minTemp = tempList["tmin\(index+2)day"] as! String
         let maxTemp = tempList["tmax\(index+2)day"] as! String
-        let description = skyList["pmName\(index+2)day"] as! String
+        let pmCondition = skyList["pmCode\(index+2)day"] as! String
+        let amCondition = skyList["amCode\(index+2)day"] as! String
+        let condition = skyList["pmName\(index+2)day"] as! String
         
         dateLabel.text = "\(getKRWeekday(of: index))"
         maxTempLabel.text = maxTemp + "도"
         minTempLabel.text = minTemp + "도"
-//        clothImageView.image = 
-        descriptionLabel.text = description
+        generateValidCondition(pmCondition, amCondition, Int(minTemp)!)
+        descriptionLabel.text = condition
+    }
+    
+    // MARK: - Private Method
+    private func generateValidCondition(_ pm: String, _ am: String, _ temp: Int) {
+        let codeNumber = am.components(separatedBy: ["S", "K", "Y", "_", "W"]).joined()
+        let amCode = Int(codeNumber)!
+        let code = WeatherManager.compareKRWeatherCode(pm, amCode)
+        let condition = WeatherManager.generateKRWeatherCondition(of: code)
+        var clothName = ""
+        
+        if condition != .clear && condition != .cloud {
+            clothName = WeatherManager.setClothByCondition(condition)
+        } else {
+            clothName = WeatherManager.setOuterCloth(by: temp)
+        }
+        
+        clothImageView.image = UIImage(named: clothName)
+//        descriptionLabel.text = WeatherManager.weatherDescription(condition)
     }
     
     private func getKRWeekday(of index: Int) -> String {

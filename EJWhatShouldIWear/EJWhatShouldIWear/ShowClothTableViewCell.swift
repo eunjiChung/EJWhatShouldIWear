@@ -52,6 +52,7 @@ class ShowClothTableViewCell: UITableViewCell {
         
         // 1. 원하는 날짜 받아오기
         let date = Date()
+        // TODO: 한국 타임존...
         let today = date.todayDateKRString()
         dateLabel.text = today
        
@@ -59,10 +60,6 @@ class ShowClothTableViewCell: UITableViewCell {
         
         currentTempLabel.text = "\(weather.mainTemp)"
         unitLabel.text = WeatherManager.getValidUnit()
-        
-        // 배경바꾸기
-        let name = WeatherManager.getBackgroundImageName()
-        // NSNotificationCenter로 바꿔야할듯....
         
         generateClothRecommendation(weather)
     }

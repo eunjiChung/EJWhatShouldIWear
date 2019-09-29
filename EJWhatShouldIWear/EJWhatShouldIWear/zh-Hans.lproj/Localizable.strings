@@ -20,12 +20,17 @@
 "cloudy" = "模糊";
 "snowy" = "雪";
 
+// day_expression
+"today" = "今天";
+"tomorrow" = "明天";
+"day_after_tomorrow" = "后天";
+
 // etc
 "share" = "与亲人分享";
 "share1" = "";
 "share2" = "";
 "share3" = "与亲人分享";
-"send_mail" = "发送建议";
+"write_review" = "发表评论";
 "setting" = "设定";
 "share_title" = "<WhatShouldIWear>照顾你的亲人";
 "share_limit" = "40个字符限制";
@@ -36,7 +41,7 @@
 "setting_info" = "开发者信息";
 "send_title" = "建议";
 "send_message" = "请更正以下内容";
-"main_timely" = "小时天气";
+"main_timely" = "三小时天气";
 "main_weekely" = "本周天气";
 "main_ad" = "广告";
 "hour" = "点";
@@ -44,11 +49,12 @@
 "unknown" = "未知的地方";
 "developer_info" = "Infobox 开发者";
 "app_version" = "App Version";
-"app_description" = "'What Should I Wear?'用OpenWeatherMap提供的数据显示各种气象信息。 所以根据该网站服务器的情况,信息可能无法显示。 另外,请理解为所有预报100%不一致。 关于应用的更详细的使用方法及开发故事收录在博客中。";
+"app_description" = "What Should I Wear?'用OpenWeatherMap提供的数据显示各种气象信息。 所以根据该网站服务器的情况,信息可能无法显示。 另外,请理解为所有预报100%不一致。 关于应用的更详细的使用方法及开发故事收录在博客中。";
 "blog" = "博客";
 "instagram" = "Instagram";
 "goto_blog" = "Go to Blog";
 "goto_instagram" = "Go to Instagram";
+"show_cloth_title" = "今天推荐的衣服";
 
 // alert
 "mail_warning_title" = "邮件应用程序设置错误";
