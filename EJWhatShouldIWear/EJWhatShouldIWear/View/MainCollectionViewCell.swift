@@ -144,7 +144,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 1:
             return EJSizeHeight(290.0)
         case 2:
-            return EJSizeHeight(234.0)
+            return EJSizeHeight(350.0)
         case 3:
             return EJSizeHeight(60.0)
         default:
@@ -158,13 +158,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section
-        {
-        case 1, 2, 3:
-            return EJSizeHeight(0.5)
-        default:
-            return 0
-        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

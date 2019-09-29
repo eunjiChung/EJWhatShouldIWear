@@ -19,22 +19,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="471" height="220.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번주 날씨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3q-hP-X83">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번주 날씨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3q-hP-X83">
                         <rect key="frame" x="20" y="38" width="74" height="20"/>
                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
-                        <color key="textColor" red="0.29803921568627451" green="0.30588235294117649" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ycx-l7-ssm">
                         <rect key="frame" x="0.0" y="74" width="471" height="96.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="had-VG-HEc">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="had-VG-HEc">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlU-ia-HJp">
+                        <rect key="frame" x="10" y="0.0" width="451" height="0.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.29999999999999999" id="Rx9-lD-j1m"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -42,6 +49,9 @@
                     <constraint firstItem="A3q-hP-X83" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="38" id="B39-Vd-aUE"/>
                     <constraint firstItem="Ycx-l7-ssm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CxL-Vk-wUf"/>
                     <constraint firstItem="Ycx-l7-ssm" firstAttribute="top" secondItem="A3q-hP-X83" secondAttribute="bottom" constant="16" id="FBC-Zi-9Kh"/>
+                    <constraint firstAttribute="trailing" secondItem="UlU-ia-HJp" secondAttribute="trailing" constant="10" id="IUg-r9-qVB"/>
+                    <constraint firstItem="UlU-ia-HJp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="KGG-9j-Fac"/>
+                    <constraint firstItem="UlU-ia-HJp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gFL-or-FbL"/>
                     <constraint firstItem="A3q-hP-X83" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="gYJ-SA-1tw"/>
                     <constraint firstAttribute="trailing" secondItem="Ycx-l7-ssm" secondAttribute="trailing" id="oN4-AE-Akk"/>
                 </constraints>

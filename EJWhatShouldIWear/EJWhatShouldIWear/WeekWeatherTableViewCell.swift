@@ -40,6 +40,7 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         collectionView.delegate = self
         
         collectionView.register(UINib(nibName: "WeekelyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: WeekelyCollectionViewCell.identifier)
+        collectionView.register(UINib(nibName: "KRWeekelyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: KRWeekelyCollectionViewCell.identifier)
     }
 
     func setKoreaWeekelyTimeTable(by info: SKSixSixdaysBase) {
@@ -68,6 +69,18 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if let temp = krTempList {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KRWeekelyCollectionViewCell.identifier, for: indexPath) as! KRWeekelyCollectionViewCell
+            
+            let item = indexPath.item
+            if let temp = krTempList, let sky = krSkyList {
+                cell.setKoreaWeekelyInfo(sky, temp, to: item)
+            }
+            
+            return cell
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeekelyCollectionViewCell.identifier, for:indexPath) as! WeekelyCollectionViewCell
         
         let item = indexPath.item
@@ -86,7 +99,7 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     // MARK: - UICollectionView Delegate FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: EJSize((EJ_SCREEN_WIDTH_375-44)/3.5), height: EJSizeHeight(110.0))
+        return CGSize.init(width: EJSize(100.0), height: EJSizeHeight(212.0))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
