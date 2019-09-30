@@ -31,7 +31,7 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
 
         alcTopOfTitleLabel.constant = EJSizeHeight(38.0)
         alcLeadingOfTitleLabel.constant = EJSize(20.0)
-        alcBottomOfCollectionView.constant = EJSizeHeight(50.0)
+        alcBottomOfCollectionView.constant = EJSizeHeight(30.0)
         alcTopOfCollectionView.constant = EJSizeHeight(16.0)
         
         titleLabel.text = LocalizedString(with: "main_weekely")
@@ -62,7 +62,7 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if let temp = krTempList {
-            return 6
+            return 7
         }
         
         return 7
@@ -99,7 +99,17 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     // MARK: - UICollectionView Delegate FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: EJSize(100.0), height: EJSizeHeight(212.0))
+        var height: CGFloat = 0.0
+        
+        if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
+            height = EJSizeHeight(230.0)
+        } else if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
+            height = EJSizeHeight(240.0)
+        } else {
+            height = EJSizeHeight(212.0)
+        }
+        
+        return CGSize.init(width: EJSize(100.0), height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

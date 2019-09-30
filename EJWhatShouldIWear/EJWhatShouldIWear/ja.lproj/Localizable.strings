@@ -49,7 +49,7 @@
 "unknown" = "未知の場所";
 "developer_info" = "開発者情報";
 "app_version" = "App Version";
-"app_description" = "What Should I Wear?' は,OpenWeatherMapで提供するデータで各種気象情報を表示します。 そのため,該当サイトのサーバー事情により,情報が表示されないことがあります。 また、全ての予報が100%一致しないという点を理解してください。 アプリケーションについてのより詳しい使い方および開発の話はブログに収録されています。";
+"app_description" = "'What Should I Wear?' は,OpenWeatherMapで提供するデータで各種気象情報を表示します。 そのため,該当サイトのサーバー事情により,情報が表示されないことがあります。 また、全ての予報が100%一致しないという点を理解してください。 アプリケーションについてのより詳しい使い方および開発の話はブログに収録されています。";
 "blog" = "ブログ";
 "instagram" = "Instagram";
 "goto_blog" = "Go to Blog";

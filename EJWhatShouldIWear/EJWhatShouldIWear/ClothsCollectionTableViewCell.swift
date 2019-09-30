@@ -54,11 +54,20 @@ class ClothsCollectionTableViewCell: UITableViewCell, UICollectionViewDataSource
 
     // MARK: - UICollectionView Delegate FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (EJ_SCREEN_WIDTH_375-32)/4, height: EJSizeHeight(130.0))
+        var height: CGFloat = 0.0
+        
+        if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
+            height = EJSizeHeight(160.0)
+        } else if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
+            height = EJSizeHeight(180.0)
+        } else {
+            height = EJSizeHeight(130.0)
+        }
+        return CGSize(width: EJSize((EJ_SCREEN_WIDTH_375-32)/4), height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10.0, left: 5.0, bottom: 10.0, right: 0.0)
+        return UIEdgeInsets(top:  EJSizeHeight(10.0), left: EJSize(5.0), bottom: EJSizeHeight(10.0), right: 0.0)
     }
     
 }

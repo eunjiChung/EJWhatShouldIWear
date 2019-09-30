@@ -27,11 +27,23 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var clothImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    // MARK: - Layout Constraints
+    @IBOutlet weak var alcTopOfDateLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfTempLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfmintempLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfDescriptionLabel: NSLayoutConstraint!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
+        
+        alcTopOfDateLabel.constant = EJSizeHeight(11.0)
+        alcTopOfTempLabel.constant = EJSizeHeight(10.0)
+        alcTopOfmintempLabel.constant = EJSizeHeight(5.0)
+        alcBottomOfDescriptionLabel.constant = EJSizeHeight(10.0)
     }
     
     public func setKoreaWeekelyInfo(_ sky: SKSixSky, _ temp: SKSixTemperature, to index: Int) {

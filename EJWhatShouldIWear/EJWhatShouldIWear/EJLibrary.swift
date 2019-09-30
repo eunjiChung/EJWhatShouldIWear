@@ -25,6 +25,8 @@ public let EJ_SCREEN_HEIGHT: CGFloat            =   UIScreen.main.bounds.height
 public let EJ_SCREEN_HEIGHT_812 : CGFloat       =   812.0
 public let EJ_SCREEN_WIDTH_414: CGFloat         =   414.0
 public let EJ_SCREEN_WIDTH_375: CGFloat         =   375.0
+public let EJ_SCREEN_7_PLUS: CGFloat            =   736.0
+public let EJ_SCREEN_7: CGFloat                 =   667.0
 
 // MARK: UserDefaults Keys
 public let LOCATION_KEY : String                =   "location"

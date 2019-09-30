@@ -12,6 +12,7 @@ class ClothCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "ClothCollectionViewCell"
     
+    // MARK: - IBOutlets
     @IBOutlet weak var topImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     

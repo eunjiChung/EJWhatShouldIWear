@@ -32,6 +32,14 @@ class ShowClothTableViewCell: UITableViewCell {
     var secondImageCenterY: CGFloat = 0.0
     var thirdImageCenterY: CGFloat = 0.0
     
+    // MARK: - Layout Constraints
+    @IBOutlet weak var alcTopOfUnitLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfClothImageView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfClothNameLabel: NSLayoutConstraint!
+    @IBOutlet weak var alcBottomOfClothesView: NSLayoutConstraint!
+    @IBOutlet weak var alcTopOfClothesView: NSLayoutConstraint!
+    
+    
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
@@ -43,6 +51,8 @@ class ShowClothTableViewCell: UITableViewCell {
         
         titleLabel.text = LocalizedString(with: "show_cloth_title")
         averageLabel.text = LocalizedString(with: "average_label")
+        
+        setlayoutConstraints()
     }
 
     
@@ -119,6 +129,15 @@ class ShowClothTableViewCell: UITableViewCell {
         self.layer.masksToBounds = false
         self.layer.shadowOffset = .zero // 뷰로부터 얼마나 멀어질건지
         self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath // 그림자의 모양 (뷰에 맞추는 정도)
+    }
+    
+    private func setlayoutConstraints() {
+        
+        alcTopOfUnitLabel.constant = EJSizeHeight(15.0)
+        alcTopOfClothImageView.constant = EJSizeHeight(15.0)
+        alcTopOfClothNameLabel.constant = EJSizeHeight(10.0)
+        alcBottomOfClothesView.constant = EJSizeHeight(10.0)
+        alcTopOfClothesView.constant = EJSizeHeight(5.0)
     }
     
 }

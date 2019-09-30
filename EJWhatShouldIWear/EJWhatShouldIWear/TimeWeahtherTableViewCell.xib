@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,11 +14,11 @@
             <rect key="frame" x="0.0" y="0.0" width="415" height="261"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="415" height="260.66666666666669"/>
+                <rect key="frame" x="0.0" y="0.0" width="415" height="261"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NnF-4y-TDN">
-                        <rect key="frame" x="0.0" y="57.333333333333329" width="415" height="153.33333333333337"/>
+                        <rect key="frame" x="0.0" y="57.333333333333329" width="415" height="173.66666666666669"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="2jH-FM-nVc">
                             <size key="itemSize" width="50" height="50"/>
@@ -50,7 +48,7 @@
                     <constraint firstAttribute="trailing" secondItem="NnF-4y-TDN" secondAttribute="trailing" id="A9W-Wl-8TY"/>
                     <constraint firstItem="4UR-Ud-hLi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="FHN-g1-72h"/>
                     <constraint firstItem="NnF-4y-TDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Iry-ph-Aod"/>
-                    <constraint firstAttribute="bottom" secondItem="NnF-4y-TDN" secondAttribute="bottom" constant="50" id="JUQ-V9-FqT"/>
+                    <constraint firstAttribute="bottom" secondItem="NnF-4y-TDN" secondAttribute="bottom" constant="30" id="JUQ-V9-FqT"/>
                     <constraint firstItem="k1I-Rw-uFP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Kti-lt-WZf"/>
                     <constraint firstAttribute="trailing" secondItem="4UR-Ud-hLi" secondAttribute="trailing" constant="10" id="lnZ-AZ-zAw"/>
                     <constraint firstItem="4UR-Ud-hLi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pwe-rS-gpG"/>

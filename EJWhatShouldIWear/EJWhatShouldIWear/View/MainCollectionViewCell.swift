@@ -142,14 +142,28 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         switch indexPath.section {
         case 0:
             if indexPath.row == 0 {
-                return EJSizeHeight(350.0)
+                if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
+                    return EJSizeHeight(400.0)
+                } else if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
+                    return EJSizeHeight(420.0)
+                } else {
+                    return EJSizeHeight(350.0)
+                }
             } else {
-                return EJSizeHeight(150.0)
+                if EJ_SCREEN_HEIGHT == EJ_SCREEN_HEIGHT_812 {
+                    return EJSizeHeight(150.0)
+                } else {
+                    return EJSizeHeight(180.0)
+                }
             }
         case 1:
             return EJSizeHeight(290.0)
         case 2:
-            return EJSizeHeight(350.0)
+            if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
+                return EJSizeHeight(380.0)
+            } else {
+                return EJSizeHeight(350.0)
+            }
         case 3:
             return EJSizeHeight(60.0)
         default:

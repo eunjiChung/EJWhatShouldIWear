@@ -39,7 +39,7 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         alcTopConstraintOfTextLabel.constant = EJSizeHeight(38.0)
         alcLeadingConstraintOfTextLabel.constant = EJSize(20.0)
         alcTopConstraintOfCollectionView.constant = EJSizeHeight(18.0)
-        alcBottomConstraintOfCollectionView.constant = EJSizeHeight(50.0)
+        alcBottomConstraintOfCollectionView.constant = EJSizeHeight(30.0)
         
         collectionView.dataSource = self as UICollectionViewDataSource
         collectionView.delegate = self as UICollectionViewDelegate

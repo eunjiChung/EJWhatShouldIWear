@@ -49,7 +49,7 @@
 "unknown" = "la ubicación desconocido";
 "developer_info" = "Plantilla:Ficha de desarrollador";
 "app_version" = "App Version";
-"app_description" = "What Should I Wear?' muestra una variedad de información meteorológica basada en datos abiertos. Por eso la información no se puede identificar de acuerdo con las circunstancias del servidor del sitio correspondiente. También comprenda que todos los pronósticos no coinciden al 100 %. Los métodos de uso y desarrollo más detallados para las aplicaciones están en los blogs.";
+"app_description" = "'What Should I Wear?' muestra una variedad de información meteorológica basada en datos abiertos. Por eso la información no se puede identificar de acuerdo con las circunstancias del servidor del sitio correspondiente. También comprenda que todos los pronósticos no coinciden al 100 %. Los métodos de uso y desarrollo más detallados para las aplicaciones están en los blogs.";
 "blog" = "Blogs";
 "instagram" = "Instagram";
 "goto_blog" = "Go to Blog";

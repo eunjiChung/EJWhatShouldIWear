@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="378"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="377.66666666666669"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="378"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdq-Ys-Imd">
@@ -81,7 +79,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Ex7-Qm-P2r" firstAttribute="leading" secondItem="I8U-aG-kZU" secondAttribute="leading" id="9kf-VB-Rku"/>
-                                    <constraint firstAttribute="bottom" secondItem="I8U-aG-kZU" secondAttribute="bottom" constant="20" id="Yjw-n5-HLl"/>
+                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="I8U-aG-kZU" secondAttribute="bottom" constant="20" id="Yjw-n5-HLl"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="Ex7-Qm-P2r" secondAttribute="trailing" id="jda-3Z-fXE"/>
                                     <constraint firstItem="I8U-aG-kZU" firstAttribute="top" secondItem="Ex7-Qm-P2r" secondAttribute="bottom" id="noG-Wk-AhW"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="I8U-aG-kZU" secondAttribute="trailing" id="ok5-Cq-E3n"/>
@@ -103,7 +101,7 @@
                         </constraints>
                     </view>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bE7-HZ-EpO">
-                        <rect key="frame" x="0.0" y="172" width="375" height="195.66666666666663"/>
+                        <rect key="frame" x="0.0" y="172" width="375" height="196"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_blouse_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-sD-mC3">
                                 <rect key="frame" x="0.0" y="14.999999999999993" width="118.33333333333333" height="105.33333333333331"/>
@@ -188,6 +186,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="alcBottomOfClothesView" destination="L3Z-CU-Zlo" id="202-br-NCN"/>
+                <outlet property="alcTopOfClothImageView" destination="mYG-Bv-OEE" id="4Jx-ws-UsR"/>
+                <outlet property="alcTopOfClothNameLabel" destination="S7r-Se-jjH" id="TeB-kf-WZf"/>
+                <outlet property="alcTopOfClothesView" destination="bIq-Ad-Sen" id="ik8-rw-Jop"/>
+                <outlet property="alcTopOfUnitLabel" destination="tbB-Bo-w4N" id="wzZ-Fs-2ws"/>
                 <outlet property="averageLabel" destination="Ohh-sC-yuE" id="Ada-JC-5Ax"/>
                 <outlet property="currentTempLabel" destination="OFe-WJ-bMy" id="GwN-Vo-quB"/>
                 <outlet property="dateLabel" destination="Ex7-Qm-P2r" id="ZAh-43-fSW"/>
