@@ -270,7 +270,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             self.SK3daysWeatherModel = hourlyWeather
             self.SK6daysWeatherModel = weekelyWeather
             
-            self.backgroundView.image = WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel)
+            self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
             self.removeSplashScene()
@@ -286,7 +286,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             self.FiveDaysWeatherModel = fivedaysWeather
             self.FiveDaysWeatherList = fivedaysWeather.list
 
-            self.backgroundView.image = WeatherManager.generateBackgroundView(by: fivedaysWeather)
+            self.backgroundView.changeBackGround(with: WeatherManager.generateBackgroundView(by: fivedaysWeather)) 
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
             self.removeSplashScene()

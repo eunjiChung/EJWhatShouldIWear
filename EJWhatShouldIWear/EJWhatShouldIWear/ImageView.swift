@@ -10,7 +10,7 @@ import UIKit
 extension UIImageView {
     func changeBackGround(with image: UIImage) {
         UIView.transition(with: self,
-                          duration: 0.3,
+                          duration: 0.5,
                           options: [],
                           animations: { self.image = image },
                           completion: nil)

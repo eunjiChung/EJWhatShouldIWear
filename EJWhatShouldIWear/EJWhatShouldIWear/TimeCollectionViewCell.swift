@@ -102,6 +102,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
         let item = list[index]
         
         skyConditionLabel.text = ""
+        dateLabel.text = ""
         
         if let time = item.dtTxt {
             let date = time.toDate(timezone)
