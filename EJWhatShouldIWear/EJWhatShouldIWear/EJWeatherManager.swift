@@ -604,7 +604,7 @@ class EJWeatherManager: NSObject {
     
     // TODO: - 나라 지역화
     public func isLocationKorea() -> Bool {
-        if country == "대한민국" {
+        if country == LocalizedString(with: "korea") {
             return true
         }
         return false

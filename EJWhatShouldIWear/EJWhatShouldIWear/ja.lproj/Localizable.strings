@@ -56,6 +56,7 @@
 "goto_instagram" = "Go to Instagram";
 "show_cloth_title" = "今日のおすすめの服";
 "average_label" = "平均";
+"korea" = "韓国";
 
 // alert
 "mail_warning_title" = "メールアプリケーション設定エラー";

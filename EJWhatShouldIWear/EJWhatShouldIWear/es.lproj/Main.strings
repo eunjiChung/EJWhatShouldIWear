@@ -1,0 +1,84 @@
+
+/* Class = "UILabel"; text = "전해보세요"; ObjectID = "0j3-r9-N3i"; */
+"0j3-r9-N3i.text" = "전해보세요";
+
+/* Class = "UILabel"; text = "주변인에게 공유하기"; ObjectID = "17u-AW-0ZH"; */
+"17u-AW-0ZH.text" = "주변인에게 공유하기";
+
+/* Class = "UILabel"; text = "사랑하는 사람"; ObjectID = "6hX-RV-nyL"; */
+"6hX-RV-nyL.text" = "사랑하는 사람";
+
+/* Class = "UILabel"; text = "개발자 블로그"; ObjectID = "6oC-TR-tla"; */
+"6oC-TR-tla.text" = "개발자 블로그";
+
+/* Class = "UILabel"; text = "설정"; ObjectID = "9J3-z1-BgQ"; */
+"9J3-z1-BgQ.text" = "설정";
+
+/* Class = "UILabel"; text = "에게"; ObjectID = "B7L-1B-3Dm"; */
+"B7L-1B-3Dm.text" = "에게";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DTl-41-k2d"; */
+"DTl-41-k2d.text" = "Label";
+
+/* Class = "UILabel"; text = "불편/건의 메일 보내기"; ObjectID = "HO6-Wa-7Ma"; */
+"HO6-Wa-7Ma.text" = "불편/건의 메일 보내기";
+
+/* Class = "UILabel"; text = "?"; ObjectID = "I64-a5-FBC"; */
+"I64-a5-FBC.text" = "?";
+
+/* Class = "UILabel"; text = "매일 아침 알림을 받아보세요!"; ObjectID = "IV7-2M-XVK"; */
+"IV7-2M-XVK.text" = "매일 아침 알림을 받아보세요!";
+
+/* Class = "UILabel"; text = "Eunji Chung"; ObjectID = "Ujz-XT-xhG"; */
+"Ujz-XT-xhG.text" = "Eunji Chung";
+
+/* Class = "UILabel"; text = "?"; ObjectID = "VaO-ey-oOv"; */
+"VaO-ey-oOv.text" = "?";
+
+/* Class = "UIButton"; normalTitle = "인스타그램 바로가기"; ObjectID = "YQj-1j-F1l"; */
+"YQj-1j-F1l.normalTitle" = "인스타그램 바로가기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "a5x-RQ-PQG"; */
+"a5x-RQ-PQG.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cCu-Sx-uGk"; */
+"cCu-Sx-uGk.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "WHAT SHOULD I "; ObjectID = "fK0-lp-NJV"; */
+"fK0-lp-NJV.text" = "WHAT SHOULD I ";
+
+/* Class = "UILabel"; text = "WHAT SHOULD I "; ObjectID = "hgT-Tl-ZCv"; */
+"hgT-Tl-ZCv.text" = "WHAT SHOULD I ";
+
+/* Class = "UILabel"; text = "지역 설정"; ObjectID = "kUB-Yk-wKZ"; */
+"kUB-Yk-wKZ.text" = "지역 설정";
+
+/* Class = "UILabel"; text = "개발자 인스타그램"; ObjectID = "lNH-R7-jOx"; */
+"lNH-R7-jOx.text" = "개발자 인스타그램";
+
+/* Class = "UILabel"; text = "개발자 정보"; ObjectID = "meB-xi-QBW"; */
+"meB-xi-QBW.text" = "개발자 정보";
+
+/* Class = "UIButton"; normalTitle = "블로그 바로가기"; ObjectID = "pQQ-ab-voM"; */
+"pQQ-ab-voM.normalTitle" = "블로그 바로가기";
+
+/* Class = "UILabel"; text = "알림 설정"; ObjectID = "pbU-FC-tzL"; */
+"pbU-FC-tzL.text" = "알림 설정";
+
+/* Class = "UILabel"; text = "WEAR "; ObjectID = "r51-bG-rVK"; */
+"r51-bG-rVK.text" = "WEAR ";
+
+/* Class = "UIButton"; normalTitle = "보내기"; ObjectID = "rvV-ob-XbF"; */
+"rvV-ob-XbF.normalTitle" = "보내기";
+
+/* Class = "UILabel"; text = "WEAR "; ObjectID = "shm-3g-uLv"; */
+"shm-3g-uLv.text" = "WEAR ";
+
+/* Class = "UILabel"; text = "어플리케이션 정보"; ObjectID = "uS8-0N-zWI"; */
+"uS8-0N-zWI.text" = "어플리케이션 정보";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "uXt-Hh-okx"; */
+"uXt-Hh-okx.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zw7-nl-zb0"; */
+"zw7-nl-zb0.text" = "Label";
