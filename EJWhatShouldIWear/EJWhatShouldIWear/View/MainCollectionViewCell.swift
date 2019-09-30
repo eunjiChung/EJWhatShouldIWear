@@ -159,11 +159,14 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 1:
             return EJSizeHeight(290.0)
         case 2:
-            if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
-                return EJSizeHeight(380.0)
-            } else {
-                return EJSizeHeight(350.0)
+            if WeatherManager.isLocationKorea() {
+                if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
+                    return EJSizeHeight(380.0)
+                } else {
+                    return EJSizeHeight(350.0)
+                }
             }
+            return EJSizeHeight(234.0)
         case 3:
             return EJSizeHeight(60.0)
         default:

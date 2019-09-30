@@ -37,12 +37,9 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         alcTopOfDateLabel.constant = EJSizeHeight(9.0)
-        alcTopOfTempLabel.constant = EJSizeHeight(22.0)
+        alcTopOfTempLabel.constant = EJSizeHeight(10.0)
         alcTopOfWeatherTellingLabel.constant = EJSizeHeight(5.0)
         alcBottomOfWeatherTellingLabel.constant = EJSizeHeight(8.0)
-        dateLabel.font = dateLabel.font.withSize(13.0)
-        tempLabel.font = tempLabel.font.withSize(20.0)
-        weatherTellingLabel.font = weatherTellingLabel.font.withSize(13.0)
         
         dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
     }

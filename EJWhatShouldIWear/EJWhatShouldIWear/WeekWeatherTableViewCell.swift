@@ -82,28 +82,31 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeekelyCollectionViewCell.identifier, for:indexPath) as! WeekelyCollectionViewCell
         
         let item = indexPath.item
-        
         if let info = weatherInfo {
             cell.setWeekelyInfo(by: info, to: item)
         }
-        
         
         return cell
     }
     
     // MARK: - UICollectionView Delegate FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var height: CGFloat = EJSizeHeight(212.0)
+        var width:CGFloat = EJSize(100.0)
+        var height: CGFloat = EJSizeHeight(80.0)
         
         if WeatherManager.isLocationKorea() {
+            width = EJSize(100.0)
+            
             if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
                 height = EJSizeHeight(230.0)
             } else if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
                 height = EJSizeHeight(240.0)
+            } else {
+                height = EJSizeHeight(212.0)
             }
         }
         
-        return CGSize.init(width: EJSize(100.0), height: height)
+        return CGSize.init(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
