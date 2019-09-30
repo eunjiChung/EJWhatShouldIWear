@@ -33,6 +33,12 @@ extension String {
 }
 
 extension Date {
+    func generateDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:00:00"
+        return dateFormatter.string(from: self)
+    }
+    
     func todayDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -54,7 +60,7 @@ extension Date {
     
     func todayDateString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd HHo'clock"
+        dateFormatter.dateFormat = "MM.dd \(LocalizedString(with: "hour"))"
         return dateFormatter.string(from: self)
     }
     

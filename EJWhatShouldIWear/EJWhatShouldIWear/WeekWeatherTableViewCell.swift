@@ -60,12 +60,10 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     // MARK: - UICollectionView DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if let temp = krTempList {
             return 7
         }
-        
-        return 7
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -85,10 +83,6 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
         let item = indexPath.item
         
-        if let temp = krTempList, let sky = krSkyList {
-            cell.setKoreaWeekelyInfo(sky, temp, to: item)
-        }
-        
         if let info = weatherInfo {
             cell.setWeekelyInfo(by: info, to: item)
         }
@@ -99,14 +93,14 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     // MARK: - UICollectionView Delegate FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var height: CGFloat = 0.0
+        var height: CGFloat = EJSizeHeight(212.0)
         
-        if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
-            height = EJSizeHeight(230.0)
-        } else if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
-            height = EJSizeHeight(240.0)
-        } else {
-            height = EJSizeHeight(212.0)
+        if WeatherManager.isLocationKorea() {
+            if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
+                height = EJSizeHeight(230.0)
+            } else if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
+                height = EJSizeHeight(240.0)
+            }
         }
         
         return CGSize.init(width: EJSize(100.0), height: height)

@@ -285,9 +285,8 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
             self.FiveDaysWeatherModel = fivedaysWeather
             self.FiveDaysWeatherList = fivedaysWeather.list
-            
-            // TODO: 다른나라 배경도 설정하기
-            self.backgroundView.image = WeatherManager.generateBackgroundView()
+
+            self.backgroundView.image = WeatherManager.generateBackgroundView(by: fivedaysWeather)
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
             self.removeSplashScene()

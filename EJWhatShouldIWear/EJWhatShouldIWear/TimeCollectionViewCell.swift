@@ -37,6 +37,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
         alcTopOfSkyConditionLabel.constant = EJSizeHeight(3.0)
         alcTopOfClothImage.constant = EJSizeHeight(10.0)
         alcBottomOfClothImage.constant = EJSizeHeight(7.0)
+        
+        
     }
     
     
@@ -98,6 +100,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
         guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }
         let item = list[index]
+        
+        skyConditionLabel.text = ""
         
         if let time = item.dtTxt {
             let date = time.toDate(timezone)

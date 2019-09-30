@@ -62,7 +62,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if cellOpened == true && section == 0 {
+        if WeatherManager.isLocationKorea() && cellOpened == true && section == 0 {
             return 2
         }
         return 1
@@ -181,17 +181,19 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 && indexPath.section == 0 {
-            if cellOpened == true {
-                cellOpened = false
-                tableView.beginUpdates()
-                tableView.deleteRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
-                tableView.endUpdates()
-            } else {
-                cellOpened = true
-                tableView.beginUpdates()
-                tableView.insertRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
-                tableView.endUpdates()
+        if WeatherManager.isLocationKorea() {
+            if indexPath.row == 0 && indexPath.section == 0 {
+                if cellOpened == true {
+                    cellOpened = false
+                    tableView.beginUpdates()
+                    tableView.deleteRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
+                    tableView.endUpdates()
+                } else {
+                    cellOpened = true
+                    tableView.beginUpdates()
+                    tableView.insertRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
+                    tableView.endUpdates()
+                }
             }
         }
     }

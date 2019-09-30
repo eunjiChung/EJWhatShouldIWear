@@ -212,7 +212,47 @@ class EJWeatherManager: NSObject {
         return WeatherClass
     }
     
-    public func generateBackgroundView() -> UIImage {
+    public func generateBackgroundView(by model: EJFiveDaysWeatherModel) -> UIImage {
+        guard let city = model.city, let timezone = city.timezone, let list = model.list else { return UIImage(named: "background")! }
+        
+        let date = Date()
+        let dateString = date.generateDate()
+        let timeZoneDate = dateString.toDate(timezone)
+        let time = timeZoneDate.currentHourInt()
+        
+        if time >= 20 || time < 6 {
+            let night = ["night1", "night2"]
+            let pic = night.randomElement()!
+            return UIImage(named: pic)!
+        } else if time >= 18 {
+            let sunsets = ["sunset1", "sunset2", "sunset3", "sunset4"]
+            let pic = sunsets.randomElement()!
+            return UIImage(named: pic)!
+        } else if time >= 6 {
+            var name = ""
+            let weather = self.generateWeatherCondition(by: list)
+            let condition = weather.criticCondition
+            
+            switch condition {
+            case .clear:
+                name = "clear"
+            case .cloud:
+                name = "cloud"
+            case .drizzle, .rain, .squall:
+                name = "rainy"
+            case .tornado, .thunderstorm:
+                name = "storm"
+            case .ash:
+                name = "ash"
+            case .snow:
+                name = "snow"
+            case .haze, .fog, .dust:
+                name = "dust"
+            }
+            
+            return UIImage(named: name)!
+        }
+        
         return UIImage(named: "background")!
     }
     
