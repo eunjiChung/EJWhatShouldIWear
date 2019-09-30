@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -98,7 +96,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgD-CS-bCa">
-                                        <rect key="frame" x="182.66666666666666" y="45" width="10" height="24"/>
+                                        <rect key="frame" x="184.66666666666666" y="45" width="6" height="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -203,7 +201,7 @@
                         <outlet property="mainCollectionView" destination="KYY-W4-Zk5" id="Yry-Dt-Bra"/>
                         <outlet property="myLocationField" destination="GgD-CS-bCa" id="1ac-4M-RRq"/>
                         <outlet property="splashContainer" destination="hrt-2V-87B" id="CgE-E8-noS"/>
-                        <segue destination="GNz-Gy-ew7" kind="presentation" identifier="home_sidemenu_segue" id="rya-Qe-XdW"/>
+                        <segue destination="GNz-Gy-ew7" kind="presentation" identifier="home_sidemenu_segue" modalPresentationStyle="fullScreen" id="rya-Qe-XdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oY-2G-p5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -287,14 +285,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_black_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5Jt-gF-Pwq">
-                                                    <rect key="frame" x="21" y="27" width="23" height="23"/>
+                                                    <rect key="frame" x="21" y="27" width="23" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="5Jt-gF-Pwq" secondAttribute="height" multiplier="1:1" id="1MA-Po-vFy"/>
                                                         <constraint firstAttribute="width" constant="23" id="H8c-7y-SdD"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주변인에게 공유하기" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17u-AW-0ZH">
-                                                    <rect key="frame" x="53" y="28.666666666666671" width="301" height="19.333333333333329"/>
+                                                    <rect key="frame" x="53" y="32.333333333333336" width="301" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                     <color key="textColor" red="0.29803921568627451" green="0.30588235294117649" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -331,14 +329,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rut-oc-fwR">
-                                                    <rect key="frame" x="21" y="27" width="24" height="20"/>
+                                                    <rect key="frame" x="21" y="27" width="24" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="7n3-yV-joF"/>
                                                         <constraint firstAttribute="width" secondItem="rut-oc-fwR" secondAttribute="height" multiplier="6:5" id="kEb-A3-VaF"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="불편/건의 메일 보내기" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HO6-Wa-7Ma">
-                                                    <rect key="frame" x="54" y="27.333333333333336" width="300" height="19.333333333333336"/>
+                                                    <rect key="frame" x="54" y="37" width="300" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                     <color key="textColor" red="0.29803921568627451" green="0.30588235294117649" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -374,13 +372,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9J3-z1-BgQ">
-                                                    <rect key="frame" x="56" y="30.333333333333336" width="298" height="19.333333333333336"/>
+                                                    <rect key="frame" x="56" y="42.333333333333336" width="298" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                     <color key="textColor" red="0.29803921568627451" green="0.30588235294117649" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_black_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7WP-1L-pRj">
-                                                    <rect key="frame" x="21" y="27" width="26" height="26"/>
+                                                    <rect key="frame" x="21" y="27" width="26" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="7WP-1L-pRj" secondAttribute="height" multiplier="1:1" id="FMC-I9-KlK"/>
                                                         <constraint firstAttribute="width" constant="26" id="nOA-bb-I4k"/>
@@ -497,20 +495,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DeveloperTableViewCell" id="F19-mO-Sdk" customClass="DeveloperTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="344" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="344" width="375" height="52.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F19-mO-Sdk" id="MAa-JH-c7j">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="개발자 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meB-xi-QBW">
-                                                    <rect key="frame" x="15" y="16" width="78" height="12"/>
+                                                    <rect key="frame" x="15" y="15.999999999999998" width="78" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eunji Chung" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujz-XT-xhG">
-                                                    <rect key="frame" x="103" y="11.999999999999998" width="257" height="20.333333333333329"/>
+                                                    <rect key="frame" x="103" y="15.999999999999998" width="257" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -531,20 +529,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InstagramTableViewCell" id="Cro-SM-Shb" customClass="InstagramTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="388" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="396.33333206176758" width="375" height="52.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cro-SM-Shb" id="B4k-Pz-4Xw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개발자 인스타그램" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNH-R7-jOx">
-                                                    <rect key="frame" x="14.999999999999993" y="16" width="122.33333333333331" height="12"/>
+                                                    <rect key="frame" x="14.999999999999993" y="15.999999999999998" width="122.33333333333331" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQj-1j-F1l">
-                                                    <rect key="frame" x="142.33333333333337" y="11" width="217.66666666666663" height="22"/>
+                                                    <rect key="frame" x="142.33333333333337" y="10.999999999999998" width="217.66666666666663" height="30.333333333333329"/>
                                                     <state key="normal" title="인스타그램 바로가기"/>
                                                     <connections>
                                                         <action selector="didTouchButton:" destination="Cro-SM-Shb" eventType="touchUpInside" id="x68-de-sdT"/>
@@ -567,20 +565,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BlogTableViewCell" id="JnL-g2-lc2" customClass="BlogTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="432" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="448.66666412353516" width="375" height="52.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JnL-g2-lc2" id="G03-Q2-7oq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개발자 블로그" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oC-TR-tla">
-                                                    <rect key="frame" x="15" y="16" width="92.666666666666671" height="12"/>
+                                                    <rect key="frame" x="15" y="15.999999999999998" width="92.666666666666671" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQQ-ab-voM">
-                                                    <rect key="frame" x="112.66666666666667" y="11" width="247.33333333333331" height="22"/>
+                                                    <rect key="frame" x="112.66666666666667" y="10.999999999999998" width="247.33333333333331" height="30.333333333333329"/>
                                                     <state key="normal" title="블로그 바로가기"/>
                                                     <connections>
                                                         <action selector="didTouchBlogBtn:" destination="JnL-g2-lc2" eventType="touchUpInside" id="KUh-B5-5dq"/>
@@ -744,11 +742,11 @@
                                         <rect key="frame" x="0.0" y="184" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3vV-6R-rPP" id="wD0-Y2-9eR">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348.66666666666669" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어플리케이션 정보" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uS8-0N-zWI">
-                                                    <rect key="frame" x="21" y="29.666666666666664" width="123" height="20.666666666666664"/>
+                                                    <rect key="frame" x="21" y="29.666666666666664" width="129.66666666666666" height="20.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -790,7 +788,7 @@
                         <outlet property="alcTopOfBackIcon" destination="fBC-Mw-OsS" id="p7n-7G-nJ0"/>
                         <outlet property="tableView" destination="WQd-JA-CVf" id="GNk-Zi-aPv"/>
                         <segue destination="6kM-Fj-bLf" kind="show" identifier="showLocationSegue" id="PJO-Ie-mkR"/>
-                        <segue destination="8IS-Ni-XxI" kind="presentation" identifier="set_info_segue" id="Hp2-lQ-uZh"/>
+                        <segue destination="8IS-Ni-XxI" kind="presentation" identifier="set_info_segue" modalPresentationStyle="fullScreen" id="Hp2-lQ-uZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs4-DD-9dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
