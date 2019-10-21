@@ -13,6 +13,7 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Instances
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewTitleLabel: UILabel!
     
     static let identifier = "NoticeViewController"
     var ref = Database.database().reference()
@@ -23,6 +24,8 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewTitleLabel.text = LocalizedString(with: "setting_notice")
         
         getNoticeDB()
     }

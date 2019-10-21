@@ -67,6 +67,7 @@
 "update_message" = "Bạn có muốn thực hiện cập nhật với phiên bản mới nhất không?";
 "btn_cancel" = "sự huỷ bỏ";
 "setting_notice" = "Notice";
+"setting" = "Sự thiết lập";
 
 // error
 "localizing_error" = "Cannot use GPS";

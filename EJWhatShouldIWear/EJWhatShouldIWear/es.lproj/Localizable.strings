@@ -73,6 +73,7 @@
 "unknown_error" = "error desconocido";
 "network_error" = "inestabilidad de la red";
 "setting_notice" = "Margen";
+"setting" = "Establecimiento";
 
 // clothes
 "big_blouse_icon" = "la blusa";

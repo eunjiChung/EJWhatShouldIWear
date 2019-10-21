@@ -58,6 +58,7 @@
 "average_label" = "平均";
 "korea" = "韓国";
 "setting_notice" = "公知事項";
+"setting" = "設定";
 
 // alert
 "mail_warning_title" = "メールアプリケーション設定エラー";

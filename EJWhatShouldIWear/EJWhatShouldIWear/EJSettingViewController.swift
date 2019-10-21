@@ -15,6 +15,7 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     var curLocation : String? = nil
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewTitlelabel: UILabel!
     
     // MARK: - Layout constraints
     @IBOutlet weak var alcTopOfBackIcon: NSLayoutConstraint!
@@ -25,6 +26,7 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewTitlelabel.text = LocalizedString(with: "setting")
         
         alcTopOfBackIcon.constant = EJSizeHeight(46.0)
         alcLeadingOfBackIcon.constant = EJSize(18.0)
@@ -55,7 +57,7 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
-            cell.titleLabel.text = "공지사항" // TODO: - 공지사항 지역화하기
+            cell.titleLabel.text = LocalizedString(with: "setting_notice") // TODO: - 공지사항 지역화하기
             cell.myLocationLabel.text = ""
             return cell
         default:
