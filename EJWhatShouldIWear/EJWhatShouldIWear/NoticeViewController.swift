@@ -18,7 +18,8 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
     var ref = Database.database().reference()
     var noticeData = [[String: Any]]()
     var count = 0
-    var cellOpened = false
+    var selectedIndexPath: NSIndexPath!
+    var cellData = [Bool]()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -27,8 +28,26 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
         getNoticeDB()
     }
     
+    // MARK: - Database
+    func getNoticeDB() {
+        
+        self.ref.child("notices").queryOrdered(byChild: "timeRelease").observeSingleEvent(of: .value) { (datasnapshot) in
+            for item in datasnapshot.children.allObjects as! [DataSnapshot] {
+                let notice = item.value as! [String: Any]
+                self.noticeData.append(notice)
+            }
+            
+            self.noticeData.reverse()   // 최신순으로 하기 위해 reverse해줌
+            
+            for _ in self.noticeData {
+                self.cellData.append(false)
+            }
+            
+            self.tableView.reloadData()
+        }
+    }
     
-    
+
     @IBAction func didTouchInsert(_ sender: Any) {
         
         let noticeValue: [String: Any] = [
@@ -49,19 +68,6 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
         self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Database
-    func getNoticeDB() {
-        self.ref.child("notices").queryOrdered(byChild: "timeRelease").observeSingleEvent(of: .value) { (datasnapshot) in
-            for item in datasnapshot.children.allObjects as! [DataSnapshot] {
-                let notice = item.value as! [String: Any]
-                self.noticeData.append(notice)
-            }
-            
-            self.noticeData.reverse()   // 최신순으로 하기 위해 reverse해줌
-            self.tableView.reloadData()
-        }
-    }
-    
     
     
     // MARK: - TableView DataSource
@@ -70,7 +76,7 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if cellOpened == true {
+        if cellData[section] == true {
             return 2
         }
 
@@ -78,7 +84,7 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTitleTableViewCell.identifier, for: indexPath) as! NoticeTitleTableViewCell
             
@@ -100,20 +106,15 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Library.selectionHapticFeedback()
         
-        print("Did Select Row at \(indexPath.section)'s \(indexPath.row)")
-        
-        if cellOpened == true {
-            cellOpened = false
+        if cellData[indexPath.section] == true {
+            cellData[indexPath.section] = false
             tableView.beginUpdates()
-            tableView.deleteRows(at: [IndexPath(row: 1, section: indexPath.section)], with: .fade)
+            tableView.deleteRows(at: [IndexPath(row: 1, section: indexPath.section)], with: .top)
             tableView.endUpdates()
         } else {
-            cellOpened = true
-            
-            print("Cell is opened!!!")
-            
+            cellData[indexPath.section] = true
             tableView.beginUpdates()
-            tableView.insertRows(at: [IndexPath(row: 1, section: indexPath.section)], with: .fade)
+            tableView.insertRows(at: [IndexPath(row: 1, section: indexPath.section)], with: .top)
             tableView.endUpdates()
         }
     }
