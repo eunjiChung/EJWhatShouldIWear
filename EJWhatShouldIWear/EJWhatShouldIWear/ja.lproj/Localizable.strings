@@ -57,6 +57,7 @@
 "show_cloth_title" = "今日のおすすめの服";
 "average_label" = "平均";
 "korea" = "韓国";
+"setting_notice" = "公知事項";
 
 // alert
 "mail_warning_title" = "メールアプリケーション設定エラー";

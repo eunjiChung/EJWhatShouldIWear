@@ -72,6 +72,7 @@
 "localizing_error_msg" = "Por favor permita el escenario>La privacidad>servicio de localización";
 "unknown_error" = "error desconocido";
 "network_error" = "inestabilidad de la red";
+"setting_notice" = "Margen";
 
 // clothes
 "big_blouse_icon" = "la blusa";

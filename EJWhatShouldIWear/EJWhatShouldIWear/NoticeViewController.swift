@@ -17,7 +17,6 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
     static let identifier = "NoticeViewController"
     var ref = Database.database().reference()
     var noticeData = [[String: Any]]()
-    var count = 0
     var selectedIndexPath: NSIndexPath!
     var cellData = [Bool]()
     
@@ -50,8 +49,9 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBAction func didTouchInsert(_ sender: Any) {
         
+        // TODO: - 공지사항 추가할 경우 이 부분을 Showing한다
         let noticeValue: [String: Any] = [
-            "title": "공지사항 \(count+1)",
+            "title": "setting_notice",
             "detail": """
              2.0.1 버전 업데이트 사항
             
@@ -62,8 +62,8 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
             "timestamp": ServerValue.timestamp()
             ]
         
-        self.ref.child("notices").child("notice\(count+1)").setValue(noticeValue) { (error, reference) in
-            self.count += 1
+        self.ref.child("notices").child("notice").setValue(noticeValue) { (error, reference) in
+            print("count 1")
         }
         
     }
@@ -95,7 +95,8 @@ class NoticeViewController: UIViewController, UITableViewDataSource, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTitleTableViewCell.identifier, for: indexPath) as! NoticeTitleTableViewCell
             
             let notice = self.noticeData[indexPath.section]
-            cell.textLabel?.text = notice["title"] as? String
+            let noticeStr = notice["title"] as! String
+            cell.textLabel?.text = LocalizedString(with: noticeStr)
             
             return cell
         } else {

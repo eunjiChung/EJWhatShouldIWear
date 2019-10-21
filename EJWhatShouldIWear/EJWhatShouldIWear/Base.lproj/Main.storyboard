@@ -456,19 +456,20 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_icon" translatesAutoresizingMaskIntoConstraints="NO" id="13K-jF-f1N">
                                         <rect key="frame" x="18" y="52" width="11" height="18"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyB-wU-6hJ">
-                                        <rect key="frame" x="316" y="46" width="40" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Insert"/>
+                                    <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI0-sA-fep">
+                                        <rect key="frame" x="321" y="44" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="didTouchInsert:" destination="7oI-rT-bwQ" eventType="touchUpInside" id="ibG-9i-BAi"/>
+                                            <action selector="didTouchInsert:" destination="7oI-rT-bwQ" eventType="touchUpInside" id="ZPi-mR-Cxm"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25094899539999999" green="0.25099846720000002" blue="0.2509458363" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dI0-sA-fep" secondAttribute="bottom" constant="14" id="7Eq-NB-2MS"/>
                                     <constraint firstItem="13K-jF-f1N" firstAttribute="top" secondItem="QS8-ix-lbj" secondAttribute="top" constant="52" id="Ggs-eT-TyJ"/>
                                     <constraint firstItem="wJP-5D-AYg" firstAttribute="centerY" secondItem="13K-jF-f1N" secondAttribute="centerY" id="MyB-QM-oLj"/>
+                                    <constraint firstAttribute="trailing" secondItem="dI0-sA-fep" secondAttribute="trailing" constant="8" id="N5O-U8-PSK"/>
                                     <constraint firstAttribute="bottom" secondItem="13K-jF-f1N" secondAttribute="bottom" constant="18" id="SfB-VV-5sd"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="88" id="Zb2-Xh-eeL"/>
                                     <constraint firstItem="13K-jF-f1N" firstAttribute="leading" secondItem="QS8-ix-lbj" secondAttribute="leading" constant="18" id="daK-rz-Iwc"/>
