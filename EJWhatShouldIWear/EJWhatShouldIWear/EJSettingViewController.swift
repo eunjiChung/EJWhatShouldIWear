@@ -41,7 +41,7 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     
     // MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,6 +52,11 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
             
             cell.myLocationLabel.text = curLocation
             
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
+            cell.titleLabel.text = "공지사항" // TODO: - 공지사항 지역화하기
+            cell.myLocationLabel.text = ""
             return cell
         default:
 //            return tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath)
@@ -72,9 +77,10 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         case 0:
             self.performSegue(withIdentifier: "showLocationSegue", sender: self)
         case 1:
-            self.performSegue(withIdentifier: "set_info_segue", sender: self)
+            print("Go Notice Segue!!!!!!!!!")
+            self.performSegue(withIdentifier: "go_notice_segue", sender: self)
         default:
-            print("Nothing...")
+            self.performSegue(withIdentifier: "set_info_segue", sender: self)
         }
     }
  
