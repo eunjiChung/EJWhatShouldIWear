@@ -872,7 +872,7 @@
                                         <connections>
                                             <outlet property="descriptLabel" destination="IV7-2M-XVK" id="g3z-1G-xXb"/>
                                             <outlet property="notiSetLabel" destination="pbU-FC-tzL" id="6kP-ux-zfi"/>
-                                            <outlet property="notificationSwitch" destination="hg5-54-Wva" id="JRq-jP-jXx"/>
+                                            <outlet property="notificationSwitch" destination="hg5-54-Wva" id="n5I-R3-lDQ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InfoTableViewCell" rowHeight="80" id="3vV-6R-rPP" customClass="InfoTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
@@ -899,6 +899,26 @@
                                             <outlet property="alcLeadingOfTextLabel" destination="QR7-HV-aGm" id="YcT-LV-5Gf"/>
                                             <outlet property="titleLabel" destination="uS8-0N-zWI" id="S0F-UZ-gkh"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AlarmDetailTableViewCell" rowHeight="278" id="8MW-mV-r7J" customClass="AlarmDetailTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="278"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8MW-mV-r7J" id="bwb-b9-0Pn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nm4-cm-mo2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Nm4-cm-mo2" firstAttribute="leading" secondItem="bwb-b9-0Pn" secondAttribute="leading" id="1VI-D4-2h4"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nm4-cm-mo2" secondAttribute="trailing" id="Coa-nZ-da2"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nm4-cm-mo2" secondAttribute="bottom" id="E7D-5I-zYy"/>
+                                                <constraint firstItem="Nm4-cm-mo2" firstAttribute="top" secondItem="bwb-b9-0Pn" secondAttribute="top" id="kBp-1p-9aa"/>
+                                                <constraint firstItem="Nm4-cm-mo2" firstAttribute="centerX" secondItem="bwb-b9-0Pn" secondAttribute="centerX" id="tx8-4F-xix"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

@@ -10,9 +10,12 @@ import UIKit
 
 class AlarmTableViewCell: UITableViewCell {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var notiSetLabel: UILabel!
     @IBOutlet weak var descriptLabel: UILabel!
     @IBOutlet weak var notificationSwitch: UISwitch!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

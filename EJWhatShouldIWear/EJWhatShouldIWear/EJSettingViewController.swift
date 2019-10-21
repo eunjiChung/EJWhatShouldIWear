@@ -13,11 +13,11 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     
     // MARK: - Instance
     var curLocation : String? = nil
-    
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var viewTitlelabel: UILabel!
+    var cellOpened = false
     
     // MARK: - Layout constraints
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewTitlelabel: UILabel!
     @IBOutlet weak var alcTopOfBackIcon: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfBackIcon: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfBackButton: NSLayoutConstraint!
@@ -42,29 +42,47 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     
     
     // MARK: - TableView Data Source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        switch indexPath.row {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
-            
-            cell.myLocationLabel.text = curLocation
-            
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
-            cell.titleLabel.text = LocalizedString(with: "setting_notice") // TODO: - 공지사항 지역화하기
-            cell.myLocationLabel.text = ""
-            return cell
-        default:
-//            return tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath)
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
-            return cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 && cellOpened == true {
+            return 2
         }
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            if cellOpened && indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: AlarmDetailTableViewCell.identifier, for: indexPath) as! AlarmDetailTableViewCell
+                return cell
+            }
+        } else {
+            switch indexPath.section {
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as! AlarmTableViewCell
+                return cell
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
+                
+                cell.myLocationLabel.text = curLocation
+                
+                return cell
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
+                cell.titleLabel.text = LocalizedString(with: "setting_notice") // TODO: - 공지사항 지역화하기
+                cell.myLocationLabel.text = ""
+                return cell
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
+                return cell
+            }
+        }
+        
+        return UITableViewCell()
     }
     
     // MARK: - TableView Delegate
@@ -79,11 +97,10 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         case 0:
             self.performSegue(withIdentifier: "showLocationSegue", sender: self)
         case 1:
-            print("Go Notice Segue!!!!!!!!!")
             self.performSegue(withIdentifier: "go_notice_segue", sender: self)
         default:
             self.performSegue(withIdentifier: "set_info_segue", sender: self)
         }
     }
- 
+    
 }

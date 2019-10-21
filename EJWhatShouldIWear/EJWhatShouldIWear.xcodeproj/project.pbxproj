@@ -13,6 +13,7 @@
 		724A173A22D77C9B008FDCB6 /* blouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173722D77C9B008FDCB6 /* blouse.png */; };
 		724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */; };
 		724A174E22D7817F008FDCB6 /* muffler.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A174D22D7817F008FDCB6 /* muffler.png */; };
+		727DADB8235DFFF6001C6A66 /* AlarmDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727DADB7235DFFF6001C6A66 /* AlarmDetailTableViewCell.swift */; };
 		72A5D56E2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */; };
 		72A5D56F2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */; };
 		72A5D5742340C6C70068D33D /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D5732340C6C70068D33D /* BackView.swift */; };
@@ -171,6 +172,7 @@
 		724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWhatShouldIWearTests.swift; sourceTree = "<group>"; };
 		724A174722D77F87008FDCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724A174D22D7817F008FDCB6 /* muffler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muffler.png; sourceTree = "<group>"; };
+		727DADB7235DFFF6001C6A66 /* AlarmDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewCell.swift; sourceTree = "<group>"; };
 		72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72A5D5732340C6C70068D33D /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackView.swift; path = EJWhatShouldIWear/BackView.swift; sourceTree = SOURCE_ROOT; };
@@ -500,6 +502,7 @@
 				99FC4AC022DDCED9002DD721 /* InfoTableViewCell.swift */,
 				B6F60252235DA52F005B06F1 /* NoticeTitleTableViewCell.swift */,
 				B6F60254235DA553005B06F1 /* NoticeDetailTableViewCell.swift */,
+				727DADB7235DFFF6001C6A66 /* AlarmDetailTableViewCell.swift */,
 			);
 			name = SettingViewCell;
 			sourceTree = "<group>";
@@ -1089,6 +1092,7 @@
 				B6F74F1C2327922D00CDD4A6 /* SKHourlyWind.swift in Sources */,
 				B6F74F4B2327924800CDD4A6 /* SKThreeFcst6hour.swift in Sources */,
 				B6A2D0B4232F9021006515FC /* SKThreeFcstTemperature.swift in Sources */,
+				727DADB8235DFFF6001C6A66 /* AlarmDetailTableViewCell.swift in Sources */,
 				99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */,
 				B6F60253235DA52F005B06F1 /* NoticeTitleTableViewCell.swift in Sources */,
 				B6F74F4E2327924800CDD4A6 /* SKThreeWeather.swift in Sources */,
