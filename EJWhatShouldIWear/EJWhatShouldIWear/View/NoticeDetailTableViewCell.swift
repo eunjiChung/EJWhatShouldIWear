@@ -12,6 +12,9 @@ class NoticeDetailTableViewCell: UITableViewCell {
 
     static let identifier = "NoticeDetailTableViewCell"
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var detailLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
