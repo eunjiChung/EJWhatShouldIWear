@@ -15,8 +15,6 @@ class AlarmTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptLabel: UILabel!
     @IBOutlet weak var notificationSwitch: UISwitch!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         notiSetLabel.text = LocalizedString(with: "setting_noti")

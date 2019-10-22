@@ -64,7 +64,7 @@
 "mail_warning_title" = "메일앱 설정 오류";
 "mail_warning_message" = "메일 앱에서 발신자 정보를 설정하세요";
 "btn_ok" = "확인";
-"alarm_message" = "매일 아침 9시 알림을 받아보세요";
+"alarm_message" = "매일 원하는 시간에 알림을 받아보세요!";
 "update_title" = "업데이트";
 "update_message" = "최신 버전으로 업데이트를 진행하시겠습니까?";
 "btn_cancel" = "취소";

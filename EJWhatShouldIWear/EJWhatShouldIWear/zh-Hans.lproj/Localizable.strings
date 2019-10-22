@@ -64,7 +64,7 @@
 "mail_warning_title" = "邮件应用程序设置错误";
 "mail_warning_message" = "在邮件应用程序中输入发件人信息";
 "btn_ok" = "确认";
-"alarm_message" = "每天早上9点钟通知";
+"alarm_message" = "每天按时收到通知";
 "update_title" = "更新";
 "update_message" = "确定要更新到最新版本吗?";
 "btn_cancel" = "取消";

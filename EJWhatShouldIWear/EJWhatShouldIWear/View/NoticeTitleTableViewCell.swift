@@ -16,5 +16,4 @@ class NoticeTitleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
 }

@@ -64,7 +64,7 @@
 "mail_warning_title" = "メールアプリケーション設定エラー";
 "mail_warning_message" = "メールアプリケーションに送信者情報を入力してください";
 "btn_ok" = "確認";
-"alarm_message" = "毎朝9時の通知を受け取る";
+"alarm_message" = "毎日定刻のお知らせ";
 "update_title" = "アップデート";
 "update_message" = "最新バージョンにアップデートを行いますか。";
 "btn_cancel" = "キャンセル";

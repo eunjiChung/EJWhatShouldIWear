@@ -64,7 +64,7 @@
 "mail_warning_title" = "Mail App setting error";
 "mail_warning_message" = "Enter sender information in mail app";
 "btn_ok" = "Ok";
-"alarm_message" = "Get a 9 o'clock notice every morning";
+"alarm_message" = "Get every day alerts on time!";
 "update_title" = "Update";
 "update_message" = "Do you want to proceed with the update to the latest version?";
 "btn_cancel" = "Cancel";

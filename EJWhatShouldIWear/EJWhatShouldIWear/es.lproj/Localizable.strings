@@ -62,7 +62,7 @@
 "mail_warning_title" = "Error al establecer de la aplicación e-mail";
 "mail_warning_message" = "entrar la información del remitente";
 "btn_ok" = "Vale";
-"alarm_message" = "Recibir la alarma en todas las mañana";
+"alarm_message" = "Llamamiento";
 "update_title" = "actualización";
 "update_message" = "¿Desea continuar actualizando a la versión más reciente?";
 "btn_cancel" = "Retractación";

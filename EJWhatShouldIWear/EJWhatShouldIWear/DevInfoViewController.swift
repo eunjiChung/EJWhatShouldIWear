@@ -14,8 +14,6 @@ class DevInfoViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     @IBAction func didTouchBackBtn(_ sender: Any) {
