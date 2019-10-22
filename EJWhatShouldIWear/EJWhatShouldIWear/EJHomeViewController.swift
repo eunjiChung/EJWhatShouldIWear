@@ -148,7 +148,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             AnalyticsParameterItemID: "id-\(title)",
             AnalyticsParameterItemName: title,
             AnalyticsParameterContentType: "cont"
-            ])
+        ])
     }
     
     func setSettingsLocation() {
@@ -182,6 +182,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             self.popAlertVC(self, title: LocalizedString(with: "localizing_error"), message: LocalizedString(with: "localizing_error_msg"))
             updateDefaultLocation()
         case .authorizedWhenInUse, .authorizedAlways:
+            print("==============================================When In Use")
             locationManager.startUpdatingLocation()
         }
     }
@@ -234,6 +235,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         case .restricted, .denied:
             updateDefaultLocation()
         case .authorizedAlways, .authorizedWhenInUse:
+            print("==============================================555")
             locationManager.startUpdatingLocation()
         }
     }
@@ -261,6 +263,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
                 self.requestFiveDaysWeatherList(of: currentLocation)
             }
         }) { (error) in
+            print("==============================================6")
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
         }
     }
@@ -275,6 +278,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             self.tableDelegate?.reloadTableView()
             self.removeSplashScene()
         }) { (error) in
+            print("==============================================7")
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
             self.removeSplashScene()
         }
@@ -285,12 +289,13 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
             self.FiveDaysWeatherModel = fivedaysWeather
             self.FiveDaysWeatherList = fivedaysWeather.list
-
+            
             self.backgroundView.changeBackGround(with: WeatherManager.generateBackgroundView(by: fivedaysWeather)) 
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
             self.removeSplashScene()
         }) { (error) in
+            print("==============================================8")
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
             self.removeSplashScene()
         }
@@ -368,7 +373,7 @@ extension EJHomeViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPic
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.myLocationField.text = locations[row]
     }
-
+    
     // MARK: - TextField Delegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         pickUpLocation(myLocationField)

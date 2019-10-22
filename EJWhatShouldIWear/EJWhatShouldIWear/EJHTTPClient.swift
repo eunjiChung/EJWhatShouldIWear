@@ -24,23 +24,28 @@ class EJHTTPClient: NSObject {
                       success: @escaping ([String: Any]) -> (),
                       failure: @escaping (Error) -> ()) {
     
-        
         guard let result = URL(string: url) else {
             fatalError()
         }
         
         Alamofire.request(result).responseJSON { (response) in
+                       
+            print("==============================================1")
             
             if response.result.isSuccess
             {
+
+                print("==============================================3")
                 if let result = response.result.value as? [String: Any]
                 {
+                    print("==============================================2")
                     success(result)
                 }
                 
             } else {
-                if let error = response.result.error
-                {
+                print("==============================================4")
+                if let error = response.result.error {
+                    print("==============================================Error")
                     failure(error)
                 }
             }
