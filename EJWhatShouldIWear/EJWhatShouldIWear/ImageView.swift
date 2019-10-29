@@ -9,10 +9,13 @@ import UIKit
 
 extension UIImageView {
     func changeBackGround(with image: UIImage) {
-        UIView.transition(with: self,
-                          duration: 0.5,
-                          options: [],
-                          animations: { self.image = image },
-                          completion: nil)
+        // TODO: - 이렇게 메인 스레드에서 실행되지 않은 문제인가?
+        DispatchQueue.main.async {
+            UIView.transition(with: self,
+                              duration: 0.5,
+                              options: [],
+                              animations: { self.image = image },
+                              completion: nil)
+        }
     }
 }
