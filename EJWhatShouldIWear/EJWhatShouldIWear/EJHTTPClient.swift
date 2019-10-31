@@ -28,27 +28,43 @@ class EJHTTPClient: NSObject {
             fatalError()
         }
         
-        Alamofire.request(result).responseJSON { (response) in
-                       
-            print("==============================================1")
-            
-            if response.result.isSuccess
-            {
+        let manager = Alamofire.SessionManager.default
+        manager.session.configuration.timeoutIntervalForRequest = 120
 
-                print("==============================================3")
-                if let result = response.result.value as? [String: Any]
-                {
-                    print("==============================================2")
+        
+        manager.request(result).responseJSON { (response) in
+                       
+            switch (response.result) {
+            case .success:
+                if let result = response.result.value as? [String: Any] {
                     success(result)
                 }
-                
-            } else {
-                print("==============================================4")
-                if let error = response.result.error {
-                    print("==============================================Error")
+            case .failure(let error):
+                if error._code == NSURLErrorTimedOut {
+                    print("Request Time out")
                     failure(error)
                 }
             }
+            
+//            print("==============================================1")
+//
+//            if response.result.isSuccess
+//            {
+//
+//                print("==============================================3")
+//                if let result = response.result.value as? [String: Any]
+//                {
+//                    print("==============================================2")
+//                    success(result)
+//                }
+//
+//            } else {
+//                print("==============================================4")
+//                if let error = response.result.error {
+//                    print("==============================================Error")
+//                    failure(error)
+//                }
+//            }
         }
     }
 
