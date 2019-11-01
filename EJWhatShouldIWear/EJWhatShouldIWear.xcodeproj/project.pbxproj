@@ -81,6 +81,7 @@
 		B617E5202320FC5900DBC0D2 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617E51F2320FC5900DBC0D2 /* MainCollectionViewCell.swift */; };
 		B6262C2722FA771A009FC744 /* WeatherMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6262C2622FA771A009FC744 /* WeatherMain.swift */; };
 		B62E8B8E22F9464C00055A0E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E8B8D22F9464C00055A0E /* Date.swift */; };
+		B6545A4A236C29E80059DCD8 /* korea-administrative-district.json in Resources */ = {isa = PBXBuildFile; fileRef = B6545A49236C29E80059DCD8 /* korea-administrative-district.json */; };
 		B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */; };
 		B6A2D0B4232F9021006515FC /* SKThreeFcstTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */; };
 		B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */; };
@@ -261,6 +262,7 @@
 		B617E51F2320FC5900DBC0D2 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6262C2622FA771A009FC744 /* WeatherMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMain.swift; sourceTree = "<group>"; };
 		B62E8B8D22F9464C00055A0E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B6545A49236C29E80059DCD8 /* korea-administrative-district.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "korea-administrative-district.json"; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		B6A2D0B3232F9021006515FC /* SKThreeFcstTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKThreeFcstTemperature.swift; sourceTree = "<group>"; };
 		B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				990E595A22D71598000728A1 /* GoogleService-Info.plist */,
 				999B20A722029E670073A0D9 /* LaunchScreen.storyboard */,
 				999B20AA22029E670073A0D9 /* Info.plist */,
+				B6545A49236C29E80059DCD8 /* korea-administrative-district.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				724A174E22D7817F008FDCB6 /* muffler.png in Resources */,
 				990E595B22D71598000728A1 /* GoogleService-Info.plist in Resources */,
 				72A5D56F2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib in Resources */,
+				B6545A4A236C29E80059DCD8 /* korea-administrative-district.json in Resources */,
 				992B0A3522BFE72900FF94B7 /* Localizable.strings in Resources */,
 				999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */,
 				998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */,
