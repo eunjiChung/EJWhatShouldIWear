@@ -8,6 +8,13 @@
 
 import Foundation
 
+// MARK: - Country Related Classes
+class MyDistrict: Decodable {
+    var name: String
+    var version: String
+    var url: String
+    var data: Dictionary<String, Array<String>>
+}
 
 class CountryCode {
     

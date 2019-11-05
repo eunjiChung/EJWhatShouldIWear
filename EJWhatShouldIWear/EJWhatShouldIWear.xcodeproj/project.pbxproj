@@ -14,6 +14,7 @@
 		724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */; };
 		724A174E22D7817F008FDCB6 /* muffler.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A174D22D7817F008FDCB6 /* muffler.png */; };
 		72639E1D2371BE77009424F9 /* korea-district.json in Resources */ = {isa = PBXBuildFile; fileRef = 72639E1C2371BE77009424F9 /* korea-district.json */; };
+		72639E1F2371C6B7009424F9 /* SetDistrictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72639E1E2371C6B7009424F9 /* SetDistrictViewController.swift */; };
 		72A5D56E2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */; };
 		72A5D56F2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */; };
 		72A5D5742340C6C70068D33D /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D5732340C6C70068D33D /* BackView.swift */; };
@@ -172,6 +173,7 @@
 		724A174722D77F87008FDCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724A174D22D7817F008FDCB6 /* muffler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muffler.png; sourceTree = "<group>"; };
 		72639E1C2371BE77009424F9 /* korea-district.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "korea-district.json"; sourceTree = "<group>"; };
+		72639E1E2371C6B7009424F9 /* SetDistrictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDistrictViewController.swift; sourceTree = "<group>"; };
 		72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72A5D5732340C6C70068D33D /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackView.swift; path = EJWhatShouldIWear/BackView.swift; sourceTree = SOURCE_ROOT; };
@@ -619,6 +621,7 @@
 				99BB080C229E748400E454B8 /* EJShareViewController.swift */,
 				99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */,
 				B6F60250235DA4E8005B06F1 /* NoticeViewController.swift */,
+				72639E1E2371C6B7009424F9 /* SetDistrictViewController.swift */,
 				B6029357230FD5B0002BDA5E /* Developer Info Cell */,
 			);
 			name = Controller;
@@ -1107,6 +1110,7 @@
 				B6F74F502327924800CDD4A6 /* SKThreeCommon.swift in Sources */,
 				B6F60251235DA4E8005B06F1 /* NoticeViewController.swift in Sources */,
 				B6F74F332327923B00CDD4A6 /* SKYesterdayDay.swift in Sources */,
+				72639E1F2371C6B7009424F9 /* SetDistrictViewController.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
 				B6F74F512327924800CDD4A6 /* SKThreeWind.swift in Sources */,
