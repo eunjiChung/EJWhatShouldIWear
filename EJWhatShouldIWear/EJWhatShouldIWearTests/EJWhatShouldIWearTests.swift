@@ -32,11 +32,27 @@ class EJWhatShouldIWearTests: XCTestCase {
         super.tearDown()
     }
     
-    func testDispatchGroup() {
-        // Alamofire가 unit test에서 작동을 잘 안했다
+    func testParsingJSONDistrict() {
+        let decoder = JSONDecoder()
         
+        if let path = Bundle.main.path(forResource: "korea-district", ofType: "json") {
+            if let contents = try? String(contentsOfFile: path) {
+                if let data = contents.data(using: .utf8) {
+                    if let myDistrict = try? decoder.decode(MyDistrict.self, from: data) {
+                        print(myDistrict.data)
+                        let city = "울산광역시"
+                        XCTAssertEqual(myDistrict.data[city], ["중구", "남구", "동구", "북구", "울주군"])
+                    }
+                }
+            }
+        }
     }
-    
-    
+}
+
+class MyDistrict: Decodable {
+    var name: String
+    var version: String
+    var url: String
+    var data: Dictionary<String, Array<String>>
 }
 
