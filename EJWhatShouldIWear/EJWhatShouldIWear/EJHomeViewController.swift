@@ -375,6 +375,7 @@ extension EJHomeViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPic
     }
     
     // MARK: - TextField Delegate
+    // TODO: - 이렇게하면 Editing이 되는거 아니야...?
     func textFieldDidBeginEditing(_ textField: UITextField) {
         pickUpLocation(myLocationField)
     }

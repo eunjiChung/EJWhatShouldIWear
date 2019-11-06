@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qEl-Z0-wJf">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,10 +95,9 @@
                                             <segue destination="kd8-jy-ZeT" kind="show" id="uxB-f7-c8c"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgD-CS-bCa">
-                                        <rect key="frame" x="184.66666666666666" y="45" width="6" height="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgD-CS-bCa">
+                                        <rect key="frame" x="185.66666666666666" y="49.333333333333336" width="4" height="15.666666666666664"/>
+                                        <nil key="textColor"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="O3e-6i-eYV" id="QZn-pQ-jPN"/>
@@ -207,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oY-2G-p5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400.8000000000002" y="536.45320197044339"/>
+            <point key="canvasLocation" x="1958" y="536"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="E7P-ep-LZu">
@@ -493,11 +492,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="riw-N4-ZBH" id="JNl-KN-Z6p">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HVz-Oc-m8w">
-                                                    <rect key="frame" x="15" y="0.0" width="326" height="43.666667938232422"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325.66666666666669" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -798,11 +797,11 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationTableViewCell" rowHeight="76" id="QKh-3V-GTK" customClass="LocationTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationTableViewCell" rowHeight="76" id="QKh-3V-GTK" customClass="LocationTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QKh-3V-GTK" id="l7F-ZF-l63">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348.66666666666669" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 설정" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUB-Yk-wKZ">
@@ -812,7 +811,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw7-nl-zb0">
-                                                    <rect key="frame" x="324.66666666666669" y="30.333333333333332" width="29.333333333333314" height="15.666666666666668"/>
+                                                    <rect key="frame" x="298.33333333333331" y="30.333333333333332" width="29.333333333333314" height="15.666666666666668"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -835,11 +834,11 @@
                                         <rect key="frame" x="0.0" y="104" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3vV-6R-rPP" id="wD0-Y2-9eR">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348.66666666666669" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어플리케이션 정보" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uS8-0N-zWI">
-                                                    <rect key="frame" x="21" y="29.666666666666664" width="130" height="20.666666666666664"/>
+                                                    <rect key="frame" x="21" y="29.666666666666664" width="129.66666666666666" height="20.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -883,12 +882,12 @@
                         <outlet property="viewTitlelabel" destination="1EH-wn-bVz" id="MZv-Gz-onD"/>
                         <segue destination="8IS-Ni-XxI" kind="presentation" identifier="set_info_segue" modalPresentationStyle="fullScreen" id="Hp2-lQ-uZh"/>
                         <segue destination="7oI-rT-bwQ" kind="presentation" identifier="go_notice_segue" modalPresentationStyle="fullScreen" id="qkq-y1-fqj"/>
-                        <segue destination="34o-0W-5Nf" kind="presentation" modalPresentationStyle="fullScreen" id="UKi-qS-D8D"/>
+                        <segue destination="34o-0W-5Nf" kind="presentation" identifier="setting_localset_segue" modalPresentationStyle="fullScreen" id="UKi-qS-D8D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs4-DD-9dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400.8000000000002" y="1298.2758620689656"/>
+            <point key="canvasLocation" x="2882" y="1298"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="zOK-nb-ngg">
@@ -933,11 +932,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e2c-2z-zBR" id="IbB-cB-ndi">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348.66666666666669" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="서울시 중구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pui-EY-Kas">
-                                                    <rect key="frame" x="15" y="0.0" width="326" height="66"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325.66666666666669" height="66"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -984,7 +983,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kt2-Lu-R3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4114" y="1298"/>
+            <point key="canvasLocation" x="3630" y="1298"/>
         </scene>
         <!--Set District View Controller-->
         <scene sceneID="sDm-4g-v0T">
@@ -1003,6 +1002,7 @@
                                         <connections>
                                             <action selector="didTouchBackBtn:" destination="6kM-Fj-bLf" eventType="touchUpInside" id="bNY-5i-zER"/>
                                             <action selector="didTouchBackButton:" destination="7Vh-Qw-4jf" eventType="touchUpInside" id="D11-Ni-Jep"/>
+                                            <action selector="didTouchButton:" destination="34o-0W-5Nf" eventType="touchUpInside" id="Yws-eo-91v"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ah-sw-0CP">
@@ -1025,14 +1025,14 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="sTt-1z-fLO" rowHeight="76" style="IBUITableViewCellStyleDefault" id="j7b-V7-47J">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SiGunGuCell" textLabel="sTt-1z-fLO" rowHeight="76" style="IBUITableViewCellStyleDefault" id="j7b-V7-47J">
                                         <rect key="frame" x="0.0" y="28" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j7b-V7-47J" id="kKG-W2-WfO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="서울특별시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sTt-1z-fLO">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="시군구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sTt-1z-fLO">
                                                     <rect key="frame" x="15" y="0.0" width="345" height="76"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1042,42 +1042,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NeL-BY-88v" rowHeight="77" style="IBUITableViewCellStyleDefault" id="Del-gi-X8Y">
-                                        <rect key="frame" x="0.0" y="104" width="375" height="77"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Del-gi-X8Y" id="wIQ-0a-jK0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="송파구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NeL-BY-88v">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="77"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YB2-MP-q09" rowHeight="77" style="IBUITableViewCellStyleDefault" id="JA7-1b-vz2">
-                                        <rect key="frame" x="0.0" y="181" width="375" height="77"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JA7-1b-vz2" id="qNT-C2-3wh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="송파동" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YB2-MP-q09">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="77"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="243" id="F6Y-Lw-f6x">
-                                        <rect key="frame" x="0.0" y="258" width="375" height="243"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickDistrictTableViewCell" rowHeight="243" id="F6Y-Lw-f6x" customClass="PickDistrictTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="104" width="375" height="243"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F6Y-Lw-f6x" id="D39-Qe-Xzr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
@@ -1094,6 +1060,9 @@
                                                 <constraint firstItem="rYr-Fz-n8e" firstAttribute="top" secondItem="D39-Qe-Xzr" secondAttribute="top" id="pOE-nm-g7y"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="districtPickerView" destination="rYr-Fz-n8e" id="It7-dC-g7D"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1114,10 +1083,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DeX-lw-oyP"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Hpi-Su-h8x" id="VyI-ge-0df"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnI-SF-oV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3272.8000000000002" y="1297.536945812808"/>
+            <point key="canvasLocation" x="1670" y="1298"/>
         </scene>
         <!--Share View Controller-->
         <scene sceneID="zI7-qo-w8F">
@@ -1285,11 +1257,12 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="O3e-6i-eYV" kind="relationship" relationship="rootViewController" id="m5h-lN-As1"/>
+                        <segue destination="34o-0W-5Nf" kind="presentation" identifier="start_localset_segue" id="Gne-Ke-6Qp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cwv-Gp-8SM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663" y="537"/>
+            <point key="canvasLocation" x="777" y="536"/>
         </scene>
     </scenes>
     <resources>
@@ -1306,6 +1279,7 @@
         <image name="splash_img" width="375" height="812"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GAp-ka-gNi"/>
+        <segue reference="UKi-qS-D8D"/>
+        <segue reference="Yi0-Bh-cfi"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -53,17 +53,18 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
             cell.titleLabel.text = LocalizedString(with: "setting_notice")
-            cell.myLocationLabel.text = ""
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
             cell.myLocationLabel.text = curLocation
             return cell
-        default:
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
             return cell
+        default:
+            print("Nothing...")
         }
         
         return UITableViewCell()
@@ -80,10 +81,14 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         switch indexPath.section {
         case 0:
             self.performSegue(withIdentifier: "go_notice_segue", sender: self)
+        case 1:
+            if WeatherManager.isLocationKorea() {
+                self.performSegue(withIdentifier: "setting_localset_segue", sender: self)
+            }
         case 2:
             self.performSegue(withIdentifier: "set_info_segue", sender: self)
         default:
-            print("This is default")
+            print("Nothing...")
         }
     }
     
