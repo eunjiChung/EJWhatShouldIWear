@@ -65,25 +65,28 @@ extension SetDistrictViewController: UITableViewDataSource, UITableViewDelegate 
         case 0:
             if indexPath.row == 0 {
                 cell.textLabel?.text = "시"
+                cell.detailTextLabel?.text = "지역을 먼저 선택해주세요"
             } else {
                 let districtCell = tableView.dequeueReusableCell(withIdentifier: PickDistrictTableViewCell.identifier, for: indexPath) as! PickDistrictTableViewCell
                 
-                districtCell.districtPickerView.delegate = self as? UIPickerViewDelegate
-                districtCell.districtPickerView.dataSource = self as? UIPickerViewDataSource
-                districtData.keys.forEach { (si) in
-                    districtCell.data.append(si)
+                if districtCell.data.isEmpty {
+                    districtData.keys.forEach { (si) in
+                        districtCell.data.append(si)
+                    }
+                    districtCell.data.sort()
+                    // 서울특별시에서 시작하도록 설정
+                    districtCell.districtPickerView.selectRow(8, inComponent: 0, animated: false)
                 }
                 
                 return districtCell
             }
         case 1:
+            // TODO: - 구를 먼저 선택하면 오류가 난다! & 두 개의 셀을 모두 열면 오류!
             if indexPath.row == 0 {
                 cell.textLabel?.text = "구"
+                cell.detailTextLabel?.text = "지역을 먼저 선택해주세요"
             } else {
                 let districtCell = tableView.dequeueReusableCell(withIdentifier: PickDistrictTableViewCell.identifier, for: indexPath) as! PickDistrictTableViewCell
-                
-                districtCell.districtPickerView.delegate = self as? UIPickerViewDelegate
-                districtCell.districtPickerView.dataSource = self as? UIPickerViewDataSource
                 
                 if let array = districtData[districtSi] {
                     districtCell.data = array

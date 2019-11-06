@@ -23,8 +23,6 @@ class PickDistrictTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPicker
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        print("Pickerview Data: \(data)")
-        
         // Initialization code
         districtPickerView.delegate = self as UIPickerViewDelegate
         districtPickerView.dataSource = self as UIPickerViewDataSource
@@ -41,5 +39,11 @@ class PickDistrictTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPicker
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return data[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("Selected data: \(data[row])")
+        // TODO: - Delegate를 써서 선택한 지역정보 넘겨주기...
+        // 어떻게...?
     }
 }
