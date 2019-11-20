@@ -72,10 +72,10 @@ struct Outer: Cloth {
     static let _23_27 = [""]
     static let _20_22 = [CARDIGAN]
     static let _17_19 = [CARDIGAN, BLUE_JEAN_JACKET]
-    static let _12_16 = [JACKET, CARDIGAN, BLUE_JEAN_JACKET]
+    static let _12_16 = [JACKET, CARDIGAN, BLUE_JEAN_JACKET, CARDIGAN_1, CARDIGAN_2, CARDIGAN_3, CARDIGAN_4, CARDIGAN_5, CARDIGAN_6]
     static let _9_11 = [TRENCH_COAT, JACKET, BLUE_JEAN_JACKET]
     static let _5_8 = [PADDING_VEST, COAT]
-    static let _4 = [PADDING]
+    static let _4 = [PADDING, CARDIGAN_1, CARDIGAN_2, CARDIGAN_3, CARDIGAN_4, CARDIGAN_5, CARDIGAN_6]
 }
 
 struct Accessory {
