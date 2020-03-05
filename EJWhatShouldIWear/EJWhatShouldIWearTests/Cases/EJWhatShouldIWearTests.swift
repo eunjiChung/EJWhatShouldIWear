@@ -15,7 +15,9 @@ import Alamofire
 class EJWhatShouldIWearTests: XCTestCase {
     
     var sut: EJWeatherManager!
+    var weatherClass : WeatherMain!
     var http: EJHTTPClient!
+    let networkStub = HTTPMock()
     let group = DispatchGroup()
     let queue = DispatchQueue(label: "test", attributes: .concurrent)
     
@@ -32,11 +34,19 @@ class EJWhatShouldIWearTests: XCTestCase {
         super.tearDown()
     }
     
-    func testDispatchGroup() {
-        // Alamofire가 unit test에서 작동을 잘 안했다
-        
+    func testGeneratingWeatherDescription() {
+        // 1. 날씨 정보 받아오기
+        if let sky = networkStub.getSky() {
+            XCTAssertEqual(sky.code4hour, "SKY_S11")
+            // 2. 가장 심각한 날씨 정보 가져오기
+            let criticCondition = sut.pickCriticWeather(sky)
+            // 3. 개중에 가장 심각한 날씨 정보를 제대로 가져오는지 확인
+            XCTAssertEqual(criticCondition, .cloud)
+        }
     }
     
     
+    
+    
 }
-다
+

@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+typealias JSONType = [String: Any]
+
 class EJHTTPClient: NSObject {
     
     // MARK: - Initialize
@@ -21,7 +23,7 @@ class EJHTTPClient: NSObject {
     func weatherRequest(url: String,
                         lat:Double,
                         lon:Double,
-                      success: @escaping ([String: Any]) -> (),
+                      success: @escaping (JSONType) -> (),
                       failure: @escaping (Error) -> ()) {
     
         
@@ -33,7 +35,7 @@ class EJHTTPClient: NSObject {
             
             if response.result.isSuccess
             {
-                if let result = response.result.value as? [String: Any]
+                if let result = response.result.value as? JSONType
                 {
                     success(result)
                 }

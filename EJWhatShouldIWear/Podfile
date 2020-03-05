@@ -24,9 +24,6 @@ target 'EJWhatShouldIWear' do
    end
 
   target 'EJWhatShouldIWearUITests' do
-    inherit! :search_paths
-    # Pods for testing
-    
   end
 
 end

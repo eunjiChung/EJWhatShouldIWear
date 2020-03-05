@@ -70,7 +70,6 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         AppStoreReviewManager.requestReviewIfAppropriate()
     }
     
-    
     // MARK: - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_EJWhatShouldIWearUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_EJWhatShouldIWearUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_EJWhatShouldIWear_EJWhatShouldIWearUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_EJWhatShouldIWear_EJWhatShouldIWearUITestsVersionString[];
 

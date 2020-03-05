@@ -10,23 +10,25 @@ import XCTest
 
 class EJWhatShouldIWearUITests: XCTestCase {
 
+    let app = XCUIApplication()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app.launch()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testTable() {
+        let table = app.tables["mainTableView"]
+        let cell = table.cells["showClothCell"]
+        XCTAssertTrue(cell.exists)
+        // 셀 탭하기
+        cell.tap()
+        // 탭하면 옷들 나타남
+        let resultCell = table.cells["moreClothesCell"]
+        XCTAssertTrue(resultCell.exists)
     }
 
 }

@@ -11,22 +11,6 @@ import SwiftyJSON
 import CoreLocation
 import Crashlytics
 
-
-// MARK: - OpenWeatherMAP
-public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
-public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"
-
-// MARK: - SK Weather Planet API
-public let skWPHourlyAPI                        =   "https://apis.openapi.sk.com/weather/current/hourly"
-public let skWPMinuteAPI                        =   "https://apis.openapi.sk.com/weather/current/minutely"
-public let skWPYesterdayAPI                     =   "https://apis.openapi.sk.com/weather/yesterday"
-public let skWPSixDaysAPI                       =   "https://apis.openapi.sk.com/weather/forecast/6days"
-public let skWPThreeDaysAPI                     =   "https://apis.openapi.sk.com/weather/forecast/3days"
-
-public let skPublic3daysAppKey                  =   "6ebc2338-3b54-4ad2-a92c-55dddb172a5a"
-public let skPublic6daysAppKey                  =   "73f51154-b4cc-485c-b9ce-85130eac089d"
-public let skDebugAppKey                        =   "cd0c9c72-6e32-4181-9291-9340adb8d0dc"
-
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
 typealias FailureHandler = (Error) -> ()
@@ -47,13 +31,13 @@ enum WeatherCondition: Int {
     case clear = 11
 }
 
-
 // MARK: - Shared Instance
 let WeatherManager = EJWeatherManager.sharedInstance
 
 class EJWeatherManager: NSObject {
     
     static let sharedInstance = EJWeatherManager()
+    
     var latitude: Double = 0    //37.51151
     var longitude: Double = 0   //127.0967
     var country: String = ""
@@ -380,6 +364,18 @@ class EJWeatherManager: NSObject {
         WeatherClass.weatherDescription = weatherDescription(WeatherClass.criticCondition)
         
         return WeatherClass
+    }
+    
+    public func pickCriticWeather(_ weatherInfo: SKThreeHoursSky) -> WeatherCondition {
+        let list = weatherInfo.dictionaryRepresentation()
+        var resultCode = 1
+
+        list.forEach { (code, _) in
+            guard let numberOfCode = Int(code.components(separatedBy: ["S", "K", "Y", "_", "S"]).joined()) else { return }
+            if numberOfCode > resultCode { resultCode = numberOfCode }
+        }
+        
+        return WeatherCondition.init(rawValue: resultCode) ?? .clear
     }
     
     public func weatherDescription(_ condition: WeatherCondition) -> String {

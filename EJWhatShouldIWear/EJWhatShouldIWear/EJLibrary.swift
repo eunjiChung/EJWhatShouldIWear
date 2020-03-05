@@ -10,15 +10,6 @@ import UIKit
 import UserNotifications
 import ESPullToRefresh
 
-// MARK: - App Store URL
-public let AppStoreURL                          =   "https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EB%AA%A8%EC%9E%85%EC%A7%80/id1469342013"
-public let appStoreID                           =   "1469342013"
-
-// MARK: - Google Admob
-public let googleAdmobAppID                     =   "ca-app-pub-1994779937843028~3906710093"
-public let googleAdmobUnitID                    =   "ca-app-pub-1994779937843028/3973448265"
-//public let googleAdmobUnitID                    =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
-
 // MARK: - Screen Size
 public let EJ_SCREEN_WIDTH: CGFloat             =   UIScreen.main.bounds.width
 public let EJ_SCREEN_HEIGHT: CGFloat            =   UIScreen.main.bounds.height

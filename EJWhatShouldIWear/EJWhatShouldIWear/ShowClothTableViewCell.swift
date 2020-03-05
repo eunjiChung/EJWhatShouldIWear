@@ -39,8 +39,6 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var alcBottomOfClothesView: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfClothesView: NSLayoutConstraint!
     
-    
-    
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,7 +52,6 @@ class ShowClothTableViewCell: UITableViewCell {
         
         setlayoutConstraints()
     }
-
     
     // MARK: - Public Method
     public func generateKoreaMain(by model: SKThreeThreedays) {
@@ -76,7 +73,6 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     public func generateMain(by model: EJFiveDaysWeatherModel) {
-        guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }
         
         // 1. 원하는 날짜 받아오기
@@ -132,7 +128,6 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     private func setlayoutConstraints() {
-        
         alcTopOfUnitLabel.constant = EJSizeHeight(15.0)
         alcTopOfClothImageView.constant = EJSizeHeight(15.0)
         alcTopOfClothNameLabel.constant = EJSizeHeight(10.0)

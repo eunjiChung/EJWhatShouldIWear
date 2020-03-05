@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1022473E71CF6D37CD4F464D /* Pods_EJWhatShouldIWearUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */; };
 		724A173822D77C9B008FDCB6 /* cardigan.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173522D77C9B008FDCB6 /* cardigan.png */; };
 		724A173922D77C9B008FDCB6 /* tshirt.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173622D77C9B008FDCB6 /* tshirt.png */; };
 		724A173A22D77C9B008FDCB6 /* blouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173722D77C9B008FDCB6 /* blouse.png */; };
 		724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */; };
 		724A174E22D7817F008FDCB6 /* muffler.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A174D22D7817F008FDCB6 /* muffler.png */; };
+		72594DA023E63CD7007A7B77 /* WeatherDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72594D9F23E63CD7007A7B77 /* WeatherDummyData.swift */; };
+		72594DA223E63DF8007A7B77 /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72594DA123E63DF8007A7B77 /* HTTPMock.swift */; };
+		72594DA423E642F5007A7B77 /* SKThreeHoursSky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72594DA323E642F5007A7B77 /* SKThreeHoursSky.swift */; };
+		728A9EF024113BA0006F85C9 /* EJWeatherManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728A9EEF24113BA0006F85C9 /* EJWeatherManagerTests.swift */; };
+		728A9EF224113D99006F85C9 /* EJAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728A9EF124113D99006F85C9 /* EJAPIService.swift */; };
+		728A9EF424113F82006F85C9 /* SKThreeFcst3hourMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728A9EF324113F82006F85C9 /* SKThreeFcst3hourMockData.swift */; };
+		728A9EF7241141CE006F85C9 /* Data_Forecast3days_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 728A9EF6241141CE006F85C9 /* Data_Forecast3days_response.json */; };
+		728A9EFA24114228006F85C9 /* Data+JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728A9EF924114228006F85C9 /* Data+JSONFile.swift */; };
+		728A9EFD241142DB006F85C9 /* EJForecastThreedaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728A9EFC241142DB006F85C9 /* EJForecastThreedaysModel.swift */; };
+		728A9EFF24114484006F85C9 /* EJThreedaysWeatherInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728A9EFE24114484006F85C9 /* EJThreedaysWeatherInfoModel.swift */; };
 		72A5D56E2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */; };
 		72A5D56F2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */; };
 		72A5D5742340C6C70068D33D /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D5732340C6C70068D33D /* BackView.swift */; };
@@ -137,6 +146,7 @@
 		B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */; };
 		B6FA52CE233B1982006E03A6 /* ClothsCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */; };
 		C31526B39157335301A756E5 /* Pods_EJWhatShouldIWearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C563592EC60267E4D1F641 /* Pods_EJWhatShouldIWearTests.framework */; };
+		C3E63612E77711EB7DDD6A80 /* Pods_EJWhatShouldIWear_EJWhatShouldIWearUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D0142675C01779059AD5CC /* Pods_EJWhatShouldIWear_EJWhatShouldIWearUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +170,7 @@
 		1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C563592EC60267E4D1F641 /* Pods_EJWhatShouldIWearTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4296309E4C1B9726C6DC4463 /* Pods-EJWhatShouldIWearTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearTests/Pods-EJWhatShouldIWearTests.release.xcconfig"; sourceTree = "<group>"; };
+		5551F8993C569D756C77758A /* Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5932A35C12B40E6C3C924431 /* Pods-EJWhatShouldIWearTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearTests/Pods-EJWhatShouldIWearTests.debug.xcconfig"; sourceTree = "<group>"; };
 		724A173522D77C9B008FDCB6 /* cardigan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardigan.png; sourceTree = "<group>"; };
 		724A173622D77C9B008FDCB6 /* tshirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tshirt.png; sourceTree = "<group>"; };
@@ -168,6 +179,16 @@
 		724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWhatShouldIWearTests.swift; sourceTree = "<group>"; };
 		724A174722D77F87008FDCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724A174D22D7817F008FDCB6 /* muffler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muffler.png; sourceTree = "<group>"; };
+		72594D9F23E63CD7007A7B77 /* WeatherDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDummyData.swift; sourceTree = "<group>"; };
+		72594DA123E63DF8007A7B77 /* HTTPMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMock.swift; sourceTree = "<group>"; };
+		72594DA323E642F5007A7B77 /* SKThreeHoursSky.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKThreeHoursSky.swift; sourceTree = "<group>"; };
+		728A9EEF24113BA0006F85C9 /* EJWeatherManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherManagerTests.swift; sourceTree = "<group>"; };
+		728A9EF124113D99006F85C9 /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
+		728A9EF324113F82006F85C9 /* SKThreeFcst3hourMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKThreeFcst3hourMockData.swift; sourceTree = "<group>"; };
+		728A9EF6241141CE006F85C9 /* Data_Forecast3days_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Data_Forecast3days_response.json; sourceTree = "<group>"; };
+		728A9EF924114228006F85C9 /* Data+JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSONFile.swift"; sourceTree = "<group>"; };
+		728A9EFC241142DB006F85C9 /* EJForecastThreedaysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJForecastThreedaysModel.swift; sourceTree = "<group>"; };
+		728A9EFE24114484006F85C9 /* EJThreedaysWeatherInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJThreedaysWeatherInfoModel.swift; sourceTree = "<group>"; };
 		72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72A5D5732340C6C70068D33D /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackView.swift; path = EJWhatShouldIWear/BackView.swift; sourceTree = SOURCE_ROOT; };
@@ -251,6 +272,7 @@
 		99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherManager.swift; sourceTree = "<group>"; };
 		99FC4AC022DDCED9002DD721 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevInfoViewController.swift; sourceTree = "<group>"; };
+		A4D0142675C01779059AD5CC /* Pods_EJWhatShouldIWear_EJWhatShouldIWearUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWear_EJWhatShouldIWearUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
 		B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B6029358230FD5E5002BDA5E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -318,8 +340,8 @@
 		B6FE5CCD2341E4F100BD3A40 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B6FE5CCE2341E50A00BD3A40 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B6FE5CDA2341E55900BD3A40 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDF79756C2795B5E6E0A01F /* Pods-EJWhatShouldIWear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.debug.xcconfig"; sourceTree = "<group>"; };
+		E27EAE03DF7A94624FC42390 /* Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C268456BDE3D6566D65402 /* Pods-EJWhatShouldIWearUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -344,7 +366,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1022473E71CF6D37CD4F464D /* Pods_EJWhatShouldIWearUITests.framework in Frameworks */,
+				C3E63612E77711EB7DDD6A80 /* Pods_EJWhatShouldIWear_EJWhatShouldIWearUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +382,8 @@
 				B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */,
 				5932A35C12B40E6C3C924431 /* Pods-EJWhatShouldIWearTests.debug.xcconfig */,
 				4296309E4C1B9726C6DC4463 /* Pods-EJWhatShouldIWearTests.release.xcconfig */,
+				E27EAE03DF7A94624FC42390 /* Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.debug.xcconfig */,
+				5551F8993C569D756C77758A /* Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -371,8 +395,8 @@
 				9947052F22BA029F00474C02 /* KakaoLink.framework */,
 				9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */,
 				1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */,
-				BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */,
 				34C563592EC60267E4D1F641 /* Pods_EJWhatShouldIWearTests.framework */,
+				A4D0142675C01779059AD5CC /* Pods_EJWhatShouldIWear_EJWhatShouldIWearUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -391,10 +415,57 @@
 		724A174422D77F87008FDCB6 /* EJWhatShouldIWearTests */ = {
 			isa = PBXGroup;
 			children = (
-				724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */,
+				728A9EF824114210006F85C9 /* Test Types */,
+				728A9EF524113FFD006F85C9 /* Data */,
+				728A9EEE24113B87006F85C9 /* Cases */,
+				72594D9E23E63CC4007A7B77 /* Mock */,
 				724A174722D77F87008FDCB6 /* Info.plist */,
 			);
 			path = EJWhatShouldIWearTests;
+			sourceTree = "<group>";
+		};
+		72594D9E23E63CC4007A7B77 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				72594D9F23E63CD7007A7B77 /* WeatherDummyData.swift */,
+				72594DA123E63DF8007A7B77 /* HTTPMock.swift */,
+				728A9EF324113F82006F85C9 /* SKThreeFcst3hourMockData.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		728A9EEE24113B87006F85C9 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */,
+				728A9EEF24113BA0006F85C9 /* EJWeatherManagerTests.swift */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		728A9EF524113FFD006F85C9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				728A9EF6241141CE006F85C9 /* Data_Forecast3days_response.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		728A9EF824114210006F85C9 /* Test Types */ = {
+			isa = PBXGroup;
+			children = (
+				728A9EF924114228006F85C9 /* Data+JSONFile.swift */,
+			);
+			path = "Test Types";
+			sourceTree = "<group>";
+		};
+		728A9EFB241142AF006F85C9 /* New Model */ = {
+			isa = PBXGroup;
+			children = (
+				728A9EFC241142DB006F85C9 /* EJForecastThreedaysModel.swift */,
+				728A9EFE24114484006F85C9 /* EJThreedaysWeatherInfoModel.swift */,
+			);
+			name = "New Model";
 			sourceTree = "<group>";
 		};
 		72A5D5702340C56A0068D33D /* Custom View */ = {
@@ -548,9 +619,11 @@
 				999B20A222029E660073A0D9 /* Main.storyboard */,
 				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
 				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
+				728A9EF124113D99006F85C9 /* EJAPIService.swift */,
 				99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */,
 				99E6E526228C0F6B00506614 /* Controller */,
 				99E6E525228C0F5F00506614 /* View */,
+				728A9EFB241142AF006F85C9 /* New Model */,
 				99CC5119229D2F8700192450 /* Model */,
 				B62E8B8C22F9463A00055A0E /* Extension */,
 				991F229F228973C000FDBC98 /* Supporting Files */,
@@ -701,6 +774,7 @@
 				B6F74F4A2327924800CDD4A6 /* SKThreeThreedays.swift */,
 				B6F74F402327924800CDD4A6 /* SKThreeWeather.swift */,
 				B6F74F432327924800CDD4A6 /* SKThreeWind.swift */,
+				72594DA323E642F5007A7B77 /* SKThreeHoursSky.swift */,
 			);
 			path = Threedays;
 			sourceTree = "<group>";
@@ -772,6 +846,7 @@
 				999B20AB22029E670073A0D9 /* Sources */,
 				999B20AC22029E670073A0D9 /* Frameworks */,
 				999B20AD22029E670073A0D9 /* Resources */,
+				502316FD088ACCE2FCA187E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -836,6 +911,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728A9EF7241141CE006F85C9 /* Data_Forecast3days_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,6 +953,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		502316FD088ACCE2FCA187E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5EA92727452C7BAEEDF5AA48 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -905,7 +998,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EJWhatShouldIWearUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -992,7 +1085,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72594DA223E63DF8007A7B77 /* HTTPMock.swift in Sources */,
 				724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */,
+				72594DA023E63CD7007A7B77 /* WeatherDummyData.swift in Sources */,
+				728A9EFA24114228006F85C9 /* Data+JSONFile.swift in Sources */,
+				728A9EF024113BA0006F85C9 /* EJWeatherManagerTests.swift in Sources */,
+				728A9EF424113F82006F85C9 /* SKThreeFcst3hourMockData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1028,6 +1126,7 @@
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
 				B6F74F642327925400CDD4A6 /* SKSixTemperature.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
+				728A9EFD241142DB006F85C9 /* EJForecastThreedaysModel.swift in Sources */,
 				B6F74F222327922D00CDD4A6 /* SKHourlyGrid.swift in Sources */,
 				992B09AC22BF849100FF94B7 /* EJWind.swift in Sources */,
 				B6F74F322327923B00CDD4A6 /* SKYesterdayGrid.swift in Sources */,
@@ -1043,6 +1142,8 @@
 				B6F74F242327922D00CDD4A6 /* SKHourlyHourlyBase.swift in Sources */,
 				B6F74F4D2327924800CDD4A6 /* SKThreeResult.swift in Sources */,
 				B6F74F692327925400CDD4A6 /* SKSixSixdaysBase.swift in Sources */,
+				728A9EF224113D99006F85C9 /* EJAPIService.swift in Sources */,
+				72594DA423E642F5007A7B77 /* SKThreeHoursSky.swift in Sources */,
 				B6F74F362327923B00CDD4A6 /* SKYesterdayPrecipitation.swift in Sources */,
 				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
 				B6F74F1F2327922D00CDD4A6 /* SKHourlyHourly.swift in Sources */,
@@ -1052,6 +1153,7 @@
 				B6F74F3A2327923B00CDD4A6 /* SKYesterdayWind.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
+				728A9EFF24114484006F85C9 /* EJThreedaysWeatherInfoModel.swift in Sources */,
 				992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
@@ -1189,6 +1291,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5932A35C12B40E6C3C924431 /* Pods-EJWhatShouldIWearTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
@@ -1212,6 +1315,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4296309E4C1B9726C6DC4463 /* Pods-EJWhatShouldIWearTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
@@ -1435,7 +1539,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1524,14 +1628,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		999B20BC22029E670073A0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8C268456BDE3D6566D65402 /* Pods-EJWhatShouldIWearUITests.debug.xcconfig */;
+			baseConfigurationReference = E27EAE03DF7A94624FC42390 /* Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1552,7 +1656,7 @@
 		};
 		999B20BD22029E670073A0D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */;
+			baseConfigurationReference = 5551F8993C569D756C77758A /* Pods-EJWhatShouldIWear-EJWhatShouldIWearUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
