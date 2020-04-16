@@ -11,7 +11,8 @@ target 'EJWhatShouldIWear' do
    pod 'Firebase/Analytics'
    pod 'Firebase/RemoteConfig'
    pod 'Firebase/InAppMessagingDisplay'
-
+   pod 'Firebase/Database'
+   
    pod 'Alamofire', '~> 4.7.3'
    pod 'SideMenu', '~> 5.0.3'
    pod 'Google-Mobile-Ads-SDK'

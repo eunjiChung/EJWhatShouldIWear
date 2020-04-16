@@ -11,6 +11,9 @@ PODS:
     - FirebaseAnalytics (= 5.8.1)
   - Firebase/CoreOnly (5.20.2):
     - FirebaseCore (= 5.4.1)
+  - Firebase/Database (5.20.2):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (= 5.1.1)
   - Firebase/InAppMessagingDisplay (5.20.2):
     - Firebase/CoreOnly
     - FirebaseInAppMessagingDisplay (= 0.13.1)
@@ -30,9 +33,14 @@ PODS:
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
   - FirebaseAnalyticsInterop (1.5.0)
+  - FirebaseAuthInterop (1.1.0)
   - FirebaseCore (5.4.1):
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseDatabase (5.1.1):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - leveldb-library (~> 1.18)
   - FirebaseInAppMessaging (0.13.0):
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -79,6 +87,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.8.0):
     - GoogleUtilities/Logger
+  - leveldb-library (1.22)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -94,6 +103,7 @@ DEPENDENCIES:
   - ESPullToRefresh (~> 2.9)
   - Fabric (~> 1.9.0)
   - Firebase/Analytics
+  - Firebase/Database
   - Firebase/InAppMessagingDisplay
   - Firebase/RemoteConfig
   - Google-Mobile-Ads-SDK
@@ -122,8 +132,11 @@ SPEC REPOS:
     - SwiftyJSON
   trunk:
     - FirebaseAnalyticsInterop
+    - FirebaseAuthInterop
+    - FirebaseDatabase
     - FirebaseInAppMessaging
     - FirebaseInAppMessagingDisplay
+    - leveldb-library
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -134,7 +147,9 @@ SPEC CHECKSUMS:
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
   FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
   FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
+  FirebaseAuthInterop: a0f37ae05833af156e72028f648d313f7e7592e9
   FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  FirebaseDatabase: 2c15b0ea6f2c6eb5e57413f9d6340f1e50b81ae3
   FirebaseInAppMessaging: 25e8c4408829928b6727fb461e0aef6a43111467
   FirebaseInAppMessagingDisplay: 72f67cfe9711c9bf6d6768a1c538299ea2043042
   FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
@@ -142,11 +157,12 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: e911f5544fc6488f8372a183627a802c8bdb5e36
   GoogleAppMeasurement: ffe513e90551844a739e7bcbb1d2aca1c28a4338
   GoogleUtilities: 04fce34bcd5620c1ee76fb79172105c74a4df335
+  leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 74e16f569eb4382f945757085be96f9971a5e31f
+PODFILE CHECKSUM: 6210a9fe3203e3538c47500c27c72d6948e0bfd8
 
 COCOAPODS: 1.8.1
