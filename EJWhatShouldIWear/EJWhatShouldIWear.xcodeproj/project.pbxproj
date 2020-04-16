@@ -14,6 +14,8 @@
 		724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */; };
 		724A174E22D7817F008FDCB6 /* muffler.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A174D22D7817F008FDCB6 /* muffler.png */; };
 		7280691B24489F3100522019 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7280691A24489F3100522019 /* Setting.storyboard */; };
+		7280691E2448A35D00522019 /* EJNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280691D2448A35D00522019 /* EJNoticeViewController.swift */; };
+		728069222448A4FB00522019 /* EJFirebaseDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728069212448A4FB00522019 /* EJFirebaseDBManager.swift */; };
 		72A5D56E2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */; };
 		72A5D56F2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */; };
 		72A5D5742340C6C70068D33D /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D5732340C6C70068D33D /* BackView.swift */; };
@@ -170,6 +172,8 @@
 		724A174722D77F87008FDCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724A174D22D7817F008FDCB6 /* muffler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muffler.png; sourceTree = "<group>"; };
 		7280691A24489F3100522019 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		7280691D2448A35D00522019 /* EJNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJNoticeViewController.swift; sourceTree = "<group>"; };
+		728069212448A4FB00522019 /* EJFirebaseDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJFirebaseDBManager.swift; sourceTree = "<group>"; };
 		72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72A5D5732340C6C70068D33D /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackView.swift; path = EJWhatShouldIWear/BackView.swift; sourceTree = SOURCE_ROOT; };
@@ -402,6 +406,8 @@
 		7280691824489C5000522019 /* User Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
+				728069232448A51A00522019 /* Main */,
 				7280691924489F1B00522019 /* Settings */,
 			);
 			path = "User Interfaces";
@@ -411,8 +417,72 @@
 			isa = PBXGroup;
 			children = (
 				7280691A24489F3100522019 /* Setting.storyboard */,
+				728069262448A58800522019 /* Main */,
+				728069242448A55F00522019 /* Developer Info */,
+				728069252448A57800522019 /* Location */,
+				7280691C2448A34A00522019 /* Notice */,
+				997533BB228EEAA7003DAF97 /* SettingViewCell */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		7280691C2448A34A00522019 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				7280691D2448A35D00522019 /* EJNoticeViewController.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		728069202448A4D000522019 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
+				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
+				99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */,
+				728069212448A4FB00522019 /* EJFirebaseDBManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		728069232448A51A00522019 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B617E51F2320FC5900DBC0D2 /* MainCollectionViewCell.swift */,
+				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
+				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
+				99BB080C229E748400E454B8 /* EJShareViewController.swift */,
+				998191D5228C133B0063B684 /* HomeViewCells */,
+				72BF779922D6370F00B2E121 /* SideMenuCell */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		728069242448A55F00522019 /* Developer Info */ = {
+			isa = PBXGroup;
+			children = (
+				99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */,
+				B6029357230FD5B0002BDA5E /* Developer Info Cell */,
+			);
+			path = "Developer Info";
+			sourceTree = "<group>";
+		};
+		728069252448A57800522019 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */,
+				99CC5117229D22CF00192450 /* EJLocationViewController.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		728069262448A58800522019 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				99FC4AC022DDCED9002DD721 /* InfoTableViewCell.swift */,
+				998B8291228D54B80099B71A /* EJSettingViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		72A5D5702340C56A0068D33D /* Custom View */ = {
@@ -449,7 +519,7 @@
 				99A0568A228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift */,
 			);
 			name = SideMenuCell;
-			path = ..;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		991F229F228973C000FDBC98 /* Supporting Files */ = {
@@ -507,11 +577,10 @@
 		997533BB228EEAA7003DAF97 /* SettingViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */,
 				997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */,
-				99FC4AC022DDCED9002DD721 /* InfoTableViewCell.swift */,
 			);
 			name = SettingViewCell;
+			path = View;
 			sourceTree = "<group>";
 		};
 		998191D5228C133B0063B684 /* HomeViewCells */ = {
@@ -534,7 +603,7 @@
 				B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */,
 			);
 			name = HomeViewCells;
-			path = ..;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		999B209222029E660073A0D9 = {
@@ -564,13 +633,9 @@
 			children = (
 				999B209E22029E660073A0D9 /* AppDelegate.swift */,
 				999B20A222029E660073A0D9 /* Main.storyboard */,
-				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
-				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
-				99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */,
-				99E6E526228C0F6B00506614 /* Controller */,
-				99E6E525228C0F5F00506614 /* View */,
-				99CC5119229D2F8700192450 /* Model */,
 				7280691824489C5000522019 /* User Interfaces */,
+				99CC5119229D2F8700192450 /* Model */,
+				728069202448A4D000522019 /* Manager */,
 				B62E8B8C22F9463A00055A0E /* Extension */,
 				991F229F228973C000FDBC98 /* Supporting Files */,
 			);
@@ -608,32 +673,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		99E6E525228C0F5F00506614 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B617E51F2320FC5900DBC0D2 /* MainCollectionViewCell.swift */,
-				998191D5228C133B0063B684 /* HomeViewCells */,
-				72BF779922D6370F00B2E121 /* SideMenuCell */,
-				997533BB228EEAA7003DAF97 /* SettingViewCell */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		99E6E526228C0F6B00506614 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
-				991F22952289720F00FDBC98 /* EJHomeViewController.swift */,
-				99CC5117229D22CF00192450 /* EJLocationViewController.swift */,
-				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
-				998B8291228D54B80099B71A /* EJSettingViewController.swift */,
-				99BB080C229E748400E454B8 /* EJShareViewController.swift */,
-				99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */,
-				B6029357230FD5B0002BDA5E /* Developer Info Cell */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
 		B6029357230FD5B0002BDA5E /* Developer Info Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,6 +682,7 @@
 				B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */,
 			);
 			name = "Developer Info Cell";
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		B62E8B8C22F9463A00055A0E /* Extension */ = {
@@ -1059,6 +1099,7 @@
 				B6F74F202327922D00CDD4A6 /* SKHourlyTemperature.swift in Sources */,
 				B6F74F3B2327923B00CDD4A6 /* SKYesterdayYesterday.swift in Sources */,
 				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
+				728069222448A4FB00522019 /* EJFirebaseDBManager.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				B6029359230FD5E5002BDA5E /* DescriptionTableViewCell.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
@@ -1134,6 +1175,7 @@
 				B6F74F502327924800CDD4A6 /* SKThreeCommon.swift in Sources */,
 				B6F74F332327923B00CDD4A6 /* SKYesterdayDay.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
+				7280691E2448A35D00522019 /* EJNoticeViewController.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
 				B6F74F512327924800CDD4A6 /* SKThreeWind.swift in Sources */,
 				B6F10261233B4870000C3DCD /* ImageView.swift in Sources */,
