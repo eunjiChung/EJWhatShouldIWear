@@ -16,7 +16,7 @@ class EJNoticeViewController: UIViewController {
     
     // MARK: - Properties
     var notices = [[String: Any]]()
-    var cellOpened = false
+    var cellOpened: [Bool] = []
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -32,7 +32,14 @@ class EJNoticeViewController: UIViewController {
         // TODO: - 위치 옮기기
         EJFirebaseDBManager.shared.getNoticeDB { (notices) in
             self.notices = notices
+            self.initCellArray()
             self.tableView.reloadData()
+        }
+    }
+    
+    private func initCellArray() {
+        for _ in 0...notices.count {
+            cellOpened.append(false)
         }
     }
     
@@ -48,7 +55,7 @@ extension EJNoticeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellOpened ? 2 : 1
+        return cellOpened[section] ? 2 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,20 +81,19 @@ extension EJNoticeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Library.selectionHapticFeedback()
         
-        if cellOpened {
-            cellOpened = false
+        if cellOpened[indexPath.section] {
+            cellOpened[indexPath.section] = false
             tableView.beginUpdates()
             tableView.deleteRows(at: [IndexPath(row: 1, section: indexPath.section)], with: .fade)
             tableView.endUpdates()
         } else {
-            cellOpened = true
+            cellOpened[indexPath.section] = true
             tableView.beginUpdates()
             tableView.insertRows(at: [IndexPath(row: 1, section: indexPath.section)], with: .fade)
             tableView.endUpdates()
         }
     }
 }
-
 
 // MARK: - TableView content cell
 class EJContentTableViewCell: UITableViewCell {
