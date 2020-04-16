@@ -6,11 +6,9 @@
 //  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 //
 
-import UIKit
 import SwiftyJSON
 import CoreLocation
 import Crashlytics
-
 
 // MARK: - OpenWeatherMAP
 public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
@@ -79,33 +77,6 @@ class EJWeatherManager: NSObject {
                                   success: success,
                                   failure: failure)
         
-    }
-    
-    func skwpHourlyWeatherInfo(success: @escaping (SKHourlyHourlyBase) -> (),
-                               failure: @escaping FailureHandler) {
-        let url = skWPHourlyAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
-        
-        httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
-                                  success: { (result) in
-                                    let hourlybase = SKHourlyHourlyBase(object: result)
-                                    success(hourlybase)
-        },
-                                  failure: failure)
-    }
-    
-    func skwpYesterdayWeatherInfo(success: @escaping (SKYesterdayYesterdayBase) -> (),
-                                  failure: @escaping FailureHandler) {
-        let url = skWPYesterdayAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
-        httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
-                                  success: { result in
-                                    let yesterdayBase = SKYesterdayYesterdayBase(object: result)
-                                    success(yesterdayBase)
-        },
-                                  failure: failure)
     }
     
     func skwpSixDaysWeatherInfo(success: @escaping (SKSixSixdaysBase) -> (),

@@ -10,7 +10,6 @@ import Foundation
 import FirebaseDatabase
 
 final class EJFirebaseDBManager {
-    
     // MARK: - Shared
     static let shared = EJFirebaseDBManager()
     
