@@ -10,6 +10,7 @@ import UIKit
 import GoogleMobileAds
 import Firebase
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
