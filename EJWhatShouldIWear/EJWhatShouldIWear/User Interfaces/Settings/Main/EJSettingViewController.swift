@@ -32,6 +32,8 @@ class EJSettingViewController: EJBaseViewController {
         alcTopOfBackIcon.constant = EJSizeHeight(46.0)
         alcLeadingOfBackIcon.constant = EJSize(18.0)
         alcBottomOfBackButton.constant = EJSizeHeight(18.0)
+
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     // MARK: - IBOutlet Action
@@ -80,7 +82,7 @@ extension EJSettingViewController: UITableViewDelegate {
         
         switch indexPath.row {
         case 0:
-            self.performSegue(withIdentifier: "", sender: self)
+            self.performSegue(withIdentifier: "show_notice", sender: self)
         case 1:
             self.performSegue(withIdentifier: "showLocationSegue", sender: self)
         case 2:

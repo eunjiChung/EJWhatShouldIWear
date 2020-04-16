@@ -170,7 +170,7 @@
                         <outlet property="tableView" destination="RRR-Sk-rdy" id="lGj-qP-e6n"/>
                         <segue destination="DoA-Du-fxU" kind="presentation" identifier="set_info_segue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="Fqj-qB-ABn"/>
                         <segue destination="RGV-1G-weZ" kind="show" identifier="showLocationSegue" id="zff-NH-dUm"/>
-                        <segue destination="aho-bu-m1k" kind="presentation" identifier="show_notice" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="dSt-SM-vUd"/>
+                        <segue destination="aho-bu-m1k" kind="presentation" identifier="show_notice" modalPresentationStyle="fullScreen" id="dSt-SM-vUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMO-ZI-iGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -449,6 +449,7 @@
                                         <rect key="frame" x="8.5" y="44" width="30" height="34"/>
                                         <connections>
                                             <action selector="didTouchBackBtn:" destination="DoA-Du-fxU" eventType="touchUpInside" id="fb4-XP-wRV"/>
+                                            <action selector="didTouchBackButton:" destination="aho-bu-m1k" eventType="touchUpInside" id="DYV-2t-pA8"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_icon" translatesAutoresizingMaskIntoConstraints="NO" id="834-cu-84S">
@@ -494,7 +495,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contentCell" rowHeight="370" id="B7m-qG-Jf3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EJContentTableViewCell" rowHeight="370" id="B7m-qG-Jf3" customClass="EJContentTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="71.5" width="414" height="370"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B7m-qG-Jf3" id="iRT-lq-zmU">
@@ -515,6 +516,9 @@
                                                 <constraint firstItem="eDK-IY-N6T" firstAttribute="leading" secondItem="iRT-lq-zmU" secondAttribute="leadingMargin" constant="10" id="jk5-xt-4eW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="eDK-IY-N6T" id="Oj9-np-KGx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
