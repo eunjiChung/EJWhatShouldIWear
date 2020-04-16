@@ -10,6 +10,8 @@ import UIKit
 import UserNotifications
 import ESPullToRefresh
 
+// Firebase App ID : evPE2Kib0Lo
+
 // MARK: - App Store URL
 public let AppStoreURL                          =   "https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EB%AA%A8%EC%9E%85%EC%A7%80/id1469342013"
 public let appStoreID                           =   "1469342013"
