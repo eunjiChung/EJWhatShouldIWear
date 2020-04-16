@@ -267,13 +267,19 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     private func requestSKWPWeekWeatherList() {
         WeatherManager.callWeatherInfo(success: { (hourlyWeather, weekelyWeather) in
-            self.SK3daysWeatherModel = hourlyWeather
-            self.SK6daysWeatherModel = weekelyWeather
             
-            self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
-            self.mainCollectionView.reloadData()
-            self.tableDelegate?.reloadTableView()
-            self.removeSplashScene()
+            if WeatherManager.isValidCode(hourlyWeather.result?.code ?? 0) || WeatherManager.isValidCode(weekelyWeather.result?.code ?? 0) {
+                self.SK3daysWeatherModel = hourlyWeather
+                self.SK6daysWeatherModel = weekelyWeather
+                
+                self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
+                self.mainCollectionView.reloadData()
+                self.tableDelegate?.reloadTableView()
+                self.removeSplashScene()
+            } else {
+                WeatherManager.appKeyIndex += 1
+                self.requestSKWPWeekWeatherList()
+            }
         }) { (error) in
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
             self.removeSplashScene()

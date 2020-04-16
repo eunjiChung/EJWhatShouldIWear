@@ -11,22 +11,6 @@ import SwiftyJSON
 import CoreLocation
 import Crashlytics
 
-
-// MARK: - OpenWeatherMAP
-public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
-public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"
-
-// MARK: - SK Weather Planet API
-public let skWPHourlyAPI                        =   "https://apis.openapi.sk.com/weather/current/hourly"
-public let skWPMinuteAPI                        =   "https://apis.openapi.sk.com/weather/current/minutely"
-public let skWPYesterdayAPI                     =   "https://apis.openapi.sk.com/weather/yesterday"
-public let skWPSixDaysAPI                       =   "https://apis.openapi.sk.com/weather/forecast/6days"
-public let skWPThreeDaysAPI                     =   "https://apis.openapi.sk.com/weather/forecast/3days"
-
-public let skPublic3daysAppKey                  =   "6ebc2338-3b54-4ad2-a92c-55dddb172a5a"
-public let skPublic6daysAppKey                  =   "73f51154-b4cc-485c-b9ce-85130eac089d"
-public let skDebugAppKey                        =   "cd0c9c72-6e32-4181-9291-9340adb8d0dc"
-
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
 typealias FailureHandler = (Error) -> ()
@@ -54,6 +38,7 @@ let WeatherManager = EJWeatherManager.sharedInstance
 class EJWeatherManager: NSObject {
     
     static let sharedInstance = EJWeatherManager()
+    
     var latitude: Double = 0    //37.51151
     var longitude: Double = 0   //127.0967
     var country: String = ""
@@ -61,12 +46,16 @@ class EJWeatherManager: NSObject {
     let httpClient = EJHTTPClient.init()
     let WeatherClass = WeatherMain()
     
+    let dispatchGroup = DispatchGroup()
+    let dispatchQueue = DispatchQueue.global()
+    
+    var appKeyIndex = 0
     #if DEBUG
     let sk3DaysKey = skDebugAppKey
     let sk6DaysKey = skDebugAppKey
     #else
-    let sk3DaysKey = skPublic3daysAppKey
-    let sk6DaysKey = skPublic6daysAppKey
+    var sk3DaysKey = skPublic3daysAppKey[appKeyIndex]
+    var sk6DaysKey = skPublic6daysAppKey[appKeyIndex]
     #endif
     
     // MARK: - HTTP Request
@@ -79,33 +68,6 @@ class EJWeatherManager: NSObject {
                                   success: success,
                                   failure: failure)
         
-    }
-    
-    func skwpHourlyWeatherInfo(success: @escaping (SKHourlyHourlyBase) -> (),
-                               failure: @escaping FailureHandler) {
-        let url = skWPHourlyAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
-        
-        httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
-                                  success: { (result) in
-                                    let hourlybase = SKHourlyHourlyBase(object: result)
-                                    success(hourlybase)
-        },
-                                  failure: failure)
-    }
-    
-    func skwpYesterdayWeatherInfo(success: @escaping (SKYesterdayYesterdayBase) -> (),
-                                  failure: @escaping FailureHandler) {
-        let url = skWPYesterdayAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
-        httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
-                                  success: { result in
-                                    let yesterdayBase = SKYesterdayYesterdayBase(object: result)
-                                    success(yesterdayBase)
-        },
-                                  failure: failure)
     }
     
     func skwpSixDaysWeatherInfo(success: @escaping (SKSixSixdaysBase) -> (),
@@ -133,26 +95,50 @@ class EJWeatherManager: NSObject {
         },
                                   failure: failure)
     }
+
+    // TODO: - 안쓰는 애들...날려!
+    //    func skwpHourlyWeatherInfo(success: @escaping (SKHourlyHourlyBase) -> (),
+    //                               failure: @escaping FailureHandler) {
+    //        let url = skWPHourlyAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
+    //
+    //        httpClient.weatherRequest(url: url,
+    //                                  lat: latitude,
+    //                                  lon: longitude,
+    //                                  success: { (result) in
+    //                                    let hourlybase = SKHourlyHourlyBase(object: result)
+    //                                    success(hourlybase)
+    //        },
+    //                                  failure: failure)
+    //    }
+    //
+    //    func skwpYesterdayWeatherInfo(success: @escaping (SKYesterdayYesterdayBase) -> (),
+    //                                  failure: @escaping FailureHandler) {
+    //        let url = skWPYesterdayAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
+    //        httpClient.weatherRequest(url: url,
+    //                                  lat: latitude,
+    //                                  lon: longitude,
+    //                                  success: { result in
+    //                                    let yesterdayBase = SKYesterdayYesterdayBase(object: result)
+    //                                    success(yesterdayBase)
+    //        },
+    //                                  failure: failure)
+    //    }
     
     // MARK: - Public Method
     public func callWeatherInfo(success: @escaping (SKThreeThreedays, SKSixSixdaysBase) -> (), failure: @escaping FailureHandler) {
-        
         var threeDaysWeather: SKThreeThreedays?
         var sixDaysWeather: SKSixSixdaysBase?
         var resultError: Error?
-        
-        let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue.global()
         print("=============== Dispatch Group ===== START! ==============")
         
         dispatchGroup.enter()
         dispatchQueue.async {
             self.skwpThreeDaysWeatherInfo(success: { (result) in
                 threeDaysWeather = result
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }) { (error) in
                 resultError = error
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }
         }
         
@@ -160,10 +146,10 @@ class EJWeatherManager: NSObject {
         dispatchQueue.async {
             self.skwpSixDaysWeatherInfo(success: { (result) in
                 sixDaysWeather = result
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }) { (error) in
                 resultError = error
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }
         }
         
@@ -175,6 +161,30 @@ class EJWeatherManager: NSObject {
             } else {
                 if let error = resultError { failure(error) }
             }
+        }
+    }
+    
+    func isValidCode(_ code: Int) -> Bool {
+        switch code {
+        case 9200:
+            return true
+        case 9400, 9401, 9410, 9403, 9404, 9405, 9402:
+            // 404 Not found Error
+            return false
+        case 9420, 9421, 9422:
+            // 서버 응답 지연
+            return false
+        case 9500:
+            // 서버 에러
+            return false
+        case 9501:
+            // 서비스 연결 실패
+            return false
+        case 9502:
+            // 시스템 점검중
+            return false
+        default:
+            return true
         }
     }
     
