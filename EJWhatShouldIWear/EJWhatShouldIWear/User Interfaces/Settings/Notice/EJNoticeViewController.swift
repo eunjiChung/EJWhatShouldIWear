@@ -40,7 +40,6 @@ class EJNoticeViewController: UIViewController {
     @IBAction func didTouchBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension EJNoticeViewController: UITableViewDataSource {
@@ -68,7 +67,6 @@ extension EJNoticeViewController: UITableViewDataSource {
             
             return cell
         }
-        
     }
 }
 

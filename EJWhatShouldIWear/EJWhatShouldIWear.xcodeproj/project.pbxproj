@@ -437,8 +437,6 @@
 		728069202448A4D000522019 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
-				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
 				99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */,
 				728069212448A4FB00522019 /* EJFirebaseDBManager.swift */,
 			);
@@ -633,6 +631,8 @@
 			children = (
 				999B209E22029E660073A0D9 /* AppDelegate.swift */,
 				999B20A222029E660073A0D9 /* Main.storyboard */,
+				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
+				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
 				7280691824489C5000522019 /* User Interfaces */,
 				728069202448A4D000522019 /* Manager */,
 				99CC5119229D2F8700192450 /* Model */,
