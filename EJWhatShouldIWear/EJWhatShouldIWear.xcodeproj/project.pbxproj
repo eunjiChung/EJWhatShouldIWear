@@ -13,6 +13,7 @@
 		724A173A22D77C9B008FDCB6 /* blouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173722D77C9B008FDCB6 /* blouse.png */; };
 		724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */; };
 		724A174E22D7817F008FDCB6 /* muffler.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A174D22D7817F008FDCB6 /* muffler.png */; };
+		7280691B24489F3100522019 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7280691A24489F3100522019 /* Setting.storyboard */; };
 		72A5D56E2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */; };
 		72A5D56F2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */; };
 		72A5D5742340C6C70068D33D /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D5732340C6C70068D33D /* BackView.swift */; };
@@ -168,6 +169,7 @@
 		724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWhatShouldIWearTests.swift; sourceTree = "<group>"; };
 		724A174722D77F87008FDCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724A174D22D7817F008FDCB6 /* muffler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muffler.png; sourceTree = "<group>"; };
+		7280691A24489F3100522019 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72A5D5732340C6C70068D33D /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackView.swift; path = EJWhatShouldIWear/BackView.swift; sourceTree = SOURCE_ROOT; };
@@ -400,8 +402,17 @@
 		7280691824489C5000522019 /* User Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				7280691924489F1B00522019 /* Settings */,
 			);
 			path = "User Interfaces";
+			sourceTree = "<group>";
+		};
+		7280691924489F1B00522019 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7280691A24489F3100522019 /* Setting.storyboard */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		72A5D5702340C56A0068D33D /* Custom View */ = {
@@ -861,6 +872,7 @@
 				998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */,
 				724A173822D77C9B008FDCB6 /* cardigan.png in Resources */,
 				997A6A1922E1994A007AC760 /* InfoPlist.strings in Resources */,
+				7280691B24489F3100522019 /* Setting.storyboard in Resources */,
 				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
 				B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */,
 				724A173A22D77C9B008FDCB6 /* blouse.png in Resources */,

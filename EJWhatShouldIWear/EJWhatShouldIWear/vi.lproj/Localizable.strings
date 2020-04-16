@@ -57,6 +57,7 @@
 "show_cloth_title" = "Today's Recommended Clothes";
 "average_label" = "Average";
 "korea" = "Hàn Quốc";
+"Notice" = "hạng mục thông báo";
 
 // alert
 "mail_warning_title" = "Lỗi cài đặt ứng dụng thư";

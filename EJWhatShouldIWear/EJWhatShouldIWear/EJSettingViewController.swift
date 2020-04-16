@@ -9,58 +9,68 @@
 import UIKit
 import CoreLocation
 
-class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
+class EJSettingViewController: EJBaseViewController {
     
-    // MARK: - Instance
+    // MARK: - Property
     var curLocation : String? = nil
-    
+
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    
-    // MARK: - Layout constraints
     @IBOutlet weak var alcTopOfBackIcon: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfBackIcon: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfBackButton: NSLayoutConstraint!
     
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        initView()
+    }
+    
+    // MARK: - Initialize
+    private func initView() {
         alcTopOfBackIcon.constant = EJSizeHeight(46.0)
         alcLeadingOfBackIcon.constant = EJSize(18.0)
         alcBottomOfBackButton.constant = EJSizeHeight(18.0)
     }
-    
     
     // MARK: - IBOutlet Action
     @IBAction func didTouchBackButton(_ sender: Any) {
         Library.selectionHapticFeedback()
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
-    // MARK: - TableView Data Source
+}
+
+// MARK: - Tableview Data Source
+extension EJSettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
         case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
+            cell.titleLabel.text = LocalizedString(with: "Notice")
+            return cell
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
             
             cell.myLocationLabel.text = curLocation
             
             return cell
-        default:
-//            return tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath)
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
             return cell
+        default:
+            return UITableViewCell()
         }
     }
-    
-    // MARK: - TableView Delegate
+}
+
+// MARK: - TableView Delegate
+extension EJSettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return EJSizeHeight(70.0)
     }
@@ -70,12 +80,14 @@ class EJSettingViewController: EJBaseViewController, UITableViewDataSource, UITa
         
         switch indexPath.row {
         case 0:
-            self.performSegue(withIdentifier: "showLocationSegue", sender: self)
+            self.performSegue(withIdentifier: "", sender: self)
         case 1:
+            self.performSegue(withIdentifier: "showLocationSegue", sender: self)
+        case 2:
             self.performSegue(withIdentifier: "set_info_segue", sender: self)
         default:
             print("Nothing...")
         }
     }
- 
+    
 }

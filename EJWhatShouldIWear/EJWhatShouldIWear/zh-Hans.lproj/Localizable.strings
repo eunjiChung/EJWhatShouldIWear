@@ -57,6 +57,7 @@
 "show_cloth_title" = "今天推荐的衣服";
 "average_label" = "平均";
 "korea" = "韩国";
+"Notice" = "公告事项";
 
 // alert
 "mail_warning_title" = "邮件应用程序设置错误";

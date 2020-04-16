@@ -57,6 +57,7 @@
 "show_cloth_title" = "오늘의 추천 옷 (탭하여 더 많은 옷을 확인해보세요!)";
 "average_label" = "평균";
 "korea" = "대한민국";
+"Notice" = "공지사항";
 
 // alert
 "mail_warning_title" = "메일앱 설정 오류";

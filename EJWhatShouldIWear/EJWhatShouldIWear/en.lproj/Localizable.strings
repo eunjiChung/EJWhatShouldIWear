@@ -57,6 +57,7 @@
 "show_cloth_title" = "Today's Recommends";
 "average_label" = "Average";
 "korea" = "South Korea";
+"Notice" = "Notice";
 
 // alert
 "mail_warning_title" = "Mail App setting error";
