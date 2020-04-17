@@ -1,0 +1,84 @@
+{
+    "weather": {
+        "forecast6days": [
+            {
+                "grid": {
+                    "city": "서울",
+                    "county": "송파구",
+                    "village": "잠실3동"
+                },
+                "sky": {
+                    "pmCode2day": "SKY_W07",
+                    "amName2day": "구름많음",
+                    "amCode2day": "SKY_W03",
+                    "pmName2day": "흐리고 비",
+                    "amCode3day": "SKY_W03",
+                    "amName3day": "구름많음",
+                    "pmCode3day": "SKY_W07",
+                    "pmName3day": "흐리고 비",
+                    "amCode4day": "SKY_W03",
+                    "amName4day": "구름많음",
+                    "pmCode4day": "SKY_W03",
+                    "pmName4day": "구름많음",
+                    "amCode5day": "SKY_W03",
+                    "amName5day": "구름많음",
+                    "pmCode5day": "SKY_W01",
+                    "pmName5day": "맑음",
+                    "amCode6day": "SKY_W01",
+                    "amName6day": "맑음",
+                    "pmCode6day": "SKY_W03",
+                    "pmName6day": "구름많음",
+                    "amCode7day": "SKY_W01",
+                    "amName7day": "맑음",
+                    "pmCode7day": "SKY_W01",
+                    "pmName7day": "맑음",
+                    "amCode8day": "SKY_W01",
+                    "amName8day": "맑음",
+                    "pmCode8day": "SKY_W01",
+                    "pmName8day": "맑음",
+                    "amCode9day": "SKY_W01",
+                    "amName9day": "맑음",
+                    "pmCode9day": "SKY_W01",
+                    "pmName9day": "맑음",
+                    "amCode10day": "SKY_W01",
+                    "amName10day": "맑음",
+                    "pmCode10day": "SKY_W01",
+                    "pmName10day": "맑음"
+                },
+                "temperature": {
+                    "tmax2day": "18",
+                    "tmax3day": "18",
+                    "tmin2day": "10",
+                    "tmin3day": "10",
+                    "tmax4day": "18",
+                    "tmax5day": "13",
+                    "tmax6day": "12",
+                    "tmax7day": "13",
+                    "tmin4day": "9",
+                    "tmin5day": "7",
+                    "tmin6day": "4",
+                    "tmin7day": "5",
+                    "tmax8day": "16",
+                    "tmax9day": "17",
+                    "tmax10day": "19",
+                    "tmin8day": "6",
+                    "tmin9day": "7",
+                    "tmin10day": "8"
+                },
+                "timeRelease": "2020-04-16 18:00:00",
+                "location": {
+                    "name": "서울"
+                }
+            }
+        ]
+    },
+    "common": {
+        "alertYn": "Y",
+        "stormYn": "N"
+    },
+    "result": {
+        "code": 9200,
+        "requestUrl": "/weather/forecast/6days?appKey=l7xx0cdff2e5ded248f99ebdf01d919a97c9&lat=37.51151&lon=127.0967",
+        "message": "성공"
+    }
+}
