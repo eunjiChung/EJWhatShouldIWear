@@ -266,8 +266,8 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     }
     
     private func requestSKWPWeekWeatherList() {
-        for threeKey in skPublic3daysAppKey {
-            WeatherManager.callWeatherInfo(appKey: threeKey,
+        for appKey in skAppKeys {
+            WeatherManager.callWeatherInfo(appKey: appKey,
                 success: { hourlyWeather, weekelyWeather in
                     guard let hourly = hourlyWeather, let weekely = weekelyWeather else { return }
                     self.SK3daysWeatherModel = hourly

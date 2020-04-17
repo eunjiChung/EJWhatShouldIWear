@@ -15,7 +15,6 @@ enum AppStoreReviewManager {
     static func requestReviewIfAppropriate() {
         let defaults = UserDefaults.standard
         var actionCount = defaults.integer(forKey: .reviewWorthyActionCount)
-        print("ActionCount : \(actionCount)")
         
         actionCount += 1
         defaults.set(actionCount, forKey: .reviewWorthyActionCount)

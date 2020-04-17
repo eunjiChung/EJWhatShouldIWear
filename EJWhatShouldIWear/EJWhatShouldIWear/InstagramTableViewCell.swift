@@ -27,10 +27,8 @@ class InstagramTableViewCell: UITableViewCell {
         guard let instagramUrl = URL(string: instagramHooks) else { return }
         
         if UIApplication.shared.canOpenURL(instagramUrl) {
-            print("11111111111111")
             UIApplication.shared.open(instagramUrl, options: [:], completionHandler: nil)
         } else {
-            print("2222222222222222")
             UIApplication.shared.open(URL(string: "https://www.instagram.com/ios_code_her/")!, options: [:], completionHandler: nil)
         }
     }

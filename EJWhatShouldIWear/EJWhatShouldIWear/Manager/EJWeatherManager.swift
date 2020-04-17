@@ -49,16 +49,6 @@ class EJWeatherManager: NSObject {
     let dispatchGroup = DispatchGroup()
     let dispatchQueue = DispatchQueue.global()
     
-    var sk3DaysKey = skPublic3daysAppKey
-    var sk6DaysKey = skPublic6daysAppKey
-//    #if DEBUG
-//    let sk3DaysKey = skDebugAppKey
-//    let sk6DaysKey = skDebugAppKey
-//    #else
-//    var sk3DaysKey = skPublic3daysAppKey[appKeyIndex]
-//    var sk6DaysKey = skPublic6daysAppKey[appKeyIndex]
-//    #endif
-    
     // MARK: - HTTP Request
     func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
                                 failure: @escaping FailureHandler) {
@@ -71,15 +61,13 @@ class EJWeatherManager: NSObject {
     
     func skwpSixDaysWeatherInfo(appKey: String, success: @escaping (SKSixSixdaysBase?) -> (),
                                 failure: @escaping FailureHandler) {
-        print(appKey)
         let url = skWPSixDaysAPI + "?appKey=\(appKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   success: { result in
                                     if let error = result["error"] {
                                         let errorJSON = error as! JSONType
                                         let code = errorJSON["code"] as! String
-                                        if code == "8001" {
-                                            print(errorJSON["message"] as! String)
+                                        if code == "8102" {
                                             success(nil)
                                         }
                                     } else {
@@ -92,15 +80,13 @@ class EJWeatherManager: NSObject {
     
     func skwpThreeDaysWeatherInfo(appKey: String, success: @escaping (SKThreeThreedays?) -> (),
                                   failure: @escaping FailureHandler) {
-        print(appKey)
         let url = skWPThreeDaysAPI + "?appKey=\(appKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   success: { result in
                                     if let error = result["error"] {
                                         let errorJSON = error as! JSONType
                                         let code = errorJSON["code"] as! String
-                                        if code == "8001" {
-                                            print(errorJSON["message"] as! String)
+                                        if code == "8102" {
                                             success(nil)
                                         }
                                     } else {
