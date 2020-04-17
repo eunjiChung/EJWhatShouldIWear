@@ -267,7 +267,6 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     private func requestSKWPWeekWeatherList() {
         WeatherManager.callWeatherInfo(success: { (hourlyWeather, weekelyWeather) in
-            
             if WeatherManager.isValidCode(hourlyWeather.result?.code ?? 0) || WeatherManager.isValidCode(weekelyWeather.result?.code ?? 0) {
                 self.SK3daysWeatherModel = hourlyWeather
                 self.SK6daysWeatherModel = weekelyWeather

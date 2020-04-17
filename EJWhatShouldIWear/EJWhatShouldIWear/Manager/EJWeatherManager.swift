@@ -50,21 +50,21 @@ class EJWeatherManager: NSObject {
     let dispatchQueue = DispatchQueue.global()
     
     var appKeyIndex = 0
-    #if DEBUG
-    let sk3DaysKey = skDebugAppKey
-    let sk6DaysKey = skDebugAppKey
-    #else
-    var sk3DaysKey = skPublic3daysAppKey[appKeyIndex]
-    var sk6DaysKey = skPublic6daysAppKey[appKeyIndex]
-    #endif
+    let sk3DaysKey = "l7xx0cdff2e5ded248f99ebdf01d919a97c"
+    let sk6DaysKey = "l7xx0cdff2e5ded248f99ebdf01d919a97c"
+//    #if DEBUG
+//    let sk3DaysKey = skDebugAppKey
+//    let sk6DaysKey = skDebugAppKey
+//    #else
+//    var sk3DaysKey = skPublic3daysAppKey[appKeyIndex]
+//    var sk6DaysKey = skPublic6daysAppKey[appKeyIndex]
+//    #endif
     
     // MARK: - HTTP Request
     func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
                                 failure: @escaping FailureHandler) {
         let url = owmAPIPath + "forecast?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
         httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
                                   success: success,
                                   failure: failure)
         
@@ -74,8 +74,6 @@ class EJWeatherManager: NSObject {
                                 failure: @escaping FailureHandler) {
         let url = skWPSixDaysAPI + "?appKey=\(sk6DaysKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
                                   success: { result in
                                     let sixdaysBase = SKSixSixdaysBase(object: result)
                                     success(sixdaysBase)
@@ -87,42 +85,12 @@ class EJWeatherManager: NSObject {
                                   failure: @escaping FailureHandler) {
         let url = skWPThreeDaysAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
                                   success: { result in
                                     let threedaysBase = SKThreeThreedays(object: result)
                                     success(threedaysBase)
         },
                                   failure: failure)
     }
-
-    // TODO: - 안쓰는 애들...날려!
-    //    func skwpHourlyWeatherInfo(success: @escaping (SKHourlyHourlyBase) -> (),
-    //                               failure: @escaping FailureHandler) {
-    //        let url = skWPHourlyAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
-    //
-    //        httpClient.weatherRequest(url: url,
-    //                                  lat: latitude,
-    //                                  lon: longitude,
-    //                                  success: { (result) in
-    //                                    let hourlybase = SKHourlyHourlyBase(object: result)
-    //                                    success(hourlybase)
-    //        },
-    //                                  failure: failure)
-    //    }
-    //
-    //    func skwpYesterdayWeatherInfo(success: @escaping (SKYesterdayYesterdayBase) -> (),
-    //                                  failure: @escaping FailureHandler) {
-    //        let url = skWPYesterdayAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
-    //        httpClient.weatherRequest(url: url,
-    //                                  lat: latitude,
-    //                                  lon: longitude,
-    //                                  success: { result in
-    //                                    let yesterdayBase = SKYesterdayYesterdayBase(object: result)
-    //                                    success(yesterdayBase)
-    //        },
-    //                                  failure: failure)
-    //    }
     
     // MARK: - Public Method
     public func callWeatherInfo(success: @escaping (SKThreeThreedays, SKSixSixdaysBase) -> (), failure: @escaping FailureHandler) {
