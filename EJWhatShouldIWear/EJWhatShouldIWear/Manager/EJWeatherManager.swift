@@ -86,8 +86,16 @@ class EJWeatherManager: NSObject {
         let url = skWPThreeDaysAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   success: { result in
-                                    let threedaysBase = SKThreeThreedays(object: result)
-                                    success(threedaysBase)
+                                    if let error = result["error"] {
+                                        let errorJSON = error as! JSONType
+                                        let code = errorJSON["code"] as! String
+                                        if code == "8001" {
+                                            print(errorJSON["message"] as! String)
+                                        }
+                                    } else {
+                                        let threedaysBase = SKThreeThreedays(object: result)
+                                        success(threedaysBase)
+                                    }
         },
                                   failure: failure)
     }
