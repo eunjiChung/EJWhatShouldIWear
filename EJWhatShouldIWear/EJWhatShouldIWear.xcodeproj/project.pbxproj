@@ -16,6 +16,7 @@
 		7280691B24489F3100522019 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7280691A24489F3100522019 /* Setting.storyboard */; };
 		7280691E2448A35D00522019 /* EJNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280691D2448A35D00522019 /* EJNoticeViewController.swift */; };
 		728069222448A4FB00522019 /* EJFirebaseDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728069212448A4FB00522019 /* EJFirebaseDBManager.swift */; };
+		728069282448C46700522019 /* EJURLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728069272448C46700522019 /* EJURLString.swift */; };
 		72A5D56E2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */; };
 		72A5D56F2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */; };
 		72A5D5742340C6C70068D33D /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5D5732340C6C70068D33D /* BackView.swift */; };
@@ -174,6 +175,7 @@
 		7280691A24489F3100522019 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		7280691D2448A35D00522019 /* EJNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJNoticeViewController.swift; sourceTree = "<group>"; };
 		728069212448A4FB00522019 /* EJFirebaseDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJFirebaseDBManager.swift; sourceTree = "<group>"; };
+		728069272448C46700522019 /* EJURLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJURLString.swift; sourceTree = "<group>"; };
 		72A5D56C2340B9A20068D33D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		72A5D56D2340B9A20068D33D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		72A5D5732340C6C70068D33D /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackView.swift; path = EJWhatShouldIWear/BackView.swift; sourceTree = SOURCE_ROOT; };
@@ -633,6 +635,7 @@
 				999B20A222029E660073A0D9 /* Main.storyboard */,
 				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
 				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
+				728069272448C46700522019 /* EJURLString.swift */,
 				7280691824489C5000522019 /* User Interfaces */,
 				728069202448A4D000522019 /* Manager */,
 				99CC5119229D2F8700192450 /* Model */,
@@ -1125,6 +1128,7 @@
 				B6F74F362327923B00CDD4A6 /* SKYesterdayPrecipitation.swift in Sources */,
 				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
 				B6F74F1F2327922D00CDD4A6 /* SKHourlyHourly.swift in Sources */,
+				728069282448C46700522019 /* EJURLString.swift in Sources */,
 				992B09AA22BF849100FF94B7 /* EJMain.swift in Sources */,
 				99FC4AC122DDCED9002DD721 /* InfoTableViewCell.swift in Sources */,
 				B6F74F652327925400CDD4A6 /* SKSixWeather.swift in Sources */,

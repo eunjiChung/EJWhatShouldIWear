@@ -11,22 +11,6 @@ import SwiftyJSON
 import CoreLocation
 import Crashlytics
 
-
-// MARK: - OpenWeatherMAP
-public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"
-public let owmAppKey                            =   "a773e2be7cd5ee1befcfc2fc349d43ad"
-
-// MARK: - SK Weather Planet API
-public let skWPHourlyAPI                        =   "https://apis.openapi.sk.com/weather/current/hourly"
-public let skWPMinuteAPI                        =   "https://apis.openapi.sk.com/weather/current/minutely"
-public let skWPYesterdayAPI                     =   "https://apis.openapi.sk.com/weather/yesterday"
-public let skWPSixDaysAPI                       =   "https://apis.openapi.sk.com/weather/forecast/6days"
-public let skWPThreeDaysAPI                     =   "https://apis.openapi.sk.com/weather/forecast/3days"
-
-public let skPublic3daysAppKey                  =   "6ebc2338-3b54-4ad2-a92c-55dddb172a5a"
-public let skPublic6daysAppKey                  =   "73f51154-b4cc-485c-b9ce-85130eac089d"
-public let skDebugAppKey                        =   "cd0c9c72-6e32-4181-9291-9340adb8d0dc"
-
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
 typealias FailureHandler = (Error) -> ()
@@ -54,6 +38,7 @@ let WeatherManager = EJWeatherManager.sharedInstance
 class EJWeatherManager: NSObject {
     
     static let sharedInstance = EJWeatherManager()
+    
     var latitude: Double = 0    //37.51151
     var longitude: Double = 0   //127.0967
     var country: String = ""
@@ -61,119 +46,96 @@ class EJWeatherManager: NSObject {
     let httpClient = EJHTTPClient.init()
     let WeatherClass = WeatherMain()
     
-    #if DEBUG
-    let sk3DaysKey = skDebugAppKey
-    let sk6DaysKey = skDebugAppKey
-    #else
-    let sk3DaysKey = skPublic3daysAppKey
-    let sk6DaysKey = skPublic6daysAppKey
-    #endif
+    let dispatchGroup = DispatchGroup()
+    let dispatchQueue = DispatchQueue.global()
     
     // MARK: - HTTP Request
     func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
                                 failure: @escaping FailureHandler) {
         let url = owmAPIPath + "forecast?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
         httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
                                   success: success,
                                   failure: failure)
         
     }
     
-    func skwpHourlyWeatherInfo(success: @escaping (SKHourlyHourlyBase) -> (),
-                               failure: @escaping FailureHandler) {
-        let url = skWPHourlyAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
-        
-        httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
-                                  success: { (result) in
-                                    let hourlybase = SKHourlyHourlyBase(object: result)
-                                    success(hourlybase)
-        },
-                                  failure: failure)
-    }
-    
-    func skwpYesterdayWeatherInfo(success: @escaping (SKYesterdayYesterdayBase) -> (),
-                                  failure: @escaping FailureHandler) {
-        let url = skWPYesterdayAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
-        httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
-                                  success: { result in
-                                    let yesterdayBase = SKYesterdayYesterdayBase(object: result)
-                                    success(yesterdayBase)
-        },
-                                  failure: failure)
-    }
-    
-    func skwpSixDaysWeatherInfo(success: @escaping (SKSixSixdaysBase) -> (),
+    func skwpSixDaysWeatherInfo(appKey: String, success: @escaping (SKSixSixdaysBase?) -> (),
                                 failure: @escaping FailureHandler) {
-        let url = skWPSixDaysAPI + "?appKey=\(sk6DaysKey)&lat=\(latitude)&lon=\(longitude)"
+        let url = skWPSixDaysAPI + "?appKey=\(appKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
                                   success: { result in
-                                    let sixdaysBase = SKSixSixdaysBase(object: result)
-                                    success(sixdaysBase)
+                                    if let error = result["error"] {
+                                        let errorJSON = error as! JSONType
+                                        let code = errorJSON["code"] as! String
+                                        if code == "8102" {
+                                            success(nil)
+                                        }
+                                    } else {
+                                        let sixdaysBase = SKSixSixdaysBase(object: result)
+                                        success(sixdaysBase)
+                                    }
         },
                                   failure: failure)
     }
     
-    func skwpThreeDaysWeatherInfo(success: @escaping (SKThreeThreedays) -> (),
+    func skwpThreeDaysWeatherInfo(appKey: String, success: @escaping (SKThreeThreedays?) -> (),
                                   failure: @escaping FailureHandler) {
-        let url = skWPThreeDaysAPI + "?appKey=\(sk3DaysKey)&lat=\(latitude)&lon=\(longitude)"
+        let url = skWPThreeDaysAPI + "?appKey=\(appKey)&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
-                                  lat: latitude,
-                                  lon: longitude,
                                   success: { result in
-                                    let threedaysBase = SKThreeThreedays(object: result)
-                                    success(threedaysBase)
+                                    if let error = result["error"] {
+                                        let errorJSON = error as! JSONType
+                                        let code = errorJSON["code"] as! String
+                                        if code == "8102" {
+                                            success(nil)
+                                        }
+                                    } else {
+                                        let threedaysBase = SKThreeThreedays(object: result)
+                                        success(threedaysBase)
+                                    }
         },
                                   failure: failure)
     }
     
     // MARK: - Public Method
-    public func callWeatherInfo(success: @escaping (SKThreeThreedays, SKSixSixdaysBase) -> (), failure: @escaping FailureHandler) {
-        
+    public func callWeatherInfo(appKey: String,
+                                success: @escaping (SKThreeThreedays?, SKSixSixdaysBase?) -> (),
+                                failure: @escaping FailureHandler) {
         var threeDaysWeather: SKThreeThreedays?
         var sixDaysWeather: SKSixSixdaysBase?
         var resultError: Error?
-        
-        let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue.global()
         print("=============== Dispatch Group ===== START! ==============")
         
         dispatchGroup.enter()
         dispatchQueue.async {
-            self.skwpThreeDaysWeatherInfo(success: { (result) in
+            self.skwpThreeDaysWeatherInfo(appKey: appKey,
+                                          success: { (result) in
                 threeDaysWeather = result
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }) { (error) in
                 resultError = error
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }
         }
         
         dispatchGroup.enter()
         dispatchQueue.async {
-            self.skwpSixDaysWeatherInfo(success: { (result) in
+            self.skwpSixDaysWeatherInfo(appKey: appKey,
+                                        success: { (result) in
                 sixDaysWeather = result
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }) { (error) in
                 resultError = error
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }
         }
         
         dispatchGroup.notify(queue: .main) {
             print("=============== Dispatch Group ===== Done! ==============")
-            
-            if let three = threeDaysWeather, let six = sixDaysWeather {
-                success(three, six)
+            if let error = resultError {
+                failure(error)
             } else {
-                if let error = resultError { failure(error) }
+                success(threeDaysWeather, sixDaysWeather)
             }
         }
     }

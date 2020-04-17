@@ -148,7 +148,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             AnalyticsParameterItemID: "id-\(title)",
             AnalyticsParameterItemName: title,
             AnalyticsParameterContentType: "cont"
-            ])
+        ])
     }
     
     func setSettingsLocation() {
@@ -266,17 +266,21 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     }
     
     private func requestSKWPWeekWeatherList() {
-        WeatherManager.callWeatherInfo(success: { (hourlyWeather, weekelyWeather) in
-            self.SK3daysWeatherModel = hourlyWeather
-            self.SK6daysWeatherModel = weekelyWeather
-            
-            self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
-            self.mainCollectionView.reloadData()
-            self.tableDelegate?.reloadTableView()
-            self.removeSplashScene()
-        }) { (error) in
-            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
-            self.removeSplashScene()
+        for appKey in skAppKeys {
+            WeatherManager.callWeatherInfo(appKey: appKey,
+                success: { hourlyWeather, weekelyWeather in
+                    guard let hourly = hourlyWeather, let weekely = weekelyWeather else { return }
+                    self.SK3daysWeatherModel = hourly
+                    self.SK6daysWeatherModel = weekely
+                    
+                    self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
+                    self.mainCollectionView.reloadData()
+                    self.tableDelegate?.reloadTableView()
+                    self.removeSplashScene()
+            }) { (error) in
+                self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+                self.removeSplashScene()
+            }
         }
     }
     
@@ -285,7 +289,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
             self.FiveDaysWeatherModel = fivedaysWeather
             self.FiveDaysWeatherList = fivedaysWeather.list
-
+            
             self.backgroundView.changeBackGround(with: WeatherManager.generateBackgroundView(by: fivedaysWeather)) 
             self.mainCollectionView.reloadData()
             self.tableDelegate?.reloadTableView()
@@ -368,7 +372,7 @@ extension EJHomeViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPic
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.myLocationField.text = locations[row]
     }
-
+    
     // MARK: - TextField Delegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         pickUpLocation(myLocationField)

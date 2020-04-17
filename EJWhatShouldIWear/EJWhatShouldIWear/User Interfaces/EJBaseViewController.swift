@@ -95,8 +95,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
                     
                 }
             } else {
-                print("Config not fetched")
-                
+                // Config not fetched
                 if let error = error {
                     failure(error)
                 }
