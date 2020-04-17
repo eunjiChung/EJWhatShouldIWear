@@ -35,5 +35,5 @@ public let skDebugAppKey                        =   ["cd0c9c72-6e32-4181-9291-93
 #if DEBUG
 let skAppKeys = skDebugAppKey
 #else
-var skAppKeys = skPublic3daysAppKey
+var skAppKeys = skPublicAppKey
 #endif
