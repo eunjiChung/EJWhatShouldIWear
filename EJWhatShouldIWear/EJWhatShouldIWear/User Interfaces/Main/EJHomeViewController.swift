@@ -256,7 +256,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             }
             
             if WeatherManager.isLocationKorea() {
-                self.requestSKWPWeekWeatherList()
+                self.requestSKWPWeekWeatherList(0)
             } else {
                 self.requestFiveDaysWeatherList(of: currentLocation)
             }
@@ -265,23 +265,21 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         }
     }
     
-    private func requestSKWPWeekWeatherList() {
-        for appKey in skAppKeys {
-            WeatherManager.callWeatherInfo(appKey: appKey,
-                success: { hourlyWeather, weekelyWeather in
-                    guard let hourly = hourlyWeather, let weekely = weekelyWeather else { return }
-                    self.SK3daysWeatherModel = hourly
-                    self.SK6daysWeatherModel = weekely
-                    
-                    self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
-                    self.mainCollectionView.reloadData()
-                    self.tableDelegate?.reloadTableView()
-                    self.removeSplashScene()
-            }) { (error) in
-                self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
-                self.removeSplashScene()
-            }
+    private func requestSKWPWeekWeatherList(_ index: Int) {
+        WeatherManager.callWeatherInfo(index, success: { hourlyWeather, weekelyWeather in
+                                        guard let hourly = hourlyWeather, let weekely = weekelyWeather else { return }
+                                        self.SK3daysWeatherModel = hourly
+                                        self.SK6daysWeatherModel = weekely
+                                        
+                                        self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
+                                        self.mainCollectionView.reloadData()
+                                        self.tableDelegate?.reloadTableView()
+                                        self.removeSplashScene()
+        }) { (error) in
+            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+            self.removeSplashScene()
         }
+        
     }
     
     private func requestFiveDaysWeatherList(of current: CLLocation) {
@@ -353,6 +351,12 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         SideMenuManager.default.menuAnimationFadeStrength = 0.7
         SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
         SideMenuManager.default.menuShadowColor = UIColor.clear
+    }
+}
+
+extension EJHomeViewController: EJWeatherControlDelegate {
+    func didRequestWeatherInfo(_ index: Int) {
+        self.requestSKWPWeekWeatherList(index)
     }
 }
 

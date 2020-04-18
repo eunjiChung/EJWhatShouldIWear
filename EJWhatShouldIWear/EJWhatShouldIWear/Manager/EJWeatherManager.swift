@@ -31,6 +31,10 @@ enum WeatherCondition: Int {
     case clear = 11
 }
 
+// MARK: - Weather control Delegate
+protocol EJWeatherControlDelegate {
+    func didRequestWeatherInfo(_ index: Int)
+}
 
 // MARK: - Shared Instance
 let WeatherManager = EJWeatherManager.sharedInstance
@@ -45,6 +49,7 @@ class EJWeatherManager: NSObject {
     
     let httpClient = EJHTTPClient.init()
     let WeatherClass = WeatherMain()
+    var delegate: EJWeatherControlDelegate?
     
     let dispatchGroup = DispatchGroup()
     let dispatchQueue = DispatchQueue.global()
@@ -59,9 +64,9 @@ class EJWeatherManager: NSObject {
         
     }
     
-    func skwpSixDaysWeatherInfo(appKey: String, success: @escaping (SKSixSixdaysBase?) -> (),
+    func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (SKSixSixdaysBase?) -> (),
                                 failure: @escaping FailureHandler) {
-        let url = skWPSixDaysAPI + "?appKey=\(appKey)&lat=\(latitude)&lon=\(longitude)"
+        let url = skWPSixDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   success: { result in
                                     if let error = result["error"] {
@@ -78,15 +83,17 @@ class EJWeatherManager: NSObject {
                                   failure: failure)
     }
     
-    func skwpThreeDaysWeatherInfo(appKey: String, success: @escaping (SKThreeThreedays?) -> (),
+    func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (SKThreeThreedays?) -> (),
                                   failure: @escaping FailureHandler) {
-        let url = skWPThreeDaysAPI + "?appKey=\(appKey)&lat=\(latitude)&lon=\(longitude)"
+        print("App Key:", skPublicAppKey[index])
+        let url = skWPThreeDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   success: { result in
                                     if let error = result["error"] {
                                         let errorJSON = error as! JSONType
                                         let code = errorJSON["code"] as! String
                                         if code == "8102" {
+                                            self.delegate?.didRequestWeatherInfo(index+1)
                                             success(nil)
                                         }
                                     } else {
@@ -98,7 +105,7 @@ class EJWeatherManager: NSObject {
     }
     
     // MARK: - Public Method
-    public func callWeatherInfo(appKey: String,
+    public func callWeatherInfo(_ index: Int,
                                 success: @escaping (SKThreeThreedays?, SKSixSixdaysBase?) -> (),
                                 failure: @escaping FailureHandler) {
         var threeDaysWeather: SKThreeThreedays?
@@ -108,7 +115,7 @@ class EJWeatherManager: NSObject {
         
         dispatchGroup.enter()
         dispatchQueue.async {
-            self.skwpThreeDaysWeatherInfo(appKey: appKey,
+            self.skwpThreeDaysWeatherInfo(index,
                                           success: { (result) in
                 threeDaysWeather = result
                 self.dispatchGroup.leave()
@@ -120,7 +127,7 @@ class EJWeatherManager: NSObject {
         
         dispatchGroup.enter()
         dispatchQueue.async {
-            self.skwpSixDaysWeatherInfo(appKey: appKey,
+            self.skwpSixDaysWeatherInfo(index,
                                         success: { (result) in
                 sixDaysWeather = result
                 self.dispatchGroup.leave()
