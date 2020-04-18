@@ -249,18 +249,20 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     private func setWeatherInfo(of currentLocation: CLLocation) {
         WeatherManager.getLocationInfo(of: currentLocation, success: { country, result in
             
-            if result != "" {
-                self.location = result
-                self.myLocationField.text = self.location
-            } else {
-                self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
-            }
-            
-            if WeatherManager.isLocationKorea() {
-                self.requestSKWPWeekWeatherList(0)
-            } else {
-                self.requestFiveDaysWeatherList(of: currentLocation)
-            }
+//            if result != "" {
+//                self.location = result
+//                self.myLocationField.text = self.location
+//            } else {
+//                self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
+//            }
+            self.myLocationField.text = "송파구 송파동"
+
+            self.requestSKWPWeekWeatherList(0)
+//            if WeatherManager.isLocationKorea() {
+//                self.requestSKWPWeekWeatherList(0)
+//            } else {
+//                self.requestFiveDaysWeatherList(of: currentLocation)
+//            }
         }) { (error) in
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
         }

@@ -62,6 +62,8 @@ class EJWeatherManager: NSObject {
     
     func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (SKSixSixdaysBase?) -> (),
                                 failure: @escaping FailureHandler) {
+        latitude = 37.51151
+        longitude = 127.0967
         let url = skWPSixDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   success: { result in
@@ -81,6 +83,8 @@ class EJWeatherManager: NSObject {
     
     func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (SKThreeThreedays?) -> (),
                                   failure: @escaping FailureHandler) {
+        latitude = 37.51151
+        longitude = 127.0967
         let url = skWPThreeDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   success: { result in
@@ -107,7 +111,7 @@ class EJWeatherManager: NSObject {
         var sixDaysWeather: SKSixSixdaysBase?
         var resultError: Error?
         print("=============== Dispatch Group ===== START! ==============")
-
+        
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue.global()
         
@@ -115,8 +119,8 @@ class EJWeatherManager: NSObject {
         dispatchQueue.async {
             self.skwpThreeDaysWeatherInfo(index,
                                           success: { (result) in
-                threeDaysWeather = result
-                dispatchGroup.leave()
+                                            threeDaysWeather = result
+                                            dispatchGroup.leave()
             }) { (error) in
                 resultError = error
                 dispatchGroup.leave()
@@ -127,8 +131,8 @@ class EJWeatherManager: NSObject {
         dispatchQueue.async {
             self.skwpSixDaysWeatherInfo(index,
                                         success: { (result) in
-                sixDaysWeather = result
-                dispatchGroup.leave()
+                                            sixDaysWeather = result
+                                            dispatchGroup.leave()
             }) { (error) in
                 resultError = error
                 dispatchGroup.leave()
@@ -611,10 +615,11 @@ class EJWeatherManager: NSObject {
     
     // TODO: - 나라 지역화
     public func isLocationKorea() -> Bool {
-        if country == LocalizedString(with: "korea") {
-            return true
-        }
-        return false
+//        if country == LocalizedString(with: "korea") {
+//            return true
+//        }
+//        return false
+        return true
     }
     
     public func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
