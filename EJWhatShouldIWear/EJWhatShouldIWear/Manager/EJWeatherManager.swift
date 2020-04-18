@@ -51,9 +51,6 @@ class EJWeatherManager: NSObject {
     let WeatherClass = WeatherMain()
     var delegate: EJWeatherControlDelegate?
     
-    let dispatchGroup = DispatchGroup()
-    let dispatchQueue = DispatchQueue.global()
-    
     // MARK: - HTTP Request
     func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
                                 failure: @escaping FailureHandler) {
@@ -73,7 +70,7 @@ class EJWeatherManager: NSObject {
                                         let errorJSON = error as! JSONType
                                         let code = errorJSON["code"] as! String
                                         if code == "8102" {
-                                            success(nil)
+                                            return
                                         }
                                     } else {
                                         let sixdaysBase = SKSixSixdaysBase(object: result)
@@ -85,7 +82,6 @@ class EJWeatherManager: NSObject {
     
     func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (SKThreeThreedays?) -> (),
                                   failure: @escaping FailureHandler) {
-        print("App Key:", skPublicAppKey[index])
         let url = skWPThreeDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
         httpClient.weatherRequest(url: url,
                                   success: { result in
@@ -94,7 +90,7 @@ class EJWeatherManager: NSObject {
                                         let code = errorJSON["code"] as! String
                                         if code == "8102" {
                                             self.delegate?.didRequestWeatherInfo(index+1)
-                                            success(nil)
+                                            return
                                         }
                                     } else {
                                         let threedaysBase = SKThreeThreedays(object: result)
@@ -112,16 +108,19 @@ class EJWeatherManager: NSObject {
         var sixDaysWeather: SKSixSixdaysBase?
         var resultError: Error?
         print("=============== Dispatch Group ===== START! ==============")
+
+        let dispatchGroup = DispatchGroup()
+        let dispatchQueue = DispatchQueue.global()
         
         dispatchGroup.enter()
         dispatchQueue.async {
             self.skwpThreeDaysWeatherInfo(index,
                                           success: { (result) in
                 threeDaysWeather = result
-                self.dispatchGroup.leave()
+                dispatchGroup.leave()
             }) { (error) in
                 resultError = error
-                self.dispatchGroup.leave()
+                dispatchGroup.leave()
             }
         }
         
@@ -130,10 +129,10 @@ class EJWeatherManager: NSObject {
             self.skwpSixDaysWeatherInfo(index,
                                         success: { (result) in
                 sixDaysWeather = result
-                self.dispatchGroup.leave()
+                dispatchGroup.leave()
             }) { (error) in
                 resultError = error
-                self.dispatchGroup.leave()
+                dispatchGroup.leave()
             }
         }
         
