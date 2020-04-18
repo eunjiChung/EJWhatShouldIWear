@@ -10,7 +10,7 @@ import Alamofire
 
 typealias JSONType = [String: Any]
 
-class EJHTTPClient: NSObject {
+final class EJHTTPClient: NSObject {
     // MARK: - Networking
     func weatherRequest(url: String,
                         success: @escaping (JSONType) -> (),
@@ -26,5 +26,4 @@ class EJHTTPClient: NSObject {
             }
         }
     }
-
 }

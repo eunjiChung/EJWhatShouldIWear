@@ -6,7 +6,6 @@
 //  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 //
 
-import UIKit
 import SwiftyJSON
 import CoreLocation
 import Crashlytics
