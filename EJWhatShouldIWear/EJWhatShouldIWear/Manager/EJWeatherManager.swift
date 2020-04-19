@@ -400,13 +400,13 @@ class EJWeatherManager: NSObject {
         description += "\n"
         
         if WeatherClass.maxTemp < 15 {
-            print("Description : 따뜻하게 입으세요 \(WeatherClass.maxTemp)도")
+            EJLogger.d("Description : 따뜻하게 입으세요 \(WeatherClass.maxTemp)도")
             description += LocalizedString(with: "desc_add_warm")
         } else if WeatherClass.minTemp > 23 {
-            print("Description : 더위 조심하세요")
+            EJLogger.d("Description : 더위 조심하세요")
             description += LocalizedString(with: "desc_add_cool")
         } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
-            print("Description : 일교차가 큰 날이에요")
+            EJLogger.d("Description : 일교차가 큰 날이에요")
             description = description + LocalizedString(with: "desc_add_cross") + "\n"
             
             // TODO: 몇 도씨 미만이고, 일교차가 크면 겉옷을 챙기도록 추천!

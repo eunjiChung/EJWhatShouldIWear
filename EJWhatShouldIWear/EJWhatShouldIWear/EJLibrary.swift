@@ -51,7 +51,7 @@ class EJLibrary: NSObject {
                     myUserDefaults.set(false, forKey: SWITCH_ID)
                 }
             } else {
-                print(error as Any)
+                EJLogger.e(error as Any)
             }
         }
     }

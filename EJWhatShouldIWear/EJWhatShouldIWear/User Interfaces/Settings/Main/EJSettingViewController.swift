@@ -88,7 +88,7 @@ extension EJSettingViewController: UITableViewDelegate {
         case 2:
             self.performSegue(withIdentifier: "set_info_segue", sender: self)
         default:
-            print("Nothing...")
+            EJLogger.d("")
         }
     }
     

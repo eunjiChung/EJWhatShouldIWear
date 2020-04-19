@@ -108,7 +108,7 @@ class EJNewHomeViewController: EJBaseViewController {
             let tableVC = navVC.viewControllers.first as! EJSideMenuViewController
             tableVC.curLocation = EJLocationManager.shared.locationString
         default:
-            print("Nothing...")
+            EJLogger.d("")
         }
     }
     
@@ -297,7 +297,7 @@ private extension EJNewHomeViewController {
                             splash.removeFromSuperview()
                         }
                     } else {
-                        print("Splash screen already missed")
+                        EJLogger.w("Splash screen already missed")
                     }
                 }, completion: nil)
             }

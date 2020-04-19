@@ -119,7 +119,7 @@ final class EJNewHomeViewModel {
         var threeDaysWeather: [EJThreedaysForecastModel] = []
         var sixDaysWeather: [EJSixdaysForecastModel] = []
         var resultError: Error?
-        print("=============== Dispatch Group ===== START! ==============")
+        EJLogger.d("=============== Dispatch Group ===== START! ==============")
         
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue.global()
@@ -149,7 +149,7 @@ final class EJNewHomeViewModel {
         }
         
         dispatchGroup.notify(queue: .main) {
-            print("=============== Dispatch Group ===== Done! ==============")
+            EJLogger.d("=============== Dispatch Group ===== Done! ==============")
             if let error = resultError {
                 failure(error)
             } else {

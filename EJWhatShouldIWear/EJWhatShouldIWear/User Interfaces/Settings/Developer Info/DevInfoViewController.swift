@@ -64,7 +64,7 @@ class DevInfoViewController: UIViewController, UITableViewDataSource, UITableVie
                 cell.descriptionCell.text = LocalizedString(with: "app_description")
                 return cell
             default:
-                print("Nothing...")
+                return UITableViewCell()
             }
         case 1:
             switch indexPath.row {
@@ -84,13 +84,10 @@ class DevInfoViewController: UIViewController, UITableViewDataSource, UITableVie
                 cell.tableButton.setTitle(LocalizedString(with: "goto_instagram"), for: .normal)
                 return cell
             default:
-                print("Nothing...")
+                return UITableViewCell()
             }
         default:
-            print("Nothing...")
+            return UITableViewCell()
         }
-        
-        return UITableViewCell()
     }
-
 }

@@ -69,7 +69,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
         case 3:
             self.performSegue(withIdentifier: "sidemenu_setting_segue", sender: self)
         default:
-            print("Nothing")
+            EJLogger.d("")
         }
     }
     

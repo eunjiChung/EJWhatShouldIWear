@@ -167,7 +167,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             let tableVC = navVC.viewControllers.first as! EJSideMenuViewController
             tableVC.curLocation = self.location
         default:
-            print("Nothing...")
+            EJLogger.d("")
         }
         
     }

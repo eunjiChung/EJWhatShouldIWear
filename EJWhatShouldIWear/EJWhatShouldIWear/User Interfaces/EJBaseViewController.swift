@@ -16,7 +16,6 @@ import SwiftyJSON
 let EJSegueSetting                      = "setting_segue"
 
 class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate {
-    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +26,12 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
         return .lightContent
     }
     
-    
     // MARK: - Alert Controller
     func popAlertVC(_ controller: UIViewController, title:String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: LocalizedString(with: "btn_ok"), style: .default, handler: nil))
         controller.present(alert, animated: true, completion: nil)
     }
-    
-    
     
     // MARK: Firebase Remote Config
     func requestAppVersionInfo() {
@@ -122,7 +118,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
             if storeId != nil {
                 self.openAppStore(withIdentifier: storeId!, completionHandler:{})
             } else {
-                print("'storeId is nil!'")
+                EJLogger.w("'storeId is nil!'")
             }
         }
     }
