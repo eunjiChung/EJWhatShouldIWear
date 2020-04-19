@@ -42,112 +42,11 @@ class EJWeatherManager: NSObject {
     
     static let sharedInstance = EJWeatherManager()
     
-    var latitude: Double = 0    //37.51151
-    var longitude: Double = 0   //127.0967
     var country: String = ""
     
     let httpClient = EJHTTPClient.init()
     let WeatherClass = WeatherMain()
     var delegate: EJWeatherControlDelegate?
-    
-    // MARK: - HTTP Request
-    func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
-                                failure: @escaping FailureHandler) {
-        let url = owmAPIPath + "forecast?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
-        httpClient.weatherRequest(url: url,
-                                  success: success,
-                                  failure: failure)
-        
-    }
-    
-    func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (SKSixSixdaysBase?) -> (),
-                                failure: @escaping FailureHandler) {
-        latitude = 37.51151
-        longitude = 127.0967
-        let url = skWPSixDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
-        httpClient.weatherRequest(url: url,
-                                  success: { result in
-                                    if let error = result["error"] {
-                                        let errorJSON = error as! JSONType
-                                        let code = errorJSON["code"] as! String
-                                        if code == "8102" {
-                                            return
-                                        }
-                                    } else {
-                                        let sixdaysBase = SKSixSixdaysBase(object: result)
-                                        success(sixdaysBase)
-                                    }
-        },
-                                  failure: failure)
-    }
-    
-    func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (SKThreeThreedays?) -> (),
-                                  failure: @escaping FailureHandler) {
-        latitude = 37.51151
-        longitude = 127.0967
-        let url = skWPThreeDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
-        httpClient.weatherRequest(url: url,
-                                  success: { result in
-                                    if let error = result["error"] {
-                                        let errorJSON = error as! JSONType
-                                        let code = errorJSON["code"] as! String
-                                        if code == "8102" {
-                                            self.delegate?.didRequestWeatherInfo(index+1)
-                                            return
-                                        }
-                                    } else {
-                                        let threedaysBase = SKThreeThreedays(object: result)
-                                        success(threedaysBase)
-                                    }
-        },
-                                  failure: failure)
-    }
-    
-    // MARK: - Public Method
-    public func callWeatherInfo(_ index: Int,
-                                success: @escaping (SKThreeThreedays?, SKSixSixdaysBase?) -> (),
-                                failure: @escaping FailureHandler) {
-        var threeDaysWeather: SKThreeThreedays?
-        var sixDaysWeather: SKSixSixdaysBase?
-        var resultError: Error?
-        print("=============== Dispatch Group ===== START! ==============")
-        
-        let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue.global()
-        
-        dispatchGroup.enter()
-        dispatchQueue.async {
-            self.skwpThreeDaysWeatherInfo(index,
-                                          success: { (result) in
-                                            threeDaysWeather = result
-                                            dispatchGroup.leave()
-            }) { (error) in
-                resultError = error
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.enter()
-        dispatchQueue.async {
-            self.skwpSixDaysWeatherInfo(index,
-                                        success: { (result) in
-                                            sixDaysWeather = result
-                                            dispatchGroup.leave()
-            }) { (error) in
-                resultError = error
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            print("=============== Dispatch Group ===== Done! ==============")
-            if let error = resultError {
-                failure(error)
-            } else {
-                success(threeDaysWeather, sixDaysWeather)
-            }
-        }
-    }
     
     public func generateWeatherCondition(by list: [EJFiveDaysList]) -> WeatherMain {
         var maxTemp:Float = -1000
@@ -285,6 +184,124 @@ class EJWeatherManager: NSObject {
         }
         
         return UIImage(named: "background")!
+    }
+    
+    public func generateKRBackgroundView(by model: [EJThreedaysForecastModel]) -> UIImage {
+        let time = (Int(Date().todayHourString())! + 9) % 24
+        
+        if time >= 20 || time < 6 {
+            let night = ["night1", "night2"]
+            let pic = night.randomElement()!
+            return UIImage(named: pic)!
+        } else if time >= 18 {
+            let sunsets = ["sunset1", "sunset2", "sunset3", "sunset4"]
+            let pic = sunsets.randomElement()!
+            return UIImage(named: pic)!
+        } else if time >= 6 {
+            if let fcst = model.first, let fcst3hour = fcst.fcst3hour {
+                if let sky = fcst3hour.sky, let timeRelease = fcst.timeRelease {
+                    var time = 4
+                    let currentHour = timeRelease.onlyKRTime()
+                    let list = sky.dictionaryRepresentation()
+                    var originalCode = 0
+                    var count = 0
+                    
+                    repeat {
+                        let code = list["code\(time)hour"] as! String
+                        originalCode = compareWeatherCode(code, originalCode)
+                        
+                        time += 3
+                        count += 1
+                    } while currentHour + time < 24
+                    
+                    let weatherCondition = generateKRWeatherCondition(of: originalCode)
+                    var name = "background"
+                    
+                    switch weatherCondition {
+                    case .clear:
+                        name = "clear"
+                    case .cloud:
+                        name = "cloud"
+                    case .drizzle, .rain, .squall:
+                        name = "rainy"
+                    case .tornado, .thunderstorm:
+                        name = "storm"
+                    case .ash:
+                        name = "ash"
+                    case .snow:
+                        name = "snow"
+                    case .haze, .fog, .dust:
+                        name = "dust"
+                    }
+                    return UIImage(named: name)!
+                }
+            }
+        }
+        return UIImage(named: "background")!
+    }
+    
+    public func generateNewWeatherConditionKR(_ list: EJThreedaysFcst3hourModel, _ timeRelease: String) -> WeatherMain {
+        guard let sky = list.sky, let temp = list.temperature else { return WeatherClass }
+        
+        var totalTemp:Float = 0
+        var time = 4
+        let currentHour = timeRelease.onlyKRTime()
+        let skyList = sky.dictionaryRepresentation()
+        let tempList = temp.dictionaryRepresentation()
+        var originalCode = 0
+        var count = 0
+        
+        var minTemp = 100
+        var maxTemp = -100
+        
+        repeat {
+            // 1-1. sky를 돌면서 critic weather가 있나 보기
+            let code = skyList["code\(time)hour"] as! String
+            originalCode = compareWeatherCode(code, originalCode)
+            
+            // 1-2. temperature를 돌면서 오늘에 해당하는 기온 합치기
+            let fcstTempString = tempList["temp\(time)hour"] as! String
+            let fcstTemp = Float(fcstTempString)!
+            totalTemp += fcstTemp
+            
+            // 1-3. temperature를 돌면서 오늘의 최저, 최고기온 발견하기
+            if Int(fcstTemp) < minTemp {
+                minTemp = Int(fcstTemp)
+            }
+            if Int(fcstTemp) > maxTemp {
+                maxTemp = Int(fcstTemp)
+            }
+            
+            // 1-2-1. 오늘 8시 이후에는 다음날 날씨 표시하기
+            // TODO: 이거 문제될 것 같은데...공지해야될듯
+            time += 3
+            count += 1
+        } while currentHour + time < 24
+        
+        // 2. WeatherClass의 Critic Weather 설정
+        WeatherClass.criticCondition = generateKRWeatherCondition(of: originalCode)
+        
+        // 3. Average Temp 설정
+        let averageTemp = totalTemp / Float(count)
+        WeatherClass.mainTemp = getValidKRTemperature(by: averageTemp)
+        WeatherClass.maxTemp = Int(maxTemp)
+        WeatherClass.minTemp = Int(minTemp)
+        
+        // 4. Weather가 clear나 cloud일때와 아닐때 구분
+        if WeatherClass.criticCondition != .clear && WeatherClass.criticCondition != .cloud {
+            WeatherClass.criticCloth = setClothByCondition(WeatherClass.criticCondition)
+        } else {
+            WeatherClass.criticCloth = setOuterCloth(by: WeatherClass.mainTemp)
+        }
+        
+        // 5. MaxCloth, MinCloth 설정
+        WeatherClass.maxCloth = setTopCloth(by: WeatherClass.minTemp)
+        WeatherClass.minCloth = setBottomCloth(by: WeatherClass.maxTemp)
+        
+        // 6. WeatherDescription 설정
+        WeatherClass.weatherDescription = weatherDescription(WeatherClass.criticCondition)
+        
+        return WeatherClass
     }
     
     // 한국의 날씨 정보 받아오기
@@ -574,52 +591,6 @@ class EJWeatherManager: NSObject {
         
         var temp = Int(temperature)
         return temp
-    }
-    
-    // MARK: Locality
-    public func getLocationInfo(of current: CLLocation,
-                                success: @escaping (String, String) -> (),
-                                failure: @escaping (Error) -> ())
-    {
-        let geoCoder = CLGeocoder()
-        
-        geoCoder.reverseGeocodeLocation(current) { (placemark, error) in
-            if let error = error {
-                failure(error)
-            } else {
-                var result = ""
-                
-                if let placemark = placemark, let first = placemark.first, let country = first.country
-                {
-                    if let firstLocality = first.locality
-                    {
-                        result += "\(firstLocality)"
-                        
-                        if let subLocality = first.subLocality
-                        {
-                            result += " \(subLocality)"
-                        }
-                    }
-                    
-                    self.country = country
-                    
-                    success(country, result)
-                }
-                else
-                {
-                    success("", result)
-                }
-            }
-        }
-    }
-    
-    // TODO: - 나라 지역화
-    public func isLocationKorea() -> Bool {
-//        if country == LocalizedString(with: "korea") {
-//            return true
-//        }
-//        return false
-        return true
     }
     
     public func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {

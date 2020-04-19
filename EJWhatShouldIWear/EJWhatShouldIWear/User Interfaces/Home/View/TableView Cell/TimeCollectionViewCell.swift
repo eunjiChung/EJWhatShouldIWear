@@ -19,14 +19,20 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var skyConditionLabel: UILabel!
     
-    // MARK: - Alc of Constraints
     @IBOutlet weak var alcTopOfHourLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfTempLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfSkyConditionLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfClothImage: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfClothImage: NSLayoutConstraint!
     
+    // MARK: - Properties
     let hour = LocalizedString(with: "hour")
+    var index: Int = 0
+    var model: [EJThreedaysForecastModel]? {
+        didSet {
+            setKRHourlyWeather()
+        }
+    }
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
@@ -37,19 +43,16 @@ class TimeCollectionViewCell: UICollectionViewCell {
         alcTopOfSkyConditionLabel.constant = EJSizeHeight(3.0)
         alcTopOfClothImage.constant = EJSizeHeight(10.0)
         alcBottomOfClothImage.constant = EJSizeHeight(7.0)
-        
-        
     }
     
     
     // MARK: - Public Method
     // TODO: 여기 정리해야돼...
-    public func setKRHourlyWeather(of model: SKThreeThreedays, at index: Int) {
+    public func setKRHourlyWeather() {
         // 1. 현재 시간 받아오기
         let date = Date()
         // 2. 시간별 온도(fcst3hour-sky&temperature) 정보 받아오기
-        guard let weather = model.weather, let fcst3days = weather.forecast3days else { return }
-        guard let fcst3hour = fcst3days.first?.fcst3hour, let timeRelease = fcst3days.first?.timeRelease else { return }
+        guard let fcstModel = model, let fcst3hour = fcstModel.first?.fcst3hour, let timeRelease = fcstModel.first?.timeRelease else { return }
         // 현재 sky 정보 뿌릴 Label이 없음..
         guard let sky = fcst3hour.sky, let temp = fcst3hour.temperature else { return }
         // 3. 향후 3일 날씨까지 뿌리기

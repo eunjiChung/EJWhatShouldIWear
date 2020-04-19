@@ -12,12 +12,17 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     
     static let identifier = "TimeWeahtherTableViewCell"
     
+    // MARK: - Properties
     var weatherModel: EJFiveDaysWeatherModel?    // Other Country Weather Model
-    var ThreeDaysWeatherModel: SKThreeThreedays? // Korea Weather Model
     var timeRelease: String?
     var timeArray: [String]?
     var tempArray: [String]?
     
+    var model: [EJThreedaysForecastModel]? {
+        didSet {
+            setKRTimelyTable()
+        }
+    }
     
     // MARK: - Constraints
     @IBOutlet weak var alcTopConstraintOfTextLabel: NSLayoutConstraint!
@@ -53,30 +58,28 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         collectionView.reloadData()
     }
     
-    func setKRTimelyTable(of model: SKThreeThreedays) {
-        ThreeDaysWeatherModel = model
+    func setKRTimelyTable() {
         collectionView.reloadData()
     }
     
     
     // MARK: - CollectionView Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let model = ThreeDaysWeatherModel {
-            guard let weather = model.weather, let fcst3days = weather.forecast3days, let fcst3hour = fcst3days.first?.fcst3hour else { return 6 }
+        if let model = model {
+            guard let fcst3hour = model.first?.fcst3hour else { return 6 }
             guard let temp = fcst3hour.temperature else { return 6 }
             return temp.dictionaryRepresentation().count-2
         }
-        
         return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath) as! TimeCollectionViewCell
-        
         let index = indexPath.item
         
-        if let model = ThreeDaysWeatherModel {
-            cell.setKRHourlyWeather(of: model, at: index)
+        if let model = model {
+            cell.index = index
+            cell.model = model
         }
         
         if let model = weatherModel {

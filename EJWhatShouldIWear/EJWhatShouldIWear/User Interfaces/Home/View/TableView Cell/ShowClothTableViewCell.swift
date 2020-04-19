@@ -26,7 +26,6 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var averageLabel: UILabel!
     
-    
     // MARK: - Animation Constraints
     var firstImageCenterY: CGFloat = 0.0
     var secondImageCenterY: CGFloat = 0.0
@@ -39,7 +38,10 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var alcBottomOfClothesView: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfClothesView: NSLayoutConstraint!
     
-    
+    // MARK: - View Model
+    lazy var viewModel: ShowClothTableViewModel = {
+        return ShowClothTableViewModel()
+    }()
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
@@ -55,10 +57,9 @@ class ShowClothTableViewCell: UITableViewCell {
         setlayoutConstraints()
     }
 
-    
     // MARK: - Public Method
-    public func generateKoreaMain(by model: SKThreeThreedays) {
-        guard let weatherModel = model.weather, let forecast = weatherModel.forecast3days?.first else { return }
+    public func generateKoreaMain() {
+        guard let forecast = viewModel.model?.first else { return }
         guard let fcst3hour = forecast.fcst3hour, let timeRelease = forecast.timeRelease else { return }
         
         // 1. 원하는 날짜 받아오기
@@ -67,11 +68,9 @@ class ShowClothTableViewCell: UITableViewCell {
         let today = date.todayDateKRString()
         dateLabel.text = today
        
-        let weather = WeatherManager.generateWeatherConditionKR(fcst3hour, timeRelease)
-        
+        let weather = WeatherManager.generateNewWeatherConditionKR(fcst3hour, timeRelease)
         currentTempLabel.text = "\(weather.mainTemp)"
         unitLabel.text = WeatherManager.getValidUnit()
-        
         generateClothRecommendation(weather)
     }
     
@@ -97,9 +96,10 @@ class ShowClothTableViewCell: UITableViewCell {
         generateClothRecommendation(weather)
     }
     
-    
-    // MARK: - Private Shadow
-    private func addAnimation() {
+}
+
+private extension ShowClothTableViewCell {
+    func addAnimation() {
         UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [.curveEaseInOut, .repeat, .autoreverse], animations: {
             self.firstClothImageView.center.y = self.firstImageCenterY + 14
             self.secondClothImageview.center.y = self.secondImageCenterY + 16
@@ -107,7 +107,7 @@ class ShowClothTableViewCell: UITableViewCell {
         }, completion: nil)
     }
     
-    private func generateClothRecommendation(_ weather: WeatherMain) {
+    func generateClothRecommendation(_ weather: WeatherMain) {
         suggestLabel.text = weather.weatherDescription
         
         firstClothImageView.image = UIImage(named: weather.criticCloth)
@@ -120,9 +120,7 @@ class ShowClothTableViewCell: UITableViewCell {
         addAnimation()
     }
     
-    
-    // MARK: Layout
-    private func addShadow() {
+    func addShadow() {
         self.layer.shadowOpacity = 0.1 // 투명 효과
         self.layer.shadowColor = UIColor.gray.cgColor // 그림자 색깔
         self.layer.shadowRadius = 10 // 블러효과
@@ -131,13 +129,11 @@ class ShowClothTableViewCell: UITableViewCell {
         self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath // 그림자의 모양 (뷰에 맞추는 정도)
     }
     
-    private func setlayoutConstraints() {
-        
+    func setlayoutConstraints() {
         alcTopOfUnitLabel.constant = EJSizeHeight(15.0)
         alcTopOfClothImageView.constant = EJSizeHeight(15.0)
         alcTopOfClothNameLabel.constant = EJSizeHeight(10.0)
         alcBottomOfClothesView.constant = EJSizeHeight(10.0)
         alcTopOfClothesView.constant = EJSizeHeight(5.0)
     }
-    
 }

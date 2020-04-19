@@ -10,15 +10,6 @@ import UIKit
 import UserNotifications
 import ESPullToRefresh
 
-// MARK: - Screen Size
-public let EJ_SCREEN_WIDTH: CGFloat             =   UIScreen.main.bounds.width
-public let EJ_SCREEN_HEIGHT: CGFloat            =   UIScreen.main.bounds.height
-public let EJ_SCREEN_HEIGHT_812 : CGFloat       =   812.0
-public let EJ_SCREEN_WIDTH_414: CGFloat         =   414.0
-public let EJ_SCREEN_WIDTH_375: CGFloat         =   375.0
-public let EJ_SCREEN_7_PLUS: CGFloat            =   736.0
-public let EJ_SCREEN_7: CGFloat                 =   667.0
-
 // MARK: UserDefaults Keys
 public let LOCATION_KEY : String                =   "location"
 public let SWITCH_ID : String                   =   "switchState"
@@ -26,16 +17,6 @@ public let SWITCH_ID : String                   =   "switchState"
 // MARK: - Global Instance
 let Library = EJLibrary.sharedInstance
 let myUserDefaults = UserDefaults.standard
-
-// MARK: - Auto Layout
-func EJSize(_ standardSize: CGFloat) -> CGFloat {
-    // iPhoneX 기준으로 잡음
-    return round(standardSize * (EJ_SCREEN_WIDTH / EJ_SCREEN_WIDTH_375))
-}
-
-func EJSizeHeight(_ size: CGFloat) -> CGFloat {
-    return round(size * (EJ_SCREEN_HEIGHT / EJ_SCREEN_HEIGHT_812))
-}
 
 // MARK: - Localizable
 func LocalizedString(with key: String) -> String {

@@ -8,21 +8,26 @@
 
 import UIKit
 
-class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class WeekWeatherTableViewCell: UITableViewCell {
     
     static let identifier = "WeekWeatherTableViewCell"
-    var weatherInfo: [EJFiveDaysList]?
-    var krTempList: SKSixTemperature?
-    var krSkyList: SKSixSky?
     
-    // MARK: - Layout Constraints
+    // MARK: - Properties
+    var weatherInfo: [EJFiveDaysList]?
+    var krTempList: EJSixdaysTemperatureModel?
+    var krSkyList: EJSixdaysSkyModel?
+    
+    var model: [EJSixdaysForecastModel]? {
+        didSet {
+            setKoreaWeekelyTimeTable()
+        }
+    }
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var alcTopOfTitleLabel: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfTitleLabel: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfCollectionView: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfCollectionView: NSLayoutConstraint!
-    
-    
-    // MARK: - IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -43,13 +48,10 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         collectionView.register(UINib(nibName: "KRWeekelyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: KRWeekelyCollectionViewCell.identifier)
     }
 
-    func setKoreaWeekelyTimeTable(by info: SKSixSixdaysBase) {
-        guard let weather = info.weather else { return }
-        guard let model = weather.forecast6days, let fcst6days = model.first else { return }
-        guard let temp = fcst6days.temperature, let sky = fcst6days.sky else { return }
-        krTempList = temp
-        krSkyList = sky
-        
+    func setKoreaWeekelyTimeTable() {
+        guard let fcst6days = model?.first else { return }
+        krTempList = fcst6days.temperature
+        krSkyList = fcst6days.sky
         collectionView.reloadData()
     }
     
@@ -57,25 +59,23 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         weatherInfo = info
         collectionView.reloadData()
     }
-    
-    // MARK: - UICollectionView DataSource
+}
+
+extension WeekWeatherTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let temp = krTempList {
+        if krTempList != nil {
             return 7
         }
         return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if let temp = krTempList {
+        if krTempList != nil {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KRWeekelyCollectionViewCell.identifier, for: indexPath) as! KRWeekelyCollectionViewCell
             
-            let item = indexPath.item
-            if let temp = krTempList, let sky = krSkyList {
-                cell.setKoreaWeekelyInfo(sky, temp, to: item)
-            }
-            
+            cell.item = indexPath.item
+            cell.sixdaysSkyModel = krSkyList
+            cell.sixdaysTemperatureModel = krTempList
             return cell
         }
         
@@ -88,13 +88,15 @@ class WeekWeatherTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
         return cell
     }
-    
-    // MARK: - UICollectionView Delegate FlowLayout
+}
+
+// MARK: - UICollectionView Delegate FlowLayout
+extension WeekWeatherTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var width:CGFloat = EJSize(100.0)
         var height: CGFloat = EJSizeHeight(80.0)
         
-        if WeatherManager.isLocationKorea() {
+        if EJLocationManager.shared.isKorea() {
             width = EJSize(100.0)
             
             if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {

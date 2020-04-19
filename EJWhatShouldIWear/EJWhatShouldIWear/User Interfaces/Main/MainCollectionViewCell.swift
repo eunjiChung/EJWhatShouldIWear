@@ -62,7 +62,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if WeatherManager.isLocationKorea() && cellOpened == true && section == 0 {
+        if EJLocationManager.shared.isKorea() && cellOpened == true && section == 0 {
             return 2
         }
         return 1
@@ -76,20 +76,20 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
                 
                 // 한국일 경우
-                if let model = ThreeDaysWeatherModel {
-                    cell.generateKoreaMain(by: model)
-                }
-                // 외국일 경우
-                if let model = FiveDaysWeatherModel {
-                    cell.generateMain(by: model)
-                }
+//                if let model = ThreeDaysWeatherModel {
+//                    cell.generateKoreaMain(by: model)
+//                }
+//                // 외국일 경우
+//                if let model = FiveDaysWeatherModel {
+//                    cell.generateMain(by: model)
+//                }
                 
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ClothsCollectionTableViewCell.identifier, for: indexPath) as! ClothsCollectionTableViewCell
                 
                 if let model = ThreeDaysWeatherModel {
-                    cell.clothList(by: model)
+//                    cell.clothList(by: model)
                 }
                 
                 return cell
@@ -99,7 +99,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
             
             // 한국일 경우
             if let model = ThreeDaysWeatherModel {
-                cell.setKRTimelyTable(of: model)
+//                cell.setKRTimelyTable(of: model)
             }
             // 외국일 경우
             if let model = FiveDaysWeatherModel {
@@ -112,7 +112,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
             
             // 한국일 경우
             if let model = WeekelyWeatherModel {
-                cell.setKoreaWeekelyTimeTable(by: model)
+//                cell.setKoreaWeekelyTimeTable(by: model)
             }
             // 외국일 경우
             if let info = FiveDaysWeatherList {
@@ -159,7 +159,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
         case 1:
             return EJSizeHeight(290.0)
         case 2:
-            if WeatherManager.isLocationKorea() {
+            if EJLocationManager.shared.isKorea() {
                 if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
                     return EJSizeHeight(380.0)
                 } else {
@@ -184,7 +184,7 @@ class MainCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if WeatherManager.isLocationKorea() {
+        if EJLocationManager.shared.isKorea() {
             if indexPath.row == 0 && indexPath.section == 0 {
                 if cellOpened == true {
                     cellOpened = false

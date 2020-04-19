@@ -65,7 +65,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
         configureSideMenu()
         
         locationManager.delegate = self as CLLocationManagerDelegate
-        WeatherManager.delegate = self
+//        WeatherManager.delegate = self
         
         // 3회 방문시 스토어 리뷰 요청
         AppStoreReviewManager.requestReviewIfAppropriate()
@@ -112,29 +112,29 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     
     // MARK: - Splash Method
-    func removeSplashScene() {
-        if self.splashContainer != nil {
-            
-            // I put this method here...But this is not proper location 
-            self.requestAppVersionInfo()
-            
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
-                    if self.splashContainer != nil {
-                        if let splash = self.splashContainer, let indicator = self.loadingIndicator {
-                            splash.alpha = 0.0
-                            indicator.alpha = 0.0
-                            
-                            indicator.removeFromSuperview()
-                            splash.removeFromSuperview()
-                        }
-                    } else {
-                        print("Splash screen already missed")
-                    }
-                }, completion: nil)
-            }
-        }
-    }
+//    func removeSplashScene() {
+//        if self.splashContainer != nil {
+//
+//            // I put this method here...But this is not proper location
+//            self.requestAppVersionInfo()
+//
+//            DispatchQueue.main.async {
+//                UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
+//                    if self.splashContainer != nil {
+//                        if let splash = self.splashContainer, let indicator = self.loadingIndicator {
+//                            splash.alpha = 0.0
+//                            indicator.alpha = 0.0
+//
+//                            indicator.removeFromSuperview()
+//                            splash.removeFromSuperview()
+//                        }
+//                    } else {
+//                        print("Splash screen already missed")
+//                    }
+//                }, completion: nil)
+//            }
+//        }
+//    }
     
     
     // MARK: - Prepare for Segue
@@ -194,7 +194,7 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             let lon = current.coordinate.longitude
             let newCoordinate = ["latitude": lat, "longitude": lon]
             myUserDefaults.set(newCoordinate, forKey: LOCATION_KEY)
-            generateInfo(from: current)
+//            generateInfo(from: current)
         }
         
         locationManager.stopUpdatingLocation()
@@ -213,16 +213,16 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             let lat = location["latitude"] as! Double
             let lon = location["longitude"] as! Double
             let defaultLocation = CLLocation(latitude: lat, longitude: lon)
-            generateInfo(from: defaultLocation)
+//            generateInfo(from: defaultLocation)
         }
         
         tableDelegate?.stopPullToRefreshTable()
     }
     
-    func generateInfo(from location: CLLocation) {
-        setCurrentLocation(from: location.coordinate)
-        setWeatherInfo(of: location)
-    }
+//    func generateInfo(from location: CLLocation) {
+//        setCurrentLocation(from: location.coordinate)
+//        setWeatherInfo(of: location)
+//    }
     
     // 얘가 굳이 필요할까?
     func checkLocationStatus() {
@@ -241,65 +241,65 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     
     
     // MARK: - Request Weather Info
-    private func setCurrentLocation(from coordinate:CLLocationCoordinate2D) {
-        WeatherManager.latitude = coordinate.latitude
-        WeatherManager.longitude = coordinate.longitude
-    }
+//    private func setCurrentLocation(from coordinate:CLLocationCoordinate2D) {
+//        WeatherManager.latitude = coordinate.latitude
+//        WeatherManager.longitude = coordinate.longitude
+//    }
     
     private func setWeatherInfo(of currentLocation: CLLocation) {
-        WeatherManager.getLocationInfo(of: currentLocation, success: { country, result in
-            
-//            if result != "" {
-//                self.location = result
-//                self.myLocationField.text = self.location
-//            } else {
-//                self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
-//            }
-            self.myLocationField.text = "송파구 송파동"
-
-            self.requestSKWPWeekWeatherList(0)
-//            if WeatherManager.isLocationKorea() {
-//                self.requestSKWPWeekWeatherList(0)
-//            } else {
-//                self.requestFiveDaysWeatherList(of: currentLocation)
-//            }
-        }) { (error) in
-            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
-        }
+//        WeatherManager.getLocationInfo(of: currentLocation, success: { country, result in
+//            
+////            if result != "" {
+////                self.location = result
+////                self.myLocationField.text = self.location
+////            } else {
+////                self.popAlertVC(self, title: LocalizedString(with: "unknown_error"), message: "Unknown locality. Please refresh the view.")
+////            }
+//            self.myLocationField.text = "송파구 송파동"
+//
+//            self.requestSKWPWeekWeatherList(0)
+////            if WeatherManager.isLocationKorea() {
+////                self.requestSKWPWeekWeatherList(0)
+////            } else {
+////                self.requestFiveDaysWeatherList(of: currentLocation)
+////            }
+//        }) { (error) in
+//            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+//        }
     }
     
-    private func requestSKWPWeekWeatherList(_ index: Int) {
-        WeatherManager.callWeatherInfo(index, success: { hourlyWeather, weekelyWeather in
-                                        guard let hourly = hourlyWeather, let weekely = weekelyWeather else { return }
-                                        self.SK3daysWeatherModel = hourly
-                                        self.SK6daysWeatherModel = weekely
-                                        
-                                        self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
-                                        self.mainCollectionView.reloadData()
-                                        self.tableDelegate?.reloadTableView()
-                                        self.removeSplashScene()
-        }) { (error) in
-            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
-            self.removeSplashScene()
-        }
-        
-    }
+//    private func requestSKWPWeekWeatherList(_ index: Int) {
+//        WeatherManager.callWeatherInfo(index, success: { hourlyWeather, weekelyWeather in
+//                                        guard let hourly = hourlyWeather, let weekely = weekelyWeather else { return }
+//                                        self.SK3daysWeatherModel = hourly
+//                                        self.SK6daysWeatherModel = weekely
+//                                        
+//                                        self.backgroundView.changeBackGround(with: WeatherManager.generateKoreaBackgroundView(by: self.SK3daysWeatherModel))
+//                                        self.mainCollectionView.reloadData()
+//                                        self.tableDelegate?.reloadTableView()
+//                                        self.removeSplashScene()
+//        }) { (error) in
+//            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+//            self.removeSplashScene()
+//        }
+//        
+//    }
     
-    private func requestFiveDaysWeatherList(of current: CLLocation) {
-        WeatherManager.owmFiveDaysWeatherInfo(success: { (result) in
-            let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
-            self.FiveDaysWeatherModel = fivedaysWeather
-            self.FiveDaysWeatherList = fivedaysWeather.list
-            
-            self.backgroundView.changeBackGround(with: WeatherManager.generateBackgroundView(by: fivedaysWeather)) 
-            self.mainCollectionView.reloadData()
-            self.tableDelegate?.reloadTableView()
-            self.removeSplashScene()
-        }) { (error) in
-            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
-            self.removeSplashScene()
-        }
-    }
+//    private func requestFiveDaysWeatherList(of current: CLLocation) {
+//        WeatherManager.owmFiveDaysWeatherInfo(success: { (result) in
+//            let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
+//            self.FiveDaysWeatherModel = fivedaysWeather
+//            self.FiveDaysWeatherList = fivedaysWeather.list
+//            
+//            self.backgroundView.changeBackGround(with: WeatherManager.generateBackgroundView(by: fivedaysWeather)) 
+//            self.mainCollectionView.reloadData()
+//            self.tableDelegate?.reloadTableView()
+//            self.removeSplashScene()
+//        }) { (error) in
+//            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+//            self.removeSplashScene()
+//        }
+//    }
     
     // MARK: - Private Method
     private func pickUpLocation(_ myTextField: UITextField) {
@@ -357,11 +357,11 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
     }
 }
 
-extension EJHomeViewController: EJWeatherControlDelegate {
-    func didRequestWeatherInfo(_ index: Int) {
-        self.requestSKWPWeekWeatherList(index)
-    }
-}
+//extension EJHomeViewController: EJWeatherControlDelegate {
+//    func didRequestWeatherInfo(_ index: Int) {
+//        self.requestSKWPWeekWeatherList(index)
+//    }
+//}
 
 extension EJHomeViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK: - PickerView Delegate

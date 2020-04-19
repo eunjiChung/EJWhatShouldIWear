@@ -12,15 +12,23 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "KRWeekelyCollectionViewCell"
 
+    // MARK: - Properties
     let today = Date()
     let dateFormatter = DateFormatter()
     let calendar = Calendar(identifier: .gregorian)
     
     var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     
+    var item: Int = 0
+    var sixdaysSkyModel: EJSixdaysSkyModel?
+    var sixdaysTemperatureModel: EJSixdaysTemperatureModel? {
+        didSet {
+            setKoreaWeekelyInfo()
+        }
+    }
+    
     // MARK: - IBOutlet
     @IBOutlet weak var backView: BackView!
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
@@ -34,7 +42,6 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcBottomOfDescriptionLabel: NSLayoutConstraint!
     
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -46,21 +53,22 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
         alcBottomOfDescriptionLabel.constant = EJSizeHeight(10.0)
     }
     
-    public func setKoreaWeekelyInfo(_ sky: SKSixSky, _ temp: SKSixTemperature, to index: Int) {
-        let skyList = sky.dictionaryRepresentation()
-        let tempList = temp.dictionaryRepresentation()
-        
-        let minTemp = tempList["tmin\(index+2)day"] as! String
-        let maxTemp = tempList["tmax\(index+2)day"] as! String
-        let pmCondition = skyList["pmCode\(index+2)day"] as! String
-        let amCondition = skyList["amCode\(index+2)day"] as! String
-        let condition = skyList["pmName\(index+2)day"] as! String
-        
-        dateLabel.text = "\(getKRWeekday(of: index))"
-        maxTempLabel.text = maxTemp + "도"
-        minTempLabel.text = minTemp + "도"
-        generateValidCondition(pmCondition, amCondition, Int(minTemp)!)
-        descriptionLabel.text = condition
+    // TODO: - 예전 모델식 구현 고치기
+    public func setKoreaWeekelyInfo() {
+//        let skyList = sky.dictionaryRepresentation()
+//        let tempList = temp.dictionaryRepresentation()
+//
+//        let minTemp = tempList["tmin\(index+2)day"] as! String
+//        let maxTemp = tempList["tmax\(index+2)day"] as! String
+//        let pmCondition = skyList["pmCode\(index+2)day"] as! String
+//        let amCondition = skyList["amCode\(index+2)day"] as! String
+//        let condition = skyList["pmName\(index+2)day"] as! String
+//
+//        dateLabel.text = "\(getKRWeekday(of: index))"
+//        maxTempLabel.text = maxTemp + "도"
+//        minTempLabel.text = minTemp + "도"
+//        generateValidCondition(pmCondition, amCondition, Int(minTemp)!)
+//        descriptionLabel.text = condition
     }
     
     // MARK: - Private Method

@@ -26,8 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // FirebaseApp config 설정
         FirebaseApp.configure()
-        // Firebase Analytics 설정
-//        Analytics.setAnalyticsCollectionEnabled(true)
         
         // Initialize Google Mobile Ads SDK
         GADMobileAds.sharedInstance().start(completionHandler: nil)
@@ -35,5 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+    }
 }
 

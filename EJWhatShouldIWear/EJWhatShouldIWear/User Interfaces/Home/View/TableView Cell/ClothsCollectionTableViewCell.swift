@@ -8,18 +8,22 @@
 
 import UIKit
 
-class ClothsCollectionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ClothsCollectionTableViewCell: UITableViewCell {
     
     static let identifier = "ClothsCollectionTableViewCell"
-    // 날씨 모델 가져오기
-    var ThreeDaysWeatherModel: SKThreeThreedays?
     var clothesList = [String]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - View Model
+    lazy var viewModel: ClothsCollectionTableViewModel = {
+        return ClothsCollectionTableViewModel()
+    }()
+    
+    // MARK: - Initialize
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -27,18 +31,15 @@ class ClothsCollectionTableViewCell: UITableViewCell, UICollectionViewDataSource
     }
     
     // MARK: - Public Method
-    public func clothList(by model: SKThreeThreedays) {
-        if let weather = model.weather {
-            if let fcst = weather.forecast3days?.first, let fcst3hour = fcst.fcst3hour, let timeRelease = fcst.timeRelease {
-                
-                let weather = WeatherManager.generateWeatherConditionKR(fcst3hour, timeRelease)
-                self.clothesList = WeatherManager.getClothList(weather.minTemp, weather.maxTemp)
-            }
+    public func clothList() {
+        if let fcst = viewModel.model?.first, let fcst3hour = fcst.fcst3hour, let timeRelease = fcst.timeRelease {
+            let weather = WeatherManager.generateNewWeatherConditionKR(fcst3hour, timeRelease)
+            self.clothesList = WeatherManager.getClothList(weather.minTemp, weather.maxTemp)
         }
     }
-    
-    
-    // MARK: - CollectionView DataSource
+}
+
+extension ClothsCollectionTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return clothesList.count
     }
@@ -51,8 +52,9 @@ class ClothsCollectionTableViewCell: UITableViewCell, UICollectionViewDataSource
         
         return cell
     }
+}
 
-    // MARK: - UICollectionView Delegate FlowLayout
+extension ClothsCollectionTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var height: CGFloat = 0.0
         
@@ -69,5 +71,4 @@ class ClothsCollectionTableViewCell: UITableViewCell, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top:  EJSizeHeight(10.0), left: EJSize(5.0), bottom: EJSizeHeight(10.0), right: 0.0)
     }
-    
 }

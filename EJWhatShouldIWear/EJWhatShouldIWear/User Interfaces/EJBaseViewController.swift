@@ -12,12 +12,10 @@ import ESPullToRefresh
 import Firebase
 import SwiftyJSON
 
-
-
 // MARK : - Define Segue Identifier
 let EJSegueSetting                      = "setting_segue"
 
-class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate{
+class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
