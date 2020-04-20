@@ -34,7 +34,7 @@ class ClothsCollectionTableViewCell: UITableViewCell {
     public func clothList() {
         if let fcst = viewModel.model?.first, let fcst3hour = fcst.fcst3hour, let timeRelease = fcst.timeRelease {
             let weather = WeatherManager.generateNewWeatherConditionKR(fcst3hour, timeRelease)
-            self.clothesList = WeatherManager.getClothList(weather.minTemp, weather.maxTemp)
+            self.clothesList = EJClothManager.shared.getClothList(weather.minTemp, weather.maxTemp)
         }
     }
 }

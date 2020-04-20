@@ -94,7 +94,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
             tempLabel.text = "\(intTemp)\(unit)"
             skyConditionLabel.text = skyCondition
             
-            let style = WeatherManager.setTopCloth(by: intTemp)
+            let style = EJClothManager.shared.setTopCloth(by: intTemp)
             clothImageView.image = UIImage.init(named: style)
         }
     }
@@ -118,7 +118,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
             let temp = WeatherManager.getValidTemperature(by: floatTemp)
             tempLabel.text = "\(temp)\(unit)"
             
-            let style = WeatherManager.setTopCloth(by: temp)
+            let style = EJClothManager.shared.setTopCloth(by: temp)
             clothImageView.image = UIImage.init(named: style)
             
         }

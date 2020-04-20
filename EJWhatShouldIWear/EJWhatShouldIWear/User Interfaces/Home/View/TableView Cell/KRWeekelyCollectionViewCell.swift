@@ -80,9 +80,9 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
         var clothName = ""
         
         if condition != .clear && condition != .cloud {
-            clothName = WeatherManager.setClothByCondition(condition)
+            clothName = EJClothManager.shared.setClothByCondition(condition)
         } else {
-            clothName = WeatherManager.setOuterCloth(by: temp)
+            clothName = EJClothManager.shared.setOuterCloth(by: temp)
         }
         
         clothImageView.image = UIImage(named: clothName)
