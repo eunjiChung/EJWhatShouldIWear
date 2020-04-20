@@ -74,7 +74,7 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         viewModel.didRequestKoreaWeatherInfoSuccessClosure = {
-            self.backgroundView.changeBackGround(with: WeatherManager.generateKRBackgroundView(by: self.viewModel.threedaysModel))
+            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateKRBackgroundView(by: self.viewModel.threedaysModel))
             self.mainTableView.reloadData()
             self.removeSplashScene()
         }

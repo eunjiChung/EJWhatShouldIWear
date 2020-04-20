@@ -68,9 +68,9 @@ class ShowClothTableViewCell: UITableViewCell {
         let today = date.todayDateKRString()
         dateLabel.text = today
        
-        let weather = WeatherManager.generateNewWeatherConditionKR(fcst3hour, timeRelease)
+        let weather = EJWeatherManager.shared.generateNewWeatherConditionKR(fcst3hour, timeRelease)
         currentTempLabel.text = "\(weather.mainTemp)"
-        unitLabel.text = WeatherManager.getValidUnit()
+        unitLabel.text = EJWeatherManager.shared.getValidUnit()
         generateClothRecommendation(weather)
     }
     
@@ -89,10 +89,10 @@ class ShowClothTableViewCell: UITableViewCell {
             return false
         }
         
-        let weather = WeatherManager.generateWeatherCondition(by: todayWeatherList)
+        let weather = EJWeatherManager.shared.generateWeatherCondition(by: todayWeatherList)
         
         currentTempLabel.text = "\(weather.mainTemp)"
-        unitLabel.text = WeatherManager.getValidUnit()
+        unitLabel.text = EJWeatherManager.shared.getValidUnit()
         generateClothRecommendation(weather)
     }
     

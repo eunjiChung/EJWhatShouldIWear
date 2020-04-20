@@ -33,7 +33,7 @@ class ClothsCollectionTableViewCell: UITableViewCell {
     // MARK: - Public Method
     public func clothList() {
         if let fcst = viewModel.model?.first, let fcst3hour = fcst.fcst3hour, let timeRelease = fcst.timeRelease {
-            let weather = WeatherManager.generateNewWeatherConditionKR(fcst3hour, timeRelease)
+            let weather = EJWeatherManager.shared.generateNewWeatherConditionKR(fcst3hour, timeRelease)
             self.clothesList = EJClothManager.shared.getClothList(weather.minTemp, weather.maxTemp)
         }
     }

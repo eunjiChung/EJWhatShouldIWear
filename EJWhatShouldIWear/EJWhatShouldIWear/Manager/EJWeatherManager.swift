@@ -35,19 +35,17 @@ protocol EJWeatherControlDelegate {
     func didRequestWeatherInfo(_ index: Int)
 }
 
-// MARK: - Shared Instance
-let WeatherManager = EJWeatherManager.sharedInstance
-
 class EJWeatherManager: NSObject {
     
-    static let sharedInstance = EJWeatherManager()
+    static let shared = EJWeatherManager()
     
+    // MARK: - Properties
     var country: String = ""
-    
     let httpClient = EJHTTPClient.init()
     let WeatherClass = WeatherMain()
     var delegate: EJWeatherControlDelegate?
     
+    // MARK: - Publi Methods
     public func generateWeatherCondition(by list: [EJFiveDaysList]) -> WeatherMain {
         var maxTemp:Float = -1000
         var minTemp:Float = 1000

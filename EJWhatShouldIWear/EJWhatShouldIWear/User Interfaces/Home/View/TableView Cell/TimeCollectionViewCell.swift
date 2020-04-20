@@ -56,7 +56,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
         // 현재 sky 정보 뿌릴 Label이 없음..
         guard let sky = fcst3hour.sky, let temp = fcst3hour.temperature else { return }
         // 3. 향후 3일 날씨까지 뿌리기
-        let unit = WeatherManager.getValidUnit()
+        let unit = EJWeatherManager.shared.getValidUnit()
         let timeIndex = 4 + 3 * index
         
         let tempList = temp.dictionaryRepresentation()
@@ -113,9 +113,9 @@ class TimeCollectionViewCell: UICollectionViewCell {
             hourLabel.text = "\(time) \(hour)"
         }
         
-        let unit = WeatherManager.getValidUnit()
+        let unit = EJWeatherManager.shared.getValidUnit()
         if let weatherInfo = item.main, let floatTemp = weatherInfo.temp {
-            let temp = WeatherManager.getValidTemperature(by: floatTemp)
+            let temp = EJWeatherManager.shared.getValidTemperature(by: floatTemp)
             tempLabel.text = "\(temp)\(unit)"
             
             let style = EJClothManager.shared.setTopCloth(by: temp)

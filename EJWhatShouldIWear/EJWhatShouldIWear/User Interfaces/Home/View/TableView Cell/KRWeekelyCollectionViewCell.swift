@@ -75,8 +75,8 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
     private func generateValidCondition(_ pm: String, _ am: String, _ temp: Int) {
         let codeNumber = am.components(separatedBy: ["S", "K", "Y", "_", "W"]).joined()
         let amCode = Int(codeNumber)!
-        let code = WeatherManager.compareKRWeatherCode(pm, amCode)
-        let condition = WeatherManager.generateKRWeatherCondition(of: code)
+        let code = EJWeatherManager.shared.compareKRWeatherCode(pm, amCode)
+        let condition = EJWeatherManager.shared.generateKRWeatherCondition(of: code)
         var clothName = ""
         
         if condition != .clear && condition != .cloud {
