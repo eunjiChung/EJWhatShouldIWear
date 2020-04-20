@@ -56,13 +56,12 @@ class EJNewHomeViewController: EJBaseViewController {
         viewModel.didSetLocationInfoSuccessClosure = { locationString in
             self.myLocationField.text = locationString
             
-            // TODO: - 주석 제거
-            self.viewModel.requestKoreaWeather(0)
-            //            if EJLocationManager.shared.isKorea() {
-            //                self.viewModel.requestKoreaWeather(0)
-            //            } else {
-            //                self.viewModel.requestFiveDaysWeatherList(of: currentLocation)
-            //            }
+            if EJLocationManager.shared.isKorea() {
+                self.viewModel.requestKoreaWeather(0)
+            } else {
+                // TODO: - CLLocation 값을 넣어줘야 함 
+//                self.viewModel.requestFiveDaysWeatherList(of: currentLocation)
+            }
         }
         
         viewModel.didSetLocationInfoFailureClosure = { errorDescription in
@@ -80,6 +79,18 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         viewModel.didRequestKoreaWeatherInfoFailureClosure = { error in
+            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+            self.removeSplashScene()
+        }
+        
+        viewModel.didrequestForeignWeatherInfoSuccessClosure = {
+            guard let model = self.viewModel.FiveDaysWeatherModel else { return }
+            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateBackgroundView(by: model))
+            self.mainTableView.reloadData()
+            self.removeSplashScene()
+        }
+        
+        viewModel.didrequestForeignWeatherInfoFailureClosure = { error in
             self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
             self.removeSplashScene()
         }
@@ -165,9 +176,9 @@ extension EJNewHomeViewController: UITableViewDataSource {
                     cell.viewModel.model = viewModel.threedaysModel
                     cell.generateKoreaMain()
                 } else {
-//                    if let model = FiveDaysWeatherModel {
-//                        cell.generateMain(by: model)
-//                    }
+                    if let model = viewModel.FiveDaysWeatherModel {
+                        cell.generateMain(by: model)
+                    }
                 }
                 return cell
             } else {
@@ -182,10 +193,9 @@ extension EJNewHomeViewController: UITableViewDataSource {
             if EJLocationManager.shared.isKorea() {
                 cell.model = viewModel.threedaysModel
             } else {
-                // TODO: - 외국용 모델 추가
-//                if let model = FiveDaysWeatherModel {
-//                    cell.setTimelyTable(of: model)
-//                }
+                if let model = viewModel.FiveDaysWeatherModel {
+                    cell.setTimelyTable(of: model)
+                }
             }
             
             return cell
@@ -196,9 +206,9 @@ extension EJNewHomeViewController: UITableViewDataSource {
                 cell.model = viewModel.sixdaysModel
             }
             
-            //            if let info = FiveDaysWeatherList {
-            //                cell.setWeekelyTimeTable(by:info)
-            //            }
+            if let info = viewModel.weatherInfo {
+                cell.setWeekelyTimeTable(by:info)
+            }
             
             return cell
         case 3:

@@ -7,12 +7,14 @@
 //
 
 import Foundation
-// TODO: - 지우기
 import CoreLocation
 
 final class EJNewHomeViewModel {
     
     // MARK: - Properties
+    var weatherInfo: [EJFiveDaysList]?
+    var FiveDaysWeatherList: [EJFiveDaysList]?
+    var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
     var threedaysModel: [EJThreedaysForecastModel] = []
     var sixdaysModel: [EJSixdaysForecastModel] = []
     
@@ -22,16 +24,17 @@ final class EJNewHomeViewModel {
     var didRequestKoreaWeatherInfoSuccessClosure: (() -> Void)?
     var didRequestKoreaWeatherInfoFailureClosure: ((Error) -> Void)?
     var didRequestWeatherInfo: ((Int) -> Void)?
+    var didrequestForeignWeatherInfoSuccessClosure: (() -> Void)?
+    var didrequestForeignWeatherInfoFailureClosure: ((Error) -> Void)?
     
     // MARK: - Public Methods
     func setMyLocationLabel(of currentLocation: CLLocation) {
         EJLocationManager.shared.getLocation(of: currentLocation, success: { country, result in
-            //            if result != "" {
-            //                self.didSetLocationInfoSuccessClosure?(result)
-            //            } else {
-            //                self.didSetLocationInfoFailureClosure?("Unknown locality. Please refresh the view.")
-            //            }
-            self.didSetLocationInfoSuccessClosure?("송파구 송파동")
+            if result != "" {
+                self.didSetLocationInfoSuccessClosure?(result)
+            } else {
+                self.didSetLocationInfoFailureClosure?("Unknown locality. Please refresh the view.")
+            }
         }) { error in
             self.didSetLocationInfoFailureClosure?(error.localizedDescription)
         }
@@ -45,8 +48,15 @@ final class EJNewHomeViewModel {
         }
     }
     
-    func requestFiveDaysWeatherList(of current: CLLocation) {
-        
+    private func requestFiveDaysWeatherList(of current: CLLocation) {
+        owmFiveDaysWeatherInfo(success: { result in
+            let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
+            self.FiveDaysWeatherModel = fivedaysWeather
+            self.FiveDaysWeatherList = fivedaysWeather.list
+            self.didrequestForeignWeatherInfoSuccessClosure?()
+        }) { error in
+            self.didrequestForeignWeatherInfoFailureClosure?(error)
+        }
     }
     
     // MARK: - HTTP Request
@@ -63,11 +73,8 @@ final class EJNewHomeViewModel {
     
     private func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping ([EJSixdaysForecastModel]) -> (),
                                         failure: @escaping FailureHandler) {
-        //                                    let longitude = EJLocationManager.shared.longitude
-        //                                    let latitude = EJLocationManager.shared.latitude
-        // TODO: - 삭제
-        let latitude = 37.51151
-        let longitude = 127.0967
+        let longitude = EJLocationManager.shared.longitude
+        let latitude = EJLocationManager.shared.latitude
         let url = skWPSixDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
         EJHTTPClient().weatherRequest(url: url,
                                       success: { resultData in
@@ -89,11 +96,8 @@ final class EJNewHomeViewModel {
     
     private func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping ([EJThreedaysForecastModel]) -> (),
                                           failure: @escaping FailureHandler) {
-        //                                      let longitude = EJLocationManager.shared.longitude
-        //                                      let latitude = EJLocationManager.shared.latitude
-        // TODO: - 삭제
-        let latitude = 37.51151
-        let longitude = 127.0967
+        let longitude = EJLocationManager.shared.longitude
+        let latitude = EJLocationManager.shared.latitude
         let url = skWPThreeDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
         EJHTTPClient().weatherRequest(url: url,
                                       success: { resultData in

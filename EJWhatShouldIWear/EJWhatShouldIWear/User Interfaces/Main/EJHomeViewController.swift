@@ -184,6 +184,8 @@ class EJHomeViewController: EJBaseViewController, CLLocationManagerDelegate, UIC
             updateDefaultLocation()
         case .authorizedWhenInUse, .authorizedAlways:
             locationManager.startUpdatingLocation()
+        @unknown default:
+            fatalError()
         }
     }
     

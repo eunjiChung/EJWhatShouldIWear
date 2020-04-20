@@ -54,12 +54,10 @@ public class EJLocationManager: CLLocationManager {
     }
     
     func isKorea() -> Bool {
-        // TODO: - 원복시키기
-//        if country == LocalizedString(with: "korea") {
-//            return true
-//        }
-//        return false
-        return true
+        if country == LocalizedString(with: "korea") {
+            return true
+        }
+        return false
     }
     
     func updateDefaultLocation(currentLocation: CLLocation? = nil, completion: ((CLLocation) -> Void)? = nil) {

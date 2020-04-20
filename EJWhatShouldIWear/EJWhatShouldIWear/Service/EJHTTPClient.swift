@@ -8,9 +8,6 @@
 
 import Alamofire
 
-// TODO: - 삭제
-typealias JSONType = [String: Any]
-
 final class EJHTTPClient: NSObject {
     
     func weatherRequest(url: String,
@@ -21,9 +18,9 @@ final class EJHTTPClient: NSObject {
         Alamofire.request(result).responseJSON { response in
             switch response.result {
             case .success(let model):
-                let jsonModel = model as! JSONType
+                let jsonModel = model as! [String: Any]
                 if let error = jsonModel["error"] {
-                    let errorJSON = error as! JSONType
+                    let errorJSON = error as! [String: Any]
                     let code = errorJSON["code"] as! String
                     if code == "8102" {
                         success(nil)
