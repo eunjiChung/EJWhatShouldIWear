@@ -45,6 +45,10 @@ class EJNewHomeViewController: EJBaseViewController {
         layout()
         startLoadingIndicator()
         configureSideMenu()
+        // 3회 방문시 스토어 리뷰 요청
+        AppStoreReviewManager.requestReviewIfAppropriate()
+        
+        EJLocationManager.shared.delegate = self
         
         Library.addPullToRefreshControl(toScrollView: self.mainTableView) {
             EJLocationManager.shared.checkLocationStatus()
