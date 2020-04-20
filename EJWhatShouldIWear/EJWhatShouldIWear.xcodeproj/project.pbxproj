@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1022473E71CF6D37CD4F464D /* Pods_EJWhatShouldIWearUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7ABC346A570CA73BCF1FEB /* Pods_EJWhatShouldIWearUITests.framework */; };
 		1EC290F6244D9F1A003AA490 /* EJAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC290F5244D9F1A003AA490 /* EJAnalyticsManager.swift */; };
+		1EC290F8244DA293003AA490 /* EJAPIService2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC290F7244DA293003AA490 /* EJAPIService2.swift */; };
+		1EC290FB244DA2E0003AA490 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC290FA244DA2E0003AA490 /* TargetType.swift */; };
 		724A173822D77C9B008FDCB6 /* cardigan.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173522D77C9B008FDCB6 /* cardigan.png */; };
 		724A173922D77C9B008FDCB6 /* tshirt.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173622D77C9B008FDCB6 /* tshirt.png */; };
 		724A173A22D77C9B008FDCB6 /* blouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A173722D77C9B008FDCB6 /* blouse.png */; };
@@ -164,6 +166,8 @@
 /* Begin PBXFileReference section */
 		1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC290F5244D9F1A003AA490 /* EJAnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAnalyticsManager.swift; sourceTree = "<group>"; };
+		1EC290F7244DA293003AA490 /* EJAPIService2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService2.swift; sourceTree = "<group>"; };
+		1EC290FA244DA2E0003AA490 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		34C563592EC60267E4D1F641 /* Pods_EJWhatShouldIWearTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EJWhatShouldIWearTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4296309E4C1B9726C6DC4463 /* Pods-EJWhatShouldIWearTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearTests/Pods-EJWhatShouldIWearTests.release.xcconfig"; sourceTree = "<group>"; };
 		5932A35C12B40E6C3C924431 /* Pods-EJWhatShouldIWearTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearTests/Pods-EJWhatShouldIWearTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -361,6 +365,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EC290F9244DA2CD003AA490 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1EC290F7244DA293003AA490 /* EJAPIService2.swift */,
+				1EC290FA244DA2E0003AA490 /* TargetType.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		2070144A60C49D4464C9569E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +454,7 @@
 		728069202448A4D000522019 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				1EC290F9244DA2CD003AA490 /* Service */,
 				99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */,
 				728069212448A4FB00522019 /* EJFirebaseDBManager.swift */,
 				1EC290F5244D9F1A003AA490 /* EJAnalyticsManager.swift */,
@@ -1084,6 +1098,7 @@
 				B6F1025F233B4479000C3DCD /* UserDefaults+Key.swift in Sources */,
 				B6F74F202327922D00CDD4A6 /* SKHourlyTemperature.swift in Sources */,
 				B6F74F3B2327923B00CDD4A6 /* SKYesterdayYesterday.swift in Sources */,
+				1EC290FB244DA2E0003AA490 /* TargetType.swift in Sources */,
 				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
 				728069222448A4FB00522019 /* EJFirebaseDBManager.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
@@ -1154,6 +1169,7 @@
 				B6F74F1B2327922D00CDD4A6 /* SKHourlyWeather.swift in Sources */,
 				B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */,
 				B6262C2722FA771A009FC744 /* WeatherMain.swift in Sources */,
+				1EC290F8244DA293003AA490 /* EJAPIService2.swift in Sources */,
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
 				B6F1025D233B4413000C3DCD /* AppStoreReviewManager.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
