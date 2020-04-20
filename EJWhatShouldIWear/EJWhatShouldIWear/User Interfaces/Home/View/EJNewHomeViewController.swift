@@ -139,6 +139,8 @@ extension EJNewHomeViewController: CLLocationManagerDelegate {
             }
         case .authorizedWhenInUse, .authorizedAlways:
             EJLocationManager.shared.startUpdatingLocation()
+        @unknown default:
+            popAlertVC(self, title: "Hi", message: "Error")
         }
     }
     
