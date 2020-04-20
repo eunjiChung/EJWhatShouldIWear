@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 import CoreLocation
-import Crashlytics
+import FirebaseCrashlytics
 
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
@@ -548,7 +548,6 @@ class EJWeatherManager: NSObject {
             "temperature" : "\(temperature)"
         ]
         let errorLog = NSError.init(domain: "GetValidTemperature", code: -1001, userInfo: errorInfo)
-        Crashlytics.sharedInstance().recordError(errorLog)
         
         var temp = Int(temperature)
         
@@ -559,16 +558,7 @@ class EJWeatherManager: NSObject {
         return temp
     }
     
-    public func getValidKRTemperature(by temperature:Float) -> Int {
-        
-        // Non fatal Error
-        let errorInfo = [
-            NSLocalizedDescriptionKey : "Temperature",
-            "temperature" : "\(temperature)"
-        ]
-        let errorLog = NSError.init(domain: "GetValidTemperature", code: -1001, userInfo: errorInfo)
-        Crashlytics.sharedInstance().recordError(errorLog)
-        
+    public func getValidKRTemperature(by temperature:Float) -> Int {        
         var temp = Int(temperature)
         return temp
     }
