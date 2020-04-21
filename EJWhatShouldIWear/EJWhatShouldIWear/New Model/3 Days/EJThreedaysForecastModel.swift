@@ -10,17 +10,17 @@ import Foundation
 
 public struct EJThreedaysForecastModel: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case fcst6hour
+        case grid
         case timeRelease
         case fcst3hour
-        case grid
+        case fcst6hour
         case fcstdaily
     }
     
-    public var fcst6hour: EJThreedaysFcst6hourModel?
+    public var grid: EJGridModel?
     public var timeRelease: String?
     public var fcst3hour: EJThreedaysFcst3hourModel?
-    public var grid: EJGridModel?
+    public var fcst6hour: EJThreedaysFcst6hourModel?
     public var fcstdaily: EJThreedaysFcstDailyModel?
     
     public init(from decoder: Decoder) throws { }

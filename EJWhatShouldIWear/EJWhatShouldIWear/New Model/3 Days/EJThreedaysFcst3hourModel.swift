@@ -10,18 +10,18 @@ import Foundation
 
 public struct EJThreedaysFcst3hourModel: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case humidity = "humidity"
-        case sky = "sky"
-        case temperature = "temperature"
         case wind = "wind"
         case precipitation = "precipitation"
+        case sky = "sky"
+        case temperature = "temperature"
+        case humidity = "humidity"
     }
     
+    public var wind: EJThreedaysWindModel?
+    public var precipitation: EJPrecipitationModel?
+    public var sky: EJSkyModel?
+    public var temperature: EJThreedaysHourTemperature?
     public var humidity: EJHumidityModel?
-    public var sky: SKThreeSky?
-    public var temperature: SKThreeFcstTemperature?
-    public var wind: SKThreeWind?
-    public var precipitation: SKThreePrecipitation?
     
     public init(from decoder: Decoder) throws { }
 }

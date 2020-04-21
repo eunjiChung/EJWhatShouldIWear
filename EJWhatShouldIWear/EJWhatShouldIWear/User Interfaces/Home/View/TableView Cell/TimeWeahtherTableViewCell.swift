@@ -68,7 +68,9 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         if let model = model {
             guard let fcst3hour = model.first?.fcst3hour else { return 6 }
             guard let temp = fcst3hour.temperature else { return 6 }
-            return temp.dictionaryRepresentation().count-2
+            return 20
+            // TODO: - 다시 셀 수 있는 방법 찾자
+//            return temp.dictionaryRepresentation().count-2
         }
         return 6
     }

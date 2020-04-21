@@ -35,16 +35,16 @@ public struct EJSixdaysLocationModel: Decodable {
 
 public struct EJGridModel: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case latitude
-        case longitude
         case city
-        case village
         case county
+        case village
+        case longitude
+        case latitude
     }
     
+    var city: String?
     var latitude: String?
     var longitude: String?
-    var city: String?
     var village: String?
     var county: String?
 }

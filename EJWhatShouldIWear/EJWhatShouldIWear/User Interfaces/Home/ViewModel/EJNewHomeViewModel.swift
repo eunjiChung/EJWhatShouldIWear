@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 final class EJNewHomeViewModel {
     
@@ -42,7 +41,7 @@ final class EJNewHomeViewModel {
     }
     
     func requestKoreaWeather(_ index: Int) {
-        callWeatherInfo(index, success: { threedays, sixdays in
+        callWeatherInfo(index, success: {
             self.didRequestKoreaWeatherInfoSuccessClosure?()
         }) { error in
             self.didRequestKoreaWeatherInfoFailureClosure?(error)
@@ -72,7 +71,7 @@ final class EJNewHomeViewModel {
         
     }
     
-    private func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping ([EJSixdaysForecastModel]) -> (),
+    private func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (EJWeatherBaseModel) -> (),
                                         failure: @escaping FailureHandler) {
         let longitude = EJLocationManager.shared.longitude
         let latitude = EJLocationManager.shared.latitude
@@ -86,16 +85,14 @@ final class EJNewHomeViewModel {
                                         
                                         do {
                                             let sixdaysModel = try JSONDecoder().decode(EJWeatherBaseModel.self, from: data)
-                                            if let sixdaysForecastModel = sixdaysModel.weather.forecast6days {
-                                                success(sixdaysForecastModel)
-                                            }
+                                            success(sixdaysModel)
                                         } catch {
                                             failure(error)
                                         }
         }, failure: failure)
     }
     
-    private func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping ([EJThreedaysForecastModel]) -> (),
+    private func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (EJWeatherBaseModel) -> (),
                                           failure: @escaping FailureHandler) {
         let longitude = EJLocationManager.shared.longitude
         let latitude = EJLocationManager.shared.latitude
@@ -109,9 +106,7 @@ final class EJNewHomeViewModel {
                                         
                                         do {
                                             let threedaysModel = try JSONDecoder().decode(EJWeatherBaseModel.self, from: data)
-                                            if let threedaysForecastModel = threedaysModel.weather.forecast3days {
-                                                success(threedaysForecastModel)
-                                            }
+                                            success(threedaysModel)
                                         } catch {
                                             failure(error)
                                         }
@@ -119,10 +114,9 @@ final class EJNewHomeViewModel {
     }
     
     public func callWeatherInfo(_ index: Int,
-                                success: @escaping ([EJThreedaysForecastModel], [EJSixdaysForecastModel]) -> (),
+                                success: @escaping () -> Void,
                                 failure: @escaping FailureHandler) {
-        var threeDaysWeather: [EJThreedaysForecastModel] = []
-        var sixDaysWeather: [EJSixdaysForecastModel] = []
+        // TODO: - DispatchGroup에서 배열을 closure안에서 저장하면 호출이 안된다...왜?
         var resultError: Error?
         EJLogger.d("=============== Dispatch Group ===== START! ==============")
         
@@ -132,9 +126,9 @@ final class EJNewHomeViewModel {
         dispatchGroup.enter()
         dispatchQueue.async {
             self.skwpThreeDaysWeatherInfo(index,
-                                          success: { result in
-                                            threeDaysWeather = result
-                                            self.threedaysModel = result
+                                          success: { three in
+                                            guard let fcst3dayModel = three.weather.forecast3days else { return }
+                                            self.threedaysModel = fcst3dayModel
                                             dispatchGroup.leave()
             }) { (error) in
                 resultError = error
@@ -145,9 +139,9 @@ final class EJNewHomeViewModel {
         dispatchGroup.enter()
         dispatchQueue.async {
             self.skwpSixDaysWeatherInfo(index,
-                                        success: { result in
-                                            sixDaysWeather = result
-                                            self.sixdaysModel = result
+                                        success: { six in
+                                            guard let fcstModel6dayModel = six.weather.forecast6days else { return }
+                                            self.sixdaysModel = fcstModel6dayModel
                                             dispatchGroup.leave()
             }) { (error) in
                 resultError = error
@@ -160,9 +154,7 @@ final class EJNewHomeViewModel {
             if let error = resultError {
                 failure(error)
             } else {
-                self.threedaysModel = threeDaysWeather
-                self.sixdaysModel = sixDaysWeather
-                success(self.threedaysModel, self.sixdaysModel)
+                success()
             }
         }
     }

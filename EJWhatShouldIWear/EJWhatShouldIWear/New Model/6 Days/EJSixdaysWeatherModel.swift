@@ -15,8 +15,8 @@ public struct EJDaysWeatherModel: Decodable {
         case forecast3days
     }
     
-    var forecast6days: [EJSixdaysForecastModel]?
     var forecast3days: [EJThreedaysForecastModel]?
+    var forecast6days: [EJSixdaysForecastModel]?
 }
 
 
