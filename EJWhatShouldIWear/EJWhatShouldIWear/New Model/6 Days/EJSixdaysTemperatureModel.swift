@@ -52,7 +52,24 @@ public struct EJSixdaysTemperatureModel: Decodable {
     public func dictionaryRepresentation() -> [String: String] {
         var array: [String: String] = [:]
         
-        
+        if let value = tmin6day { array[CodingKeys.tmin6day.rawValue] = value }
+        if let value = tmin4day { array[CodingKeys.tmin4day.rawValue] = value }
+        if let value = tmin7day { array[CodingKeys.tmin7day.rawValue] = value }
+        if let value = tmin5day { array[CodingKeys.tmin5day.rawValue] = value }
+        if let value = tmax4day { array[CodingKeys.tmax4day.rawValue] = value }
+        if let value = tmax8day { array[CodingKeys.tmax8day.rawValue] = value }
+        if let value = tmin10day { array[CodingKeys.tmin10day.rawValue] = value }
+        if let value = tmax2day { array[CodingKeys.tmax2day.rawValue] = value }
+        if let value = tmin3day { array[CodingKeys.tmin3day.rawValue] = value }
+        if let value = tmax3day { array[CodingKeys.tmax3day.rawValue] = value }
+        if let value = tmax7day { array[CodingKeys.tmax7day.rawValue] = value }
+        if let value = tmax9day { array[CodingKeys.tmax9day.rawValue] = value }
+        if let value = tmin2day { array[CodingKeys.tmin2day.rawValue] = value }
+        if let value = tmin8day { array[CodingKeys.tmin8day.rawValue] = value }
+        if let value = tmax10day { array[CodingKeys.tmax10day.rawValue] = value }
+        if let value = tmax5day { array[CodingKeys.tmax5day.rawValue] = value }
+        if let value = tmin9day { array[CodingKeys.tmin9day.rawValue] = value }
+        if let value = tmax6day { array[CodingKeys.tmax6day.rawValue] = value }
         
         return array
     }

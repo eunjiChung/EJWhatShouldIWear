@@ -87,6 +87,43 @@ public struct EJSixdaysSkyModel: Decodable {
     
     public func dictionaryRepresentation() -> [String: String] {
         var array: [String: String] = [:]
+        
+        if let value = amName10day { array[CodingKeys.amName10day.rawValue] = value }
+        if let value = pmName7day { array[CodingKeys.pmName7day.rawValue] = value }
+        if let value = pmCode9day { array[CodingKeys.pmCode9day.rawValue] = value }
+        if let value = pmName6day { array[CodingKeys.pmName6day.rawValue] = value }
+        if let value = pmCode2day { array[CodingKeys.pmCode2day.rawValue] = value }
+        if let value = amCode10day { array[CodingKeys.amCode10day.rawValue] = value }
+        if let value = amCode3day { array[CodingKeys.amCode3day.rawValue] = value }
+        if let value = pmName9day { array[CodingKeys.pmName9day.rawValue] = value }
+        if let value = pmCode7day { array[CodingKeys.pmCode7day.rawValue] = value }
+        if let value = pmName10day { array[CodingKeys.pmName10day.rawValue] = value }
+        if let value = pmCode8day { array[CodingKeys.pmCode8day.rawValue] = value }
+        if let value = amName4day { array[CodingKeys.amName4day.rawValue] = value }
+        if let value = pmCode10day { array[CodingKeys.pmCode10day.rawValue] = value }
+        if let value = pmCode5day { array[CodingKeys.pmCode5day.rawValue] = value }
+        if let value = amName3day { array[CodingKeys.amName3day.rawValue] = value }
+        if let value = amName5day { array[CodingKeys.amName5day.rawValue] = value }
+        if let value = amCode6day { array[CodingKeys.amCode6day.rawValue] = value }
+        if let value = amName2day { array[CodingKeys.amName2day.rawValue] = value }
+        if let value = amName7day { array[CodingKeys.amName7day.rawValue] = value }
+        if let value = pmName2day { array[CodingKeys.pmName2day.rawValue] = value }
+        if let value = amCode2day { array[CodingKeys.amCode2day.rawValue] = value }
+        if let value = amName9day { array[CodingKeys.amName9day.rawValue] = value }
+        if let value = amName6day { array[CodingKeys.amName6day.rawValue] = value }
+        if let value = pmName3day { array[CodingKeys.pmName3day.rawValue] = value }
+        if let value = amCode8day { array[CodingKeys.amCode8day.rawValue] = value }
+        if let value = amCode9day { array[CodingKeys.amCode9day.rawValue] = value }
+        if let value = amCode5day { array[CodingKeys.amCode5day.rawValue] = value }
+        if let value = pmCode3day { array[CodingKeys.pmCode3day.rawValue] = value }
+        if let value = amCode7day { array[CodingKeys.amCode7day.rawValue] = value }
+        if let value = pmName8day { array[CodingKeys.pmName8day.rawValue] = value }
+        if let value = pmName4day { array[CodingKeys.pmName4day.rawValue] = value }
+        if let value = pmCode4day { array[CodingKeys.pmCode4day.rawValue] = value }
+        if let value = pmName5day { array[CodingKeys.pmName5day.rawValue] = value }
+        if let value = amCode4day { array[CodingKeys.amCode4day.rawValue] = value }
+        if let value = pmCode6day { array[CodingKeys.pmCode6day.rawValue] = value }
+        
         return array
     }
 }
