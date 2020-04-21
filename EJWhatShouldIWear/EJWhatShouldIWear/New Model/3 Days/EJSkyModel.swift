@@ -100,4 +100,10 @@ public struct EJSkyModel: Decodable {
     public var name31hour: String?
     public var code55hour: String?
     public var name46hour: String?
+    
+    func dictionaryRepresentation() {
+        
+    }
+    
+    
 }

@@ -48,4 +48,12 @@ public struct EJSixdaysTemperatureModel: Decodable {
     public var tmax5day: String?
     public var tmin9day: String?
     public var tmax6day: String?
+    
+    public func dictionaryRepresentation() -> [String: String] {
+        var array: [String: String] = [:]
+        
+        
+        
+        return array
+    }
 }

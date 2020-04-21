@@ -84,4 +84,9 @@ public struct EJSixdaysSkyModel: Decodable {
     public var pmName5day: String?
     public var amCode4day: String?
     public var pmCode6day: String?
+    
+    public func dictionaryRepresentation() -> [String: String] {
+        var array: [String: String] = [:]
+        return array
+    }
 }

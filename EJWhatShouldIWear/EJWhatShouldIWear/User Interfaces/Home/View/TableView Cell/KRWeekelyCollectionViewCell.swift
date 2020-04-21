@@ -53,25 +53,26 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
         alcBottomOfDescriptionLabel.constant = EJSizeHeight(10.0)
     }
     
+    // MARK: - Private Method
     // TODO: - 예전 모델식 구현 고치기
-    public func setKoreaWeekelyInfo() {
-//        let skyList = sky.dictionaryRepresentation()
-//        let tempList = temp.dictionaryRepresentation()
-//
-//        let minTemp = tempList["tmin\(index+2)day"] as! String
-//        let maxTemp = tempList["tmax\(index+2)day"] as! String
-//        let pmCondition = skyList["pmCode\(index+2)day"] as! String
-//        let amCondition = skyList["amCode\(index+2)day"] as! String
-//        let condition = skyList["pmName\(index+2)day"] as! String
-//
-//        dateLabel.text = "\(getKRWeekday(of: index))"
-//        maxTempLabel.text = maxTemp + "도"
-//        minTempLabel.text = minTemp + "도"
-//        generateValidCondition(pmCondition, amCondition, Int(minTemp)!)
-//        descriptionLabel.text = condition
+    func setKoreaWeekelyInfo(_ index: Int) {
+        guard let skyModel = sixdaysSkyModel, let tempModel = sixdaysTemperatureModel else { return }
+        let skyList = skyModel.dictionaryRepresentation()
+        let tempList = tempModel.dictionaryRepresentation()
+
+        let minTemp = tempList["tmin\(index+2)day"]!
+        let maxTemp = tempList["tmax\(index+2)day"] as! String
+        let pmCondition = skyList["pmCode\(index+2)day"] as! String
+        let amCondition = skyList["amCode\(index+2)day"] as! String
+        let condition = skyList["pmName\(index+2)day"] as! String
+
+        dateLabel.text = "\(getKRWeekday(of: index))"
+        maxTempLabel.text = maxTemp + "도"
+        minTempLabel.text = minTemp + "도"
+        generateValidCondition(pmCondition, amCondition, Int(minTemp)!)
+        descriptionLabel.text = condition
     }
     
-    // MARK: - Private Method
     private func generateValidCondition(_ pm: String, _ am: String, _ temp: Int) {
         let codeNumber = am.components(separatedBy: ["S", "K", "Y", "_", "W"]).joined()
         let amCode = Int(codeNumber)!
