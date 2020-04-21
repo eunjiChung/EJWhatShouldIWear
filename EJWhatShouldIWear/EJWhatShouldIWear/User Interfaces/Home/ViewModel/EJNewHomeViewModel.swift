@@ -28,8 +28,9 @@ final class EJNewHomeViewModel {
     var didrequestForeignWeatherInfoFailureClosure: ((Error) -> Void)?
     
     // MARK: - Public Methods
-    func setMyLocationLabel(of currentLocation: CLLocation) {
-        EJLocationManager.shared.getLocation(of: currentLocation, success: { country, result in
+    func getCurrentLocation() {
+        guard let location = EJLocationManager.shared.currentLocation else { return }
+        EJLocationManager.shared.getLocation(of: location, success: { country, result in
             if result != "" {
                 self.didSetLocationInfoSuccessClosure?(result)
             } else {
@@ -41,14 +42,14 @@ final class EJNewHomeViewModel {
     }
     
     func requestKoreaWeather(_ index: Int) {
-        callWeatherInfo(index, success: {
+        callWeatherInfo(index, success: { threedays, sixdays in
             self.didRequestKoreaWeatherInfoSuccessClosure?()
         }) { error in
             self.didRequestKoreaWeatherInfoFailureClosure?(error)
         }
     }
     
-    private func requestFiveDaysWeatherList(of current: CLLocation) {
+    func requestFiveDaysWeatherList() {
         owmFiveDaysWeatherInfo(success: { result in
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
             self.FiveDaysWeatherModel = fivedaysWeather
@@ -75,7 +76,7 @@ final class EJNewHomeViewModel {
                                         failure: @escaping FailureHandler) {
         let longitude = EJLocationManager.shared.longitude
         let latitude = EJLocationManager.shared.latitude
-        let url = skWPSixDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
+        let url = skWPSixDaysAPI + "?appKey=\(skAppKeys[index])&lat=\(latitude)&lon=\(longitude)"
         EJHTTPClient().weatherRequest(url: url,
                                       success: { resultData in
                                         guard let data = resultData else {
@@ -98,7 +99,7 @@ final class EJNewHomeViewModel {
                                           failure: @escaping FailureHandler) {
         let longitude = EJLocationManager.shared.longitude
         let latitude = EJLocationManager.shared.latitude
-        let url = skWPThreeDaysAPI + "?appKey=\(skPublicAppKey[index])&lat=\(latitude)&lon=\(longitude)"
+        let url = skWPThreeDaysAPI + "?appKey=\(skAppKeys[index])&lat=\(latitude)&lon=\(longitude)"
         EJHTTPClient().weatherRequest(url: url,
                                       success: { resultData in
                                         guard let data = resultData else {
@@ -118,7 +119,7 @@ final class EJNewHomeViewModel {
     }
     
     public func callWeatherInfo(_ index: Int,
-                                success: @escaping () -> (),
+                                success: @escaping ([EJThreedaysForecastModel], [EJSixdaysForecastModel]) -> (),
                                 failure: @escaping FailureHandler) {
         var threeDaysWeather: [EJThreedaysForecastModel] = []
         var sixDaysWeather: [EJSixdaysForecastModel] = []
@@ -133,6 +134,7 @@ final class EJNewHomeViewModel {
             self.skwpThreeDaysWeatherInfo(index,
                                           success: { result in
                                             threeDaysWeather = result
+                                            self.threedaysModel = result
                                             dispatchGroup.leave()
             }) { (error) in
                 resultError = error
@@ -145,6 +147,7 @@ final class EJNewHomeViewModel {
             self.skwpSixDaysWeatherInfo(index,
                                         success: { result in
                                             sixDaysWeather = result
+                                            self.sixdaysModel = result
                                             dispatchGroup.leave()
             }) { (error) in
                 resultError = error
@@ -159,6 +162,7 @@ final class EJNewHomeViewModel {
             } else {
                 self.threedaysModel = threeDaysWeather
                 self.sixdaysModel = sixDaysWeather
+                success(self.threedaysModel, self.sixdaysModel)
             }
         }
     }

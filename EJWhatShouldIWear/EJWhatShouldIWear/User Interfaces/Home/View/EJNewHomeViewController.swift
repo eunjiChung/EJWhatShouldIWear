@@ -27,9 +27,6 @@ class EJNewHomeViewController: EJBaseViewController {
     
     // MARK: Properties
     var cellOpened = false
-    var admobViewController: UIViewController?
-    
-    // MARK: View Model
     let viewModel = EJNewHomeViewModel()
     
     // MARK: View Life Cycle
@@ -63,8 +60,7 @@ class EJNewHomeViewController: EJBaseViewController {
             if EJLocationManager.shared.isKorea() {
                 self.viewModel.requestKoreaWeather(0)
             } else {
-                // TODO: - CLLocation 값을 넣어줘야 함 
-//                self.viewModel.requestFiveDaysWeatherList(of: currentLocation)
+                self.viewModel.requestFiveDaysWeatherList()
             }
         }
         
@@ -138,7 +134,8 @@ extension EJNewHomeViewController: CLLocationManagerDelegate {
         case .restricted, .denied:
             popAlertVC(self, title: LocalizedString(with: "localizing_error"), message: LocalizedString(with: "localizing_error_msg"))
             EJLocationManager.shared.updateDefaultLocation { location in
-                self.viewModel.setMyLocationLabel(of: location)
+                EJLocationManager.shared.setNewLocationUserDefaults(location: location)
+                self.viewModel.getCurrentLocation()
                 Library.stopPullToRefresh(toScrollView: self.mainTableView)
             }
         case .authorizedWhenInUse, .authorizedAlways:
@@ -151,8 +148,7 @@ extension EJNewHomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let current = locations.last else { return }
         EJLocationManager.shared.setNewLocationUserDefaults(location: current)
-        viewModel.setMyLocationLabel(of: current)
-        
+        viewModel.getCurrentLocation()
         EJLocationManager.shared.stopUpdatingLocation()
         Library.stopPullToRefresh(toScrollView: mainTableView)
     }
@@ -219,7 +215,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: AdmobTableViewCell.identifier, for: indexPath) as! AdmobTableViewCell
-            if let viewController = admobViewController { cell.createAdmob(viewController) }
+            cell.createAdmob(self)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: DummyTableViewCell.identifier, for: indexPath) as! DummyTableViewCell
