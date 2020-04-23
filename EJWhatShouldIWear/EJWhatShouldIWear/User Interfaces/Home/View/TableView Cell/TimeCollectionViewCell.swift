@@ -59,45 +59,44 @@ class TimeCollectionViewCell: UICollectionViewCell {
         let unit = EJWeatherManager.shared.getValidUnit()
         let timeIndex = 4 + 3 * index
         
-        // TODO: - 여기 정리!!!!! 새로운 모델에 맞게
-//        let tempList = temp.dictionaryRepresentation()
-//        let skyList = sky.dictionaryRepresentation()
-//        let strTemp = tempList["temp\(timeIndex)hour"] as! String
-//        let skyCondition = skyList["name\(timeIndex)hour"] as! String
-//
-//        // hourLabel
-//        let currentDate = timeRelease.toDate(0)
-//        guard let releaseHour = Int(currentDate.todayHourString()) else { return }
-//        let futureHour = (releaseHour + timeIndex) % 24
-//        let num = Double((releaseHour + timeIndex) / 24)
-//        let dayArray = [LocalizedString(with: "today"), LocalizedString(with: "tomorrow"), LocalizedString(with: "day_after_tomorrow"), Date(timeIntervalSinceNow: 86400 * 3).dateCompose()]
-//
-//        hourLabel.text = "\(futureHour) \(hour)"
-//
-//        // dateLabel
-//        if num == 0 && index == 0 {
-//            dateLabel.text = dayArray[0]
-//        } else {
-//            if futureHour == 0 || futureHour == 1 || futureHour == 2 {
-//                if dayArray[Int(num)] != "" {
-//                    dateLabel.text = Date(timeIntervalSinceNow: 86400 * num).dateCompose()
-//                } else {
-//                    dateLabel.text = dayArray[Int(num)]
-//                }
-//            } else {
-//                dateLabel.text = "-"
-//            }
-//        }
-//
-//        // tempLabel, skyConditionLabel, clothImageView 구성
-//        if strTemp != "", let floatTemp = Float(strTemp) {
-//            let intTemp = Int(floatTemp)
-//            tempLabel.text = "\(intTemp)\(unit)"
-//            skyConditionLabel.text = skyCondition
-//
-//            let style = EJClothManager.shared.setTopCloth(by: intTemp)
-//            clothImageView.image = UIImage.init(named: style)
-//        }
+        let tempList = temp.dictionaryRepresentation()
+        let skyList = sky.dictionaryRepresentation()
+        let strTemp = tempList["temp\(timeIndex)hour"]!
+        let skyCondition = skyList["name\(timeIndex)hour"]!
+
+        // hourLabel
+        let currentDate = timeRelease.toDate(0)
+        guard let releaseHour = Int(currentDate.todayHourString()) else { return }
+        let futureHour = (releaseHour + timeIndex) % 24
+        let num = Double((releaseHour + timeIndex) / 24)
+        let dayArray = [LocalizedString(with: "today"), LocalizedString(with: "tomorrow"), LocalizedString(with: "day_after_tomorrow"), Date(timeIntervalSinceNow: 86400 * 3).dateCompose()]
+
+        hourLabel.text = "\(futureHour) \(hour)"
+
+        // dateLabel
+        if num == 0 && index == 0 {
+            dateLabel.text = dayArray[0]
+        } else {
+            if futureHour == 0 || futureHour == 1 || futureHour == 2 {
+                if dayArray[Int(num)] != "" {
+                    dateLabel.text = Date(timeIntervalSinceNow: 86400 * num).dateCompose()
+                } else {
+                    dateLabel.text = dayArray[Int(num)]
+                }
+            } else {
+                dateLabel.text = "-"
+            }
+        }
+
+        // tempLabel, skyConditionLabel, clothImageView 구성
+        if strTemp != "", let floatTemp = Float(strTemp) {
+            let intTemp = Int(floatTemp)
+            tempLabel.text = "\(intTemp)\(unit)"
+            skyConditionLabel.text = skyCondition
+
+            let style = EJClothManager.shared.setTopCloth(by: intTemp)
+            clothImageView.image = UIImage.init(named: style)
+        }
     }
     
     public func setHourlyWeather(of model: EJFiveDaysWeatherModel, at index: Int) {

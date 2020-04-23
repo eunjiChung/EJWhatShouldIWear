@@ -38,10 +38,12 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var alcBottomOfClothesView: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfClothesView: NSLayoutConstraint!
     
-    // MARK: - View Model
-    lazy var viewModel: ShowClothTableViewModel = {
-        return ShowClothTableViewModel()
-    }()
+    // MARK: - Properties
+    var model: [EJThreedaysForecastModel]? {
+        didSet {
+            generateKoreaMain()
+        }
+    }
     
     // MARK: - View Life Cycle
     override func awakeFromNib() {
@@ -59,7 +61,7 @@ class ShowClothTableViewCell: UITableViewCell {
 
     // MARK: - Public Method
     public func generateKoreaMain() {
-        guard let forecast = viewModel.model?.first else { return }
+        guard let forecast = model?.first else { return }
         guard let fcst3hour = forecast.fcst3hour, let timeRelease = forecast.timeRelease else { return }
         
         // 1. 원하는 날짜 받아오기

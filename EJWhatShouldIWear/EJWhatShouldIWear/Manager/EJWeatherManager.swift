@@ -200,40 +200,40 @@ class EJWeatherManager: NSObject {
                 if let sky = fcst3hour.sky, let timeRelease = fcst.timeRelease {
                     var time = 4
                     let currentHour = timeRelease.onlyKRTime()
-                    // TODO: - 새로운 모델에 맞게 정리!!
-//                    let list = sky.dictionaryRepresentation()
-//                    var originalCode = 0
-//                    var count = 0
-//
-//                    repeat {
-//                        let code = list["code\(time)hour"] as! String
-//                        originalCode = compareWeatherCode(code, originalCode)
-//
-//                        time += 3
-//                        count += 1
-//                    } while currentHour + time < 24
-//
-//                    let weatherCondition = generateKRWeatherCondition(of: originalCode)
-//                    var name = "background"
-//
-//                    switch weatherCondition {
-//                    case .clear:
-//                        name = "clear"
-//                    case .cloud:
-//                        name = "cloud"
-//                    case .drizzle, .rain, .squall:
-//                        name = "rainy"
-//                    case .tornado, .thunderstorm:
-//                        name = "storm"
-//                    case .ash:
-//                        name = "ash"
-//                    case .snow:
-//                        name = "snow"
-//                    case .haze, .fog, .dust:
-//                        name = "dust"
-//                    }
-//                    return UIImage(named: name)!
-                    return #imageLiteral(resourceName: "background")
+                    //  TODO: - 새로운 모델에 맞게 정리!!
+                    let list = sky.dictionaryRepresentation()
+                    var originalCode = 0
+                    var count = 0
+
+                    repeat {
+                        // TODO: - Forced casting 주의!
+                        let code = list["code\(time)hour"]!
+                        originalCode = compareWeatherCode(code, originalCode)
+
+                        time += 3
+                        count += 1
+                    } while currentHour + time < 24
+
+                    let weatherCondition = generateKRWeatherCondition(of: originalCode)
+                    var name = "background"
+
+                    switch weatherCondition {
+                    case .clear:
+                        name = "clear"
+                    case .cloud:
+                        name = "cloud"
+                    case .drizzle, .rain, .squall:
+                        name = "rainy"
+                    case .tornado, .thunderstorm:
+                        name = "storm"
+                    case .ash:
+                        name = "ash"
+                    case .snow:
+                        name = "snow"
+                    case .haze, .fog, .dust:
+                        name = "dust"
+                    }
+                    return UIImage(named: name)!
                 }
             }
         }
@@ -246,61 +246,60 @@ class EJWeatherManager: NSObject {
         var totalTemp:Float = 0
         var time = 4
         let currentHour = timeRelease.onlyKRTime()
-        // TODO: - 새로운 모델에 맞게 수정!
-//        let skyList = sky.dictionaryRepresentation()
-//        let tempList = temp.dictionaryRepresentation()
-//        var originalCode = 0
-//        var count = 0
-//
-//        var minTemp = 100
-//        var maxTemp = -100
-//
-//        repeat {
-//            // 1-1. sky를 돌면서 critic weather가 있나 보기
-//            let code = skyList["code\(time)hour"] as! String
-//            originalCode = compareWeatherCode(code, originalCode)
-//
-//            // 1-2. temperature를 돌면서 오늘에 해당하는 기온 합치기
-//            let fcstTempString = tempList["temp\(time)hour"] as! String
-//            let fcstTemp = Float(fcstTempString)!
-//            totalTemp += fcstTemp
-//
-//            // 1-3. temperature를 돌면서 오늘의 최저, 최고기온 발견하기
-//            if Int(fcstTemp) < minTemp {
-//                minTemp = Int(fcstTemp)
-//            }
-//            if Int(fcstTemp) > maxTemp {
-//                maxTemp = Int(fcstTemp)
-//            }
-//
-//            // 1-2-1. 오늘 8시 이후에는 다음날 날씨 표시하기
-//            // TODO: 이거 문제될 것 같은데...공지해야될듯
-//            time += 3
-//            count += 1
-//        } while currentHour + time < 24
-//
-//        // 2. WeatherClass의 Critic Weather 설정
-//        WeatherClass.criticCondition = generateKRWeatherCondition(of: originalCode)
-//
-//        // 3. Average Temp 설정
-//        let averageTemp = totalTemp / Float(count)
-//        WeatherClass.mainTemp = getValidKRTemperature(by: averageTemp)
-//        WeatherClass.maxTemp = Int(maxTemp)
-//        WeatherClass.minTemp = Int(minTemp)
-//
-//        // 4. Weather가 clear나 cloud일때와 아닐때 구분
-//        if WeatherClass.criticCondition != .clear && WeatherClass.criticCondition != .cloud {
-//            WeatherClass.criticCloth = EJClothManager.shared.setClothByCondition(WeatherClass.criticCondition)
-//        } else {
-//            WeatherClass.criticCloth = EJClothManager.shared.setOuterCloth(by: WeatherClass.mainTemp)
-//        }
-//
-//        // 5. MaxCloth, MinCloth 설정
-//        WeatherClass.maxCloth = EJClothManager.shared.setTopCloth(by: WeatherClass.minTemp)
-//        WeatherClass.minCloth = EJClothManager.shared.setBottomCloth(by: WeatherClass.maxTemp)
-//
-//        // 6. WeatherDescription 설정
-//        WeatherClass.weatherDescription = weatherDescription(WeatherClass.criticCondition)
+        let skyList = sky.dictionaryRepresentation()
+        let tempList = temp.dictionaryRepresentation()
+        var originalCode = 0
+        var count = 0
+
+        var minTemp = 100
+        var maxTemp = -100
+
+        repeat {
+            // 1-1. sky를 돌면서 critic weather가 있나 보기
+            let code = skyList["code\(time)hour"] as! String
+            originalCode = compareWeatherCode(code, originalCode)
+
+            // 1-2. temperature를 돌면서 오늘에 해당하는 기온 합치기
+            let fcstTempString = tempList["temp\(time)hour"] as! String
+            let fcstTemp = Float(fcstTempString)!
+            totalTemp += fcstTemp
+
+            // 1-3. temperature를 돌면서 오늘의 최저, 최고기온 발견하기
+            if Int(fcstTemp) < minTemp {
+                minTemp = Int(fcstTemp)
+            }
+            if Int(fcstTemp) > maxTemp {
+                maxTemp = Int(fcstTemp)
+            }
+
+            // 1-2-1. 오늘 8시 이후에는 다음날 날씨 표시하기
+            // TODO: 이거 문제될 것 같은데...공지해야될듯
+            time += 3
+            count += 1
+        } while currentHour + time < 24
+
+        // 2. WeatherClass의 Critic Weather 설정
+        WeatherClass.criticCondition = generateKRWeatherCondition(of: originalCode)
+
+        // 3. Average Temp 설정
+        let averageTemp = totalTemp / Float(count)
+        WeatherClass.mainTemp = getValidKRTemperature(by: averageTemp)
+        WeatherClass.maxTemp = Int(maxTemp)
+        WeatherClass.minTemp = Int(minTemp)
+
+        // 4. Weather가 clear나 cloud일때와 아닐때 구분
+        if WeatherClass.criticCondition != .clear && WeatherClass.criticCondition != .cloud {
+            WeatherClass.criticCloth = EJClothManager.shared.setClothByCondition(WeatherClass.criticCondition)
+        } else {
+            WeatherClass.criticCloth = EJClothManager.shared.setOuterCloth(by: WeatherClass.mainTemp)
+        }
+
+        // 5. MaxCloth, MinCloth 설정
+        WeatherClass.maxCloth = EJClothManager.shared.setTopCloth(by: WeatherClass.minTemp)
+        WeatherClass.minCloth = EJClothManager.shared.setBottomCloth(by: WeatherClass.maxTemp)
+
+        // 6. WeatherDescription 설정
+        WeatherClass.weatherDescription = weatherDescription(WeatherClass.criticCondition)
         
         return WeatherClass
     }

@@ -175,8 +175,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
                 
                 if EJLocationManager.shared.isKorea() {
-                    cell.viewModel.model = viewModel.threedaysModel
-                    cell.generateKoreaMain()
+                    cell.model = viewModel.threedaysModel
                 } else {
                     if let model = viewModel.FiveDaysWeatherModel {
                         cell.generateMain(by: model)
@@ -185,8 +184,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ClothsCollectionTableViewCell.identifier, for: indexPath) as! ClothsCollectionTableViewCell
-                cell.viewModel.model = viewModel.threedaysModel
-                cell.clothList()
+                cell.model = viewModel.threedaysModel
                 return cell
             }
         case 1:

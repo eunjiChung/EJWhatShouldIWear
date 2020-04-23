@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class TimeWeahtherTableViewCell: UITableViewCell {
     
     static let identifier = "TimeWeahtherTableViewCell"
     
@@ -17,25 +17,22 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     var timeRelease: String?
     var timeArray: [String]?
     var tempArray: [String]?
-    
     var model: [EJThreedaysForecastModel]? {
         didSet {
             setKRTimelyTable()
         }
     }
     
-    // MARK: - Constraints
+    // MARK: - IBOutlets
     @IBOutlet weak var alcTopConstraintOfTextLabel: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingConstraintOfTextLabel: NSLayoutConstraint!
     @IBOutlet weak var alcTopConstraintOfCollectionView: NSLayoutConstraint!
     @IBOutlet weak var alcBottomConstraintOfCollectionView: NSLayoutConstraint!
     
-    
-    // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
-
+    // MARK: - Initialize
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -61,39 +58,40 @@ class TimeWeahtherTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     func setKRTimelyTable() {
         collectionView.reloadData()
     }
-    
-    
-    // MARK: - CollectionView Data Source
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let model = model {
-            guard let fcst3hour = model.first?.fcst3hour else { return 6 }
-            guard let temp = fcst3hour.temperature else { return 6 }
-            return 20
-            // TODO: - 다시 셀 수 있는 방법 찾자
-//            return temp.dictionaryRepresentation().count-2
-        }
-        return 6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath) as! TimeCollectionViewCell
-        let index = indexPath.item
-        
-        if let model = model {
-            cell.index = index
-            cell.model = model
+}
+
+
+// MARK: - CollectionView Data Source
+extension TimeWeahtherTableViewCell: UICollectionViewDataSource {
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            if let model = model {
+                guard let fcst3hour = model.first?.fcst3hour else { return 6 }
+                guard let temp = fcst3hour.temperature else { return 6 }
+                return temp.dictionaryRepresentation().count-2
+            }
+            return 6
         }
         
-        if let model = weatherModel {
-            cell.setHourlyWeather(of: model, at: index)
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath) as! TimeCollectionViewCell
+            let index = indexPath.item
+            
+            if let model = model {
+                cell.index = index
+                cell.model = model
+            }
+            
+            if let model = weatherModel {
+                cell.setHourlyWeather(of: model, at: index)
+            }
+            
+            return cell
         }
-        
-        return cell
-    }
-    
-    // MARK: - CollectionView FlowLayout Delegate
+}
+
+// MARK: - CollectionView FlowLayout Delegate
+extension TimeWeahtherTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: EJSize(80.0), height: EJSizeHeight(160.0))
     }
-    
 }

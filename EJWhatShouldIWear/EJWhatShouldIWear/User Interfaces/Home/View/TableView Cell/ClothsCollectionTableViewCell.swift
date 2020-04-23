@@ -11,14 +11,16 @@ import UIKit
 class ClothsCollectionTableViewCell: UITableViewCell {
     
     static let identifier = "ClothsCollectionTableViewCell"
+    // MARK: - Properties
     var clothesList = [String]()
+    var model: [EJThreedaysForecastModel]? {
+        didSet {
+            clothList()
+        }
+    }
     
+    // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    // MARK: - View Model
-    lazy var viewModel: ClothsCollectionTableViewModel = {
-        return ClothsCollectionTableViewModel()
-    }()
     
     // MARK: - Initialize
     override func awakeFromNib() {
@@ -32,7 +34,7 @@ class ClothsCollectionTableViewCell: UITableViewCell {
     
     // MARK: - Public Method
     public func clothList() {
-        if let fcst = viewModel.model?.first, let fcst3hour = fcst.fcst3hour, let timeRelease = fcst.timeRelease {
+        if let fcst = model?.first, let fcst3hour = fcst.fcst3hour, let timeRelease = fcst.timeRelease {
             let weather = EJWeatherManager.shared.generateNewWeatherConditionKR(fcst3hour, timeRelease)
             self.clothesList = EJClothManager.shared.getClothList(weather.minTemp, weather.maxTemp)
         }

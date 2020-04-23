@@ -104,9 +104,6 @@
 		B637591D244B81BE0076FE2C /* EJNewHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */; };
 		B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591E244BA2B40076FE2C /* EJLayoutManager.swift */; };
 		B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375921244BB7610076FE2C /* EJAPIService.swift */; };
-		B6375926244BCD6F0076FE2C /* ShowClothTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375925244BCD6F0076FE2C /* ShowClothTableViewModel.swift */; };
-		B6375928244BD0090076FE2C /* ClothsCollectionTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375927244BD0090076FE2C /* ClothsCollectionTableViewModel.swift */; };
-		B637592B244BD4970076FE2C /* TimeWeahtherTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637592A244BD4970076FE2C /* TimeWeahtherTableViewModel.swift */; };
 		B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */; };
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
@@ -310,9 +307,6 @@
 		B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJNewHomeViewModel.swift; sourceTree = "<group>"; };
 		B637591E244BA2B40076FE2C /* EJLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLayoutManager.swift; sourceTree = "<group>"; };
 		B6375921244BB7610076FE2C /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
-		B6375925244BCD6F0076FE2C /* ShowClothTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowClothTableViewModel.swift; sourceTree = "<group>"; };
-		B6375927244BD0090076FE2C /* ClothsCollectionTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothsCollectionTableViewModel.swift; sourceTree = "<group>"; };
-		B637592A244BD4970076FE2C /* TimeWeahtherTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWeahtherTableViewModel.swift; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -843,9 +837,6 @@
 		B6375924244BCD310076FE2C /* TableView Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B6375925244BCD6F0076FE2C /* ShowClothTableViewModel.swift */,
-				B6375927244BD0090076FE2C /* ClothsCollectionTableViewModel.swift */,
-				B637592A244BD4970076FE2C /* TimeWeahtherTableViewModel.swift */,
 			);
 			path = "TableView Cell";
 			sourceTree = "<group>";
@@ -1240,7 +1231,6 @@
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
 				992B09A822BF849100FF94B7 /* EJWeather.swift in Sources */,
 				992B09AD22BF849100FF94B7 /* EJCoord.swift in Sources */,
-				B6375926244BCD6F0076FE2C /* ShowClothTableViewModel.swift in Sources */,
 				B63758EA2448F1990076FE2C /* EJWeatherBaseModel.swift in Sources */,
 				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
 				72A5D5742340C6C70068D33D /* BackView.swift in Sources */,
@@ -1282,7 +1272,6 @@
 				B62E8B8E22F9464C00055A0E /* Date.swift in Sources */,
 				B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */,
 				B637591D244B81BE0076FE2C /* EJNewHomeViewModel.swift in Sources */,
-				B637592B244BD4970076FE2C /* TimeWeahtherTableViewModel.swift in Sources */,
 				B6F74F672327925400CDD4A6 /* SKSixLocation.swift in Sources */,
 				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
 				B6F74F392327923B00CDD4A6 /* SKYesterdayWeather.swift in Sources */,
@@ -1302,7 +1291,6 @@
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
 				992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */,
-				B6375928244BD0090076FE2C /* ClothsCollectionTableViewModel.swift in Sources */,
 				991F22962289720F00FDBC98 /* EJHomeViewController.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
