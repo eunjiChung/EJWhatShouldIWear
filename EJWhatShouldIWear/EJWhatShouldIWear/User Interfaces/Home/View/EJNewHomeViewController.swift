@@ -161,26 +161,24 @@ extension EJNewHomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if EJLocationManager.shared.isKorea() && cellOpened && section == 0 {
-            return 2
-        }
+        if EJLocationManager.shared.isKorea() && cellOpened && section == 0 { return 2 }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section
-        {
+        switch indexPath.section {
         case 0:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
                 
                 if EJLocationManager.shared.isKorea() {
                     cell.model = viewModel.threedaysModel
-                } else {
-                    if let model = viewModel.FiveDaysWeatherModel {
-                        cell.generateMain(by: model)
-                    }
                 }
+                
+                if let model = viewModel.FiveDaysWeatherModel {
+                    cell.generateMain(by: model)
+                }
+                
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ClothsCollectionTableViewCell.identifier, for: indexPath) as! ClothsCollectionTableViewCell
@@ -192,10 +190,10 @@ extension EJNewHomeViewController: UITableViewDataSource {
             
             if EJLocationManager.shared.isKorea() {
                 cell.model = viewModel.threedaysModel
-            } else {
-                if let model = viewModel.FiveDaysWeatherModel {
-                    cell.setTimelyTable(of: model)
-                }
+            }
+            
+            if let model = viewModel.FiveDaysWeatherModel {
+                cell.setTimelyTable(of: model)
             }
             
             return cell
