@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WeatherMain {
+class EJWeatherMainModel {
     
     var mainTemp: Int  = 0
     var minTemp: Int = 0

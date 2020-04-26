@@ -43,7 +43,7 @@ class EJNewHomeViewController: EJBaseViewController {
         startLoadingIndicator()
         configureSideMenu()
         // 3회 방문시 스토어 리뷰 요청
-        AppStoreReviewManager.requestReviewIfAppropriate()
+        EJAppStoreReviewManager.requestReviewIfAppropriate()
         
         EJLocationManager.shared.delegate = self
         

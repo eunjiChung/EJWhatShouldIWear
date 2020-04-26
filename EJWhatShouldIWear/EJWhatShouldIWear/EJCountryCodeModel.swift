@@ -9,6 +9,6 @@
 import Foundation
 
 
-class CountryCode {
+class EJCountryCodeModel {
     
 }

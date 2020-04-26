@@ -8,7 +8,7 @@
 
 import StoreKit
 
-enum AppStoreReviewManager {
+enum EJAppStoreReviewManager {
     
     static let minimumReviewWorthyActionCount = 3
     

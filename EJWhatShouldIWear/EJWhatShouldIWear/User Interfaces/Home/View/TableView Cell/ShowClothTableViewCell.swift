@@ -112,7 +112,7 @@ private extension ShowClothTableViewCell {
         }, completion: nil)
     }
     
-    func generateClothRecommendation(_ weather: WeatherMain) {
+    func generateClothRecommendation(_ weather: EJWeatherMainModel) {
         suggestLabel.text = weather.weatherDescription
         
         firstClothImageView.image = UIImage(named: weather.criticCloth)
