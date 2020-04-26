@@ -58,9 +58,7 @@ extension EJSettingViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! EJLocationTableViewCell
-            
             cell.myLocationLabel.text = curLocation
-            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! EJInfoTableViewCell

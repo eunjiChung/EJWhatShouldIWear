@@ -99,6 +99,9 @@
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
 		B67A15A8244C567900F17C6D /* EJLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A7244C567900F17C6D /* EJLogger.swift */; };
+		B6BCD7E62455A7CC003436D6 /* korea_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BCD7E52455A7CC003436D6 /* korea_data.json */; };
+		B6BCD7E92455D965003436D6 /* Data+JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BCD7E82455D965003436D6 /* Data+JSONFile.swift */; };
+		B6BCD7EC2455DAA0003436D6 /* korea_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BCD7EB2455DAA0003436D6 /* korea_data.json */; };
 		B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */; };
 		B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */; };
 		B6F1025D233B4413000C3DCD /* EJAppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */; };
@@ -247,6 +250,9 @@
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		B67A15A7244C567900F17C6D /* EJLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLogger.swift; sourceTree = "<group>"; };
+		B6BCD7E52455A7CC003436D6 /* korea_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea_data.json; sourceTree = "<group>"; };
+		B6BCD7E82455D965003436D6 /* Data+JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSONFile.swift"; sourceTree = "<group>"; };
+		B6BCD7EB2455DAA0003436D6 /* korea_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea_data.json; sourceTree = "<group>"; };
 		B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothCollectionViewCell.xib; sourceTree = "<group>"; };
 		B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAppStoreReviewManager.swift; sourceTree = "<group>"; };
@@ -331,6 +337,8 @@
 		724A174422D77F87008FDCB6 /* EJWhatShouldIWearTests */ = {
 			isa = PBXGroup;
 			children = (
+				B6BCD7EA2455DA8B003436D6 /* JSON Files */,
+				B6BCD7E72455CF48003436D6 /* Extension */,
 				724A174522D77F87008FDCB6 /* EJWhatShouldIWearTests.swift */,
 				724A174722D77F87008FDCB6 /* Info.plist */,
 			);
@@ -433,6 +441,7 @@
 		991F229F228973C000FDBC98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6BCD7E42455A7AE003436D6 /* JSON Files */,
 				724A173422D77C01008FDCB6 /* Image Resource */,
 				992B0A1B22BFDB4B00FF94B7 /* Language */,
 				999B20A522029E670073A0D9 /* Assets.xcassets */,
@@ -688,6 +697,30 @@
 			path = "TableView Cell";
 			sourceTree = "<group>";
 		};
+		B6BCD7E42455A7AE003436D6 /* JSON Files */ = {
+			isa = PBXGroup;
+			children = (
+				B6BCD7E52455A7CC003436D6 /* korea_data.json */,
+			);
+			path = "JSON Files";
+			sourceTree = "<group>";
+		};
+		B6BCD7E72455CF48003436D6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B6BCD7E82455D965003436D6 /* Data+JSONFile.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B6BCD7EA2455DA8B003436D6 /* JSON Files */ = {
+			isa = PBXGroup;
+			children = (
+				B6BCD7EB2455DAA0003436D6 /* korea_data.json */,
+			);
+			path = "JSON Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -804,6 +837,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6BCD7EC2455DAA0003436D6 /* korea_data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +854,7 @@
 				724A173822D77C9B008FDCB6 /* cardigan.png in Resources */,
 				997A6A1922E1994A007AC760 /* InfoPlist.strings in Resources */,
 				7280691B24489F3100522019 /* Setting.storyboard in Resources */,
+				B6BCD7E62455A7CC003436D6 /* korea_data.json in Resources */,
 				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
 				B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */,
 				724A173A22D77C9B008FDCB6 /* blouse.png in Resources */,
@@ -979,6 +1014,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				724A174622D77F87008FDCB6 /* EJWhatShouldIWearTests.swift in Sources */,
+				B6BCD7E92455D965003436D6 /* Data+JSONFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

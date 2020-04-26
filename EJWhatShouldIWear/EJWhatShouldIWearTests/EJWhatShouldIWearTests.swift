@@ -8,8 +8,6 @@
 
 
 import XCTest
-import Firebase
-import Alamofire
 @testable import EJWhatShouldIWear
 
 class EJWhatShouldIWearTests: XCTestCase {
@@ -36,7 +34,21 @@ class EJWhatShouldIWearTests: XCTestCase {
         // Alamofire가 unit test에서 작동을 잘 안했다
         
     }
+
     
+    func testJSON_getJSONFile() throws {
+        let data = try Data.fromJSON(fileName: "korea_data")
+
+        do {
+            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                if let names = json["korea"] as? [String: Any] {
+                    print("🍄", names)
+                }
+            }
+        } catch let error as NSError {
+            print("Failed to load: \(error.localizedDescription)")
+        }
+    }
     
 }
-다
+
