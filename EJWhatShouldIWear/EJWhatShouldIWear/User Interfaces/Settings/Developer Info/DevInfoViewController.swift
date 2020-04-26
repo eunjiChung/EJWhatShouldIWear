@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DevInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DevInfoViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -19,7 +19,7 @@ class DevInfoViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBAction func didTouchBackBtn(_ sender: Any) {
-        Library.selectionHapticFeedback()
+        selectionHapticFeedback()
         self.dismiss(animated: true, completion: nil)
     }
     

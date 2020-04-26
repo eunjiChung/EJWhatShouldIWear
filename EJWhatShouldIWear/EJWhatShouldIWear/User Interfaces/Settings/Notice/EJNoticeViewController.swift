@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EJNoticeViewController: UIViewController {
+class EJNoticeViewController: EJBaseViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -79,7 +79,7 @@ extension EJNoticeViewController: UITableViewDataSource {
 
 extension EJNoticeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Library.selectionHapticFeedback()
+        selectionHapticFeedback()
         
         if cellOpened[indexPath.section] {
             cellOpened[indexPath.section] = false

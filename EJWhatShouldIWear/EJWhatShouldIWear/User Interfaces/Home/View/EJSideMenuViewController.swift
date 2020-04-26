@@ -58,7 +58,7 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
 //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Library.selectionHapticFeedback()
+        selectionHapticFeedback()
         
         switch indexPath.row {
         case 1:

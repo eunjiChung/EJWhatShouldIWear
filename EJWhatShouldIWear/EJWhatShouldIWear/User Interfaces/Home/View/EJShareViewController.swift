@@ -20,7 +20,6 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     @IBOutlet weak var share2TextLabel: UILabel!
     @IBOutlet weak var share3TextLabel: UILabel!
     
-    // MARK: - Layout constraints
     @IBOutlet weak var alcBottomOfSendBtn: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfBackIcon: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfBackIcon: NSLayoutConstraint!
@@ -78,13 +77,13 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     // MARK: - Action Method
     @IBAction func didTouchBackBtn(_ sender: Any) {
-        Library.selectionHapticFeedback()
+        selectionHapticFeedback()
         self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Share Link Method
     @IBAction func didTouchShareBtn(_ sender: Any) {
-        Library.selectionHapticFeedback()
+        selectionHapticFeedback()
         
         guard let text = self.textView.text else { return }
         let appStoreURL = AppStoreURL

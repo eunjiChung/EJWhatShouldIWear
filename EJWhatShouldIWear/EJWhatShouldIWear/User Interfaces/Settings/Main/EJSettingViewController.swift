@@ -38,7 +38,7 @@ class EJSettingViewController: EJBaseViewController {
     
     // MARK: - IBOutlet Action
     @IBAction func didTouchBackButton(_ sender: Any) {
-        Library.selectionHapticFeedback()
+        selectionHapticFeedback()
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -78,7 +78,7 @@ extension EJSettingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Library.selectionHapticFeedback()
+        selectionHapticFeedback()
         
         switch indexPath.row {
         case 0:

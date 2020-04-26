@@ -8,7 +8,6 @@
 
 import UIKit
 import UserNotifications
-import ESPullToRefresh
 
 // MARK: UserDefaults Keys
 public let LOCATION_KEY : String                =   "location"
@@ -29,8 +28,6 @@ class EJLibrary: NSObject {
     
     static let sharedInstance = EJLibrary()
     var systemLanguage = ""
-    
-    var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
     
     override init() {
         let locale = NSLocale.autoupdatingCurrent
@@ -55,7 +52,6 @@ class EJLibrary: NSObject {
             }
         }
     }
-    
     
     func allowNotification() {
         let content = UNMutableNotificationContent()
@@ -100,12 +96,6 @@ class EJLibrary: NSObject {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
-    
-    // MARK: - User Feedback
-    func selectionHapticFeedback() {
-        self.selectionFeedbackGenerator.selectionChanged()
-    }
-    
     // MARK: - Device
     public func buildVersion() -> String {
         let mainBundle = Bundle.main
@@ -116,24 +106,5 @@ class EJLibrary: NSObject {
         let mainBundle = Bundle.main
         return mainBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     }
-    
-    // MARK: - Pull To Refresh
-    func addPullToRefreshControl(toScrollView: UIScrollView, completionHandler: @escaping () -> ()) {
-        DispatchQueue.main.async {
-            toScrollView.es.addPullToRefresh {
-                DispatchQueue.main.async {
-                    completionHandler()
-                }
-            }
-        }
-    }
-    
-    func stopPullToRefresh(toScrollView: UIScrollView) {
-        DispatchQueue.main.async {
-            toScrollView.es.stopPullToRefresh()
-        }
-    }
-    
-    
     
 }

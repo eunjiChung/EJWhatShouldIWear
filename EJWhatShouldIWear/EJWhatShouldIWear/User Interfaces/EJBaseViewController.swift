@@ -16,6 +16,9 @@ import SwiftyJSON
 let EJSegueSetting                      = "setting_segue"
 
 class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegate {
+    
+    var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,29 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     // MARK: - Status Bar
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    
+    // MARK: - Pull To Refresh
+    func addPullToRefreshControl(toScrollView: UIScrollView, completionHandler: @escaping () -> ()) {
+        DispatchQueue.main.async {
+            toScrollView.es.addPullToRefresh {
+                DispatchQueue.main.async {
+                    completionHandler()
+                }
+            }
+        }
+    }
+    
+    func stopPullToRefresh(toScrollView: UIScrollView) {
+        DispatchQueue.main.async {
+            toScrollView.es.stopPullToRefresh()
+        }
+    }
+    
+    // MARK: - User Feedback
+    func selectionHapticFeedback() {
+        selectionFeedbackGenerator.selectionChanged()
     }
     
     // MARK: - Alert Controller
@@ -90,9 +116,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
                 }
             } else {
                 // Config not fetched
-                if let error = error {
-                    failure(error)
-                }
+                if let error = error { failure(error) }
             }
         }
     }

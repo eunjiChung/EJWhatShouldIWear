@@ -42,12 +42,11 @@ class EJNewHomeViewController: EJBaseViewController {
         layout()
         startLoadingIndicator()
         configureSideMenu()
-        // 3회 방문시 스토어 리뷰 요청
-        EJAppStoreReviewManager.requestReviewIfAppropriate()
+        EJAppStoreReviewManager.requestReviewIfAppropriate()     // 3회 방문시 스토어 리뷰 요청
         
         EJLocationManager.shared.delegate = self
         
-        Library.addPullToRefreshControl(toScrollView: self.mainTableView) {
+        addPullToRefreshControl(toScrollView: self.mainTableView) {
             EJLocationManager.shared.checkLocationStatus()
             self.mainTableView.reloadData()
         }
@@ -102,7 +101,7 @@ class EJNewHomeViewController: EJBaseViewController {
     
     // MARK: - Button Action
     @IBAction func didTouchMenuBtn(_ sender: Any) {
-        Library.selectionHapticFeedback()
+        selectionHapticFeedback()
         self.performSegue(withIdentifier: "home_sidemenu_segue", sender: self)
         let title = "didTouchMenuBtn"
         
@@ -140,7 +139,7 @@ extension EJNewHomeViewController: CLLocationManagerDelegate {
             EJLocationManager.shared.updateDefaultLocation { location in
                 EJLocationManager.shared.setNewLocationUserDefaults(location: location)
                 self.viewModel.getCurrentLocation()
-                Library.stopPullToRefresh(toScrollView: self.mainTableView)
+                self.stopPullToRefresh(toScrollView: self.mainTableView)
             }
         case .authorizedWhenInUse, .authorizedAlways:
             EJLocationManager.shared.startUpdatingLocation()
@@ -154,7 +153,7 @@ extension EJNewHomeViewController: CLLocationManagerDelegate {
         EJLocationManager.shared.setNewLocationUserDefaults(location: current)
         viewModel.getCurrentLocation()
         EJLocationManager.shared.stopUpdatingLocation()
-        Library.stopPullToRefresh(toScrollView: mainTableView)
+        stopPullToRefresh(toScrollView: mainTableView)
     }
 }
 
