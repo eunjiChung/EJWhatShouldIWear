@@ -53,17 +53,17 @@ extension EJSettingViewController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! EJInfoTableViewCell
             cell.titleLabel.text = LocalizedString(with: "Notice")
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! EJLocationTableViewCell
             
             cell.myLocationLabel.text = curLocation
             
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! EJInfoTableViewCell
             return cell
         default:
             return UITableViewCell()

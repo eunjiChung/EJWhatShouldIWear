@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InstagramTableViewCell: UITableViewCell {
+class EJInstagramTableViewCell: UITableViewCell {
     
     @IBOutlet weak var infoTitleLabel: UILabel!
     @IBOutlet weak var tableButton: UIButton!

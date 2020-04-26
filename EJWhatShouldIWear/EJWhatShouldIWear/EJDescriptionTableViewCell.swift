@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
+class EJDescriptionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionCell: UILabel!
     
@@ -16,11 +16,4 @@ class DescriptionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

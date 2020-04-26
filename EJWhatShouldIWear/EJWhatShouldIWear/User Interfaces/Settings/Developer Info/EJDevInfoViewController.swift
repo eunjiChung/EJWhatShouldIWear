@@ -8,22 +8,23 @@
 
 import UIKit
 
-class DevInfoViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class EJDevInfoViewController: EJBaseViewController, UITableViewDelegate {
+    // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
 
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     @IBAction func didTouchBackBtn(_ sender: Any) {
         selectionHapticFeedback()
         self.dismiss(animated: true, completion: nil)
     }
-    
-    // MARK: TableView DataSource
+}
+
+// MARK: TableView DataSource
+extension EJDevInfoViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -55,12 +56,12 @@ class DevInfoViewController: EJBaseViewController, UITableViewDataSource, UITabl
         case 0:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperTableViewCell") as! DeveloperTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperTableViewCell") as! EJDeveloperTableViewCell
                 cell.InfoTitleLabel.text = LocalizedString(with: "app_version")
                 cell.infoDescriptionLabel.text = Library.appVersion()
                 return cell
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! EJDescriptionTableViewCell
                 cell.descriptionCell.text = LocalizedString(with: "app_description")
                 return cell
             default:
@@ -69,17 +70,17 @@ class DevInfoViewController: EJBaseViewController, UITableViewDataSource, UITabl
         case 1:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperTableViewCell") as! DeveloperTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperTableViewCell") as! EJDeveloperTableViewCell
                 cell.InfoTitleLabel.text = "EunjiChung"
                 cell.infoDescriptionLabel.text = ""
                 return cell
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "BlogTableViewCell") as! BlogTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BlogTableViewCell") as! EJBlogTableViewCell
                 cell.cellTitleLabel.text = LocalizedString(with: "blog")
                 cell.blogButton.setTitle(LocalizedString(with: "goto_blog"), for: .normal)
                 return cell
             case 2:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramTableViewCell") as! InstagramTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramTableViewCell") as! EJInstagramTableViewCell
                 cell.infoTitleLabel.text = LocalizedString(with: "instagram")
                 cell.tableButton.setTitle(LocalizedString(with: "goto_instagram"), for: .normal)
                 return cell

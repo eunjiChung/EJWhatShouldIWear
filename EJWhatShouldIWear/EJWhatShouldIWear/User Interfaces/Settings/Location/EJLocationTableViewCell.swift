@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationTableViewCell: UITableViewCell {
+class EJLocationTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet weak var titleLabel: UILabel!

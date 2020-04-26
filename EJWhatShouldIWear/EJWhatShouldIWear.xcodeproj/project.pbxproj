@@ -38,8 +38,8 @@
 		992B0A3522BFE72900FF94B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 992B0A3722BFE72900FF94B7 /* Localizable.strings */; };
 		997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */; };
 		997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */; };
-		997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */; };
-		997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */; };
+		997533BD228EEACE003DAF97 /* EJLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BC228EEACE003DAF97 /* EJLocationTableViewCell.swift */; };
+		997533BF228EEAD7003DAF97 /* EJAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997533BE228EEAD7003DAF97 /* EJAlarmTableViewCell.swift */; };
 		997A6A1922E1994A007AC760 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 997A6A1722E1994A007AC760 /* InfoPlist.strings */; };
 		9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */; };
 		998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B8291228D54B80099B71A /* EJSettingViewController.swift */; };
@@ -66,12 +66,12 @@
 		99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BB080C229E748400E454B8 /* EJShareViewController.swift */; };
 		99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC5117229D22CF00192450 /* EJLocationViewController.swift */; };
 		99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */; };
-		99FC4AC122DDCED9002DD721 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC4AC022DDCED9002DD721 /* InfoTableViewCell.swift */; };
-		99FC4AC622DDD32B002DD721 /* DevInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */; };
+		99FC4AC122DDCED9002DD721 /* EJInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC4AC022DDCED9002DD721 /* EJInfoTableViewCell.swift */; };
+		99FC4AC622DDD32B002DD721 /* EJDevInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC4AC522DDD32B002DD721 /* EJDevInfoViewController.swift */; };
 		9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3736F863875FD3BFEAD4F0 /* Pods_EJWhatShouldIWear.framework */; };
-		B6029359230FD5E5002BDA5E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6029358230FD5E5002BDA5E /* DescriptionTableViewCell.swift */; };
-		B602935B230FD5F3002BDA5E /* DeveloperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602935A230FD5F3002BDA5E /* DeveloperTableViewCell.swift */; };
-		B602935D230FD5FD002BDA5E /* InstagramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602935C230FD5FD002BDA5E /* InstagramTableViewCell.swift */; };
+		B6029359230FD5E5002BDA5E /* EJDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6029358230FD5E5002BDA5E /* EJDescriptionTableViewCell.swift */; };
+		B602935B230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602935A230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift */; };
+		B602935D230FD5FD002BDA5E /* EJInstagramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602935C230FD5FD002BDA5E /* EJInstagramTableViewCell.swift */; };
 		B603890B22FBE9D500F36416 /* EJClothModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603890A22FBE9D500F36416 /* EJClothModel.swift */; };
 		B6262C2722FA771A009FC744 /* EJWeatherMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6262C2622FA771A009FC744 /* EJWeatherMainModel.swift */; };
 		B62E8B8E22F9464C00055A0E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E8B8D22F9464C00055A0E /* Date.swift */; };
@@ -95,7 +95,7 @@
 		B637591D244B81BE0076FE2C /* EJNewHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */; };
 		B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591E244BA2B40076FE2C /* EJLayoutManager.swift */; };
 		B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375921244BB7610076FE2C /* EJAPIService.swift */; };
-		B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */; };
+		B673625F2314FFEF003B07AE /* EJBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */; };
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
 		B67A15A8244C567900F17C6D /* EJLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A7244C567900F17C6D /* EJLogger.swift */; };
@@ -178,8 +178,8 @@
 		9947053122BA029F00474C02 /* KakaoCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoCommon.framework; sourceTree = "<group>"; };
 		997533B1228EE17E003DAF97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		997533B2228EE17E003DAF97 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
-		997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
-		997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		997533BC228EEACE003DAF97 /* EJLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLocationTableViewCell.swift; sourceTree = "<group>"; };
+		997533BE228EEAD7003DAF97 /* EJAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAlarmTableViewCell.swift; sourceTree = "<group>"; };
 		997A6A1822E1994A007AC760 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		997A6A1A22E19975007AC760 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		997A6A1B22E1997C007AC760 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -213,13 +213,13 @@
 		99BB080C229E748400E454B8 /* EJShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJShareViewController.swift; sourceTree = "<group>"; };
 		99CC5117229D22CF00192450 /* EJLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EJLocationViewController.swift; sourceTree = "<group>"; };
 		99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherManager.swift; sourceTree = "<group>"; };
-		99FC4AC022DDCED9002DD721 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
-		99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevInfoViewController.swift; sourceTree = "<group>"; };
+		99FC4AC022DDCED9002DD721 /* EJInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJInfoTableViewCell.swift; sourceTree = "<group>"; };
+		99FC4AC522DDD32B002DD721 /* EJDevInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDevInfoViewController.swift; sourceTree = "<group>"; };
 		A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWear.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear.release.xcconfig"; sourceTree = "<group>"; };
 		B0CA01479B5035B25EB182E6 /* Pods-EJWhatShouldIWearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EJWhatShouldIWearUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EJWhatShouldIWearUITests/Pods-EJWhatShouldIWearUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B6029358230FD5E5002BDA5E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
-		B602935A230FD5F3002BDA5E /* DeveloperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperTableViewCell.swift; sourceTree = "<group>"; };
-		B602935C230FD5FD002BDA5E /* InstagramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramTableViewCell.swift; sourceTree = "<group>"; };
+		B6029358230FD5E5002BDA5E /* EJDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		B602935A230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDeveloperTableViewCell.swift; sourceTree = "<group>"; };
+		B602935C230FD5FD002BDA5E /* EJInstagramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJInstagramTableViewCell.swift; sourceTree = "<group>"; };
 		B603890A22FBE9D500F36416 /* EJClothModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJClothModel.swift; sourceTree = "<group>"; };
 		B6262C2622FA771A009FC744 /* EJWeatherMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherMainModel.swift; sourceTree = "<group>"; };
 		B62E8B8D22F9464C00055A0E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 		B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJNewHomeViewModel.swift; sourceTree = "<group>"; };
 		B637591E244BA2B40076FE2C /* EJLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLayoutManager.swift; sourceTree = "<group>"; };
 		B6375921244BB7610076FE2C /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
-		B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
+		B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBlogTableViewCell.swift; sourceTree = "<group>"; };
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		B67A15A7244C567900F17C6D /* EJLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLogger.swift; sourceTree = "<group>"; };
@@ -385,7 +385,7 @@
 		728069242448A55F00522019 /* Developer Info */ = {
 			isa = PBXGroup;
 			children = (
-				99FC4AC522DDD32B002DD721 /* DevInfoViewController.swift */,
+				99FC4AC522DDD32B002DD721 /* EJDevInfoViewController.swift */,
 				B6029357230FD5B0002BDA5E /* Developer Info Cell */,
 			);
 			path = "Developer Info";
@@ -394,7 +394,7 @@
 		728069252448A57800522019 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				997533BC228EEACE003DAF97 /* LocationTableViewCell.swift */,
+				997533BC228EEACE003DAF97 /* EJLocationTableViewCell.swift */,
 				99CC5117229D22CF00192450 /* EJLocationViewController.swift */,
 			);
 			path = Location;
@@ -403,7 +403,7 @@
 		728069262448A58800522019 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				99FC4AC022DDCED9002DD721 /* InfoTableViewCell.swift */,
+				99FC4AC022DDCED9002DD721 /* EJInfoTableViewCell.swift */,
 				998B8291228D54B80099B71A /* EJSettingViewController.swift */,
 			);
 			path = Main;
@@ -471,7 +471,7 @@
 		997533BB228EEAA7003DAF97 /* SettingViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				997533BE228EEAD7003DAF97 /* AlarmTableViewCell.swift */,
+				997533BE228EEAD7003DAF97 /* EJAlarmTableViewCell.swift */,
 			);
 			name = SettingViewCell;
 			path = View;
@@ -548,10 +548,10 @@
 		B6029357230FD5B0002BDA5E /* Developer Info Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B6029358230FD5E5002BDA5E /* DescriptionTableViewCell.swift */,
-				B602935A230FD5F3002BDA5E /* DeveloperTableViewCell.swift */,
-				B602935C230FD5FD002BDA5E /* InstagramTableViewCell.swift */,
-				B673625E2314FFEF003B07AE /* BlogTableViewCell.swift */,
+				B6029358230FD5E5002BDA5E /* EJDescriptionTableViewCell.swift */,
+				B602935A230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift */,
+				B602935C230FD5FD002BDA5E /* EJInstagramTableViewCell.swift */,
+				B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */,
 			);
 			name = "Developer Info Cell";
 			path = ../../..;
@@ -986,7 +986,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99FC4AC622DDD32B002DD721 /* DevInfoViewController.swift in Sources */,
+				99FC4AC622DDD32B002DD721 /* EJDevInfoViewController.swift in Sources */,
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
 				B63758EA2448F1990076FE2C /* EJWeatherBaseModel.swift in Sources */,
 				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
@@ -1004,7 +1004,7 @@
 				B63759052448FDD00076FE2C /* EJPrecipitationModel.swift in Sources */,
 				728069222448A4FB00522019 /* EJFirebaseDBManager.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
-				B6029359230FD5E5002BDA5E /* DescriptionTableViewCell.swift in Sources */,
+				B6029359230FD5E5002BDA5E /* EJDescriptionTableViewCell.swift in Sources */,
 				B6375915244B7F590076FE2C /* EJErrorBaseModel.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
 				B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */,
@@ -1019,17 +1019,17 @@
 				B637591D244B81BE0076FE2C /* EJNewHomeViewModel.swift in Sources */,
 				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
 				B63758E62448EE800076FE2C /* EJClothManager.swift in Sources */,
-				997533BF228EEAD7003DAF97 /* AlarmTableViewCell.swift in Sources */,
+				997533BF228EEAD7003DAF97 /* EJAlarmTableViewCell.swift in Sources */,
 				728069282448C46700522019 /* EJURLString.swift in Sources */,
-				99FC4AC122DDCED9002DD721 /* InfoTableViewCell.swift in Sources */,
+				99FC4AC122DDCED9002DD721 /* EJInfoTableViewCell.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
 				992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
-				B673625F2314FFEF003B07AE /* BlogTableViewCell.swift in Sources */,
-				997533BD228EEACE003DAF97 /* LocationTableViewCell.swift in Sources */,
-				B602935D230FD5FD002BDA5E /* InstagramTableViewCell.swift in Sources */,
+				B673625F2314FFEF003B07AE /* EJBlogTableViewCell.swift in Sources */,
+				997533BD228EEACE003DAF97 /* EJLocationTableViewCell.swift in Sources */,
+				B602935D230FD5FD002BDA5E /* EJInstagramTableViewCell.swift in Sources */,
 				99CC5118229D22CF00192450 /* EJLocationViewController.swift in Sources */,
 				B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */,
 				B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */,
@@ -1051,7 +1051,7 @@
 				998B82AB228D6A110099B71A /* TimeCollectionViewCell.swift in Sources */,
 				B6F1025D233B4413000C3DCD /* EJAppStoreReviewManager.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
-				B602935B230FD5F3002BDA5E /* DeveloperTableViewCell.swift in Sources */,
+				B602935B230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift in Sources */,
 				72A5D5762340DB0B0068D33D /* EJCountryCodeModel.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
 				7280691E2448A35D00522019 /* EJNoticeViewController.swift in Sources */,

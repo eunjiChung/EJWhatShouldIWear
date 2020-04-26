@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlogTableViewCell: UITableViewCell {
+class EJBlogTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellTitleLabel: UILabel!
     @IBOutlet weak var blogButton: UIButton!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmTableViewCell: UITableViewCell {
+class EJAlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var notiSetLabel: UILabel!
     @IBOutlet weak var descriptLabel: UILabel!
