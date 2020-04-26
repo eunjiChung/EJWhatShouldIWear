@@ -49,6 +49,7 @@ class WeekWeatherTableViewCell: UITableViewCell {
     }
 
     func setKoreaWeekelyTimeTable() {
+        print("🗒🗒🗒🗒🗒 \(model)")
         guard let fcst6days = model?.first else { return }
         krTempList = fcst6days.temperature
         krSkyList = fcst6days.sky

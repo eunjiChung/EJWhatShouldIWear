@@ -9,15 +9,22 @@
 import Foundation
 
 // MARK: - weather
-public struct EJDaysWeatherModel: Decodable {
+public struct EJSixDaysWeatherModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case forecast6days
+    }
+    
+    var forecast6days: [EJSixdaysForecastModel]?
+}
+
+public struct EJThreeDaysWeatherModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
         case forecast3days
     }
     
     var forecast3days: [EJThreedaysForecastModel]?
-    var forecast6days: [EJSixdaysForecastModel]?
 }
+
 
 
 // MARK: - common

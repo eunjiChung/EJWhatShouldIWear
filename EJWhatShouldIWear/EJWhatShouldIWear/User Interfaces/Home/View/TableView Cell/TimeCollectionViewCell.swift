@@ -54,7 +54,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
         // 2. 시간별 온도(fcst3hour-sky&temperature) 정보 받아오기
         guard let fcstModel = model, let fcst3hour = fcstModel.first?.fcst3hour, let timeRelease = fcstModel.first?.timeRelease else { return }
         // 현재 sky 정보 뿌릴 Label이 없음..
-        guard let sky = fcst3hour.sky, let temp = fcst3hour.temperature else { return }
+        let sky = fcst3hour.sky
+        let temp = fcst3hour.temperature
         // 3. 향후 3일 날씨까지 뿌리기
         let unit = EJWeatherManager.shared.getValidUnit()
         let timeIndex = 4 + 3 * index

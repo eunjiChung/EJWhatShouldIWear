@@ -73,7 +73,11 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         viewModel.didRequestKoreaWeatherInfoSuccessClosure = {
-            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateKRBackgroundView(by: self.viewModel.threedaysModel))
+            guard let threedaysModel = self.viewModel.threedaysModel else {
+                // TODO: - 모델을 가져오지 못했을 때 에러처리를 해줘야 한다 (현재는 스플래시 뷰가 없어지지 않는 상태)
+                return
+            }
+            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateKRBackgroundView(by: threedaysModel))
             self.mainTableView.reloadData()
             self.removeSplashScene()
         }

@@ -8,15 +8,29 @@
 
 import Foundation
 
-public struct EJWeatherBaseModel: Decodable {
+public struct EJSixdaysWeatherBaseModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case weather
         case common
         case result
     }
     
-    var weather: EJDaysWeatherModel
+    var weather: EJSixDaysWeatherModel
     var common: EJDaysCommonModel
     var result: EJDaysResultModel
 }
+
+
+public struct EJThreedaysWeatherBaseModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case weather
+        case common
+        case result
+    }
+    
+    var weather: EJThreeDaysWeatherModel
+    var common: EJDaysCommonModel
+    var result: EJDaysResultModel
+}
+
 

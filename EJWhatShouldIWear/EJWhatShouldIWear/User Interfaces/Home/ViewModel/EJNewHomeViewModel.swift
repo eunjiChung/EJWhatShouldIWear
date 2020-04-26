@@ -14,8 +14,8 @@ final class EJNewHomeViewModel {
     var weatherInfo: [EJFiveDaysList]?
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
-    var threedaysModel: [EJThreedaysForecastModel] = []
-    var sixdaysModel: [EJSixdaysForecastModel] = []
+    var threedaysModel: [EJThreedaysForecastModel]?
+    var sixdaysModel: [EJSixdaysForecastModel]?
     
     // MARK: - Closures
     var didSetLocationInfoSuccessClosure: ((String) -> Void)?
@@ -71,7 +71,7 @@ final class EJNewHomeViewModel {
         
     }
     
-    private func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (EJWeatherBaseModel) -> (),
+    private func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (EJSixdaysWeatherBaseModel) -> (),
                                         failure: @escaping FailureHandler) {
         let longitude = EJLocationManager.shared.longitude
         let latitude = EJLocationManager.shared.latitude
@@ -84,7 +84,7 @@ final class EJNewHomeViewModel {
                                         }
                                         
                                         do {
-                                            let sixdaysModel = try JSONDecoder().decode(EJWeatherBaseModel.self, from: data)
+                                            let sixdaysModel = try JSONDecoder().decode(EJSixdaysWeatherBaseModel.self, from: data)
                                             success(sixdaysModel)
                                         } catch {
                                             failure(error)
@@ -92,7 +92,7 @@ final class EJNewHomeViewModel {
         }, failure: failure)
     }
     
-    private func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (EJWeatherBaseModel) -> (),
+    private func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (EJThreedaysWeatherBaseModel) -> (),
                                           failure: @escaping FailureHandler) {
         let longitude = EJLocationManager.shared.longitude
         let latitude = EJLocationManager.shared.latitude
@@ -105,7 +105,7 @@ final class EJNewHomeViewModel {
                                         }
                                         
                                         do {
-                                            let threedaysModel = try JSONDecoder().decode(EJWeatherBaseModel.self, from: data)
+                                            let threedaysModel = try JSONDecoder().decode(EJThreedaysWeatherBaseModel.self, from: data)
                                             success(threedaysModel)
                                         } catch {
                                             failure(error)

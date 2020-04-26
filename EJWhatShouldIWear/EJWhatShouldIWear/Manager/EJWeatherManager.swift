@@ -196,52 +196,54 @@ class EJWeatherManager: NSObject {
             let pic = sunsets.randomElement()!
             return UIImage(named: pic)!
         } else if time >= 6 {
-            if let fcst = model.first, let fcst3hour = fcst.fcst3hour {
-                if let sky = fcst3hour.sky, let timeRelease = fcst.timeRelease {
-                    var time = 4
-                    let currentHour = timeRelease.onlyKRTime()
-                    //  TODO: - 새로운 모델에 맞게 정리!!
-                    let list = sky.dictionaryRepresentation()
-                    var originalCode = 0
-                    var count = 0
-
-                    repeat {
-                        // TODO: - Forced casting 주의!
-                        let code = list["code\(time)hour"]!
-                        originalCode = compareWeatherCode(code, originalCode)
-
-                        time += 3
-                        count += 1
-                    } while currentHour + time < 24
-
-                    let weatherCondition = generateKRWeatherCondition(of: originalCode)
-                    var name = "background"
-
-                    switch weatherCondition {
-                    case .clear:
-                        name = "clear"
-                    case .cloud:
-                        name = "cloud"
-                    case .drizzle, .rain, .squall:
-                        name = "rainy"
-                    case .tornado, .thunderstorm:
-                        name = "storm"
-                    case .ash:
-                        name = "ash"
-                    case .snow:
-                        name = "snow"
-                    case .haze, .fog, .dust:
-                        name = "dust"
-                    }
-                    return UIImage(named: name)!
+            if let fcst = model.first {
+                let fcst3hour = fcst.fcst3hour
+                let sky = fcst3hour.sky
+                let timeRelease = fcst.timeRelease
+                var time = 4
+                let currentHour = timeRelease.onlyKRTime()
+                //  TODO: - 새로운 모델에 맞게 정리!!
+                let list = sky.dictionaryRepresentation()
+                var originalCode = 0
+                var count = 0
+                
+                repeat {
+                    // TODO: - Forced casting 주의!
+                    let code = list["code\(time)hour"]!
+                    originalCode = compareWeatherCode(code, originalCode)
+                    
+                    time += 3
+                    count += 1
+                } while currentHour + time < 24
+                
+                let weatherCondition = generateKRWeatherCondition(of: originalCode)
+                var name = "background"
+                
+                switch weatherCondition {
+                case .clear:
+                    name = "clear"
+                case .cloud:
+                    name = "cloud"
+                case .drizzle, .rain, .squall:
+                    name = "rainy"
+                case .tornado, .thunderstorm:
+                    name = "storm"
+                case .ash:
+                    name = "ash"
+                case .snow:
+                    name = "snow"
+                case .haze, .fog, .dust:
+                    name = "dust"
                 }
+                return UIImage(named: name)!
             }
         }
         return UIImage(named: "background")!
     }
     
     public func generateNewWeatherConditionKR(_ list: EJThreedaysFcst3hourModel, _ timeRelease: String) -> WeatherMain {
-        guard let sky = list.sky, let temp = list.temperature else { return WeatherClass }
+        let sky = list.sky
+        let temp = list.temperature
         
         var totalTemp:Float = 0
         var time = 4

@@ -10,13 +10,12 @@ import Foundation
 
 public struct EJThreedaysHourTemperature: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case temp37hour = "temp37hour"
-        case  temp25hour = "temp25hour"
         case  temp4hour = "temp4hour"
         case  temp7hour = "temp7hour"
-        case  temp64hour = "temp64hour"
-        case  temp61hour = "temp61hour"
         case  temp10hour = "temp10hour"
+        case temp37hour = "temp37hour"
+        case  temp25hour = "temp25hour"
+        case  temp61hour = "temp61hour"
         case  temp28hour = "temp28hour"
         case  temp58hour = "temp58hour"
         case  temp19hour = "temp19hour"
@@ -29,9 +28,10 @@ public struct EJThreedaysHourTemperature: Decodable {
         case  temp43hour = "temp43hour"
         case  temp52hour = "temp52hour"
         case  temp49hour = "temp49hour"
-        case  temp67hour = "temp67hour"
         case  temp31hour = "temp31hour"
         case  temp22hour = "temp22hour"
+        case  temp64hour = "temp64hour"
+        case  temp67hour = "temp67hour"
     }
     
     public var temp37hour: String?

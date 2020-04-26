@@ -66,8 +66,7 @@ extension TimeWeahtherTableViewCell: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             if let model = model {
                 guard let fcst3hour = model.first?.fcst3hour else { return 6 }
-                guard let temp = fcst3hour.temperature else { return 6 }
-                return temp.dictionaryRepresentation().count-2
+                return fcst3hour.temperature.dictionaryRepresentation().count-2
             }
             return 6
         }

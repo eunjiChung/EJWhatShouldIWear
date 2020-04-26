@@ -61,8 +61,11 @@ class ShowClothTableViewCell: UITableViewCell {
 
     // MARK: - Public Method
     public func generateKoreaMain() {
-        guard let forecast = model?.first else { return }
-        guard let fcst3hour = forecast.fcst3hour, let timeRelease = forecast.timeRelease else { return }
+        guard let model = model, let forecast = model.first else {
+            return
+        }
+        let fcst3hour = forecast.fcst3hour
+        let timeRelease = forecast.timeRelease
         
         // 1. 원하는 날짜 받아오기
         let date = Date()

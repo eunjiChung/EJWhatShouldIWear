@@ -17,13 +17,11 @@ public struct EJThreedaysForecastModel: Decodable {
         case fcstdaily
     }
     
-    public var grid: EJGridModel?
-    public var timeRelease: String?
-    public var fcst3hour: EJThreedaysFcst3hourModel?
-    public var fcst6hour: EJThreedaysFcst6hourModel?
-    public var fcstdaily: EJThreedaysFcstDailyModel?
-    
-    public init(from decoder: Decoder) throws { }
+    var grid: EJGridModel
+    var timeRelease: String
+    var fcst3hour: EJThreedaysFcst3hourModel
+    var fcst6hour: EJThreedaysFcst6hourModel
+    var fcstdaily: EJThreedaysFcstDailyModel
 }
 
 
@@ -47,10 +45,10 @@ public struct EJThreedaysDailyTemperature: Decodable {
         case tmin2day
     }
     
-    public var tmax1day: String?
-    public var tmax3day: String?
-    public var tmin3day: String?
-    public var tmin1day: String?
-    public var tmax2day: String?
-    public var tmin2day: String?
+    var tmax1day: String?
+    var tmax3day: String?
+    var tmin3day: String?
+    var tmin1day: String?
+    var tmax2day: String?
+    var tmin2day: String?
 }
