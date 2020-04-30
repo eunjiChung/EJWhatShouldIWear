@@ -22,9 +22,13 @@ public class EJLocationManager: CLLocationManager {
     
     var koreaCities: [EJKoreaCityModel]?
     
+    var didChangeLocationAuthorizationRestrictedClosure: (() -> Void)?
+    var didUpdateLocationsClosure: (([CLLocation]?) -> Void)?
+    
     // MARK: Initialize
     override init() {
         super.init()
+        self.delegate = self
         self.desiredAccuracy = kCLLocationAccuracyThreeKilometers
     }
     
@@ -120,5 +124,27 @@ public class EJLocationManager: CLLocationManager {
     
     func requestAbroadWeatherInfo(of current: CLLocation) {
         
+    }
+}
+
+extension EJLocationManager: CLLocationManagerDelegate {
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            EJLocationManager.shared.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            didChangeLocationAuthorizationRestrictedClosure?()
+        case .authorizedWhenInUse, .authorizedAlways:
+            if !EJUserDefaultsManager.shared.hasDefaultLocations {
+                EJLocationManager.shared.startUpdatingLocation()
+            } else {
+                didUpdateLocationsClosure?(nil)
+            }
+            // TODO: - default location이 있을 경우, 현재 메인 location을 업데이트해준다
+        }
+    }
+    
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        didUpdateLocationsClosure?(locations)
     }
 }

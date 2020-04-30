@@ -31,10 +31,9 @@ class EJNewHomeViewController: EJBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        EJLocationManager.shared.delegate = self
-        
         initView()
         initViewModel()
+        initLocation()
         initNotification()
     }
     
@@ -99,6 +98,31 @@ class EJNewHomeViewController: EJBaseViewController {
         }
     }
     
+    private func initLocation() {
+        // TODO : - 메인에 현재 위치 날씨 알아보는 것도 추가해야..ㅎ ㅐ...
+        
+        EJLocationManager.shared.didChangeLocationAuthorizationRestrictedClosure = {
+            self.popAlertVC(self, title: LocalizedString(with: "localizing_error"), message: LocalizedString(with: "localizing_error_msg"))
+            EJLocationManager.shared.updateDefaultLocation { location in
+                EJLocationManager.shared.setNewLocationUserDefaults(location: location)
+                self.viewModel.getCurrentLocation()
+                self.stopPullToRefresh(toScrollView: self.mainTableView)
+            }
+        }
+        
+        EJLocationManager.shared.didUpdateLocationsClosure = { locations in
+            // 위치 정보를 업데이트했을 경우
+            if let current = locations?.last {
+                EJLocationManager.shared.setNewLocationUserDefaults(location: current)
+                self.viewModel.getCurrentLocation()
+                EJLocationManager.shared.stopUpdatingLocation()
+                self.stopPullToRefresh(toScrollView: self.mainTableView)
+            } else {
+                
+            }
+        }
+    }
+    
     private func initNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(didSelectMainLocation(_:)), name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
     }
@@ -151,35 +175,6 @@ class EJNewHomeViewController: EJBaseViewController {
         mainTableView.reloadData()
     }
     
-}
-
-// MARK: - CLLocationManagerDelegate
-extension EJNewHomeViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .notDetermined:
-            EJLocationManager.shared.requestWhenInUseAuthorization()
-        case .restricted, .denied:
-            popAlertVC(self, title: LocalizedString(with: "localizing_error"), message: LocalizedString(with: "localizing_error_msg"))
-            EJLocationManager.shared.updateDefaultLocation { location in
-                EJLocationManager.shared.setNewLocationUserDefaults(location: location)
-                self.viewModel.getCurrentLocation()
-                self.stopPullToRefresh(toScrollView: self.mainTableView)
-            }
-        case .authorizedWhenInUse, .authorizedAlways:
-            EJLocationManager.shared.startUpdatingLocation()
-        @unknown default:
-            popAlertVC(self, title: "Hi", message: "Error")
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let current = locations.last else { return }
-        EJLocationManager.shared.setNewLocationUserDefaults(location: current)
-        viewModel.getCurrentLocation()
-        EJLocationManager.shared.stopUpdatingLocation()
-        stopPullToRefresh(toScrollView: mainTableView)
-    }
 }
 
 // MARK: - Tableview DataSource

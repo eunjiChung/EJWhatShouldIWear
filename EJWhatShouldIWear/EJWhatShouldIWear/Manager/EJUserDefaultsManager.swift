@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: UserDefaults Keys
 enum UserDefaultKey: String {
-    case locationKey        = "location"
+    case locationKey        = "location"        // 메인 위치
     case switchId           = "switchState"
     case myLocations        = "mylocations"
 }
@@ -21,7 +21,14 @@ final class EJUserDefaultsManager {
     // MARK: - Singleton
     static let shared = EJUserDefaultsManager()
     
-    // MARK: - Public Methods
+    // MARK: - Location Defaults
+    var hasDefaultLocations: Bool {
+        if let _ = myUserDefaults.string(forKey: UserDefaultKey.locationKey.rawValue) {
+            return true
+        }
+        return false
+    }
+    
     public func locationAddNew(_ location: String) {
         guard let list = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else { return }
         var newList = list
@@ -32,4 +39,5 @@ final class EJUserDefaultsManager {
     public func updateLocationList(_ locations: [String]) {
         myUserDefaults.set(locations, forKey: UserDefaultKey.myLocations.rawValue)
     }
+    
 }
