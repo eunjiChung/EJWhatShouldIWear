@@ -112,7 +112,8 @@
 		B6E088E7245B0E52006C6665 /* EJKoreaDistrictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088E6245B0E52006C6665 /* EJKoreaDistrictViewController.swift */; };
 		B6E088E9245B0E5E006C6665 /* EJKoreaNeighborViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088E8245B0E5E006C6665 /* EJKoreaNeighborViewController.swift */; };
 		B6E088EB245B12F9006C6665 /* EJUserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */; };
-		B6E088EE245B3886006C6665 /* EJLocationNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088ED245B3886006C6665 /* EJLocationNameTableViewCell.swift */; };
+		B6E088F1245B42FE006C6665 /* EJNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088EF245B42FE006C6665 /* EJNameTableViewCell.swift */; };
+		B6E088F2245B42FE006C6665 /* EJNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E088F0245B42FE006C6665 /* EJNameTableViewCell.xib */; };
 		B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */; };
 		B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */; };
 		B6F1025D233B4413000C3DCD /* EJAppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */; };
@@ -274,7 +275,8 @@
 		B6E088E6245B0E52006C6665 /* EJKoreaDistrictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaDistrictViewController.swift; sourceTree = "<group>"; };
 		B6E088E8245B0E5E006C6665 /* EJKoreaNeighborViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaNeighborViewController.swift; sourceTree = "<group>"; };
 		B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJUserDefaultsManager.swift; sourceTree = "<group>"; };
-		B6E088ED245B3886006C6665 /* EJLocationNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLocationNameTableViewCell.swift; sourceTree = "<group>"; };
+		B6E088EF245B42FE006C6665 /* EJNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJNameTableViewCell.swift; sourceTree = "<group>"; };
+		B6E088F0245B42FE006C6665 /* EJNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EJNameTableViewCell.xib; sourceTree = "<group>"; };
 		B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothCollectionViewCell.xib; sourceTree = "<group>"; };
 		B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAppStoreReviewManager.swift; sourceTree = "<group>"; };
@@ -773,7 +775,8 @@
 			isa = PBXGroup;
 			children = (
 				B6E088DE245AD065006C6665 /* EJAddLocationCell.swift */,
-				B6E088ED245B3886006C6665 /* EJLocationNameTableViewCell.swift */,
+				B6E088EF245B42FE006C6665 /* EJNameTableViewCell.swift */,
+				B6E088F0245B42FE006C6665 /* EJNameTableViewCell.xib */,
 			);
 			path = "TableView Cell";
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
 				999B20A622029E670073A0D9 /* Assets.xcassets in Resources */,
 				998B82A4228D67710099B71A /* AdmobTableViewCell.xib in Resources */,
+				B6E088F2245B42FE006C6665 /* EJNameTableViewCell.xib in Resources */,
 				72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */,
 				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
 				B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */,
@@ -1107,6 +1111,7 @@
 				B6375915244B7F590076FE2C /* EJErrorBaseModel.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
 				B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */,
+				B6E088F1245B42FE006C6665 /* EJNameTableViewCell.swift in Sources */,
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
@@ -1154,7 +1159,6 @@
 				B6F1025D233B4413000C3DCD /* EJAppStoreReviewManager.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				B602935B230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift in Sources */,
-				B6E088EE245B3886006C6665 /* EJLocationNameTableViewCell.swift in Sources */,
 				72A5D5762340DB0B0068D33D /* EJCountryCodeModel.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
 				B6E088E7245B0E52006C6665 /* EJKoreaDistrictViewController.swift in Sources */,

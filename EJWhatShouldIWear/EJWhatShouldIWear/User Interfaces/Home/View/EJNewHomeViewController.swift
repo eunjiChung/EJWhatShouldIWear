@@ -21,8 +21,6 @@ class EJNewHomeViewController: EJBaseViewController {
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfSideBackButton: NSLayoutConstraint!
-    @IBOutlet weak var alcTopOfSettingButton: NSLayoutConstraint!
-    @IBOutlet weak var alcTrailingOfSettingButton: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfMenuButton: NSLayoutConstraint!
     
     // MARK: Properties
@@ -343,8 +341,6 @@ private extension EJNewHomeViewController {
         alcTopOfStackView.constant = EJSizeHeight(414.0)
         alcLeadingOfSideBackButton.constant = EJSize(18.0)
         alcTopOfSideBackButton.constant = EJSizeHeight(46.0)
-        alcTopOfSettingButton.constant = EJSizeHeight(46.0)
-        alcTrailingOfSettingButton.constant = EJSize(20.0)
         alcBottomOfMenuButton.constant = EJSizeHeight(8.0)
     }
     

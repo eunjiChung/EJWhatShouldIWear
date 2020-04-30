@@ -11,7 +11,8 @@ import UIKit
 class EJMyLocalListViewController: EJBaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var addButton: UIButton!
+    
     // MARK: - Properties
     var locations: [String]?
     
@@ -26,7 +27,9 @@ class EJMyLocalListViewController: EJBaseViewController {
     
     // MARK: - Initialize
     private func initView() {
+        addButton.layer.cornerRadius = 6
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.register(UINib(nibName: "EJNameTableViewCell", bundle: nil), forCellReuseIdentifier: EJNameTableViewCell.identifier)
     }
     
     private func initNotification() {
@@ -47,18 +50,16 @@ class EJMyLocalListViewController: EJBaseViewController {
     }
     
     @objc func didCompleteChoosingLocation(_ notificaion: Notification) {
-        guard let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else { return }
+        guard let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else {
+            // TODO: - 왜 nil이지...?
+            print(myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue))
+            return
+        }
         locations = array
         tableView.reloadData()
     }
     
     // MARK: - IBActions
-    @IBAction func didTouchEdit(_ sender: Any) {
-        selectionHapticFeedback()
-        // TODO: - 편집 기능 추가
-        // TODO: - 삭제 기능 추가 (이건 셀 안에)
-    }
-    
     @IBAction func didTouchDismiss(_ sender: Any) {
         selectionHapticFeedback()
         navigationController?.popViewController(animated: true)
@@ -68,21 +69,15 @@ class EJMyLocalListViewController: EJBaseViewController {
 extension EJMyLocalListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = locations?.count, (locations?.count) != 0 else { return 1 }
-        return count + 1
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let count = locations?.count else { return UITableViewCell() }
-        if indexPath.row == count {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "EJAddLocationCell") as? EJAddLocationCell else { return UITableViewCell() }
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: EJLocationNameTableViewCell.identifier) as? EJLocationNameTableViewCell else { return UITableViewCell() }
-            if let name = locations?[indexPath.row] {
-                cell.locationLabel.text = name
-            }
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
+        if let name = locations?[indexPath.row] {
+            cell.locationLabel.text = name
         }
+        return cell
     }
 }
 
@@ -92,15 +87,29 @@ extension EJMyLocalListViewController: UITableViewDelegate {
         
         EJLocationManager.shared.updateMainLocation()
         
-        guard let cell = tableView.cellForRow(at: indexPath) as? EJLocationNameTableViewCell else { return }
-        cell.checkImageView.isHidden = false
+        guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
+        cell.checkImageview.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        // TODO: - 머야 이거 왜 안돼....
-        guard let count = locations?.count, indexPath.row != count else { return }
-        
-        guard let cell = tableView.cellForRow(at: indexPath) as? EJLocationNameTableViewCell else { return }
-        cell.checkImageView.isHidden = true
+        guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
+        cell.checkImageview.isHidden = true
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            locations?.remove(at: indexPath.row)
+            if let locations = locations {
+                EJUserDefaultsManager.shared.updateLocationList(locations)
+            }
+        }
     }
 }

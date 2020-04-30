@@ -368,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20g-vy-vVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2401" y="1422"/>
+            <point key="canvasLocation" x="2401" y="1216"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="qc1-BU-T47">
@@ -481,21 +481,10 @@
                                             <action selector="didTouchMenuBtn:" destination="xWj-yG-Hrf" eventType="touchUpInside" id="Py1-qh-rrY"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QC-So-psq">
-                                        <rect key="frame" x="327" y="45" width="28" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="28" id="0I9-zt-wy9"/>
-                                            <constraint firstAttribute="height" constant="28" id="ITe-mA-ddv"/>
-                                        </constraints>
-                                        <state key="normal" image="setting_white_icon"/>
-                                        <connections>
-                                            <segue destination="2eE-L4-F5z" kind="show" id="tYL-Kc-5Si"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAJ-Ax-opS">
-                                        <rect key="frame" x="283" y="47.666666666666664" width="23" height="22.999999999999993"/>
+                                        <rect key="frame" x="334" y="45" width="23" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="23" id="Hkp-YO-GY9"/>
+                                            <constraint firstAttribute="height" constant="24" id="Hkp-YO-GY9"/>
                                             <constraint firstAttribute="width" constant="23" id="lLe-qZ-xSn"/>
                                         </constraints>
                                         <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -516,13 +505,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="5QC-So-psq" firstAttribute="top" secondItem="Eud-AK-OwZ" secondAttribute="top" constant="45" id="1Nb-T2-qD9"/>
                                     <constraint firstItem="LJw-rd-QaR" firstAttribute="centerX" secondItem="Eud-AK-OwZ" secondAttribute="centerX" id="Ftm-ZN-aIE"/>
-                                    <constraint firstAttribute="trailing" secondItem="5QC-So-psq" secondAttribute="trailing" constant="20" id="LO0-wt-eXQ"/>
+                                    <constraint firstItem="sAJ-Ax-opS" firstAttribute="centerY" secondItem="JSa-Gk-PDv" secondAttribute="centerY" id="afZ-J0-G4o"/>
                                     <constraint firstItem="LJw-rd-QaR" firstAttribute="centerY" secondItem="JSa-Gk-PDv" secondAttribute="centerY" id="edx-bq-CRm"/>
+                                    <constraint firstAttribute="trailing" secondItem="sAJ-Ax-opS" secondAttribute="trailing" constant="18" id="k8v-3H-rRS"/>
                                     <constraint firstItem="sAJ-Ax-opS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LJw-rd-QaR" secondAttribute="trailing" constant="10" id="kz2-KX-NVa"/>
-                                    <constraint firstItem="sAJ-Ax-opS" firstAttribute="centerY" secondItem="5QC-So-psq" secondAttribute="centerY" id="lD5-WG-4cD"/>
-                                    <constraint firstItem="5QC-So-psq" firstAttribute="leading" secondItem="sAJ-Ax-opS" secondAttribute="trailing" constant="21" id="olX-k9-p06"/>
                                     <constraint firstItem="JSa-Gk-PDv" firstAttribute="top" secondItem="Eud-AK-OwZ" secondAttribute="top" constant="46" id="rUQ-QG-l1l"/>
                                     <constraint firstItem="JSa-Gk-PDv" firstAttribute="leading" secondItem="Eud-AK-OwZ" secondAttribute="leading" constant="18" id="vKZ-KQ-VvW"/>
                                     <constraint firstAttribute="bottom" secondItem="JSa-Gk-PDv" secondAttribute="bottom" constant="8" id="ymT-su-rLh"/>
@@ -565,10 +552,8 @@
                     <connections>
                         <outlet property="alcBottomOfMenuButton" destination="ymT-su-rLh" id="2p2-Dk-Tkr"/>
                         <outlet property="alcLeadingOfSideBackButton" destination="vKZ-KQ-VvW" id="dKI-lV-5dQ"/>
-                        <outlet property="alcTopOfSettingButton" destination="1Nb-T2-qD9" id="KJy-ym-VJn"/>
                         <outlet property="alcTopOfSideBackButton" destination="rUQ-QG-l1l" id="nfI-KA-8ZE"/>
                         <outlet property="alcTopOfStackView" destination="6lF-oi-T6A" id="93D-Lr-paT"/>
-                        <outlet property="alcTrailingOfSettingButton" destination="LO0-wt-eXQ" id="Rh3-rz-Pcp"/>
                         <outlet property="backgroundView" destination="ifT-3V-K0V" id="9jl-Yj-mXK"/>
                         <outlet property="loadingIndicator" destination="Ycb-gh-u1W" id="WD4-yu-EVS"/>
                         <outlet property="mainTableView" destination="Kxv-jj-jgE" id="pA8-7g-ege"/>
@@ -599,9 +584,6 @@
             <point key="canvasLocation" x="1535" y="536"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5i2-lc-eVk"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="back_icon" width="11" height="18"/>
         <image name="clothes_hanger_img" width="375" height="148"/>
@@ -610,7 +592,6 @@
         <image name="plus_icon" width="26" height="26"/>
         <image name="rainy" width="2652" height="3976"/>
         <image name="setting_black_icon" width="26" height="26"/>
-        <image name="setting_white_icon" width="26" height="26"/>
         <image name="side_menu_app_icon" width="111" height="111"/>
         <image name="splash_img" width="375" height="812"/>
     </resources>

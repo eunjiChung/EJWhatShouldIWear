@@ -35,12 +35,13 @@ class EJKoreaNeighborViewController: EJBaseViewController {
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1921568627, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.register(UINib(nibName: "EJNameTableViewCell", bundle: nil), forCellReuseIdentifier: EJNameTableViewCell.identifier)
     }
     
     // MARK: - IBAction
     @IBAction func didTouchComplete(_ sender: Any) {
         // TODO: - 나중에 clear해주기
-        EJUserDefaultsManager.shared.updateLocationList(locationNameStack)
+        EJUserDefaultsManager.shared.locationAddNew(locationNameStack)
         NotificationCenter.default.post(name: EJKoreaNeighborNotificationName.didCompleteChoosingLocation, object: nil, userInfo: nil)
         navigationController?.popToRootViewController(animated: true)
     }
@@ -58,9 +59,9 @@ extension EJKoreaNeighborViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
         if let neighborName = neighborhoods?[indexPath.row] {
-            cell.textLabel?.text = neighborName
+            cell.locationLabel.text = neighborName
         }
         return cell
     }
@@ -71,12 +72,17 @@ extension EJKoreaNeighborViewController: UITableViewDelegate {
         selectionHapticFeedback()
     
         if originalNameStack == "" { originalNameStack = locationNameStack }
-        
         if let name = neighborhoods?[indexPath.row] { locationNameStack += (" " + name) }
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
+        cell.checkImageview.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
         locationNameStack = originalNameStack
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
+        cell.checkImageview.isHidden = true
     }
 }

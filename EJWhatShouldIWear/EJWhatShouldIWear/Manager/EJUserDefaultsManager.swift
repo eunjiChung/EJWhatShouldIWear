@@ -22,10 +22,14 @@ final class EJUserDefaultsManager {
     static let shared = EJUserDefaultsManager()
     
     // MARK: - Public Methods
-    public func updateLocationList(_ new: String) {
+    public func locationAddNew(_ location: String) {
         guard let list = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else { return }
         var newList = list
-        newList.append(new)
+        newList.append(location)
         myUserDefaults.set(newList, forKey: UserDefaultKey.myLocations.rawValue)
+    }
+    
+    public func updateLocationList(_ locations: [String]) {
+        myUserDefaults.set(locations, forKey: UserDefaultKey.myLocations.rawValue)
     }
 }

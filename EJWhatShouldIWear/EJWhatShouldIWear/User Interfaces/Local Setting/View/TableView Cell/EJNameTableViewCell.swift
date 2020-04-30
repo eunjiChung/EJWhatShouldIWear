@@ -1,5 +1,5 @@
 //
-//  EJLocationNameTableViewCell.swift
+//  EJNameTableViewCell.swift
 //  EJWhatShouldIWear
 //
 //  Created by chungeunji on 2020/05/01.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-class EJLocationNameTableViewCell: UITableViewCell {
-    // MARK: - IBOutlets
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var checkImageView: UIImageView!
-    
-    // MARK: - Properties
-    static let identifier = "EJLocationNameTableViewCell"
+class EJNameTableViewCell: UITableViewCell {
 
-    // MARK: - View Life Cycle
+    static let identifier = "EJNameTableViewCell"
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var checkImageview: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+
 }
