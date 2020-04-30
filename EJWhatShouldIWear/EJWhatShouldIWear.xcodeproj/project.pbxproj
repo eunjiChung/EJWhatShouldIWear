@@ -538,7 +538,6 @@
 			isa = PBXGroup;
 			children = (
 				999B209E22029E660073A0D9 /* AppDelegate.swift */,
-				999B20A222029E660073A0D9 /* Main.storyboard */,
 				99A0567C228E9CE2002D3B7A /* EJLibrary.swift */,
 				728069272448C46700522019 /* EJURLString.swift */,
 				B6375920244BB7370076FE2C /* Service */,
@@ -643,6 +642,7 @@
 		B6375918244B816A0076FE2C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				999B20A222029E660073A0D9 /* Main.storyboard */,
 				B6375919244B81770076FE2C /* View */,
 				B637591A244B81820076FE2C /* ViewModel */,
 				B637591B244B81970076FE2C /* Model */,

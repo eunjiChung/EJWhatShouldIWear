@@ -99,7 +99,7 @@ class EJNewHomeViewController: EJBaseViewController {
     }
     
     private func initLocation() {
-        // TODO : - 메인에 현재 위치 날씨 알아보는 것도 추가해야..ㅎ ㅐ...
+        // TODO : - 메인에 현재 위치 날씨 알아보는 것도 추가해야..ㅎ ㅐ... -> 플로우를 짜야할 듯...
         
         EJLocationManager.shared.didChangeLocationAuthorizationRestrictedClosure = {
             self.popAlertVC(self, title: LocalizedString(with: "localizing_error"), message: LocalizedString(with: "localizing_error_msg"))
