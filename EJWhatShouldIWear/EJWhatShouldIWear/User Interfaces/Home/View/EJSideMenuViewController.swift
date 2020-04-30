@@ -23,19 +23,27 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     
     // MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        // TODO: - 한국에서만 위치 리스트 뜨도록 설정
+        return 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.row {
         case 0:
             return tableView.dequeueReusableCell(withIdentifier: SideMenuLogoTableViewCell.identifier, for: indexPath)
         case 1:
-            return tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier, for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier) as? SideMenuShareTableViewCell else { return UITableViewCell() }
+            cell.imageView?.tintColor = #colorLiteral(red: 0.1921568627, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
+            cell.imageView?.image = #imageLiteral(resourceName: "menu_icon")
+            cell.shareLabel.text = "즐겨찾는 위치"
+            return cell
         case 2:
-            return tableView.dequeueReusableCell(withIdentifier: SideMenuFeedbackTableViewCell.identifier, for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier, for: indexPath) as? SideMenuShareTableViewCell else { return UITableViewCell() }
+            cell.imageView?.image = #imageLiteral(resourceName: "share_black_icon")
+            return cell
         case 3:
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuFeedbackTableViewCell.identifier, for: indexPath)
+        case 4:
             return tableView.dequeueReusableCell(withIdentifier: SideMenuSettingTableViewCell.identifier, for: indexPath)
         default:
             return tableView.dequeueReusableCell(withIdentifier: SideMenuLogoTableViewCell.identifier, for: indexPath)
@@ -43,30 +51,18 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
     
     }
     
-    //
-    
-    // MARK: - TableView Delegate
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath.row {
-//        case 0:
-//            return EJSizeHeight(258.0)
-//        case 1:
-//            return EJSizeHeight(30.0)
-//        default:
-//            return EJSizeHeight(60.0)
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
         
         switch indexPath.row {
         case 1:
+            self.performSegue(withIdentifier: "showLocationSegue", sender: self)
+        case 2:
             let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController")
             self.navigationController?.pushViewController(shareVC!, animated: true)
-        case 2:
-            writeReview()
         case 3:
+            writeReview()
+        case 4:
             self.performSegue(withIdentifier: "sidemenu_setting_segue", sender: self)
         default:
             EJLogger.d("")

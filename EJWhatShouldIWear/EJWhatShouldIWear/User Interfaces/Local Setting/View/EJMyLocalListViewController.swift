@@ -19,7 +19,13 @@ class EJMyLocalListViewController: EJBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initView()
         getMyCurrentLocations()
+    }
+    
+    // MARK: - Initialize
+    private func initView() {
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     // MARK: - Private Methods

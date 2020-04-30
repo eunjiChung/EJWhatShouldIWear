@@ -18,7 +18,27 @@ class EJKoreaCityViewController: EJBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        initView()
+        initNotification()
         generateCities()
+    }
+    
+    // MARK: - Initialize
+    private func initView() {
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1921568627, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
+    private func initNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didCompleteChoosingLocation(_:)),
+                                               name: EJKoreaNeighborNotificationName.didCompleteChoosingLocation,
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: EJKoreaNeighborNotificationName.didCompleteChoosingLocation, object: nil)
     }
     
     // MARK: - Private Methods
@@ -26,6 +46,11 @@ class EJKoreaCityViewController: EJBaseViewController {
         guard let cities = EJLocationManager.shared.koreaCities else { return }
         citiesModel = []
         cities.forEach { citiesModel?.append($0.cityName) }
+    }
+    
+    @objc func didCompleteChoosingLocation(_ notification: Notification) {
+        // TODO: - notification이나 delegate 날리기
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -46,13 +71,27 @@ extension EJKoreaCityViewController: UITableViewDataSource {
 extension EJKoreaCityViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
-        performSegue(withIdentifier: "showDistrictSegue", sender: indexPath.row)
+        
+        if citiesModel?[indexPath.row] == "세종특별자치시" {
+            performSegue(withIdentifier: "showExceptionSegue", sender: indexPath.row)
+        } else {
+            performSegue(withIdentifier: "showDistrictSegue", sender: indexPath.row)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? EJKoreaDistrictViewController else { return }
-        guard let selectedIndexRow = sender as? Int else { return }
-        destination.cityModel = EJLocationManager.shared.koreaCities?[selectedIndexRow]
-        destination.locationNameStack =  EJLocationManager.shared.koreaCities?[selectedIndexRow].cityName
+        switch segue.identifier {
+        case "showExceptionSegue":
+            guard let destination = segue.destination as? EJKoreaNeighborViewController else { return }
+            guard let selectedIndexRow = sender as? Int else { return }
+            destination.locationNameStack = EJLocationManager.shared.koreaCities?[selectedIndexRow].cityName
+            destination.districtName = EJLocationManager.shared.koreaCities?[selectedIndexRow].cityName
+            destination.neighborhoods = EJLocationManager.shared.koreaCities?[selectedIndexRow].districts.first?.neighborhoods
+        default:
+            guard let destination = segue.destination as? EJKoreaDistrictViewController else { return }
+            guard let selectedIndexRow = sender as? Int else { return }
+            destination.cityModel = EJLocationManager.shared.koreaCities?[selectedIndexRow]
+            destination.locationNameStack =  EJLocationManager.shared.koreaCities?[selectedIndexRow].cityName
+        }
     }
 }

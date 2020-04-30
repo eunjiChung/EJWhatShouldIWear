@@ -8,29 +8,41 @@
 
 import UIKit
 
-class EJKoreaNeighborViewController: EJBaseViewController {
+struct EJKoreaNeighborNotificationName {
+    static let didCompleteChoosingLocation = NSNotification.Name(rawValue: "didCompleteChoosingLocation")
+}
 
+class EJKoreaNeighborViewController: EJBaseViewController {
+    // MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Properties
     var locationNameStack: String!
+    var originalNameStack = ""
     var districtName : String?
     var neighborhoods: [String]?
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initView()
     }
     
+    // MARK: - Initialize
     private func initView() {
         self.title = districtName ?? "군・구"
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1921568627, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     // MARK: - IBAction
     @IBAction func didTouchComplete(_ sender: Any) {
+        // TODO: - 나중에 clear해주기
         EJUserDefaultsManager.shared.updateLocationList(locationNameStack)
-        // TODO: - delegate나 notification을 호출하여 위치와 테이블 업데이트
-        
-        navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: EJKoreaNeighborNotificationName.didCompleteChoosingLocation, object: nil, userInfo: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -51,17 +63,14 @@ extension EJKoreaNeighborViewController: UITableViewDataSource {
 extension EJKoreaNeighborViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
+    
+        if originalNameStack == "" { originalNameStack = locationNameStack }
         
-        if let name = neighborhoods?[indexPath.row] {
-            self.locationNameStack += (" " + name)
-        }
+        if let name = neighborhoods?[indexPath.row] { locationNameStack += (" " + name) }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
-        
-        if let name = neighborhoods?[indexPath.row] {
-            // TODO: - 선택해제한 이름을 nameStack에서 제거
-        }
+        locationNameStack = originalNameStack
     }
 }

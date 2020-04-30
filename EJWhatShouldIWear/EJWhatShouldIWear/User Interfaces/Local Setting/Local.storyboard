@@ -38,13 +38,21 @@
                                             <action selector="didTouchDismiss:" destination="6nP-S6-gRm" eventType="touchUpInside" id="TqD-Im-Woi"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alc-pf-nlE">
+                                        <rect key="frame" x="175.5" y="42.5" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="S7X-Ti-Bym" firstAttribute="top" secondItem="Hps-34-cbl" secondAttribute="top" constant="38" id="A7D-1R-UyC"/>
                                     <constraint firstItem="p4Z-MN-2lm" firstAttribute="top" secondItem="Hps-34-cbl" secondAttribute="top" constant="42" id="K7K-fX-CFQ"/>
+                                    <constraint firstItem="Alc-pf-nlE" firstAttribute="centerX" secondItem="Hps-34-cbl" secondAttribute="centerX" id="KFP-QX-nrL"/>
                                     <constraint firstAttribute="height" constant="76" id="ZEN-Ms-ZkN"/>
                                     <constraint firstAttribute="trailing" secondItem="S7X-Ti-Bym" secondAttribute="trailing" constant="21" id="Znd-Ts-Lqo"/>
+                                    <constraint firstItem="Alc-pf-nlE" firstAttribute="centerY" secondItem="p4Z-MN-2lm" secondAttribute="centerY" id="kSO-Jx-yy9"/>
                                     <constraint firstItem="p4Z-MN-2lm" firstAttribute="leading" secondItem="Hps-34-cbl" secondAttribute="leading" constant="8" id="oOz-ub-R2E"/>
                                 </constraints>
                             </view>
@@ -78,7 +86,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_location_icon" translatesAutoresizingMaskIntoConstraints="NO" id="v5M-7K-g9i">
                                                     <rect key="frame" x="21" y="4" width="24" height="55"/>
-                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 추가하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-X0-2MT">
                                                     <rect key="frame" x="53" y="21" width="93" height="21"/>
@@ -178,13 +186,14 @@
                     <connections>
                         <outlet property="tableView" destination="sFW-OE-Unj" id="Fs7-hJ-T5O"/>
                         <segue destination="WRf-Vv-cgZ" kind="show" identifier="showDistrictSegue" id="vBm-Ho-yE2"/>
+                        <segue destination="4gq-vB-00G" kind="show" identifier="showExceptionSegue" id="ma2-H2-zu5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfc-uT-Dtq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5821.739130434783" y="1421.6517857142856"/>
         </scene>
-        <!--군・구-->
+        <!--Korea District View Controller-->
         <scene sceneID="qAc-4F-RdZ">
             <objects>
                 <viewController storyboardIdentifier="EJKoreaDistrictViewController" id="WRf-Vv-cgZ" customClass="EJKoreaDistrictViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
@@ -196,7 +205,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="VKA-GA-BOF" style="IBUITableViewCellStyleDefault" id="lDg-RT-YuH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="VKA-GA-BOF" style="IBUITableViewCellStyleDefault" id="lDg-RT-YuH">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lDg-RT-YuH" id="59G-LK-89H">
@@ -229,7 +238,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rET-jq-IgR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="군・구" id="Yjg-J2-D78"/>
+                    <navigationItem key="navigationItem" id="Yjg-J2-D78">
+                        <barButtonItem key="leftBarButtonItem" image="back_icon" id="bh6-3R-tB7">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="CUa-ly-GfN" id="nWZ-y1-9P8"/>
                         <segue destination="4gq-vB-00G" kind="show" identifier="showNeighborSegue" id="sTu-iW-KA8"/>
@@ -239,7 +252,7 @@
             </objects>
             <point key="canvasLocation" x="6700" y="1422"/>
         </scene>
-        <!--읍・면・동-->
+        <!--Korea Neighbor View Controller-->
         <scene sceneID="mgq-xo-6RU">
             <objects>
                 <viewController storyboardIdentifier="EJKoreaNeighborViewController" id="4gq-vB-00G" customClass="EJKoreaNeighborViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,7 +264,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="w7j-0X-578" style="IBUITableViewCellStyleDefault" id="aza-Az-3Fe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="w7j-0X-578" style="IBUITableViewCellStyleDefault" id="aza-Az-3Fe">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aza-Az-3Fe" id="8e0-Al-sgg">
@@ -284,13 +297,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vr1-lr-Qbl"/>
                     </view>
-                    <navigationItem key="navigationItem" title="읍・면・동" id="JCW-fX-3vR">
+                    <navigationItem key="navigationItem" id="JCW-fX-3vR">
+                        <barButtonItem key="leftBarButtonItem" image="back_icon" id="jWF-X0-Mmb">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="완료" id="yeZ-NU-AJY">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <connections>
                                 <action selector="didTouchComplete:" destination="4gq-vB-00G" id="TBa-Mt-ewD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="mfb-GF-ncP" id="gMF-qU-mHS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoK-AW-95R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,6 +339,9 @@
             <point key="canvasLocation" x="4911.594202898551" y="1421.6517857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ma2-H2-zu5"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="add_location_icon" width="24" height="24"/>
         <image name="back_icon" width="11" height="18"/>

@@ -29,6 +29,11 @@ class EJKoreaDistrictViewController: EJBaseViewController {
     // MARK: - Private Methods
     private func initView() {
         self.title = cityModel?.cityName
+        
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1921568627, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func generateDistricts() {
