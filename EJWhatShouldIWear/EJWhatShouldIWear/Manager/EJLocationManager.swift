@@ -107,9 +107,10 @@ public class EJLocationManager: CLLocationManager {
         }
     }
     
-    func updateMainLocation() {
+    func updateMainLocation(_ name: String) {
         // TODO: - 현재 로케이션 string을 저장한다
-        // TODO: - 그 locationString을 CLLocation 값으로 변환한다!!!! 
+        // TODO: - 그 locationString을 CLLocation 값으로 변환한다!!!!
+        // TODO: - Notification이나 delegate를 메인에 쏜다! -> 그래야 현재 메인 로케이션이 업데이트 됨
     }
     
     // MARK: Request

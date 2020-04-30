@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct EJMyLocalListNotification {
+    static let didSelectMainLocation = NSNotification.Name(rawValue: "didSelectMainLocation")
+}
+
 class EJMyLocalListViewController: EJBaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -42,7 +46,7 @@ class EJMyLocalListViewController: EJBaseViewController {
     
     // MARK: - Private Methods
     private func getMyCurrentLocations() {
-        if let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] {
+        if let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String], array.count != 0 {
             locations = array
         } else {
             locations = [EJLocationManager.shared.locationString]
@@ -50,11 +54,7 @@ class EJMyLocalListViewController: EJBaseViewController {
     }
     
     @objc func didCompleteChoosingLocation(_ notificaion: Notification) {
-        guard let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else {
-            // TODO: - 왜 nil이지...?
-            print(myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue))
-            return
-        }
+        guard let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else { return }
         locations = array
         tableView.reloadData()
     }
@@ -74,8 +74,10 @@ extension EJMyLocalListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
-        if let name = locations?[indexPath.row] {
-            cell.locationLabel.text = name
+        guard let name = locations?[indexPath.row] else { return UITableViewCell() }
+        cell.locationLabel.text = name
+        if name == EJLocationManager.shared.locationString {
+            cell.checkImageview.isHidden = false
         }
         return cell
     }
@@ -85,7 +87,10 @@ extension EJMyLocalListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
         
-        EJLocationManager.shared.updateMainLocation()
+        if let name = locations?[indexPath.row] {
+            EJLocationManager.shared.updateMainLocation(name)
+            NotificationCenter.default.post(name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
+        }
         
         guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
         cell.checkImageview.isHidden = false
@@ -110,6 +115,7 @@ extension EJMyLocalListViewController: UITableViewDelegate {
             if let locations = locations {
                 EJUserDefaultsManager.shared.updateLocationList(locations)
             }
+            tableView.reloadData()
         }
     }
 }

@@ -16,7 +16,7 @@ class EJNewHomeViewController: EJBaseViewController {
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var myLocationField: UITextField!
+    @IBOutlet weak var myLocationField: UIButton!
     @IBOutlet weak var splashContainer: UIView!
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
@@ -30,8 +30,12 @@ class EJNewHomeViewController: EJBaseViewController {
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        EJLocationManager.shared.delegate = self
+        
         initView()
         initViewModel()
+        initNotification()
     }
     
     // MARK: Initialize
@@ -42,8 +46,6 @@ class EJNewHomeViewController: EJBaseViewController {
         configureSideMenu()
         EJAppStoreReviewManager.requestReviewIfAppropriate()     // 3회 방문시 스토어 리뷰 요청
         
-        EJLocationManager.shared.delegate = self
-        
         addPullToRefreshControl(toScrollView: self.mainTableView) {
             EJLocationManager.shared.checkLocationStatus()
             self.mainTableView.reloadData()
@@ -52,7 +54,7 @@ class EJNewHomeViewController: EJBaseViewController {
     
     private func initViewModel() {
         viewModel.didSetLocationInfoSuccessClosure = { locationString in
-            self.myLocationField.text = locationString
+            self.myLocationField.setTitle(locationString, for: .normal)
             
             if EJLocationManager.shared.isKorea() {
                 self.viewModel.requestKoreaWeather(0)
@@ -97,6 +99,14 @@ class EJNewHomeViewController: EJBaseViewController {
         }
     }
     
+    private func initNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didSelectMainLocation(_:)), name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
+    }
+    
     // MARK: - Button Action
     @IBAction func didTouchMenuBtn(_ sender: Any) {
         selectionHapticFeedback()
@@ -111,14 +121,17 @@ class EJNewHomeViewController: EJBaseViewController {
     }
     
     @IBAction func didTouchAddButton(_ sender: Any) {
-//        guard let addVC = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJKoreaNeighborViewController") as? EJKoreaNeighborViewController else { return }
-//        self.present(addVC, animated: true, completion: nil)
         selectionHapticFeedback()
         guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
         self.show(vc, sender: self)
     }
     
+    @IBAction func didTouchList(_ sender: Any) {
+        // TODO: - 툴바로 조정? 아니면 모달창 띄워서?
+    }
     
+    
+    // MARK: - Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "home_setting_segue":
@@ -131,6 +144,11 @@ class EJNewHomeViewController: EJBaseViewController {
         default:
             EJLogger.d("")
         }
+    }
+    
+    @objc func didSelectMainLocation(_ notification: Notification) {
+        myLocationField.setTitle(EJLocationManager.shared.locationString, for: .normal)
+        mainTableView.reloadData()
     }
     
 }
