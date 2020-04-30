@@ -9,13 +9,8 @@
 import UIKit
 import UserNotifications
 
-// MARK: UserDefaults Keys
-public let LOCATION_KEY : String                =   "location"
-public let SWITCH_ID : String                   =   "switchState"
-
 // MARK: - Global Instance
 let Library = EJLibrary.sharedInstance
-let myUserDefaults = UserDefaults.standard
 
 // MARK: - Localizable
 func LocalizedString(with key: String) -> String {
@@ -41,11 +36,11 @@ class EJLibrary: NSObject {
             if error == nil {
                 if didAllow {
                     // Allowing Auth
-                    myUserDefaults.set(true, forKey: SWITCH_ID)
+                    myUserDefaults.set(true, forKey: UserDefaultKey.switchId.rawValue)
                     Library.allowNotification()
                 } else {
                     // Disallow Auth
-                    myUserDefaults.set(false, forKey: SWITCH_ID)
+                    myUserDefaults.set(false, forKey: UserDefaultKey.switchId.rawValue)
                 }
             } else {
                 EJLogger.e(error as Any)

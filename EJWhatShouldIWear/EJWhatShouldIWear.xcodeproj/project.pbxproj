@@ -102,6 +102,16 @@
 		B6BCD7E62455A7CC003436D6 /* korea_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BCD7E52455A7CC003436D6 /* korea_data.json */; };
 		B6BCD7E92455D965003436D6 /* Data+JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BCD7E82455D965003436D6 /* Data+JSONFile.swift */; };
 		B6BCD7EC2455DAA0003436D6 /* korea_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BCD7EB2455DAA0003436D6 /* korea_data.json */; };
+		B6E088D7245AC791006C6665 /* korea.json in Resources */ = {isa = PBXBuildFile; fileRef = B6E088D6245AC791006C6665 /* korea.json */; };
+		B6E088D9245AC7A8006C6665 /* korea.json in Resources */ = {isa = PBXBuildFile; fileRef = B6E088D8245AC7A8006C6665 /* korea.json */; };
+		B6E088DB245AC7C6006C6665 /* EJKoreaLocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088DA245AC7C6006C6665 /* EJKoreaLocalModel.swift */; };
+		B6E088DD245AD03E006C6665 /* EJMyLocalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088DC245AD03E006C6665 /* EJMyLocalListViewController.swift */; };
+		B6E088DF245AD065006C6665 /* EJAddLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088DE245AD065006C6665 /* EJAddLocationCell.swift */; };
+		B6E088E2245AD2B7006C6665 /* Local.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E088E1245AD2B7006C6665 /* Local.storyboard */; };
+		B6E088E5245B0E48006C6665 /* EJKoreaCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088E4245B0E48006C6665 /* EJKoreaCityViewController.swift */; };
+		B6E088E7245B0E52006C6665 /* EJKoreaDistrictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088E6245B0E52006C6665 /* EJKoreaDistrictViewController.swift */; };
+		B6E088E9245B0E5E006C6665 /* EJKoreaNeighborViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088E8245B0E5E006C6665 /* EJKoreaNeighborViewController.swift */; };
+		B6E088EB245B12F9006C6665 /* EJUserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */; };
 		B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */; };
 		B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */; };
 		B6F1025D233B4413000C3DCD /* EJAppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */; };
@@ -253,6 +263,16 @@
 		B6BCD7E52455A7CC003436D6 /* korea_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea_data.json; sourceTree = "<group>"; };
 		B6BCD7E82455D965003436D6 /* Data+JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSONFile.swift"; sourceTree = "<group>"; };
 		B6BCD7EB2455DAA0003436D6 /* korea_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea_data.json; sourceTree = "<group>"; };
+		B6E088D6245AC791006C6665 /* korea.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea.json; sourceTree = "<group>"; };
+		B6E088D8245AC7A8006C6665 /* korea.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea.json; sourceTree = "<group>"; };
+		B6E088DA245AC7C6006C6665 /* EJKoreaLocalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaLocalModel.swift; sourceTree = "<group>"; };
+		B6E088DC245AD03E006C6665 /* EJMyLocalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJMyLocalListViewController.swift; sourceTree = "<group>"; };
+		B6E088DE245AD065006C6665 /* EJAddLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAddLocationCell.swift; sourceTree = "<group>"; };
+		B6E088E1245AD2B7006C6665 /* Local.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Local.storyboard; sourceTree = "<group>"; };
+		B6E088E4245B0E48006C6665 /* EJKoreaCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaCityViewController.swift; sourceTree = "<group>"; };
+		B6E088E6245B0E52006C6665 /* EJKoreaDistrictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaDistrictViewController.swift; sourceTree = "<group>"; };
+		B6E088E8245B0E5E006C6665 /* EJKoreaNeighborViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaNeighborViewController.swift; sourceTree = "<group>"; };
+		B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJUserDefaultsManager.swift; sourceTree = "<group>"; };
 		B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothCollectionViewCell.xib; sourceTree = "<group>"; };
 		B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAppStoreReviewManager.swift; sourceTree = "<group>"; };
@@ -350,6 +370,7 @@
 			children = (
 				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
 				B6375918244B816A0076FE2C /* Home */,
+				B6E088E0245AD29D006C6665 /* Local Setting */,
 				7280691924489F1B00522019 /* Settings */,
 			);
 			path = "User Interfaces";
@@ -386,6 +407,7 @@
 				B637591E244BA2B40076FE2C /* EJLayoutManager.swift */,
 				B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */,
 				B67A15A7244C567900F17C6D /* EJLogger.swift */,
+				B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -550,6 +572,7 @@
 				B6262C2622FA771A009FC744 /* EJWeatherMainModel.swift */,
 				B603890A22FBE9D500F36416 /* EJClothModel.swift */,
 				72A5D5752340DB0B0068D33D /* EJCountryCodeModel.swift */,
+				B6E088DA245AC7C6006C6665 /* EJKoreaLocalModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -700,6 +723,7 @@
 		B6BCD7E42455A7AE003436D6 /* JSON Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6E088D8245AC7A8006C6665 /* korea.json */,
 				B6BCD7E52455A7CC003436D6 /* korea_data.json */,
 			);
 			path = "JSON Files";
@@ -716,9 +740,31 @@
 		B6BCD7EA2455DA8B003436D6 /* JSON Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6E088D6245AC791006C6665 /* korea.json */,
 				B6BCD7EB2455DAA0003436D6 /* korea_data.json */,
 			);
 			path = "JSON Files";
+			sourceTree = "<group>";
+		};
+		B6E088E0245AD29D006C6665 /* Local Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B6E088E1245AD2B7006C6665 /* Local.storyboard */,
+				B6E088E3245B0E16006C6665 /* View */,
+			);
+			path = "Local Setting";
+			sourceTree = "<group>";
+		};
+		B6E088E3245B0E16006C6665 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6E088DE245AD065006C6665 /* EJAddLocationCell.swift */,
+				B6E088DC245AD03E006C6665 /* EJMyLocalListViewController.swift */,
+				B6E088E4245B0E48006C6665 /* EJKoreaCityViewController.swift */,
+				B6E088E6245B0E52006C6665 /* EJKoreaDistrictViewController.swift */,
+				B6E088E8245B0E5E006C6665 /* EJKoreaNeighborViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -837,6 +883,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E088D7245AC791006C6665 /* korea.json in Resources */,
 				B6BCD7EC2455DAA0003436D6 /* korea_data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -849,6 +896,7 @@
 				724A174E22D7817F008FDCB6 /* muffler.png in Resources */,
 				990E595B22D71598000728A1 /* GoogleService-Info.plist in Resources */,
 				992B0A3522BFE72900FF94B7 /* Localizable.strings in Resources */,
+				B6E088E2245AD2B7006C6665 /* Local.storyboard in Resources */,
 				999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */,
 				998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */,
 				724A173822D77C9B008FDCB6 /* cardigan.png in Resources */,
@@ -857,6 +905,7 @@
 				B6BCD7E62455A7CC003436D6 /* korea_data.json in Resources */,
 				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
 				B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */,
+				B6E088D9245AC7A8006C6665 /* korea.json in Resources */,
 				724A173A22D77C9B008FDCB6 /* blouse.png in Resources */,
 				99A05683228EAA0D002D3B7A /* DummyTableViewCell.xib in Resources */,
 				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
@@ -1029,10 +1078,12 @@
 				72A5D5742340C6C70068D33D /* BackView.swift in Sources */,
 				992B098A22BD53C200FF94B7 /* EJFiveDaysWeather.swift in Sources */,
 				992B098B22BD53C200FF94B7 /* EJFiveDaysWind.swift in Sources */,
+				B6E088EB245B12F9006C6665 /* EJUserDefaultsManager.swift in Sources */,
 				B67A15A8244C567900F17C6D /* EJLogger.swift in Sources */,
 				998B8295228D671B0099B71A /* ShowClothTableViewCell.swift in Sources */,
 				992B099122BD53C200FF94B7 /* EJFiveDaysClouds.swift in Sources */,
 				B63758FD2448FD860076FE2C /* EJHumidityModel.swift in Sources */,
+				B6E088E5245B0E48006C6665 /* EJKoreaCityViewController.swift in Sources */,
 				9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */,
 				B63758ED2448F6090076FE2C /* EJSixdaysWeatherModel.swift in Sources */,
 				B6F1025F233B4479000C3DCD /* UserDefaults+Key.swift in Sources */,
@@ -1041,6 +1092,7 @@
 				728069222448A4FB00522019 /* EJFirebaseDBManager.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				B6029359230FD5E5002BDA5E /* EJDescriptionTableViewCell.swift in Sources */,
+				B6E088DF245AD065006C6665 /* EJAddLocationCell.swift in Sources */,
 				B6375915244B7F590076FE2C /* EJErrorBaseModel.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
 				B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */,
@@ -1052,8 +1104,11 @@
 				B63759032448FDC00076FE2C /* EJThreedaysWindModel.swift in Sources */,
 				B62E8B8E22F9464C00055A0E /* Date.swift in Sources */,
 				B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */,
+				B6E088E9245B0E5E006C6665 /* EJKoreaNeighborViewController.swift in Sources */,
 				B637591D244B81BE0076FE2C /* EJNewHomeViewModel.swift in Sources */,
+				B6E088DB245AC7C6006C6665 /* EJKoreaLocalModel.swift in Sources */,
 				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
+				B6E088DD245AD03E006C6665 /* EJMyLocalListViewController.swift in Sources */,
 				B63758E62448EE800076FE2C /* EJClothManager.swift in Sources */,
 				997533BF228EEAD7003DAF97 /* EJAlarmTableViewCell.swift in Sources */,
 				728069282448C46700522019 /* EJURLString.swift in Sources */,
@@ -1090,6 +1145,7 @@
 				B602935B230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift in Sources */,
 				72A5D5762340DB0B0068D33D /* EJCountryCodeModel.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
+				B6E088E7245B0E52006C6665 /* EJKoreaDistrictViewController.swift in Sources */,
 				7280691E2448A35D00522019 /* EJNoticeViewController.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
 				B6F10261233B4870000C3DCD /* ImageView.swift in Sources */,

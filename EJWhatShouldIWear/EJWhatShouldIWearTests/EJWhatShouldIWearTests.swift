@@ -37,14 +37,12 @@ class EJWhatShouldIWearTests: XCTestCase {
 
     
     func testJSON_getJSONFile() throws {
-        let data = try Data.fromJSON(fileName: "korea_data")
+        let data = try Data.fromJSON(fileName: "korea")
 
         do {
-            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                if let names = json["korea"] as? [String: Any] {
-                    print("🍄", names)
-                }
-            }
+            let model = try JSONDecoder().decode(EJKoreaLocalModel.self, from: data)
+            let cities = model.korea
+            print(cities)
         } catch let error as NSError {
             print("Failed to load: \(error.localizedDescription)")
         }

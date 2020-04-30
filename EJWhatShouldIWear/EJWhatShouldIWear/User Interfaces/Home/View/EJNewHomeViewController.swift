@@ -112,6 +112,15 @@ class EJNewHomeViewController: EJBaseViewController {
         ])
     }
     
+    @IBAction func didTouchAddButton(_ sender: Any) {
+//        guard let addVC = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJKoreaNeighborViewController") as? EJKoreaNeighborViewController else { return }
+//        self.present(addVC, animated: true, completion: nil)
+        selectionHapticFeedback()
+        guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
+        self.show(vc, sender: self)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "home_setting_segue":

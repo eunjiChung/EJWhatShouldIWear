@@ -25,11 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         // Initialize Google Mobile Ads SDK
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        // 한국 지역 런칭
+        EJLocationManager.shared.generateKoreaLocation()
 
         return true
     }
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
+        
     }
 }
 

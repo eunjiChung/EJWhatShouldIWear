@@ -20,6 +20,8 @@ public class EJLocationManager: CLLocationManager {
     var currentLocation: CLLocation?
     var locationString = LocalizedString(with: "unknown")
     
+    var koreaCities: [EJKoreaCityModel]?
+    
     // MARK: Initialize
     override init() {
         super.init()
@@ -62,12 +64,12 @@ public class EJLocationManager: CLLocationManager {
     }
     
     func updateDefaultLocation(currentLocation: CLLocation? = nil, completion: ((CLLocation) -> Void)? = nil) {
-        if myUserDefaults.dictionary(forKey: LOCATION_KEY) == nil {
+        if myUserDefaults.dictionary(forKey: UserDefaultKey.locationKey.rawValue) == nil {
             let dictionary = ["latitude" : 37.50587, "longitude" : 127.11246]
-            myUserDefaults.set(dictionary, forKey: LOCATION_KEY)
+            myUserDefaults.set(dictionary, forKey: UserDefaultKey.locationKey.rawValue)
         }
         
-        guard let location = myUserDefaults.dictionary(forKey: LOCATION_KEY) else { return }
+        guard let location = myUserDefaults.dictionary(forKey: UserDefaultKey.locationKey.rawValue) else { return }
         latitude = location["latitude"] as! Double
         longitude = location["longitude"] as! Double
         let defaultLocation = CLLocation(latitude: latitude, longitude: longitude)
@@ -79,7 +81,7 @@ public class EJLocationManager: CLLocationManager {
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
         let newCoordinate = ["latitude": latitude, "longitude": longitude]
-        myUserDefaults.set(newCoordinate, forKey: LOCATION_KEY)
+        myUserDefaults.set(newCoordinate, forKey: UserDefaultKey.locationKey.rawValue)
     }
     
     func checkLocationStatus() {
@@ -93,6 +95,17 @@ public class EJLocationManager: CLLocationManager {
         }
     }
     
+    func generateKoreaLocation() {
+        if let path = Bundle.main.path(forResource: "korea", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let model = try JSONDecoder().decode(EJKoreaLocalModel.self, from: data)
+                koreaCities = model.korea
+            } catch {
+                EJLogger.e("Failed to generate Korea cities")
+            }
+        }
+    }
     
     // MARK: Request
     func requestKoreaWeatherInfo(_ index: Int) {
