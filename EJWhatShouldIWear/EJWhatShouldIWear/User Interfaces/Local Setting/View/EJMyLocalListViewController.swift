@@ -20,6 +20,7 @@ class EJMyLocalListViewController: EJBaseViewController {
         super.viewDidLoad()
 
         initView()
+        initNotification()
         getMyCurrentLocations()
     }
     
@@ -28,17 +29,34 @@ class EJMyLocalListViewController: EJBaseViewController {
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
+    private func initNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didCompleteChoosingLocation(_:)), name: EJKoreaCityNotification.didDismissViewController, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: EJKoreaCityNotification.didDismissViewController, object: nil)
+    }
+    
     // MARK: - Private Methods
     private func getMyCurrentLocations() {
-        // TODO: - 나중에는 더 추가하기
-//        guard let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else { return }
-//        locations = array
-        locations = ["서울시 강남구 도곡동", "서울시 송파구 가락동", "경기도 광명시", "어쩌구 저쩌구"]
+        if let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] {
+            locations = array
+        } else {
+            locations = [EJLocationManager.shared.locationString]
+        }
+    }
+    
+    @objc func didCompleteChoosingLocation(_ notificaion: Notification) {
+        guard let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else { return }
+        locations = array
+        tableView.reloadData()
     }
     
     // MARK: - IBActions
     @IBAction func didTouchEdit(_ sender: Any) {
         selectionHapticFeedback()
+        // TODO: - 편집 기능 추가
+        // TODO: - 삭제 기능 추가 (이건 셀 안에)
     }
     
     @IBAction func didTouchDismiss(_ sender: Any) {
@@ -59,9 +77,9 @@ extension EJMyLocalListViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EJAddLocationCell") as? EJAddLocationCell else { return UITableViewCell() }
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: EJLocationNameTableViewCell.identifier) as? EJLocationNameTableViewCell else { return UITableViewCell() }
             if let name = locations?[indexPath.row] {
-                cell.textLabel?.text = name
+                cell.locationLabel.text = name
             }
             return cell
         }
@@ -71,5 +89,18 @@ extension EJMyLocalListViewController: UITableViewDataSource {
 extension EJMyLocalListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
+        
+        EJLocationManager.shared.updateMainLocation()
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? EJLocationNameTableViewCell else { return }
+        cell.checkImageView.isHidden = false
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        // TODO: - 머야 이거 왜 안돼....
+        guard let count = locations?.count, indexPath.row != count else { return }
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? EJLocationNameTableViewCell else { return }
+        cell.checkImageView.isHidden = true
     }
 }

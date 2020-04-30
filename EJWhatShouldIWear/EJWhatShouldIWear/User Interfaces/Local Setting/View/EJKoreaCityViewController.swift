@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct EJKoreaCityNotification {
+    static let didDismissViewController = NSNotification.Name(rawValue: "didDismissViewController")
+}
+
 class EJKoreaCityViewController: EJBaseViewController {
     // MARK: - Properties
     var citiesModel: [String]?
@@ -49,7 +53,13 @@ class EJKoreaCityViewController: EJBaseViewController {
     }
     
     @objc func didCompleteChoosingLocation(_ notification: Notification) {
-        // TODO: - notification이나 delegate 날리기
+        NotificationCenter.default.post(name: EJKoreaCityNotification.didDismissViewController, object: nil)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - IBActions
+    @IBAction func didTouchDismissButton(_ sender: Any) {
+        selectionHapticFeedback()
         self.dismiss(animated: true, completion: nil)
     }
 }

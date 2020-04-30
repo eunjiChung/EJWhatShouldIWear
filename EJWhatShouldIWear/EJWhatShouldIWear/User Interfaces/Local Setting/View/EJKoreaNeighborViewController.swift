@@ -44,6 +44,12 @@ class EJKoreaNeighborViewController: EJBaseViewController {
         NotificationCenter.default.post(name: EJKoreaNeighborNotificationName.didCompleteChoosingLocation, object: nil, userInfo: nil)
         navigationController?.popToRootViewController(animated: true)
     }
+    
+    @IBAction func didTouchDismiss(_ sender: Any) {
+        selectionHapticFeedback()
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
 
 extension EJKoreaNeighborViewController: UITableViewDataSource {

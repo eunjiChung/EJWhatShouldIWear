@@ -112,6 +112,7 @@
 		B6E088E7245B0E52006C6665 /* EJKoreaDistrictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088E6245B0E52006C6665 /* EJKoreaDistrictViewController.swift */; };
 		B6E088E9245B0E5E006C6665 /* EJKoreaNeighborViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088E8245B0E5E006C6665 /* EJKoreaNeighborViewController.swift */; };
 		B6E088EB245B12F9006C6665 /* EJUserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */; };
+		B6E088EE245B3886006C6665 /* EJLocationNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088ED245B3886006C6665 /* EJLocationNameTableViewCell.swift */; };
 		B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */; };
 		B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */; };
 		B6F1025D233B4413000C3DCD /* EJAppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */; };
@@ -273,6 +274,7 @@
 		B6E088E6245B0E52006C6665 /* EJKoreaDistrictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaDistrictViewController.swift; sourceTree = "<group>"; };
 		B6E088E8245B0E5E006C6665 /* EJKoreaNeighborViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaNeighborViewController.swift; sourceTree = "<group>"; };
 		B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJUserDefaultsManager.swift; sourceTree = "<group>"; };
+		B6E088ED245B3886006C6665 /* EJLocationNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLocationNameTableViewCell.swift; sourceTree = "<group>"; };
 		B6F10258233B2F73000C3DCD /* ClothCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6F10259233B2F73000C3DCD /* ClothCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothCollectionViewCell.xib; sourceTree = "<group>"; };
 		B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAppStoreReviewManager.swift; sourceTree = "<group>"; };
@@ -758,13 +760,22 @@
 		B6E088E3245B0E16006C6665 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B6E088DE245AD065006C6665 /* EJAddLocationCell.swift */,
 				B6E088DC245AD03E006C6665 /* EJMyLocalListViewController.swift */,
 				B6E088E4245B0E48006C6665 /* EJKoreaCityViewController.swift */,
 				B6E088E6245B0E52006C6665 /* EJKoreaDistrictViewController.swift */,
 				B6E088E8245B0E5E006C6665 /* EJKoreaNeighborViewController.swift */,
+				B6E088EC245B3678006C6665 /* TableView Cell */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B6E088EC245B3678006C6665 /* TableView Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B6E088DE245AD065006C6665 /* EJAddLocationCell.swift */,
+				B6E088ED245B3886006C6665 /* EJLocationNameTableViewCell.swift */,
+			);
+			path = "TableView Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1143,6 +1154,7 @@
 				B6F1025D233B4413000C3DCD /* EJAppStoreReviewManager.swift in Sources */,
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				B602935B230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift in Sources */,
+				B6E088EE245B3886006C6665 /* EJLocationNameTableViewCell.swift in Sources */,
 				72A5D5762340DB0B0068D33D /* EJCountryCodeModel.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
 				B6E088E7245B0E52006C6665 /* EJKoreaDistrictViewController.swift in Sources */,

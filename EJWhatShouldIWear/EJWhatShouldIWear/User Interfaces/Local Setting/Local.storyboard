@@ -60,25 +60,43 @@
                                 <rect key="frame" x="0.0" y="76" width="414" height="786"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="cru-ug-aMT" rowHeight="65" style="IBUITableViewCellStyleDefault" id="RRJ-1g-tWz">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EJLocationNameTableViewCell" rowHeight="59" id="RRJ-1g-tWz" customClass="EJLocationNameTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RRJ-1g-tWz" id="tbo-Fh-9Xh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="서울시 송파구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cru-ug-aMT">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="65"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huv-cn-kB7">
+                                                    <rect key="frame" x="20" y="19" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="x4C-1k-n2Q">
+                                                    <rect key="frame" x="370" y="19" width="24" height="21"/>
+                                                    <color key="tintColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="cUp-OZ-42J"/>
+                                                        <constraint firstAttribute="height" constant="24" id="itU-Fn-3Un"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="x4C-1k-n2Q" firstAttribute="trailing" secondItem="tbo-Fh-9Xh" secondAttribute="trailingMargin" id="6RJ-Xr-4Hv"/>
+                                                <constraint firstItem="x4C-1k-n2Q" firstAttribute="top" secondItem="tbo-Fh-9Xh" secondAttribute="topMargin" constant="8" id="Jsl-Um-ri3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="x4C-1k-n2Q" secondAttribute="bottom" constant="8" id="NmK-7T-Ihu"/>
+                                                <constraint firstItem="huv-cn-kB7" firstAttribute="leading" secondItem="tbo-Fh-9Xh" secondAttribute="leadingMargin" id="PBy-c7-uU2"/>
+                                                <constraint firstItem="huv-cn-kB7" firstAttribute="centerY" secondItem="x4C-1k-n2Q" secondAttribute="centerY" id="RYm-VR-Wre"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkImageView" destination="x4C-1k-n2Q" id="L4N-9Z-CAY"/>
+                                            <outlet property="locationLabel" destination="huv-cn-kB7" id="004-oy-Q8d"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EJAddLocationCell" rowHeight="63" id="EBe-sw-nNp" customClass="EJAddLocationCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="93" width="414" height="63"/>
+                                        <rect key="frame" x="0.0" y="87" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EBe-sw-nNp" id="WAD-ES-V9z">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
@@ -182,7 +200,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xo2-1d-0mI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="시・도" id="8j8-YZ-hIG"/>
+                    <navigationItem key="navigationItem" title="시・도" id="8j8-YZ-hIG">
+                        <barButtonItem key="leftBarButtonItem" image="back_icon" id="ij0-4m-nvb">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <action selector="didTouchDismissButton:" destination="h0n-9X-3TG" id="atH-ey-0AL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="sFW-OE-Unj" id="Fs7-hJ-T5O"/>
                         <segue destination="WRf-Vv-cgZ" kind="show" identifier="showDistrictSegue" id="vBm-Ho-yE2"/>
@@ -241,6 +266,9 @@
                     <navigationItem key="navigationItem" id="Yjg-J2-D78">
                         <barButtonItem key="leftBarButtonItem" image="back_icon" id="bh6-3R-tB7">
                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <action selector="didTouchDismiss:" destination="WRf-Vv-cgZ" id="Ymk-qr-FNS"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -300,6 +328,9 @@
                     <navigationItem key="navigationItem" id="JCW-fX-3vR">
                         <barButtonItem key="leftBarButtonItem" image="back_icon" id="jWF-X0-Mmb">
                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <action selector="didTouchDismiss:" destination="4gq-vB-00G" id="TRf-9x-dt2"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="완료" id="yeZ-NU-AJY">
                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -345,5 +376,6 @@
     <resources>
         <image name="add_location_icon" width="24" height="24"/>
         <image name="back_icon" width="11" height="18"/>
+        <image name="check_icon" width="24" height="24"/>
     </resources>
 </document>

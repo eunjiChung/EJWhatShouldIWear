@@ -43,6 +43,12 @@ class EJKoreaDistrictViewController: EJBaseViewController {
             districts?.append(district.districtName)
         }
     }
+    
+    // MARK: - IBActions
+    @IBAction func didTouchDismiss(_ sender: Any) {
+        selectionHapticFeedback()
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARk: - TableView Data Source
