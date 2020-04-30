@@ -63,7 +63,7 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         viewModel.didSetLocationInfoFailureClosure = { errorDescription in
-            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: errorDescription)
+            self.popAlertVC(self, title: "network_error".localized, message: errorDescription)
         }
         
         viewModel.didRequestWeatherInfo = { index in
@@ -81,7 +81,7 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         viewModel.didRequestKoreaWeatherInfoFailureClosure = { error in
-            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+            self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
             self.removeSplashScene()
         }
         
@@ -93,7 +93,7 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         viewModel.didrequestForeignWeatherInfoFailureClosure = { error in
-            self.popAlertVC(self, title: LocalizedString(with: "network_error"), message: error.localizedDescription)
+            self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
             self.removeSplashScene()
         }
     }

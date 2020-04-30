@@ -13,6 +13,7 @@ import UserNotifications
 let Library = EJLibrary.sharedInstance
 
 // MARK: - Localizable
+// TODO: - 얘 지울 수 있게...다 바꾸기!!!!!!
 func LocalizedString(with key: String) -> String {
     let localString = NSLocalizedString(key, comment: "")
     return localString
