@@ -148,6 +148,7 @@ class EJNewHomeViewController: EJBaseViewController {
         selectionHapticFeedback()
         guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
         self.show(vc, sender: self)
+        vc.performSegue(withIdentifier: "showLocalList", sender: vc)
     }
     
     @IBAction func didTouchList(_ sender: Any) {

@@ -8,10 +8,6 @@
 
 import UIKit
 
-struct EJMyLocalListNotification {
-    static let didSelectMainLocation = NSNotification.Name(rawValue: "didSelectMainLocation")
-}
-
 class EJMyLocalListViewController: EJBaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -63,6 +59,9 @@ class EJMyLocalListViewController: EJBaseViewController {
     @IBAction func didTouchDismiss(_ sender: Any) {
         selectionHapticFeedback()
         navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+
+        NotificationCenter.default.post(name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
     }
 }
 
@@ -89,7 +88,6 @@ extension EJMyLocalListViewController: UITableViewDelegate {
         
         if let name = locations?[indexPath.row] {
             EJLocationManager.shared.updateMainLocation(name)
-            NotificationCenter.default.post(name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
         }
         
         guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }

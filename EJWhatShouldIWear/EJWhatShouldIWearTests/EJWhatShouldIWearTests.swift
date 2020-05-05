@@ -47,6 +47,5 @@ class EJWhatShouldIWearTests: XCTestCase {
             print("Failed to load: \(error.localizedDescription)")
         }
     }
-    
 }
 

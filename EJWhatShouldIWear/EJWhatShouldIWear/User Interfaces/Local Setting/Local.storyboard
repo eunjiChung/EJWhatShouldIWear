@@ -19,30 +19,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hps-34-cbl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4Z-MN-2lm">
-                                        <rect key="frame" x="8" y="42" width="30" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="w3M-iP-FQv"/>
-                                        </constraints>
-                                        <state key="normal" image="back_icon"/>
-                                        <connections>
-                                            <action selector="didTouchDismiss:" destination="6nP-S6-gRm" eventType="touchUpInside" id="TqD-Im-Woi"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alc-pf-nlE">
-                                        <rect key="frame" x="175.5" y="42.5" width="63" height="21"/>
+                                        <rect key="frame" x="175.5" y="41.5" width="63" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4Z-MN-2lm">
+                                        <rect key="frame" x="368" y="40" width="30" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="w3M-iP-FQv"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="close_icon"/>
+                                        <connections>
+                                            <action selector="didTouchDismiss:" destination="6nP-S6-gRm" eventType="touchUpInside" id="TqD-Im-Woi"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="p4Z-MN-2lm" firstAttribute="top" secondItem="Hps-34-cbl" secondAttribute="top" constant="42" id="K7K-fX-CFQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="p4Z-MN-2lm" secondAttribute="bottom" constant="12" id="5Te-Lg-lrl"/>
+                                    <constraint firstAttribute="trailing" secondItem="p4Z-MN-2lm" secondAttribute="trailing" constant="16" id="99D-Y3-2rN"/>
                                     <constraint firstItem="Alc-pf-nlE" firstAttribute="centerX" secondItem="Hps-34-cbl" secondAttribute="centerX" id="KFP-QX-nrL"/>
                                     <constraint firstAttribute="height" constant="76" id="ZEN-Ms-ZkN"/>
                                     <constraint firstItem="Alc-pf-nlE" firstAttribute="centerY" secondItem="p4Z-MN-2lm" secondAttribute="centerY" id="kSO-Jx-yy9"/>
-                                    <constraint firstItem="p4Z-MN-2lm" firstAttribute="leading" secondItem="Hps-34-cbl" secondAttribute="leading" constant="8" id="oOz-ub-R2E"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xtE-bS-nVh">
@@ -64,7 +65,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="IP2-9b-6OD" kind="show" id="9DR-Qu-chA"/>
+                                            <segue destination="IP2-9b-6OD" kind="show" identifier="showLocalList" id="9DR-Qu-chA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -305,5 +306,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="back_icon" width="11" height="18"/>
+        <image name="close_icon" width="24" height="24"/>
     </resources>
 </document>

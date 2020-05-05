@@ -9,6 +9,10 @@
 import Foundation
 import CoreLocation
 
+struct EJMyLocalListNotification {
+    static let didSelectMainLocation = NSNotification.Name(rawValue: "didSelectMainLocation")
+}
+
 public class EJLocationManager: CLLocationManager {
     // MARK: Shared Instance
     static let shared = EJLocationManager()
@@ -26,7 +30,7 @@ public class EJLocationManager: CLLocationManager {
     var didUpdateLocationsClosure: (([CLLocation]?) -> Void)?
     
     // MARK: Initialize
-    override init() {
+    public override init() {
         super.init()
         self.delegate = self
         self.desiredAccuracy = kCLLocationAccuracyThreeKilometers
@@ -113,8 +117,24 @@ public class EJLocationManager: CLLocationManager {
     
     func updateMainLocation(_ name: String) {
         // TODO: - 현재 로케이션 string을 저장한다
+        locationString = name
         // TODO: - 그 locationString을 CLLocation 값으로 변환한다!!!!
-        // TODO: - Notification이나 delegate를 메인에 쏜다! -> 그래야 현재 메인 로케이션이 업데이트 됨
+        convertAddressStringToLocationDegree(name)
+    }
+    
+    public func convertAddressStringToLocationDegree(_ address: String) {
+        CLGeocoder().geocodeAddressString(address) { placemarks, error in
+            if error != nil { return }
+            
+            guard let placemark = placemarks?.first, let location = placemark.location else { return }
+            self.setNewLocationUserDefaults(location: location)
+            
+            let lat = placemark.location?.coordinate.latitude
+            let lon = placemark.location?.coordinate.longitude
+            print("❤️Lat, Lon : \(lat), \(lon)")
+            self.latitude = lat ?? 0.0
+            self.longitude = lon ?? 0.0
+        }
     }
     
     // MARK: Request
