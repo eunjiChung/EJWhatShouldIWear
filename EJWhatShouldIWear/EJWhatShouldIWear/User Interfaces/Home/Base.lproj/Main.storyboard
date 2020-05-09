@@ -481,7 +481,7 @@
                                             <action selector="didTouchMenuBtn:" destination="xWj-yG-Hrf" eventType="touchUpInside" id="Py1-qh-rrY"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAJ-Ax-opS">
+                                    <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAJ-Ax-opS">
                                         <rect key="frame" x="334" y="45" width="23" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="Hkp-YO-GY9"/>
@@ -510,7 +510,6 @@
                                     <constraint firstItem="JPL-bJ-MRp" firstAttribute="centerX" secondItem="Eud-AK-OwZ" secondAttribute="centerX" id="1cy-Vd-sNx"/>
                                     <constraint firstItem="JPL-bJ-MRp" firstAttribute="centerY" secondItem="JSa-Gk-PDv" secondAttribute="centerY" id="UiJ-yX-wpI"/>
                                     <constraint firstItem="sAJ-Ax-opS" firstAttribute="centerY" secondItem="JSa-Gk-PDv" secondAttribute="centerY" id="afZ-J0-G4o"/>
-                                    <constraint firstAttribute="trailing" secondItem="sAJ-Ax-opS" secondAttribute="trailing" constant="18" id="k8v-3H-rRS"/>
                                     <constraint firstItem="JSa-Gk-PDv" firstAttribute="top" secondItem="Eud-AK-OwZ" secondAttribute="top" constant="46" id="rUQ-QG-l1l"/>
                                     <constraint firstItem="JSa-Gk-PDv" firstAttribute="leading" secondItem="Eud-AK-OwZ" secondAttribute="leading" constant="18" id="vKZ-KQ-VvW"/>
                                     <constraint firstAttribute="bottom" secondItem="JSa-Gk-PDv" secondAttribute="bottom" constant="8" id="ymT-su-rLh"/>
@@ -565,7 +564,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX3-he-3zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2401" y="536"/>
+            <point key="canvasLocation" x="2400.8000000000002" y="535.71428571428578"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="emR-FR-afu">

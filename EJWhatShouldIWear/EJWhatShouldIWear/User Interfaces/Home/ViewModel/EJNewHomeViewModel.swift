@@ -18,8 +18,6 @@ final class EJNewHomeViewModel {
     var sixdaysModel: [EJSixdaysForecastModel]?
     
     // MARK: - Closures
-    var didSetLocationInfoSuccessClosure: ((String) -> Void)?
-    var didSetLocationInfoFailureClosure: ((String) -> Void)?
     var didRequestKoreaWeatherInfoSuccessClosure: (() -> Void)?
     var didRequestKoreaWeatherInfoFailureClosure: ((Error) -> Void)?
     var didRequestWeatherInfo: ((Int) -> Void)?
@@ -27,19 +25,6 @@ final class EJNewHomeViewModel {
     var didrequestForeignWeatherInfoFailureClosure: ((Error) -> Void)?
     
     // MARK: - Public Methods
-    func getCurrentLocation() {
-        guard let location = EJLocationManager.shared.currentLocation else { return }
-        EJLocationManager.shared.getLocation(of: location, success: { country, result in
-            if result != "" {
-                self.didSetLocationInfoSuccessClosure?(result)
-            } else {
-                self.didSetLocationInfoFailureClosure?("Unknown locality. Please refresh the view.")
-            }
-        }) { error in
-            self.didSetLocationInfoFailureClosure?(error.localizedDescription)
-        }
-    }
-    
     func requestKoreaWeather(_ index: Int) {
         callWeatherInfo(index, success: {
             self.didRequestKoreaWeatherInfoSuccessClosure?()

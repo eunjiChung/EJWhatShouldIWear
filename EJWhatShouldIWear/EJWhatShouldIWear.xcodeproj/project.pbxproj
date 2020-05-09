@@ -543,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				999B209E22029E660073A0D9 /* AppDelegate.swift */,
+				B6099619246735D3006E575A /* Components */,
 				7280691824489C5000522019 /* User Interfaces */,
 				728069202448A4D000522019 /* Manager */,
 				B6375920244BB7370076FE2C /* Service */,
@@ -593,6 +594,21 @@
 			);
 			name = "Developer Info Cell";
 			path = ../../..;
+			sourceTree = "<group>";
+		};
+		B6099619246735D3006E575A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B609961A246735E5006E575A /* Drawer */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B609961A246735E5006E575A /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Drawer;
 			sourceTree = "<group>";
 		};
 		B62E8B8C22F9463A00055A0E /* Extension */ = {

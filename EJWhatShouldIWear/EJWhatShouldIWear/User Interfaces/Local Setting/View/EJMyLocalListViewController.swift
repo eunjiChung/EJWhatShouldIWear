@@ -61,6 +61,7 @@ class EJMyLocalListViewController: EJBaseViewController {
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
 
+        // TODO: - 새로운 지역을 선택했다면 post를 해주고, 아니면 필요X
         NotificationCenter.default.post(name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
     }
 }

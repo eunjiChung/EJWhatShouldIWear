@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAnalytics
 import SideMenu
-import CoreLocation
 
 class EJNewHomeViewController: EJBaseViewController {
     // MARK: IBOutlets
@@ -25,7 +24,10 @@ class EJNewHomeViewController: EJBaseViewController {
     
     // MARK: Properties
     var cellOpened = false
-    let viewModel = EJNewHomeViewModel()
+    
+    lazy var viewModel: EJNewHomeViewModel = {
+        return EJNewHomeViewModel()
+    }()
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -33,7 +35,6 @@ class EJNewHomeViewController: EJBaseViewController {
         
         initView()
         initViewModel()
-        initLocation()
         initNotification()
     }
     
@@ -52,18 +53,33 @@ class EJNewHomeViewController: EJBaseViewController {
     }
     
     private func initViewModel() {
-        viewModel.didSetLocationInfoSuccessClosure = { locationString in
-            self.myLocationField.setTitle(locationString, for: .normal)
+        EJLocationManager.shared.didSuccessUpdateLocationsClosure = {
+            self.myLocationField.setTitle(EJLocationManager.shared.locationString, for: .normal)
             
             if EJLocationManager.shared.isKorea() {
                 self.viewModel.requestKoreaWeather(0)
             } else {
                 self.viewModel.requestFiveDaysWeatherList()
             }
+            
+            // TODO: - 얘가 이 타이밍에 멈춰도 되나?
+            EJLocationManager.shared.stopUpdatingLocation()
+            self.stopPullToRefresh(toScrollView: self.mainTableView)
         }
         
-        viewModel.didSetLocationInfoFailureClosure = { errorDescription in
-            self.popAlertVC(self, title: "network_error".localized, message: errorDescription)
+        // TODO: - 얘도 수정
+        EJLocationManager.shared.didChangeLocationAuthorizationRestrictedClosure = {
+            self.popAlertVC(self, title: "localizing_error".localized, message: "localizing_error_msg".localized)
+            EJLocationManager.shared.updateDefaultLocation { location in
+                EJLocationManager.shared.setNewDefaults(location: location)
+//                self.viewModel.getCurrentLocation(nil)
+                self.stopPullToRefresh(toScrollView: self.mainTableView)
+            }
+        }
+        
+        EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
+            // TODO: - 위치 리스트 보여주기
+            
         }
         
         viewModel.didRequestWeatherInfo = { index in
@@ -81,6 +97,7 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         viewModel.didRequestKoreaWeatherInfoFailureClosure = { error in
+            // TODO: - 에러 메시지 띄우기 (어떤 코드 문제인지)
             self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
             self.removeSplashScene()
         }
@@ -95,31 +112,6 @@ class EJNewHomeViewController: EJBaseViewController {
         viewModel.didrequestForeignWeatherInfoFailureClosure = { error in
             self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
             self.removeSplashScene()
-        }
-    }
-    
-    private func initLocation() {
-        // TODO : - 메인에 현재 위치 날씨 알아보는 것도 추가해야..ㅎ ㅐ... -> 플로우를 짜야할 듯...
-        
-        EJLocationManager.shared.didChangeLocationAuthorizationRestrictedClosure = {
-            self.popAlertVC(self, title: LocalizedString(with: "localizing_error"), message: LocalizedString(with: "localizing_error_msg"))
-            EJLocationManager.shared.updateDefaultLocation { location in
-                EJLocationManager.shared.setNewLocationUserDefaults(location: location)
-                self.viewModel.getCurrentLocation()
-                self.stopPullToRefresh(toScrollView: self.mainTableView)
-            }
-        }
-        
-        EJLocationManager.shared.didUpdateLocationsClosure = { locations in
-            // 위치 정보를 업데이트했을 경우
-            if let current = locations?.last {
-                EJLocationManager.shared.setNewLocationUserDefaults(location: current)
-                self.viewModel.getCurrentLocation()
-                EJLocationManager.shared.stopUpdatingLocation()
-                self.stopPullToRefresh(toScrollView: self.mainTableView)
-            } else {
-                
-            }
         }
     }
     

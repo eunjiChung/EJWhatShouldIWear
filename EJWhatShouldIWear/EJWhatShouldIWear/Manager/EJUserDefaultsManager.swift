@@ -10,9 +10,17 @@ import Foundation
 
 // MARK: UserDefaults Keys
 enum UserDefaultKey: String {
-    case locationKey        = "location"        // 메인 위치
     case switchId           = "switchState"
+    
+    // 즐겨찾는 위치
     case myLocations        = "mylocations"
+    
+    // main location
+    case mainLocation       = "mainLocation"
+    
+    // TODO: - 근데 얘를 Userdefault로 꼭 저장해야하나?
+    // default location
+    case defaultLocation    = "defaultLocation"
 }
 
 let myUserDefaults = UserDefaults.standard
@@ -20,14 +28,6 @@ let myUserDefaults = UserDefaults.standard
 final class EJUserDefaultsManager {
     // MARK: - Singleton
     static let shared = EJUserDefaultsManager()
-    
-    // MARK: - Location Defaults
-    var hasDefaultLocations: Bool {
-        if let _ = myUserDefaults.string(forKey: UserDefaultKey.locationKey.rawValue) {
-            return true
-        }
-        return false
-    }
     
     public func locationAddNew(_ location: String) {
         guard let list = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else { return }

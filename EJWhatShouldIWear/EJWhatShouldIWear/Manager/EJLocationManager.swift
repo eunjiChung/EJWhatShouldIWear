@@ -18,16 +18,27 @@ public class EJLocationManager: CLLocationManager {
     static let shared = EJLocationManager()
     
     // MARK: Properties
+    var koreaCities: [EJKoreaCityModel]?
+    
     var latitude: Double = 0    //37.51151
     var longitude: Double = 0   //127.0967
     var country = ""
-    var currentLocation: CLLocation?
-    var locationString = LocalizedString(with: "unknown")
+    var locationString = "unknown".localized
     
-    var koreaCities: [EJKoreaCityModel]?
+    var mainCLLocation: CLLocation? {
+        guard let location = myUserDefaults.object(forKey: UserDefaultKey.mainLocation.rawValue) as? CLLocation else { return  nil }
+        return location
+    }
     
+    var hasMainLocations: Bool {
+        guard mainCLLocation != nil else { return false }
+        return true
+    }
+    
+    var didRestrictLocationAuthorizationClosure: (()->())?
     var didChangeLocationAuthorizationRestrictedClosure: (() -> Void)?
-    var didUpdateLocationsClosure: (([CLLocation]?) -> Void)?
+    var didSuccessUpdateLocationsClosure: (() -> Void)?
+    var didFailUpdateLocationClosure: ((String)->Void)?
     
     // MARK: Initialize
     public override init() {
@@ -37,70 +48,53 @@ public class EJLocationManager: CLLocationManager {
     }
     
     // MARK: Public Methods
-    func getLocation(of current: CLLocation,
-                     success: @escaping (String, String) -> Void,
-                     failure: @escaping (Error) -> Void) {
+    func getLocation(of current: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(current) { placemark, error in
-            if let error = error {
-                failure(error)
-            } else {
+            if let error = error { self.didFailUpdateLocationClosure?(error.localizedDescription) }
+            
+            if let first = placemark?.first, let country = first.country {
                 var result = ""
-                
-                if let placemark = placemark, let first = placemark.first, let country = first.country {
-                    if let firstLocality = first.locality {
-                        result += "\(firstLocality)"
-                        
-                        if let subLocality = first.subLocality {
-                            result += " \(subLocality)"
-                        }
-                    }
-                    
-                    self.country = country
-                    success(country, result)
-                } else {
-                    success("", result)
-                }
+                // TODO: - subLocality가 잘 붙는지 확인
+                if let firstLocality = first.locality { result += "\(firstLocality)" }
+                if let subLocality = first.subLocality { result += " \(subLocality)" }
+
+                self.setNewDefaults(location: current)
+                self.country = country
+                self.locationString = result
+                self.didSuccessUpdateLocationsClosure?()
+            } else {
+                self.didFailUpdateLocationClosure?("Failed generating location!")
             }
         }
     }
     
     func isKorea() -> Bool {
-        if country == LocalizedString(with: "korea") {
-            return true
-        }
+        if country == "korea".localized { return true }
         return false
     }
     
     func updateDefaultLocation(currentLocation: CLLocation? = nil, completion: ((CLLocation) -> Void)? = nil) {
-        if myUserDefaults.dictionary(forKey: UserDefaultKey.locationKey.rawValue) == nil {
+        if myUserDefaults.dictionary(forKey: UserDefaultKey.mainLocation.rawValue) == nil {
             let dictionary = ["latitude" : 37.50587, "longitude" : 127.11246]
-            myUserDefaults.set(dictionary, forKey: UserDefaultKey.locationKey.rawValue)
+            myUserDefaults.set(dictionary, forKey: UserDefaultKey.mainLocation.rawValue)
         }
         
-        guard let location = myUserDefaults.dictionary(forKey: UserDefaultKey.locationKey.rawValue) else { return }
+        guard let location = myUserDefaults.dictionary(forKey: UserDefaultKey.mainLocation.rawValue) else { return }
         latitude = location["latitude"] as! Double
         longitude = location["longitude"] as! Double
         let defaultLocation = CLLocation(latitude: latitude, longitude: longitude)
         completion?(defaultLocation)
     }
     
-    func setNewLocationUserDefaults(location: CLLocation) {
-        currentLocation = location
+    func setNewDefaults(location: CLLocation) {
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
-        let newCoordinate = ["latitude": latitude, "longitude": longitude]
-        myUserDefaults.set(newCoordinate, forKey: UserDefaultKey.locationKey.rawValue)
+        myUserDefaults.set(location, forKey: UserDefaultKey.mainLocation.rawValue)
     }
     
     func checkLocationStatus() {
-        switch CLLocationManager.authorizationStatus() {
-        case .notDetermined:
-            requestWhenInUseAuthorization()
-        case .restricted, .denied:
-            updateDefaultLocation()
-        case .authorizedAlways, .authorizedWhenInUse:
-            startUpdatingLocation()
-        }
+        // TODO: - 확인하기
+        if !hasMainLocations { startUpdatingLocation() }
     }
     
     func generateKoreaLocation() {
@@ -116,55 +110,44 @@ public class EJLocationManager: CLLocationManager {
     }
     
     func updateMainLocation(_ name: String) {
-        // TODO: - 현재 로케이션 string을 저장한다
         locationString = name
-        // TODO: - 그 locationString을 CLLocation 값으로 변환한다!!!!
-        convertAddressStringToLocationDegree(name)
+        convertAddressStringToLocationDegree()
     }
     
-    public func convertAddressStringToLocationDegree(_ address: String) {
+    public func convertAddressStringToLocationDegree() {
+        let address = locationString
         CLGeocoder().geocodeAddressString(address) { placemarks, error in
             if error != nil { return }
             
-            guard let placemark = placemarks?.first, let location = placemark.location else { return }
-            self.setNewLocationUserDefaults(location: location)
-            
-            let lat = placemark.location?.coordinate.latitude
-            let lon = placemark.location?.coordinate.longitude
-            print("❤️Lat, Lon : \(lat), \(lon)")
-            self.latitude = lat ?? 0.0
-            self.longitude = lon ?? 0.0
+            guard let first = placemarks?.first, let location = first.location, let country = first.country else { return }
+            self.setNewDefaults(location: location)
+            self.country = country
+            // TODO: - 완료처리를 해줘야하지 않나?
+//            self.didSuccessUpdateLocationsClosure?()
         }
-    }
-    
-    // MARK: Request
-    func requestKoreaWeatherInfo(_ index: Int) {
-        
-    }
-    
-    func requestAbroadWeatherInfo(of current: CLLocation) {
-        
     }
 }
 
 extension EJLocationManager: CLLocationManagerDelegate {
+    // 처음 앱을 켤 때 & 권한 설정을 수정할 때
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard !hasMainLocations else {
+            didSuccessUpdateLocationsClosure?()
+            return
+        }
+        
         switch status {
-        case .notDetermined:
-            EJLocationManager.shared.requestWhenInUseAuthorization()
-        case .restricted, .denied:
-            didChangeLocationAuthorizationRestrictedClosure?()
+        case .notDetermined, .restricted, .denied:
+            didRestrictLocationAuthorizationClosure?()
+//            requestWhenInUseAuthorization()
         case .authorizedWhenInUse, .authorizedAlways:
-            if !EJUserDefaultsManager.shared.hasDefaultLocations {
-                EJLocationManager.shared.startUpdatingLocation()
-            } else {
-                didUpdateLocationsClosure?(nil)
-            }
-            // TODO: - default location이 있을 경우, 현재 메인 location을 업데이트해준다
+            startUpdatingLocation()
         }
     }
     
+    // 위치를 업데이트할때 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        didUpdateLocationsClosure?(locations)
+        guard let current = locations.last else { return }
+        getLocation(of: current)
     }
 }
