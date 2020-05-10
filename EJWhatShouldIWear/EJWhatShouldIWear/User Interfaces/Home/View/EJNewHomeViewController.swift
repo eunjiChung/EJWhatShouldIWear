@@ -35,7 +35,9 @@ class EJNewHomeViewController: EJBaseViewController {
         
         initView()
         initViewModel()
-        initNotification()
+        
+        // TODO: - 얘를 꼭 한번 더 체크 해야겠어? ㅠㅠ
+        EJLocationManager.shared.checkAuthorization(nil)
     }
     
     // MARK: Initialize
@@ -47,14 +49,14 @@ class EJNewHomeViewController: EJBaseViewController {
         EJAppStoreReviewManager.requestReviewIfAppropriate()     // 3회 방문시 스토어 리뷰 요청
         
         addPullToRefreshControl(toScrollView: self.mainTableView) {
-            EJLocationManager.shared.checkLocationStatus()
+            EJLocationManager.shared.checkAuthorization(nil)
             self.mainTableView.reloadData()
         }
     }
     
     private func initViewModel() {
         EJLocationManager.shared.didSuccessUpdateLocationsClosure = {
-            self.myLocationField.setTitle(EJLocationManager.shared.locationString, for: .normal)
+            self.myLocationField.setTitle(EJLocationManager.shared.currentLocation, for: .normal)
             
             if EJLocationManager.shared.isKorea() {
                 self.viewModel.requestKoreaWeather(0)
@@ -62,24 +64,13 @@ class EJNewHomeViewController: EJBaseViewController {
                 self.viewModel.requestFiveDaysWeatherList()
             }
             
-            // TODO: - 얘가 이 타이밍에 멈춰도 되나?
             EJLocationManager.shared.stopUpdatingLocation()
-            self.stopPullToRefresh(toScrollView: self.mainTableView)
-        }
-        
-        // TODO: - 얘도 수정
-        EJLocationManager.shared.didChangeLocationAuthorizationRestrictedClosure = {
-            self.popAlertVC(self, title: "localizing_error".localized, message: "localizing_error_msg".localized)
-            EJLocationManager.shared.updateDefaultLocation { location in
-                EJLocationManager.shared.setNewDefaults(location: location)
-//                self.viewModel.getCurrentLocation(nil)
-                self.stopPullToRefresh(toScrollView: self.mainTableView)
-            }
         }
         
         EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
-            // TODO: - 위치 리스트 보여주기
-            
+            guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
+            self.show(vc, sender: self)
+            vc.performSegue(withIdentifier: "showLocalList", sender: vc)
         }
         
         viewModel.didRequestWeatherInfo = { index in
@@ -93,34 +84,34 @@ class EJNewHomeViewController: EJBaseViewController {
             }
             self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateKRBackgroundView(by: threedaysModel))
             self.mainTableView.reloadData()
+            
+            self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.removeSplashScene()
         }
         
         viewModel.didRequestKoreaWeatherInfoFailureClosure = { error in
             // TODO: - 에러 메시지 띄우기 (어떤 코드 문제인지)
             self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
+            
+            self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.removeSplashScene()
         }
         
         viewModel.didrequestForeignWeatherInfoSuccessClosure = {
             guard let model = self.viewModel.FiveDaysWeatherModel else { return }
             self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateBackgroundView(by: model))
+            
+            self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.mainTableView.reloadData()
             self.removeSplashScene()
         }
         
         viewModel.didrequestForeignWeatherInfoFailureClosure = { error in
             self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
+            
+            self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.removeSplashScene()
         }
-    }
-    
-    private func initNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didSelectMainLocation(_:)), name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: EJMyLocalListNotification.didSelectMainLocation, object: nil)
     }
     
     // MARK: - Button Action
@@ -138,13 +129,14 @@ class EJNewHomeViewController: EJBaseViewController {
     
     @IBAction func didTouchAddButton(_ sender: Any) {
         selectionHapticFeedback()
+        
         guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
         self.show(vc, sender: self)
         vc.performSegue(withIdentifier: "showLocalList", sender: vc)
     }
     
     @IBAction func didTouchList(_ sender: Any) {
-        // TODO: - 툴바로 조정? 아니면 모달창 띄워서?
+        // TODO: - 하단에 bottom drawer 만들기
     }
     
     
@@ -153,25 +145,20 @@ class EJNewHomeViewController: EJBaseViewController {
         switch segue.identifier {
         case "home_setting_segue":
             let settingVC = segue.destination as! EJSettingViewController
-            settingVC.curLocation = EJLocationManager.shared.locationString
+            settingVC.curLocation = EJLocationManager.shared.currentLocation
         case "home_sidemenu_segue":
             let navVC = segue.destination as! UISideMenuNavigationController
             let tableVC = navVC.viewControllers.first as! EJSideMenuViewController
-            tableVC.curLocation = EJLocationManager.shared.locationString
+            tableVC.curLocation = EJLocationManager.shared.currentLocation
         default:
             EJLogger.d("")
         }
     }
-    
-    @objc func didSelectMainLocation(_ notification: Notification) {
-        myLocationField.setTitle(EJLocationManager.shared.locationString, for: .normal)
-        mainTableView.reloadData()
-    }
-    
 }
 
 // MARK: - Tableview DataSource
 extension EJNewHomeViewController: UITableViewDataSource {
+    // TODO: - 테이블 섹션모델 만들어서, 이름 달아주기
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
@@ -305,9 +292,10 @@ extension EJNewHomeViewController: UITableViewDelegate {
 
 // MARK: - Private Methods
 private extension EJNewHomeViewController {
+    // TODO: - SplashView 다시 만들기
     private func removeSplashScene() {
         if self.splashContainer != nil {
-            // I put this method here...But this is not proper location
+            // TODO: - I put this method here...But this is not proper location
             self.requestAppVersionInfo()
             
             DispatchQueue.main.async {

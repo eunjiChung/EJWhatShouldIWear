@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Google Mobile Ads SDK
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         // 한국 지역 런칭
-        EJLocationManager.shared.generateKoreaLocation()
+        EJLocationManager.shared.setDefaultKoreaLocationList()
 
         return true
     }

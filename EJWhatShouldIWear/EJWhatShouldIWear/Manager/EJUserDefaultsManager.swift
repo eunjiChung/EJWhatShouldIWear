@@ -17,6 +17,7 @@ enum UserDefaultKey: String {
     
     // main location
     case mainLocation       = "mainLocation"
+    case main               = "main"
     
     // TODO: - 근데 얘를 Userdefault로 꼭 저장해야하나?
     // default location
