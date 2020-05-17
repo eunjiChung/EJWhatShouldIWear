@@ -247,31 +247,31 @@ class EJWeatherManager: NSObject {
     }
     
     public func weatherDescription(_ condition: WeatherCondition) -> String {
-        var description = LocalizedString(with: "desc_tody") + " "
+        var description = "desc_tody".localized + " "
         
         switch condition {
         case .clear:
-            description += LocalizedString(with: "desc_clear")
+            description += "desc_clear".localized
         case .cloud:
-            description += LocalizedString(with: "desc_cloud")
+            description += "desc_cloud".localized
         case .tornado:
-            description += LocalizedString(with: "desc_tornado")
+            description += "desc_tornado".localized
         case .ash:
-            description = LocalizedString(with: "desc_ash")
+            description = "desc_ash".localized
         case .squall:
-            description += LocalizedString(with: "desc_squall")
+            description += "desc_squall".localized
         case .thunderstorm:
-            description += LocalizedString(with: "desc_thunderstorm")
+            description += "desc_thunderstorm".localized
         case .dust, .haze:
-            description += LocalizedString(with: "desc_dust")
+            description += "desc_dust".localized
         case .snow:
-            description += LocalizedString(with: "desc_snow")
+            description += "desc_snow".localized
         case .rain:
-            description += LocalizedString(with: "desc_rain")
+            description += "desc_rain".localized
         case .drizzle:
-            description += LocalizedString(with: "desc_drizzle")
+            description += "desc_drizzle".localized
         case .fog:
-            description += LocalizedString(with: "desc_fog")
+            description += "desc_fog".localized
         }
         description += "\n"
         

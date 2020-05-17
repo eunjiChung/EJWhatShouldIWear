@@ -26,7 +26,7 @@ class SideMenuSettingTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setLabel.text = LocalizedString(with: "setting")
+        setLabel.text = "setting".localized
         setLabel.adjustsFontSizeToFitWidth = true
         setLabel.minimumScaleFactor = 0
         

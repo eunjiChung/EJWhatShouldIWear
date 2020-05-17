@@ -26,7 +26,7 @@ class SideMenuFeedbackTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        mailLabel.text = LocalizedString(with: "write_review")
+        mailLabel.text = "write_review".localized
         mailLabel.adjustsFontSizeToFitWidth = true
         mailLabel.minimumScaleFactor = 0
         

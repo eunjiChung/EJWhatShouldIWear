@@ -92,7 +92,7 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
     private func getKRWeekday(of index: Int) -> String {
         let component = calendar.dateComponents([.weekday], from: today)
         let day = (component.weekday! + index + 1) % 7
-        return LocalizedString(with: weekDay[day])
+        return weekDay[day].localized
     }
 
 }

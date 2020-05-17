@@ -64,7 +64,7 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
         
         // 3. 해당 day만큼 weekDay 문자열 배열에 있는 값을 리턴한다
         if index == 0 { return "today".localized }
-        return LocalizedString(with: weekDay[day])
+        return weekDay[day].localized
     }
     
     private func getTemp(of index: Int) -> Int {

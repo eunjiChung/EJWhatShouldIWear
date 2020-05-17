@@ -39,7 +39,7 @@ class WeekWeatherTableViewCell: UITableViewCell {
         alcBottomOfCollectionView.constant = EJSizeHeight(30.0)
         alcTopOfCollectionView.constant = EJSizeHeight(16.0)
         
-        titleLabel.text = LocalizedString(with: "main_weekely")
+        titleLabel.text = "main_weekely".localized
 
         collectionView.dataSource = self
         collectionView.delegate = self

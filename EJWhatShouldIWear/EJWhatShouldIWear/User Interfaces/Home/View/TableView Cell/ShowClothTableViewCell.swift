@@ -116,11 +116,11 @@ private extension ShowClothTableViewCell {
         suggestLabel.text = weather.weatherDescription
         
         firstClothImageView.image = UIImage(named: weather.criticCloth)
-        firstClothLabel.text = LocalizedString(with: weather.criticCloth)
+        firstClothLabel.text = weather.criticCloth.localized
         secondClothImageview.image = UIImage(named: weather.maxCloth)
-        secondClothLabel.text = LocalizedString(with: weather.maxCloth)
+        secondClothLabel.text = weather.maxCloth.localized
         thirdClothImageView.image = UIImage(named: weather.minCloth)
-        thirdClothLabel.text = LocalizedString(with: weather.minCloth)
+        thirdClothLabel.text = weather.minCloth.localized
         
         addAnimation()
     }

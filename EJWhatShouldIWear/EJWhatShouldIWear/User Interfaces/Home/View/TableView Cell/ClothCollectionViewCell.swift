@@ -25,7 +25,7 @@ class ClothCollectionViewCell: UICollectionViewCell {
 
     func setCloth(_ name: String) {
         topImage.image = UIImage(named: name)
-        descriptionLabel.text = LocalizedString(with: name)
+        descriptionLabel.text = name.localized
     }
     
     

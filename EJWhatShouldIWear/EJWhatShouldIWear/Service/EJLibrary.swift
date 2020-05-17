@@ -12,13 +12,6 @@ import UserNotifications
 // MARK: - Global Instance
 let Library = EJLibrary.sharedInstance
 
-// MARK: - Localizable
-// TODO: - 얘 지울 수 있게...다 바꾸기!!!!!!
-func LocalizedString(with key: String) -> String {
-    let localString = NSLocalizedString(key, comment: "")
-    return localString
-}
-
 // MARK: - Class EJLibrary
 class EJLibrary: NSObject {
     
