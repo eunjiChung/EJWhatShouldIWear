@@ -40,7 +40,6 @@ class EJKoreaNeighborViewController: EJBaseViewController {
     
     // MARK: - IBAction
     @IBAction func didTouchComplete(_ sender: Any) {
-        // TODO: - 나중에 clear해주기
         EJUserDefaultsManager.shared.locationAddNew(locationNameStack)
         NotificationCenter.default.post(name: EJKoreaNeighborNotificationName.didCompleteChoosingLocation, object: nil, userInfo: nil)
         navigationController?.popToRootViewController(animated: true)

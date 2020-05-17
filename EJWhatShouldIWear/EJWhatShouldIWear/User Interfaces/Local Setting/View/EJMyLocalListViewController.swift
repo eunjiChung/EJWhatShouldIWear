@@ -19,7 +19,7 @@ class EJMyLocalListViewController: EJBaseViewController {
     @IBOutlet weak var addButton: UIButton!
     
     // MARK: - Properties
-    var locations: [String]?
+    var locations: [String] = []
     var previousMainLocation: String {
         return EJLocationManager.shared.currentLocation
     }
@@ -57,10 +57,8 @@ class EJMyLocalListViewController: EJBaseViewController {
             locations = array
             
             for (index, location) in array.enumerated() where location == previousMainLocation {
-                selectedIndex = index 
+                selectedIndex = index
             }
-        } else {
-            locations = []
         }
     }
     
@@ -74,15 +72,20 @@ class EJMyLocalListViewController: EJBaseViewController {
     @IBAction func didTouchDismiss(_ sender: Any) {
         selectionHapticFeedback()
         
+        guard locations.count != 0 else {
+            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
         if shouldShowCurrent {
             EJLocationManager.shared.updateMainLocation(nil)
         } else {
-            print("❤️ selected location:", locations?[selectedIndex])
-            print("❤️ previous location:", previousMainLocation)
-            if locations?[selectedIndex] != previousMainLocation {
-                EJLocationManager.shared.updateMainLocation(locations?[selectedIndex] ?? "")
+            if locations[selectedIndex] != previousMainLocation {
+                EJLocationManager.shared.updateMainLocation(locations[selectedIndex])
             }
         }
+        
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -99,8 +102,7 @@ extension EJMyLocalListViewController: UITableViewDataSource {
         case .current:
             return 1
         case .other:
-            guard let count = locations?.count, (locations?.count) != 0 else { return 1 }
-            return count
+            return locations.count
         }
     }
     
@@ -110,15 +112,15 @@ extension EJMyLocalListViewController: UITableViewDataSource {
         case .current:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
             cell.locationLabel.text = "현재 위치 날씨보기"
-            cell.backgroundColor = .cyan
             return cell
         case .other:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
-            guard let name = locations?[indexPath.row] else { return UITableViewCell() }
-            cell.locationLabel.text = name
-            if name == EJLocationManager.shared.currentLocation {
+            
+            cell.locationLabel.text = locations[indexPath.row]
+            if locations[indexPath.row] == EJLocationManager.shared.currentLocation {
                 cell.checkImageview.isHidden = false
             }
+            
             return cell
         }
     }
@@ -165,8 +167,8 @@ extension EJMyLocalListViewController: UITableViewDelegate {
         guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current else { return }
         
         if editingStyle == .delete {
-            locations?.remove(at: indexPath.row)
-            if let locations = locations { EJUserDefaultsManager.shared.updateLocationList(locations) }
+            locations.remove(at: indexPath.row)
+            EJUserDefaultsManager.shared.updateLocationList(locations)
             tableView.reloadData()
         }
     }

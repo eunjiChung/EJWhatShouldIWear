@@ -7,7 +7,11 @@
 //
 
 import UIKit
-import CoreLocation
+
+enum EJSettingListType: Int, CaseIterable {
+    case notice = 0
+    case developerInfo
+}
 
 class EJSettingViewController: EJBaseViewController {
     
@@ -46,25 +50,19 @@ class EJSettingViewController: EJBaseViewController {
 // MARK: - Tableview Data Source
 extension EJSettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return EJSettingListType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        switch indexPath.row {
-        case 0:
+        guard let rowType = EJSettingListType(rawValue: indexPath.row) else { return UITableViewCell() }
+        switch rowType {
+        case .notice:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! EJInfoTableViewCell
-            cell.titleLabel.text = LocalizedString(with: "Notice")
+            cell.titleLabel.text = "Notice".localized
             return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! EJLocationTableViewCell
-            cell.myLocationLabel.text = curLocation
-            return cell
-        case 2:
+        case .developerInfo:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! EJInfoTableViewCell
             return cell
-        default:
-            return UITableViewCell()
         }
     }
 }
@@ -78,15 +76,12 @@ extension EJSettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
         
-        switch indexPath.row {
-        case 0:
+        guard let rowType = EJSettingListType(rawValue: indexPath.row) else { return }
+        switch rowType {
+        case .notice:
             self.performSegue(withIdentifier: "show_notice", sender: self)
-        case 1:
-            self.performSegue(withIdentifier: "showLocationSegue", sender: self)
-        case 2:
+        case .developerInfo:
             self.performSegue(withIdentifier: "set_info_segue", sender: self)
-        default:
-            EJLogger.d("")
         }
     }
     
