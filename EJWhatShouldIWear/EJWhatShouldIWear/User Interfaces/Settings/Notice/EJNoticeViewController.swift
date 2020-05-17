@@ -26,7 +26,7 @@ class EJNoticeViewController: EJBaseViewController {
     }
     
     private func initView() {
-        viewTitleLabel.text = LocalizedString(with: "Notice")
+        viewTitleLabel.text = "Notice".localized
         tableView.tableFooterView = UIView(frame: .zero)
         
         // TODO: - 위치 옮기기

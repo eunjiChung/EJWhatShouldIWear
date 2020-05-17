@@ -16,8 +16,8 @@ class EJAlarmTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        notiSetLabel.text = LocalizedString(with: "setting_noti")
-        descriptLabel.text = LocalizedString(with: "alarm_message")
+        notiSetLabel.text = "setting_noti".localized
+        descriptLabel.text = "alarm_message".localized
         
         notificationSwitch.isOn = myUserDefaults.bool(forKey:UserDefaultKey.switchId.rawValue)
     }

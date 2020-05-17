@@ -8,6 +8,22 @@
 
 import UIKit
 
+enum EJDevInfoSectionType: Int, CaseIterable {
+    case appName = 0
+    case devInfo
+}
+
+enum EJAppInfoListType: Int, CaseIterable {
+    case appVersion = 0
+    case appDescription
+}
+
+enum EJDeveloperInfoListType: Int, CaseIterable {
+    case name = 0
+    case blog
+    case instagram
+}
+
 class EJDevInfoViewController: EJBaseViewController, UITableViewDelegate {
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
@@ -26,69 +42,64 @@ class EJDevInfoViewController: EJBaseViewController, UITableViewDelegate {
 // MARK: TableView DataSource
 extension EJDevInfoViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return EJDevInfoSectionType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return LocalizedString(with: "app_name")
-        default:
-            return LocalizedString(with: "developer_info")
+        guard let headerType = EJDevInfoSectionType(rawValue: section) else { return nil }
+        switch headerType {
+        case .appName:
+            return "app_name".localized
+        case .devInfo:
+            return "developer_info".localized
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        switch section {
-        case 0:
+        guard let listType = EJDevInfoSectionType(rawValue: section) else { return 0 }
+        switch listType {
+        case .appName:
             return 2
-        case 1:
+        case .devInfo:
             return 3
-        default:
-            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        switch indexPath.section {
-        case 0:
-            switch indexPath.row {
-            case 0:
+        guard let sectionType = EJDevInfoSectionType(rawValue: indexPath.section) else { return UITableViewCell() }
+        switch sectionType {
+        case .appName:
+            guard let rowType = EJAppInfoListType(rawValue: indexPath.row) else { return UITableViewCell() }
+            switch rowType {
+            case .appVersion:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperTableViewCell") as! EJDeveloperTableViewCell
-                cell.InfoTitleLabel.text = LocalizedString(with: "app_version")
+                cell.InfoTitleLabel.text = "app_version".localized
                 cell.infoDescriptionLabel.text = Library.appVersion()
                 return cell
-            case 1:
+            case .appDescription:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! EJDescriptionTableViewCell
-                cell.descriptionCell.text = LocalizedString(with: "app_description")
+                cell.descriptionCell.text = "app_description".localized
                 return cell
-            default:
-                return UITableViewCell()
             }
-        case 1:
-            switch indexPath.row {
-            case 0:
+        case .devInfo:
+            guard let rowType = EJDeveloperInfoListType(rawValue: indexPath.row) else { return UITableViewCell() }
+            switch rowType {
+            case .name:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperTableViewCell") as! EJDeveloperTableViewCell
                 cell.InfoTitleLabel.text = "EunjiChung"
                 cell.infoDescriptionLabel.text = ""
                 return cell
-            case 1:
+            case .blog:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BlogTableViewCell") as! EJBlogTableViewCell
-                cell.cellTitleLabel.text = LocalizedString(with: "blog")
-                cell.blogButton.setTitle(LocalizedString(with: "goto_blog"), for: .normal)
+                cell.cellTitleLabel.text = "blog".localized
+                cell.blogButton.setTitle("goto_blog".localized, for: .normal)
                 return cell
-            case 2:
+            case .instagram:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramTableViewCell") as! EJInstagramTableViewCell
-                cell.infoTitleLabel.text = LocalizedString(with: "instagram")
-                cell.tableButton.setTitle(LocalizedString(with: "goto_instagram"), for: .normal)
+                cell.infoTitleLabel.text = "instagram".localized
+                cell.tableButton.setTitle("goto_instagram".localized, for: .normal)
                 return cell
-            default:
-                return UITableViewCell()
             }
-        default:
-            return UITableViewCell()
         }
     }
 }

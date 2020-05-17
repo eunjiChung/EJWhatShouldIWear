@@ -13,8 +13,7 @@ enum EJSettingListType: Int, CaseIterable {
     case developerInfo
 }
 
-class EJSettingViewController: EJBaseViewController {
-    
+final class EJSettingViewController: EJBaseViewController {
     // MARK: - Property
     var curLocation : String? = nil
 
