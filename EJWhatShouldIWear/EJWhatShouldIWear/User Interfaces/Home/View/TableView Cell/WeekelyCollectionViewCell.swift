@@ -49,7 +49,7 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
         self.weatherList = info
         
         dateLabel.text = "\(getWeekday(of: index))"
-        tempLabel.text = "\(getTemp(of: index))\(LocalizedString(with: "temp"))"
+        tempLabel.text = "\(getTemp(of: index))\("temp".localized)"
         weatherTellingLabel.text = "\(tellWeatherCondition(of: index))"
     }
     
@@ -63,7 +63,7 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
         let day = (component.weekday! + index - 1) % 7
         
         // 3. 해당 day만큼 weekDay 문자열 배열에 있는 값을 리턴한다
-        if index == 0 { return LocalizedString(with: "today") }
+        if index == 0 { return "today".localized }
         return LocalizedString(with: weekDay[day])
     }
     
@@ -118,14 +118,9 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
                 switch type
                 {
                 case "main":
-                    if let main = weather.main{
-                        return main
-                    }
+                    if let main = weather.main{ return main }
                 default:
-                    if let weather = weather.weather {
-                        return weather.first
-                    }
-                    
+                    if let weather = weather.weather { return weather.first }
                 }
             }
         }

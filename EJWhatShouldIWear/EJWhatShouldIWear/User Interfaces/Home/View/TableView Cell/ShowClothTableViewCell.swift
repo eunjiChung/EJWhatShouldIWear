@@ -53,8 +53,8 @@ class ShowClothTableViewCell: UITableViewCell {
         secondImageCenterY = secondClothImageview.center.y - 8
         thirdImageCenterY = thirdClothImageView.center.y - 10
         
-        titleLabel.text = LocalizedString(with: "show_cloth_title")
-        averageLabel.text = LocalizedString(with: "average_label")
+        titleLabel.text = "show_cloth_title".localized
+        averageLabel.text = "average_label".localized
         
         setlayoutConstraints()
     }

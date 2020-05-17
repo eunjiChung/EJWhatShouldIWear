@@ -26,7 +26,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcBottomOfClothImage: NSLayoutConstraint!
     
     // MARK: - Properties
-    let hour = LocalizedString(with: "hour")
+    let hour = "hour".localized
     var index: Int = 0
     var model: [EJThreedaysForecastModel]? {
         didSet {
@@ -70,7 +70,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
         guard let releaseHour = Int(currentDate.todayHourString()) else { return }
         let futureHour = (releaseHour + timeIndex) % 24
         let num = Double((releaseHour + timeIndex) / 24)
-        let dayArray = [LocalizedString(with: "today"), LocalizedString(with: "tomorrow"), LocalizedString(with: "day_after_tomorrow"), Date(timeIntervalSinceNow: 86400 * 3).dateCompose()]
+        let dayArray = ["today".localized, "tomorrow".localized, "day_after_tomorrow".localized, Date(timeIntervalSinceNow: 86400 * 3).dateCompose()]
 
         hourLabel.text = "\(futureHour) \(hour)"
 

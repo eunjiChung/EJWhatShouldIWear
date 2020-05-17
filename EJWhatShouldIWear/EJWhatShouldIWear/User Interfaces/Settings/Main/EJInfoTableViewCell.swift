@@ -19,6 +19,6 @@ class EJInfoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         alcLeadingOfTextLabel.constant = EJSize(21.0)
-        titleLabel.text = LocalizedString(with: "setting_info")
+        titleLabel.text = "setting_info".localized
     }
 }

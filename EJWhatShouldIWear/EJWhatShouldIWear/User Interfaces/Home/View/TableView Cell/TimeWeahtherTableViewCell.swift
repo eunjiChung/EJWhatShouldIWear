@@ -36,7 +36,7 @@ class TimeWeahtherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        titleLabel.text = LocalizedString(with: "main_timely")
+        titleLabel.text = "main_timely".localized
         
         alcTopConstraintOfTextLabel.constant = EJSizeHeight(38.0)
         alcLeadingConstraintOfTextLabel.constant = EJSize(20.0)
