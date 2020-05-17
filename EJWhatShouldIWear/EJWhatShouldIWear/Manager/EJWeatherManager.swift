@@ -277,17 +277,17 @@ class EJWeatherManager: NSObject {
         
         if WeatherClass.maxTemp < 15 {
             EJLogger.d("Description : 따뜻하게 입으세요 \(WeatherClass.maxTemp)도")
-            description += LocalizedString(with: "desc_add_warm")
+            description += "desc_add_warm".localized
         } else if WeatherClass.minTemp > 23 {
             EJLogger.d("Description : 더위 조심하세요")
-            description += LocalizedString(with: "desc_add_cool")
+            description += "desc_add_cool".localized
         } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
             EJLogger.d("Description : 일교차가 큰 날이에요")
-            description = description + LocalizedString(with: "desc_add_cross") + "\n"
+            description = description + "desc_add_cross".localized + "\n"
             
             // TODO: 몇 도씨 미만이고, 일교차가 크면 겉옷을 챙기도록 추천!
-            let cloth = LocalizedString(with: WeatherClass.criticCloth)
-            description = description + " \(cloth) " + LocalizedString(with: "desc_add_cloth")
+            let cloth = WeatherClass.criticCloth.localized
+            description = description + " \(cloth) " + "desc_add_cloth".localized
         }
         
         return description
@@ -296,7 +296,7 @@ class EJWeatherManager: NSObject {
     // TODO: - 지명 지역화
     public func getValidUnit() -> String {
         if self.country == "South Korea" { return "℃" }
-        return LocalizedString(with: "temp")
+        return "temp".localized
     }
     
     public func getValidTemperature(by temperature:Float) -> Int {

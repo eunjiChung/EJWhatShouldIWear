@@ -28,7 +28,7 @@ class SideMenuShareTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        shareLabel.text = LocalizedString(with: "share")
+        shareLabel.text = "share".localized
         shareLabel.adjustsFontSizeToFitWidth = true
         shareLabel.minimumScaleFactor = 0
         
@@ -38,7 +38,5 @@ class SideMenuShareTableViewCell: UITableViewCell {
         alcTopOfImageView.constant = EJSizeHeight(27.0)
         alcLeadingOfShareImageView.constant = EJSize(21.0)
         alcWidthOfImageView.constant = EJSize(23.0)
-        
-        
     }
 }

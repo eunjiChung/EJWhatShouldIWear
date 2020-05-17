@@ -55,7 +55,7 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     // MARK: - Alert Controller
     func popAlertVC(_ controller: UIViewController, title:String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: LocalizedString(with: "btn_ok"), style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "btn_ok".localized, style: .default, handler: nil))
         controller.present(alert, animated: true, completion: nil)
     }
     
@@ -123,11 +123,11 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     fileprivate func successCompletionOfReqAppVersionInfoWithResult() {
         DispatchQueue.main.async {
-            let alertController = UIAlertController.init(title: LocalizedString(with: "update_title"), message: LocalizedString(with: "update_message"), preferredStyle: .alert)
-            let updateAction = UIAlertAction.init(title: LocalizedString(with: "update_title"), style: .default, handler: { (alertAction) in
+            let alertController = UIAlertController.init(title: "update_title".localized, message: "update_message".localized, preferredStyle: .alert)
+            let updateAction = UIAlertAction.init(title: "update_title".localized, style: .default, handler: { (alertAction) in
                 self.moveToAppStore(storeId: "")
             })
-            let cancelAction = UIAlertAction.init(title: LocalizedString(with: "btn_cancel"), style: .cancel, handler: { (alertAction) in
+            let cancelAction = UIAlertAction.init(title: "btn_cancel".localized, style: .cancel, handler: { (alertAction) in
             })
             
             alertController.addAction(updateAction)

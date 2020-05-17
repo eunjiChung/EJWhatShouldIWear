@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 final class EJNewHomeViewModel {
     
     // MARK: - Properties

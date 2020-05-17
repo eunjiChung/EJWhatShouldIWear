@@ -8,65 +8,23 @@
 
 import UIKit
 
-class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UITableViewDelegate {
+enum EJSideMenuSectionType: Int, CaseIterable {
+    case logo
+    case location
+    case share
+    case review
+    case setting
+}
+
+final class EJSideMenuViewController: EJBaseViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var sideMenuTableView: UITableView!
     var curLocation: String?
     
-    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    
-    // MARK: - TableView Data Source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: - 한국에서만 위치 리스트 뜨도록 설정
-        return 5
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            return tableView.dequeueReusableCell(withIdentifier: SideMenuLogoTableViewCell.identifier, for: indexPath)
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier) as? SideMenuShareTableViewCell else { return UITableViewCell() }
-            cell.imageView?.tintColor = #colorLiteral(red: 0.1921568627, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
-            cell.imageView?.image = #imageLiteral(resourceName: "menu_icon")
-            cell.shareLabel.text = "즐겨찾는 위치"
-            return cell
-        case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier, for: indexPath) as? SideMenuShareTableViewCell else { return UITableViewCell() }
-            cell.imageView?.image = #imageLiteral(resourceName: "share_black_icon")
-            return cell
-        case 3:
-            return tableView.dequeueReusableCell(withIdentifier: SideMenuFeedbackTableViewCell.identifier, for: indexPath)
-        case 4:
-            return tableView.dequeueReusableCell(withIdentifier: SideMenuSettingTableViewCell.identifier, for: indexPath)
-        default:
-            return tableView.dequeueReusableCell(withIdentifier: SideMenuLogoTableViewCell.identifier, for: indexPath)
-        }
-    
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectionHapticFeedback()
-        
-        switch indexPath.row {
-        case 1:
-            self.performSegue(withIdentifier: "showLocationSegue", sender: self)
-        case 2:
-            let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController")
-            self.navigationController?.pushViewController(shareVC!, animated: true)
-        case 3:
-            writeReview()
-        case 4:
-            self.performSegue(withIdentifier: "sidemenu_setting_segue", sender: self)
-        default:
-            EJLogger.d("")
-        }
     }
     
     // MARK: - Private Method
@@ -87,5 +45,56 @@ class EJSideMenuViewController: EJBaseViewController, UITableViewDataSource, UIT
         guard let writeReviewURL = components?.url else { return }
         UIApplication.shared.open(writeReviewURL)
     }
+}
 
+// MARK: - TableView Data Source
+extension EJSideMenuViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // TODO: - 한국에서만 위치 리스트 뜨도록 설정
+        return EJSideMenuSectionType.allCases.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let sectionType = EJSideMenuSectionType(rawValue: indexPath.row) else { return UITableViewCell() }
+        switch sectionType {
+        case .logo:
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuLogoTableViewCell.identifier, for: indexPath)
+        case .location:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier) as? SideMenuShareTableViewCell else { return UITableViewCell() }
+            cell.imageView?.tintColor = #colorLiteral(red: 0.1921568627, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
+            cell.imageView?.image = #imageLiteral(resourceName: "menu_icon")
+            cell.shareLabel.text = "즐겨찾는 위치"
+            return cell
+        case .share:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier, for: indexPath) as? SideMenuShareTableViewCell else { return UITableViewCell() }
+            cell.imageView?.image = #imageLiteral(resourceName: "share_black_icon")
+            return cell
+        case .review:
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuFeedbackTableViewCell.identifier, for: indexPath)
+        case .setting:
+            return tableView.dequeueReusableCell(withIdentifier: SideMenuSettingTableViewCell.identifier, for: indexPath)
+        }
+    }
+}
+
+// MARK: - UITableView Delegate
+extension EJSideMenuViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectionHapticFeedback()
+        
+        guard let sectionType = EJSideMenuSectionType(rawValue: indexPath.row) else { return }
+        switch sectionType {
+        case .location:
+            self.performSegue(withIdentifier: "showLocationSegue", sender: self)
+        case .share:
+            let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController")
+            self.navigationController?.pushViewController(shareVC!, animated: true)
+        case .review:
+            writeReview()
+        case .setting:
+            self.performSegue(withIdentifier: "sidemenu_setting_segue", sender: self)
+        default:
+            EJLogger.d("")
+        }
+    }
 }

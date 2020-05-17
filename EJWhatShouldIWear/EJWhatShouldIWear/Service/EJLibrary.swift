@@ -51,8 +51,8 @@ class EJLibrary: NSObject {
     
     func allowNotification() {
         let content = UNMutableNotificationContent()
-        content.title = LocalizedString(with: "APP_NAME")
-        content.body = LocalizedString(with: "noti_body")
+        content.title = "APP_NAME".localized
+        content.body = "noti_body".localized
         
         let today = Date()
         let dateFormatter = DateFormatter()

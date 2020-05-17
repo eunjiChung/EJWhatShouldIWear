@@ -60,6 +60,10 @@ public class EJLocationManager: CLLocationManager {
         return true
     }
     
+    var authStatus: CLAuthorizationStatus {
+        return CLLocationManager.authorizationStatus()
+    }
+    
     var didRestrictLocationAuthorizationClosure: (()->())?
     var didSuccessUpdateLocationsClosure: (() -> Void)?
     var didFailUpdateLocationClosure: ((String)->Void)?
@@ -106,20 +110,22 @@ public class EJLocationManager: CLLocationManager {
     }
     
     func checkAuthorization(_ status: CLAuthorizationStatus?) {
-        var authStatus = CLLocationManager.authorizationStatus()
-        if status != nil { authStatus = status! }
-        
-        switch authStatus {
-        case .notDetermined, .restricted, .denied:
-            didRestrictLocationAuthorizationClosure?()
-        case .authorizedAlways, .authorizedWhenInUse:
-            if !hasMainLocations {
+        if hasMainLocations {
+            didSuccessUpdateLocationsClosure?()
+        } else {
+            var authStatus = self.authStatus
+            if status != nil { authStatus = status! }
+            
+            switch authStatus {
+            case .notDetermined:
+                requestWhenInUseAuthorization()
+            case .restricted, .denied:
+                didRestrictLocationAuthorizationClosure?()
+            case .authorizedAlways, .authorizedWhenInUse:
                 startUpdatingLocation()
-            } else {
-                didSuccessUpdateLocationsClosure?()
+            @unknown default:
+                fatalError()
             }
-        @unknown default:
-            fatalError()
         }
     }
     
@@ -146,7 +152,7 @@ public class EJLocationManager: CLLocationManager {
             }
         } else {
             myUserDefaults.removeObject(forKey: UserDefaultKey.mainLocation.rawValue)
-            startUpdatingLocation()
+            checkAuthorization(nil)
         }
     }
 }

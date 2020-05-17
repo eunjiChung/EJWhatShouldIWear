@@ -57,7 +57,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if textView.text == LocalizedString(with: "share_placeholder") {
+        if textView.text == "share_placeholder".localized {
             textView.text = ""
             textView.textColor = UIColor.darkGray
         }
@@ -97,14 +97,14 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     
     // MARK: - Private Method
     private func setTitleLabel() {
-        textView.text = LocalizedString(with: "share_placeholder")
-        share1TextLabel.text = LocalizedString(with: "share1")
-        share2TextLabel.text = LocalizedString(with: "share2")
-        share3TextLabel.text = LocalizedString(with: "share3")
+        textView.text = "share_placeholder".localized
+        share1TextLabel.text = "share1".localized
+        share2TextLabel.text = "share2".localized
+        share3TextLabel.text = "share3".localized
         share1TextLabel.font = share1TextLabel.font.withSize(titleFontSize)
         share2TextLabel.font = share2TextLabel.font.withSize(titleFontSize)
         share3TextLabel.font = share3TextLabel.font.withSize(titleFontSize)
-        btnLabel.setTitle(LocalizedString(with: "share"), for: .normal)
+        btnLabel.setTitle("share".localized, for: .normal)
     }
     
     private func setLayoutConstraints() {
@@ -120,7 +120,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
         alcHeightOfTitleView.constant = EJSizeHeight(299.0)
         
         // StackView
-        if LocalizedString(with: "share1") == "" {
+        if "share1".localized == "" {
             alcBottomOfStackView.constant = EJSizeHeight(40.0)
         } else {
             alcBottomOfStackView.constant = EJSizeHeight(20.0)

@@ -10,6 +10,18 @@ import UIKit
 import FirebaseAnalytics
 import SideMenu
 
+enum EJHomeSectionType: Int, CaseIterable {
+    case showClothSection       = 0
+    case timelyWeatherSection
+    case weekelyWeatherSection
+    case admobSection
+    case dummySection
+}
+
+enum EJShowClothRowType: Int, CaseIterable {
+    case closeClothsCell = 0, showClothsCell
+}
+
 class EJNewHomeViewController: EJBaseViewController {
     // MARK: IBOutlets
     @IBOutlet weak var mainTableView: UITableView!
@@ -160,18 +172,22 @@ class EJNewHomeViewController: EJBaseViewController {
 extension EJNewHomeViewController: UITableViewDataSource {
     // TODO: - 테이블 섹션모델 만들어서, 이름 달아주기
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return EJHomeSectionType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if EJLocationManager.shared.isKorea() && cellOpened && section == 0 { return 2 }
+        if EJLocationManager.shared.isKorea() && cellOpened && section == EJHomeSectionType.showClothSection.rawValue { return 2 }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            if indexPath.row == 0 {
+        guard let sectionType = EJHomeSectionType(rawValue: indexPath.section) else { return UITableViewCell() }
+        
+        switch sectionType {
+        case .showClothSection:
+            guard let rowType = EJShowClothRowType(rawValue: indexPath.row) else { return UITableViewCell() }
+            switch rowType {
+            case .closeClothsCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
                 
                 if EJLocationManager.shared.isKorea() {
@@ -183,12 +199,12 @@ extension EJNewHomeViewController: UITableViewDataSource {
                 }
                 
                 return cell
-            } else {
+            case .showClothsCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: ClothsCollectionTableViewCell.identifier, for: indexPath) as! ClothsCollectionTableViewCell
                 cell.model = viewModel.threedaysModel
                 return cell
             }
-        case 1:
+        case .timelyWeatherSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
             
             if EJLocationManager.shared.isKorea() {
@@ -200,7 +216,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
             }
             
             return cell
-        case 2:
+        case .weekelyWeatherSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekWeatherTableViewCell.identifier, for: indexPath) as! WeekWeatherTableViewCell
             
             if EJLocationManager.shared.isKorea() {
@@ -212,11 +228,11 @@ extension EJNewHomeViewController: UITableViewDataSource {
             }
             
             return cell
-        case 3:
+        case .admobSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: AdmobTableViewCell.identifier, for: indexPath) as! AdmobTableViewCell
             cell.createAdmob(self)
             return cell
-        default:
+        case .dummySection:
             let cell = tableView.dequeueReusableCell(withIdentifier: DummyTableViewCell.identifier, for: indexPath) as! DummyTableViewCell
             return cell
         }
@@ -227,8 +243,10 @@ extension EJNewHomeViewController: UITableViewDataSource {
 // MARK: - TableView Delegate
 extension EJNewHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
+        guard let sectionType = EJHomeSectionType(rawValue: indexPath.section) else { return 0 }
+        
+        switch sectionType {
+        case .showClothSection:
             if indexPath.row == 0 {
                 if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
                     return EJSizeHeight(400.0)
@@ -244,9 +262,9 @@ extension EJNewHomeViewController: UITableViewDelegate {
                     return EJSizeHeight(180.0)
                 }
             }
-        case 1:
+        case .timelyWeatherSection:
             return EJSizeHeight(290.0)
-        case 2:
+        case .weekelyWeatherSection:
             if EJLocationManager.shared.isKorea() {
                 if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
                     return EJSizeHeight(380.0)
@@ -255,13 +273,14 @@ extension EJNewHomeViewController: UITableViewDelegate {
                 }
             }
             return EJSizeHeight(234.0)
-        case 3:
+        case .admobSection:
             return EJSizeHeight(60.0)
-        default:
+        case .dummySection:
             return EJSizeHeight(80.0)
         }
     }
     
+    // TODO: - 이게 왜 필요하지?
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as! HeaderTableViewCell
         return cell
@@ -274,7 +293,7 @@ extension EJNewHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard EJLocationManager.shared.isKorea() else { return }
         
-        if indexPath.row == 0 && indexPath.section == 0 {
+        if indexPath.section == EJHomeSectionType.showClothSection.rawValue, indexPath.row == EJShowClothRowType.closeClothsCell.rawValue {
             if cellOpened {
                 cellOpened = false
                 tableView.beginUpdates()

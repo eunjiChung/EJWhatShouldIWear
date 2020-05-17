@@ -60,7 +60,7 @@ extension Date {
     
     func todayDateString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM.dd \(LocalizedString(with: "hour"))"
+        dateFormatter.dateFormat = "MM.dd \("hour".localized)"
         return dateFormatter.string(from: self)
     }
     
