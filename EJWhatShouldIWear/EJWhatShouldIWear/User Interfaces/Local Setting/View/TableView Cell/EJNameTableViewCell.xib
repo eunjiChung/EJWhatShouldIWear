@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAr-uj-XfW">
-                        <rect key="frame" x="16" y="25" width="42" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAr-uj-XfW">
+                        <rect key="frame" x="16" y="25.5" width="244" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.19213560220000001" green="0.19221132990000001" blue="0.18823495509999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
@@ -37,6 +37,7 @@
                     <constraint firstItem="EAr-uj-XfW" firstAttribute="centerY" secondItem="itt-WO-HTw" secondAttribute="centerY" id="G94-zr-Ig6"/>
                     <constraint firstAttribute="bottomMargin" secondItem="itt-WO-HTw" secondAttribute="bottom" constant="8" id="g3j-2m-AbB"/>
                     <constraint firstItem="itt-WO-HTw" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="qyL-rl-qT8"/>
+                    <constraint firstItem="itt-WO-HTw" firstAttribute="leading" secondItem="EAr-uj-XfW" secondAttribute="trailing" constant="15" id="sMt-Cb-14v"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

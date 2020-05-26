@@ -58,6 +58,10 @@
 "average_label" = "平均";
 "korea" = "韓国";
 "Notice" = "お知らせ事項";
+"Not Korea" = "韓国じゃありません";
+"Alert" = "Alert";
+"Allow location access" = "Allow location access to view current location weather.\nCan be set in Settings>Privacy>Location Service>What Should I Wear?";
+"Show current location weather" = "Show current location weather(not allowed outside of Korea)";
 
 // alert
 "mail_warning_title" = "メールアプリケーション設定エラー";

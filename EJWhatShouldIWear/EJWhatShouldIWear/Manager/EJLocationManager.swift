@@ -16,11 +16,18 @@ struct EJLocationMainKey {
     static let country      = "country"
 }
 
-struct EJLocationDefaultValue {
+struct EJKoreaDefaultValue {
     static let latitude     = 37.51151
     static let longitude    = 127.0967
-    static let country      = "Korea"
+    static let country      = "korea".localized
     static let location     = "서울시 송파구 송파동"
+}
+
+struct EJLocationDefaultValue {
+    static let latitude     = 37.7749
+    static let longitude    = 122.4194
+    static let country      = "USA"
+    static let location     = "San Francisco"
 }
 
 public class EJLocationManager: CLLocationManager {
@@ -32,22 +39,22 @@ public class EJLocationManager: CLLocationManager {
     
     var latitude: Double {
         if let lat = mainLocation?[EJLocationMainKey.latitude] as? Double { return lat }
-        return EJLocationDefaultValue.latitude
+        return EJKoreaDefaultValue.latitude
     }
     
     var longitude: Double {
         if let lon = mainLocation?[EJLocationMainKey.longitude] as? Double { return lon }
-        return EJLocationDefaultValue.longitude
+        return EJKoreaDefaultValue.longitude
     }
     
     var country: String {
         if let country = mainLocation?[EJLocationMainKey.country] as? String { return country }
-        return EJLocationDefaultValue.country
+        return EJKoreaDefaultValue.country
     }
     
     var currentLocation: String {
         if let location = mainLocation?[EJLocationMainKey.location] as? String { return location }
-        return EJLocationDefaultValue.location
+        return EJKoreaDefaultValue.location
     }
     
     var mainLocation: [String: Any]? {
@@ -67,6 +74,7 @@ public class EJLocationManager: CLLocationManager {
     var didRestrictLocationAuthorizationClosure: (()->())?
     var didSuccessUpdateLocationsClosure: (() -> Void)?
     var didFailUpdateLocationClosure: ((String)->Void)?
+    var didRestrictAbroadAuthorizationClosure: (()->())?
     
     // MARK: Initialize
     public override init() {
@@ -85,7 +93,7 @@ public class EJLocationManager: CLLocationManager {
                 // TODO: - subLocality가 잘 붙는지 확인
                 if let firstLocality = first.locality { result += "\(firstLocality)" }
                 if let subLocality = first.subLocality { result += " \(subLocality)" }
-                self.setNewDefaults(current, country, result)
+                self.setNewDefaults(newLocation: current, country: country, name: result)
                 
                 self.didSuccessUpdateLocationsClosure?()
             } else {
@@ -99,12 +107,22 @@ public class EJLocationManager: CLLocationManager {
         return false
     }
     
-    func setNewDefaults(_ newLocation: CLLocation, _ country: String, _ name: String) {
+    func setForeignDefault() {
+        let dict: [String: Any] = [
+            EJLocationMainKey.location : EJLocationDefaultValue.location,
+            EJLocationMainKey.country : EJLocationDefaultValue.country,
+            EJLocationMainKey.latitude : EJLocationDefaultValue.latitude,
+            EJLocationMainKey.longitude : EJLocationDefaultValue.longitude
+        ]
+        myUserDefaults.set(dict, forKey: UserDefaultKey.mainLocation.rawValue)
+    }
+    
+    func setNewDefaults(newLocation: CLLocation? = nil, country: String? = nil, name: String? = nil) {
         let dict: [String: Any] = [
             EJLocationMainKey.location  : name,
             EJLocationMainKey.country   : country,
-            EJLocationMainKey.latitude  : newLocation.coordinate.latitude,
-            EJLocationMainKey.longitude : newLocation.coordinate.longitude
+            EJLocationMainKey.latitude  : newLocation?.coordinate.latitude,
+            EJLocationMainKey.longitude : newLocation?.coordinate.longitude
         ]
         myUserDefaults.set(dict, forKey: UserDefaultKey.mainLocation.rawValue)
     }
@@ -129,6 +147,19 @@ public class EJLocationManager: CLLocationManager {
         }
     }
     
+    func checkAbroadAuthorization() {
+        switch authStatus {
+        case .notDetermined:
+            requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            didRestrictAbroadAuthorizationClosure?()
+        case .authorizedAlways, .authorizedWhenInUse:
+            startUpdatingLocation()
+        @unknown default:
+            fatalError()
+        }
+    }
+    
     func setDefaultKoreaLocationList() {
         if let path = Bundle.main.path(forResource: "korea", ofType: "json") {
             do {
@@ -147,7 +178,7 @@ public class EJLocationManager: CLLocationManager {
                 if error != nil { return }
                 
                 guard let first = placemarks?.first, let location = first.location, let country = first.country else { return }
-                self.setNewDefaults(location, country, address)
+                self.setNewDefaults(newLocation: location, country: country, name: address)
                 self.didSuccessUpdateLocationsClosure?()
             }
         } else {
@@ -160,7 +191,11 @@ public class EJLocationManager: CLLocationManager {
 extension EJLocationManager: CLLocationManagerDelegate {
     // 처음 앱을 켤 때 & 권한 설정을 수정할 때
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        checkAuthorization(status)
+        if isKorea() {
+            checkAuthorization(status)
+        } else {
+            checkAbroadAuthorization()
+        }
     }
     
     // 위치를 업데이트할때 호출

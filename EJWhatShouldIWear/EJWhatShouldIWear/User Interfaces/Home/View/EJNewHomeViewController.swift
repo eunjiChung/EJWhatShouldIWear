@@ -47,6 +47,7 @@ class EJNewHomeViewController: EJBaseViewController {
         
         initView()
         initViewModel()
+        initNotification()
         
         // TODO: - 얘를 꼭 한번 더 체크 해야겠어? ㅠㅠ
         EJLocationManager.shared.checkAuthorization(nil)
@@ -83,6 +84,11 @@ class EJNewHomeViewController: EJBaseViewController {
             guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
             self.show(vc, sender: self)
             vc.performSegue(withIdentifier: "showLocalList", sender: vc)
+        }
+        
+        EJLocationManager.shared.didRestrictAbroadAuthorizationClosure = {
+            self.popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
+            self.viewModel.requestFiveDaysWeatherList()
         }
         
         viewModel.didRequestWeatherInfo = { index in
@@ -124,6 +130,18 @@ class EJNewHomeViewController: EJBaseViewController {
             self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.removeSplashScene()
         }
+    }
+    
+    private func initNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(isNotKoeraLocation(_:)), name: EJMyLocalListNotification.isNotKoreaLocation, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: EJMyLocalListNotification.isNotKoreaLocation, object: nil)
+    }
+    
+    @objc func isNotKoeraLocation(_ notification: Notification) {
+        EJLocationManager.shared.checkAbroadAuthorization()
     }
     
     // MARK: - Button Action

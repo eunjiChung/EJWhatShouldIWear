@@ -11,6 +11,11 @@ import UIKit
 enum EJMyLocalListIndexType: Int, CaseIterable {
     case current = 0
     case other
+    case notKorea
+}
+
+struct EJMyLocalListNotification {
+    static let isNotKoreaLocation = NSNotification.Name(rawValue: "isNotKoreaLocation")
 }
 
 class EJMyLocalListViewController: EJBaseViewController {
@@ -73,8 +78,7 @@ class EJMyLocalListViewController: EJBaseViewController {
         selectionHapticFeedback()
         
         guard locations.count != 0 else {
-            navigationController?.popViewController(animated: true)
-            dismiss(animated: true, completion: nil)
+            dismissViewController()
             return
         }
         
@@ -86,6 +90,10 @@ class EJMyLocalListViewController: EJBaseViewController {
             }
         }
         
+        dismissViewController()
+    }
+    
+    func dismissViewController() {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -103,6 +111,8 @@ extension EJMyLocalListViewController: UITableViewDataSource {
             return 1
         case .other:
             return locations.count
+        case .notKorea:
+            return 1
         }
     }
     
@@ -111,7 +121,7 @@ extension EJMyLocalListViewController: UITableViewDataSource {
         switch sectionType {
         case .current:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
-            cell.locationLabel.text = "현재 위치 날씨보기"
+            cell.locationLabel.text = "Show current location weather".localized
             return cell
         case .other:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
@@ -122,6 +132,10 @@ extension EJMyLocalListViewController: UITableViewDataSource {
             }
             
             return cell
+        case .notKorea:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
+            cell.locationLabel.text = "Not Korea".localized
+            return cell
         }
     }
 }
@@ -131,7 +145,8 @@ extension EJMyLocalListViewController: UITableViewDelegate {
         selectionHapticFeedback()
         
         guard let selectedSection = EJMyLocalListIndexType(rawValue: indexPath.section) else { return }
-        if selectedSection == .current {
+        switch selectedSection {
+        case .current:
             shouldShowCurrent = true
             
             switch EJLocationManager.shared.authStatus {
@@ -139,32 +154,36 @@ extension EJMyLocalListViewController: UITableViewDelegate {
                 guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
                 cell.checkImageview.isHidden = false
             default:
-                popAlertVC(self, title: "알림", message: "현재 위치 날씨를 보려면 위치 접근을 허용해주세요!\n설정>개인 정보 보호>위치 서비스>오늘모입지? 에서 설정 가능합니다:)")
+            self.popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
             }
-        } else {
+        case .other:
             tableView.visibleCells.forEach { cell in
                 guard let nameCell = cell as? EJNameTableViewCell else { return }
                 nameCell.checkImageview.isHidden = true
             }
             selectedIndex = indexPath.row
-
+            
             guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
             cell.checkImageview.isHidden = false
+        case .notKorea:
+            EJLocationManager.shared.setForeignDefault()
+            dismissViewController()
+            NotificationCenter.default.post(name: EJMyLocalListNotification.isNotKoreaLocation, object: nil)
         }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current else { return false }
+        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current, sectionType != .notKorea else { return false }
         return true
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current else { return .none }
+        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current, sectionType != .notKorea else { return .none }
         return .delete
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current else { return }
+        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current, sectionType != .notKorea else { return }
         
         if editingStyle == .delete {
             locations.remove(at: indexPath.row)

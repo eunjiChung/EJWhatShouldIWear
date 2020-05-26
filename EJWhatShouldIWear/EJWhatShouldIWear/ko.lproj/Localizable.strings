@@ -58,6 +58,10 @@
 "average_label" = "평균";
 "korea" = "대한민국";
 "Notice" = "공지사항";
+"Not Korea" = "한국이 아닙니다";
+"Alert" = "알림";
+"Allow location access" = "현재 위치 날씨를 보려면 위치 접근을 허용해주세요!\n설정>개인 정보 보호>위치 서비스>오늘모입지? 에서 설정 가능합니다:)";
+"Show current location weather" = "현재 위치 날씨보기";
 
 // alert
 "mail_warning_title" = "메일앱 설정 오류";

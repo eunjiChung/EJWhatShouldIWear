@@ -58,6 +58,10 @@
 "average_label" = "Average";
 "korea" = "Hàn Quốc";
 "Notice" = "hạng mục thông báo";
+"Not Korea" = "Không phải Hàn Quốc đâu";
+"Alert" = "Alert";
+"Allow location access" = "Allow location access to view current location weather.\nCan be set in Settings>Privacy>Location Service>What Should I Wear?";
+"Show current location weather" = "Show current location weather(not allowed outside of Korea)";
 
 // alert
 "mail_warning_title" = "Lỗi cài đặt ứng dụng thư";

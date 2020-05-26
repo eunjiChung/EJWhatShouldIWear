@@ -58,6 +58,10 @@
 "average_label" = "Promedio";
 "korea" = "Corea del Sur";
 "Notice" = "Margen";
+"Not Korea" = "No es Corea.";
+"Alert" = "Alert";
+"Allow location access" = "Allow location access to view current location weather.\nCan be set in Settings>Privacy>Location Service>What Should I Wear?";
+"Show current location weather" = "Show current location weather(not allowed outside of Korea)";
 
 // alert
 "mail_warning_title" = "Error al establecer de la aplicación e-mail";
