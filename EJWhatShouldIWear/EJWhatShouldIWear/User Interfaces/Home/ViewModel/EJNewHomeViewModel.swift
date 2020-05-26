@@ -8,10 +8,19 @@
 
 import Foundation
 
+enum EJHomeSectionType: Int, CaseIterable {
+    case showClothSection       = 0
+    case timelyWeatherSection
+    case weekelyWeatherSection
+    case admobSection
+    case dummySection
+}
 
+enum EJShowClothRowType: Int, CaseIterable {
+    case closeClothsCell = 0, showClothsCell
+}
 
 final class EJNewHomeViewModel {
-    
     // MARK: - Properties
     var weatherInfo: [EJFiveDaysList]?
     var FiveDaysWeatherList: [EJFiveDaysList]?
@@ -44,60 +53,6 @@ final class EJNewHomeViewModel {
         }) { error in
             self.didrequestForeignWeatherInfoFailureClosure?(error)
         }
-    }
-    
-    // MARK: - HTTP Request
-    func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
-                                failure: @escaping FailureHandler) {
-        let longitude = EJLocationManager.shared.longitude
-        let latitude = EJLocationManager.shared.latitude
-        let url = owmAPIPath + "forecast?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
-        EJHTTPClient().weatherRequest(url: url,
-                                      success: success,
-                                      failure: failure)
-        
-    }
-    
-    private func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (EJSixdaysWeatherBaseModel) -> (),
-                                        failure: @escaping FailureHandler) {
-        let longitude = EJLocationManager.shared.longitude
-        let latitude = EJLocationManager.shared.latitude
-        let url = skWPSixDaysAPI + "?appKey=\(skAppKeys[index])&lat=\(latitude)&lon=\(longitude)"
-        EJHTTPClient().weatherRequest(url: url,
-                                      success: { resultData in
-                                        guard let data = resultData else {
-                                            self.didRequestWeatherInfo?(index+1)
-                                            return
-                                        }
-                                        
-                                        do {
-                                            let sixdaysModel = try JSONDecoder().decode(EJSixdaysWeatherBaseModel.self, from: data)
-                                            success(sixdaysModel)
-                                        } catch {
-                                            failure(error)
-                                        }
-        }, failure: failure)
-    }
-    
-    private func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (EJThreedaysWeatherBaseModel) -> (),
-                                          failure: @escaping FailureHandler) {
-        let longitude = EJLocationManager.shared.longitude
-        let latitude = EJLocationManager.shared.latitude
-        let url = skWPThreeDaysAPI + "?appKey=\(skAppKeys[index])&lat=\(latitude)&lon=\(longitude)"
-        EJHTTPClient().weatherRequest(url: url,
-                                      success: { resultData in
-                                        guard let data = resultData else {
-                                            self.didRequestWeatherInfo?(index+1)
-                                            return
-                                        }
-                                        
-                                        do {
-                                            let threedaysModel = try JSONDecoder().decode(EJThreedaysWeatherBaseModel.self, from: data)
-                                            success(threedaysModel)
-                                        } catch {
-                                            failure(error)
-                                        }
-        }, failure: failure)
     }
     
     public func callWeatherInfo(_ index: Int,
@@ -144,5 +99,74 @@ final class EJNewHomeViewModel {
                 success()
             }
         }
+    }
+}
+
+// MARK: - KiSangChung Networking
+extension EJNewHomeViewModel {
+    private func kisangWeekelyWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+        
+    }
+    
+    private func kisangTimelyWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+        
+    }
+}
+
+// MARK: - SK Weather Planet API
+extension EJNewHomeViewModel {
+    private func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (EJSixdaysWeatherBaseModel) -> (),
+                                        failure: @escaping FailureHandler) {
+        let longitude = EJLocationManager.shared.longitude
+        let latitude = EJLocationManager.shared.latitude
+        let url = skWPSixDaysAPI + "?appKey=\(skAppKeys[index])&lat=\(latitude)&lon=\(longitude)"
+        EJHTTPClient().weatherRequest(url: url,
+                                      success: { resultData in
+                                        guard let data = resultData else {
+                                            self.didRequestWeatherInfo?(index+1)
+                                            return
+                                        }
+                                        
+                                        do {
+                                            let sixdaysModel = try JSONDecoder().decode(EJSixdaysWeatherBaseModel.self, from: data)
+                                            success(sixdaysModel)
+                                        } catch {
+                                            failure(error)
+                                        }
+        }, failure: failure)
+    }
+    
+    private func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (EJThreedaysWeatherBaseModel) -> (),
+                                          failure: @escaping FailureHandler) {
+        let longitude = EJLocationManager.shared.longitude
+        let latitude = EJLocationManager.shared.latitude
+        let url = skWPThreeDaysAPI + "?appKey=\(skAppKeys[index])&lat=\(latitude)&lon=\(longitude)"
+        EJHTTPClient().weatherRequest(url: url,
+                                      success: { resultData in
+                                        guard let data = resultData else {
+                                            self.didRequestWeatherInfo?(index+1)
+                                            return
+                                        }
+                                        
+                                        do {
+                                            let threedaysModel = try JSONDecoder().decode(EJThreedaysWeatherBaseModel.self, from: data)
+                                            success(threedaysModel)
+                                        } catch {
+                                            failure(error)
+                                        }
+        }, failure: failure)
+    }
+}
+
+// MARK: - Foreign API Call
+extension EJNewHomeViewModel {
+    func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
+                                failure: @escaping FailureHandler) {
+        let longitude = EJLocationManager.shared.longitude
+        let latitude = EJLocationManager.shared.latitude
+        let url = owmAPIPath + "forecast?lat=\(latitude)&lon=\(longitude)&apiKey=\(owmAppKey)"
+        EJHTTPClient().weatherRequest(url: url,
+                                      success: success,
+                                      failure: failure)
     }
 }

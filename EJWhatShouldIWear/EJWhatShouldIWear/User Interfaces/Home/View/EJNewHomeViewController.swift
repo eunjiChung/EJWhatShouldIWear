@@ -10,18 +10,6 @@ import UIKit
 import FirebaseAnalytics
 import SideMenu
 
-enum EJHomeSectionType: Int, CaseIterable {
-    case showClothSection       = 0
-    case timelyWeatherSection
-    case weekelyWeatherSection
-    case admobSection
-    case dummySection
-}
-
-enum EJShowClothRowType: Int, CaseIterable {
-    case closeClothsCell = 0, showClothsCell
-}
-
 class EJNewHomeViewController: EJBaseViewController {
     // MARK: IBOutlets
     @IBOutlet weak var mainTableView: UITableView!
@@ -168,20 +156,26 @@ class EJNewHomeViewController: EJBaseViewController {
     @IBAction func didTouchList(_ sender: Any) {
         // TODO: - 하단에 bottom drawer 만들기
     }
+}
+
+// MARK: - Segue Handler
+extension EJNewHomeViewController {
+    enum SegueIdentifierType: String {
+        case showSetting    = "home_setting_segue"
+        case showSideMenu   = "home_sidemenu_segue"
+    }
     
-    
-    // MARK: - Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "home_setting_segue":
+        guard let segueType = SegueIdentifierType(rawValue: segue.identifier ?? "") else { return }
+        
+        switch segueType {
+        case .showSetting:
             let settingVC = segue.destination as! EJSettingViewController
             settingVC.curLocation = EJLocationManager.shared.currentLocation
-        case "home_sidemenu_segue":
+        case .showSideMenu:
             let navVC = segue.destination as! UISideMenuNavigationController
             let tableVC = navVC.viewControllers.first as! EJSideMenuViewController
             tableVC.curLocation = EJLocationManager.shared.currentLocation
-        default:
-            EJLogger.d("")
         }
     }
 }
