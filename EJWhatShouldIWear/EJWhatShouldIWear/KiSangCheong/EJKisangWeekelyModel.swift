@@ -34,8 +34,8 @@ public struct EJKisangItemsModel: Decodable {
         case item
     }
     
-    // TODO: - API에 따라 item model 바꾸기 -> Any에서 Type Casting?
-    var item: [Any]
+    // TODO: - API에 따라 item model 바꾸기
+    var item: [EJKisangItemModel] 
 }
 
 public struct EJKisangItemModel: Decodable {
