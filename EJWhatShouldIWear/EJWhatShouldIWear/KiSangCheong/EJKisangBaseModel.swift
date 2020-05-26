@@ -8,6 +8,11 @@
 
 import Foundation
 
+public enum EJDataType: String, Decodable {
+    case JSON
+    case XML
+}
+
 public struct EJKisangBaseModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case response
@@ -23,7 +28,7 @@ public struct EJKisangResponseModel: Decodable {
     }
     
     var header: EJKisangHeaderModel
-    var body: String
+    var body: EJKisangBodyModel
 }
 
 public struct EJKisangHeaderModel: Decodable {
@@ -36,3 +41,18 @@ public struct EJKisangHeaderModel: Decodable {
     var resultMsg: String
 }
 
+public struct EJKisangBodyModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case dataType
+        case items
+        case pageNo
+        case numOfRows
+        case totalCount
+    }
+    
+    var dataType: EJDataType
+    var items: EJKisangItemsModel
+    var pageNo: Int
+    var numOfRows: Int
+    var totalCount: Int
+}

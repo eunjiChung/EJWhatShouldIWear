@@ -8,34 +8,31 @@
 
 import Foundation
 
-public enum EJDataType: String, Decodable {
-    case JSON
-    case XML
-}
-
-public struct EJKisangBodyModel: Decodable {
-    private enum CodingKeys: String, CodingKey {
-        case dataType
-        case items
-        case pageNo
-        case numOfRows
-        case totalCount
-    }
-    
-    var dataType: EJDataType
-    var items: EJKisangItemsModel
-    var pageNo: Int
-    var numOfRows: Int
-    var totalCount: Int
-}
-
 public struct EJKisangItemsModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case item
     }
     
-    // TODO: - API에 따라 item model 바꾸기
-    var item: [EJKisangItemModel] 
+    // TODO: - API에 따라 item model 바꾸기 -> Test 필요
+    // https://github.com/tattn/MoreCodable/issues/3
+    var item: [Any]
+    public init<T>(_ item:[T]?) {
+        self.item = item ?? []
+    }
+    
+    public init(from decoder :Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        
+        if let timely = try? container.decode(EJKisangTimelyModel.self) {
+            self.init([timely])
+        } else if let weekely = try? container.decode(EJKisangItemModel.self) {
+            self.init([weekely])
+        } else if let weekelyForecast = try? container.decode(EJKisangWeekForecastModel.self) {
+            self.init([weekelyForecast])
+        } else {
+            self.init([])
+        }
+    }
 }
 
 public struct EJKisangItemModel: Decodable {
