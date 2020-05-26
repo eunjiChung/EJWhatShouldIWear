@@ -93,6 +93,7 @@
 		B637591D244B81BE0076FE2C /* EJNewHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */; };
 		B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591E244BA2B40076FE2C /* EJLayoutManager.swift */; };
 		B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375921244BB7610076FE2C /* EJAPIService.swift */; };
+		B657269F247D130E00D836D7 /* EJConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657269E247D130E00D836D7 /* EJConvertHelper.swift */; };
 		B673625F2314FFEF003B07AE /* EJBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */; };
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
@@ -256,6 +257,7 @@
 		B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJNewHomeViewModel.swift; sourceTree = "<group>"; };
 		B637591E244BA2B40076FE2C /* EJLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLayoutManager.swift; sourceTree = "<group>"; };
 		B6375921244BB7610076FE2C /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
+		B657269E247D130E00D836D7 /* EJConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJConvertHelper.swift; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBlogTableViewCell.swift; sourceTree = "<group>"; };
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */,
 				B67A15A7244C567900F17C6D /* EJLogger.swift */,
 				B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */,
+				B657269E247D130E00D836D7 /* EJConvertHelper.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 		99CC5119229D2F8700192450 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B657269D247D108E00D836D7 /* KiSangCheong */,
 				B63758E42448EBA50076FE2C /* Korea Weather */,
 				992B097122BD513B00FF94B7 /* Foreign Weather */,
 				B6262C2622FA771A009FC744 /* EJWeatherMainModel.swift */,
@@ -730,6 +734,13 @@
 			children = (
 			);
 			path = "TableView Cell";
+			sourceTree = "<group>";
+		};
+		B657269D247D108E00D836D7 /* KiSangCheong */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KiSangCheong;
 			sourceTree = "<group>";
 		};
 		B6BCD7E42455A7AE003436D6 /* JSON Files */ = {
@@ -1128,6 +1139,7 @@
 				B6E088DF245AD065006C6665 /* EJAddLocationCell.swift in Sources */,
 				B6375915244B7F590076FE2C /* EJErrorBaseModel.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
+				B657269F247D130E00D836D7 /* EJConvertHelper.swift in Sources */,
 				B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */,
 				B6E088F1245B42FE006C6665 /* EJNameTableViewCell.swift in Sources */,
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
