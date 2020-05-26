@@ -135,6 +135,7 @@ extension EJMyLocalListViewController: UITableViewDataSource {
         case .notKorea:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
             cell.locationLabel.text = "Not Korea".localized
+            cell.locationLabel.textColor = .lightGray
             return cell
         }
     }
