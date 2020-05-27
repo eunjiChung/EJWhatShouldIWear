@@ -8,8 +8,7 @@
 
 import UIKit
 
-class EJShareViewController: EJBaseViewController, UITextViewDelegate {
-    
+final class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     // MARK: - Global Instance
     let titleFontSize = EJSizeHeight(30.0)
     

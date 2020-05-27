@@ -11,7 +11,6 @@ import UIKit
 enum EJMyLocalListIndexType: Int, CaseIterable {
     case current = 0
     case other
-    case notKorea
 }
 
 struct EJMyLocalListNotification {
@@ -111,8 +110,6 @@ extension EJMyLocalListViewController: UITableViewDataSource {
             return 1
         case .other:
             return locations.count
-        case .notKorea:
-            return 1
         }
     }
     
@@ -132,11 +129,6 @@ extension EJMyLocalListViewController: UITableViewDataSource {
             }
             
             return cell
-        case .notKorea:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
-            cell.locationLabel.text = "Not Korea".localized
-            cell.locationLabel.textColor = .lightGray
-            return cell
         }
     }
 }
@@ -155,7 +147,7 @@ extension EJMyLocalListViewController: UITableViewDelegate {
                 guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
                 cell.checkImageview.isHidden = false
             default:
-            self.popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
+                popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
             }
         case .other:
             tableView.visibleCells.forEach { cell in
@@ -166,25 +158,21 @@ extension EJMyLocalListViewController: UITableViewDelegate {
             
             guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
             cell.checkImageview.isHidden = false
-        case .notKorea:
-            EJLocationManager.shared.setForeignDefault()
-            dismissViewController()
-            NotificationCenter.default.post(name: EJMyLocalListNotification.isNotKoreaLocation, object: nil)
         }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current, sectionType != .notKorea else { return false }
+        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current else { return false }
         return true
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current, sectionType != .notKorea else { return .none }
+        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current else { return .none }
         return .delete
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current, sectionType != .notKorea else { return }
+        guard let sectionType = EJMyLocalListIndexType(rawValue: indexPath.section), sectionType != .current else { return }
         
         if editingStyle == .delete {
             locations.remove(at: indexPath.row)
