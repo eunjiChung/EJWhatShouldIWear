@@ -93,6 +93,7 @@ extension EJSideMenuViewController: UITableViewDataSource {
             case .share:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier, for: indexPath) as? SideMenuShareTableViewCell else { return UITableViewCell() }
                 cell.imageView?.image = #imageLiteral(resourceName: "share_black_icon")
+                return cell
             case .review:
                 return tableView.dequeueReusableCell(withIdentifier: SideMenuFeedbackTableViewCell.identifier, for: indexPath)
             case .setting:

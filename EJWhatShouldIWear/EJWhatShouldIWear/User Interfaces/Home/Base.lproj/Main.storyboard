@@ -360,6 +360,7 @@
                         <outlet property="alcTopOfBackIcon" destination="8yU-56-RVD" id="My2-He-XSM"/>
                         <outlet property="alcTopOfButtonLabel" destination="7MN-p8-2Xz" id="0IK-l5-dtG"/>
                         <outlet property="btnLabel" destination="rvV-ob-XbF" id="2z0-9G-h5j"/>
+                        <outlet property="buttonView" destination="rvV-ob-XbF" id="efx-n0-QLH"/>
                         <outlet property="share1TextLabel" destination="6hX-RV-nyL" id="hsb-ot-0ZA"/>
                         <outlet property="share2TextLabel" destination="B7L-1B-3Dm" id="0v2-oh-T0B"/>
                         <outlet property="share3TextLabel" destination="0j3-r9-N3i" id="bWU-Tr-9JR"/>

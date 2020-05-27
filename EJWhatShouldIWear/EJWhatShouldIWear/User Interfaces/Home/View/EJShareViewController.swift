@@ -16,6 +16,7 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     // MARK: - IBOutlets
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var btnLabel: UIButton!
+    @IBOutlet weak var buttonView: UIButton!
     @IBOutlet weak var share1TextLabel: UILabel!
     @IBOutlet weak var share2TextLabel: UILabel!
     @IBOutlet weak var share3TextLabel: UILabel!
@@ -56,7 +57,6 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
         if textView.text == "share_placeholder".localized {
             textView.text = ""
             textView.textColor = UIColor.darkGray
@@ -85,18 +85,19 @@ class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     @IBAction func didTouchShareBtn(_ sender: Any) {
         selectionHapticFeedback()
         
-        guard let text = self.textView.text else { return }
+        guard let text = textView.text else { return }
         let appStoreURL = AppStoreURL
         let textToShare = [text, appStoreURL]
         
         let activityVC = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
-        self.present(activityVC, animated: true, completion: nil)
+        present(activityVC, animated: true, completion: nil)
         
     }
     
     // MARK: - Private Method
     private func setTitleLabel() {
+        buttonView.layer.cornerRadius = 6
         textView.text = "share_placeholder".localized
         share1TextLabel.text = "share1".localized
         share2TextLabel.text = "share2".localized
