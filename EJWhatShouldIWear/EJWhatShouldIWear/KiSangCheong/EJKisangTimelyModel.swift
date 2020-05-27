@@ -8,6 +8,57 @@
 
 import Foundation
 
+public struct EJKisangTimelyBaseModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case response
+    }
+    var response: EJKisangTimelyResponseModel
+}
+
+public struct EJKisangTimelyResponseModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case header
+        case body
+    }
+    
+    var header: EJKisangTimelyHeaderModel
+    var body: EJKisangTimelyBodyModel
+}
+
+public struct EJKisangTimelyHeaderModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case resultCode
+        case resultMsg
+    }
+    
+    var resultCode: String
+    var resultMsg: String
+}
+
+public struct EJKisangTimelyBodyModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case dataType
+        case items
+        case pageNo
+        case numOfRows
+        case totalCount
+    }
+    
+    var dataType: EJDataType
+    var items: EJKisangTimelyItemsModel
+    var pageNo: Int
+    var numOfRows: Int
+    var totalCount: Int
+}
+
+public struct EJKisangTimelyItemsModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case item
+    }
+    
+    var item: [EJKisangTimelyModel]
+}
+
 public struct EJKisangTimelyModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case baseDate

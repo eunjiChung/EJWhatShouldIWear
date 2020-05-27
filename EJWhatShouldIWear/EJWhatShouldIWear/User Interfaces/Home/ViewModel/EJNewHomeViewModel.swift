@@ -103,13 +103,57 @@ final class EJNewHomeViewModel {
 }
 
 // MARK: - KiSangChung Networking
+// TODO: - 네트워킹 코드 모야 라이브러리처럼 줄이기!
 extension EJNewHomeViewModel {
-    private func kisangWeekelyWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+    
+    func kisangTimelyWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+        let url = kisangBaseAPI + kisangTimelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=20&dataType=JSON&base_date=20200527&base_time=0500&nx=1&ny=1&"
         
+        EJHTTPClient().weatherRequest(url: url, success: { result in
+            
+            do {
+                guard let data = result else { return }
+                let model = try JSONDecoder().decode(EJKisangTimelyBaseModel.self, from: data)
+                print(model)
+                
+            } catch {
+                failure(error)
+            }
+        }) { error in
+            failure(error)
+        }
     }
     
-    private func kisangTimelyWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+    func kisangWeekelyWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+        let url = kisangBaseAPI + kisangWeekelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=11B10101&tmFc=202005270600"
         
+        EJHTTPClient().weatherRequest(url: url, success: { result in
+            do {
+                guard let data = result else { return }
+                let model = try JSONDecoder().decode(EJKisangWeekelyBaseModel.self, from: data)
+                print(model)
+            } catch {
+                failure(error)
+            }
+        }) { error in
+            failure(error)
+        }
+    }
+    
+    func kisangWeekelyForecastWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+        let url = kisangBaseAPI + kisangWeekForcastAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=12A20000&tmFc=202005270600"
+        
+        EJHTTPClient().weatherRequest(url: url, success: { result in
+            do {
+                guard let data = result else { return }
+                let model = try JSONDecoder().decode(EJKisangForecastBaseModel.self, from: data)
+                print(model)
+            } catch {
+                failure(error)
+            }
+        }) { error in
+            failure(error)
+        }
     }
 }
 

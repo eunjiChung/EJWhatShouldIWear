@@ -33,6 +33,24 @@ class EJNewHomeViewController: EJBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.kisangTimelyWeather(success: {
+            
+        }) { (error) in
+            
+        }
+        
+        viewModel.kisangWeekelyWeather(success: {
+            
+        }) { (error) in
+            
+        }
+        
+        viewModel.kisangWeekelyForecastWeather(success: {
+            
+        }) { (error) in
+            
+        }
+        
         initView()
         initViewModel()
         initNotification()

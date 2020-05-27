@@ -8,34 +8,60 @@
 
 import Foundation
 
-public struct EJKisangItemsModel: Decodable {
+public struct EJKisangWeekelyBaseModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case response
+    }
+    
+    var response: EJKisangWeekelyResponseModel
+}
+
+public struct EJKisangWeekelyResponseModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case header
+        case body
+    }
+    
+    var header: EJKisangWeekelyHeaderModel
+    var body: EJKisangWeekelyBodyModel
+}
+
+public struct EJKisangWeekelyHeaderModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case resultCode
+        case resultMsg
+    }
+    
+    var resultCode: String
+    var resultMsg: String
+}
+
+public struct EJKisangWeekelyBodyModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case dataType
+        case items
+        case pageNo
+        case numOfRows
+        case totalCount
+    }
+    
+    var dataType: EJDataType
+    var items: EJKisangWeekelyItemsModel
+    var pageNo: Int
+    var numOfRows: Int
+    var totalCount: Int
+}
+
+
+public struct EJKisangWeekelyItemsModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case item
     }
     
-    // TODO: - API에 따라 item model 바꾸기 -> Test 필요
-    // https://github.com/tattn/MoreCodable/issues/3
-    var item: [Any]
-    public init<T>(_ item:[T]?) {
-        self.item = item ?? []
-    }
-    
-    public init(from decoder :Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        
-        if let timely = try? container.decode(EJKisangTimelyModel.self) {
-            self.init([timely])
-        } else if let weekely = try? container.decode(EJKisangItemModel.self) {
-            self.init([weekely])
-        } else if let weekelyForecast = try? container.decode(EJKisangWeekForecastModel.self) {
-            self.init([weekelyForecast])
-        } else {
-            self.init([])
-        }
-    }
+    var item: [EJKisangWeekelyItemModel]
 }
 
-public struct EJKisangItemModel: Decodable {
+public struct EJKisangWeekelyItemModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case regId
         case taMin3, taMin3Low, taMin3High

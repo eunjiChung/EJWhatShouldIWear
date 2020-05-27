@@ -30,10 +30,10 @@ public let skWPThreeDaysAPI                     =   "https://apis.openapi.sk.com
 // MARK: - 기상청
 // TODO: - 테스트용 계정 하나더 필요
 public let kisangBaseAPI                        =   "http://apis.data.go.kr/"
-// TODO: - 1360000 아마도 지도 행정구역 코드...
+// TODO: - 1360000 아마도 지도 행정구역 코드...?
 public let kisangTimelyAPI                      =   "1360000/VilageFcstInfoService/getVilageFcst"
 public let kisangWeekForcastAPI                 =   "1360000/MidFcstInfoService/getMidSeaFcst"
-public let kisangWeekelyAPI                     =   "1360000/MidFcstInfoService/getMidFcst"
+public let kisangWeekelyAPI                     =   "1360000/MidFcstInfoService/getMidTa"
 public let kisangAppKey                         =   "LeBnEReXhgadmPwRkbb0aHyqsiTTsIQIOIqz1%2Bmh3w%2FsCjiHXizoS3Cc3440XU6R%2BwL6p%2FRYtucB3RPqsADMMQ%3D%3D"
 
 // MARK: - SK Weather Planet App Key

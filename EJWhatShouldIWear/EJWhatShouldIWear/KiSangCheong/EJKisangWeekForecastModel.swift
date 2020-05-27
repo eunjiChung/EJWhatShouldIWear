@@ -8,6 +8,52 @@
 
 import Foundation
 
+public struct EJKisangForecastBaseModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case response
+    }
+    var response: EJKisangForecastResponseModel
+}
+
+public struct EJKisangForecastResponseModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case header
+        case body
+    }
+    var header: EJKisangForecastHeaderModel
+    var body: EJKisangForecastBodyModel
+}
+
+public struct EJKisangForecastHeaderModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case resultCode
+        case resultMsg
+    }
+    var resultCode: String
+    var resultMsg: String
+}
+
+public struct EJKisangForecastBodyModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case dataType
+        case items
+        case pageNo
+        case numOfRows
+        case totalCount
+    }
+    var dataType: EJDataType
+    var items: EJKisangForecastItemsModel
+    var pageNo: Int
+    var numOfRows: Int
+    var totalCount: Int
+}
+
+public struct EJKisangForecastItemsModel: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case item
+    }
+    var item: [EJKisangWeekForecastModel]
+}
 
 public struct EJKisangWeekForecastModel: Decodable {
     private enum CodingKeys: String, CodingKey {
