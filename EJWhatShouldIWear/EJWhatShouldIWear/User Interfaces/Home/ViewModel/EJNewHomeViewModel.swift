@@ -28,12 +28,22 @@ final class EJNewHomeViewModel {
     var threedaysModel: [EJThreedaysForecastModel]?
     var sixdaysModel: [EJSixdaysForecastModel]?
     
+    // MARK: - Kisangchung Models
+    var kisangTimelyModel: [EJKisangTimelyModel]?
+    var kisangWeekelyModel: [EJKisangWeekelyItemModel]?
+    var kisangForecastModel: [EJKisangWeekForecastModel]?
+    
     // MARK: - Closures
     var didRequestKoreaWeatherInfoSuccessClosure: (() -> Void)?
     var didRequestKoreaWeatherInfoFailureClosure: ((Error) -> Void)?
     var didRequestWeatherInfo: ((Int) -> Void)?
     var didrequestForeignWeatherInfoSuccessClosure: (() -> Void)?
     var didrequestForeignWeatherInfoFailureClosure: ((Error) -> Void)?
+    
+    // MARK: - Kisangchung's Closures
+    var didRequestKisangWeatherInfoSuccessClosure: (()->Void)?
+    var didRequestKisangWeatherInfoFailureClosure: ((Error)->Void)?
+    
     
     // MARK: - Public Methods
     func requestKoreaWeather(_ index: Int) {
@@ -106,7 +116,59 @@ final class EJNewHomeViewModel {
 // TODO: - 네트워킹 코드 모야 라이브러리처럼 줄이기!
 extension EJNewHomeViewModel {
     
-    func kisangTimelyWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+    public func callKisangWeatherInfo(success: @escaping () -> Void,
+                                      failure: @escaping FailureHandler) {
+        var resultError: Error?
+        EJLogger.d("=============== Dispatch Group ===== START! ==============")
+        
+        let dispatchGroup = DispatchGroup()
+        let dispatchQueue = DispatchQueue.global()
+        
+        dispatchGroup.enter()
+        dispatchQueue.async {
+            self.kisangTimelyWeather(success: { model in
+                self.kisangTimelyModel = model.response.body.items.item
+                dispatchGroup.leave()
+            }, failure: { error in
+                resultError = error
+                dispatchGroup.leave()
+            })
+        }
+        
+        dispatchGroup.enter()
+        dispatchQueue.async {
+            self.kisangWeekelyWeather(success: { model in
+                self.kisangWeekelyModel = model.response.body.items.item
+                dispatchGroup.leave()
+            }, failure: { error in
+                resultError = error
+                dispatchGroup.leave()
+            })
+        }
+        
+        dispatchGroup.enter()
+        dispatchQueue.async {
+            self.kisangWeekelyForecastWeather(success: { model in
+                self.kisangForecastModel = model.response.body.items.item
+                dispatchGroup.leave()
+            }, failure: { error in
+                resultError = error
+                dispatchGroup.leave()
+            })
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            EJLogger.d("=============== Dispatch Group ===== Done! ==============")
+            if let error = resultError {
+                failure(error)
+            } else {
+                success()
+            }
+        }
+    }
+    
+    // TODO: - 에러코드에 따라서 에러처리 해주기!!!
+    func kisangTimelyWeather(success: @escaping (EJKisangTimelyBaseModel) -> (), failure: @escaping FailureHandler) {
         let url = kisangBaseAPI + kisangTimelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=20&dataType=JSON&base_date=20200527&base_time=0500&nx=1&ny=1&"
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
@@ -114,8 +176,7 @@ extension EJNewHomeViewModel {
             do {
                 guard let data = result else { return }
                 let model = try JSONDecoder().decode(EJKisangTimelyBaseModel.self, from: data)
-                print(model)
-                
+                success(model)
             } catch {
                 failure(error)
             }
@@ -124,14 +185,14 @@ extension EJNewHomeViewModel {
         }
     }
     
-    func kisangWeekelyWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+    func kisangWeekelyWeather(success: @escaping (EJKisangWeekelyBaseModel) -> (), failure: @escaping FailureHandler) {
         let url = kisangBaseAPI + kisangWeekelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=11B10101&tmFc=202005270600"
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
             do {
                 guard let data = result else { return }
                 let model = try JSONDecoder().decode(EJKisangWeekelyBaseModel.self, from: data)
-                print(model)
+                success(model)
             } catch {
                 failure(error)
             }
@@ -140,14 +201,14 @@ extension EJNewHomeViewModel {
         }
     }
     
-    func kisangWeekelyForecastWeather(success: @escaping () -> (), failure: @escaping FailureHandler) {
+    func kisangWeekelyForecastWeather(success: @escaping (EJKisangForecastBaseModel) -> (), failure: @escaping FailureHandler) {
         let url = kisangBaseAPI + kisangWeekForcastAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=12A20000&tmFc=202005270600"
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
             do {
                 guard let data = result else { return }
                 let model = try JSONDecoder().decode(EJKisangForecastBaseModel.self, from: data)
-                print(model)
+                success(model)
             } catch {
                 failure(error)
             }
