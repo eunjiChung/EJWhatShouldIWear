@@ -63,7 +63,7 @@ public class EJLocationManager: CLLocationManager {
     }
     
     var hasMainLocations: Bool {
-        guard mainLocation != nil else { return false }
+        guard let _ = mainLocation else { return false }
         return true
     }
     
@@ -119,10 +119,10 @@ public class EJLocationManager: CLLocationManager {
     
     func setNewDefaults(newLocation: CLLocation? = nil, country: String? = nil, name: String? = nil) {
         let dict: [String: Any] = [
-            EJLocationMainKey.location  : name,
-            EJLocationMainKey.country   : country,
-            EJLocationMainKey.latitude  : newLocation?.coordinate.latitude,
-            EJLocationMainKey.longitude : newLocation?.coordinate.longitude
+            EJLocationMainKey.location  : name ?? EJKoreaDefaultValue.location,
+            EJLocationMainKey.country   : country ?? EJKoreaDefaultValue.country,
+            EJLocationMainKey.latitude  : newLocation?.coordinate.latitude ?? EJKoreaDefaultValue.latitude,
+            EJLocationMainKey.longitude : newLocation?.coordinate.longitude ?? EJKoreaDefaultValue.longitude
         ]
         myUserDefaults.set(dict, forKey: UserDefaultKey.mainLocation.rawValue)
     }

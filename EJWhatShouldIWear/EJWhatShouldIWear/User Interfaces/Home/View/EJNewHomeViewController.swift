@@ -54,6 +54,16 @@ class EJNewHomeViewController: EJBaseViewController {
         EJLocationManager.shared.checkAuthorization(nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if !EJLocationManager.shared.isKorea() {
+            myLocationField.isUserInteractionEnabled = false
+            addButton.isHidden = true
+        } else {
+            myLocationField.isUserInteractionEnabled = true
+            addButton.isHidden = false
+        }
+    }
+    
     // MARK: Initialize
     private func initView() {
         registerNibs()
@@ -65,11 +75,6 @@ class EJNewHomeViewController: EJBaseViewController {
         addPullToRefreshControl(toScrollView: self.mainTableView) {
             EJLocationManager.shared.checkAuthorization(nil)
             self.mainTableView.reloadData()
-        }
-        
-        if !EJLocationManager.shared.isKorea() {
-            myLocationField.isUserInteractionEnabled = false
-            addButton.isHidden = true
         }
     }
     
