@@ -39,22 +39,22 @@ public class EJLocationManager: CLLocationManager {
     
     var latitude: Double {
         if let lat = mainLocation?[EJLocationMainKey.latitude] as? Double { return lat }
-        return EJKoreaDefaultValue.latitude
+        return EJLocationDefaultValue.latitude
     }
     
     var longitude: Double {
         if let lon = mainLocation?[EJLocationMainKey.longitude] as? Double { return lon }
-        return EJKoreaDefaultValue.longitude
+        return EJLocationDefaultValue.longitude
     }
     
     var country: String {
         if let country = mainLocation?[EJLocationMainKey.country] as? String { return country }
-        return EJKoreaDefaultValue.country
+        return EJLocationDefaultValue.country
     }
     
     var currentLocation: String {
         if let location = mainLocation?[EJLocationMainKey.location] as? String { return location }
-        return EJKoreaDefaultValue.location
+        return EJLocationDefaultValue.location
     }
     
     var mainLocation: [String: Any]? {

@@ -28,6 +28,7 @@ class EJNewHomeViewController: EJBaseViewController {
     @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var myLocationField: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var splashContainer: UIView!
     @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
@@ -64,6 +65,11 @@ class EJNewHomeViewController: EJBaseViewController {
         addPullToRefreshControl(toScrollView: self.mainTableView) {
             EJLocationManager.shared.checkAuthorization(nil)
             self.mainTableView.reloadData()
+        }
+        
+        if !EJLocationManager.shared.isKorea() {
+            myLocationField.isUserInteractionEnabled = false
+            addButton.isHidden = true
         }
     }
     
@@ -241,7 +247,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
                 cell.model = viewModel.sixdaysModel
             }
             
-            if let info = viewModel.weatherInfo {
+            if let info = viewModel.FiveDaysWeatherList {
                 cell.setWeekelyTimeTable(by:info)
             }
             
