@@ -21,12 +21,15 @@ class EJMyLocalListViewController: EJBaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     
     // MARK: - Properties
     var locations: [String] = []
     var previousMainLocation: String {
         return EJLocationManager.shared.currentLocation
     }
+    
+    // TODO: - flag가 너무 많다
     var selectedIndex: Int = 0
     var shouldShowCurrent: Bool = false
     
@@ -42,6 +45,7 @@ class EJMyLocalListViewController: EJBaseViewController {
     // MARK: - Initialize
     private func initView() {
         addButton.layer.cornerRadius = 6
+        closeButton.setTitle("complete".localized, for: .normal)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(UINib(nibName: "EJNameTableViewCell", bundle: nil), forCellReuseIdentifier: EJNameTableViewCell.identifier)
     }
@@ -57,17 +61,23 @@ class EJMyLocalListViewController: EJBaseViewController {
     // MARK: - Private Methods
     // TODO: - 고치고 싶어...! 그냥 locations가 computed array가 되도록!
     private func getMyCurrentLocations() {
-        if let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String], array.count != 0 {
+        var match = false
+        if let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations) as? [String], array.count != 0 {
             locations = array
             
             for (index, location) in array.enumerated() where location == previousMainLocation {
                 selectedIndex = index
+                match = true
             }
+        }
+        
+        if !match, EJLocationManager.shared.authStatus != .denied, EJLocationManager.shared.authStatus != .restricted {
+            shouldShowCurrent = true
         }
     }
     
     @objc func didCompleteChoosingLocation(_ notificaion: Notification) {
-        guard let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations.rawValue) as? [String] else { return }
+        guard let array = myUserDefaults.array(forKey: UserDefaultKey.myLocations) as? [String] else { return }
         locations = array
         tableView.reloadData()
     }
@@ -86,6 +96,8 @@ class EJMyLocalListViewController: EJBaseViewController {
         } else {
             if locations[selectedIndex] != previousMainLocation {
                 EJLocationManager.shared.updateMainLocation(locations[selectedIndex])
+            } else {
+//                EJLocationManager.shared.updateMainLocation(previousMainLocation)
             }
         }
         
@@ -118,7 +130,13 @@ extension EJMyLocalListViewController: UITableViewDataSource {
         switch sectionType {
         case .current:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
-            cell.locationLabel.text = "Show current location weather".localized
+            switch EJLocationManager.shared.authStatus {
+            case .authorizedAlways, .authorizedWhenInUse:
+                cell.locationLabel.textColor = .darkText
+                if shouldShowCurrent { cell.checkImageview.isHidden = false }
+            default:
+                cell.locationLabel.textColor = .lightGray
+            }
             return cell
         case .other:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EJNameTableViewCell.identifier) as? EJNameTableViewCell else { return UITableViewCell() }
@@ -140,10 +158,15 @@ extension EJMyLocalListViewController: UITableViewDelegate {
         guard let selectedSection = EJMyLocalListIndexType(rawValue: indexPath.section) else { return }
         switch selectedSection {
         case .current:
-            shouldShowCurrent = true
             
             switch EJLocationManager.shared.authStatus {
             case .authorizedAlways, .authorizedWhenInUse:
+                tableView.visibleCells.forEach { cell in
+                    guard let nameCell = cell as? EJNameTableViewCell else { return }
+                    nameCell.checkImageview.isHidden = true
+                }
+                
+                shouldShowCurrent = true
                 guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
                 cell.checkImageview.isHidden = false
             default:
@@ -154,7 +177,9 @@ extension EJMyLocalListViewController: UITableViewDelegate {
                 guard let nameCell = cell as? EJNameTableViewCell else { return }
                 nameCell.checkImageview.isHidden = true
             }
+            
             selectedIndex = indexPath.row
+            shouldShowCurrent = false
             
             guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
             cell.checkImageview.isHidden = false

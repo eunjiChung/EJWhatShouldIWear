@@ -30,11 +30,11 @@ class EJLibrary: NSObject {
             if error == nil {
                 if didAllow {
                     // Allowing Auth
-                    myUserDefaults.set(true, forKey: UserDefaultKey.switchId.rawValue)
+                    myUserDefaults.set(true, forKey: UserDefaultKey.switchId)
                     Library.allowNotification()
                 } else {
                     // Disallow Auth
-                    myUserDefaults.set(false, forKey: UserDefaultKey.switchId.rawValue)
+                    myUserDefaults.set(false, forKey: UserDefaultKey.switchId)
                 }
             } else {
                 EJLogger.e(error as Any)

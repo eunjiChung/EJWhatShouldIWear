@@ -26,6 +26,9 @@
 "day_after_tomorrow" = "あさって";
 
 // etc
+"setting_country" = "国設定";
+"complete"  = "完了";
+
 "share" = "愛する人と共有する";
 "share1" = "";
 "share2" = "";
@@ -180,3 +183,7 @@
 "desc_add_cool" = "暑さにお気をつけてください";
 "desc_add_cross" = "日較差が大きい";
 "desc_add_cloth" = "気を付けてください。";
+
+// MARK: - Country
+"korea" = "South Korea";
+"no_korea" = "Not South Korea";

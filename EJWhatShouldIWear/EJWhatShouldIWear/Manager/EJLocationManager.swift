@@ -16,6 +16,11 @@ struct EJLocationMainKey {
     static let country      = "country"
 }
 
+enum EJCountryType: String, CaseIterable {
+    case korea              = "korea"
+    case foreign            = "no_korea"
+}
+
 struct EJKoreaDefaultValue {
     static let latitude     = 37.51151
     static let longitude    = 127.0967
@@ -35,30 +40,32 @@ public class EJLocationManager: CLLocationManager {
     static let shared = EJLocationManager()
     
     // MARK: Properties
+    var selectedCountry: EJCountryType?
     var koreaCities: [EJKoreaCityModel]?
     
     var latitude: Double {
         if let lat = mainLocation?[EJLocationMainKey.latitude] as? Double { return lat }
-        return EJLocationDefaultValue.latitude
+        return EJKoreaDefaultValue.latitude
     }
     
     var longitude: Double {
         if let lon = mainLocation?[EJLocationMainKey.longitude] as? Double { return lon }
-        return EJLocationDefaultValue.longitude
+        return EJKoreaDefaultValue.longitude
     }
     
-    var country: String {
+    var country: String? {
+        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) { return nil }
         if let country = mainLocation?[EJLocationMainKey.country] as? String { return country }
-        return EJLocationDefaultValue.country
+        return selectedCountry?.rawValue ?? EJKoreaDefaultValue.country
     }
     
     var currentLocation: String {
         if let location = mainLocation?[EJLocationMainKey.location] as? String { return location }
-        return EJLocationDefaultValue.location
+        return EJKoreaDefaultValue.location
     }
     
     var mainLocation: [String: Any]? {
-        guard let location = myUserDefaults.dictionary(forKey: UserDefaultKey.mainLocation.rawValue) else { return nil }
+        guard let location = myUserDefaults.dictionary(forKey: UserDefaultKey.mainLocation) else { return nil }
         return location
     }
     
@@ -90,7 +97,6 @@ public class EJLocationManager: CLLocationManager {
 
             if let first = placemark?.first, let country = first.country {
                 var result = ""
-                // TODO: - subLocality가 잘 붙는지 확인
                 if let firstLocality = first.locality { result += "\(firstLocality)" }
                 if let subLocality = first.subLocality { result += " \(subLocality)" }
                 self.setNewDefaults(newLocation: current, country: country, name: result)
@@ -103,7 +109,9 @@ public class EJLocationManager: CLLocationManager {
     }
     
     func isKorea() -> Bool {
-        if country == "korea".localized { return true }
+        if let country = country, country == "korea".localized {
+            return true
+        }
         return false
     }
     
@@ -114,7 +122,7 @@ public class EJLocationManager: CLLocationManager {
             EJLocationMainKey.latitude : EJLocationDefaultValue.latitude,
             EJLocationMainKey.longitude : EJLocationDefaultValue.longitude
         ]
-        myUserDefaults.set(dict, forKey: UserDefaultKey.mainLocation.rawValue)
+        myUserDefaults.set(dict, forKey: UserDefaultKey.mainLocation)
     }
     
     func setNewDefaults(newLocation: CLLocation? = nil, country: String? = nil, name: String? = nil) {
@@ -124,10 +132,11 @@ public class EJLocationManager: CLLocationManager {
             EJLocationMainKey.latitude  : newLocation?.coordinate.latitude ?? EJKoreaDefaultValue.latitude,
             EJLocationMainKey.longitude : newLocation?.coordinate.longitude ?? EJKoreaDefaultValue.longitude
         ]
-        myUserDefaults.set(dict, forKey: UserDefaultKey.mainLocation.rawValue)
+        myUserDefaults.set(dict, forKey: UserDefaultKey.mainLocation)
     }
     
     func checkAuthorization(_ status: CLAuthorizationStatus?) {
+        
         if hasMainLocations {
             didSuccessUpdateLocationsClosure?()
         } else {
@@ -182,7 +191,7 @@ public class EJLocationManager: CLLocationManager {
                 self.didSuccessUpdateLocationsClosure?()
             }
         } else {
-            myUserDefaults.removeObject(forKey: UserDefaultKey.mainLocation.rawValue)
+            myUserDefaults.removeObject(forKey: UserDefaultKey.mainLocation)
             checkAuthorization(nil)
         }
     }
@@ -191,6 +200,8 @@ public class EJLocationManager: CLLocationManager {
 extension EJLocationManager: CLLocationManagerDelegate {
     // 처음 앱을 켤 때 & 권한 설정을 수정할 때
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) else { return }
+        
         if isKorea() {
             checkAuthorization(status)
         } else {

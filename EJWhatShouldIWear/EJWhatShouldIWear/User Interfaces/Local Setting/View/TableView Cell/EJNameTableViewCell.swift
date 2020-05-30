@@ -19,6 +19,8 @@ class EJNameTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        locationLabel.text = "Show current location weather".localized
     }
 
 }

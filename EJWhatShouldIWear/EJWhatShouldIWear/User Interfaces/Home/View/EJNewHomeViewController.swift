@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAnalytics
 import SideMenu
+import CoreLocation
 
 enum EJHomeSectionType: Int, CaseIterable {
     case showClothSection       = 0
@@ -35,6 +36,8 @@ class EJNewHomeViewController: EJBaseViewController {
     @IBOutlet weak var alcTopOfSideBackButton: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfMenuButton: NSLayoutConstraint!
     
+    @IBOutlet weak var pulldownImage: UIImageView!
+    
     // MARK: Properties
     var cellOpened = false
     
@@ -55,12 +58,16 @@ class EJNewHomeViewController: EJBaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if !EJLocationManager.shared.isKorea() {
-            myLocationField.isUserInteractionEnabled = false
-            addButton.isHidden = true
-        } else {
+        super.viewWillAppear(animated)
+        
+        guard let country = EJLocationManager.shared.selectedCountry else { return }
+        switch country {
+        case .korea:
             myLocationField.isUserInteractionEnabled = true
             addButton.isHidden = false
+        case .foreign:
+            myLocationField.isUserInteractionEnabled = false
+            addButton.isHidden = true
         }
     }
     
@@ -71,6 +78,12 @@ class EJNewHomeViewController: EJBaseViewController {
         startLoadingIndicator()
         configureSideMenu()
         EJAppStoreReviewManager.requestReviewIfAppropriate()     // 3회 방문시 스토어 리뷰 요청
+        
+        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
+            guard let introVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJIntroViewController") as? EJIntroViewController else { return }
+            introVC.modalPresentationStyle = .fullScreen
+            present(introVC, animated: false) { }
+        }
         
         addPullToRefreshControl(toScrollView: self.mainTableView) {
             EJLocationManager.shared.checkAuthorization(nil)
@@ -92,6 +105,8 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
+            guard myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) else { return }
+            
             guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
             self.show(vc, sender: self)
             vc.performSegue(withIdentifier: "showLocalList", sender: vc)
@@ -384,6 +399,8 @@ private extension EJNewHomeViewController {
         alcLeadingOfSideBackButton.constant = EJSize(18.0)
         alcTopOfSideBackButton.constant = EJSizeHeight(46.0)
         alcBottomOfMenuButton.constant = EJSizeHeight(8.0)
+        
+        pulldownImage.transform = CGAffineTransform(rotationAngle: (3.0 * .pi) / 2.0)
     }
     
     private func configureSideMenu() {

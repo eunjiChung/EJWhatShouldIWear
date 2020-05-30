@@ -10,6 +10,7 @@ import UIKit
 
 enum EJSettingListType: Int, CaseIterable {
     case notice = 0
+    case country
     case developerInfo
 }
 
@@ -59,6 +60,10 @@ extension EJSettingViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! EJInfoTableViewCell
             cell.titleLabel.text = "Notice".localized
             return cell
+        case .country:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as? EJInfoTableViewCell else { return UITableViewCell() }
+            cell.titleLabel.text = "setting_country".localized
+            return cell
         case .developerInfo:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! EJInfoTableViewCell
             return cell
@@ -79,6 +84,10 @@ extension EJSettingViewController: UITableViewDelegate {
         switch rowType {
         case .notice:
             self.performSegue(withIdentifier: "show_notice", sender: self)
+        case .country:
+            guard let introVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJIntroViewController") as? EJIntroViewController else { return }
+            introVC.modalPresentationStyle = .fullScreen
+            present(introVC, animated: true, completion: nil)
         case .developerInfo:
             self.performSegue(withIdentifier: "set_info_segue", sender: self)
         }

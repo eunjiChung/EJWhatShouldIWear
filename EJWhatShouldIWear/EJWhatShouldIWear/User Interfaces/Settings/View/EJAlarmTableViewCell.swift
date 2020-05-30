@@ -19,7 +19,7 @@ class EJAlarmTableViewCell: UITableViewCell {
         notiSetLabel.text = "setting_noti".localized
         descriptLabel.text = "alarm_message".localized
         
-        notificationSwitch.isOn = myUserDefaults.bool(forKey:UserDefaultKey.switchId.rawValue)
+        notificationSwitch.isOn = myUserDefaults.bool(forKey:UserDefaultKey.switchId)
     }
 
     @IBAction func didChangeNotificationState(_ sender: Any) {

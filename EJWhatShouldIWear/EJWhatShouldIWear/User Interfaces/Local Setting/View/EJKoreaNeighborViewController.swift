@@ -71,7 +71,9 @@ extension EJKoreaNeighborViewController: UITableViewDelegate {
         selectionHapticFeedback()
     
         if originalNameStack == "" { originalNameStack = locationNameStack }
-        if let name = neighborhoods?[indexPath.row] { locationNameStack += (" " + name) }
+        if let name = neighborhoods?[indexPath.row], !locationNameStack.contains(name) {
+            locationNameStack += (" " + name)
+        }
         
         guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
         cell.checkImageview.isHidden = false

@@ -20,18 +20,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alc-pf-nlE">
-                                        <rect key="frame" x="175.5" y="41.5" width="63" height="21"/>
+                                        <rect key="frame" x="175.5" y="36.5" width="63" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4Z-MN-2lm">
-                                        <rect key="frame" x="368" y="40" width="30" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="w3M-iP-FQv"/>
-                                        </constraints>
+                                        <rect key="frame" x="366" y="30" width="32" height="34"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="close_icon"/>
+                                        <state key="normal" title="완료"/>
                                         <connections>
                                             <action selector="didTouchDismiss:" destination="6nP-S6-gRm" eventType="touchUpInside" id="TqD-Im-Woi"/>
                                         </connections>
@@ -97,6 +94,7 @@
                     <navigationItem key="navigationItem" id="i89-Cr-exB"/>
                     <connections>
                         <outlet property="addButton" destination="cRD-vG-9Cs" id="OcK-l4-e9D"/>
+                        <outlet property="closeButton" destination="p4Z-MN-2lm" id="bfc-lC-sS5"/>
                         <outlet property="tableView" destination="xtE-bS-nVh" id="hXw-KA-I01"/>
                     </connections>
                 </viewController>
@@ -306,6 +304,5 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="back_icon" width="11" height="18"/>
-        <image name="close_icon" width="24" height="24"/>
     </resources>
 </document>

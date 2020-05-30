@@ -26,6 +26,9 @@
 "day_after_tomorrow" = "后天";
 
 // etc
+"setting_country" = "国家设置";
+"complete"  = "完成";
+
 "share" = "与亲人分享";
 "share1" = "";
 "share2" = "";
@@ -180,3 +183,7 @@
 "desc_add_cool" = "当心中暑。";
 "desc_add_cross" = "昼夜温差大了";
 "desc_add_cloth" = "请照顾";
+
+// MARK: - Country
+"korea" = "South Korea";
+"no_korea" = "Not South Korea";

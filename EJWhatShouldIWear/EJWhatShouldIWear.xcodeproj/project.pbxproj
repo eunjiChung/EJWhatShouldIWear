@@ -93,6 +93,7 @@
 		B637591D244B81BE0076FE2C /* EJNewHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */; };
 		B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591E244BA2B40076FE2C /* EJLayoutManager.swift */; };
 		B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375921244BB7610076FE2C /* EJAPIService.swift */; };
+		B658E07D2481D7F100F55430 /* EJIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658E07C2481D7F100F55430 /* EJIntroViewController.swift */; };
 		B673625F2314FFEF003B07AE /* EJBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */; };
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
@@ -256,6 +257,7 @@
 		B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJNewHomeViewModel.swift; sourceTree = "<group>"; };
 		B637591E244BA2B40076FE2C /* EJLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLayoutManager.swift; sourceTree = "<group>"; };
 		B6375921244BB7610076FE2C /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
+		B658E07C2481D7F100F55430 /* EJIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJIntroViewController.swift; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBlogTableViewCell.swift; sourceTree = "<group>"; };
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -664,6 +666,7 @@
 				99BB080C229E748400E454B8 /* EJShareViewController.swift */,
 				72BF779922D6370F00B2E121 /* SideMenuCell */,
 				B6375923244BCB6D0076FE2C /* TableView Cell */,
+				B658E07C2481D7F100F55430 /* EJIntroViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1134,6 +1137,7 @@
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
 				992B098D22BD53C200FF94B7 /* EJFiveDaysList.swift in Sources */,
+				B658E07D2481D7F100F55430 /* EJIntroViewController.swift in Sources */,
 				B6375917244B807A0076FE2C /* EJNewHomeViewController.swift in Sources */,
 				B63759032448FDC00076FE2C /* EJThreedaysWindModel.swift in Sources */,
 				B62E8B8E22F9464C00055A0E /* Date.swift in Sources */,

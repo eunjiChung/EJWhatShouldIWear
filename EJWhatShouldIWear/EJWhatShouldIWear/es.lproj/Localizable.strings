@@ -26,6 +26,9 @@
 "day_after_tomorrow" = "";
 
 // etc
+"setting_country" = "nacionalización";
+"complete"  = "acabamiento";
+
 "share" = "compartir con la amada";
 "share1" = "compartir";
 "share2" = "con la";
@@ -180,3 +183,7 @@
 "desc_add_cool" = "calor Ten cuidado.";
 "desc_add_cross" = "Hay una gran diferencia.";
 "desc_add_cloth" = "Guárdesela.";
+
+// MARK: - Country
+"korea" = "South Korea";
+"no_korea" = "Not South Korea";
