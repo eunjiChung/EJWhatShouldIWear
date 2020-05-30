@@ -94,6 +94,13 @@
 		B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591E244BA2B40076FE2C /* EJLayoutManager.swift */; };
 		B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375921244BB7610076FE2C /* EJAPIService.swift */; };
 		B658E07D2481D7F100F55430 /* EJIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658E07C2481D7F100F55430 /* EJIntroViewController.swift */; };
+		B657269F247D130E00D836D7 /* EJConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657269E247D130E00D836D7 /* EJConvertHelper.swift */; };
+		B65726A1247D211E00D836D7 /* EJKisangBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A0247D211E00D836D7 /* EJKisangBaseModel.swift */; };
+		B65726A3247D27D800D836D7 /* EJKisangWeekelyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A2247D27D800D836D7 /* EJKisangWeekelyModel.swift */; };
+		B65726A5247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A4247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift */; };
+		B65726A7247D308600D836D7 /* EJKisangTimelyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A6247D308600D836D7 /* EJKisangTimelyModel.swift */; };
+		B65726A9247D34F800D836D7 /* EJKisangCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A8247D34F800D836D7 /* EJKisangCodes.swift */; };
+		B658E07F2482639D00F55430 /* regionCode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = B658E07E2482639D00F55430 /* regionCode.xlsx */; };
 		B673625F2314FFEF003B07AE /* EJBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */; };
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
@@ -258,6 +265,13 @@
 		B637591E244BA2B40076FE2C /* EJLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLayoutManager.swift; sourceTree = "<group>"; };
 		B6375921244BB7610076FE2C /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
 		B658E07C2481D7F100F55430 /* EJIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJIntroViewController.swift; sourceTree = "<group>"; };
+		B657269E247D130E00D836D7 /* EJConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJConvertHelper.swift; sourceTree = "<group>"; };
+		B65726A0247D211E00D836D7 /* EJKisangBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangBaseModel.swift; sourceTree = "<group>"; };
+		B65726A2247D27D800D836D7 /* EJKisangWeekelyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangWeekelyModel.swift; sourceTree = "<group>"; };
+		B65726A4247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangWeekForecastModel.swift; sourceTree = "<group>"; };
+		B65726A6247D308600D836D7 /* EJKisangTimelyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangTimelyModel.swift; sourceTree = "<group>"; };
+		B65726A8247D34F800D836D7 /* EJKisangCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangCodes.swift; sourceTree = "<group>"; };
+		B658E07E2482639D00F55430 /* regionCode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = regionCode.xlsx; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBlogTableViewCell.swift; sourceTree = "<group>"; };
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -414,6 +428,7 @@
 				B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */,
 				B67A15A7244C567900F17C6D /* EJLogger.swift */,
 				B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */,
+				B657269E247D130E00D836D7 /* EJConvertHelper.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -562,6 +577,7 @@
 		99CC5119229D2F8700192450 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B657269D247D108E00D836D7 /* KiSangCheong */,
 				B63758E42448EBA50076FE2C /* Korea Weather */,
 				992B097122BD513B00FF94B7 /* Foreign Weather */,
 				B6262C2622FA771A009FC744 /* EJWeatherMainModel.swift */,
@@ -735,9 +751,22 @@
 			path = "TableView Cell";
 			sourceTree = "<group>";
 		};
+		B657269D247D108E00D836D7 /* KiSangCheong */ = {
+			isa = PBXGroup;
+			children = (
+				B65726A0247D211E00D836D7 /* EJKisangBaseModel.swift */,
+				B65726A2247D27D800D836D7 /* EJKisangWeekelyModel.swift */,
+				B65726A4247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift */,
+				B65726A6247D308600D836D7 /* EJKisangTimelyModel.swift */,
+				B65726A8247D34F800D836D7 /* EJKisangCodes.swift */,
+			);
+			path = KiSangCheong;
+			sourceTree = "<group>";
+		};
 		B6BCD7E42455A7AE003436D6 /* JSON Files */ = {
 			isa = PBXGroup;
 			children = (
+				B658E07E2482639D00F55430 /* regionCode.xlsx */,
 				B6E088D8245AC7A8006C6665 /* korea.json */,
 				B6BCD7E52455A7CC003436D6 /* korea_data.json */,
 			);
@@ -947,6 +976,7 @@
 				B6E088F2245B42FE006C6665 /* EJNameTableViewCell.xib in Resources */,
 				72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */,
 				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
+				B658E07F2482639D00F55430 /* regionCode.xlsx in Resources */,
 				B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */,
 				72CA9B1922D38CD000EFA227 /* WeekWeatherTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,
@@ -1131,6 +1161,7 @@
 				B6E088DF245AD065006C6665 /* EJAddLocationCell.swift in Sources */,
 				B6375915244B7F590076FE2C /* EJErrorBaseModel.swift in Sources */,
 				72CA9B1822D38CD000EFA227 /* WeekWeatherTableViewCell.swift in Sources */,
+				B657269F247D130E00D836D7 /* EJConvertHelper.swift in Sources */,
 				B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */,
 				B6E088F1245B42FE006C6665 /* EJNameTableViewCell.swift in Sources */,
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
@@ -1156,6 +1187,8 @@
 				992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */,
 				991F2298228972D300FDBC98 /* EJBaseViewController.swift in Sources */,
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
+				B65726A5247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift in Sources */,
+				B65726A3247D27D800D836D7 /* EJKisangWeekelyModel.swift in Sources */,
 				B673625F2314FFEF003B07AE /* EJBlogTableViewCell.swift in Sources */,
 				B602935D230FD5FD002BDA5E /* EJInstagramTableViewCell.swift in Sources */,
 				B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */,
@@ -1165,9 +1198,12 @@
 				998B8292228D54B80099B71A /* EJSettingViewController.swift in Sources */,
 				B603890B22FBE9D500F36416 /* EJClothModel.swift in Sources */,
 				992B098922BD53C200FF94B7 /* EJFiveDaysCoord.swift in Sources */,
+				B65726A7247D308600D836D7 /* EJKisangTimelyModel.swift in Sources */,
 				B63758F72448F82E0076FE2C /* EJThreedaysForecastModel.swift in Sources */,
 				B63759012448FDAD0076FE2C /* EJThreedaysHourTemperature.swift in Sources */,
 				B63758EF2448F65D0076FE2C /* EJSixdaysForecastModel.swift in Sources */,
+				B65726A1247D211E00D836D7 /* EJKisangBaseModel.swift in Sources */,
+				B65726A9247D34F800D836D7 /* EJKisangCodes.swift in Sources */,
 				B6375913244B7F270076FE2C /* EJLocationManager.swift in Sources */,
 				B63758F12448F68A0076FE2C /* EJSixdaysSkyModel.swift in Sources */,
 				99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */,
