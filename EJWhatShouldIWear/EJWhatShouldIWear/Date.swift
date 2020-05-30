@@ -33,6 +33,18 @@ extension String {
 }
 
 extension Date {
+    func generateWeatherBaseDate() -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyyMMdd"
+        return dateformatter.string(from: self)
+    }
+    
+    func generateWeatherBaseTime() -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyyMMdd0600"
+        return dateformatter.string(from: self)
+    }
+    
     func generateDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:00:00"

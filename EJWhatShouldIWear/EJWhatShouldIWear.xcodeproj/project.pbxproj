@@ -99,6 +99,7 @@
 		B65726A5247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A4247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift */; };
 		B65726A7247D308600D836D7 /* EJKisangTimelyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A6247D308600D836D7 /* EJKisangTimelyModel.swift */; };
 		B65726A9247D34F800D836D7 /* EJKisangCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A8247D34F800D836D7 /* EJKisangCodes.swift */; };
+		B658E07F2482639D00F55430 /* regionCode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = B658E07E2482639D00F55430 /* regionCode.xlsx */; };
 		B673625F2314FFEF003B07AE /* EJBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */; };
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
@@ -268,6 +269,7 @@
 		B65726A4247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangWeekForecastModel.swift; sourceTree = "<group>"; };
 		B65726A6247D308600D836D7 /* EJKisangTimelyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangTimelyModel.swift; sourceTree = "<group>"; };
 		B65726A8247D34F800D836D7 /* EJKisangCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangCodes.swift; sourceTree = "<group>"; };
+		B658E07E2482639D00F55430 /* regionCode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = regionCode.xlsx; sourceTree = "<group>"; };
 		B673625E2314FFEF003B07AE /* EJBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJBlogTableViewCell.swift; sourceTree = "<group>"; };
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -761,6 +763,7 @@
 		B6BCD7E42455A7AE003436D6 /* JSON Files */ = {
 			isa = PBXGroup;
 			children = (
+				B658E07E2482639D00F55430 /* regionCode.xlsx */,
 				B6E088D8245AC7A8006C6665 /* korea.json */,
 				B6BCD7E52455A7CC003436D6 /* korea_data.json */,
 			);
@@ -970,6 +973,7 @@
 				B6E088F2245B42FE006C6665 /* EJNameTableViewCell.xib in Resources */,
 				72CA9B1322D21C7A00EFA227 /* WeekelyCollectionViewCell.xib in Resources */,
 				997533B4228EE17E003DAF97 /* HeaderTableViewCell.xib in Resources */,
+				B658E07F2482639D00F55430 /* regionCode.xlsx in Resources */,
 				B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */,
 				72CA9B1922D38CD000EFA227 /* WeekWeatherTableViewCell.xib in Resources */,
 				999B20A422029E660073A0D9 /* Main.storyboard in Resources */,

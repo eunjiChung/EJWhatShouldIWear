@@ -169,7 +169,11 @@ extension EJNewHomeViewModel {
     
     // TODO: - 에러코드에 따라서 에러처리 해주기!!!
     func kisangTimelyWeather(success: @escaping (EJKisangTimelyBaseModel) -> (), failure: @escaping FailureHandler) {
-        let url = kisangBaseAPI + kisangTimelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=20&dataType=JSON&base_date=20200527&base_time=0500&nx=1&ny=1&"
+        let baseDate = Date().generateWeatherBaseDate()
+        let baseTime = "0500"
+        let gridX = EJLocationManager.shared.grid.X
+        let gridY = EJLocationManager.shared.grid.Y
+        let url = kisangBaseAPI + kisangTimelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=20&dataType=JSON&base_date=\(baseDate)&base_time=\(baseTime)&nx=\(gridX)&ny=\(gridY)"
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
             
@@ -186,7 +190,9 @@ extension EJNewHomeViewModel {
     }
     
     func kisangWeekelyWeather(success: @escaping (EJKisangWeekelyBaseModel) -> (), failure: @escaping FailureHandler) {
-        let url = kisangBaseAPI + kisangWeekelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=11B10101&tmFc=202005270600"
+        let regId = "11B10101"
+        let baseTime = Date().generateWeatherBaseTime()
+        let url = kisangBaseAPI + kisangWeekelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=\(regId)&tmFc=\(baseTime)"
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
             do {
@@ -202,7 +208,9 @@ extension EJNewHomeViewModel {
     }
     
     func kisangWeekelyForecastWeather(success: @escaping (EJKisangForecastBaseModel) -> (), failure: @escaping FailureHandler) {
-        let url = kisangBaseAPI + kisangWeekForcastAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=12A20000&tmFc=202005270600"
+        let regId = "12A20000"
+        let baseTime = Date().generateWeatherBaseTime()
+        let url = kisangBaseAPI + kisangWeekForcastAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=\(regId)&tmFc=\(baseTime)"
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
             do {

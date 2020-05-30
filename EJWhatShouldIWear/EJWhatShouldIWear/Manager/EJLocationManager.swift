@@ -71,6 +71,17 @@ public class EJLocationManager: CLLocationManager {
         return CLLocationManager.authorizationStatus()
     }
     
+    // MARK: - GRID for Kisangchung
+    var grid: EJCoordinate {
+        return EJConvertHelper().convertGRID_GPS(mode: .TO_GRID, latitude: latitude, longitude: longitude)
+    }
+    
+    var regionId: String {
+        
+        return ""
+    }
+    
+    
     var didRestrictLocationAuthorizationClosure: (()->())?
     var didSuccessUpdateLocationsClosure: (() -> Void)?
     var didFailUpdateLocationClosure: ((String)->Void)?
