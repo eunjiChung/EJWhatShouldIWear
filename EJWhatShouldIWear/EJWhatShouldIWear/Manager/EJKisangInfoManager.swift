@@ -25,8 +25,8 @@ class EJKisangInfoManager {
                 }
             }
         }
-        if currentHour < 2 {
-            resultHour = 23
+        if currentHour >= 0, currentHour <= 2 {
+            if currentHour == 2, currentMinute < 10 { resultHour = 23 }
         }
         
         if resultHour == 2 || resultHour == 5 || resultHour == 8 {
@@ -43,7 +43,7 @@ class EJKisangInfoManager {
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        
+
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
         
@@ -55,7 +55,7 @@ class EJKisangInfoManager {
         let time = date1.date(from: today)!
         
         if hour >= 0, hour <= 2 {
-            if hour == 2, minute > 10 { return "" }
+            if hour == 2, minute > 10 { return date.generateWeatherBaseDate() }
             return time.yesterday().generateWeatherBaseDate()
         }
         

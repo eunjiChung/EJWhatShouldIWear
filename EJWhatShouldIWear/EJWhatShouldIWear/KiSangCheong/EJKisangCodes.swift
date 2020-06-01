@@ -42,10 +42,10 @@ public enum EJSkyCode: Int {
 
 public enum EJPrecipitationCode: Int {
     case no = 0
-    case rain 
-    case both
-    case snow
-    case shower
+    case rain = 1
+    case both = 2
+    case snow = 3
+    case shower = 4
     
     var value: (code: Int, message: String) {
         switch self {

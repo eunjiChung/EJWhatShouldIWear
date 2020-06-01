@@ -47,12 +47,6 @@ final class EJNewHomeViewModel {
     
     // MARK: - Public Methods
     func requestKoreaWeather(_ index: Int) {
-//        callWeatherInfo(index, success: {
-//            self.didRequestKoreaWeatherInfoSuccessClosure?()
-//        }) { error in
-//            self.didRequestKoreaWeatherInfoFailureClosure?(error)
-//        }
-        
         callKisangWeatherInfo(success: {
             self.kisangTimelyModel = EJWeatherManager.shared.generateTodayTimelyWeather(self.kisangTimelyModel)
             self.didRequestKisangWeatherInfoSuccessClosure?()

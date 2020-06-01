@@ -107,11 +107,6 @@ extension TimeWeahtherTableViewCell: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath) as! TimeCollectionViewCell
             let index = indexPath.item
             
-            if let model = model {
-                cell.index = index
-                cell.model = model
-            }
-            
             if let model = weatherModel {
                 cell.setHourlyWeather(of: model, at: index)
             }

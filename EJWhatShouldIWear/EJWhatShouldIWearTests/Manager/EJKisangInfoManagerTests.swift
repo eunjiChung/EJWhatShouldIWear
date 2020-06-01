@@ -95,12 +95,17 @@ class EJKisangInfoManagerTests: XCTestCase {
     
     func test_giveDate_generateBaseDate1() {
         // given
-        let expectedDate = "20200601"
-        // when
-        let result = sut.generateBaseDate()
-        
-        // then
-//        print("❤️ Calendar: \(year)-\(month)-\(day)")
-        XCTAssertEqual(result, expectedDate)
+//        let expectedDate = "20200601"
+//        // when
+//        let result = sut.generateBaseDate()
+//
+//        // then
+////        print("❤️ Calendar: \(year)-\(month)-\(day)")
+//        XCTAssertEqual(result, expectedDate)
+    }
+    
+    func text_giveDate_generateProperDate() {
+        let result = sut.generateBaseDate("2020-06-02", 2, 17)
+        print("❤️", result)
     }
 }

@@ -131,5 +131,22 @@ public struct EJKisangWeekelyItemModel: Decodable {
     var taMax10: Int
     var taMax10Low: Int
     var taMax10High: Int
+    
+    func dictionaryRepresentation() -> [EJWeekelyCellModel] {
+        var array: [EJWeekelyCellModel] = []
+        array.append(EJWeekelyCellModel(maxTemp: taMax3, minTemp: taMin3))
+        array.append(EJWeekelyCellModel(maxTemp: taMax4, minTemp: taMin4))
+        array.append(EJWeekelyCellModel(maxTemp: taMax5, minTemp: taMin5))
+        array.append(EJWeekelyCellModel(maxTemp: taMax6, minTemp: taMin6))
+        array.append(EJWeekelyCellModel(maxTemp: taMax7, minTemp: taMin7))
+        array.append(EJWeekelyCellModel(maxTemp: taMax8, minTemp: taMin8))
+        array.append(EJWeekelyCellModel(maxTemp: taMax9, minTemp: taMin9))
+        return array
+    }
+}
+
+struct EJWeekelyCellModel {
+    let maxTemp: Int
+    let minTemp: Int
 }
 

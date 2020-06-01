@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KRWeekelyCollectionViewCell: UICollectionViewCell {
+final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "KRWeekelyCollectionViewCell"
 
@@ -27,6 +27,14 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var weekelyModel: EJWeekelyCellModel? {
+        didSet {
+            setDate()
+            setTemperature()
+            setDress()
+        }
+    }
+    
     // MARK: - IBOutlet
     @IBOutlet weak var backView: BackView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -41,7 +49,6 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var alcTopOfmintempLabel: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfDescriptionLabel: NSLayoutConstraint!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -51,6 +58,26 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
         alcTopOfTempLabel.constant = EJSizeHeight(10.0)
         alcTopOfmintempLabel.constant = EJSizeHeight(5.0)
         alcBottomOfDescriptionLabel.constant = EJSizeHeight(10.0)
+    }
+    
+    // MARK: - Kisang
+    private func setDate() {
+        let component = calendar.dateComponents([.weekday], from: today)
+        let day = (component.weekday! + item + 1) % 7
+        dateLabel.text = weekDay[day].localized
+    }
+    
+    private func setTemperature() {
+        guard let weekModel = weekelyModel else { return }
+        maxTempLabel.text = "\(weekModel.maxTemp)도"
+        minTempLabel.text = "\(weekModel.minTemp)도"
+    }
+    
+    private func setDress() {
+        guard let weekModel = weekelyModel else { return }
+        let dressString = EJClothManager.shared.setOuterCloth(by: weekModel.minTemp)
+        clothImageView.image = UIImage(named: dressString)
+        descriptionLabel.text = ""
     }
     
     // MARK: - Private Method
@@ -86,7 +113,6 @@ class KRWeekelyCollectionViewCell: UICollectionViewCell {
         }
         
         clothImageView.image = UIImage(named: clothName)
-//        descriptionLabel.text = WeatherManager.weatherDescription(condition)
     }
     
     private func getKRWeekday(of index: Int) -> String {

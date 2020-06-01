@@ -246,10 +246,6 @@ extension EJNewHomeViewController: UITableViewDataSource {
             case .closeClothsCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
                 
-//                if EJLocationManager.shared.isKorea() {
-//                    cell.model = viewModel.threedaysModel
-//                }
-                
                 if EJLocationManager.shared.isKorea() {
                     cell.newModels = viewModel.kisangTimelyModel
                 }
@@ -266,15 +262,10 @@ extension EJNewHomeViewController: UITableViewDataSource {
             }
         case .timelyWeatherSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
-            
-//            if EJLocationManager.shared.isKorea() {
-//                cell.model = viewModel.threedaysModel
-//            }
 
             if EJLocationManager.shared.isKorea() {
                 cell.newModels = viewModel.kisangTimelyModel
             }
-            
             
             if let model = viewModel.FiveDaysWeatherModel {
                 cell.setTimelyTable(of: model)
@@ -285,7 +276,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekWeatherTableViewCell.identifier, for: indexPath) as! WeekWeatherTableViewCell
             
             if EJLocationManager.shared.isKorea() {
-                cell.model = viewModel.sixdaysModel
+                cell.models = viewModel.kisangWeekelyModel
             }
             
             if let info = viewModel.FiveDaysWeatherList {

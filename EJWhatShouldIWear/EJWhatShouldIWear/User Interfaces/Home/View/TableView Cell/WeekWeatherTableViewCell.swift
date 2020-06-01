@@ -17,7 +17,7 @@ class WeekWeatherTableViewCell: UITableViewCell {
     var krTempList: EJSixdaysTemperatureModel?
     var krSkyList: EJSixdaysSkyModel?
     
-    var model: [EJSixdaysForecastModel]? {
+    var models: [EJKisangWeekelyItemModel]? {
         didSet {
             setKoreaWeekelyTimeTable()
         }
@@ -49,9 +49,6 @@ class WeekWeatherTableViewCell: UITableViewCell {
     }
 
     func setKoreaWeekelyTimeTable() {
-        guard let fcst6days = model?.first else { return }
-        krTempList = fcst6days.temperature
-        krSkyList = fcst6days.sky
         collectionView.reloadData()
     }
     
@@ -63,19 +60,15 @@ class WeekWeatherTableViewCell: UITableViewCell {
 
 extension WeekWeatherTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if krTempList != nil {
-            return 7
-        }
+        if let model = models?.first { return model.dictionaryRepresentation().count }
         return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if krTempList != nil {
+        if let model = models?.first {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KRWeekelyCollectionViewCell.identifier, for: indexPath) as! KRWeekelyCollectionViewCell
-            
-            cell.item = indexPath.item
-            cell.sixdaysSkyModel = krSkyList
-            cell.sixdaysTemperatureModel = krTempList
+            let dict = model.dictionaryRepresentation()
+            cell.weekelyModel = dict[indexPath.item]
             return cell
         }
         

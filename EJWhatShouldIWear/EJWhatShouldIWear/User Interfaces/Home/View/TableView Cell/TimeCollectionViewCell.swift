@@ -28,11 +28,6 @@ class TimeCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     let hour = "hour".localized
     var index: Int = 0
-    var model: [EJThreedaysForecastModel]? {
-        didSet {
-            setKRHourlyWeather()
-        }
-    }
     
     var skyModel: EJKisangTimelyModel?
     var rainyModel: EJKisangTimelyModel?
@@ -97,7 +92,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
             description = "흐려요"
         }
         
-        guard let rainyValue = Int(skyModel.fcstValue), let rainyType = EJPrecipitationCode(rawValue: rainyValue) else { return }
+        guard let rainyValue = Int(rainyModel.fcstValue), let rainyType = EJPrecipitationCode(rawValue: rainyValue) else { return }
         switch rainyType {
         case .no:
             EJLogger.d("")
@@ -119,59 +114,6 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: - Public Method
-    // TODO: 여기 정리해야돼...
-    public func setKRHourlyWeather() {
-        // 1. 현재 시간 받아오기
-        let date = Date()
-        // 2. 시간별 온도(fcst3hour-sky&temperature) 정보 받아오기
-        guard let fcstModel = model, let fcst3hour = fcstModel.first?.fcst3hour, let timeRelease = fcstModel.first?.timeRelease else { return }
-        // 현재 sky 정보 뿌릴 Label이 없음..
-        let sky = fcst3hour.sky
-        let temp = fcst3hour.temperature
-        // 3. 향후 3일 날씨까지 뿌리기
-        let unit = EJWeatherManager.shared.getValidUnit()
-        let timeIndex = 4 + 3 * index
-        
-        let tempList = temp.dictionaryRepresentation()
-        let skyList = sky.dictionaryRepresentation()
-        let strTemp = tempList["temp\(timeIndex)hour"]!
-        let skyCondition = skyList["name\(timeIndex)hour"]!
-
-        // hourLabel
-        let currentDate = timeRelease.toDate(0)
-        guard let releaseHour = Int(currentDate.todayHourString()) else { return }
-        let futureHour = (releaseHour + timeIndex) % 24
-        let num = Double((releaseHour + timeIndex) / 24)
-        let dayArray = ["today".localized, "tomorrow".localized, "day_after_tomorrow".localized, Date(timeIntervalSinceNow: 86400 * 3).dateCompose()]
-
-        hourLabel.text = "\(futureHour) \(hour)"
-
-        // dateLabel
-        if num == 0 && index == 0 {
-            dateLabel.text = dayArray[0]
-        } else {
-            if futureHour == 0 || futureHour == 1 || futureHour == 2 {
-                if dayArray[Int(num)] != "" {
-                    dateLabel.text = Date(timeIntervalSinceNow: 86400 * num).dateCompose()
-                } else {
-                    dateLabel.text = dayArray[Int(num)]
-                }
-            } else {
-                dateLabel.text = "-"
-            }
-        }
-
-        // tempLabel, skyConditionLabel, clothImageView 구성
-        if strTemp != "", let floatTemp = Float(strTemp) {
-            let intTemp = Int(floatTemp)
-            tempLabel.text = "\(intTemp)\(unit)"
-            skyConditionLabel.text = skyCondition
-
-            let style = EJClothManager.shared.setTopCloth(by: intTemp)
-            clothImageView.image = UIImage.init(named: style)
-        }
-    }
-    
     public func setHourlyWeather(of model: EJFiveDaysWeatherModel, at index: Int) {
         guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }
@@ -196,6 +138,4 @@ class TimeCollectionViewCell: UICollectionViewCell {
             
         }
     }
-    
-    // MARK: - Private Method
 }
