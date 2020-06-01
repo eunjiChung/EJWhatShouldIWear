@@ -39,9 +39,22 @@ class ShowClothTableViewCell: UITableViewCell {
     @IBOutlet weak var alcTopOfClothesView: NSLayoutConstraint!
     
     // MARK: - Properties
+    lazy var viewModel: EJShowClothViewModel = {
+        return EJShowClothViewModel()
+    }()
+    
     var model: [EJThreedaysForecastModel]? {
         didSet {
             generateKoreaMain()
+        }
+    }
+    
+    var newModels: [EJKisangTimelyModel]? {
+        didSet {
+            setAverageTemperature()
+            setDate()
+            setDescription()
+            setDressImages()
         }
     }
     
@@ -60,6 +73,42 @@ class ShowClothTableViewCell: UITableViewCell {
     }
 
     // MARK: - Public Method
+    private func setAverageTemperature() {
+        currentTempLabel.text = viewModel.generateAverageTemperature(with: newModels)
+    }
+    
+    private func setDate() {
+        let date = Date()
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        dateLabel.text = "\(month)월 \(day)일 \(hour)시"
+    }
+    
+    private func setDescription() {
+        suggestLabel.text = viewModel.generateDescription(with: newModels)
+    }
+    
+    private func setDressImages() {
+        let pointCloth = viewModel.generatePointCloth(with: newModels)
+        firstClothImageView.image = UIImage(named: pointCloth)
+        firstClothLabel.text = pointCloth.localized
+        let topCloth = viewModel.generateTopCloth(with: newModels)
+        secondClothImageview.image = UIImage(named: topCloth)
+        secondClothLabel.text = topCloth.localized
+        let bottomCloth = viewModel.generateBottomCloth(with: newModels)
+        thirdClothImageView.image = UIImage(named: bottomCloth)
+        thirdClothLabel.text = bottomCloth.localized
+        
+        addAnimation()
+    }
+    
+    
+    
+    
+    
+    // MARK: - Legacy
     public func generateKoreaMain() {
         guard let model = model, let forecast = model.first else {
             return
@@ -79,6 +128,7 @@ class ShowClothTableViewCell: UITableViewCell {
         generateClothRecommendation(weather)
     }
     
+    // MARK: - Foreign Main
     public func generateMain(by model: EJFiveDaysWeatherModel) {
         guard let city = model.city, let timezone = city.timezone else { return }
         guard let list = model.list else { return }

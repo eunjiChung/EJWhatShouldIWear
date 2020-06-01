@@ -42,6 +42,7 @@ public class EJLocationManager: CLLocationManager {
     // MARK: Properties
     var selectedCountry: EJCountryType?
     var koreaCities: [EJKoreaCityModel]?
+    var koreaCodes: EJKoreaRegionModel?
     
     var latitude: Double {
         if let lat = mainLocation?[EJLocationMainKey.latitude] as? Double { return lat }
@@ -79,16 +80,39 @@ public class EJLocationManager: CLLocationManager {
     }
     
     // MARK: - GRID for Kisangchung
-    var grid: EJCoordinate {
-        return EJConvertHelper().convertGRID_GPS(mode: .TO_GRID, latitude: latitude, longitude: longitude)
+    var grid: (X: Int, Y: Int) {
+        let coordinate = EJConvertHelper().convertGRID_GPS(mode: .TO_GRID, latitude: latitude, longitude: longitude)
+        return (coordinate.X, coordinate.Y)
     }
     
-    var regionId: String {
+    var regionCode: String {
+        let region = currentLocation.split(separator: " ")
+        guard let first = region.first, let codeModels = koreaCodes?.code else { return "11B10101" }
         
-        return ""
+        // 현재 location에서 city 이름을 가져온다
+        let area = "\(first)"
+        let subLocality = "\(region[1])"
+        
+        if bigCities.contains(area) {
+            // city 이름을 비교하여 id리턴
+            if let model = codeModels.first?[area], let code = model.first?.code { return code }
+        } else {
+            // sublocality까지 비교해서 id리턴
+            for areaModel in codeModels {
+                if let models = areaModel[area] {
+                    for model in models {
+                        if model.district == subLocality { return model.code }
+                    }
+                }
+            }
+        }
+        
+        return "11B10101"
     }
     
+    let bigCities = [ "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시", "울산광역시", "세종특별자치시"]
     
+    // MARK: - Closure
     var didRestrictLocationAuthorizationClosure: (()->())?
     var didSuccessUpdateLocationsClosure: (() -> Void)?
     var didFailUpdateLocationClosure: ((String)->Void)?
@@ -108,7 +132,8 @@ public class EJLocationManager: CLLocationManager {
 
             if let first = placemark?.first, let country = first.country {
                 var result = ""
-                if let firstLocality = first.locality { result += "\(firstLocality)" }
+                if let adminArea = first.administrativeArea { result += adminArea }
+                if let firstLocality = first.locality { result += " \(firstLocality)" }
                 if let subLocality = first.subLocality { result += " \(subLocality)" }
                 self.setNewDefaults(newLocation: current, country: country, name: result)
                 
@@ -224,5 +249,20 @@ extension EJLocationManager: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let current = locations.last else { return }
         getLocation(of: current)
+    }
+}
+
+extension EJLocationManager {
+    
+    public func setRegionId() {
+        
+        guard let path = Bundle.main.path(forResource: "regionId", ofType: "json")  else { return }
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options:  .mappedIfSafe)
+            let model = try JSONDecoder().decode(EJKoreaRegionModel.self, from: data)
+            koreaCodes = model
+        } catch {
+            EJLogger.d("Failed to generate Korea region id")
+        }
     }
 }

@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         // 한국 지역 런칭
         EJLocationManager.shared.setDefaultKoreaLocationList()
+        EJLocationManager.shared.setRegionId()
 
         return true
     }

@@ -6,8 +6,7 @@
 //  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 //
 
-import SwiftyJSON
-import CoreLocation
+import UIKit
 import Crashlytics
 
 // MARK: - Type Alias
@@ -41,7 +40,6 @@ class EJWeatherManager: NSObject {
     
     // MARK: - Properties
     var country: String = ""
-    let httpClient = EJHTTPClient.init()
     let WeatherClass = EJWeatherMainModel()
     var delegate: EJWeatherControlDelegate?
     
@@ -456,4 +454,84 @@ class EJWeatherManager: NSObject {
         }
     }
     
+}
+
+
+// MARK: - Kisangchung Methods
+extension EJWeatherManager {
+    
+    public func koreaBackgroundImage(by model: [EJKisangTimelyModel]?) -> UIImage {
+        guard let model = model else { return UIImage() }
+        
+        let currentHour = Calendar.current.component(.hour, from: Date())
+        if currentHour >= 20 || currentHour < 6 {
+            let pic = ["night1", "night2"].randomElement()!
+            return UIImage(named: pic)!
+        } else if currentHour >= 18 {
+            let pic = ["sunset1", "sunset2", "sunset3", "sunset4"].randomElement()!
+            return UIImage(named: pic)!
+        } else if currentHour >= 6 {
+            var todayModels: [EJKisangTimelyModel] = []
+            model.forEach { timelyModel in
+                if timelyModel.fcstDate == Date().generateWeatherBaseDate() {
+                    todayModels.append(timelyModel)
+                }
+            }
+            
+            var name = "background"
+            for timeModel in todayModels {
+                switch timeModel.category {
+                case .skyCode:
+                    guard let skyCode = EJSkyCode(rawValue: Int(timeModel.fcstValue)!) else { return UIImage() }
+                    
+                    switch skyCode {
+                    case .sunny:
+                        name = "clear"
+                    case .cloudy:
+                        // MARK: - 좀 더 맑은 하늘 넣기
+                        name = "cloud"
+                    case .grey:
+                        name = "cloud"
+                    }
+                case .rainFallType:
+                    guard let rainCode = EJPrecipitationCode(rawValue: Int(timeModel.fcstValue)!) else { return UIImage() }
+                    switch rainCode {
+                    case .no:
+                        EJLogger.d("")
+                    case .rain, .both, .shower:
+                        name = "rainy"
+                    case .snow:
+                        name = "snow"
+                    }
+                default:
+                    EJLogger.d("")
+                }
+            }
+            
+            return UIImage(named: name)!
+        }
+        
+        return UIImage(named: "background")!
+    }
+    
+    func generateTodayTimelyWeather(_ models: [EJKisangTimelyModel]?) -> [EJKisangTimelyModel] {
+        guard let models = models else { return [] }
+        
+        var todayModels: [EJKisangTimelyModel] = []
+        var fcstTime = models.first?.fcstTime ?? ""
+        
+        var index = 1
+        for model in models {
+            if model.fcstTime == fcstTime {
+                todayModels.append(model)
+            } else {
+                fcstTime = model.fcstTime
+                
+                if index == 8 { break }
+                index += 1
+            }
+        }
+        
+        return todayModels
+    }
 }

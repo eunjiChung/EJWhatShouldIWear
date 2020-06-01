@@ -47,10 +47,17 @@ final class EJNewHomeViewModel {
     
     // MARK: - Public Methods
     func requestKoreaWeather(_ index: Int) {
-        callWeatherInfo(index, success: {
-            self.didRequestKoreaWeatherInfoSuccessClosure?()
+//        callWeatherInfo(index, success: {
+//            self.didRequestKoreaWeatherInfoSuccessClosure?()
+//        }) { error in
+//            self.didRequestKoreaWeatherInfoFailureClosure?(error)
+//        }
+        
+        callKisangWeatherInfo(success: {
+            self.kisangTimelyModel = EJWeatherManager.shared.generateTodayTimelyWeather(self.kisangTimelyModel)
+            self.didRequestKisangWeatherInfoSuccessClosure?()
         }) { error in
-            self.didRequestKoreaWeatherInfoFailureClosure?(error)
+            self.didRequestKisangWeatherInfoFailureClosure?(error)
         }
     }
     
@@ -146,17 +153,6 @@ extension EJNewHomeViewModel {
             })
         }
         
-        dispatchGroup.enter()
-        dispatchQueue.async {
-            self.kisangWeekelyForecastWeather(success: { model in
-                self.kisangForecastModel = model.response.body.items.item
-                dispatchGroup.leave()
-            }, failure: { error in
-                resultError = error
-                dispatchGroup.leave()
-            })
-        }
-        
         dispatchGroup.notify(queue: .main) {
             EJLogger.d("=============== Dispatch Group ===== Done! ==============")
             if let error = resultError {
@@ -169,14 +165,13 @@ extension EJNewHomeViewModel {
     
     // TODO: - 에러코드에 따라서 에러처리 해주기!!!
     func kisangTimelyWeather(success: @escaping (EJKisangTimelyBaseModel) -> (), failure: @escaping FailureHandler) {
-        let baseDate = Date().generateWeatherBaseDate()
-        let baseTime = "0500"
+        let baseDate = EJKisangInfoManager().generateBaseDate()
+        let baseTime = EJKisangInfoManager().generateBaseTime()
         let gridX = EJLocationManager.shared.grid.X
         let gridY = EJLocationManager.shared.grid.Y
-        let url = kisangBaseAPI + kisangTimelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=20&dataType=JSON&base_date=\(baseDate)&base_time=\(baseTime)&nx=\(gridX)&ny=\(gridY)"
+        let url = kisangBaseAPI + kisangTimelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=225&dataType=JSON&base_date=\(baseDate)&base_time=\(baseTime)&nx=\(gridX)&ny=\(gridY)"
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
-            
             do {
                 guard let data = result else { return }
                 let model = try JSONDecoder().decode(EJKisangTimelyBaseModel.self, from: data)
@@ -190,32 +185,14 @@ extension EJNewHomeViewModel {
     }
     
     func kisangWeekelyWeather(success: @escaping (EJKisangWeekelyBaseModel) -> (), failure: @escaping FailureHandler) {
-        let regId = "11B10101"
-        let baseTime = Date().generateWeatherBaseTime()
+        let regId = EJLocationManager.shared.regionCode
+        let baseTime = EJKisangInfoManager().weekelyForecastTime()
         let url = kisangBaseAPI + kisangWeekelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=\(regId)&tmFc=\(baseTime)"
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
             do {
                 guard let data = result else { return }
                 let model = try JSONDecoder().decode(EJKisangWeekelyBaseModel.self, from: data)
-                success(model)
-            } catch {
-                failure(error)
-            }
-        }) { error in
-            failure(error)
-        }
-    }
-    
-    func kisangWeekelyForecastWeather(success: @escaping (EJKisangForecastBaseModel) -> (), failure: @escaping FailureHandler) {
-        let regId = "12A20000"
-        let baseTime = Date().generateWeatherBaseTime()
-        let url = kisangBaseAPI + kisangWeekForcastAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=\(regId)&tmFc=\(baseTime)"
-        
-        EJHTTPClient().weatherRequest(url: url, success: { result in
-            do {
-                guard let data = result else { return }
-                let model = try JSONDecoder().decode(EJKisangForecastBaseModel.self, from: data)
                 success(model)
             } catch {
                 failure(error)

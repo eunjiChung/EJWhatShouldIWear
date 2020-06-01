@@ -8,28 +8,28 @@
 
 import Foundation
 
-public enum EJKisangCategory: String, Decodable {
-    case POP    // 강수확률(%)
-    case PTY    // 강수형태(코드값)
-    case R06    // 6시간 강수량(범주 1mm)
-    case REH    // 습도(%)
-    case S06    // 6시간 신적설(범주 1cm)
-    case SKY    // 하늘상태(코드값)
-    case T3H    // 3시간 기온(℃)
-    case TMN    // 아침 최저기온(℃)
-    case TMX    // 낮 최고기온(℃)
-    case UUU    // 풍속(동서성분)(m/s)
-    case VVV    // 풍속(남북성분)(m/s)
-    case WAV    // 파고(M)
-    case VEC    // 풍향(m/s)
-    case WSD    // 풍속(1)
+enum EJKisangWeatherCode: String, Decodable {
+    case rainFallPercent            = "POP" // 강수확률(%)
+    case rainFallType               = "PTY" // 강수형태(코드값)
+    case sixHourRainFall            = "R06" // 6시간 강수량(범주 1mm)
+    case humidityPercentage         = "REH" // 습도(%)
+    case sixHourSnowFall            = "S06" // 6시간 신적설(범주 1cm)
+    case skyCode                    = "SKY" // 하늘상태(코드값)
+    case threeHourTemp              = "T3H" // 3시간 기온(℃)
+    case morningMinTemp             = "TMN" // 아침 최저기온(℃)
+    case noonMaxTemp                = "TMX" // 낮 최고기온(℃)
+    case windSpeedEastWest          = "UUU" // 풍속(동서성분)(m/s)
+    case windSpeedSouthNorth        = "VVV" // 풍속(남북성분)(m/s)
+    case waveHeight                 = "WAV" // 파고(M)
+    case windDirection              = "VEC" // 풍향(m/s)
+    case windSpeed                  = "WSD" // 풍속(1)
 }
 
 /// 사용법 : let skyCode = EJSkyCode.value.code
-public enum EJSkyCode {
-    case sunny
-    case cloudy
-    case grey
+public enum EJSkyCode: Int {
+    case sunny = 1
+    case cloudy = 3
+    case grey = 4
     
     var value: (code: Int, message: String) {
         switch self {
@@ -40,9 +40,9 @@ public enum EJSkyCode {
     }
 }
 
-public enum EJPrecipitationCode: String {
-    case no
-    case rain
+public enum EJPrecipitationCode: Int {
+    case no = 0
+    case rain 
     case both
     case snow
     case shower
@@ -58,7 +58,7 @@ public enum EJPrecipitationCode: String {
     }
 }
 
-public enum EJKisangCode: String {
+public enum EJKisangStatusCode: String {
     case NORMAL_SERVICE                                         = "00"
     case APPLICATION_ERROR                                      = "01"
     case DB_ERROR                                               = "02"

@@ -17,11 +17,21 @@ class TimeWeahtherTableViewCell: UITableViewCell {
     var timeRelease: String?
     var timeArray: [String]?
     var tempArray: [String]?
+    
     var model: [EJThreedaysForecastModel]? {
         didSet {
             setKRTimelyTable()
         }
     }
+    
+    var newModels: [EJKisangTimelyModel]? {
+        didSet {
+            setKisangTimely()
+        }
+    }
+    var tempModels: [EJKisangTimelyModel] = []
+    var skyModels: [EJKisangTimelyModel] = []
+    var rainyModels: [EJKisangTimelyModel] = []
     
     // MARK: - IBOutlets
     @IBOutlet weak var alcTopConstraintOfTextLabel: NSLayoutConstraint!
@@ -49,6 +59,26 @@ class TimeWeahtherTableViewCell: UITableViewCell {
         collectionView.register(UINib.init(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: TimeCollectionViewCell.identifier)
     }
     
+    // MARK: - Kisang Methods
+    func setKisangTimely() {
+        guard let newModels = newModels else { return }
+        
+        newModels.forEach { eachModel in
+            switch eachModel.category {
+            case .threeHourTemp:
+                tempModels.append(eachModel)
+            case .skyCode:
+                skyModels.append(eachModel)
+            case .rainFallType:
+                rainyModels.append(eachModel)
+            default:
+                EJLogger.d("")
+            }
+        }
+        
+        collectionView.reloadData()
+    }
+    
     // MARK: - Setting WeatherInfo Method
     func setTimelyTable(of model: EJFiveDaysWeatherModel) {
         weatherModel = model
@@ -64,6 +94,8 @@ class TimeWeahtherTableViewCell: UITableViewCell {
 // MARK: - CollectionView Data Source
 extension TimeWeahtherTableViewCell: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            if let _ = newModels { return tempModels.count }
+            
             if let model = model {
                 guard let fcst3hour = model.first?.fcst3hour else { return 6 }
                 return fcst3hour.temperature.dictionaryRepresentation().count-2
@@ -82,6 +114,12 @@ extension TimeWeahtherTableViewCell: UICollectionViewDataSource {
             
             if let model = weatherModel {
                 cell.setHourlyWeather(of: model, at: index)
+            }
+            
+            if let _ = newModels {
+                cell.skyModel = skyModels[indexPath.item]
+                cell.rainyModel = rainyModels[indexPath.item]
+                cell.tempModel = tempModels[indexPath.item]
             }
             
             return cell

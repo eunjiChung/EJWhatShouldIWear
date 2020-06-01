@@ -17,6 +17,12 @@ extension String {
         return dateFormatter.date(from: self)!
     }
     
+    func extractDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter.date(from: self)!
+    }
+    
     func onlyKRTime() -> Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:00:00"
@@ -33,6 +39,17 @@ extension String {
 }
 
 extension Date {
+    
+    func yesterday() -> Date {     
+       var dateComponents = DateComponents()
+       dateComponents.setValue(-1, for: .day)
+
+       let now = self
+       let yesterday = Calendar.current.date(byAdding: dateComponents, to: now)
+     
+       return yesterday!
+    }
+    
     func generateWeatherBaseDate() -> String {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "yyyyMMdd"
@@ -69,6 +86,11 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func todayDateKR() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHH0000"
+        return dateFormatter.string(from: self)
+    }
     
     func todayDateString() -> String {
         let dateFormatter = DateFormatter()
@@ -87,5 +109,11 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
         return Int(dateFormatter.string(from: self))!
+    }
+    
+    func currnetMinuteInt() -> Int {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "mm"
+        return Int(dateformatter.string(from: self))!
     }
 }

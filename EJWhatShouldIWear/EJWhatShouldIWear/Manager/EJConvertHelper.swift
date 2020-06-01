@@ -24,17 +24,19 @@ struct EJCoordinate {
 
 /// GPS <-> GRID
 /// LCC DFS 좌표변환
+/// https://fronteer.kr/service/kmaxy - 변환사이트
 final class EJConvertHelper {
     
     func convertGRID_GPS(mode: ConversionMode, latitude: Double = 0, longitude: Double = 0, gridX: Int = 0, gridY: Int = 0) -> EJCoordinate {
+
         let EARTH_RADIUS = 6371.00877           // 지구 반경(km)
         let GRID_SPACING = 5.0                  // 격자 간격(km)
-        let PROJECTION_LATITUDE1 = 30.0         // 투영 위도1(degree)
-        let PROJECTION_LATITUDE2 = 60.0         // 투영 위도2(degree)
-        let OLON = 126.0                        // 기준점 경도(degree)
+        let PROJECTION_LATITUDE1 = 30.0         // 표준 위도1(degree)
+        let PROJECTION_LATITUDE2 = 60.0         // 표준 위도2(degree)
         let OLAT = 38.0                         // 기준점 위도(degree)
-        let XO:Double = 43                      // 기준점 X좌표(GRID)
-        let YO:Double = 136                     // 기준점 Y좌표(GRID)
+        let OLON = 126.0                        // 기준점 경도(degree)
+        let XO:Double = 43.0      // 기준점 X좌표(GRID)
+        let YO:Double = 136      // 기준점 Y좌표(GRID)
         
         let DEGRAD = Double.pi / 180.0
         let RADDEG = 180.0 / Double.pi
@@ -51,15 +53,33 @@ final class EJConvertHelper {
         sf = pow(sf, sn) * cos(slat1) / sn
         var ro = tan(Double.pi * 0.25 + olat * 0.5)
         ro = re * sf / pow(ro, sn)
-        var rs = EJCoordinate(latitude: 0, longitude: 0, X: 0, Y: 0)
         
+        var rs = EJCoordinate(latitude: 0, longitude: 0, X: 0, Y: 0)
         switch mode {
-        case .TO_GPS:
-            rs.X = Int(latitude)
-            rs.Y = Int(longitude)
+        case .TO_GRID:
+            rs.latitude = latitude
+            rs.longitude = longitude
             
-            let xn = latitude - XO
-            let yn = ro - longitude + YO
+            var ra = tan(Double.pi * 0.25 + latitude * DEGRAD * 0.5)
+            ra = re * sf / pow(ra, sn)
+            
+            var theta = longitude * DEGRAD - olon
+            if theta > Double.pi {
+                theta -= 2.0 * Double.pi
+            }
+            if theta < -Double.pi {
+                theta += 2.0 * Double.pi
+            }
+            
+            theta *= sn
+            rs.X = Int(floor(ra * sin(theta) + XO + 0.5))
+            rs.Y = Int(floor(ro - ra * cos(theta) + YO + 0.5))
+        case .TO_GPS:
+            rs.X = gridX
+            rs.Y = gridY
+            
+            let xn = Double(gridX) - XO
+            let yn = ro - Double(gridY) + YO
             
             var ra = sqrt(xn * xn + yn * yn)
             if (sn < 0.0) {
@@ -86,24 +106,6 @@ final class EJConvertHelper {
             let alon = theta / sn + olon
             rs.latitude = alat * RADDEG
             rs.longitude = alon * RADDEG
-        case .TO_GRID:
-            rs.latitude = Double(gridX)
-            rs.longitude = Double(gridY)
-            
-            var ra = tan(Double.pi * 0.25 + Double(gridX) * DEGRAD * 0.5)
-            ra = re * sf / pow(ra, sn)
-            
-            var theta = Double(gridY) * DEGRAD - olon
-            if theta > Double.pi {
-                theta -= 2.0 * Double.pi
-            }
-            if theta < -Double.pi {
-                theta += 2.0 * Double.pi
-            }
-            
-            theta *= sn
-            rs.X = Int(floor(ra * sin(theta) + XO + 0.5))
-            rs.Y = Int(floor(ro - ra * cos(theta) + YO + 0.5))
         }
         
         return rs

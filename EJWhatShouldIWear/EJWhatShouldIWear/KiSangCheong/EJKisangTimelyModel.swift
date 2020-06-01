@@ -73,7 +73,7 @@ public struct EJKisangTimelyModel: Decodable {
     
     var baseDate: String
     var baseTime: String
-    var category: EJKisangCategory
+    var category: EJKisangWeatherCode
     var fcstDate: String
     var fcstTime: String
     var fcstValue: String

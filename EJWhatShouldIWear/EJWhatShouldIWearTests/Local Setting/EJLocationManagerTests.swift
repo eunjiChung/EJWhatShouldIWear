@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import EJWhatShouldIWear
+@testable import EJWhatShouldIWear
 
 class EJLocationManagerTests: XCTestCase {
     
@@ -16,16 +16,30 @@ class EJLocationManagerTests: XCTestCase {
     override func setUpWithError() throws {
         super.setUp()
         sut = EJLocationManager()
+        sut.setRegionId()
     }
 
     override func tearDownWithError() throws {
         sut = nil
         super.tearDown()
     }
-    
-    
-    func testGeo_convertAddressToCLLocationDegrees() {
-        sut.convertToAddressWith()
-    }
+//
+//    func testID_giveLocationString_getRegionId() {
+//        let expectedCode = "11B20601"
+//        let resultCode = sut.getRegionCode()
+//        XCTAssertEqual(expectedCode, resultCode)
+//    }
+//
+//    func testID_giveLocationString_getRegionId2() {
+//        let expectedCode = "11C20301"
+//        let resultCode = sut.getRegionCode()
+//        XCTAssertEqual(expectedCode, resultCode)
+//    }
+//
+//    func testID_giveLocationString_getRegionId3() {
+//        let expectedCode = "11C20301"
+//        let resultCode = sut.getRegionCode()
+//        XCTAssertEqual(expectedCode, resultCode)
+//    }
     
 }

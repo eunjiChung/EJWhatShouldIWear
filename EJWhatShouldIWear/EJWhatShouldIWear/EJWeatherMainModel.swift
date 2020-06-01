@@ -64,7 +64,6 @@ struct Bottom: Cloth {
     static let _9_11 = [SLACKS, BLUE_JEANS]
     static let _5_8 = [COTTON_PANTS]
     static let _4 = [COTTON_PANTS]
-    
 }
 
 struct Outer: Cloth {

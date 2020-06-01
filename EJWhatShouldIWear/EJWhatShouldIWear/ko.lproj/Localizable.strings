@@ -43,8 +43,8 @@
 "setting_info" = "개발자 정보";
 "send_title" = "건의합니다";
 "send_message" = "불편사항 건의합니다";
-"main_timely" = "3시간 날씨 (내일모레까지)";
-"main_weekely" = "일주일 날씨 (내일모레부터 일주일)";
+"main_timely" = "오늘 3시간 날씨";
+"main_weekely" = "일주일 날씨";
 "main_ad" = "광고";
 "hour" = "시";
 "temp" = "℃";

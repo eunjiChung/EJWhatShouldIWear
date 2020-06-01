@@ -41,7 +41,7 @@ class EJNewHomeViewController: EJBaseViewController {
         initViewModel()
         initNotification()
         
-        // TODO: - 얘를 꼭 한번 더 체크 해야겠어? ㅠㅠ
+        // TODO: - EJNewHomeViewController의 closure가 미리 컴파일(?)되지 않아 작동하지 않으므로...
         EJLocationManager.shared.checkAuthorization(nil)
     }
     
@@ -144,6 +144,24 @@ class EJNewHomeViewController: EJBaseViewController {
             self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.removeSplashScene()
         }
+        
+        // MARK: - Kisang Weather
+        viewModel.didRequestKisangWeatherInfoSuccessClosure = {
+            // TODO: - 배경화면 넣기 테스트
+            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.koreaBackgroundImage(by: self.viewModel.kisangTimelyModel))
+            self.mainTableView.reloadData()
+            self.stopPullToRefresh(toScrollView: self.mainTableView)
+            self.removeSplashScene()
+        }
+        
+        viewModel.didRequestKisangWeatherInfoFailureClosure = { error in
+            // TODO: - 에러 메시지 띄우기 (어떤 코드 문제인지)
+            self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
+            
+            self.stopPullToRefresh(toScrollView: self.mainTableView)
+            self.removeSplashScene()
+        }
+        
     }
     
     private func initNotification() {
@@ -206,9 +224,9 @@ extension EJNewHomeViewController {
     }
 }
 
-// MARK: - Tableview DataSource
+// MARK: - Tableview Data Source
 extension EJNewHomeViewController: UITableViewDataSource {
-    // TODO: - 테이블 섹션모델 만들어서, 이름 달아주기
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return EJHomeSectionType.allCases.count
     }
@@ -228,8 +246,12 @@ extension EJNewHomeViewController: UITableViewDataSource {
             case .closeClothsCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
                 
+//                if EJLocationManager.shared.isKorea() {
+//                    cell.model = viewModel.threedaysModel
+//                }
+                
                 if EJLocationManager.shared.isKorea() {
-                    cell.model = viewModel.threedaysModel
+                    cell.newModels = viewModel.kisangTimelyModel
                 }
                 
                 if let model = viewModel.FiveDaysWeatherModel {
@@ -245,9 +267,14 @@ extension EJNewHomeViewController: UITableViewDataSource {
         case .timelyWeatherSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
             
+//            if EJLocationManager.shared.isKorea() {
+//                cell.model = viewModel.threedaysModel
+//            }
+
             if EJLocationManager.shared.isKorea() {
-                cell.model = viewModel.threedaysModel
+                cell.newModels = viewModel.kisangTimelyModel
             }
+            
             
             if let model = viewModel.FiveDaysWeatherModel {
                 cell.setTimelyTable(of: model)

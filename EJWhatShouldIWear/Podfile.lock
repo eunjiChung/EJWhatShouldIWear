@@ -112,7 +112,7 @@ DEPENDENCIES:
   - SwiftyJSON (~> 5.0.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - Crashlytics
     - ESPullToRefresh
@@ -120,23 +120,22 @@ SPEC REPOS:
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
+    - FirebaseAnalyticsInterop
+    - FirebaseAuthInterop
     - FirebaseCore
+    - FirebaseDatabase
+    - FirebaseInAppMessaging
+    - FirebaseInAppMessagingDisplay
     - FirebaseInstanceID
     - FirebaseRemoteConfig
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
+    - leveldb-library
     - nanopb
     - Protobuf
     - SideMenu
     - SwiftyJSON
-  trunk:
-    - FirebaseAnalyticsInterop
-    - FirebaseAuthInterop
-    - FirebaseDatabase
-    - FirebaseInAppMessaging
-    - FirebaseInAppMessagingDisplay
-    - leveldb-library
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -165,4 +164,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 6210a9fe3203e3538c47500c27c72d6948e0bfd8
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.9.1

@@ -34,6 +34,18 @@ class TimeCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var skyModel: EJKisangTimelyModel?
+    var rainyModel: EJKisangTimelyModel?
+    var tempModel: EJKisangTimelyModel? {
+        didSet {
+            setDate(tempModel?.fcstDate ?? "")
+            setTime(tempModel?.fcstTime ?? "")
+            setTemperature()
+            setDescription()
+            setDress()
+        }
+    }
+    
     // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,6 +55,66 @@ class TimeCollectionViewCell: UICollectionViewCell {
         alcTopOfSkyConditionLabel.constant = EJSizeHeight(3.0)
         alcTopOfClothImage.constant = EJSizeHeight(10.0)
         alcBottomOfClothImage.constant = EJSizeHeight(7.0)
+    }
+    
+    // MARK: - Kisang
+    private func setDate(_ date: String) {
+        let startIndex = date.index(date.startIndex, offsetBy: 4)
+        let monthEndIndex = date.index(after: startIndex)
+        let month = "\(date[startIndex...monthEndIndex])"
+        
+        let dayStartIndex = date.index(after: monthEndIndex)
+        let dayEndIndex = date.index(after: dayStartIndex)
+        let day = "\(date[dayStartIndex...dayEndIndex])"
+        
+        dateLabel.text = "\(month)/\(day)"
+    }
+    
+    private func setTime(_ time: String) {
+        let startIndex = time.startIndex
+        let endIndex = time.index(after: startIndex)
+        let hourString = "\(time[startIndex...endIndex])"
+        hourLabel.text = hourString + hour
+    }
+    
+    private func setTemperature() {
+        guard let tempModel = self.tempModel, tempModel.category == .threeHourTemp else { return }
+        tempLabel.text = tempModel.fcstValue + EJWeatherManager.shared.getValidUnit()
+    }
+    
+    private func setDescription() {
+        guard let skyModel = self.skyModel, skyModel.category == .skyCode else { return }
+        guard let rainyModel = self.rainyModel, rainyModel.category == .rainFallType else { return }
+        var description = ""
+        
+        guard let skyValue = Int(skyModel.fcstValue), let skyType = EJSkyCode(rawValue: skyValue) else { return }
+        switch skyType {
+        case .sunny:
+            description = "맑아요"
+        case .cloudy:
+            description = "구름조금"
+        case .grey:
+            description = "흐려요"
+        }
+        
+        guard let rainyValue = Int(skyModel.fcstValue), let rainyType = EJPrecipitationCode(rawValue: rainyValue) else { return }
+        switch rainyType {
+        case .no:
+            EJLogger.d("")
+        case .rain, .both, .shower:
+            description = "비와요"
+        case .snow:
+            description = "눈와요"
+        }
+        
+        skyConditionLabel.text = description
+    }
+    
+    private func setDress() {
+        guard let tempModel = self.tempModel, tempModel.category == .threeHourTemp else { return }
+        guard let temp = Int(tempModel.fcstValue) else { return }
+        let style = EJClothManager.shared.setTopCloth(by: temp)
+        clothImageView.image = UIImage(named: style)
     }
     
     

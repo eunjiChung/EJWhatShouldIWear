@@ -12,6 +12,12 @@ final class EJClothManager {
     
     static let shared = EJClothManager()
     
+    // MARK: - Kisang Clothes
+    public func setItemByCondition() {
+        
+    }
+    
+    // MARK: - Legacy Clothes
     public func setClothByCondition(_ condition:WeatherCondition) -> String {
         switch condition {
         case .tornado, .ash, .dust, .haze:
