@@ -79,7 +79,7 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
 //        guard let oneDayWeather = weatherInfo(which: "weather", of: day) else { return "" }
 //        let oneDay = oneDayWeather as? EJFiveDaysWeather
 //        if let weatherID = oneDay?.id {
-//            return WeatherManager.weatherCondition(of: weatherID)
+//            return EJWeatherManager.shared.weatherCondition(of: weatherID)
 //        }
         
         return ""

@@ -276,9 +276,9 @@ extension EJNewHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekWeatherTableViewCell.identifier, for: indexPath) as! WeekWeatherTableViewCell
             
             if EJLocationManager.shared.isKorea() {
-                cell.models = viewModel.kisangWeekelyModel
+                cell.baseTime = viewModel.kisangWeekelyModel.date
+                cell.models = viewModel.kisangWeekelyModel.model
             }
-            
             if let info = viewModel.FiveDaysWeatherList {
                 cell.setWeekelyTimeTable(by:info)
             }

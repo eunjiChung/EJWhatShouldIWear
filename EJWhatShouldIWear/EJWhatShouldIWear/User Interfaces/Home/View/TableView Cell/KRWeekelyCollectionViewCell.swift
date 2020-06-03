@@ -27,6 +27,7 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var baseTime: String?
     var weekelyModel: EJWeekelyCellModel? {
         didSet {
             setDate()
@@ -62,8 +63,9 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Kisang
     private func setDate() {
-        let component = calendar.dateComponents([.weekday], from: today)
-        let day = (component.weekday! + item + 1) % 7
+        guard let time = baseTime else { return }
+        let component = calendar.dateComponents([.weekday], from: time.extractWeekDate())
+        let day = (component.weekday! + item) % 7
         dateLabel.text = weekDay[day].localized
     }
     

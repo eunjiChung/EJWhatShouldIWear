@@ -23,6 +23,12 @@ extension String {
         return dateFormatter.date(from: self)!
     }
     
+    func extractWeekDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHH00"
+        return dateFormatter.date(from: self)!
+    }
+    
     func onlyKRTime() -> Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:00:00"
@@ -78,6 +84,12 @@ extension Date {
         dateComponents.setValue(1, for: .day)
         guard let tomorrow = Calendar.current.date(byAdding: dateComponents, to: self) else { return self }
         return tomorrow
+    }
+    
+    func extractWeekday() -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "EEEE"
+        return dateformatter.string(from: self)
     }
     
     func generateWeatherBaseDate() -> String {

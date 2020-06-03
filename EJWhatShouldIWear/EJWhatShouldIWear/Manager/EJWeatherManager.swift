@@ -551,50 +551,6 @@ extension EJWeatherManager {
         }
     }
     
-    func generateModels(_ item: [EJKisangTimelyModel]) -> [EJKisangTimeModel]? {
-        var tempModels: [EJKisangTimeModel] = []
-        guard var date = item.first?.fcstDate, var time = item.first?.fcstTime else { return [] }
-        
-        var skyCode: EJSkyCode?
-        var rainyCode: EJPrecipitationCode?
-        var temperature: Int?
-        for model in item {
-            if model.fcstDate != date {
-                if let sky = skyCode, let rainy = rainyCode, let temp = temperature {
-                    tempModels.append(EJKisangTimeModel(fcstDate: date, fcstTime: time, temperature: temp, skyCode: sky, rainyCode: rainy))
-                    skyCode = nil
-                    rainyCode = nil
-                    temperature = nil
-                }
-                date = model.fcstDate
-            }
-            if model.fcstTime != time {
-                if let sky = skyCode, let rainy = rainyCode, let temp = temperature {
-                    tempModels.append(EJKisangTimeModel(fcstDate: date, fcstTime: time, temperature: temp, skyCode: sky, rainyCode: rainy))
-                    skyCode = nil
-                    rainyCode = nil
-                    temperature = nil
-                }
-                time = model.fcstTime
-            }
-            
-            if let value = Int(model.fcstValue) {
-                switch model.category {
-                case .skyCode:
-                    if let code = EJSkyCode(rawValue: value) { skyCode = code }
-                case .rainFallType:
-                    if let code = EJPrecipitationCode(rawValue: value) { rainyCode = code }
-                case .threeHourTemp:
-                    temperature = value
-                default:
-                    EJLogger.d("")
-                }
-            }
-        }
-        
-        return tempModels
-    }
-    
     public func priority(of weathers: [EJKisangTimeModel]?) -> EJWeatherType {
         guard let items = weathers else { return .no }
         guard let baseDate = items.first?.fcstDate else { return .no }

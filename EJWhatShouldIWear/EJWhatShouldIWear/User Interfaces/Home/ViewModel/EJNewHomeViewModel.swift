@@ -30,7 +30,7 @@ final class EJNewHomeViewModel {
     
     // MARK: - Kisangchung Models
     var kisangTimeModel: [EJKisangTimeModel]?
-    var kisangWeekelyModel: [EJKisangWeekelyItemModel]?
+    var kisangWeekelyModel: (date: String, model: [EJWeekelyCellModel]) = ("", model: [])
     var kisangForecastModel: [EJKisangWeekForecastModel]?
     
     // MARK: - Closures
@@ -127,7 +127,7 @@ extension EJNewHomeViewModel {
         dispatchGroup.enter()
         dispatchQueue.async {
             self.kisangTimelyWeather(success: { model in
-                self.kisangTimeModel = EJWeatherManager.shared.generateModels(model.response.body.items.item)
+                self.kisangTimeModel = self.generateTimeModels(model.response.body.items.item)
                 dispatchGroup.leave()
             }, failure: { error in
                 resultError = error
@@ -138,7 +138,7 @@ extension EJNewHomeViewModel {
         dispatchGroup.enter()
         dispatchQueue.async {
             self.kisangWeekelyWeather(success: { model in
-                self.kisangWeekelyModel = model.response.body.items.item
+                self.kisangWeekelyModel.model = self.generateWeekModel(model.response.body.items.item)
                 dispatchGroup.leave()
             }, failure: { error in
                 resultError = error
@@ -181,6 +181,7 @@ extension EJNewHomeViewModel {
         let regId = EJLocationManager.shared.regionCode
         let baseTime = EJKisangInfoManager().weekelyForecastTime()
         let url = kisangBaseAPI + kisangWeekelyAPI + "?serviceKey=\(kisangAppKey)&pageNo=1&numOfRows=10&dataType=JSON&regId=\(regId)&tmFc=\(baseTime)"
+        kisangWeekelyModel.date = baseTime
         
         EJHTTPClient().weatherRequest(url: url, success: { result in
             do {
@@ -193,6 +194,63 @@ extension EJNewHomeViewModel {
         }) { error in
             failure(error)
         }
+    }
+    
+    private func generateTimeModels(_ item: [EJKisangTimelyModel]) -> [EJKisangTimeModel]? {
+        var tempModels: [EJKisangTimeModel] = []
+        guard var date = item.first?.fcstDate, var time = item.first?.fcstTime else { return [] }
+        
+        var skyCode: EJSkyCode?
+        var rainyCode: EJPrecipitationCode?
+        var temperature: Int?
+        for model in item {
+            if model.fcstDate != date {
+                if let sky = skyCode, let rainy = rainyCode, let temp = temperature {
+                    tempModels.append(EJKisangTimeModel(fcstDate: date, fcstTime: time, temperature: temp, skyCode: sky, rainyCode: rainy))
+                    skyCode = nil
+                    rainyCode = nil
+                    temperature = nil
+                }
+                date = model.fcstDate
+            }
+            if model.fcstTime != time {
+                if let sky = skyCode, let rainy = rainyCode, let temp = temperature {
+                    tempModels.append(EJKisangTimeModel(fcstDate: date, fcstTime: time, temperature: temp, skyCode: sky, rainyCode: rainy))
+                    skyCode = nil
+                    rainyCode = nil
+                    temperature = nil
+                }
+                time = model.fcstTime
+            }
+            
+            if let value = Int(model.fcstValue) {
+                switch model.category {
+                case .skyCode:
+                    if let code = EJSkyCode(rawValue: value) { skyCode = code }
+                case .rainFallType:
+                    if let code = EJPrecipitationCode(rawValue: value) { rainyCode = code }
+                case .threeHourTemp:
+                    temperature = value
+                default:
+                    EJLogger.d("")
+                }
+            }
+        }
+        
+        return tempModels
+    }
+    
+    func generateWeekModel(_ model: [EJKisangWeekelyItemModel]) -> [EJWeekelyCellModel] {
+        guard let model = model.first else { return [] }
+        var array: [EJWeekelyCellModel] = []
+        array.append(EJWeekelyCellModel(maxTemp: model.taMax3, minTemp: model.taMin3))
+        array.append(EJWeekelyCellModel(maxTemp: model.taMax4, minTemp: model.taMin4))
+        array.append(EJWeekelyCellModel(maxTemp: model.taMax5, minTemp: model.taMin5))
+        array.append(EJWeekelyCellModel(maxTemp: model.taMax6, minTemp: model.taMin6))
+        array.append(EJWeekelyCellModel(maxTemp: model.taMax7, minTemp: model.taMin7))
+        array.append(EJWeekelyCellModel(maxTemp: model.taMax8, minTemp: model.taMin8))
+        array.append(EJWeekelyCellModel(maxTemp: model.taMax9, minTemp: model.taMin9))
+        return array
     }
 }
 
