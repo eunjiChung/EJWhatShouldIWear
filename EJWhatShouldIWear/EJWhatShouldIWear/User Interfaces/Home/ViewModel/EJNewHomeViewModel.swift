@@ -25,8 +25,6 @@ final class EJNewHomeViewModel {
     var weatherInfo: [EJFiveDaysList]?
     var FiveDaysWeatherList: [EJFiveDaysList]?
     var FiveDaysWeatherModel: EJFiveDaysWeatherModel?
-    var threedaysModel: [EJThreedaysForecastModel]?
-    var sixdaysModel: [EJSixdaysForecastModel]?
     
     // MARK: - Kisangchung Models
     var kisangTimeModel: [EJKisangTimeModel]?
@@ -34,8 +32,6 @@ final class EJNewHomeViewModel {
     var kisangForecastModel: [EJKisangWeekForecastModel]?
     
     // MARK: - Closures
-    var didRequestKoreaWeatherInfoSuccessClosure: (() -> Void)?
-    var didRequestKoreaWeatherInfoFailureClosure: ((Error) -> Void)?
     var didRequestWeatherInfo: ((Int) -> Void)?
     var didrequestForeignWeatherInfoSuccessClosure: (() -> Void)?
     var didrequestForeignWeatherInfoFailureClosure: ((Error) -> Void)?
@@ -64,56 +60,11 @@ final class EJNewHomeViewModel {
             self.didrequestForeignWeatherInfoFailureClosure?(error)
         }
     }
-    
-    public func callWeatherInfo(_ index: Int,
-                                success: @escaping () -> Void,
-                                failure: @escaping FailureHandler) {
-        // TODO: - DispatchGroup에서 배열을 closure안에서 저장하면 호출이 안된다...왜?
-        var resultError: Error?
-        EJLogger.d("=============== Dispatch Group ===== START! ==============")
-        
-        let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue.global()
-        
-        dispatchGroup.enter()
-        dispatchQueue.async {
-            self.skwpThreeDaysWeatherInfo(index,
-                                          success: { three in
-                                            guard let fcst3dayModel = three.weather.forecast3days else { return }
-                                            self.threedaysModel = fcst3dayModel
-                                            dispatchGroup.leave()
-            }) { (error) in
-                resultError = error
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.enter()
-        dispatchQueue.async {
-            self.skwpSixDaysWeatherInfo(index,
-                                        success: { six in
-                                            guard let fcstModel6dayModel = six.weather.forecast6days else { return }
-                                            self.sixdaysModel = fcstModel6dayModel
-                                            dispatchGroup.leave()
-            }) { (error) in
-                resultError = error
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            EJLogger.d("=============== Dispatch Group ===== Done! ==============")
-            if let error = resultError {
-                failure(error)
-            } else {
-                success()
-            }
-        }
-    }
 }
 
 // MARK: - KiSangChung Networking
 // TODO: - 네트워킹 코드 모야 라이브러리처럼 줄이기!
+// TODO: - DispatchGroup에서 배열을 closure안에서 저장하면 호출이 안된다...왜?
 extension EJNewHomeViewModel {
     
     public func callKisangWeatherInfo(success: @escaping () -> Void,
@@ -252,51 +203,6 @@ extension EJNewHomeViewModel {
         array.append(EJWeekelyCellModel(maxTemp: model.taMax8, minTemp: model.taMin8))
         array.append(EJWeekelyCellModel(maxTemp: model.taMax9, minTemp: model.taMin9))
         return array
-    }
-}
-
-// MARK: - SK Weather Planet API
-extension EJNewHomeViewModel {
-    private func skwpSixDaysWeatherInfo(_ index: Int, success: @escaping (EJSixdaysWeatherBaseModel) -> (),
-                                        failure: @escaping FailureHandler) {
-        let longitude = EJLocationManager.shared.longitude
-        let latitude = EJLocationManager.shared.latitude
-        let url = skWPSixDaysAPI + "?appKey=\(skAppKeys[index])&lat=\(latitude)&lon=\(longitude)"
-        EJHTTPClient().weatherRequest(url: url,
-                                      success: { resultData in
-                                        guard let data = resultData else {
-                                            self.didRequestWeatherInfo?(index+1)
-                                            return
-                                        }
-                                        
-                                        do {
-                                            let sixdaysModel = try JSONDecoder().decode(EJSixdaysWeatherBaseModel.self, from: data)
-                                            success(sixdaysModel)
-                                        } catch {
-                                            failure(error)
-                                        }
-        }, failure: failure)
-    }
-    
-    private func skwpThreeDaysWeatherInfo(_ index: Int, success: @escaping (EJThreedaysWeatherBaseModel) -> (),
-                                          failure: @escaping FailureHandler) {
-        let longitude = EJLocationManager.shared.longitude
-        let latitude = EJLocationManager.shared.latitude
-        let url = skWPThreeDaysAPI + "?appKey=\(skAppKeys[index])&lat=\(latitude)&lon=\(longitude)"
-        EJHTTPClient().weatherRequest(url: url,
-                                      success: { resultData in
-                                        guard let data = resultData else {
-                                            self.didRequestWeatherInfo?(index+1)
-                                            return
-                                        }
-                                        
-                                        do {
-                                            let threedaysModel = try JSONDecoder().decode(EJThreedaysWeatherBaseModel.self, from: data)
-                                            success(threedaysModel)
-                                        } catch {
-                                            failure(error)
-                                        }
-        }, failure: failure)
     }
 }
 

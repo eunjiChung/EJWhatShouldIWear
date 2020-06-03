@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: - Refactoring 필요
 final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "KRWeekelyCollectionViewCell"
@@ -19,14 +20,7 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     
     var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     
-    var item: Int = 0
-    var sixdaysSkyModel: EJSixdaysSkyModel?
-    var sixdaysTemperatureModel: EJSixdaysTemperatureModel? {
-        didSet {
-            setKoreaWeekelyInfo(item)
-        }
-    }
-    
+    var item: Int = 0    
     var baseTime: String?
     var weekelyModel: EJWeekelyCellModel? {
         didSet {
@@ -83,25 +77,7 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
         descriptionLabel.text = ""
     }
     
-    // MARK: - Private Method
-    func setKoreaWeekelyInfo(_ index: Int) {
-        guard let skyModel = sixdaysSkyModel, let tempModel = sixdaysTemperatureModel else { return }
-        let skyList = skyModel.dictionaryRepresentation()
-        let tempList = tempModel.dictionaryRepresentation()
-
-        let minTemp = tempList["tmin\(index+2)day"]!
-        let maxTemp = tempList["tmax\(index+2)day"]!
-        let pmCondition = skyList["pmCode\(index+2)day"]!
-        let amCondition = skyList["amCode\(index+2)day"]!
-        let condition = skyList["pmName\(index+2)day"]!
-
-        dateLabel.text = "\(getKRWeekday(of: index))"
-        maxTempLabel.text = maxTemp + "도"
-        minTempLabel.text = minTemp + "도"
-        generateValidCondition(pmCondition, amCondition, Int(minTemp)!)
-        descriptionLabel.text = condition
-    }
-    
+    // MARK: - Private Method    
     private func generateValidCondition(_ pm: String, _ am: String, _ temp: Int) {
         let codeNumber = am.components(separatedBy: ["S", "K", "Y", "_", "W"]).joined()
         let amCode = Int(codeNumber)!

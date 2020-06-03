@@ -13,7 +13,7 @@ class ClothsCollectionTableViewCell: UITableViewCell {
     static let identifier = "ClothsCollectionTableViewCell"
     // MARK: - Properties
     var clothesList = [String]()
-    var model: [EJThreedaysForecastModel]? {
+    var models: [EJKisangTimeModel]? {
         didSet {
             clothList()
         }
@@ -34,10 +34,8 @@ class ClothsCollectionTableViewCell: UITableViewCell {
     
     // MARK: - Public Method
     public func clothList() {
-        if let fcst = model?.first {
-            let fcst3hour = fcst.fcst3hour
-            let timeRelease = fcst.timeRelease
-            let weather = EJWeatherManager.shared.generateNewWeatherConditionKR(fcst3hour, timeRelease)
+        if let models = models {
+            let weather = EJWeatherManager.shared.todayTempInfo(with: models)
             self.clothesList = EJClothManager.shared.getClothList(weather.minTemp, weather.maxTemp)
         }
     }

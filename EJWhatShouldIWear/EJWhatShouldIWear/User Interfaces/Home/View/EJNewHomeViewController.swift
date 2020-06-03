@@ -109,26 +109,6 @@ class EJNewHomeViewController: EJBaseViewController {
             self.viewModel.requestKoreaWeather(index)
         }
         
-        viewModel.didRequestKoreaWeatherInfoSuccessClosure = {
-            guard let threedaysModel = self.viewModel.threedaysModel else {
-                // TODO: - 모델을 가져오지 못했을 때 에러처리를 해줘야 한다 (현재는 스플래시 뷰가 없어지지 않는 상태)
-                return
-            }
-            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateKRBackgroundView(by: threedaysModel))
-            self.mainTableView.reloadData()
-            
-            self.stopPullToRefresh(toScrollView: self.mainTableView)
-            self.removeSplashScene()
-        }
-        
-        viewModel.didRequestKoreaWeatherInfoFailureClosure = { error in
-            // TODO: - 에러 메시지 띄우기 (어떤 코드 문제인지)
-            self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
-            
-            self.stopPullToRefresh(toScrollView: self.mainTableView)
-            self.removeSplashScene()
-        }
-        
         viewModel.didrequestForeignWeatherInfoSuccessClosure = {
             guard let model = self.viewModel.FiveDaysWeatherModel else { return }
             self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateBackgroundView(by: model))
@@ -257,7 +237,11 @@ extension EJNewHomeViewController: UITableViewDataSource {
                 return cell
             case .showClothsCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: ClothsCollectionTableViewCell.identifier, for: indexPath) as! ClothsCollectionTableViewCell
-                cell.model = viewModel.threedaysModel
+                
+                if let model = viewModel.kisangTimeModel {
+                    cell.models = model
+                }
+
                 return cell
             }
         case .timelyWeatherSection:

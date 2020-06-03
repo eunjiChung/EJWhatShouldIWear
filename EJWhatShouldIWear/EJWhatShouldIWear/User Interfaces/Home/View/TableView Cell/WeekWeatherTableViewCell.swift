@@ -14,9 +14,6 @@ class WeekWeatherTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     var weatherInfo: [EJFiveDaysList]?
-    var krTempList: EJSixdaysTemperatureModel?
-    var krSkyList: EJSixdaysSkyModel?
-    
     var baseTime: String?
     var models: [EJWeekelyCellModel]? {
         didSet {
