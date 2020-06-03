@@ -43,17 +43,16 @@ class ShowClothTableViewCell: UITableViewCell {
         return EJShowClothViewModel()
     }()
     
-    var model: [EJThreedaysForecastModel]? {
-        didSet {
-            generateKoreaMain()
-        }
-    }
-    
     var newModels: [EJKisangTimelyModel]? {
         didSet {
             setAverageTemperature()
             setDate()
             setDescription()
+        }
+    }
+    
+    var newItems: EJKisangTimelyItemsModel? {
+        didSet {
             setDressImages()
         }
     }
@@ -91,41 +90,15 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     private func setDressImages() {
-        let pointCloth = viewModel.generatePointCloth(with: newModels)
+        let pointCloth = viewModel.generatePointCloth(with: newItems)
         firstClothImageView.image = UIImage(named: pointCloth)
         firstClothLabel.text = pointCloth.localized
-        let topCloth = viewModel.generateTopCloth(with: newModels)
+        let topCloth = viewModel.generateTopCloth(with: newItems)
         secondClothImageview.image = UIImage(named: topCloth)
         secondClothLabel.text = topCloth.localized
-        let bottomCloth = viewModel.generateBottomCloth(with: newModels)
+        let bottomCloth = viewModel.generateBottomCloth(with: newItems)
         thirdClothImageView.image = UIImage(named: bottomCloth)
         thirdClothLabel.text = bottomCloth.localized
-        
-        addAnimation()
-    }
-    
-    
-    
-    
-    
-    // MARK: - Legacy
-    public func generateKoreaMain() {
-        guard let model = model, let forecast = model.first else {
-            return
-        }
-        let fcst3hour = forecast.fcst3hour
-        let timeRelease = forecast.timeRelease
-        
-        // 1. 원하는 날짜 받아오기
-        let date = Date()
-        // TODO: 한국 타임존...
-        let today = date.todayDateKRString()
-        dateLabel.text = today
-       
-        let weather = EJWeatherManager.shared.generateNewWeatherConditionKR(fcst3hour, timeRelease)
-        currentTempLabel.text = "\(weather.mainTemp)"
-        unitLabel.text = EJWeatherManager.shared.getValidUnit()
-        generateClothRecommendation(weather)
     }
     
     // MARK: - Foreign Main

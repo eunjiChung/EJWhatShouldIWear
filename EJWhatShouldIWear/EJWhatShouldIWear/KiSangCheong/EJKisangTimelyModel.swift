@@ -57,6 +57,47 @@ public struct EJKisangTimelyItemsModel: Decodable {
     }
     
     var item: [EJKisangTimelyModel]
+    
+    func generateModels() -> [EJKisangTimeModel]? {
+        var tempModels: [EJKisangTimeModel] = []
+        guard var date = item.first?.fcstDate, var time = item.first?.fcstTime else { return [] }
+        
+        var skyCode: Int?
+        var rainyCode: Int?
+        var temperature: Int?
+        for model in item {
+            if model.fcstDate != date {
+                if let sky = skyCode, let rainy = rainyCode, let temp = temperature {
+                    tempModels.append(EJKisangTimeModel(skyCode: sky, fcstDate: date, fcstTime: time, rainyCode: rainy, temperature: temp))
+                    skyCode = nil
+                    rainyCode = nil
+                    temperature = nil
+                }
+                date = model.fcstDate
+            }
+            if model.fcstTime != time {
+                if let sky = skyCode, let rainy = rainyCode, let temp = temperature {
+                    tempModels.append(EJKisangTimeModel(skyCode: sky, fcstDate: date, fcstTime: time, rainyCode: rainy, temperature: temp))
+                    skyCode = nil
+                    rainyCode = nil
+                    temperature = nil
+                }
+                time = model.fcstTime
+            }
+            
+            if let value = Int(model.fcstValue), model.category == .skyCode {
+                skyCode = value
+            }
+            if let value = Int(model.fcstValue), model.category == .rainFallType {
+                rainyCode = value
+            }
+            if let value = Int(model.fcstValue), model.category == .threeHourTemp {
+                temperature = value
+            }
+        }
+        
+        return tempModels
+    }
 }
 
 public struct EJKisangTimelyModel: Decodable {
@@ -79,4 +120,12 @@ public struct EJKisangTimelyModel: Decodable {
     var fcstValue: String
     var nx: Int
     var ny: Int
+}
+
+public struct EJKisangTimeModel {
+    var skyCode: Int
+    var fcstDate: String
+    var fcstTime: String
+    var rainyCode: Int
+    var temperature: Int
 }

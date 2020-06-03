@@ -30,6 +30,7 @@ final class EJNewHomeViewModel {
     
     // MARK: - Kisangchung Models
     var kisangTimelyModel: [EJKisangTimelyModel]?
+    var kisangTimelyItems: EJKisangTimelyItemsModel?
     var kisangWeekelyModel: [EJKisangWeekelyItemModel]?
     var kisangForecastModel: [EJKisangWeekForecastModel]?
     
@@ -129,6 +130,7 @@ extension EJNewHomeViewModel {
         dispatchQueue.async {
             self.kisangTimelyWeather(success: { model in
                 self.kisangTimelyModel = model.response.body.items.item
+                self.kisangTimelyItems = model.response.body.items
                 dispatchGroup.leave()
             }, failure: { error in
                 resultError = error

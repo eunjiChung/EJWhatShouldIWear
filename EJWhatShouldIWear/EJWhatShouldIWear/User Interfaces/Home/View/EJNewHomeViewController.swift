@@ -248,6 +248,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
                 
                 if EJLocationManager.shared.isKorea() {
                     cell.newModels = viewModel.kisangTimelyModel
+                    cell.newItems = viewModel.kisangTimelyItems
                 }
                 
                 if let model = viewModel.FiveDaysWeatherModel {

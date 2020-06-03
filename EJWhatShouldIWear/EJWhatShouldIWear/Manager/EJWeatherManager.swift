@@ -534,4 +534,35 @@ extension EJWeatherManager {
         
         return todayModels
     }
+    
+    public func criticCondition(by type: EJWeatherCondition, code: Int) -> EJWeatherType {
+        switch type {
+        case .sky:
+            guard let skyCode = EJSkyCode(rawValue: code) else { return .no }
+            switch skyCode {
+            case .sunny:    return .sunny
+            case .cloudy:   return .cloudy
+            case .grey:     return .soCloudy
+            }
+        case .rainy:
+            guard let rainyCode = EJPrecipitationCode(rawValue: code) else { return .no }
+            switch rainyCode {
+            case .no:       return .no
+            case .rain:     return .rain
+            case .shower:   return .shower
+            case .snow:     return .snow
+            case .both:     return .both
+            }
+        }
+    }
+    
+    public func properSeasonValue(_ date: String, _ min: Int, _ max: Int) -> Int {
+        guard let month = EJMonth(rawValue: date.extractMonth()) else { return 0 }
+        switch month {
+        case .dec, .jan, .feb:       return min
+        case .march, .april, .may:   return max
+        case .june, .july, .aug:     return max
+        case .sep, .oct, .nov:       return min
+        }
+    }
 }

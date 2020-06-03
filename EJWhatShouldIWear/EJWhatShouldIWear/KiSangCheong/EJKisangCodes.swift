@@ -25,6 +25,22 @@ enum EJKisangWeatherCode: String, Decodable {
     case windSpeed                  = "WSD" // 풍속(1)
 }
 
+public enum EJWeatherCondition {
+    case sky
+    case rainy
+}
+
+public enum EJWeatherType: Int {
+    case no
+    case sunny
+    case cloudy
+    case soCloudy
+    case rain
+    case shower
+    case both
+    case snow
+}
+
 /// 사용법 : let skyCode = EJSkyCode.value.code
 public enum EJSkyCode: Int {
     case sunny = 1

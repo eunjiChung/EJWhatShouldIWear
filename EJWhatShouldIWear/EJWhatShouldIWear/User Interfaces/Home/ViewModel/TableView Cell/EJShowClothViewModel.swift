@@ -17,9 +17,11 @@ enum EJTimeSection: String {
     case night21  = "2100"
 }
 
+enum EJMonth: Int {
+    case jan = 1, feb, march, april, may, june, july, aug, sep, oct, nov, dec
+}
+
 final class EJShowClothViewModel {
-    
-    
     
     public func generateAverageTemperature(with models: [EJKisangTimelyModel]?) -> String {
         guard let models = models else { return "" }
@@ -41,10 +43,6 @@ final class EJShowClothViewModel {
     
     public func generateDescription(with models: [EJKisangTimelyModel]?) -> String {
         // TODO: - 우선순위를 두고 description 만들기
-        var morningDesc = ""
-        var dayDesc = ""
-        var nightDesc = ""
-        var totalDescription = ""
         var description = ""
         var minTemp = 0
         
@@ -68,19 +66,53 @@ final class EJShowClothViewModel {
         return description
     }
     
-    public func generatePointCloth(with models: [EJKisangTimelyModel]?) -> String {
-        
-        return ""
+    public func generatePointCloth(with items: EJKisangTimelyItemsModel?) -> String {
+        guard let items = items, let models = items.generateModels() else { return "" }
+        guard let baseDate = models.first?.fcstDate else { return "" }
+        // 1. 핵심적인 오늘의 날씨코드를 뽑아낸다
+        var originType: EJWeatherType = .no
+        for model in models where baseDate == model.fcstDate {
+            let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode)
+            let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode)
+            guard let newType: EJWeatherType = EJWeatherType(rawValue: max(skyType.rawValue, rainyType.rawValue)) else { return "" }
+            originType = EJWeatherType(rawValue: max(originType.rawValue, newType.rawValue)) ?? .no
+        }
+        // 2. 그걸 기반으로 오늘의 포인트를 뽑아낸다
+        return EJClothManager.shared.setItem(by: originType)
     }
     
-    public func generateTopCloth(with models: [EJKisangTimelyModel]?) -> String {
+    public func generateTopCloth(with items: EJKisangTimelyItemsModel?) -> String {
+        guard let items = items, let models = items.generateModels() else { return "" }
+        guard let baseDate = models.first?.fcstDate else { return "" }
         
-        return ""
+        // 1. 최대, 최소 온도를 구한다
+        var minTemp = 100
+        var maxTemp = -100
+        for model in models where baseDate == model.fcstDate {
+            if model.fcstTime != "0000", model.fcstTime != "0300" {
+                minTemp = min(minTemp, model.temperature)
+                maxTemp = max(maxTemp, model.temperature)
+            }
+        }
+        // 2. 그걸 기반으로 오늘의 포인트를 뽑아낸다
+        return EJClothManager.shared.setTopCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
     }
     
-    public func generateBottomCloth(with models: [EJKisangTimelyModel]?) -> String {
+    public func generateBottomCloth(with items: EJKisangTimelyItemsModel?) -> String {
+        guard let items = items, let models = items.generateModels() else { return "" }
+        guard let baseDate = models.first?.fcstDate else { return "" }
         
-        return ""
+        // 1. 최대, 최소 온도를 구한다
+        var minTemp = 100
+        var maxTemp = -100
+        for model in models where baseDate == model.fcstDate {
+            if model.fcstTime != "0000", model.fcstTime != "0300" {
+                minTemp = min(minTemp, model.temperature)
+                maxTemp = max(maxTemp, model.temperature)
+            }
+        }
+        // 2. 그걸 기반으로 오늘의 포인트를 뽑아낸다
+        return EJClothManager.shared.setBottomCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
     }
     
     // MARK: - Private Methods

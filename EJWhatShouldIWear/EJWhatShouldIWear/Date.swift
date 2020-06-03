@@ -36,6 +36,32 @@ extension String {
         guard let date = self.components(separatedBy: " ").first else { return "" }
         return date
     }
+    
+    func extractHour() -> Int {
+        guard self != "" else { return 0 }
+        
+        let startIndex = self.startIndex
+        let endIndex = self.index(after: startIndex)
+        let hourString = "\(self[startIndex...endIndex])"
+        if let hour = Int(hourString) {
+            return hour
+        } else {
+            return 0
+        }
+    }
+    
+    func extractMonth() -> Int {
+        guard self != "" else { return 1 }
+        
+        let startIndex = self.index(self.startIndex, offsetBy: 4)
+        let endIndex = self.index(after: startIndex)
+        let hourString = "\(self[startIndex...endIndex])"
+        if let hour = Int(hourString) {
+            return hour
+        } else {
+            return 1
+        }
+    }
 }
 
 extension Date {
@@ -43,11 +69,15 @@ extension Date {
     func yesterday() -> Date {     
        var dateComponents = DateComponents()
        dateComponents.setValue(-1, for: .day)
-
-       let now = self
-       let yesterday = Calendar.current.date(byAdding: dateComponents, to: now)
-     
-       return yesterday!
+        guard let yesterday = Calendar.current.date(byAdding: dateComponents, to: self) else { return self }
+       return yesterday
+    }
+    
+    func tomorrow() -> Date {
+        var dateComponents = DateComponents()
+        dateComponents.setValue(1, for: .day)
+        guard let tomorrow = Calendar.current.date(byAdding: dateComponents, to: self) else { return self }
+        return tomorrow
     }
     
     func generateWeatherBaseDate() -> String {

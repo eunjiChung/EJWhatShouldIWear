@@ -13,8 +13,19 @@ final class EJClothManager {
     static let shared = EJClothManager()
     
     // MARK: - Kisang Clothes
-    public func setItemByCondition() {
-        
+    public func setItem(by condition: EJWeatherType) -> String {
+        switch condition {
+        case .rain, .shower, .both:
+            return UMBRELLA
+        case .snow:
+            return [FUR_GLOVES, FUR_HAT, MUFFLER].randomElement()!
+        default:
+            return setOuterItem(by: condition)
+        }
+    }
+    
+    public func setOuterItem(by condition: EJWeatherType) -> String {
+        return ""
     }
     
     // MARK: - Legacy Clothes
