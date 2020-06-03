@@ -21,6 +21,12 @@ enum EJMonth: Int {
     case jan = 1, feb, march, april, may, june, july, aug, sep, oct, nov, dec
 }
 
+enum EJShowClothType {
+    case outer
+    case top
+    case bottom
+}
+
 final class EJShowClothViewModel {
     
     public func generateAverageTemperature(with models: [EJKisangTimelyModel]?) -> String {
@@ -66,53 +72,42 @@ final class EJShowClothViewModel {
         return description
     }
     
-    public func generatePointCloth(with items: EJKisangTimelyItemsModel?) -> String {
-        guard let items = items, let models = items.generateModels() else { return "" }
-        guard let baseDate = models.first?.fcstDate else { return "" }
-        // 1. 핵심적인 오늘의 날씨코드를 뽑아낸다
+    public func generatePointCloth(with items: [EJKisangTimeModel]?) -> String {
+        guard let items = items else { return "" }
+        guard let baseDate = items.first?.fcstDate else { return "" }
+        
         var originType: EJWeatherType = .no
-        for model in models where baseDate == model.fcstDate {
+        for model in items where baseDate == model.fcstDate {
             let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode)
             let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode)
             guard let newType: EJWeatherType = EJWeatherType(rawValue: max(skyType.rawValue, rainyType.rawValue)) else { return "" }
             originType = EJWeatherType(rawValue: max(originType.rawValue, newType.rawValue)) ?? .no
         }
-        // 2. 그걸 기반으로 오늘의 포인트를 뽑아낸다
+        
         return EJClothManager.shared.setItem(by: originType)
     }
     
-    public func generateTopCloth(with items: EJKisangTimelyItemsModel?) -> String {
-        guard let items = items, let models = items.generateModels() else { return "" }
-        guard let baseDate = models.first?.fcstDate else { return "" }
+    public func generateCloth(type: EJShowClothType,with items: [EJKisangTimeModel]?) -> String {
+        guard let items = items else { return "" }
+        guard let baseDate = items.first?.fcstDate else { return "" }
         
-        // 1. 최대, 최소 온도를 구한다
         var minTemp = 100
         var maxTemp = -100
-        for model in models where baseDate == model.fcstDate {
+        for model in items where baseDate == model.fcstDate {
             if model.fcstTime != "0000", model.fcstTime != "0300" {
                 minTemp = min(minTemp, model.temperature)
                 maxTemp = max(maxTemp, model.temperature)
             }
         }
-        // 2. 그걸 기반으로 오늘의 포인트를 뽑아낸다
-        return EJClothManager.shared.setTopCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
-    }
-    
-    public func generateBottomCloth(with items: EJKisangTimelyItemsModel?) -> String {
-        guard let items = items, let models = items.generateModels() else { return "" }
-        guard let baseDate = models.first?.fcstDate else { return "" }
         
-        // 1. 최대, 최소 온도를 구한다
-        var minTemp = 100
-        var maxTemp = -100
-        for model in models where baseDate == model.fcstDate {
-            if model.fcstTime != "0000", model.fcstTime != "0300" {
-                minTemp = min(minTemp, model.temperature)
-                maxTemp = max(maxTemp, model.temperature)
-            }
+        switch type {
+        case .outer:
+            return EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
+        case .top:
+            return EJClothManager.shared.setTopCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
+        case .bottom:
+            return EJClothManager.shared.setBottomCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
         }
-        // 2. 그걸 기반으로 오늘의 포인트를 뽑아낸다
-        return EJClothManager.shared.setBottomCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
     }
     
     // MARK: - Private Methods
@@ -184,7 +179,7 @@ final class EJShowClothViewModel {
                 if originDescription.contains(today) {
                     let string = "일교차는 커요! 겉옷을 챙기세요~"
                     if !originDescription.contains(string) &&
-                    !originDescription.contains("일교차가 커요! 겉옷을 챙기세요~"){
+                        !originDescription.contains("일교차가 커요! 겉옷을 챙기세요~"){
                         description += string
                     }
                 } else {

@@ -247,8 +247,9 @@ extension EJNewHomeViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
                 
                 if EJLocationManager.shared.isKorea() {
+                    // TODO: - 얘 지워야되...newModels
                     cell.newModels = viewModel.kisangTimelyModel
-                    cell.newItems = viewModel.kisangTimelyItems
+                    cell.timeModels = viewModel.kisangTimeModel
                 }
                 
                 if let model = viewModel.FiveDaysWeatherModel {

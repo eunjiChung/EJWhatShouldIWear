@@ -51,7 +51,7 @@ class ShowClothTableViewCell: UITableViewCell {
         }
     }
     
-    var newItems: EJKisangTimelyItemsModel? {
+    var timeModels: [EJKisangTimeModel]? {
         didSet {
             setDressImages()
         }
@@ -90,13 +90,13 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     private func setDressImages() {
-        let pointCloth = viewModel.generatePointCloth(with: newItems)
+        let pointCloth = viewModel.generatePointCloth(with: timeModels)
         firstClothImageView.image = UIImage(named: pointCloth)
         firstClothLabel.text = pointCloth.localized
-        let topCloth = viewModel.generateTopCloth(with: newItems)
+        let topCloth = viewModel.generateCloth(type: .top, with: timeModels)
         secondClothImageview.image = UIImage(named: topCloth)
         secondClothLabel.text = topCloth.localized
-        let bottomCloth = viewModel.generateBottomCloth(with: newItems)
+        let bottomCloth = viewModel.generateCloth(type: .bottom, with: timeModels)
         thirdClothImageView.image = UIImage(named: bottomCloth)
         thirdClothLabel.text = bottomCloth.localized
     }

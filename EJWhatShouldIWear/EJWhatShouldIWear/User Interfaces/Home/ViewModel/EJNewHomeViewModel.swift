@@ -29,6 +29,7 @@ final class EJNewHomeViewModel {
     var sixdaysModel: [EJSixdaysForecastModel]?
     
     // MARK: - Kisangchung Models
+    var kisangTimeModel: [EJKisangTimeModel]?
     var kisangTimelyModel: [EJKisangTimelyModel]?
     var kisangTimelyItems: EJKisangTimelyItemsModel?
     var kisangWeekelyModel: [EJKisangWeekelyItemModel]?
@@ -131,6 +132,7 @@ extension EJNewHomeViewModel {
             self.kisangTimelyWeather(success: { model in
                 self.kisangTimelyModel = model.response.body.items.item
                 self.kisangTimelyItems = model.response.body.items
+                self.kisangTimeModel = model.response.body.items.generateModels()
                 dispatchGroup.leave()
             }, failure: { error in
                 resultError = error
