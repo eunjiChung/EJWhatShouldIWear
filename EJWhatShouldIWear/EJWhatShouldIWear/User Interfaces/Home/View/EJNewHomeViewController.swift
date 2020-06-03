@@ -135,9 +135,7 @@ class EJNewHomeViewController: EJBaseViewController {
         }
         
         viewModel.didRequestKisangWeatherInfoFailureClosure = { error in
-            // TODO: - 에러 메시지 띄우기 (어떤 코드 문제인지)
-            self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
-            
+            self.popAlertVC(self, title: "network_error".localized, message: error)
             self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.removeSplashScene()
         }

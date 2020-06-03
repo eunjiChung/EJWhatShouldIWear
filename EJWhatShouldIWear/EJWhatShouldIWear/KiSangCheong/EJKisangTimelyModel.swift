@@ -31,7 +31,7 @@ public struct EJKisangTimelyHeaderModel: Decodable {
         case resultMsg
     }
     
-    var resultCode: String
+    var resultCode: EJKisangStatusCode
     var resultMsg: String
 }
 

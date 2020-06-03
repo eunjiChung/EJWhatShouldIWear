@@ -74,7 +74,7 @@ public enum EJPrecipitationCode: Int {
     }
 }
 
-public enum EJKisangStatusCode: String {
+public enum EJKisangStatusCode: String, Decodable {
     case NORMAL_SERVICE                                         = "00"
     case APPLICATION_ERROR                                      = "01"
     case DB_ERROR                                               = "02"

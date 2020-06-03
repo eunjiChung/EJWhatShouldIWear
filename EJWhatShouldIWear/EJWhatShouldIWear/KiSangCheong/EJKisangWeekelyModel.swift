@@ -32,7 +32,7 @@ public struct EJKisangWeekelyHeaderModel: Decodable {
         case resultMsg
     }
     
-    var resultCode: String
+    var resultCode: EJKisangStatusCode
     var resultMsg: String
 }
 
