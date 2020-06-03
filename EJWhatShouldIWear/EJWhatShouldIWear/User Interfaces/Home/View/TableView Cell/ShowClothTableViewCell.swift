@@ -43,16 +43,11 @@ class ShowClothTableViewCell: UITableViewCell {
         return EJShowClothViewModel()
     }()
     
-    var newModels: [EJKisangTimelyModel]? {
+    var timeModels: [EJKisangTimeModel]? {
         didSet {
             setAverageTemperature()
             setDate()
             setDescription()
-        }
-    }
-    
-    var timeModels: [EJKisangTimeModel]? {
-        didSet {
             setDressImages()
         }
     }
@@ -73,7 +68,7 @@ class ShowClothTableViewCell: UITableViewCell {
 
     // MARK: - Public Method
     private func setAverageTemperature() {
-        currentTempLabel.text = viewModel.generateAverageTemperature(with: newModels)
+        currentTempLabel.text = viewModel.generateAverageTemperature(with: timeModels)
     }
     
     private func setDate() {
@@ -86,17 +81,18 @@ class ShowClothTableViewCell: UITableViewCell {
     }
     
     private func setDescription() {
-        suggestLabel.text = viewModel.generateDescription(with: newModels)
+        suggestLabel.text = viewModel.generateDescription(with: timeModels)
     }
     
     private func setDressImages() {
         let pointCloth = viewModel.generatePointCloth(with: timeModels)
         firstClothImageView.image = UIImage(named: pointCloth)
         firstClothLabel.text = pointCloth.localized
-        let topCloth = viewModel.generateCloth(type: .top, with: timeModels)
+        let tempInfo = viewModel.generateTemperatures(with: timeModels)
+        let topCloth = viewModel.generateCloth(type: .top, tempInfo)
         secondClothImageview.image = UIImage(named: topCloth)
         secondClothLabel.text = topCloth.localized
-        let bottomCloth = viewModel.generateCloth(type: .bottom, with: timeModels)
+        let bottomCloth = viewModel.generateCloth(type: .bottom, tempInfo)
         thirdClothImageView.image = UIImage(named: bottomCloth)
         thirdClothLabel.text = bottomCloth.localized
     }

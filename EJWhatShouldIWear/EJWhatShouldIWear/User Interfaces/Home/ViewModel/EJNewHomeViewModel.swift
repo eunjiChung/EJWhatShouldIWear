@@ -50,7 +50,6 @@ final class EJNewHomeViewModel {
     // MARK: - Public Methods
     func requestKoreaWeather(_ index: Int) {
         callKisangWeatherInfo(success: {
-            self.kisangTimelyModel = EJWeatherManager.shared.generateTodayTimelyWeather(self.kisangTimelyModel)
             self.didRequestKisangWeatherInfoSuccessClosure?()
         }) { error in
             self.didRequestKisangWeatherInfoFailureClosure?(error)
@@ -132,7 +131,7 @@ extension EJNewHomeViewModel {
             self.kisangTimelyWeather(success: { model in
                 self.kisangTimelyModel = model.response.body.items.item
                 self.kisangTimelyItems = model.response.body.items
-                self.kisangTimeModel = model.response.body.items.generateModels()
+                self.kisangTimeModel = EJWeatherManager.shared.generateModels(model.response.body.items.item)
                 dispatchGroup.leave()
             }, failure: { error in
                 resultError = error

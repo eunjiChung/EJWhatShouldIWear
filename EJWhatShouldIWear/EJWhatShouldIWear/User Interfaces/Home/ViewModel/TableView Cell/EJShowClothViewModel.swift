@@ -29,67 +29,133 @@ enum EJShowClothType {
 
 final class EJShowClothViewModel {
     
-    public func generateAverageTemperature(with models: [EJKisangTimelyModel]?) -> String {
+    public func generateAverageTemperature(with models: [EJKisangTimeModel]?) -> String {
         guard let models = models else { return "" }
         let date = models.first?.fcstDate
         
         var totalTemp = 0
         var count = 0
-        for model in models {
-            if model.fcstDate == date && model.category == .threeHourTemp {
-                if let temp = Int(model.fcstValue) {
-                    totalTemp += temp
-                    count += 1
+        for model in models where model.fcstDate == date {
+            totalTemp += model.temperature
+            count += 1
+        }
+        return "\(totalTemp / count)"
+    }
+    
+    public func generateDescription(with models: [EJKisangTimeModel]?) -> String {
+        guard let models = models else { return "" }
+        guard let baseDate = models.first?.fcstDate else { return "" }
+        var description = ""
+        
+        var rainInfo: [(type: EJPrecipitationCode, time: String)] = []
+        var skyInfo: [(type: EJSkyCode, time: String)] = []
+        for model in models where baseDate == model.fcstDate {
+            
+            switch model.rainyCode {
+            case .no:
+                EJLogger.d("")
+            default:
+                rainInfo.append((type: model.rainyCode, time: model.fcstTime))
+            }
+            
+            skyInfo.append((type: model.skyCode, time: model.fcstTime))
+        }
+        
+        var skyDesc = "오늘은 하루종일 맑아요!☀️"
+        var rainyDesc = ""
+        // 1. 비는 오는지 안 오는지
+        if rainInfo.count > 0 {
+            var isMorningRainy = false
+            var isAfternoonRainy = false
+            var isNightRainy = false
+            
+            rainInfo.forEach { (rain) in
+                guard let timeSection = EJTimeSection(rawValue: rain.time) else { return }
+                switch timeSection {
+                case .morning6, .morning9:  isMorningRainy = true
+                case .day12, .day15:        isAfternoonRainy = true
+                case .night18, .night21:    isNightRainy = true
+                }
+            }
+            
+            if isMorningRainy, isAfternoonRainy, isNightRainy {
+                rainyDesc = "오늘은 하루종일 비가 와요☔️"
+            } else {
+                if isMorningRainy, !isAfternoonRainy, !isNightRainy {
+                    rainyDesc = "오늘 아침엔 비가 와요☔️"
+                } else if !isMorningRainy, isAfternoonRainy, !isNightRainy {
+                    rainyDesc = "오늘 오후엔 비가 와요☔️"
+                } else if !isMorningRainy, !isAfternoonRainy, isNightRainy {
+                    rainyDesc = "오늘 저녁엔 비가 와요☔️"
+                } else if isMorningRainy, isAfternoonRainy, !isNightRainy {
+                    rainyDesc = "오늘은 아침,점심에 비가 와요☔️"
+                } else if isMorningRainy, !isAfternoonRainy, isNightRainy {
+                    rainyDesc = "오늘은 아침,저녁으로 비가 와요☔️"
+                } else if !isMorningRainy, isAfternoonRainy, isNightRainy {
+                    rainyDesc = "오늘은 오후내내 비가 와요☔️"
+                }
+            }
+        } else {
+            // 2. 하늘은 맑은지 안 맑은지
+            skyInfo.forEach { (sky) in
+                if sky.type != .sunny {
+                    skyDesc = "오늘은 흐린날이에요.."
                 }
             }
         }
         
-        return "\(totalTemp / count)"
-    }
-    
-    public func generateDescription(with models: [EJKisangTimelyModel]?) -> String {
-        // TODO: - 우선순위를 두고 description 만들기
-        var description = ""
-        var minTemp = 0
-        
-        guard let models = models else { return "" }
-        for model in models {
-            guard let timeType = EJTimeSection(rawValue: model.fcstTime) else { return "" }
-            guard let fcstValue = Int(model.fcstValue) else { return "" }
-            let category = model.category
-            
-            switch timeType {
-            case .morning6, .morning9:
-                let morning = morningInfo(with: category, fcstValue, minTemp, description)
-                description += morning.description
-                minTemp = morning.minTemp
-            case .day12, .day15:
-                description += dayDescription(with: category, fcstValue, minTemp, description)
-            case .night18, .night21:
-                description += nightDescription(with: category, fcstValue, description)
+        // 3. 옷은 어떤걸 입어야 하는지
+        var dressDesc = ""
+        let info = generateTemperatures(with: models)
+        let outer = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+        if (info.minTemp - info.maxTemp).magnitude >= 10, info.maxTemp < 23 {
+            dressDesc = "일교차가 크니 " + outer.localized + " 챙기세요!"
+        } else {
+            let todayTemp = EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp)
+            switch todayTemp {
+            case TempRange.temp_28, TempRange.temp_23_27:
+                dressDesc = "엄청 더워요!"
+            case TempRange.temp_20_22, TempRange.temp_17_19, TempRange.temp_12_16:
+                dressDesc = outer.localized + " 추천드려요"
+            case TempRange.temp_9_11, TempRange.temp_5_8:
+                dressDesc = "날씨가 쌀쌀해요 " + outer.localized + " 추천드려요"
+            case TempRange.temp_4:
+                dressDesc = "엄청 추워요! 따뜻하게 " + outer.localized + " 입으세요"
+            default:
+                EJLogger.d("")
             }
         }
+        
+        if rainyDesc != "" {
+            description += (rainyDesc + "\n")
+        } else {
+            description += (skyDesc + "\n")
+        }
+        description += dressDesc
         return description
     }
     
+    // TODO: - Point Cloth 만들기
     public func generatePointCloth(with items: [EJKisangTimeModel]?) -> String {
         guard let items = items else { return "" }
         guard let baseDate = items.first?.fcstDate else { return "" }
         
         var originType: EJWeatherType = .no
         for model in items where baseDate == model.fcstDate {
-            let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode)
-            let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode)
-            guard let newType: EJWeatherType = EJWeatherType(rawValue: max(skyType.rawValue, rainyType.rawValue)) else { return "" }
+            let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode.rawValue)
+            let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode.rawValue)
+            guard let newType = EJWeatherType(rawValue: max(skyType.rawValue, rainyType.rawValue)) else { return "" }
             originType = EJWeatherType(rawValue: max(originType.rawValue, newType.rawValue)) ?? .no
         }
         
-        return EJClothManager.shared.setItem(by: originType)
+        let point = EJClothManager.shared.setItem(by: originType)
+        if point == "outer" { return generateCloth(type: .outer, generateTemperatures(with: items)) }
+        return point
     }
     
-    public func generateCloth(type: EJShowClothType,with items: [EJKisangTimeModel]?) -> String {
-        guard let items = items else { return "" }
-        guard let baseDate = items.first?.fcstDate else { return "" }
+    public func generateTemperatures(with items: [EJKisangTimeModel]?) -> (date: String, minTemp: Int, maxTemp: Int) {
+        guard let items = items else { return ("", 0, 0) }
+        guard let baseDate = items.first?.fcstDate else { return ("", 0, 0) }
         
         var minTemp = 100
         var maxTemp = -100
@@ -100,207 +166,17 @@ final class EJShowClothViewModel {
             }
         }
         
+        return (baseDate, minTemp, maxTemp)
+    }
+    
+    public func generateCloth(type: EJShowClothType, _ info: (date: String, minTemp: Int, maxTemp: Int)) -> String {
         switch type {
         case .outer:
-            return EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
+            return EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
         case .top:
-            return EJClothManager.shared.setTopCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
+            return EJClothManager.shared.setTopCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
         case .bottom:
-            return EJClothManager.shared.setBottomCloth(by: EJWeatherManager.shared.properSeasonValue(baseDate, minTemp, maxTemp))
+            return EJClothManager.shared.setBottomCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
         }
-    }
-    
-    // MARK: - Private Methods
-    public func morningInfo(with category: EJKisangWeatherCode, _ value: Int, _ minTemp: Int, _ originDescription: String) -> (description:String, minTemp:Int) {
-        var description = originDescription
-        var resultTemp = 0
-        let morningString = "아침에 "
-        
-        if !originDescription.contains(morningString) {
-            description += morningString
-        }
-        
-        switch category {
-        case .threeHourTemp:
-            if value < minTemp {
-                resultTemp = value
-            }
-        case .rainFallType:
-            guard let rainType = EJPrecipitationCode(rawValue: value) else { return ("", 0) }
-            switch rainType {
-            case .no:
-                EJLogger.d("")
-            case .rain:
-                
-                let string = "비가 내려요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("비가 내려요 ") {
-                    description += string
-                }
-            case .snow:
-                let string = "눈이 내려요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("비가 내려요 ") {
-                    description += string
-                }
-            case .shower:
-                let string = "소나기가 내려요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("비가 내려요 ") {
-                    description += string
-                }
-            case .both:
-                let string = "비가 내려요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("비가 내려요 ") {
-                    description += string
-                }
-            }
-        default:
-            EJLogger.d("")
-        }
-        
-        return (description, resultTemp)
-    }
-    
-    func dayDescription(with category: EJKisangWeatherCode, _ value: Int, _ minTemp: Int, _ originDescription: String) -> String {
-        var description = originDescription
-        
-        let day = "낮에 "
-        
-        switch category {
-        case .noonMaxTemp:
-            let today = "오늘 "
-            if (value-minTemp).magnitude >= 10, minTemp <= 16 {
-                if originDescription.contains(today) {
-                    let string = "일교차는 커요! 겉옷을 챙기세요~"
-                    if !originDescription.contains(string) &&
-                        !originDescription.contains("일교차가 커요! 겉옷을 챙기세요~"){
-                        description += string
-                    }
-                } else {
-                    let string = today + "일교차가 커요! 겉옷을 챙기세요~"
-                    if !originDescription.contains(string) {
-                        description += string
-                    }
-                }
-            }
-        case .skyCode:
-            if !description.contains(day) {
-                description += day
-            }
-            
-            guard let skyType = EJSkyCode(rawValue: value) else { return "" }
-            switch skyType {
-            case .sunny:
-                let string = "날씨가 맑아요! "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("비가 내려요 ") &&
-                    !originDescription.contains("눈비가 내려요") &&
-                    !originDescription.contains("날씨가 맑아요! ") &&
-                    !originDescription.contains("구름이 많아요 ") &&
-                    !originDescription.contains("날씨가 흐려요 ") {
-                    description += string
-                }
-            case .cloudy:
-                let string = "구름이 많아요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("비가 내려요 ") &&
-                    !originDescription.contains("눈비가 내려요") &&
-                    !originDescription.contains("구름이 많아요 ") &&
-                    !originDescription.contains("날씨가 흐려요 ") {
-                    if originDescription.contains("날씨가 맑아요! ") {
-                        description = description.replacingOccurrences(of: "날씨가 맑아요! ", with: string)
-                    } else {
-                        description += string
-                    }
-                }
-            case .grey:
-                let string = "날씨가 흐려요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("비가 내려요 ") &&
-                    !originDescription.contains("눈비가 내려요") &&
-                    !originDescription.contains("날씨가 흐려요 ") {
-                    ["날씨가 맑아요! ", "구름이 많아요 "].forEach { normal in
-                        if originDescription.contains(normal) {
-                            description = description.replacingOccurrences(of: normal, with: "")
-                        }
-                    }
-                    description += string
-                }
-            }
-        case .rainFallType:
-            if !description.contains(day) {
-                description += day
-            }
-            
-            guard let rainType = EJPrecipitationCode(rawValue: value) else { return "" }
-            switch rainType {
-            case .rain:
-                let string = "비가 내려요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("비가 내려요 ") &&
-                    !originDescription.contains("눈비가 내려요 ") {
-                    ["날씨가 맑아요! ", "구름이 많아요 ", "날씨가 흐려요 "].forEach { normalString in
-                        if originDescription.contains(normalString) {
-                            description = description.replacingOccurrences(of: normalString, with: "")
-                        }
-                    }
-                    description += string
-                }
-            case .shower:
-                let string = "소나기가 내려요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("소나기가 내려요 ") &&
-                    !originDescription.contains("눈비가 내려요 ") {
-                    ["비가 내려요 ", "날씨가 맑아요! ", "구름이 많아요 ", "날씨가 흐려요 "].forEach { normalString in
-                        if originDescription.contains(normalString) {
-                            description = description.replacingOccurrences(of: normalString, with: "")
-                        }
-                    }
-                    description += string
-                }
-            case .both:
-                let string = "눈비가 내려요 "
-                if !originDescription.contains("눈이 내려요 ") &&
-                    !originDescription.contains("눈비가 내려요") {
-                    ["소나기가 내려요 ", "비가 내려요 ", "날씨가 맑아요! ", "구름이 많아요 ", "날씨가 흐려요 "].forEach { normalString in
-                        if originDescription.contains(normalString) {
-                            description = description.replacingOccurrences(of: normalString, with: "")
-                        }
-                    }
-                    description += string
-                }
-            case .snow:
-                let string = "눈이 내려요 "
-                if !originDescription.contains("눈이 내려요 ") {
-                    ["눈비가 내려요 ", "소나기가 내려요 ", "비가 내려요 ", "날씨가 맑아요! ", "구름이 많아요 ", "날씨가 흐려요 "].forEach { normalString in
-                        if originDescription.contains(normalString) {
-                            description = description.replacingOccurrences(of: normalString, with: "")
-                        }
-                    }
-                    description += string
-                }
-            case .no:
-                EJLogger.d("")
-            }
-        default:
-            EJLogger.d("")
-        }
-        
-        return description
-    }
-    
-    private func nightDescription(with category: EJKisangWeatherCode, _ value: Int, _ originDescription: String) -> String {
-        var description = ""
-        return description
     }
 }

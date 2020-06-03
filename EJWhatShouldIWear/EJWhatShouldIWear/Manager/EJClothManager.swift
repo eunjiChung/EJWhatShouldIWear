@@ -20,12 +20,8 @@ final class EJClothManager {
         case .snow:
             return [FUR_GLOVES, FUR_HAT, MUFFLER].randomElement()!
         default:
-            return setOuterItem(by: condition)
+            return "outer"
         }
-    }
-    
-    public func setOuterItem(by condition: EJWeatherType) -> String {
-        return ""
     }
     
     // MARK: - Legacy Clothes
