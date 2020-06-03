@@ -157,6 +157,7 @@ extension EJNewHomeViewModel {
     }
     
     // TODO: - 에러코드에 따라서 에러처리 해주기!!!
+    // TODO: - BaseDate(), BaseTime() 제대로 넣어주기
     func kisangTimelyWeather(success: @escaping (EJKisangTimelyBaseModel) -> (), failure: @escaping FailureHandler) {
         let baseDate = EJKisangInfoManager().generateBaseDate()
         let baseTime = EJKisangInfoManager().generateBaseTime()

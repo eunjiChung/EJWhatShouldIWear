@@ -65,7 +65,8 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     private func setDate() {
         guard let time = baseTime else { return }
         let component = calendar.dateComponents([.weekday], from: time.extractWeekDate())
-        let day = (component.weekday! + item) % 7
+        // TODO: - 3일 후 날씨부터 나온다...내일 날씨부터 알려줄 수 있도록 한다
+        let day = (component.weekday! + item + 2) % 7
         dateLabel.text = weekDay[day].localized
     }
     
