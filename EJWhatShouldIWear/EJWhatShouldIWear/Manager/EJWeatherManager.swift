@@ -460,8 +460,8 @@ class EJWeatherManager: NSObject {
 // MARK: - Kisangchung Methods
 extension EJWeatherManager {
     
-    public func koreaBackgroundImage(by model: [EJKisangTimelyModel]?) -> UIImage {
-        guard let model = model else { return UIImage() }
+    public func koreaBackgroundImage(by models: [EJKisangTimeModel]?) -> UIImage {
+        guard let models = models else { return UIImage() }
         
         let currentHour = Calendar.current.component(.hour, from: Date())
         if currentHour >= 20 || currentHour < 6 {
@@ -471,40 +471,25 @@ extension EJWeatherManager {
             let pic = ["sunset1", "sunset2", "sunset3", "sunset4"].randomElement()!
             return UIImage(named: pic)!
         } else if currentHour >= 6 {
-            var todayModels: [EJKisangTimelyModel] = []
-            model.forEach { timelyModel in
-                if timelyModel.fcstDate == Date().generateWeatherBaseDate() {
-                    todayModels.append(timelyModel)
-                }
-            }
-            
             var name = "background"
-            for timeModel in todayModels {
-                switch timeModel.category {
-                case .skyCode:
-                    guard let skyCode = EJSkyCode(rawValue: Int(timeModel.fcstValue)!) else { return UIImage() }
-                    
-                    switch skyCode {
-                    case .sunny:
-                        name = "clear"
-                    case .cloudy:
-                        // MARK: - 좀 더 맑은 하늘 넣기
-                        name = "cloud"
-                    case .grey:
-                        name = "cloud"
-                    }
-                case .rainFallType:
-                    guard let rainCode = EJPrecipitationCode(rawValue: Int(timeModel.fcstValue)!) else { return UIImage() }
-                    switch rainCode {
-                    case .no:
-                        EJLogger.d("")
-                    case .rain, .both, .shower:
-                        name = "rainy"
-                    case .snow:
-                        name = "snow"
-                    }
-                default:
+            for timeModel in models {
+                switch timeModel.skyCode {
+                case .sunny:
+                    name = "clear"
+                case .cloudy:
+                    // MARK: - 좀 더 맑은 하늘 넣기
+                    name = "cloud"
+                case .grey:
+                    name = "cloud"
+                }
+                
+                switch timeModel.rainyCode {
+                case .no:
                     EJLogger.d("")
+                case .rain, .both, .shower:
+                    name = "rainy"
+                case .snow:
+                    name = "snow"
                 }
             }
             
@@ -608,5 +593,36 @@ extension EJWeatherManager {
         }
         
         return tempModels
+    }
+    
+    public func priority(of weathers: [EJKisangTimeModel]?) -> EJWeatherType {
+        guard let items = weathers else { return .no }
+        guard let baseDate = items.first?.fcstDate else { return .no }
+        
+        var originType: EJWeatherType = .no
+        for model in items where baseDate == model.fcstDate {
+            let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode.rawValue)
+            let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode.rawValue)
+            guard let newType = EJWeatherType(rawValue: max(skyType.rawValue, rainyType.rawValue)) else { return .no }
+            originType = EJWeatherType(rawValue: max(originType.rawValue, newType.rawValue)) ?? .no
+        }
+        
+        return originType
+    }
+    
+    public func todayTempInfo(with items: [EJKisangTimeModel]?) -> (date: String, minTemp: Int, maxTemp: Int) {
+        guard let items = items else { return ("", 0, 0) }
+        guard let baseDate = items.first?.fcstDate else { return ("", 0, 0) }
+        
+        var minTemp = 100
+        var maxTemp = -100
+        for model in items where baseDate == model.fcstDate {
+            if model.fcstTime != "0000", model.fcstTime != "0300" {
+                minTemp = min(minTemp, model.temperature)
+                maxTemp = max(maxTemp, model.temperature)
+            }
+        }
+        
+        return (baseDate, minTemp, maxTemp)
     }
 }

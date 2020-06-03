@@ -96,8 +96,6 @@ class EJMyLocalListViewController: EJBaseViewController {
         } else {
             if locations[selectedIndex] != previousMainLocation {
                 EJLocationManager.shared.updateMainLocation(locations[selectedIndex])
-            } else {
-//                EJLocationManager.shared.updateMainLocation(previousMainLocation)
             }
         }
         

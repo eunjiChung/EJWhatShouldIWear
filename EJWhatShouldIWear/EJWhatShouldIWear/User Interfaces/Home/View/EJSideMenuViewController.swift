@@ -100,8 +100,6 @@ extension EJSideMenuViewController: UITableViewDataSource {
                 return tableView.dequeueReusableCell(withIdentifier: SideMenuSettingTableViewCell.identifier, for: indexPath)
             }
         }
-        
-        return UITableViewCell()
     }
 }
 

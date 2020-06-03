@@ -30,8 +30,6 @@ final class EJNewHomeViewModel {
     
     // MARK: - Kisangchung Models
     var kisangTimeModel: [EJKisangTimeModel]?
-    var kisangTimelyModel: [EJKisangTimelyModel]?
-    var kisangTimelyItems: EJKisangTimelyItemsModel?
     var kisangWeekelyModel: [EJKisangWeekelyItemModel]?
     var kisangForecastModel: [EJKisangWeekForecastModel]?
     
@@ -129,8 +127,6 @@ extension EJNewHomeViewModel {
         dispatchGroup.enter()
         dispatchQueue.async {
             self.kisangTimelyWeather(success: { model in
-                self.kisangTimelyModel = model.response.body.items.item
-                self.kisangTimelyItems = model.response.body.items
                 self.kisangTimeModel = EJWeatherManager.shared.generateModels(model.response.body.items.item)
                 dispatchGroup.leave()
             }, failure: { error in

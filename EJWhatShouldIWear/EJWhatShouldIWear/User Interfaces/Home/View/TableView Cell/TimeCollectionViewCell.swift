@@ -29,15 +29,9 @@ class TimeCollectionViewCell: UICollectionViewCell {
     let hour = "hour".localized
     var index: Int = 0
     
-    var skyModel: EJKisangTimelyModel?
-    var rainyModel: EJKisangTimelyModel?
-    var tempModel: EJKisangTimelyModel? {
+    var model: EJKisangTimeModel? {
         didSet {
-            setDate(tempModel?.fcstDate ?? "")
-            setTime(tempModel?.fcstTime ?? "")
-            setTemperature()
-            setDescription()
-            setDress()
+            setView()
         }
     }
     
@@ -53,6 +47,36 @@ class TimeCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Kisang
+    private func setView() {
+        guard let model = model else { return }
+        tempLabel.text = "\(model.temperature)" + EJWeatherManager.shared.getValidUnit()
+        setDate(model.fcstDate)
+        setTime(model.fcstTime)
+        setDress()
+        setDescription()
+    }
+    
+    private func setDress() {
+        guard let model = model else { return }
+        
+        var dress = ""
+        var type: EJWeatherType = .no
+        switch model.rainyCode {
+        case .no:
+            let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode.rawValue)
+            type = EJWeatherType(rawValue: skyType.rawValue) ?? .no
+        default:
+            let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode.rawValue)
+            type = EJWeatherType(rawValue: rainyType.rawValue) ?? .no
+        }
+        
+        dress = EJClothManager.shared.setItem(by: type)
+        if dress == "outer" {
+            dress = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(model.fcstDate, model.temperature, model.temperature))
+        }
+        clothImageView.image = UIImage(named: dress)
+    }
+    
     private func setDate(_ date: String) {
         let startIndex = date.index(date.startIndex, offsetBy: 4)
         let monthEndIndex = date.index(after: startIndex)
@@ -72,17 +96,10 @@ class TimeCollectionViewCell: UICollectionViewCell {
         hourLabel.text = hourString + hour
     }
     
-    private func setTemperature() {
-        guard let tempModel = self.tempModel, tempModel.category == .threeHourTemp else { return }
-        tempLabel.text = tempModel.fcstValue + EJWeatherManager.shared.getValidUnit()
-    }
-    
     private func setDescription() {
-        guard let skyModel = self.skyModel, skyModel.category == .skyCode else { return }
-        guard let rainyModel = self.rainyModel, rainyModel.category == .rainFallType else { return }
         var description = ""
         
-        guard let skyValue = Int(skyModel.fcstValue), let skyType = EJSkyCode(rawValue: skyValue) else { return }
+        guard let skyType = model?.skyCode else { return }
         switch skyType {
         case .sunny:
             description = "맑아요"
@@ -91,8 +108,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
         case .grey:
             description = "흐려요"
         }
-        
-        guard let rainyValue = Int(rainyModel.fcstValue), let rainyType = EJPrecipitationCode(rawValue: rainyValue) else { return }
+        guard let rainyType = model?.rainyCode else { return }
         switch rainyType {
         case .no:
             EJLogger.d("")
@@ -101,17 +117,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
         case .snow:
             description = "눈와요"
         }
-        
         skyConditionLabel.text = description
     }
-    
-    private func setDress() {
-        guard let tempModel = self.tempModel, tempModel.category == .threeHourTemp else { return }
-        guard let temp = Int(tempModel.fcstValue) else { return }
-        let style = EJClothManager.shared.setTopCloth(by: temp)
-        clothImageView.image = UIImage(named: style)
-    }
-    
     
     // MARK: - Public Method
     public func setHourlyWeather(of model: EJFiveDaysWeatherModel, at index: Int) {

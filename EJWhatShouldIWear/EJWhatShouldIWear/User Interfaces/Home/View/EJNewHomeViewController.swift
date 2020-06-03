@@ -148,7 +148,7 @@ class EJNewHomeViewController: EJBaseViewController {
         // MARK: - Kisang Weather
         viewModel.didRequestKisangWeatherInfoSuccessClosure = {
             // TODO: - 배경화면 넣기 테스트
-            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.koreaBackgroundImage(by: self.viewModel.kisangTimelyModel))
+            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.koreaBackgroundImage(by: self.viewModel.kisangTimeModel))
             self.mainTableView.reloadData()
             self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.removeSplashScene()
@@ -264,7 +264,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
 
             if EJLocationManager.shared.isKorea() {
-                cell.newModels = viewModel.kisangTimelyModel
+                cell.models = viewModel.kisangTimeModel
             }
             
             if let model = viewModel.FiveDaysWeatherModel {

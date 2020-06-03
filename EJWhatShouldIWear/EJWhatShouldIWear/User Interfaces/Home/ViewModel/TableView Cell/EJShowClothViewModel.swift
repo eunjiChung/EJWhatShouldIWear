@@ -106,7 +106,7 @@ final class EJShowClothViewModel {
         
         // 3. 옷은 어떤걸 입어야 하는지
         var dressDesc = ""
-        let info = generateTemperatures(with: models)
+        let info = EJWeatherManager.shared.todayTempInfo(with: models)
         let outer = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
         if (info.minTemp - info.maxTemp).magnitude >= 10, info.maxTemp < 23 {
             dressDesc = "일교차가 크니 " + outer.localized + " 챙기세요!"
@@ -135,38 +135,11 @@ final class EJShowClothViewModel {
         return description
     }
     
-    // TODO: - Point Cloth 만들기
     public func generatePointCloth(with items: [EJKisangTimeModel]?) -> String {
-        guard let items = items else { return "" }
-        guard let baseDate = items.first?.fcstDate else { return "" }
-        
-        var originType: EJWeatherType = .no
-        for model in items where baseDate == model.fcstDate {
-            let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode.rawValue)
-            let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode.rawValue)
-            guard let newType = EJWeatherType(rawValue: max(skyType.rawValue, rainyType.rawValue)) else { return "" }
-            originType = EJWeatherType(rawValue: max(originType.rawValue, newType.rawValue)) ?? .no
-        }
-        
-        let point = EJClothManager.shared.setItem(by: originType)
-        if point == "outer" { return generateCloth(type: .outer, generateTemperatures(with: items)) }
+        let type = EJWeatherManager.shared.priority(of: items)
+        let point = EJClothManager.shared.setItem(by: type)
+        if point == "outer" { return generateCloth(type: .outer, EJWeatherManager.shared.todayTempInfo(with: items)) }
         return point
-    }
-    
-    public func generateTemperatures(with items: [EJKisangTimeModel]?) -> (date: String, minTemp: Int, maxTemp: Int) {
-        guard let items = items else { return ("", 0, 0) }
-        guard let baseDate = items.first?.fcstDate else { return ("", 0, 0) }
-        
-        var minTemp = 100
-        var maxTemp = -100
-        for model in items where baseDate == model.fcstDate {
-            if model.fcstTime != "0000", model.fcstTime != "0300" {
-                minTemp = min(minTemp, model.temperature)
-                maxTemp = max(maxTemp, model.temperature)
-            }
-        }
-        
-        return (baseDate, minTemp, maxTemp)
     }
     
     public func generateCloth(type: EJShowClothType, _ info: (date: String, minTemp: Int, maxTemp: Int)) -> String {

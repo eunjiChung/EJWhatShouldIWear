@@ -18,13 +18,7 @@ class TimeWeahtherTableViewCell: UITableViewCell {
     var timeArray: [String]?
     var tempArray: [String]?
     
-    var model: [EJThreedaysForecastModel]? {
-        didSet {
-            setKRTimelyTable()
-        }
-    }
-    
-    var newModels: [EJKisangTimelyModel]? {
+    var models: [EJKisangTimeModel]? {
         didSet {
             setKisangTimely()
         }
@@ -61,21 +55,6 @@ class TimeWeahtherTableViewCell: UITableViewCell {
     
     // MARK: - Kisang Methods
     func setKisangTimely() {
-        guard let newModels = newModels else { return }
-        
-        newModels.forEach { eachModel in
-            switch eachModel.category {
-            case .threeHourTemp:
-                tempModels.append(eachModel)
-            case .skyCode:
-                skyModels.append(eachModel)
-            case .rainFallType:
-                rainyModels.append(eachModel)
-            default:
-                EJLogger.d("")
-            }
-        }
-        
         collectionView.reloadData()
     }
     
@@ -94,12 +73,7 @@ class TimeWeahtherTableViewCell: UITableViewCell {
 // MARK: - CollectionView Data Source
 extension TimeWeahtherTableViewCell: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            if let _ = newModels { return tempModels.count }
-            
-            if let model = model {
-                guard let fcst3hour = model.first?.fcst3hour else { return 6 }
-                return fcst3hour.temperature.dictionaryRepresentation().count-2
-            }
+            if let models = models { return models.count }
             return 6
         }
         
@@ -111,10 +85,8 @@ extension TimeWeahtherTableViewCell: UICollectionViewDataSource {
                 cell.setHourlyWeather(of: model, at: index)
             }
             
-            if let _ = newModels {
-                cell.skyModel = skyModels[indexPath.item]
-                cell.rainyModel = rainyModels[indexPath.item]
-                cell.tempModel = tempModels[indexPath.item]
+            if let models = models {
+                cell.model = models[indexPath.item]
             }
             
             return cell
