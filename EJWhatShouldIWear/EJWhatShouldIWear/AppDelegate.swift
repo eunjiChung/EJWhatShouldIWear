@@ -17,10 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // iOS 다크모드 일단 방지
-        if #available(iOS 13.0, *) {
-            self.window?.overrideUserInterfaceStyle = .light
-        }
+        disableDarkMode()
         
         // FirebaseApp config 설정
         FirebaseApp.configure()
@@ -33,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setInitialView()
         
         return true
+    }
+    
+    private func disableDarkMode() {
+        if #available(iOS 13.0, *) {
+            self.window?.overrideUserInterfaceStyle = .light
+        }
     }
     
     private func setInitialView() {
