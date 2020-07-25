@@ -10,17 +10,20 @@ import UIKit
 
 final class EJSplashViewController: EJBaseViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
+    
+    // MARK: - ViewModel
     lazy var viewModel: EJSplashViewModel = {
         return EJSplashViewModel()
     }()
     
-    // MARK: View Controller Functions
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        KMUserDefaultsManager.shared.defaultSetting()
         initView()
         initViewModel()
         initNotification()
@@ -31,24 +34,15 @@ final class EJSplashViewController: EJBaseViewController {
     }
     
     private func initView() {
-        // 최초에 지역 선택
-        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
-            guard let introVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJIntroViewController") as? EJIntroViewController else { return }
-            introVC.modalPresentationStyle = .fullScreen
-            present(introVC, animated: false) { }
-        }
+        alcTopOfStackView.constant = EJSizeHeight(414.0)
         
-        var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(UIMenuController.update), userInfo: nil, repeats: true)
-    }
-
-    func update() {
-        var count = 10
-        if(count > 0) {
-            count -= 1
-        }
+        startLoading()
+        selectInitialLocalization()
+        EJAppStoreReviewManager.requestReviewIfAppropriate()     // 3회 방문시 스토어 리뷰 요청
     }
     
     private func initViewModel() {
+        dismissSplash()
 //        viewModel.didUpdateSplashStatus = { [weak self] status in
 //            guard let self = self else { return }
 //
@@ -96,9 +90,34 @@ final class EJSplashViewController: EJBaseViewController {
     
     // MARK: - Extra Functions
     private func dismissSplash() {
-        guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJNewHomeViewController") as? EJNewHomeViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.window?.rootViewController = self
+        requestAppVersionInfo()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.8) {
+                if let indicator = self.loadingIndicator {
+                    self.view.alpha = 0.0
+                    indicator.alpha = 0.0
+                    
+                    guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJNewHomeViewController") as? EJNewHomeViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                    appDelegate.window?.rootViewController = homeVC
+                }
+            }
+        }
     }
     
+}
+
+// MARK: - Private Methods
+extension EJSplashViewController {
     
+    private func startLoading() {
+        loadingIndicator.startAnimating()
+    }
+    
+    private func selectInitialLocalization() {
+        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
+            guard let introVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJIntroViewController") as? EJIntroViewController else { return }
+            introVC.modalPresentationStyle = .fullScreen
+            present(introVC, animated: false) { }
+        }
+    }
 }
