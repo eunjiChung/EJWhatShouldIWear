@@ -15,15 +15,11 @@ class EJNewHomeViewController: EJBaseViewController {
     // MARK: IBOutlets
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var backgroundView: UIImageView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var myLocationField: UIButton!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var splashContainer: UIView!
-    @IBOutlet weak var alcTopOfStackView: NSLayoutConstraint!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfSideBackButton: NSLayoutConstraint!
     @IBOutlet weak var alcBottomOfMenuButton: NSLayoutConstraint!
-    
     @IBOutlet weak var pulldownImage: UIImageView!
     
     // MARK: Properties
@@ -40,9 +36,6 @@ class EJNewHomeViewController: EJBaseViewController {
         initView()
         initViewModel()
         initNotification()
-        
-        // TODO: - EJNewHomeViewController의 closure가 미리 컴파일(?)되지 않아 작동하지 않으므로...
-        EJLocationManager.shared.checkAuthorization(nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,17 +54,9 @@ class EJNewHomeViewController: EJBaseViewController {
     
     // MARK: Initialize
     private func initView() {
-        registerNibs()
         layout()
-        startLoadingIndicator()
+        registerNibs()
         configureSideMenu()
-        EJAppStoreReviewManager.requestReviewIfAppropriate()     // 3회 방문시 스토어 리뷰 요청
-        
-        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
-            guard let introVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJIntroViewController") as? EJIntroViewController else { return }
-            introVC.modalPresentationStyle = .fullScreen
-            present(introVC, animated: false) { }
-        }
         
         addPullToRefreshControl(toScrollView: self.mainTableView) {
             EJLocationManager.shared.checkAuthorization(nil)
@@ -115,31 +100,28 @@ class EJNewHomeViewController: EJBaseViewController {
             
             self.stopPullToRefresh(toScrollView: self.mainTableView)
             self.mainTableView.reloadData()
-            self.removeSplashScene()
         }
         
         viewModel.didrequestForeignWeatherInfoFailureClosure = { error in
             self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
             
             self.stopPullToRefresh(toScrollView: self.mainTableView)
-            self.removeSplashScene()
         }
         
         // MARK: - Kisang Weather
         viewModel.didRequestKisangWeatherInfoSuccessClosure = {
-            // TODO: - 배경화면 넣기 테스트
             self.backgroundView.changeBackGround(with: EJWeatherManager.shared.koreaBackgroundImage(by: self.viewModel.kisangTimeModel))
             self.mainTableView.reloadData()
             self.stopPullToRefresh(toScrollView: self.mainTableView)
-            self.removeSplashScene()
         }
         
         viewModel.didRequestKisangWeatherInfoFailureClosure = { error in
             self.popAlertVC(self, title: "network_error".localized, message: error)
             self.stopPullToRefresh(toScrollView: self.mainTableView)
-            self.removeSplashScene()
         }
         
+        // TODO: - EJNewHomeViewController의 closure가 미리 컴파일(?)되지 않아 작동하지 않으므로...
+        EJLocationManager.shared.checkAuthorization(nil)
     }
     
     private func initNotification() {
@@ -176,7 +158,7 @@ class EJNewHomeViewController: EJBaseViewController {
     }
     
     @IBAction func didTouchList(_ sender: Any) {
-        // TODO: - 하단에 bottom drawer 만들기
+        performSegue(withIdentifier: "showDrawer", sender: nil)
     }
 }
 
@@ -280,6 +262,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
 
 // MARK: - TableView Delegate
 extension EJNewHomeViewController: UITableViewDelegate {
+    // TODO: - automation tableview row로 없애기
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let sectionType = EJHomeSectionType(rawValue: indexPath.section) else { return 0 }
         
@@ -349,29 +332,6 @@ extension EJNewHomeViewController: UITableViewDelegate {
 
 // MARK: - Private Methods
 private extension EJNewHomeViewController {
-    // TODO: - SplashView 다시 만들기
-    private func removeSplashScene() {
-        if self.splashContainer != nil {
-            // TODO: - I put this method here...But this is not proper location
-            self.requestAppVersionInfo()
-            
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
-                    if self.splashContainer != nil {
-                        if let splash = self.splashContainer, let indicator = self.loadingIndicator {
-                            splash.alpha = 0.0
-                            indicator.alpha = 0.0
-                            
-                            indicator.removeFromSuperview()
-                            splash.removeFromSuperview()
-                        }
-                    } else {
-                        EJLogger.w("Splash screen already missed")
-                    }
-                }, completion: nil)
-            }
-        }
-    }
     
     private func registerNibs() {
         mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
@@ -383,13 +343,7 @@ private extension EJNewHomeViewController {
         mainTableView.register(UINib.init(nibName: ClothsCollectionTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ClothsCollectionTableViewCell.identifier)
     }
     
-    private func startLoadingIndicator() {
-        if loadingIndicator == nil { return }
-        loadingIndicator.startAnimating()
-    }
-    
     private func layout() {
-        alcTopOfStackView.constant = EJSizeHeight(414.0)
         alcLeadingOfSideBackButton.constant = EJSize(18.0)
         alcTopOfSideBackButton.constant = EJSizeHeight(46.0)
         alcBottomOfMenuButton.constant = EJSizeHeight(8.0)
