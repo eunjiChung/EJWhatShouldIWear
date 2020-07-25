@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // iOS 다크모드 일단 방지
         if #available(iOS 13.0, *) {
             self.window?.overrideUserInterfaceStyle = .light
@@ -28,8 +29,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 한국 지역 런칭
         EJLocationManager.shared.setDefaultKoreaLocationList()
         EJLocationManager.shared.setRegionId()
-
+        
+        setInitialView()
+        
         return true
+    }
+    
+    private func setInitialView() {
+        guard let splashVC = UIStoryboard(name: "Welcome", bundle: nil).instantiateInitialViewController() as? EJSplashViewController else { return }
+        window?.rootViewController = splashVC
+        window?.makeKeyAndVisible()
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        
     }
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
