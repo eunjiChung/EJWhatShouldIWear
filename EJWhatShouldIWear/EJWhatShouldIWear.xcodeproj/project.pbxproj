@@ -94,6 +94,14 @@
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
 		B67A15A8244C567900F17C6D /* EJLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A7244C567900F17C6D /* EJLogger.swift */; };
+		B689A71424B4F27000F8B1F0 /* EJImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A71324B4F27000F8B1F0 /* EJImageHelper.swift */; };
+		B689A71624B4F75700F8B1F0 /* Maplestory OTF Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B689A71524B4F75700F8B1F0 /* Maplestory OTF Bold.otf */; };
+		B689A71824B4F76100F8B1F0 /* Maplestory OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B689A71724B4F76100F8B1F0 /* Maplestory OTF Light.otf */; };
+		B689A71A24B4F76C00F8B1F0 /* Bazzi OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = B689A71924B4F76C00F8B1F0 /* Bazzi OTF.otf */; };
+		B689A71D24B5016200F8B1F0 /* Drawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B689A71C24B5016200F8B1F0 /* Drawer.storyboard */; };
+		B689A71F24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A71E24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift */; };
+		B689A72124B503BC00F8B1F0 /* EJDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */; };
+		B689A72424B50CAB00F8B1F0 /* WeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A72324B50CAB00F8B1F0 /* WeatherProtocol.swift */; };
 		B6AF9B4F24851F37009C14B1 /* EJTodayWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF9B4E24851F37009C14B1 /* EJTodayWeatherModel.swift */; };
 		B6AF9B5124852CF8009C14B1 /* EJShowClothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF9B5024852CF8009C14B1 /* EJShowClothViewModel.swift */; };
 		B6AF9B5624853E24009C14B1 /* EJShowClothViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF9B5524853E24009C14B1 /* EJShowClothViewModelTests.swift */; };
@@ -118,6 +126,9 @@
 		B6F1025D233B4413000C3DCD /* EJAppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */; };
 		B6F1025F233B4479000C3DCD /* UserDefaults+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1025E233B4479000C3DCD /* UserDefaults+Key.swift */; };
 		B6F10261233B4870000C3DCD /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F10260233B4870000C3DCD /* ImageView.swift */; };
+		B6F85D3C24CC68C40051D765 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F85D3B24CC68C40051D765 /* Welcome.storyboard */; };
+		B6F85D3F24CC68F40051D765 /* EJSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F85D3E24CC68F40051D765 /* EJSplashViewController.swift */; };
+		B6F85D4224CC6B2D0051D765 /* EJSplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F85D4124CC6B2D0051D765 /* EJSplashViewModel.swift */; };
 		B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */; };
 		B6FA52CE233B1982006E03A6 /* ClothsCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */; };
 		B6FEBB9C24614B5E00A09FEB /* EJLocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FEBB9B24614B5E00A09FEB /* EJLocationManagerTests.swift */; };
@@ -257,6 +268,14 @@
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		B67A15A7244C567900F17C6D /* EJLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLogger.swift; sourceTree = "<group>"; };
+		B689A71324B4F27000F8B1F0 /* EJImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJImageHelper.swift; sourceTree = "<group>"; };
+		B689A71524B4F75700F8B1F0 /* Maplestory OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maplestory OTF Bold.otf"; sourceTree = "<group>"; };
+		B689A71724B4F76100F8B1F0 /* Maplestory OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maplestory OTF Light.otf"; sourceTree = "<group>"; };
+		B689A71924B4F76C00F8B1F0 /* Bazzi OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bazzi OTF.otf"; sourceTree = "<group>"; };
+		B689A71C24B5016200F8B1F0 /* Drawer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Drawer.storyboard; sourceTree = "<group>"; };
+		B689A71E24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDrawerBackgroundViewController.swift; sourceTree = "<group>"; };
+		B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDrawerViewController.swift; sourceTree = "<group>"; };
+		B689A72324B50CAB00F8B1F0 /* WeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProtocol.swift; sourceTree = "<group>"; };
 		B6AF9B4E24851F37009C14B1 /* EJTodayWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJTodayWeatherModel.swift; sourceTree = "<group>"; };
 		B6AF9B5024852CF8009C14B1 /* EJShowClothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJShowClothViewModel.swift; sourceTree = "<group>"; };
 		B6AF9B5524853E24009C14B1 /* EJShowClothViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJShowClothViewModelTests.swift; sourceTree = "<group>"; };
@@ -281,6 +300,9 @@
 		B6F1025C233B4413000C3DCD /* EJAppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAppStoreReviewManager.swift; sourceTree = "<group>"; };
 		B6F1025E233B4479000C3DCD /* UserDefaults+Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Key.swift"; sourceTree = "<group>"; };
 		B6F10260233B4870000C3DCD /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		B6F85D3B24CC68C40051D765 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		B6F85D3E24CC68F40051D765 /* EJSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSplashViewController.swift; sourceTree = "<group>"; };
+		B6F85D4124CC6B2D0051D765 /* EJSplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSplashViewModel.swift; sourceTree = "<group>"; };
 		B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothsCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothsCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		B6FE5CCC2341E4F100BD3A40 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
@@ -376,9 +398,11 @@
 			isa = PBXGroup;
 			children = (
 				991F2297228972D300FDBC98 /* EJBaseViewController.swift */,
+				B6F85D3A24CC68A80051D765 /* Welcome */,
 				B6375918244B816A0076FE2C /* Home */,
 				B6E088E0245AD29D006C6665 /* Local Setting */,
 				7280691924489F1B00522019 /* Settings */,
+				B689A71B24B5014F00F8B1F0 /* Drawer */,
 			);
 			path = "User Interfaces";
 			sourceTree = "<group>";
@@ -416,6 +440,7 @@
 				B6E088EA245B12F9006C6665 /* EJUserDefaultsManager.swift */,
 				B657269E247D130E00D836D7 /* EJConvertHelper.swift */,
 				B658E08F2482CA9300F55430 /* EJKisangInfoManager.swift */,
+				B689A71324B4F27000F8B1F0 /* EJImageHelper.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -462,6 +487,9 @@
 		991F229F228973C000FDBC98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B689A71924B4F76C00F8B1F0 /* Bazzi OTF.otf */,
+				B689A71524B4F75700F8B1F0 /* Maplestory OTF Bold.otf */,
+				B689A71724B4F76100F8B1F0 /* Maplestory OTF Light.otf */,
 				B6BCD7E42455A7AE003436D6 /* JSON Files */,
 				724A173422D77C01008FDCB6 /* Image Resource */,
 				992B0A1B22BFDB4B00FF94B7 /* Language */,
@@ -564,6 +592,7 @@
 		99CC5119229D2F8700192450 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B689A72224B50C9B00F8B1F0 /* Weather Model */,
 				B657269D247D108E00D836D7 /* KiSangCheong */,
 				992B097122BD513B00FF94B7 /* Foreign Weather */,
 				B6262C2622FA771A009FC744 /* EJWeatherMainModel.swift */,
@@ -627,12 +656,12 @@
 		B6375919244B81770076FE2C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B658E07C2481D7F100F55430 /* EJIntroViewController.swift */,
 				B6375916244B807A0076FE2C /* EJNewHomeViewController.swift */,
 				991F22A22289752E00FDBC98 /* EJSideMenuViewController.swift */,
 				99BB080C229E748400E454B8 /* EJShareViewController.swift */,
 				72BF779922D6370F00B2E121 /* SideMenuCell */,
 				B6375923244BCB6D0076FE2C /* TableView Cell */,
-				B658E07C2481D7F100F55430 /* EJIntroViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -723,6 +752,24 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		B689A71B24B5014F00F8B1F0 /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				B689A71C24B5016200F8B1F0 /* Drawer.storyboard */,
+				B689A71E24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift */,
+				B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */,
+			);
+			path = Drawer;
+			sourceTree = "<group>";
+		};
+		B689A72224B50C9B00F8B1F0 /* Weather Model */ = {
+			isa = PBXGroup;
+			children = (
+				B689A72324B50CAB00F8B1F0 /* WeatherProtocol.swift */,
+			);
+			path = "Weather Model";
+			sourceTree = "<group>";
+		};
 		B6AF9B5224853DF0009C14B1 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +850,32 @@
 				B6E088F0245B42FE006C6665 /* EJNameTableViewCell.xib */,
 			);
 			path = "TableView Cell";
+			sourceTree = "<group>";
+		};
+		B6F85D3A24CC68A80051D765 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				B6F85D3B24CC68C40051D765 /* Welcome.storyboard */,
+				B6F85D3D24CC68E40051D765 /* View */,
+				B6F85D4024CC6B170051D765 /* ViewModel */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		B6F85D3D24CC68E40051D765 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6F85D3E24CC68F40051D765 /* EJSplashViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B6F85D4024CC6B170051D765 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6F85D4124CC6B2D0051D765 /* EJSplashViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B6FEBB9A24614B4400A09FEB /* Local Setting */ = {
@@ -943,18 +1016,23 @@
 				B658E0872482701D00F55430 /* regionId.json in Resources */,
 				990E595B22D71598000728A1 /* GoogleService-Info.plist in Resources */,
 				992B0A3522BFE72900FF94B7 /* Localizable.strings in Resources */,
+				B689A71A24B4F76C00F8B1F0 /* Bazzi OTF.otf in Resources */,
 				B6E088E2245AD2B7006C6665 /* Local.storyboard in Resources */,
 				999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */,
+				B689A71824B4F76100F8B1F0 /* Maplestory OTF Light.otf in Resources */,
 				998B829C228D67540099B71A /* TimeWeahtherTableViewCell.xib in Resources */,
 				724A173822D77C9B008FDCB6 /* cardigan.png in Resources */,
+				B689A71D24B5016200F8B1F0 /* Drawer.storyboard in Resources */,
 				997A6A1922E1994A007AC760 /* InfoPlist.strings in Resources */,
 				7280691B24489F3100522019 /* Setting.storyboard in Resources */,
 				B6BCD7E62455A7CC003436D6 /* korea_data.json in Resources */,
+				B689A71624B4F75700F8B1F0 /* Maplestory OTF Bold.otf in Resources */,
 				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
 				B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */,
 				B6E088D9245AC7A8006C6665 /* korea.json in Resources */,
 				724A173A22D77C9B008FDCB6 /* blouse.png in Resources */,
 				99A05683228EAA0D002D3B7A /* DummyTableViewCell.xib in Resources */,
+				B6F85D3C24CC68C40051D765 /* Welcome.storyboard in Resources */,
 				998B82AC228D6A110099B71A /* TimeCollectionViewCell.xib in Resources */,
 				999B20A622029E670073A0D9 /* Assets.xcassets in Resources */,
 				998B82A4228D67710099B71A /* AdmobTableViewCell.xib in Resources */,
@@ -1125,9 +1203,11 @@
 			files = (
 				99FC4AC622DDD32B002DD721 /* EJDevInfoViewController.swift in Sources */,
 				999B209F22029E660073A0D9 /* AppDelegate.swift in Sources */,
+				B689A72424B50CAB00F8B1F0 /* WeatherProtocol.swift in Sources */,
 				B6E088F4245B5772006C6665 /* String.swift in Sources */,
 				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
 				72A5D5742340C6C70068D33D /* BackView.swift in Sources */,
+				B689A72124B503BC00F8B1F0 /* EJDrawerViewController.swift in Sources */,
 				992B098A22BD53C200FF94B7 /* EJFiveDaysWeather.swift in Sources */,
 				992B098B22BD53C200FF94B7 /* EJFiveDaysWind.swift in Sources */,
 				B6E088EB245B12F9006C6665 /* EJUserDefaultsManager.swift in Sources */,
@@ -1139,6 +1219,7 @@
 				9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */,
 				B6F1025F233B4479000C3DCD /* UserDefaults+Key.swift in Sources */,
 				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
+				B689A71424B4F27000F8B1F0 /* EJImageHelper.swift in Sources */,
 				728069222448A4FB00522019 /* EJFirebaseDBManager.swift in Sources */,
 				99A05682228EAA0D002D3B7A /* DummyTableViewCell.swift in Sources */,
 				B6029359230FD5E5002BDA5E /* EJDescriptionTableViewCell.swift in Sources */,
@@ -1152,6 +1233,7 @@
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
 				992B098D22BD53C200FF94B7 /* EJFiveDaysList.swift in Sources */,
+				B689A71F24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift in Sources */,
 				B658E07D2481D7F100F55430 /* EJIntroViewController.swift in Sources */,
 				B6375917244B807A0076FE2C /* EJNewHomeViewController.swift in Sources */,
 				B62E8B8E22F9464C00055A0E /* Date.swift in Sources */,
@@ -1193,8 +1275,10 @@
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				B602935B230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
+				B6F85D4224CC6B2D0051D765 /* EJSplashViewModel.swift in Sources */,
 				B6E088E7245B0E52006C6665 /* EJKoreaDistrictViewController.swift in Sources */,
 				7280691E2448A35D00522019 /* EJNoticeViewController.swift in Sources */,
+				B6F85D3F24CC68F40051D765 /* EJSplashViewController.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
 				B6F10261233B4870000C3DCD /* ImageView.swift in Sources */,
 				72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */,
@@ -1453,7 +1537,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1461,12 +1545,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = EJWhatShouldIWear/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.3;
+				MARKETING_VERSION = 2.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1543,7 +1627,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1551,12 +1635,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = EJWhatShouldIWear/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.3;
+				MARKETING_VERSION = 2.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
