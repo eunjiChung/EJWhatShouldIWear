@@ -11,7 +11,7 @@
         <!--Drawer Background View Controller-->
         <scene sceneID="w0h-15-GvX">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="7hd-QL-5e7" customClass="EJDrawerBackgroundViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EJDrawerBackgroundViewController" modalPresentationStyle="overCurrentContext" id="7hd-QL-5e7" customClass="EJDrawerBackgroundViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wmo-JO-HiT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,11 +49,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Foz-b0-RmM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gua-YY-OMt">
-                                <rect key="frame" x="0.0" y="292" width="414" height="570"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="262" width="414" height="600"/>
+                                <color key="backgroundColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="570" id="Ni4-46-s8B"/>
+                                    <constraint firstAttribute="height" constant="600" id="Ni4-46-s8B"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-55-pTj">
@@ -99,17 +103,22 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Foz-b0-RmM" firstAttribute="leading" secondItem="NPN-Xi-nj7" secondAttribute="leading" id="1qA-VU-OVy"/>
                             <constraint firstItem="iQi-W6-Bc7" firstAttribute="trailing" secondItem="MOV-55-pTj" secondAttribute="trailing" id="4kd-aY-5yh"/>
                             <constraint firstItem="iQi-W6-Bc7" firstAttribute="bottom" secondItem="gua-YY-OMt" secondAttribute="bottom" id="9DM-Kl-wYW"/>
                             <constraint firstItem="iQi-W6-Bc7" firstAttribute="trailing" secondItem="gua-YY-OMt" secondAttribute="trailing" id="BaS-8a-Eyn"/>
                             <constraint firstItem="gua-YY-OMt" firstAttribute="leading" secondItem="iQi-W6-Bc7" secondAttribute="leading" id="FRW-cM-cBI"/>
+                            <constraint firstItem="Foz-b0-RmM" firstAttribute="top" secondItem="NPN-Xi-nj7" secondAttribute="top" id="Ghj-r3-Lbp"/>
                             <constraint firstAttribute="bottom" secondItem="MOV-55-pTj" secondAttribute="bottom" id="dH4-CF-ki7"/>
+                            <constraint firstAttribute="bottom" secondItem="Foz-b0-RmM" secondAttribute="bottom" id="mQ8-hL-t0x"/>
+                            <constraint firstAttribute="trailing" secondItem="Foz-b0-RmM" secondAttribute="trailing" id="x8o-77-bN9"/>
                             <constraint firstItem="MOV-55-pTj" firstAttribute="leading" secondItem="iQi-W6-Bc7" secondAttribute="leading" id="zE2-qz-RfZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iQi-W6-Bc7"/>
                     </view>
                     <connections>
                         <outlet property="backView" destination="gua-YY-OMt" id="Ye8-ft-Gif"/>
+                        <outlet property="dimView" destination="Foz-b0-RmM" id="qkP-Z9-n4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wta-Fx-EDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

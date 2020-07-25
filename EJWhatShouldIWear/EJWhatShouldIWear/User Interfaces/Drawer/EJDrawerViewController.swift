@@ -11,6 +11,7 @@ import UIKit
 class EJDrawerViewController: EJBaseViewController {
 
     // MARK: - IBOutlet
+    @IBOutlet weak var dimView: UIView!
     @IBOutlet weak var backView: UIView!
     
     // MARK: - Property
@@ -28,7 +29,7 @@ class EJDrawerViewController: EJBaseViewController {
     // MARK: - Initialize
     func initView() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        self.view.addGestureRecognizer(tap)
+        dimView.addGestureRecognizer(tap)
         
         backView.layer.cornerRadius = 10
     }

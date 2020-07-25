@@ -224,6 +224,8 @@ public class EJLocationManager: CLLocationManager {
                 
                 guard let first = placemarks?.first, let location = first.location, let country = first.country else { return }
                 self.setNewDefaults(newLocation: location, country: country, name: address)
+                
+                // TODO: - Notification Sending으로 바꾸기
                 self.didSuccessUpdateLocationsClosure?()
             }
         } else {
