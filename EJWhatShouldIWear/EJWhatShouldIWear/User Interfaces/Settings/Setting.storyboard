@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cmG-7V-SOJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dYO-MI-0QQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setting View Controller-->
+        <!--설정-->
         <scene sceneID="uO1-2M-N5P">
             <objects>
                 <viewController storyboardIdentifier="EJSettingViewController" id="cmG-7V-SOJ" customClass="EJSettingViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
@@ -130,6 +130,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KT9-uj-NbS"/>
                     </view>
+                    <navigationItem key="navigationItem" title="설정" id="wFI-1V-P7l"/>
                     <connections>
                         <outlet property="alcBottomOfBackButton" destination="4X9-Ug-CMk" id="ynd-vV-R8R"/>
                         <outlet property="alcLeadingOfBackIcon" destination="sHY-lO-oKr" id="f36-Xi-1sX"/>
@@ -141,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMO-ZI-iGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400.8000000000002" y="1298.2758620689656"/>
+            <point key="canvasLocation" x="3310.144927536232" y="1297.7678571428571"/>
         </scene>
         <!--Dev Info View Controller-->
         <scene sceneID="e07-Uk-kvb">
@@ -164,7 +165,7 @@
                                         <rect key="frame" x="18" y="52" width="11" height="18"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.25094899539999999" green="0.25099846720000002" blue="0.2509458363" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="eup-Vs-EJd" firstAttribute="leading" secondItem="leN-wi-DWb" secondAttribute="leading" constant="18" id="Uga-GF-uKB"/>
                                     <constraint firstItem="0qz-Ep-iYW" firstAttribute="centerY" secondItem="eup-Vs-EJd" secondAttribute="centerY" id="VJI-JO-i9L"/>
@@ -449,6 +450,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFp-0c-KwS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3202.898550724638" y="2021.6517857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mxw-63-V29">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dYO-MI-0QQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S3D-sC-8Gy">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cmG-7V-SOJ" kind="relationship" relationship="rootViewController" id="bn7-et-qi4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ye7-Wj-Lza" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2400" y="1297.7678571428571"/>
         </scene>
     </scenes>
     <resources>

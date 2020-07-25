@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sUf-nO-32K">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Drawer Background View Controller-->
+        <scene sceneID="w0h-15-GvX">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="7hd-QL-5e7" customClass="EJDrawerBackgroundViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wmo-JO-HiT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hc8-ab-iFo">
+                                <rect key="frame" x="0.0" y="-604" width="414" height="1500"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1500" id="5Jd-7q-7GO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hc8-ab-iFo" firstAttribute="leading" secondItem="Wmo-JO-HiT" secondAttribute="leading" id="XeU-r5-GeZ"/>
+                            <constraint firstAttribute="bottom" secondItem="hc8-ab-iFo" secondAttribute="bottom" id="fGy-dx-S2S"/>
+                            <constraint firstAttribute="trailing" secondItem="hc8-ab-iFo" secondAttribute="trailing" id="zDs-SU-0Zo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VQi-2z-IJA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="818-Rg-Udc"/>
+                    <connections>
+                        <segue destination="SEV-0K-oYh" kind="presentation" identifier="showDrawer" modalPresentationStyle="overCurrentContext" modalTransitionStyle="coverVertical" id="xI4-J8-Rd4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gm3-qc-HpJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915.94202898550736" y="115.84821428571428"/>
+        </scene>
+        <!--Drawer View Controller-->
+        <scene sceneID="MX9-CQ-22K">
+            <objects>
+                <viewController id="SEV-0K-oYh" customClass="EJDrawerViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NPN-Xi-nj7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gua-YY-OMt">
+                                <rect key="frame" x="0.0" y="292" width="414" height="570"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="570" id="Ni4-46-s8B"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-55-pTj">
+                                <rect key="frame" x="0.0" y="346" width="414" height="550"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="550" id="VRT-2A-K8e"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iQi-W6-Bc7" firstAttribute="trailing" secondItem="MOV-55-pTj" secondAttribute="trailing" id="4kd-aY-5yh"/>
+                            <constraint firstItem="iQi-W6-Bc7" firstAttribute="bottom" secondItem="gua-YY-OMt" secondAttribute="bottom" id="9DM-Kl-wYW"/>
+                            <constraint firstItem="iQi-W6-Bc7" firstAttribute="trailing" secondItem="gua-YY-OMt" secondAttribute="trailing" id="BaS-8a-Eyn"/>
+                            <constraint firstItem="gua-YY-OMt" firstAttribute="leading" secondItem="iQi-W6-Bc7" secondAttribute="leading" id="FRW-cM-cBI"/>
+                            <constraint firstAttribute="bottom" secondItem="MOV-55-pTj" secondAttribute="bottom" id="dH4-CF-ki7"/>
+                            <constraint firstItem="MOV-55-pTj" firstAttribute="leading" secondItem="iQi-W6-Bc7" secondAttribute="leading" id="zE2-qz-RfZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iQi-W6-Bc7"/>
+                    </view>
+                    <connections>
+                        <outlet property="backView" destination="gua-YY-OMt" id="Ye8-ft-Gif"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wta-Fx-EDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1900.0000000000002" y="115.84821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cMH-l9-trY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" navigationBarHidden="YES" id="sUf-nO-32K" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NVv-aQ-g6D">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7hd-QL-5e7" kind="relationship" relationship="rootViewController" id="grz-Pi-M9t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mi9-bb-R8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.7971014492753632" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+</document>
