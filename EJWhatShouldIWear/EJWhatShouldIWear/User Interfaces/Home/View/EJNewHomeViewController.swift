@@ -158,6 +158,7 @@ class EJNewHomeViewController: EJBaseViewController {
     }
     
     @IBAction func didTouchList(_ sender: Any) {
+        selectionHapticFeedback()
         performSegue(withIdentifier: "showDrawer", sender: nil)
     }
 }
