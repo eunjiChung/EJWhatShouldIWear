@@ -87,13 +87,9 @@ class EJWeatherManager: NSObject {
         let time = timeZoneDate.currentHourInt()
         
         if time >= 20 || time < 6 {
-            let night = ["night1", "night2"]
-            let pic = night.randomElement()!
-            return UIImage(named: pic)!
+            return UIImage(named: "night")!
         } else if time >= 18 {
-            let sunsets = ["sunset1", "sunset2", "sunset3", "sunset4"]
-            let pic = sunsets.randomElement()!
-            return UIImage(named: pic)!
+            return UIImage(named: "sunset")!
         } else if time >= 6 {
             var name = ""
             let weather = self.generateWeatherCondition(by: list)
@@ -103,11 +99,11 @@ class EJWeatherManager: NSObject {
             case .clear:
                 name = "clear"
             case .cloud:
-                name = "cloud"
+                name = "cloudy"
             case .drizzle, .rain, .squall:
                 name = "rainy"
             case .tornado, .thunderstorm:
-                name = "storm"
+                name = "rainy"
             case .ash:
                 name = "ash"
             case .snow:
@@ -343,20 +339,18 @@ extension EJWeatherManager {
         
         let currentHour = Calendar.current.component(.hour, from: Date())
         if currentHour >= 20 || currentHour < 6 {
-            let pic = ["night1", "night2"].randomElement()!
-            return UIImage(named: pic)!
+            return UIImage(named: "night")!
         } else if currentHour >= 18 {
-            let pic = ["sunset1", "sunset2", "sunset3", "sunset4"].randomElement()!
-            return UIImage(named: pic)!
+            return UIImage(named: "sunset")!
         } else if currentHour >= 6 {
-            var name = "background"
+            var name = "clear"
             for timeModel in models {
                 switch timeModel.skyCode {
                 case .sunny:
                     name = "clear"
                 case .cloudy:
                     // MARK: - 좀 더 맑은 하늘 넣기
-                    name = "cloud"
+                    name = "cloudy"
                 case .grey:
                     name = "cloud"
                 }
