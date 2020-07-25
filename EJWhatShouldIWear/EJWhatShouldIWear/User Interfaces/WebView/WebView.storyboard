@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nDk-Nb-9C1">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="bGJ-JC-EQB">
+            <objects>
+                <viewController storyboardIdentifier="EJWebViewController" id="nDk-Nb-9C1" customClass="EJWebViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oJV-Ll-oBd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIq-sk-Wgl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위성 영상" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoW-9z-nGs">
+                                        <rect key="frame" x="175.5" y="45" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJq-1P-t32">
+                                        <rect key="frame" x="370" y="37.5" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="AfG-Jp-VAv"/>
+                                            <constraint firstAttribute="height" constant="36" id="ddl-E5-azS"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="close_icon"/>
+                                        <connections>
+                                            <action selector="didTouchCloseButton:" destination="nDk-Nb-9C1" eventType="touchUpInside" id="Ris-IE-P56"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WJq-1P-t32" firstAttribute="centerY" secondItem="DoW-9z-nGs" secondAttribute="centerY" id="N9r-gd-MIn"/>
+                                    <constraint firstAttribute="trailing" secondItem="WJq-1P-t32" secondAttribute="trailing" constant="8" id="l8W-8L-emw"/>
+                                    <constraint firstAttribute="height" constant="76" id="mZX-pG-KPh"/>
+                                    <constraint firstAttribute="bottom" secondItem="DoW-9z-nGs" secondAttribute="bottom" constant="10" id="md3-dH-hZR"/>
+                                    <constraint firstItem="DoW-9z-nGs" firstAttribute="centerX" secondItem="RIq-sk-Wgl" secondAttribute="centerX" id="osk-98-0f7"/>
+                                </constraints>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEX-sJ-1L3">
+                                <rect key="frame" x="0.0" y="76" width="414" height="786"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RIq-sk-Wgl" firstAttribute="leading" secondItem="oJV-Ll-oBd" secondAttribute="leading" id="5Ts-gr-toY"/>
+                            <constraint firstItem="c9J-7W-ytT" firstAttribute="trailing" secondItem="DEX-sJ-1L3" secondAttribute="trailing" id="8oI-MD-j0u"/>
+                            <constraint firstItem="DEX-sJ-1L3" firstAttribute="leading" secondItem="c9J-7W-ytT" secondAttribute="leading" id="J3N-8U-8tR"/>
+                            <constraint firstItem="RIq-sk-Wgl" firstAttribute="top" secondItem="oJV-Ll-oBd" secondAttribute="top" id="iYS-pb-HeY"/>
+                            <constraint firstAttribute="trailing" secondItem="RIq-sk-Wgl" secondAttribute="trailing" id="jic-Rr-2gq"/>
+                            <constraint firstItem="c9J-7W-ytT" firstAttribute="bottom" secondItem="DEX-sJ-1L3" secondAttribute="bottom" id="mie-qx-p9a"/>
+                            <constraint firstItem="DEX-sJ-1L3" firstAttribute="top" secondItem="RIq-sk-Wgl" secondAttribute="bottom" id="v9w-ff-PfU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c9J-7W-ytT"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="DEX-sJ-1L3" id="FbM-r8-ks1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cas-Wa-DYe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="162"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close_icon" width="24" height="24"/>
+    </resources>
+</document>

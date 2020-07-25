@@ -190,6 +190,10 @@ extension EJNewHomeViewController {
                 guard let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController") as? EJShareViewController else { return }
                 self.show(shareVC, sender: self)
             }
+            tableVC.didSelectSatelliteRow = {
+                guard let satelliteVC = UIStoryboard(name: "WebView", bundle: nil).instantiateViewController(withIdentifier: "EJWebViewController") as? EJWebViewController else { return }
+                self.show(satelliteVC, sender: nil)
+            }
         }
     }
 }

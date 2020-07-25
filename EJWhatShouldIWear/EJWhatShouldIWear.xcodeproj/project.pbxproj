@@ -129,6 +129,9 @@
 		B6F85D3C24CC68C40051D765 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F85D3B24CC68C40051D765 /* Welcome.storyboard */; };
 		B6F85D3F24CC68F40051D765 /* EJSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F85D3E24CC68F40051D765 /* EJSplashViewController.swift */; };
 		B6F85D4224CC6B2D0051D765 /* EJSplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F85D4124CC6B2D0051D765 /* EJSplashViewModel.swift */; };
+		B6F85D4524CC9AD70051D765 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F85D4424CC9AD70051D765 /* WebView.storyboard */; };
+		B6F85D4724CC9B8E0051D765 /* EJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F85D4624CC9B8E0051D765 /* EJWebViewController.swift */; };
+		B6F85D4924CC9BB50051D765 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F85D4824CC9BB50051D765 /* WebKit.framework */; };
 		B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */; };
 		B6FA52CE233B1982006E03A6 /* ClothsCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */; };
 		B6FEBB9C24614B5E00A09FEB /* EJLocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FEBB9B24614B5E00A09FEB /* EJLocationManagerTests.swift */; };
@@ -303,6 +306,9 @@
 		B6F85D3B24CC68C40051D765 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		B6F85D3E24CC68F40051D765 /* EJSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSplashViewController.swift; sourceTree = "<group>"; };
 		B6F85D4124CC6B2D0051D765 /* EJSplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJSplashViewModel.swift; sourceTree = "<group>"; };
+		B6F85D4424CC9AD70051D765 /* WebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
+		B6F85D4624CC9B8E0051D765 /* EJWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWebViewController.swift; sourceTree = "<group>"; };
+		B6F85D4824CC9BB50051D765 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B6FA52CB233B1982006E03A6 /* ClothsCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothsCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		B6FA52CC233B1982006E03A6 /* ClothsCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothsCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		B6FE5CCC2341E4F100BD3A40 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
@@ -328,6 +334,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F85D4924CC9BB50051D765 /* WebKit.framework in Frameworks */,
 				9C5F1FB1D28890DB87E2856D /* Pods_EJWhatShouldIWear.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +366,7 @@
 		3552DA285A01C2C77E7FE94F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6F85D4824CC9BB50051D765 /* WebKit.framework */,
 				9947053122BA029F00474C02 /* KakaoCommon.framework */,
 				9947052F22BA029F00474C02 /* KakaoLink.framework */,
 				9947053022BA029F00474C02 /* KakaoMessageTemplate.framework */,
@@ -403,6 +411,7 @@
 				B6E088E0245AD29D006C6665 /* Local Setting */,
 				7280691924489F1B00522019 /* Settings */,
 				B689A71B24B5014F00F8B1F0 /* Drawer */,
+				B6F85D4324CC9AAF0051D765 /* WebView */,
 			);
 			path = "User Interfaces";
 			sourceTree = "<group>";
@@ -878,6 +887,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B6F85D4324CC9AAF0051D765 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				B6F85D4424CC9AD70051D765 /* WebView.storyboard */,
+				B6F85D4624CC9B8E0051D765 /* EJWebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		B6FEBB9A24614B4400A09FEB /* Local Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -1027,6 +1045,7 @@
 				7280691B24489F3100522019 /* Setting.storyboard in Resources */,
 				B6BCD7E62455A7CC003436D6 /* korea_data.json in Resources */,
 				B689A71624B4F75700F8B1F0 /* Maplestory OTF Bold.otf in Resources */,
+				B6F85D4524CC9AD70051D765 /* WebView.storyboard in Resources */,
 				998B8296228D671B0099B71A /* ShowClothTableViewCell.xib in Resources */,
 				B6F1025B233B2F73000C3DCD /* ClothCollectionViewCell.xib in Resources */,
 				B6E088D9245AC7A8006C6665 /* korea.json in Resources */,
@@ -1247,6 +1266,7 @@
 				997533BF228EEAD7003DAF97 /* EJAlarmTableViewCell.swift in Sources */,
 				728069282448C46700522019 /* EJURLString.swift in Sources */,
 				99FC4AC122DDCED9002DD721 /* EJInfoTableViewCell.swift in Sources */,
+				B6F85D4724CC9B8E0051D765 /* EJWebViewController.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
 				992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */,

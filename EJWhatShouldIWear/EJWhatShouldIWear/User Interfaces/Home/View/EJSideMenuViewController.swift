@@ -11,13 +11,14 @@ import UIKit
 enum EJSideMenuSectionType: Int, CaseIterable {
     case logo
     case location
+    case satellite
     case share
     case review
     case setting
 }
 
 enum EJForeignSideMenuType: Int, CaseIterable {
-    case logo
+    case logo 
     case share
     case review
     case setting
@@ -31,6 +32,7 @@ final class EJSideMenuViewController: EJBaseViewController {
     
     var didSelectBookmarkedLocationRow: (()->Void)?
     var didSelectShareRow: (()->Void)?
+    var didSelectSatelliteRow: (()->Void)?
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -79,6 +81,12 @@ extension EJSideMenuViewController: UITableViewDataSource {
                 cell.imageView?.image = #imageLiteral(resourceName: "menu_icon")
                 cell.shareLabel.text = "즐겨찾는 위치"
                 return cell
+            case .satellite:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier) as? SideMenuShareTableViewCell else { return UITableViewCell() }
+                cell.imageView?.tintColor = #colorLiteral(red: 0.1921568627, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
+                cell.imageView?.image = UIImage(named: "map")
+                cell.shareLabel.text = "위성 영상"
+                return cell
             case .share:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuShareTableViewCell.identifier, for: indexPath) as? SideMenuShareTableViewCell else { return UITableViewCell() }
                 cell.imageView?.image = #imageLiteral(resourceName: "share_black_icon")
@@ -116,6 +124,9 @@ extension EJSideMenuViewController: UITableViewDelegate {
             switch sectionType {
             case .location:
                 didSelectBookmarkedLocationRow?()
+                self.navigationController?.popViewController(animated: true)
+            case .satellite:
+                didSelectSatelliteRow?()
                 self.navigationController?.popViewController(animated: true)
             case .share:
                 didSelectShareRow?()
