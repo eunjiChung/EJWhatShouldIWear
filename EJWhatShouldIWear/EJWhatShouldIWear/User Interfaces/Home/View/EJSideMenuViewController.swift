@@ -28,7 +28,9 @@ final class EJSideMenuViewController: EJBaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var sideMenuTableView: UITableView!
     var curLocation: String?
+    
     var didSelectBookmarkedLocationRow: (()->Void)?
+    var didSelectShareRow: (()->Void)?
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -116,8 +118,8 @@ extension EJSideMenuViewController: UITableViewDelegate {
                 didSelectBookmarkedLocationRow?()
                 self.navigationController?.popViewController(animated: true)
             case .share:
-                let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController")
-                self.navigationController?.pushViewController(shareVC!, animated: true)
+                didSelectShareRow?()
+                self.navigationController?.popViewController(animated: true)
             case .review:
                 writeReview()
             case .setting:

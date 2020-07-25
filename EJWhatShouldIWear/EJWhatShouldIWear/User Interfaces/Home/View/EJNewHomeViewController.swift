@@ -185,6 +185,10 @@ extension EJNewHomeViewController {
                 self.show(vc, sender: self)
                 vc.performSegue(withIdentifier: "showLocalList", sender: vc)
             }
+            tableVC.didSelectShareRow = {
+                guard let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController") as? EJShareViewController else { return }
+                self.show(shareVC, sender: self)
+            }
         }
     }
 }

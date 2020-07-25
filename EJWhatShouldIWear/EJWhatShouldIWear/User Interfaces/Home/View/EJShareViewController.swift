@@ -77,7 +77,7 @@ final class EJShareViewController: EJBaseViewController, UITextViewDelegate {
     // MARK: - Action Method
     @IBAction func didTouchBackBtn(_ sender: Any) {
         selectionHapticFeedback()
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Share Link Method
