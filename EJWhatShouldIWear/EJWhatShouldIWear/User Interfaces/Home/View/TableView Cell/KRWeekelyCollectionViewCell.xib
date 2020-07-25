@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bazzi OTF.otf">
+            <string>BazziOTFRegular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,41 +26,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="159" height="212"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최고기온" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2p-iO-7HA">
-                                <rect key="frame" x="8" y="38" width="45" height="16"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <rect key="frame" x="8" y="39" width="35.5" height="14.5"/>
+                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18도" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCt-cB-BaO">
-                                <rect key="frame" x="125" y="37.5" width="26" height="17"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <rect key="frame" x="127" y="37" width="24" height="19"/>
+                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최저기온" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpQ-CH-P65">
-                                <rect key="frame" x="8" y="59" width="45" height="16"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <rect key="frame" x="8" y="58.5" width="36.5" height="14.5"/>
+                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10도" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77Q-ad-S2X">
-                                <rect key="frame" x="124.5" y="58.5" width="26.5" height="17"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <rect key="frame" x="127" y="56.5" width="24" height="19"/>
+                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="맑아요" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cy7-e2-mHX">
-                                <rect key="frame" x="8" y="180" width="143" height="18"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <rect key="frame" x="8" y="178" width="143" height="18"/>
+                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_blouse_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dzc-AD-J4k">
-                                <rect key="frame" x="8" y="75" width="143" height="105"/>
+                                <rect key="frame" x="8" y="73" width="143" height="105"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="요일" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFe-MJ-o3T">
-                                <rect key="frame" x="8" y="11" width="143" height="17"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <rect key="frame" x="8" y="11" width="143" height="18"/>
+                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -81,7 +86,7 @@
                             <constraint firstItem="EFe-MJ-o3T" firstAttribute="top" secondItem="9QY-pO-6fR" secondAttribute="top" constant="11" id="p6R-v3-aBh"/>
                             <constraint firstItem="A2p-iO-7HA" firstAttribute="top" secondItem="EFe-MJ-o3T" secondAttribute="bottom" constant="10" id="q5l-xs-qBa"/>
                             <constraint firstItem="dzc-AD-J4k" firstAttribute="leading" secondItem="A2p-iO-7HA" secondAttribute="leading" id="rrC-rh-AOl"/>
-                            <constraint firstAttribute="bottom" secondItem="cy7-e2-mHX" secondAttribute="bottom" priority="250" constant="10" id="tad-I6-RoL"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cy7-e2-mHX" secondAttribute="bottom" constant="10" id="tad-I6-RoL"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">

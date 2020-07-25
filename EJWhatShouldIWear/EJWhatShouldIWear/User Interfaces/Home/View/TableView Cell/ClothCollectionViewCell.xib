@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bazzi OTF.otf">
+            <string>BazziOTFRegular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,8 +29,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="135" height="105"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKW-4K-nV7">
-                                <rect key="frame" x="0.0" y="105" width="135" height="17"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <rect key="frame" x="0.0" y="105" width="135" height="15.5"/>
+                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -36,7 +39,7 @@
                         <constraints>
                             <constraint firstItem="Mhh-2U-yVV" firstAttribute="leading" secondItem="WbK-9T-Rwr" secondAttribute="leading" id="2dv-OD-Swn"/>
                             <constraint firstAttribute="trailing" secondItem="CKW-4K-nV7" secondAttribute="trailing" id="IuJ-0D-QF5"/>
-                            <constraint firstAttribute="bottom" secondItem="CKW-4K-nV7" secondAttribute="bottom" priority="250" id="bfu-qR-sRJ"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CKW-4K-nV7" secondAttribute="bottom" id="bfu-qR-sRJ"/>
                             <constraint firstItem="Mhh-2U-yVV" firstAttribute="top" secondItem="WbK-9T-Rwr" secondAttribute="top" id="gfJ-sB-4JQ"/>
                             <constraint firstAttribute="trailing" secondItem="Mhh-2U-yVV" secondAttribute="trailing" id="pvP-eP-OM2"/>
                             <constraint firstItem="CKW-4K-nV7" firstAttribute="leading" secondItem="WbK-9T-Rwr" secondAttribute="leading" id="qpp-ET-KLy"/>
