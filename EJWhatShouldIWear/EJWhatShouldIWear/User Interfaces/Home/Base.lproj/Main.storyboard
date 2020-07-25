@@ -273,7 +273,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="완료"/>
                                         <connections>
-                                            <action selector="didTouchDismissButton:" destination="FYT-Dz-Hel" eventType="touchUpInside" id="9jY-xq-mps"/>
+                                            <action selector="didTouchCloseButton:" destination="FYT-Dz-Hel" eventType="touchUpInside" id="M4G-QI-Gsb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -652,7 +652,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k6z-8b-hnd"/>
+        <segue reference="ka8-XN-s11"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="back_icon" width="11" height="18"/>

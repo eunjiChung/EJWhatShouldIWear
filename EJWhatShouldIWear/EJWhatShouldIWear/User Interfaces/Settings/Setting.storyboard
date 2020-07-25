@@ -28,13 +28,21 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Ut-TQ-IfW">
                                         <rect key="frame" x="18" y="52" width="11" height="18"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvN-Wv-Fgo">
+                                        <rect key="frame" x="192.5" y="51" width="29.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25094899539999999" green="0.25099846720000002" blue="0.2509458363" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="4Ut-TQ-IfW" secondAttribute="bottom" constant="18" id="4X9-Ug-CMk"/>
                                     <constraint firstItem="Fbe-rx-Dl2" firstAttribute="centerY" secondItem="4Ut-TQ-IfW" secondAttribute="centerY" id="It5-HO-lbM"/>
                                     <constraint firstItem="4Ut-TQ-IfW" firstAttribute="top" secondItem="2lX-6I-TUY" secondAttribute="top" constant="52" id="WlO-gA-n3m"/>
+                                    <constraint firstItem="OvN-Wv-Fgo" firstAttribute="centerX" secondItem="2lX-6I-TUY" secondAttribute="centerX" id="XDt-Ke-igj"/>
                                     <constraint firstItem="Fbe-rx-Dl2" firstAttribute="centerX" secondItem="4Ut-TQ-IfW" secondAttribute="centerX" id="ZJl-dz-FUO"/>
+                                    <constraint firstItem="OvN-Wv-Fgo" firstAttribute="centerY" secondItem="Fbe-rx-Dl2" secondAttribute="centerY" id="bhu-a3-SR1"/>
                                     <constraint firstItem="4Ut-TQ-IfW" firstAttribute="leading" secondItem="2lX-6I-TUY" secondAttribute="leading" constant="18" id="sHY-lO-oKr"/>
                                 </constraints>
                             </view>
@@ -52,13 +60,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QLY-wm-Gca">
                                                     <rect key="frame" x="21" y="15.5" width="149" height="49.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="알림 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdO-cH-OAg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdO-cH-OAg">
                                                             <rect key="frame" x="0.0" y="0.0" width="149" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="매일 아침 알림을 받아보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-cs-eNq">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매일 아침 알림을 받아보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-cs-eNq">
                                                             <rect key="frame" x="0.0" y="33.5" width="149" height="16"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="13"/>
                                                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -454,12 +462,11 @@
         <!--Navigation Controller-->
         <scene sceneID="mxw-63-V29">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dYO-MI-0QQ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="dYO-MI-0QQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S3D-sC-8Gy">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

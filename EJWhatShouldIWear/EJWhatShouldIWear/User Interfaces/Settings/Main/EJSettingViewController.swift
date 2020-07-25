@@ -43,6 +43,7 @@ final class EJSettingViewController: EJBaseViewController {
     // MARK: - IBOutlet Action
     @IBAction func didTouchBackButton(_ sender: Any) {
         selectionHapticFeedback()
+        dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
 }

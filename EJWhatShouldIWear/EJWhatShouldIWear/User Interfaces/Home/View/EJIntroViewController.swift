@@ -20,6 +20,14 @@ final class EJIntroViewController: EJBaseViewController {
         titleLabel.text = "setting_country".localized
         closeButton.setTitle("complete".localized, for: .normal)
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
+            closeButton.isHidden = true
+        }
+    }
+    
+    @IBAction func didTouchCloseButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }
 

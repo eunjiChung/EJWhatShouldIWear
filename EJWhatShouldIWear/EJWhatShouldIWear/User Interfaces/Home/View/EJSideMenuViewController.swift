@@ -37,7 +37,7 @@ final class EJSideMenuViewController: EJBaseViewController {
     // MARK: - Private Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sidemenu_setting_segue" {
-            let settingVC = segue.destination as! EJSettingViewController
+            guard let navVC = segue.destination as? UINavigationController, let settingVC = navVC.topViewController as? EJSettingViewController else { return }
             settingVC.curLocation = self.curLocation
         }
     }
