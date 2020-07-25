@@ -20,6 +20,8 @@ class EJDrawerBackgroundViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? EJDrawerViewController {
             dest.didTapBackground = {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
             }
         }

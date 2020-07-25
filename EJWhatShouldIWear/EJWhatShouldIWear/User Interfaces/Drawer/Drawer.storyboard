@@ -58,9 +58,42 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-55-pTj">
                                 <rect key="frame" x="0.0" y="346" width="414" height="550"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7cc-eI-7Ii">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" textLabel="ZNj-CT-18F" rowHeight="60" style="IBUITableViewCellStyleDefault" id="99T-NH-5hw">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="99T-NH-5hw" id="Mw2-MR-qed">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZNj-CT-18F">
+                                                            <rect key="frame" x="20" y="0.0" width="374" height="60"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="SEV-0K-oYh" id="NNs-Iv-t3t"/>
+                                            <outlet property="delegate" destination="SEV-0K-oYh" id="B83-B0-ffC"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="7cc-eI-7Ii" firstAttribute="top" secondItem="MOV-55-pTj" secondAttribute="top" id="B2N-wJ-quf"/>
+                                    <constraint firstAttribute="trailing" secondItem="7cc-eI-7Ii" secondAttribute="trailing" id="N5s-Ng-TW9"/>
+                                    <constraint firstItem="7cc-eI-7Ii" firstAttribute="leading" secondItem="MOV-55-pTj" secondAttribute="leading" id="Op9-jm-eWp"/>
                                     <constraint firstAttribute="height" constant="550" id="VRT-2A-K8e"/>
+                                    <constraint firstAttribute="bottom" secondItem="7cc-eI-7Ii" secondAttribute="bottom" id="iF8-Og-VA4"/>
                                 </constraints>
                             </view>
                         </subviews>
