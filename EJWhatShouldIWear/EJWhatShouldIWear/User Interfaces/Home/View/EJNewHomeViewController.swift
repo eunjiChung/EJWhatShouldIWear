@@ -180,6 +180,11 @@ extension EJNewHomeViewController {
             let navVC = segue.destination as! UISideMenuNavigationController
             let tableVC = navVC.viewControllers.first as! EJSideMenuViewController
             tableVC.curLocation = EJLocationManager.shared.currentLocation
+            tableVC.didSelectBookmarkedLocationRow = {
+                guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
+                self.show(vc, sender: self)
+                vc.performSegue(withIdentifier: "showLocalList", sender: vc)
+            }
         }
     }
 }

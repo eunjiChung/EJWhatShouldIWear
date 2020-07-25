@@ -66,11 +66,20 @@
                     <connections>
                         <outlet property="alcTopOfStackView" destination="T4J-IR-X44" id="F7x-a4-3nW"/>
                         <outlet property="loadingIndicator" destination="gk2-nY-Dw8" id="rGb-Yn-7cD"/>
+                        <segue destination="G9G-YG-TMH" kind="presentation" identifier="showIntro" id="dev-nh-Y4q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48d-Gf-ARv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-297" y="37"/>
+        </scene>
+        <!--EJIntroViewController-->
+        <scene sceneID="Hu4-8z-uEk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="EJIntroViewController" id="G9G-YG-TMH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hE2-T2-g82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344" y="37"/>
         </scene>
     </scenes>
     <resources>

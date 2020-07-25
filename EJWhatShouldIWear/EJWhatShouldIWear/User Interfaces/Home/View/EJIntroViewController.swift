@@ -14,6 +14,10 @@ final class EJIntroViewController: EJBaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
+    // MARK: - Property
+    var didSelectCountryClosure: (()->Void)?
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
