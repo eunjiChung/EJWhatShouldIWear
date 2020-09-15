@@ -9,6 +9,7 @@ target 'EJWhatShouldIWear' do
    pod 'Fabric', '~> 1.9.0'
    pod 'Crashlytics', '~> 3.12.0'
    pod 'Firebase/Analytics'
+   pod 'Firebase/Messaging'
    pod 'Firebase/RemoteConfig'
    pod 'Firebase/InAppMessagingDisplay'
    pod 'Firebase/Database'

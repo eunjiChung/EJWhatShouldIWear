@@ -33,15 +33,15 @@ final class EJSplashViewController: EJBaseViewController {
     // MARK: - Extra Functions
     private func dismissSplash() {
         requestAppVersionInfo()
+
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.8) {
-                if let indicator = self.loadingIndicator {
-                    self.view.alpha = 0.0
-                    indicator.alpha = 0.0
-                    
-                    guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJNewHomeViewController") as? EJNewHomeViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-                    appDelegate.window?.rootViewController = homeVC
-                }
+                guard let indicator = self.loadingIndicator else { return }
+                self.view.alpha = 0.0
+                indicator.alpha = 0.0
+
+                guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJNewHomeViewController") as? EJNewHomeViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                appDelegate.window?.rootViewController = homeVC
             }
         }
     }
@@ -51,19 +51,20 @@ final class EJSplashViewController: EJBaseViewController {
     }
     
     private func selectInitialLocalization() {
-        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
-            guard let introVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJIntroViewController") as? EJIntroViewController else { return }
-            introVC.modalPresentationStyle = .fullScreen
-            introVC.didSelectCountryClosure = { [weak self] in
-                guard let self = self else { return }
-                self.dismissSplash()
-            }
-            
-            DispatchQueue.main.async {
-                self.present(introVC, animated: true, completion: nil)
-            }
-        } else {
+        guard !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) else {
             dismissSplash()
+            return
+        }
+
+        guard let introVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJIntroViewController") as? EJIntroViewController else { return }
+        introVC.modalPresentationStyle = .fullScreen
+        introVC.didSelectCountryClosure = { [weak self] in
+            guard let self = self else { return }
+            self.dismissSplash()
+        }
+
+        DispatchQueue.main.async {
+            self.present(introVC, animated: true, completion: nil)
         }
     }
 }

@@ -56,7 +56,8 @@ extension EJIntroViewController: UITableViewDelegate {
         
         EJLocationManager.shared.selectedCountry = EJCountryType.allCases[indexPath.row]
         myUserDefaults.set(EJCountryType.allCases[indexPath.row].rawValue.localized, forKey: UserDefaultKey.countryType)
-        
+
+        didSelectCountryClosure?()
         dismiss(animated: true) {
             if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
                 myUserDefaults.set(true, forKey: UserDefaultKey.isExistingUser)

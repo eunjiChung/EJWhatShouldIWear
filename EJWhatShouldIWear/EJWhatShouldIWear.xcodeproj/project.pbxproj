@@ -255,6 +255,7 @@
 		B637591C244B81BE0076FE2C /* EJNewHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJNewHomeViewModel.swift; sourceTree = "<group>"; };
 		B637591E244BA2B40076FE2C /* EJLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLayoutManager.swift; sourceTree = "<group>"; };
 		B6375921244BB7610076FE2C /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
+		B637E2B7251053EB00B61239 /* EJWhatShouldIWear.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EJWhatShouldIWear.entitlements; sourceTree = "<group>"; };
 		B657269E247D130E00D836D7 /* EJConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJConvertHelper.swift; sourceTree = "<group>"; };
 		B65726A0247D211E00D836D7 /* EJKisangBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangBaseModel.swift; sourceTree = "<group>"; };
 		B65726A2247D27D800D836D7 /* EJKisangWeekelyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangWeekelyModel.swift; sourceTree = "<group>"; };
@@ -569,6 +570,7 @@
 		999B209D22029E660073A0D9 /* EJWhatShouldIWear */ = {
 			isa = PBXGroup;
 			children = (
+				B637E2B7251053EB00B61239 /* EJWhatShouldIWear.entitlements */,
 				999B209E22029E660073A0D9 /* AppDelegate.swift */,
 				B6099619246735D3006E575A /* Components */,
 				7280691824489C5000522019 /* User Interfaces */,
@@ -1555,9 +1557,10 @@
 			baseConfigurationReference = CBDF79756C2795B5E6E0A01F /* Pods-EJWhatShouldIWear.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EJWhatShouldIWear/EJWhatShouldIWear.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1645,9 +1648,10 @@
 			baseConfigurationReference = A65CC26272FCFBD1D5CF444D /* Pods-EJWhatShouldIWear.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EJWhatShouldIWear/EJWhatShouldIWear.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 88356WAKJ6;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
