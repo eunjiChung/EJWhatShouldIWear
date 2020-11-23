@@ -20,6 +20,7 @@ class TimeWeahtherTableViewCell: UITableViewCell {
     
     var models: [EJKisangTimeModel]? {
         didSet {
+            titleLabel.textColor = titleColor.withAlphaComponent(0.8)
             setKisangTimely()
         }
     }

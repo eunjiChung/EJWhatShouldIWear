@@ -85,6 +85,5 @@ public struct EJKisangTimeModel {
     var fcstDate: String
     var fcstTime: String
     var temperature: Int
-    var skyCode: EJSkyCode
-    var rainyCode: EJPrecipitationCode
+    var weatherCode: WeatherCode
 }

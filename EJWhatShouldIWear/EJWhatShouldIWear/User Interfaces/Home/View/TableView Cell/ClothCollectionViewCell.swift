@@ -24,6 +24,7 @@ class ClothCollectionViewCell: UICollectionViewCell {
     let attribute = ["더위타는 편이면", "추위타는 편이면"]
 
     func setCloth(_ name: String) {
+        descriptionLabel.textColor = titleColor
         topImage.image = UIImage(named: name)
         descriptionLabel.text = name.localized
     }

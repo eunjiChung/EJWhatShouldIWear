@@ -78,8 +78,8 @@ extension EJHomeViewModel {
         dispatchGroup.enter()
         dispatchQueue.async {
             self.kisangTimelyWeather(success: { model in
-                if model.response.header.resultCode.rawValue == "00" {
-                    self.kisangTimeModel = self.generateTimeModels(model.response.body.items.item)
+                if model.response.header.resultCode.code == EJKisangStatusCode.NORMAL_SERVICE.rawValue {
+                    self.kisangTimeModel = self.generateTimeModels(model.response.body)
                     dispatchGroup.leave()
                 } else {
                     let errorMsg = self.handleError(by: EJKisangStatusCode(rawValue: model.response.header.resultCode.rawValue))
@@ -159,40 +159,33 @@ extension EJHomeViewModel {
             failure(error)
         }
     }
-    
-    private func generateTimeModels(_ item: [EJKisangTimelyModel]) -> [EJKisangTimeModel]? {
-        var tempModels: [EJKisangTimeModel] = []
-        guard var date = item.first?.fcstDate, var time = item.first?.fcstTime else { return [] }
-        
-        var skyCode: EJSkyCode?
-        var rainyCode: EJPrecipitationCode?
+
+    /// 날짜와 시간이 category에 따라 여러개 내려오기 때문에
+    /// 날짜와 시간이 달라질 때 resultModel에 append해주고 나머지 값들을 nil처리 해준다
+    private func generateTimeModels(_ body: EJKisangTimelyBodyModel) -> [EJKisangTimeModel]? {
+        let items = body.items.item
+        var resultModels: [EJKisangTimeModel] = []
+
+        guard var date = items.first?.fcstDate, var time = items.first?.fcstTime else { return [] }
+        var weatherCode: WeatherCode?
         var temperature: Int?
-        for model in item {
-            if model.fcstDate != date {
-                if let sky = skyCode, let rainy = rainyCode, let temp = temperature {
-                    tempModels.append(EJKisangTimeModel(fcstDate: date, fcstTime: time, temperature: temp, skyCode: sky, rainyCode: rainy))
-                    skyCode = nil
-                    rainyCode = nil
+        for item in items {
+            if item.fcstDate != date || item.fcstTime != time {
+                if let code = weatherCode, let temp = temperature {
+                    resultModels.append(EJKisangTimeModel(fcstDate: date, fcstTime: time, temperature: temp, weatherCode: code))
+                    weatherCode = nil
                     temperature = nil
                 }
-                date = model.fcstDate
-            }
-            if model.fcstTime != time {
-                if let sky = skyCode, let rainy = rainyCode, let temp = temperature {
-                    tempModels.append(EJKisangTimeModel(fcstDate: date, fcstTime: time, temperature: temp, skyCode: sky, rainyCode: rainy))
-                    skyCode = nil
-                    rainyCode = nil
-                    temperature = nil
-                }
-                time = model.fcstTime
+                date = item.fcstDate
+                time = item.fcstTime
             }
             
-            if let value = Int(model.fcstValue) {
-                switch model.category {
-                case .skyCode:
-                    if let code = EJSkyCode(rawValue: value) { skyCode = code }
+            if let value = Int(item.fcstValue) {
+                switch item.category {
                 case .rainFallType:
-                    if let code = EJPrecipitationCode(rawValue: value) { rainyCode = code }
+                    if let code = EJPrecipitationCode(rawValue: value) { weatherCode = code }
+                case .skyCode:
+                    if let code = EJSkyCode(rawValue: value), weatherCode == nil { weatherCode = code }
                 case .threeHourTemp:
                     temperature = value
                 default:
@@ -200,8 +193,9 @@ extension EJHomeViewModel {
                 }
             }
         }
-        
-        return tempModels
+
+        print(resultModels)
+        return resultModels
     }
     
     func generateWeekModel(_ model: [EJKisangWeekelyItemModel]) -> [EJWeekelyCellModel] {

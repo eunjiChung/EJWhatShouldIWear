@@ -16,6 +16,7 @@ class EJHomeViewController: EJBaseViewController {
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var myLocationField: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var alcLeadingOfSideBackButton: NSLayoutConstraint!
     @IBOutlet weak var alcTopOfSideBackButton: NSLayoutConstraint!
@@ -111,6 +112,10 @@ class EJHomeViewController: EJBaseViewController {
         // MARK: - Kisang Weather
         viewModel.didRequestKisangWeatherInfoSuccessClosure = {
             self.backgroundView.changeBackGround(with: EJWeatherManager.shared.koreaBackgroundImage(by: self.viewModel.kisangTimeModel))
+            self.menuButton.tintColor = titleColor
+            self.addButton.tintColor = titleColor
+            self.myLocationField.setTitleColor(titleColor, for: .normal)
+            self.pulldownImage.tintColor = titleColor
             self.mainTableView.reloadData()
             self.stopPullToRefresh(toScrollView: self.mainTableView)
         }

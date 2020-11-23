@@ -31,7 +31,7 @@ public enum EJWeatherCondition {
 }
 
 public enum EJWeatherType: Int {
-    case no
+    case no = 0
     case sunny
     case cloudy
     case soCloudy
@@ -41,7 +41,12 @@ public enum EJWeatherType: Int {
     case snow
 }
 
-typealias WeatherValue = (code: Int, message: String, image: UIImage, fontColor: UIColor)
+typealias WeatherValue = (type: EJWeatherType,
+                          condition: EJWeatherCondition,
+                          message: String,
+                          descript: String,
+                          image: UIImage,
+                          fontColor: UIColor)
 
 protocol WeatherCode {
     var value: WeatherValue { get }
@@ -54,9 +59,9 @@ public enum EJSkyCode: Int, WeatherCode {
     
     var value: WeatherValue {
         switch self {
-        case .sunny:    return (1, "맑음", UIImage(named: "clear")!, .darkText)
-        case .cloudy:   return (3, "구름많음", UIImage(named: "cloudy")!, .darkText)
-        case .grey:     return (4, "흐림", UIImage(named: "cloud")!, .white)
+        case .sunny:    return (.sunny, .sky, "맑음", "맑아요", UIImage(named: "clear")!, .darkText)
+        case .cloudy:   return (.cloudy, .sky, "구름많음", "구름조금", UIImage(named: "cloudy")!, .darkText)
+        case .grey:     return (.soCloudy, .sky, "흐림", "흐려요", UIImage(named: "cloud")!, .darkText)
         }
     }
 }
@@ -70,11 +75,11 @@ public enum EJPrecipitationCode: Int, WeatherCode {
     
     var value: WeatherValue {
         switch self {
-        case .no:       return (0, "없음", UIImage(named: "clear")!, .darkText)
-        case .rain:     return (1, "비", UIImage(named: "rainy")!, .white)
-        case .both:     return (2, "비/눈", UIImage(named: "rainy")!, .white)
-        case .snow:     return (3, "눈", UIImage(named: "snow")!, .darkText)
-        case .shower:   return (4, "소나기", UIImage(named: "rainy")!, .white)
+        case .no:       return (.no, .rainy, "없음", "", UIImage(named: "clear")!, .darkText)
+        case .rain:     return (.rain, .rainy, "비", "비와요", UIImage(named: "rainy")!, .white)
+        case .both:     return (.both, .rainy, "비/눈", "비와요", UIImage(named: "rainy")!, .white)
+        case .snow:     return (.snow, .rainy, "눈", "눈와요", UIImage(named: "snow")!, .darkText)
+        case .shower:   return (.shower, .rainy, "소나기", "비와요", UIImage(named: "rainy")!, .white)
         }
     }
 }

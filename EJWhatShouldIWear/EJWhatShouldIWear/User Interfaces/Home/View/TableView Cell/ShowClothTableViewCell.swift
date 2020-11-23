@@ -45,6 +45,7 @@ class ShowClothTableViewCell: UITableViewCell {
     
     var timeModels: [EJKisangTimeModel]? {
         didSet {
+            setFontColor()
             setAverageTemperature()
             setDate()
             setDescription()
@@ -67,6 +68,18 @@ class ShowClothTableViewCell: UITableViewCell {
     }
 
     // MARK: - Public Method
+    private func setFontColor() {
+        averageLabel.textColor = titleColor
+        unitLabel.textColor = titleColor
+        currentTempLabel.textColor = titleColor
+        dateLabel.textColor = titleColor
+        suggestLabel.textColor = titleColor
+        firstClothLabel.textColor = titleColor
+        secondClothLabel.textColor = titleColor
+        thirdClothLabel.textColor = titleColor
+        titleLabel.textColor = titleColor.withAlphaComponent(0.8)
+    }
+
     private func setAverageTemperature() {
         currentTempLabel.text = viewModel.generateAverageTemperature(with: timeModels)
     }

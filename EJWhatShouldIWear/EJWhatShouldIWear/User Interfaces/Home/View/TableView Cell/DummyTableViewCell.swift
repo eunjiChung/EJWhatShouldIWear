@@ -18,6 +18,7 @@ class DummyTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        copyrightLabel.textColor = titleColor
         copyrightLabel.text = "Copyright By EunjiChung"
     }
 

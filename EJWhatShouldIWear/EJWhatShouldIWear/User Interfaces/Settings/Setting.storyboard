@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dYO-MI-0QQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dYO-MI-0QQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,6 +28,7 @@
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Ut-TQ-IfW">
                                         <rect key="frame" x="18" y="52" width="11" height="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvN-Wv-Fgo">
                                         <rect key="frame" x="192.5" y="51" width="29.5" height="20.5"/>
@@ -60,13 +62,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QLY-wm-Gca">
                                                     <rect key="frame" x="21" y="15.5" width="149" height="49.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdO-cH-OAg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="알림 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdO-cH-OAg">
                                                             <rect key="frame" x="0.0" y="0.0" width="149" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매일 아침 알림을 받아보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-cs-eNq">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="매일 아침 알림을 받아보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-cs-eNq">
                                                             <rect key="frame" x="0.0" y="33.5" width="149" height="16"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="13"/>
                                                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,6 +128,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="KT9-uj-NbS"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2lX-6I-TUY" firstAttribute="trailing" secondItem="KT9-uj-NbS" secondAttribute="trailing" id="3GN-qm-Cgf"/>
@@ -136,7 +139,6 @@
                             <constraint firstItem="2lX-6I-TUY" firstAttribute="top" secondItem="UUj-UR-gYV" secondAttribute="top" id="Hoc-QH-DaH"/>
                             <constraint firstItem="KT9-uj-NbS" firstAttribute="trailing" secondItem="RRR-Sk-rdy" secondAttribute="trailing" id="Qsg-eq-VgE"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="KT9-uj-NbS"/>
                     </view>
                     <navigationItem key="navigationItem" title="설정" id="wFI-1V-P7l"/>
                     <connections>
@@ -171,6 +173,7 @@
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eup-Vs-EJd">
                                         <rect key="frame" x="18" y="52" width="11" height="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -254,13 +257,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개발자 인스타그램" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgz-J3-QIg">
-                                                    <rect key="frame" x="20" y="16" width="122.5" height="20.5"/>
+                                                    <rect key="frame" x="20" y="16" width="122" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9g-7j-A2j">
-                                                    <rect key="frame" x="147.5" y="11" width="246.5" height="30.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9g-7j-A2j">
+                                                    <rect key="frame" x="147" y="11" width="247" height="30.5"/>
                                                     <state key="normal" title="인스타그램 바로가기"/>
                                                     <connections>
                                                         <action selector="didTouchButton:" destination="Oqu-sa-Siw" eventType="touchUpInside" id="rBC-P2-n5x"/>
@@ -295,7 +298,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2F-hJ-8Ol">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2F-hJ-8Ol">
                                                     <rect key="frame" x="118" y="11" width="276" height="30.5"/>
                                                     <state key="normal" title="블로그 바로가기"/>
                                                     <connections>
@@ -325,6 +328,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="tox-nS-V9j"/>
                         <color key="backgroundColor" red="0.25094899539999999" green="0.25099846720000002" blue="0.2509458363" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="leN-wi-DWb" firstAttribute="leading" secondItem="tox-nS-V9j" secondAttribute="leading" id="YBc-Rr-nZg"/>
@@ -335,7 +339,6 @@
                             <constraint firstItem="leN-wi-DWb" firstAttribute="top" secondItem="pkv-I8-7h2" secondAttribute="top" id="ury-tb-Jaw"/>
                             <constraint firstItem="leN-wi-DWb" firstAttribute="trailing" secondItem="tox-nS-V9j" secondAttribute="trailing" id="uyd-6M-efH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="tox-nS-V9j"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="JSX-Pr-fwO" id="UWn-G2-LGb"/>
@@ -365,6 +368,7 @@
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_icon" translatesAutoresizingMaskIntoConstraints="NO" id="834-cu-84S">
                                         <rect key="frame" x="18" y="52" width="11" height="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지사항" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lc5-mB-gVH">
                                         <rect key="frame" x="170.5" y="48.5" width="73" height="25.5"/>
@@ -387,7 +391,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JmD-pv-dMM">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="titleCell" textLabel="V41-Wj-rUZ" style="IBUITableViewCellStyleDefault" id="WDI-lx-wge">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -438,7 +442,8 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="jxD-p8-kaU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JmD-pv-dMM" firstAttribute="leading" secondItem="jxD-p8-kaU" secondAttribute="leading" id="8rI-qD-f9C"/>
                             <constraint firstItem="NHe-bb-c2x" firstAttribute="top" secondItem="uYc-je-Mlp" secondAttribute="top" id="Kja-41-7x1"/>
@@ -448,7 +453,6 @@
                             <constraint firstItem="jxD-p8-kaU" firstAttribute="trailing" secondItem="JmD-pv-dMM" secondAttribute="trailing" id="ozU-GI-Kva"/>
                             <constraint firstItem="jxD-p8-kaU" firstAttribute="bottom" secondItem="JmD-pv-dMM" secondAttribute="bottom" id="y4X-fb-lMS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jxD-p8-kaU"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="JmD-pv-dMM" id="p0x-jK-es5"/>
@@ -480,5 +484,8 @@
     </scenes>
     <resources>
         <image name="back_icon" width="11" height="18"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

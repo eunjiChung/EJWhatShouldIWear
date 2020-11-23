@@ -17,6 +17,7 @@ class WeekWeatherTableViewCell: UITableViewCell {
     var baseTime: String?
     var models: [EJWeekelyCellModel]? {
         didSet {
+            titleLabel.textColor = titleColor.withAlphaComponent(0.8)
             setKoreaWeekelyTimeTable()
         }
     }

@@ -190,20 +190,6 @@ final class EJWeatherManager: NSObject {
         return temp
     }
     
-    public func getValidKRTemperature(by temperature:Float) -> Int {
-        
-        // Non fatal Error
-        let errorInfo = [
-            NSLocalizedDescriptionKey : "Temperature",
-            "temperature" : "\(temperature)"
-        ]
-        let errorLog = NSError.init(domain: "GetValidTemperature", code: -1001, userInfo: errorInfo)
-        Crashlytics.sharedInstance().recordError(errorLog)
-        
-        var temp = Int(temperature)
-        return temp
-    }
-    
     public func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
         var resultCode = originalCode
         let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "S"]).joined()
@@ -332,43 +318,32 @@ final class EJWeatherManager: NSObject {
 
 
 // MARK: - Kisangchung Methods
+var titleColor: UIColor = .white
+
 extension EJWeatherManager {
-    
     public func koreaBackgroundImage(by models: [EJKisangTimeModel]?) -> UIImage {
         guard let models = models else { return UIImage() }
-        
+
         let currentHour = Calendar.current.component(.hour, from: Date())
-        if currentHour >= 20 || currentHour < 6 {
+        switch currentHour {
+        case 20..., ..<6:
+            titleColor = .white
             return UIImage(named: "night")!
-        } else if currentHour >= 18 {
+        case 18...20:
+            titleColor = #colorLiteral(red: 0.167342931, green: 0.1078223065, blue: 0.04166871309, alpha: 0.9996261597)
             return UIImage(named: "sunset")!
-        } else if currentHour >= 6 {
-            var name = "clear"
-            for timeModel in models {
-                switch timeModel.skyCode {
-                case .sunny:
-                    name = "clear"
-                case .cloudy:
-                    // MARK: - 좀 더 맑은 하늘 넣기
-                    name = "cloudy"
-                case .grey:
-                    name = "cloud"
-                }
-                
-                switch timeModel.rainyCode {
-                case .no:
-                    EJLogger.d("")
-                case .rain, .both, .shower:
-                    name = "rainy"
-                case .snow:
-                    name = "snow"
+        case 6...18:
+            guard var value = models.first?.weatherCode.value else { return UIImage() }
+            models.forEach { model in
+                if value.type.rawValue < model.weatherCode.value.type.rawValue {
+                    value = model.weatherCode.value
                 }
             }
-            
-            return UIImage(named: name)!
+            titleColor = value.fontColor
+            return value.image
+        default:
+            return UIImage(named: "background")!
         }
-        
-        return UIImage(named: "background")!
     }
     
     func generateTodayTimelyWeather(_ models: [EJKisangTimelyModel]?) -> [EJKisangTimelyModel] {
@@ -392,27 +367,6 @@ extension EJWeatherManager {
         return todayModels
     }
     
-    public func criticCondition(by type: EJWeatherCondition, code: Int) -> EJWeatherType {
-        switch type {
-        case .sky:
-            guard let skyCode = EJSkyCode(rawValue: code) else { return .no }
-            switch skyCode {
-            case .sunny:    return .sunny
-            case .cloudy:   return .cloudy
-            case .grey:     return .soCloudy
-            }
-        case .rainy:
-            guard let rainyCode = EJPrecipitationCode(rawValue: code) else { return .no }
-            switch rainyCode {
-            case .no:       return .no
-            case .rain:     return .rain
-            case .shower:   return .shower
-            case .snow:     return .snow
-            case .both:     return .both
-            }
-        }
-    }
-    
     public func properSeasonValue(_ date: String, _ min: Int, _ max: Int) -> Int {
         guard let month = EJMonth(rawValue: date.extractMonth()) else { return 0 }
         switch month {
@@ -429,12 +383,10 @@ extension EJWeatherManager {
         
         var originType: EJWeatherType = .no
         for model in items where baseDate == model.fcstDate {
-            let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode.rawValue)
-            let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode.rawValue)
-            guard let newType = EJWeatherType(rawValue: max(skyType.rawValue, rainyType.rawValue)) else { return .no }
-            originType = EJWeatherType(rawValue: max(originType.rawValue, newType.rawValue)) ?? .no
+            if originType.rawValue < model.weatherCode.value.type.rawValue {
+                originType = model.weatherCode.value.type
+            }
         }
-        
         return originType
     }
     

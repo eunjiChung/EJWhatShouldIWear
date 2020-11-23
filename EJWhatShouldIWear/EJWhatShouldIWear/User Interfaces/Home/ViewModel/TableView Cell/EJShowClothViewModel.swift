@@ -28,7 +28,6 @@ enum EJShowClothType {
 }
 
 final class EJShowClothViewModel {
-    
     public func generateAverageTemperature(with models: [EJKisangTimeModel]?) -> String {
         guard let models = models else { return "" }
         let date = models.first?.fcstDate
@@ -46,19 +45,15 @@ final class EJShowClothViewModel {
         guard let models = models else { return "" }
         guard let baseDate = models.first?.fcstDate else { return "" }
         var description = ""
-        
-        var rainInfo: [(type: EJPrecipitationCode, time: String)] = []
-        var skyInfo: [(type: EJSkyCode, time: String)] = []
+
+        var rainInfo: [(type: EJWeatherType, time: String)] = []
+        var skyInfo: [(type: EJWeatherType, time: String)] = []
         for model in models where baseDate == model.fcstDate {
-            
-            switch model.rainyCode {
-            case .no:
-                EJLogger.d("")
-            default:
-                rainInfo.append((type: model.rainyCode, time: model.fcstTime))
+            if model.weatherCode.value.condition == .rainy {
+                rainInfo.append((type: model.weatherCode.value.type, time: model.fcstTime))
+            } else {
+                skyInfo.append((type: model.weatherCode.value.type, time: model.fcstTime))
             }
-            
-            skyInfo.append((type: model.skyCode, time: model.fcstTime))
         }
         
         var skyDesc = "오늘은 하루종일 맑아요!☀️"

@@ -31,6 +31,11 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     var model: EJKisangTimeModel? {
         didSet {
+            dateLabel.textColor = titleColor
+            hourLabel.textColor = titleColor
+            tempLabel.textColor = titleColor
+            skyConditionLabel.textColor = titleColor
+
             setView()
         }
     }
@@ -58,19 +63,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     
     private func setDress() {
         guard let model = model else { return }
-        
-        var dress = ""
-        var type: EJWeatherType = .no
-        switch model.rainyCode {
-        case .no:
-            let skyType = EJWeatherManager.shared.criticCondition(by: .sky, code: model.skyCode.rawValue)
-            type = EJWeatherType(rawValue: skyType.rawValue) ?? .no
-        default:
-            let rainyType = EJWeatherManager.shared.criticCondition(by: .rainy, code: model.rainyCode.rawValue)
-            type = EJWeatherType(rawValue: rainyType.rawValue) ?? .no
-        }
-        
-        dress = EJClothManager.shared.setItem(by: type)
+        var dress = EJClothManager.shared.setItem(by: model.weatherCode.value.type)
         if dress == "outer" {
             dress = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(model.fcstDate, model.temperature, model.temperature))
         }
@@ -97,27 +90,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     }
     
     private func setDescription() {
-        var description = ""
-        
-        guard let skyType = model?.skyCode else { return }
-        switch skyType {
-        case .sunny:
-            description = "맑아요"
-        case .cloudy:
-            description = "구름조금"
-        case .grey:
-            description = "흐려요"
-        }
-        guard let rainyType = model?.rainyCode else { return }
-        switch rainyType {
-        case .no:
-            EJLogger.d("")
-        case .rain, .both, .shower:
-            description = "비와요"
-        case .snow:
-            description = "눈와요"
-        }
-        skyConditionLabel.text = description
+        skyConditionLabel.text = model?.weatherCode.value.descript
     }
     
     // MARK: - Public Method
