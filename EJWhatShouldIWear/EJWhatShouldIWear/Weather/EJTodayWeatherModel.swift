@@ -22,16 +22,4 @@ final class EJTodayWeatherModel: NSObject {
     var windy: Int?
     // 오늘 옷차림
     var dress: String?
-    
-//    init(temperature: Int,
-//         sky: EJSkyCode,
-//         rainfall: EJPrecipitationCode,
-//         windy: Int,
-//         dress: String) {
-//        self.temperature = temperature
-//        self.sky = sky
-//        self.rainfall = rainfall
-//        self.windy = windy
-//        self.dress = dress
-//    }
 }

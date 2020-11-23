@@ -34,7 +34,7 @@ protocol EJWeatherControlDelegate {
     func didRequestWeatherInfo(_ index: Int)
 }
 
-class EJWeatherManager: NSObject {
+final class EJWeatherManager: NSObject {
     
     static let shared = EJWeatherManager()
     

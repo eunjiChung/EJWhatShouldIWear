@@ -1,5 +1,5 @@
 //
-//  EJNewHomeViewController.swift
+//  EJHomeViewController.swift
 //  EJWhatShouldIWear
 //
 //  Created by chungeunji on 2020/04/19.
@@ -11,7 +11,7 @@ import FirebaseAnalytics
 import SideMenu
 import CoreLocation
 
-class EJNewHomeViewController: EJBaseViewController {
+class EJHomeViewController: EJBaseViewController {
     // MARK: IBOutlets
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var backgroundView: UIImageView!
@@ -25,8 +25,8 @@ class EJNewHomeViewController: EJBaseViewController {
     // MARK: Properties
     var cellOpened = false
     
-    lazy var viewModel: EJNewHomeViewModel = {
-        return EJNewHomeViewModel()
+    lazy var viewModel: EJHomeViewModel = {
+        return EJHomeViewModel()
     }()
     
     // MARK: View Life Cycle
@@ -120,7 +120,7 @@ class EJNewHomeViewController: EJBaseViewController {
             self.stopPullToRefresh(toScrollView: self.mainTableView)
         }
         
-        // TODO: - EJNewHomeViewController의 closure가 미리 컴파일(?)되지 않아 작동하지 않으므로...
+        // TODO: - EJHomeViewController의 closure가 미리 컴파일(?)되지 않아 작동하지 않으므로...
         EJLocationManager.shared.checkAuthorization(nil)
     }
     
@@ -164,7 +164,7 @@ class EJNewHomeViewController: EJBaseViewController {
 }
 
 // MARK: - Segue Handler
-extension EJNewHomeViewController {
+extension EJHomeViewController {
     enum SegueIdentifierType: String {
         case showSetting    = "home_setting_segue"
         case showSideMenu   = "home_sidemenu_segue"
@@ -199,7 +199,7 @@ extension EJNewHomeViewController {
 }
 
 // MARK: - Tableview Data Source
-extension EJNewHomeViewController: UITableViewDataSource {
+extension EJHomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return EJHomeSectionType.allCases.count
@@ -275,7 +275,7 @@ extension EJNewHomeViewController: UITableViewDataSource {
 }
 
 // MARK: - TableView Delegate
-extension EJNewHomeViewController: UITableViewDelegate {
+extension EJHomeViewController: UITableViewDelegate {
     // TODO: - automation tableview row로 없애기
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let sectionType = EJHomeSectionType(rawValue: indexPath.section) else { return 0 }
@@ -345,7 +345,7 @@ extension EJNewHomeViewController: UITableViewDelegate {
 }
 
 // MARK: - Private Methods
-private extension EJNewHomeViewController {
+private extension EJHomeViewController {
     
     private func registerNibs() {
         mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)

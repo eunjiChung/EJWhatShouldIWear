@@ -1,27 +1,19 @@
 //
-//  Cloth.swift
+//  EJClothString.swift
 //  EJWhatShouldIWear
 //
-//  Created by eunji on 08/08/2019.
-//  Copyright © 2019 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
+//  Created by chungeunji on 2020/11/11.
+//  Copyright © 2020 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 //
 
 import Foundation
-
-
-enum ClothCategory {
-    case TOP
-    case BOTTOM
-    case OUTER
-    case ACCESSORY
-}
 
 public let BLOUSE = "big_blouse_icon"
 public let BLUE_JEAN_JACKET = "big_blue_jean_jacket_icon"
 public let BLUE_JEANS = "big_blue_jeans_icon"
 public let CARDIGAN = "big_cardigan_icon"
 public let CHECKED_SHIRT = "big_checked_shirt_icon"
-public let COAT = "big_coat_icon" 
+public let COAT = "big_coat_icon"
 public let COTTON_PANTS = "big_cotton_pants_icon"
 public let FUR_GLOVES = "big_fur_gloves_icon"
 public let FUR_HAT = "big_fur_hat_icon"
@@ -42,4 +34,3 @@ public let SLEEVELESS_SHIRT = "big_sleeveless_shirt_icon"
 public let SWEAT_SHIRT = "big_sweatshirt_icon"
 public let TRENCH_COAT = "big_trench_coat_icon"
 public let UMBRELLA = "big_umbrella_icon"
-

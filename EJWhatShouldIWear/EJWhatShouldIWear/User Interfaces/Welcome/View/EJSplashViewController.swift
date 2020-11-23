@@ -40,7 +40,7 @@ final class EJSplashViewController: EJBaseViewController {
                 self.view.alpha = 0.0
                 indicator.alpha = 0.0
 
-                guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJNewHomeViewController") as? EJNewHomeViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJHomeViewController") as? EJHomeViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                 appDelegate.window?.rootViewController = homeVC
             }
         }

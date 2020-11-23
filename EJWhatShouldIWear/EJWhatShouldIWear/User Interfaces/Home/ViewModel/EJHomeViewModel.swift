@@ -20,7 +20,7 @@ enum EJShowClothRowType: Int, CaseIterable {
     case closeClothsCell = 0, showClothsCell
 }
 
-final class EJNewHomeViewModel {
+final class EJHomeViewModel {
     // MARK: - Properties
     var weatherInfo: [EJFiveDaysList]?
     var FiveDaysWeatherList: [EJFiveDaysList]?
@@ -65,7 +65,7 @@ final class EJNewHomeViewModel {
 // MARK: - KiSangChung Networking
 // TODO: - 네트워킹 코드 모야 라이브러리처럼 줄이기!
 // TODO: - DispatchGroup에서 배열을 closure안에서 저장하면 호출이 안된다...왜?
-extension EJNewHomeViewModel {
+extension EJHomeViewModel {
     
     public func callKisangWeatherInfo(success: @escaping () -> Void,
                                       failure: @escaping FailureHandler) {
@@ -247,7 +247,7 @@ extension EJNewHomeViewModel {
 }
 
 // MARK: - Foreign API Call
-extension EJNewHomeViewModel {
+extension EJHomeViewModel {
     func owmFiveDaysWeatherInfo(success: @escaping SuccessHandler,
                                 failure: @escaping FailureHandler) {
         let longitude = EJLocationManager.shared.longitude

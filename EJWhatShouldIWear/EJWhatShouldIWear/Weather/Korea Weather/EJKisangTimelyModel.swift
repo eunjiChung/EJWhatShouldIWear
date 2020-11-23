@@ -87,6 +87,4 @@ public struct EJKisangTimeModel {
     var temperature: Int
     var skyCode: EJSkyCode
     var rainyCode: EJPrecipitationCode
-    //    var skyCode: Int
-    //    var rainyCode: Int
 }

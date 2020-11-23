@@ -6,7 +6,7 @@
 //  Copyright © 2020 DEV_MOBILE_IOS_JUNIOR. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum EJKisangWeatherCode: String, Decodable {
     case rainFallPercent            = "POP" // 강수확률(%)
@@ -41,35 +41,40 @@ public enum EJWeatherType: Int {
     case snow
 }
 
-/// 사용법 : let skyCode = EJSkyCode.value.code
-public enum EJSkyCode: Int {
+typealias WeatherValue = (code: Int, message: String, image: UIImage, fontColor: UIColor)
+
+protocol WeatherCode {
+    var value: WeatherValue { get }
+}
+
+public enum EJSkyCode: Int, WeatherCode {
     case sunny = 1
     case cloudy = 3
     case grey = 4
     
-    var value: (code: Int, message: String) {
+    var value: WeatherValue {
         switch self {
-        case .sunny:    return (1, "맑음")
-        case .cloudy:   return (3, "구름많음")
-        case .grey:     return (4, "흐림")
+        case .sunny:    return (1, "맑음", UIImage(named: "clear")!, .darkText)
+        case .cloudy:   return (3, "구름많음", UIImage(named: "cloudy")!, .darkText)
+        case .grey:     return (4, "흐림", UIImage(named: "cloud")!, .white)
         }
     }
 }
 
-public enum EJPrecipitationCode: Int {
+public enum EJPrecipitationCode: Int, WeatherCode {
     case no = 0
     case rain = 1
     case both = 2
     case snow = 3
     case shower = 4
     
-    var value: (code: Int, message: String) {
+    var value: WeatherValue {
         switch self {
-        case .no:       return (0, "없음")
-        case .rain:     return (1, "비")
-        case .both:     return (2, "비/눈")
-        case .snow:     return (3, "눈")
-        case .shower:   return (4, "소나기")
+        case .no:       return (0, "없음", UIImage(named: "clear")!, .darkText)
+        case .rain:     return (1, "비", UIImage(named: "rainy")!, .white)
+        case .both:     return (2, "비/눈", UIImage(named: "rainy")!, .white)
+        case .snow:     return (3, "눈", UIImage(named: "snow")!, .darkText)
+        case .shower:   return (4, "소나기", UIImage(named: "rainy")!, .white)
         }
     }
 }
