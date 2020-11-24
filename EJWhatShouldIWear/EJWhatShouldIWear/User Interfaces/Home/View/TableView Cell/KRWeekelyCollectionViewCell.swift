@@ -8,18 +8,11 @@
 
 import UIKit
 
-// TODO: - Refactoring 필요
 final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "KRWeekelyCollectionViewCell"
 
     // MARK: - Properties
-    let today = Date()
-    let dateFormatter = DateFormatter()
-    let calendar = Calendar(identifier: .gregorian)
-    
-    var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-    
     var item: Int = 0    
     var baseTime: String?
     var weekelyModel: EJWeekelyCellModel? {
@@ -46,8 +39,6 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        dateFormatter.dateFormat = "YYYY-MM-dd 12:00:00"
         
         alcTopOfDateLabel.constant = EJSizeHeight(11.0)
         alcTopOfTempLabel.constant = EJSizeHeight(10.0)
@@ -58,10 +49,10 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     // MARK: - Kisang
     private func setDate() {
         guard let time = baseTime else { return }
-        let component = calendar.dateComponents([.weekday], from: time.extractWeekDate())
+        let component = Calendar(identifier: .gregorian).dateComponents([.weekday], from: time.extractWeekDate())
         // TODO: - 3일 후 날씨부터 나온다...내일 날씨부터 알려줄 수 있도록 한다
         let day = (component.weekday! + item + 2) % 7
-        dateLabel.text = weekDay[day].localized
+        dateLabel.text = EJDateManager.weekDay[day].localized
     }
     
     private func setTemperature() {
@@ -93,11 +84,4 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
         
         clothImageView.image = UIImage(named: clothName)
     }
-    
-    private func getKRWeekday(of index: Int) -> String {
-        let component = calendar.dateComponents([.weekday], from: today)
-        let day = (component.weekday! + index + 1) % 7
-        return weekDay[day].localized
-    }
-
 }

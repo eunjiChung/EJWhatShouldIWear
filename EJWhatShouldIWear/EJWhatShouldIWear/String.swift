@@ -9,7 +9,6 @@
 import Foundation
 
 extension String {
-    // TODO: - 전부 이걸로 바꾸기....
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }

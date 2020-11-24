@@ -17,8 +17,6 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
     let calendar = Calendar(identifier: .gregorian)
     
     var weatherList:[EJFiveDaysList]?
-    // Weekday Component는 일요일 1 ~ 토요일 7까지
-    var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     
     // MARK: - IBOutlet
     @IBOutlet weak var dateLabel: UILabel!
@@ -64,7 +62,7 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
         
         // 3. 해당 day만큼 weekDay 문자열 배열에 있는 값을 리턴한다
         if index == 0 { return "today".localized }
-        return weekDay[day].localized
+        return EJDateManager.weekDay[day].localized
     }
     
     private func getTemp(of index: Int) -> Int {

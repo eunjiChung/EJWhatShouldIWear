@@ -94,6 +94,7 @@
 		B67A15A5244C525100F17C6D /* KRWeekelyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */; };
 		B67A15A6244C525100F17C6D /* KRWeekelyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */; };
 		B67A15A8244C567900F17C6D /* EJLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A15A7244C567900F17C6D /* EJLogger.swift */; };
+		B6868046256D087500301CEC /* EJDateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6868045256D087500301CEC /* EJDateManager.swift */; };
 		B689A71424B4F27000F8B1F0 /* EJImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A71324B4F27000F8B1F0 /* EJImageHelper.swift */; };
 		B689A71624B4F75700F8B1F0 /* Maplestory OTF Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B689A71524B4F75700F8B1F0 /* Maplestory OTF Bold.otf */; };
 		B689A71824B4F76100F8B1F0 /* Maplestory OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B689A71724B4F76100F8B1F0 /* Maplestory OTF Light.otf */; };
@@ -273,6 +274,7 @@
 		B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRWeekelyCollectionViewCell.swift; sourceTree = "<group>"; };
 		B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWeekelyCollectionViewCell.xib; sourceTree = "<group>"; };
 		B67A15A7244C567900F17C6D /* EJLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLogger.swift; sourceTree = "<group>"; };
+		B6868045256D087500301CEC /* EJDateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDateManager.swift; sourceTree = "<group>"; };
 		B689A71324B4F27000F8B1F0 /* EJImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJImageHelper.swift; sourceTree = "<group>"; };
 		B689A71524B4F75700F8B1F0 /* Maplestory OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maplestory OTF Bold.otf"; sourceTree = "<group>"; };
 		B689A71724B4F76100F8B1F0 /* Maplestory OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maplestory OTF Light.otf"; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				B658E08F2482CA9300F55430 /* EJKisangInfoManager.swift */,
 				B689A71324B4F27000F8B1F0 /* EJImageHelper.swift */,
 				B67A15A7244C567900F17C6D /* EJLogger.swift */,
+				B6868045256D087500301CEC /* EJDateManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1240,6 +1243,7 @@
 				99A05685228EAE06002D3B7A /* SideMenuShareTableViewCell.swift in Sources */,
 				72A5D5742340C6C70068D33D /* BackView.swift in Sources */,
 				B689A72124B503BC00F8B1F0 /* EJDrawerViewController.swift in Sources */,
+				B6868046256D087500301CEC /* EJDateManager.swift in Sources */,
 				992B098A22BD53C200FF94B7 /* EJFiveDaysWeather.swift in Sources */,
 				992B098B22BD53C200FF94B7 /* EJFiveDaysWind.swift in Sources */,
 				B6E088EB245B12F9006C6665 /* EJUserDefaultsManager.swift in Sources */,

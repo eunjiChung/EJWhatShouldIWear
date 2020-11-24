@@ -320,12 +320,6 @@ extension EJHomeViewController: UITableViewDelegate {
         }
     }
     
-    // TODO: - 이게 왜 필요하지?
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as! HeaderTableViewCell
-        return cell
-    }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }

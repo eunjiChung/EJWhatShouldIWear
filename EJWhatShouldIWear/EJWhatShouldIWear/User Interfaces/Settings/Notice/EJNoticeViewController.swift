@@ -23,18 +23,17 @@ class EJNoticeViewController: EJBaseViewController {
         super.viewDidLoad()
         
         initView()
-    }
-    
-    private func initView() {
-        viewTitleLabel.text = "Notice".localized
-        tableView.tableFooterView = UIView(frame: .zero)
-        
-        // TODO: - 위치 옮기기
+
         EJFirebaseDBManager.shared.getNoticeDB { (notices) in
             self.notices = notices
             self.initCellArray()
             self.tableView.reloadData()
         }
+    }
+    
+    private func initView() {
+        viewTitleLabel.text = "Notice".localized
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func initCellArray() {
