@@ -124,6 +124,33 @@ public enum EJKisangStatusCode: String, Decodable {
         case .UNKNOWN_ERROR:                                    return "99"
         }
     }
+
+    var message: String {
+        switch self {
+        case .DB_ERROR:
+            return "데이터베이스에서 오류가 발생했습니다."
+        case .NODATA_ERROR:
+            return "날씨 데이터가 존재하지 않습니다."
+        case .HTTP_ERROR:
+            return "네트워크 통신 에러"
+        case .SERVICETIME_OUT:
+            return "시간이 초과되었습니다."
+        case .INVALID_REQUEST_PARAMETER_ERROR, .NO_MANDATORY_REQUEST_PARAMETERS_ERROR, .SERVICE_KEY_IS_NOT_REGISTERED_ERROR, .DEADLINE_HAS_EXPIRED_ERROR:
+            return "잘못된 요청입니다."
+        case .NO_OPENAPI_SERVICE_ERROR, .UNREGISTERED_IP_ERROR,.UNSIGNED_CALL_ERROR:
+            return "서버에 에러가 생겼습니다."
+        case .SERVICE_ACCESS_DENIED_ERROR:
+            return "서비스에 접근할 수 없습니다."
+        case .TEMPORARILY_DISABLE_THE_SERVICEKEY_ERROR:
+            return "일시적으로 사용할 수 없습니다."
+        case .LIMITED_NUMBER_OF_SERVICE_REQUESTS_EXCEEDS_ERROR:
+            return "현재 사용자가 너무 많습니다. 나중에 다시 시도해주세요!"
+        case .APPLICATION_ERROR, .UNKNOWN_ERROR:
+            return "알 수 없는 오류가 발생했습니다."
+        case .NORMAL_SERVICE:
+            return ""
+        }
+    }
 }
 
 public enum EJKisangWeekelyForecastAreaCode: String {
