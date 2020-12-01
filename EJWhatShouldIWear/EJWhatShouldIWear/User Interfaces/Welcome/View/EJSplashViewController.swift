@@ -35,12 +35,13 @@ final class EJSplashViewController: EJBaseViewController {
         requestAppVersionInfo()
 
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.8) {
-//                guard let indicator = self.loadingIndicator else { return }
-                self.view.alpha = 0.0
-//                indicator.alpha = 0.0
-//                self.dismiss(animated: true, completion: nil)
-
+            let transition: CATransition = CATransition()
+            transition.duration = 2.5
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.fade
+            transition.subtype = CATransitionSubtype.fromBottom
+            self.view.window?.layer.add(transition, forKey: "kCATransition")
+            self.dismiss(animated: false) {
                 guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJHomeViewController") as? EJHomeViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                 appDelegate.window?.rootViewController = homeVC
             }
@@ -67,5 +68,16 @@ final class EJSplashViewController: EJBaseViewController {
         DispatchQueue.main.async {
             self.present(introVC, animated: true, completion: nil)
         }
+    }
+}
+
+extension CATransition {
+    func fadeTransition() -> CATransition {
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = CATransitionType.fade
+        transition.subtype = CATransitionSubtype.fromRight
+
+        return transition
     }
 }

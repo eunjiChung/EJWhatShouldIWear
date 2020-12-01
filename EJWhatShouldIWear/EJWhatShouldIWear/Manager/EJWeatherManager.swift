@@ -314,7 +314,6 @@ var titleColor: UIColor = .white
 extension EJWeatherManager {
     public func koreaBackgroundImage(by models: [EJKisangTimeModel]?) -> UIImage {
         guard let models = models else { return UIImage() }
-
         let currentHour = Calendar.current.component(.hour, from: Date())
         switch currentHour {
         case 20..., ..<6:

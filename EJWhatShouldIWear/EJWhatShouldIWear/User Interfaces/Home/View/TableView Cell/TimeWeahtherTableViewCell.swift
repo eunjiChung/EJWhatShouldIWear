@@ -96,6 +96,10 @@ extension TimeWeahtherTableViewCell: SkeletonCollectionViewDataSource {
         return cell
     }
 
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 14
+    }
+    
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return TimeCollectionViewCell.identifier
     }
