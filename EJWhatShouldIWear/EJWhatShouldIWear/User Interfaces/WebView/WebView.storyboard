@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nDk-Nb-9C1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nDk-Nb-9C1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Web View Controller-->
         <scene sceneID="bGJ-JC-EQB">
             <objects>
-                <viewController storyboardIdentifier="EJWebViewController" id="nDk-Nb-9C1" customClass="EJWebViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EJWebViewController" modalPresentationStyle="fullScreen" id="nDk-Nb-9C1" customClass="EJWebViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oJV-Ll-oBd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +23,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위성 영상" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoW-9z-nGs">
                                         <rect key="frame" x="175.5" y="45" width="63" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="textColor" systemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJq-1P-t32">
@@ -56,7 +57,8 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="c9J-7W-ytT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RIq-sk-Wgl" firstAttribute="leading" secondItem="oJV-Ll-oBd" secondAttribute="leading" id="5Ts-gr-toY"/>
                             <constraint firstItem="c9J-7W-ytT" firstAttribute="trailing" secondItem="DEX-sJ-1L3" secondAttribute="trailing" id="8oI-MD-j0u"/>
@@ -66,7 +68,6 @@
                             <constraint firstItem="c9J-7W-ytT" firstAttribute="bottom" secondItem="DEX-sJ-1L3" secondAttribute="bottom" id="mie-qx-p9a"/>
                             <constraint firstItem="DEX-sJ-1L3" firstAttribute="top" secondItem="RIq-sk-Wgl" secondAttribute="bottom" id="v9w-ff-PfU"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="c9J-7W-ytT"/>
                     </view>
                     <connections>
                         <outlet property="webView" destination="DEX-sJ-1L3" id="FbM-r8-ks1"/>
@@ -79,5 +80,11 @@
     </scenes>
     <resources>
         <image name="close_icon" width="24" height="24"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

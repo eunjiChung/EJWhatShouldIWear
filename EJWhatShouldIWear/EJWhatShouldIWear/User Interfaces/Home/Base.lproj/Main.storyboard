@@ -254,7 +254,7 @@
         <!--Intro View Controller-->
         <scene sceneID="PfG-uN-DuS">
             <objects>
-                <viewController storyboardIdentifier="EJIntroViewController" id="FYT-Dz-Hel" customClass="EJIntroViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EJIntroViewController" modalPresentationStyle="fullScreen" id="FYT-Dz-Hel" customClass="EJIntroViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lES-em-Ctn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,7 +340,7 @@
         <!--Share View Controller-->
         <scene sceneID="zI7-qo-w8F">
             <objects>
-                <viewController storyboardIdentifier="EJShareViewController" id="kd8-jy-ZeT" customClass="EJShareViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EJShareViewController" modalPresentationStyle="fullScreen" id="kd8-jy-ZeT" customClass="EJShareViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hFl-ka-Ifi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -522,7 +522,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rainy" translatesAutoresizingMaskIntoConstraints="NO" id="ifT-3V-K0V">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear" translatesAutoresizingMaskIntoConstraints="NO" id="ifT-3V-K0V">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vW-TR-xwx">
@@ -666,11 +666,11 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="back_icon" width="11" height="18"/>
+        <image name="clear" width="750" height="1334"/>
         <image name="clothes_hanger_img" width="375" height="148"/>
         <image name="mail_icon" width="24" height="20"/>
         <image name="menu_icon" width="20" height="19"/>
         <image name="plus_icon" width="26" height="26"/>
-        <image name="rainy" width="750" height="1334"/>
         <image name="setting_black_icon" width="26" height="26"/>
         <image name="side_menu_app_icon" width="111" height="111"/>
         <systemColor name="groupTableViewBackgroundColor">

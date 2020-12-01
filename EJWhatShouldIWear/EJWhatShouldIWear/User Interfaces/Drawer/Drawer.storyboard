@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sUf-nO-32K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sUf-nO-32K">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,13 +25,13 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="VQi-2z-IJA"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hc8-ab-iFo" firstAttribute="leading" secondItem="Wmo-JO-HiT" secondAttribute="leading" id="XeU-r5-GeZ"/>
                             <constraint firstAttribute="bottom" secondItem="hc8-ab-iFo" secondAttribute="bottom" id="fGy-dx-S2S"/>
                             <constraint firstAttribute="trailing" secondItem="hc8-ab-iFo" secondAttribute="trailing" id="zDs-SU-0Zo"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="VQi-2z-IJA"/>
                     </view>
                     <navigationItem key="navigationItem" id="818-Rg-Udc"/>
                     <connections>
@@ -65,7 +66,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7cc-eI-7Ii">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" textLabel="ZNj-CT-18F" rowHeight="60" style="IBUITableViewCellStyleDefault" id="99T-NH-5hw">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="60"/>
@@ -91,7 +92,7 @@
                                         </connections>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="7cc-eI-7Ii" firstAttribute="top" secondItem="MOV-55-pTj" secondAttribute="top" id="B2N-wJ-quf"/>
                                     <constraint firstAttribute="trailing" secondItem="7cc-eI-7Ii" secondAttribute="trailing" id="N5s-Ng-TW9"/>
@@ -101,6 +102,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="iQi-W6-Bc7"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Foz-b0-RmM" firstAttribute="leading" secondItem="NPN-Xi-nj7" secondAttribute="leading" id="1qA-VU-OVy"/>
@@ -114,7 +116,6 @@
                             <constraint firstAttribute="trailing" secondItem="Foz-b0-RmM" secondAttribute="trailing" id="x8o-77-bN9"/>
                             <constraint firstItem="MOV-55-pTj" firstAttribute="leading" secondItem="iQi-W6-Bc7" secondAttribute="leading" id="zE2-qz-RfZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iQi-W6-Bc7"/>
                     </view>
                     <connections>
                         <outlet property="backView" destination="gua-YY-OMt" id="Ye8-ft-Gif"/>
@@ -128,7 +129,7 @@
         <!--Navigation Controller-->
         <scene sceneID="cMH-l9-trY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" navigationBarHidden="YES" id="sUf-nO-32K" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="sUf-nO-32K" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NVv-aQ-g6D">
                         <autoresizingMask key="autoresizingMask"/>
@@ -143,4 +144,9 @@
             <point key="canvasLocation" x="5.7971014492753632" y="115.84821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

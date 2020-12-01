@@ -57,7 +57,7 @@ class EJHomeViewController: EJBaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mainTableView.isSkeletonable = true
-        mainTableView.visibleCells.forEach({ $0.showAnimatedSkeleton() })
+        mainTableView.visibleCells.forEach({ $0.showAnimatedGradientSkeleton() })
     }
     
     // MARK: Initialize
