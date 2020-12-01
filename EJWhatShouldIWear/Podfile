@@ -6,20 +6,22 @@ target 'EJWhatShouldIWear' do
   use_frameworks!
 
   # Pods for EJWhatShouldIWear
-   pod 'Fabric', '~> 1.9.0'
-   pod 'Crashlytics', '~> 3.12.0'
+   pod 'Firebase/Crashlytics'
    pod 'Firebase/Analytics'
    pod 'Firebase/Messaging'
    pod 'Firebase/RemoteConfig'
    pod 'Firebase/InAppMessagingDisplay'
    pod 'Firebase/Database'
-   
-   pod 'Alamofire', '~> 4.7.3'
+   pod 'Firebase/CoreOnly'
+
+   pod 'Alamofire', '~> 5.4.0'
    pod 'SideMenu', '~> 5.0.3'
    pod 'Google-Mobile-Ads-SDK'
    pod 'SwiftyJSON', '~> 5.0.0'
    pod 'ESPullToRefresh', '~> 2.9'
    pod 'Protobuf', :inhibit_warnings => true
+   pod 'SkeletonView'
+   pod 'Moya', '~> 15.0.0-alpha.1'
 
    target 'EJWhatShouldIWearTests' do
     inherit! :search_paths
