@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Crashlytics
+import FirebaseCrashlytics
 
 // MARK: - Type Alias
 typealias SuccessHandler = (Any) -> ()
@@ -172,15 +172,6 @@ final class EJWeatherManager: NSObject {
     }
     
     public func getValidTemperature(by temperature:Float) -> Int {
-        
-        // Non fatal Error
-        let errorInfo = [
-            NSLocalizedDescriptionKey : "Temperature",
-            "temperature" : "\(temperature)"
-        ]
-        let errorLog = NSError.init(domain: "GetValidTemperature", code: -1001, userInfo: errorInfo)
-        Crashlytics.sharedInstance().recordError(errorLog)
-        
         var temp = Int(temperature)
         
         if !Library.systemLanguage.contains("en") {

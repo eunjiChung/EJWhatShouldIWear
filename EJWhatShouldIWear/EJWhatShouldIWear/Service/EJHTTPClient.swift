@@ -14,8 +14,7 @@ final class EJHTTPClient: NSObject {
                         success: @escaping (Data?) -> (),
                         failure: @escaping (Error) -> ()) {
         guard let result = URL(string: url) else { fatalError() }
-        
-        Alamofire.request(result).responseJSON { response in
+        AF.request(result).responseJSON { response in
             switch response.result {
             case .success(let model):
                 let jsonModel = model as! [String: Any]
