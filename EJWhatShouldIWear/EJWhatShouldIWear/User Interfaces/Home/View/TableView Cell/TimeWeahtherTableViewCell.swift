@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class TimeWeahtherTableViewCell: UITableViewCell {
     
@@ -52,6 +53,8 @@ class TimeWeahtherTableViewCell: UITableViewCell {
         collectionView.delegate = self as UICollectionViewDelegate
         
         collectionView.register(UINib.init(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: TimeCollectionViewCell.identifier)
+        collectionView.isSkeletonable = true
+        collectionView.showSkeleton()
     }
     
     // MARK: - Kisang Methods
@@ -72,26 +75,30 @@ class TimeWeahtherTableViewCell: UITableViewCell {
 
 
 // MARK: - CollectionView Data Source
-extension TimeWeahtherTableViewCell: UICollectionViewDataSource {
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            if let models = models { return models.count }
-            return 6
+extension TimeWeahtherTableViewCell: SkeletonCollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let models = models { return models.count }
+        return 6
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath) as! TimeCollectionViewCell
+        let index = indexPath.item
+
+        if let model = weatherModel {
+            cell.setHourlyWeather(of: model, at: index)
         }
-        
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.identifier, for: indexPath) as! TimeCollectionViewCell
-            let index = indexPath.item
-            
-            if let model = weatherModel {
-                cell.setHourlyWeather(of: model, at: index)
-            }
-            
-            if let models = models {
-                cell.model = models[indexPath.item]
-            }
-            
-            return cell
+
+        if let models = models {
+            cell.model = models[indexPath.item]
         }
+
+        return cell
+    }
+
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return TimeCollectionViewCell.identifier
+    }
 }
 
 // MARK: - CollectionView FlowLayout Delegate

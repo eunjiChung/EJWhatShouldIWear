@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class WeekWeatherTableViewCell: UITableViewCell {
     
@@ -45,6 +46,7 @@ class WeekWeatherTableViewCell: UITableViewCell {
         
         collectionView.register(UINib(nibName: "WeekelyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: WeekelyCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: "KRWeekelyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: KRWeekelyCollectionViewCell.identifier)
+        collectionView.isSkeletonable = true
     }
 
     func setKoreaWeekelyTimeTable() {
@@ -57,7 +59,7 @@ class WeekWeatherTableViewCell: UITableViewCell {
     }
 }
 
-extension WeekWeatherTableViewCell: UICollectionViewDataSource {
+extension WeekWeatherTableViewCell: SkeletonCollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let model = models { return model.count }
         return 4
@@ -80,6 +82,14 @@ extension WeekWeatherTableViewCell: UICollectionViewDataSource {
         }
         
         return cell
+    }
+
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        if let _ = models {
+            return KRWeekelyCollectionViewCell.identifier
+        } else {
+            return WeekelyCollectionViewCell.identifier
+        }
     }
 }
 

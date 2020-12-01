@@ -37,9 +37,9 @@ final class EJSplashViewController: EJBaseViewController {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.8) {
 //                guard let indicator = self.loadingIndicator else { return }
-//                self.view.alpha = 0.0
+                self.view.alpha = 0.0
 //                indicator.alpha = 0.0
-                self.dismiss(animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
 
                 guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EJHomeViewController") as? EJHomeViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                 appDelegate.window?.rootViewController = homeVC

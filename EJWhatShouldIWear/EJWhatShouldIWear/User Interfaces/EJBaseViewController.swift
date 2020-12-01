@@ -80,18 +80,14 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
         let remoteConfig = RemoteConfig.remoteConfig()
         
         #if DEBUG
-        let remoteConfigSetting = RemoteConfigSettings(developerModeEnabled: true)
+        let remoteConfigSetting = RemoteConfigSettings()
         remoteConfig.configSettings = remoteConfigSetting
         #endif
         
-        var expirationDuration: TimeInterval = 3600
-        if remoteConfig.configSettings.isDeveloperModeEnabled {
-            expirationDuration = 0
-        }
-        
+        let expirationDuration: TimeInterval = 3600
         remoteConfig.fetch(withExpirationDuration: expirationDuration) { (status, error) in
             if status == .success {
-                remoteConfig.activateFetched()
+                remoteConfig.activate(completion: nil)
                 
                 let value: RemoteConfigValue = remoteConfig["validate_version"]
                 

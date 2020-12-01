@@ -43,7 +43,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9H-8A-Roz">
                                                     <rect key="frame" x="82.000000000000014" y="188" width="211.33333333333337" height="24"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT SHOULD I " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK0-lp-NJV">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="WHAT SHOULD I " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK0-lp-NJV">
                                                             <rect key="frame" x="0.0" y="0.0" width="142.33333333333334" height="24"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
                                                             <color key="textColor" red="0.29803921570000003" green="0.30588235289999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -561,6 +561,10 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="didTouchList:" destination="xWj-yG-Hrf" eventType="touchUpInside" id="lbD-oU-w08"/>
                                                     <segue destination="SzU-xC-uvB" kind="presentation" id="k6z-8b-hnd"/>
@@ -591,6 +595,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kxv-jj-jgE">
                                 <rect key="frame" x="0.0" y="76" width="375" height="702"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="xWj-yG-Hrf" id="GJo-wt-wtv"/>
                                     <outlet property="delegate" destination="xWj-yG-Hrf" id="eFj-wT-AT1"/>
@@ -663,7 +670,7 @@
         <image name="mail_icon" width="24" height="20"/>
         <image name="menu_icon" width="20" height="19"/>
         <image name="plus_icon" width="26" height="26"/>
-        <image name="rainy" width="375" height="667"/>
+        <image name="rainy" width="750" height="1334"/>
         <image name="setting_black_icon" width="26" height="26"/>
         <image name="side_menu_app_icon" width="111" height="111"/>
         <systemColor name="groupTableViewBackgroundColor">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,6 +34,9 @@
                                         <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="75"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="℃" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUV-X9-Ztw">
                                         <rect key="frame" x="120.99999999999999" y="15" width="30.333333333333329" height="31"/>
@@ -41,12 +44,20 @@
                                         <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="28"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohh-sC-yuE">
                                         <rect key="frame" x="18" y="15" width="18.333333333333329" height="14.666666666666664"/>
                                         <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="13"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="textColor" systemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,6 +74,9 @@
                                     <constraint firstItem="Ohh-sC-yuE" firstAttribute="leading" secondItem="jCg-DW-cT8" secondAttribute="leading" constant="18" id="n3k-sf-PCx"/>
                                     <constraint firstItem="TUV-X9-Ztw" firstAttribute="top" secondItem="jCg-DW-cT8" secondAttribute="top" constant="15" id="tbB-Bo-w4N"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hG-KB-vh6">
                                 <rect key="frame" x="156.33333333333337" y="0.0" width="218.66666666666663" height="150"/>
@@ -73,12 +87,18 @@
                                         <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9월 11일" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex7-Qm-P2r">
                                         <rect key="frame" x="0.0" y="15" width="210.66666666666666" height="31"/>
                                         <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,6 +110,9 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="I8U-aG-kZU" secondAttribute="trailing" id="ok5-Cq-E3n"/>
                                     <constraint firstItem="I8U-aG-kZU" firstAttribute="leading" secondItem="7hG-KB-vh6" secondAttribute="leading" id="pwZ-kt-RBH"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,6 +127,9 @@
                             <constraint firstItem="Ex7-Qm-P2r" firstAttribute="top" secondItem="TUV-X9-Ztw" secondAttribute="top" id="qLC-fT-AZh"/>
                             <constraint firstItem="Ex7-Qm-P2r" firstAttribute="bottom" secondItem="TUV-X9-Ztw" secondAttribute="bottom" id="sAt-Nr-QRX"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bE7-HZ-EpO">
                         <rect key="frame" x="0.0" y="170.66666666666663" width="375" height="197.33333333333337"/>
@@ -114,6 +140,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8u2-sD-mC3" secondAttribute="height" multiplier="118:105" id="dTJ-Jb-qHF"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_one_piece_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KUY-CS-72v">
                                 <rect key="frame" x="128.33333333333334" y="14.999999999999993" width="118.33333333333334" height="105.33333333333331"/>
@@ -121,6 +150,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KUY-CS-72v" secondAttribute="height" multiplier="118:105" id="8k1-Qr-pic"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_long_skirt_icon" translatesAutoresizingMaskIntoConstraints="NO" id="a10-ez-e8W">
                                 <rect key="frame" x="256.66666666666669" y="14.999999999999993" width="118.33333333333331" height="105.33333333333331"/>
@@ -128,24 +160,36 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="a10-ez-e8W" secondAttribute="height" multiplier="118:105" id="K97-Hh-aa1"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-qB-R9s">
                                 <rect key="frame" x="172" y="130.33333333333334" width="31.333333333333343" height="16.666666666666657"/>
                                 <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeG-WP-atu">
                                 <rect key="frame" x="300.33333333333331" y="130.33333333333334" width="31.333333333333314" height="16.666666666666657"/>
                                 <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZq-nP-c8R">
                                 <rect key="frame" x="43.666666666666664" y="130.33333333333334" width="31.333333333333336" height="16.666666666666657"/>
                                 <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -166,11 +210,14 @@
                             <constraint firstItem="KUY-CS-72v" firstAttribute="leading" secondItem="8u2-sD-mC3" secondAttribute="trailing" constant="10" id="sF6-f1-Qnk"/>
                             <constraint firstItem="a10-ez-e8W" firstAttribute="leading" secondItem="KUY-CS-72v" secondAttribute="trailing" constant="10" id="vJT-Od-kzg"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydm-SZ-Vok">
                         <rect key="frame" x="30" y="150" width="329" height="15.666666666666657"/>
                         <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="textColor" systemColor="lightTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -187,9 +234,15 @@
                     <constraint firstItem="bE7-HZ-EpO" firstAttribute="top" secondItem="ydm-SZ-Vok" secondAttribute="bottom" constant="5" id="bIq-Ad-Sen"/>
                     <constraint firstAttribute="trailing" secondItem="Bdq-Ys-Imd" secondAttribute="trailing" id="ob6-tU-5ZH"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="alcBottomOfClothesView" destination="L3Z-CU-Zlo" id="202-br-NCN"/>
                 <outlet property="alcTopOfClothImageView" destination="mYG-Bv-OEE" id="4Jx-ws-UsR"/>
@@ -216,5 +269,11 @@
         <image name="big_blouse_icon" width="105" height="105"/>
         <image name="big_long_skirt_icon" width="200" height="200"/>
         <image name="big_one_piece_icon" width="105" height="105"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="lightTextColor">
+            <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAnalytics
 import SideMenu
 import CoreLocation
+import SkeletonView
 
 class EJHomeViewController: EJBaseViewController {
     // MARK: IBOutlets
@@ -51,6 +52,12 @@ class EJHomeViewController: EJBaseViewController {
             myLocationField.isUserInteractionEnabled = false
             addButton.isHidden = true
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        mainTableView.isSkeletonable = true
+        mainTableView.visibleCells.forEach({ $0.showAnimatedSkeleton() })
     }
     
     // MARK: Initialize
@@ -100,6 +107,10 @@ class EJHomeViewController: EJBaseViewController {
             self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateBackgroundView(by: model))
             
             self.stopPullToRefresh(toScrollView: self.mainTableView)
+
+            self.mainTableView.stopSkeletonAnimation()
+            self.view.hideSkeleton()
+
             self.mainTableView.reloadData()
         }
         
@@ -116,7 +127,12 @@ class EJHomeViewController: EJBaseViewController {
             self.addButton.tintColor = titleColor
             self.myLocationField.setTitleColor(titleColor, for: .normal)
             self.pulldownImage.tintColor = titleColor
+
+            self.mainTableView.stopSkeletonAnimation()
+            self.view.hideSkeleton()
+
             self.mainTableView.reloadData()
+
             self.stopPullToRefresh(toScrollView: self.mainTableView)
         }
         
@@ -204,7 +220,7 @@ extension EJHomeViewController {
 }
 
 // MARK: - Tableview Data Source
-extension EJHomeViewController: UITableViewDataSource {
+extension EJHomeViewController: SkeletonTableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return EJHomeSectionType.allCases.count
@@ -276,7 +292,17 @@ extension EJHomeViewController: UITableViewDataSource {
             return cell
         }
     }
-    
+
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        guard let sectionType = EJHomeSectionType(rawValue: indexPath.section) else { return "" }
+        switch sectionType {
+        case .showClothSection:     return ShowClothTableViewCell.identifier
+        case .timelyWeatherSection: return TimeWeahtherTableViewCell.identifier
+        case .weekelyWeatherSection:return WeekWeatherTableViewCell.identifier
+        case .admobSection:         return AdmobTableViewCell.identifier
+        case .dummySection:         return DummyTableViewCell.identifier
+        }
+    }
 }
 
 // MARK: - TableView Delegate
