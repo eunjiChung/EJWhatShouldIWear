@@ -26,6 +26,7 @@ class EJHomeViewController: EJBaseViewController {
     
     // MARK: Properties
     var cellOpened = false
+    var didUsedSkeleton = false
     
     lazy var viewModel: EJHomeViewModel = {
         return EJHomeViewModel()
@@ -56,8 +57,12 @@ class EJHomeViewController: EJBaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mainTableView.isSkeletonable = true
-        mainTableView.visibleCells.forEach({ $0.showAnimatedGradientSkeleton() })
+
+        if !didUsedSkeleton {
+            mainTableView.isSkeletonable = true
+            mainTableView.visibleCells.forEach({ $0.showAnimatedGradientSkeleton() })
+            didUsedSkeleton = true
+        }
     }
     
     // MARK: Initialize
