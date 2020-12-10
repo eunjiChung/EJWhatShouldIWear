@@ -183,7 +183,7 @@ extension EJHomeViewModel {
             if let value = Int(item.fcstValue) {
                 switch item.category {
                 case .rainFallType:
-                    if let code = EJPrecipitationCode(rawValue: value) { weatherCode = code }
+                    if let code = EJPrecipitationCode(rawValue: value), code != .no { weatherCode = code }
                 case .skyCode:
                     if let code = EJSkyCode(rawValue: value), weatherCode == nil { weatherCode = code }
                 case .threeHourTemp:
@@ -194,7 +194,6 @@ extension EJHomeViewModel {
             }
         }
 
-        print(resultModels)
         return resultModels
     }
     

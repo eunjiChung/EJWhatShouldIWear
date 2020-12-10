@@ -43,8 +43,22 @@ final class EJShowClothViewModel {
     
     public func generateDescription(with models: [EJKisangTimeModel]?) -> String {
         guard let models = models else { return "" }
-        guard let baseDate = models.first?.fcstDate else { return "" }
         var description = ""
+
+        let weatherDesc = generateWeatherDescription(models)
+        let dressDesc = generateClothDescription(models)
+        
+        if weatherDesc.rainyDesc != "" {
+            description += (weatherDesc.rainyDesc + "\n")
+        } else {
+            description += (weatherDesc.skyDesc + "\n")
+        }
+        description += dressDesc
+        return description
+    }
+
+    private func generateWeatherDescription(_ models: [EJKisangTimeModel]) -> (rainyDesc: String, skyDesc: String) {
+        guard let baseDate = models.first?.fcstDate else { return ("", "") }
 
         var rainInfo: [(type: EJWeatherType, time: String)] = []
         var skyInfo: [(type: EJWeatherType, time: String)] = []
@@ -55,7 +69,7 @@ final class EJShowClothViewModel {
                 skyInfo.append((type: model.weatherCode.value.type, time: model.fcstTime))
             }
         }
-        
+
         var skyDesc = "오늘은 하루종일 맑아요!☀️"
         var rainyDesc = ""
         // 1. 비는 오는지 안 오는지
@@ -63,7 +77,7 @@ final class EJShowClothViewModel {
             var isMorningRainy = false
             var isAfternoonRainy = false
             var isNightRainy = false
-            
+
             rainInfo.forEach { (rain) in
                 guard let timeSection = EJTimeSection(rawValue: rain.time) else { return }
                 switch timeSection {
@@ -72,8 +86,8 @@ final class EJShowClothViewModel {
                 case .night18, .night21:    isNightRainy = true
                 }
             }
-            
-            if isMorningRainy, isAfternoonRainy, isNightRainy {
+
+            if isMorningRainy && isAfternoonRainy && isNightRainy {
                 rainyDesc = "오늘은 하루종일 비가 와요☔️"
             } else {
                 if isMorningRainy, !isAfternoonRainy, !isNightRainy {
@@ -98,8 +112,11 @@ final class EJShowClothViewModel {
                 }
             }
         }
-        
-        // 3. 옷은 어떤걸 입어야 하는지
+
+        return (rainyDesc, skyDesc)
+    }
+
+    private func generateClothDescription(_ models: [EJKisangTimeModel]) -> String {
         var dressDesc = ""
         let info = EJWeatherManager.shared.todayTempInfo(with: models)
         let outer = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
@@ -120,14 +137,7 @@ final class EJShowClothViewModel {
                 EJLogger.d("")
             }
         }
-        
-        if rainyDesc != "" {
-            description += (rainyDesc + "\n")
-        } else {
-            description += (skyDesc + "\n")
-        }
-        description += dressDesc
-        return description
+        return dressDesc
     }
     
     public func generatePointCloth(with items: [EJKisangTimeModel]?) -> String {
