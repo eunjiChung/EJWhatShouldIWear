@@ -32,7 +32,6 @@ final class EJHomeViewModel {
     var kisangForecastModel: [EJKisangWeekForecastModel]?
     
     // MARK: - Closures
-    var didRequestWeatherInfo: ((Int) -> Void)?
     var didrequestForeignWeatherInfoSuccessClosure: (() -> Void)?
     var didrequestForeignWeatherInfoFailureClosure: ((Error) -> Void)?
     
@@ -42,7 +41,103 @@ final class EJHomeViewModel {
     
     
     // MARK: - Public Methods
-    func requestKoreaWeather(_ index: Int) {
+    func requestWeather() {
+        if EJLocationManager.shared.isKorea {
+            requestWeatherDispatchGroup()
+        } else {
+            requestFiveDaysWeatherList()
+        }
+    }
+
+    func requestWeatherDispatchGroup() {
+        var resultError: String?
+        EJLogger.d("=============== Dispatch Group 2 ===== START! ==============")
+
+        let dispatchGroup = DispatchGroup()
+        let dispatchQueue = DispatchQueue.global()
+
+        dispatchGroup.enter()
+        dispatchQueue.async {
+            self.requestCashingTodayWeather {
+                dispatchGroup.leave()
+            } failure: { errorMsg in
+                resultError = errorMsg
+                return
+            }
+        }
+        dispatchGroup.enter()
+        dispatchQueue.async {
+            self.requestCashingWeekelyWeather {
+                dispatchGroup.leave()
+            } failure: { errorMsg in
+                resultError = errorMsg
+                return
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            EJLogger.d("=============== Dispatch Group 2===== Done! ==============")
+            if let error = resultError {
+                self.didRequestKisangWeatherInfoFailureClosure?(error)
+            } else {
+                self.didRequestKisangWeatherInfoSuccessClosure?()
+            }
+        }
+
+    }
+
+    func requestCashingTodayWeather(success: @escaping () -> Void,
+                                    failure: @escaping (String) -> Void) {
+        EJNetworkAdapter.request(target: EJWeatherAPI.today(nx: 62, ny: 125)) { response in
+            do {
+                let model = try JSONDecoder().decode(EJKisangTimelyBaseModel.self, from: response.data)
+                if let resultCode = EJKisangStatusCode(rawValue: model.response.header.resultCode.code) {
+                    switch resultCode {
+                    case .NORMAL_SERVICE:
+                        self.kisangTimeModel = self.generateTimeModels(model.response.body)
+                        print("❤️시간 모델:", self.kisangTimeModel)
+                        success()
+                    default:
+                        self.requestKoreaWeather()
+                        failure(model.response.header.resultCode.message)
+                    }
+                }
+            } catch {
+                self.requestKoreaWeather()
+            }
+        } error: { error in
+            self.requestKoreaWeather()
+        } failure: { failError in
+            self.requestKoreaWeather()
+        }
+    }
+
+    func requestCashingWeekelyWeather(success: @escaping () -> Void,
+                                      failure: @escaping (String) -> Void) {
+        let regionId = EJLocationManager.shared.regionCode
+        EJNetworkAdapter.request(target: EJWeatherAPI.weekly(regionId: regionId)) { response in
+            do {
+                let model = try JSONDecoder().decode(EJKisangWeekelyBaseModel.self, from: response.data)
+                let resultCode = model.response.header.resultCode
+                switch resultCode {
+                case .NORMAL_SERVICE:
+                    self.kisangWeekelyModel.model = self.generateWeekModel(model.response.body.items.item)
+                    print("❤️일주일 모델:", self.kisangWeekelyModel)
+                    success()
+                default:
+                    failure(resultCode.message)
+                }
+            } catch {
+                self.requestKoreaWeather()
+            }
+        } error: { error in
+            self.requestKoreaWeather()
+        } failure: { failError in
+            self.requestKoreaWeather()
+        }
+    }
+
+    func requestKoreaWeather() {
         callKisangWeatherInfo(success: {
             self.didRequestKisangWeatherInfoSuccessClosure?()
         }) { error in
@@ -51,6 +146,18 @@ final class EJHomeViewModel {
     }
     
     func requestFiveDaysWeatherList() {
+//        EJNetworkAdapter.request(target: EJForeignWeatherAPI.fiveDaysWeather) { response in
+//            do {
+//                let model = try JSONDecoder().decode(EJFiveDaysWeatherModel.self, from: response.data)
+//                print("❤️", model)
+//            } catch {
+//                EJLogger.e(error.localizedDescription)
+//            }
+//        } error: { error in
+//            EJLogger.e(error.localizedDescription)
+//        } failure: { failError in
+//            EJLogger.e(failError.localizedDescription)
+//        }
         owmFiveDaysWeatherInfo(success: { result in
             let fivedaysWeather = EJFiveDaysWeatherModel.init(object: result)
             self.FiveDaysWeatherModel = fivedaysWeather
@@ -63,7 +170,6 @@ final class EJHomeViewModel {
 }
 
 // MARK: - KiSangChung Networking
-// TODO: - 네트워킹 코드 모야 라이브러리처럼 줄이기!
 // TODO: - DispatchGroup에서 배열을 closure안에서 저장하면 호출이 안된다...왜?
 extension EJHomeViewModel {
     

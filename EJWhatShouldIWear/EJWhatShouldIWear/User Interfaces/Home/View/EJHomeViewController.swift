@@ -38,21 +38,13 @@ class EJHomeViewController: EJBaseViewController {
         
         initView()
         initViewModel()
-        initNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        guard let country = EJLocationManager.shared.selectedCountry else { return }
-        switch country {
-        case .korea:
-            myLocationField.isUserInteractionEnabled = true
-            addButton.isHidden = false
-        case .foreign:
-            myLocationField.isUserInteractionEnabled = false
-            addButton.isHidden = true
-        }
+
+        myLocationField.isUserInteractionEnabled = EJLocationManager.shared.isKorea
+        addButton.isHidden = !EJLocationManager.shared.isKorea
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -70,9 +62,11 @@ class EJHomeViewController: EJBaseViewController {
         layout()
         registerNibs()
         configureSideMenu()
+
+        myLocationField.setTitle(EJLocationManager.shared.currentLocation, for: .normal)
         
         addPullToRefreshControl(toScrollView: self.mainTableView) {
-            EJLocationManager.shared.checkAuthorization(nil)
+            EJLocationManager.shared.checkAuth()
             self.mainTableView.reloadData()
         }
     }
@@ -80,14 +74,7 @@ class EJHomeViewController: EJBaseViewController {
     private func initViewModel() {
         EJLocationManager.shared.didSuccessUpdateLocationsClosure = {
             self.myLocationField.setTitle(EJLocationManager.shared.currentLocation, for: .normal)
-            
-            if EJLocationManager.shared.isKorea() {
-                self.viewModel.requestKoreaWeather(0)
-            } else {
-                self.viewModel.requestFiveDaysWeatherList()
-            }
-            
-            EJLocationManager.shared.stopUpdatingLocation()
+            self.viewModel.requestWeather()
         }
         
         EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
@@ -101,10 +88,6 @@ class EJHomeViewController: EJBaseViewController {
         EJLocationManager.shared.didRestrictAbroadAuthorizationClosure = {
             self.popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
             self.viewModel.requestFiveDaysWeatherList()
-        }
-        
-        viewModel.didRequestWeatherInfo = { index in
-            self.viewModel.requestKoreaWeather(index)
         }
         
         viewModel.didrequestForeignWeatherInfoSuccessClosure = {
@@ -121,7 +104,6 @@ class EJHomeViewController: EJBaseViewController {
         
         viewModel.didrequestForeignWeatherInfoFailureClosure = { error in
             self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
-            
             self.stopPullToRefresh(toScrollView: self.mainTableView)
         }
         
@@ -145,21 +127,9 @@ class EJHomeViewController: EJBaseViewController {
             self.popAlertVC(self, title: "network_error".localized, message: error)
             self.stopPullToRefresh(toScrollView: self.mainTableView)
         }
-        
-        // TODO: - EJHomeViewController의 closure가 미리 컴파일(?)되지 않아 작동하지 않으므로...
-        EJLocationManager.shared.checkAuthorization(nil)
-    }
-    
-    private func initNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(isNotKoeraLocation(_:)), name: EJMyLocalListNotification.isNotKoreaLocation, object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: EJMyLocalListNotification.isNotKoreaLocation, object: nil)
-    }
-    
-    @objc func isNotKoeraLocation(_ notification: Notification) {
-        EJLocationManager.shared.checkAbroadAuthorization()
+
+//        self.viewModel.requestWeather()
+        self.viewModel.requestKoreaWeather()
     }
     
     // MARK: - Button Action
@@ -189,41 +159,6 @@ class EJHomeViewController: EJBaseViewController {
     }
 }
 
-// MARK: - Segue Handler
-extension EJHomeViewController {
-    enum SegueIdentifierType: String {
-        case showSetting    = "home_setting_segue"
-        case showSideMenu   = "home_sidemenu_segue"
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let segueType = SegueIdentifierType(rawValue: segue.identifier ?? "") else { return }
-        
-        switch segueType {
-        case .showSetting:
-            let settingVC = segue.destination as! EJSettingViewController
-            settingVC.curLocation = EJLocationManager.shared.currentLocation
-        case .showSideMenu:
-            let navVC = segue.destination as! UISideMenuNavigationController
-            let tableVC = navVC.viewControllers.first as! EJSideMenuViewController
-            tableVC.curLocation = EJLocationManager.shared.currentLocation
-            tableVC.didSelectBookmarkedLocationRow = {
-                guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
-                self.show(vc, sender: self)
-                vc.performSegue(withIdentifier: "showLocalList", sender: vc)
-            }
-            tableVC.didSelectShareRow = {
-                guard let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController") as? EJShareViewController else { return }
-                self.show(shareVC, sender: self)
-            }
-            tableVC.didSelectSatelliteRow = {
-                guard let satelliteVC = UIStoryboard(name: "WebView", bundle: nil).instantiateViewController(withIdentifier: "EJWebViewController") as? EJWebViewController else { return }
-                self.show(satelliteVC, sender: nil)
-            }
-        }
-    }
-}
-
 // MARK: - Tableview Data Source
 extension EJHomeViewController: SkeletonTableViewDataSource {
     
@@ -232,7 +167,7 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if EJLocationManager.shared.isKorea() && cellOpened && section == EJHomeSectionType.showClothSection.rawValue { return 2 }
+        if EJLocationManager.shared.isKorea && cellOpened && section == EJHomeSectionType.showClothSection.rawValue { return 2 }
         return 1
     }
     
@@ -246,7 +181,7 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
             case .closeClothsCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShowClothTableViewCell.identifier, for: indexPath) as! ShowClothTableViewCell
                 
-                if EJLocationManager.shared.isKorea() {
+                if EJLocationManager.shared.isKorea {
                     cell.timeModels = viewModel.kisangTimeModel
                 }
                 
@@ -267,7 +202,7 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
         case .timelyWeatherSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
 
-            if EJLocationManager.shared.isKorea() {
+            if EJLocationManager.shared.isKorea {
                 cell.models = viewModel.kisangTimeModel
             }
             
@@ -279,7 +214,7 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
         case .weekelyWeatherSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeekWeatherTableViewCell.identifier, for: indexPath) as! WeekWeatherTableViewCell
             
-            if EJLocationManager.shared.isKorea() {
+            if EJLocationManager.shared.isKorea {
                 cell.baseTime = viewModel.kisangWeekelyModel.date
                 cell.models = viewModel.kisangWeekelyModel.model
             }
@@ -336,7 +271,7 @@ extension EJHomeViewController: UITableViewDelegate {
         case .timelyWeatherSection:
             return EJSizeHeight(290.0)
         case .weekelyWeatherSection:
-            if EJLocationManager.shared.isKorea() {
+            if EJLocationManager.shared.isKorea {
                 if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
                     return EJSizeHeight(380.0)
                 } else {
@@ -356,7 +291,7 @@ extension EJHomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard EJLocationManager.shared.isKorea() else { return }
+        guard EJLocationManager.shared.isKorea else { return }
         
         if indexPath.section == EJHomeSectionType.showClothSection.rawValue, indexPath.row == EJShowClothRowType.closeClothsCell.rawValue {
             if cellOpened {
@@ -369,6 +304,41 @@ extension EJHomeViewController: UITableViewDelegate {
                 tableView.beginUpdates()
                 tableView.insertRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
                 tableView.endUpdates()
+            }
+        }
+    }
+}
+
+// MARK: - Segue Handler
+extension EJHomeViewController {
+    enum SegueIdentifierType: String {
+        case showSetting    = "home_setting_segue"
+        case showSideMenu   = "home_sidemenu_segue"
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueType = SegueIdentifierType(rawValue: segue.identifier ?? "") else { return }
+
+        switch segueType {
+        case .showSetting:
+            let settingVC = segue.destination as! EJSettingViewController
+            settingVC.curLocation = EJLocationManager.shared.currentLocation
+        case .showSideMenu:
+            let navVC = segue.destination as! UISideMenuNavigationController
+            let tableVC = navVC.viewControllers.first as! EJSideMenuViewController
+            tableVC.curLocation = EJLocationManager.shared.currentLocation
+            tableVC.didSelectBookmarkedLocationRow = {
+                guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
+                self.show(vc, sender: self)
+                vc.performSegue(withIdentifier: "showLocalList", sender: vc)
+            }
+            tableVC.didSelectShareRow = {
+                guard let shareVC = self.storyboard?.instantiateViewController(withIdentifier: "EJShareViewController") as? EJShareViewController else { return }
+                self.show(shareVC, sender: self)
+            }
+            tableVC.didSelectSatelliteRow = {
+                guard let satelliteVC = UIStoryboard(name: "WebView", bundle: nil).instantiateViewController(withIdentifier: "EJWebViewController") as? EJWebViewController else { return }
+                self.show(satelliteVC, sender: nil)
             }
         }
     }

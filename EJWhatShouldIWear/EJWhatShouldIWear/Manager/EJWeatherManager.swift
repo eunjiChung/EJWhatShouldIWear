@@ -29,11 +29,6 @@ enum WeatherCondition: Int {
     case clear = 11
 }
 
-// MARK: - Weather control Delegate
-protocol EJWeatherControlDelegate {
-    func didRequestWeatherInfo(_ index: Int)
-}
-
 final class EJWeatherManager: NSObject {
     
     static let shared = EJWeatherManager()
@@ -41,7 +36,6 @@ final class EJWeatherManager: NSObject {
     // MARK: - Properties
     var country: String = ""
     let WeatherClass = EJWeatherMainModel()
-    var delegate: EJWeatherControlDelegate?
     
     // MARK: - Publi Methods
     public func generateWeatherCondition(by list: [EJFiveDaysList]) -> EJWeatherMainModel {

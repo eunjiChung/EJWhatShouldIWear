@@ -102,6 +102,8 @@
 		B689A71D24B5016200F8B1F0 /* Drawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B689A71C24B5016200F8B1F0 /* Drawer.storyboard */; };
 		B689A71F24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A71E24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift */; };
 		B689A72124B503BC00F8B1F0 /* EJDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */; };
+		B694C79B2590B38500758391 /* EJWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694C79A2590B38500758391 /* EJWeatherAPI.swift */; };
+		B694C7A02590B39100758391 /* EJForeignWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694C79F2590B39100758391 /* EJForeignWeatherAPI.swift */; };
 		B6A6B280255C2A2A00CBFE0B /* EJUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B27F255C2A2A00CBFE0B /* EJUserInfo.swift */; };
 		B6A6B28F255C2C5100CBFE0B /* EJClothString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B28E255C2C5100CBFE0B /* EJClothString.swift */; };
 		B6AF9B4F24851F37009C14B1 /* EJTodayWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF9B4E24851F37009C14B1 /* EJTodayWeatherModel.swift */; };
@@ -282,6 +284,8 @@
 		B689A71C24B5016200F8B1F0 /* Drawer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Drawer.storyboard; sourceTree = "<group>"; };
 		B689A71E24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDrawerBackgroundViewController.swift; sourceTree = "<group>"; };
 		B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDrawerViewController.swift; sourceTree = "<group>"; };
+		B694C79A2590B38500758391 /* EJWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherAPI.swift; sourceTree = "<group>"; };
+		B694C79F2590B39100758391 /* EJForeignWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJForeignWeatherAPI.swift; sourceTree = "<group>"; };
 		B6A6B27F255C2A2A00CBFE0B /* EJUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJUserInfo.swift; sourceTree = "<group>"; };
 		B6A6B28E255C2C5100CBFE0B /* EJClothString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJClothString.swift; sourceTree = "<group>"; };
 		B6AF9B4E24851F37009C14B1 /* EJTodayWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJTodayWeatherModel.swift; sourceTree = "<group>"; };
@@ -701,6 +705,8 @@
 				728069272448C46700522019 /* EJURLString.swift */,
 				9987A7652293FE0700EFDC05 /* EJHTTPClient.swift */,
 				B6375921244BB7610076FE2C /* EJAPIService.swift */,
+				B694C79A2590B38500758391 /* EJWeatherAPI.swift */,
+				B694C79F2590B39100758391 /* EJForeignWeatherAPI.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1266,6 +1272,7 @@
 				B65726A1247D211E00D836D7 /* EJKisangBaseModel.swift in Sources */,
 				B65726A9247D34F800D836D7 /* EJKisangCodes.swift in Sources */,
 				B6375913244B7F270076FE2C /* EJLocationManager.swift in Sources */,
+				B694C79B2590B38500758391 /* EJWeatherAPI.swift in Sources */,
 				99BB080D229E748400E454B8 /* EJShareViewController.swift in Sources */,
 				B6F1025A233B2F73000C3DCD /* ClothCollectionViewCell.swift in Sources */,
 				B658E089248277BB00F55430 /* EJKoreaRegionModel.swift in Sources */,
@@ -1282,6 +1289,7 @@
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
 				B6F10261233B4870000C3DCD /* ImageView.swift in Sources */,
 				72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */,
+				B694C7A02590B39100758391 /* EJForeignWeatherAPI.swift in Sources */,
 				B658E0902482CA9300F55430 /* EJKisangInfoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@ import MessageUI
 import ESPullToRefresh
 import Firebase
 import SwiftyJSON
+import CoreLocation
 
 // MARK : - Define Segue Identifier
 let EJSegueSetting                      = "setting_segue"
@@ -62,7 +63,6 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     // MARK: Firebase Remote Config
     func requestAppVersionInfo() {
         self.firebaseRemote({ (success) in
-            
             if success {
                 self.successCompletionOfReqAppVersionInfoWithResult()
             } else {
