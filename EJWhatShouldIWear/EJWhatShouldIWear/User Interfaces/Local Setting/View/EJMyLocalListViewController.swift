@@ -32,6 +32,9 @@ class EJMyLocalListViewController: EJBaseViewController {
     // TODO: - flag가 너무 많다
     var selectedIndex: Int = 0
     var shouldShowCurrent: Bool = false
+
+    // MARK: - Closure
+    var dismissMyLocalListClosure: (() -> Void)?
     
     // MARK: - View Life cycle
     override func viewDidLoad() {
@@ -104,7 +107,9 @@ class EJMyLocalListViewController: EJBaseViewController {
     
     func dismissViewController() {
         navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.dismissMyLocalListClosure?()
+        }
     }
 }
 

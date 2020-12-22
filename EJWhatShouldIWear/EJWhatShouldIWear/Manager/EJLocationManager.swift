@@ -83,7 +83,6 @@ public class EJLocationManager: CLLocationManager {
     var regionCode: String {
         let region = currentLocation.split(separator: " ")
         guard let first = region.first, let codeModels = koreaCodes?.code else { return "11B10101" }
-        
         // 현재 location에서 city 이름을 가져온다
         let area = "\(first)"
         let subLocality = "\(region[1])"
@@ -101,7 +100,6 @@ public class EJLocationManager: CLLocationManager {
                 }
             }
         }
-        
         return "11B10101"
     }
     

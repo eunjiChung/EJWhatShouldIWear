@@ -22,9 +22,11 @@ final class EJIntroViewController: EJBaseViewController {
         super.viewDidLoad()
         
         titleLabel.text = "setting_country".localized
+
         closeButton.setTitle("complete".localized, for: .normal)
-        tableView.tableFooterView = UIView(frame: .zero)
         closeButton.isHidden = !EJLocationManager.shared.hasMainLocations
+
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     @IBAction func didTouchCloseButton(_ sender: Any) {
@@ -50,9 +52,6 @@ extension EJIntroViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
         EJLocationManager.shared.selectedCountry = EJCountryType.allCases[indexPath.row]
-        EJLocationManager.shared.checkAuth()
-        dismiss(animated: true) {
-            self.didSelectCountryClosure?()
-        }
+        dismiss(animated: true) { self.didSelectCountryClosure?() }
     }
 }

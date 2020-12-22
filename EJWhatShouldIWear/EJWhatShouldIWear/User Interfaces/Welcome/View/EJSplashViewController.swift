@@ -58,11 +58,22 @@ final class EJSplashViewController: EJBaseViewController {
         introVC.modalPresentationStyle = .fullScreen
         introVC.didSelectCountryClosure = { [weak self] in
             guard let self = self else { return }
-            self.dismissSplash()
+            self.selectKoreaLocation()
         }
-
         DispatchQueue.main.async {
             self.present(introVC, animated: true, completion: nil)
+        }
+    }
+
+    private func selectKoreaLocation() {
+        guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.dismissMyLocalListClosure = { [weak self] in
+            guard let self = self else { return }
+            self.dismissSplash()
+        }
+        present(vc, animated: true) {
+            vc.performSegue(withIdentifier: "showLocalList", sender: vc)
         }
     }
 

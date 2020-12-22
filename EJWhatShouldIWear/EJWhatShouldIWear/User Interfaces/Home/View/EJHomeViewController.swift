@@ -80,9 +80,9 @@ class EJHomeViewController: EJBaseViewController {
         EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
             guard myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) else { return }
             
-            guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
-            self.show(vc, sender: self)
-            vc.performSegue(withIdentifier: "showLocalList", sender: vc)
+//            guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
+//            self.show(vc, sender: self)
+//            vc.performSegue(withIdentifier: "showLocalList", sender: vc)
         }
         
         EJLocationManager.shared.didRestrictAbroadAuthorizationClosure = {
