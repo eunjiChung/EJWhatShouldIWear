@@ -147,6 +147,8 @@ public class EJLocationManager: CLLocationManager {
             CLGeocoder().geocodeAddressString(address) { placemarks, error in
                 if error != nil { return }
                 self.setDefaultLocation(placemarks?.first)
+                self.selectedCountry = self.isKorea ? .korea : .foreign
+                self.didSuccessUpdateLocationsClosure?()
             }
         } else {
             myUserDefaults.removeObject(forKey: UserDefaultKey.mainLocation)

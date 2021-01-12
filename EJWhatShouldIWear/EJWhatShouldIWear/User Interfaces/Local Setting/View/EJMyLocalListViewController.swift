@@ -21,8 +21,7 @@ class EJMyLocalListViewController: EJBaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var closeButton: UIButton!
-    
+
     // MARK: - Properties
     var locations: [String] = []
     var previousMainLocation: String {
@@ -47,8 +46,6 @@ class EJMyLocalListViewController: EJBaseViewController {
     
     // MARK: - Initialize
     private func initView() {
-        addButton.layer.cornerRadius = 6
-        closeButton.setTitle("complete".localized, for: .normal)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(UINib(nibName: "EJNameTableViewCell", bundle: nil), forCellReuseIdentifier: EJNameTableViewCell.identifier)
     }
@@ -84,27 +81,7 @@ class EJMyLocalListViewController: EJBaseViewController {
         locations = array
         tableView.reloadData()
     }
-    
-    // MARK: - IBActions
-    @IBAction func didTouchDismiss(_ sender: Any) {
-        selectionHapticFeedback()
-        
-        guard locations.count != 0 else {
-            dismissViewController()
-            return
-        }
-        
-        if shouldShowCurrent {
-            EJLocationManager.shared.updateMainLocation(nil)
-        } else {
-            if locations[selectedIndex] != previousMainLocation {
-                EJLocationManager.shared.updateMainLocation(locations[selectedIndex])
-            }
-        }
-        
-        dismissViewController()
-    }
-    
+
     func dismissViewController() {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true) {
@@ -161,32 +138,17 @@ extension EJMyLocalListViewController: UITableViewDelegate {
         guard let selectedSection = EJMyLocalListIndexType(rawValue: indexPath.section) else { return }
         switch selectedSection {
         case .current:
-            
             switch EJLocationManager.shared.authStatus {
             case .authorizedAlways, .authorizedWhenInUse:
-                tableView.visibleCells.forEach { cell in
-                    guard let nameCell = cell as? EJNameTableViewCell else { return }
-                    nameCell.checkImageview.isHidden = true
-                }
-                
-                shouldShowCurrent = true
-                guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
-                cell.checkImageview.isHidden = false
+                EJLocationManager.shared.updateMainLocation(nil)
             default:
                 popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
             }
         case .other:
-            tableView.visibleCells.forEach { cell in
-                guard let nameCell = cell as? EJNameTableViewCell else { return }
-                nameCell.checkImageview.isHidden = true
-            }
-            
-            selectedIndex = indexPath.row
-            shouldShowCurrent = false
-            
-            guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
-            cell.checkImageview.isHidden = false
+            EJLocationManager.shared.updateMainLocation(locations[selectedIndex])
         }
+
+        dismissViewController()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

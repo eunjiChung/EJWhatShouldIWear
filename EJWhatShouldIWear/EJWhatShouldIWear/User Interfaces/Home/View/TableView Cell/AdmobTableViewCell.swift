@@ -27,7 +27,11 @@ class AdmobTableViewCell: UITableViewCell, GADBannerViewDelegate {
     
     // MARK: - Admob Method
     func createAdmob(_ viewController: UIViewController) {
+        #if DEBUG
+        banner.adUnitID = googleAdmobTestUnitID
+        #else
         banner.adUnitID = googleAdmobUnitID
+        #endif
         banner.rootViewController = viewController
         let request = GADRequest()
         banner.load(request)

@@ -17,7 +17,7 @@ public let appStoreID                           =   "1469342013"
 // MARK: - Google Admob
 public let googleAdmobAppID                     =   "ca-app-pub-1994779937843028~3906710093"
 public let googleAdmobUnitID                    =   "ca-app-pub-1994779937843028/3973448265"
-//public let googleAdmobUnitID                    =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
+public let googleAdmobTestUnitID                    =   "ca-app-pub-3940256099942544/2934735716" // Google's TestID
 
 // MARK: - OpenWeatherMAP
 public let owmAPIPath                           =   "http://api.openweathermap.org/data/2.5/"

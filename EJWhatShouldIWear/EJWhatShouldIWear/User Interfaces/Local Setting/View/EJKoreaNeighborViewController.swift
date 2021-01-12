@@ -39,12 +39,6 @@ class EJKoreaNeighborViewController: EJBaseViewController {
     }
     
     // MARK: - IBAction
-    @IBAction func didTouchComplete(_ sender: Any) {
-        EJUserDefaultsManager.shared.locationAddNew(locationNameStack)
-        NotificationCenter.default.post(name: EJKoreaNeighborNotificationName.didCompleteChoosingLocation, object: nil, userInfo: nil)
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
     @IBAction func didTouchDismiss(_ sender: Any) {
         selectionHapticFeedback()
         navigationController?.popViewController(animated: true)
@@ -70,20 +64,15 @@ extension EJKoreaNeighborViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
     
-        if originalNameStack == "" { originalNameStack = locationNameStack }
+        if originalNameStack == "" {
+            originalNameStack = locationNameStack
+        }
         if let name = neighborhoods?[indexPath.row], !locationNameStack.contains(name) {
             locationNameStack += (" " + name)
         }
-        
-        guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
-        cell.checkImageview.isHidden = false
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        selectionHapticFeedback()
-        locationNameStack = originalNameStack
-        
-        guard let cell = tableView.cellForRow(at: indexPath) as? EJNameTableViewCell else { return }
-        cell.checkImageview.isHidden = true
+
+        EJUserDefaultsManager.shared.locationAddNew(locationNameStack)
+        NotificationCenter.default.post(name: EJKoreaNeighborNotificationName.didCompleteChoosingLocation, object: nil, userInfo: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
 }

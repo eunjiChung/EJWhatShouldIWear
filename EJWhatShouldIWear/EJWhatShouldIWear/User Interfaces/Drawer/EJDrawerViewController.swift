@@ -41,8 +41,7 @@ class EJDrawerViewController: EJBaseViewController {
     }
     
     @objc func handleTap() {
-        didTapBackground?()
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -63,20 +62,20 @@ extension EJDrawerViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
-        
-        guard let selected = EJMyLocalListIndexType(rawValue: indexPath.row) else { return }
-        switch selected {
-        case .current:
+
+        if let selected = EJMyLocalListIndexType(rawValue: indexPath.row), selected == .current {
             switch EJLocationManager.shared.authStatus {
             case .authorizedAlways, .authorizedWhenInUse:
                 EJLocationManager.shared.updateMainLocation(nil)
+                handleTap()
             default:
-                popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
+                popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized, handler: {
+                    self.handleTap()
+                })
             }
-        case .other:
+        } else {
             EJLocationManager.shared.updateMainLocation(locations[indexPath.row])
+            handleTap()
         }
-        
-        handleTap()
     }
 }

@@ -54,9 +54,12 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     // MARK: - Alert Controller
-    func popAlertVC(_ controller: UIViewController, title:String, message: String) {
+    func popAlertVC(_ controller: UIViewController, title:String, message: String, handler: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "btn_ok".localized, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "btn_ok".localized, style: .default, handler: { _ in
+            handler?()
+        }))
         controller.present(alert, animated: true, completion: nil)
     }
     
