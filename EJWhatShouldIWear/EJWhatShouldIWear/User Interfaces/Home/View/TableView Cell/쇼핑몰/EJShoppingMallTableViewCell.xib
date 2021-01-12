@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bazzi OTF.otf">
+            <string>BazziOTFRegular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell alpha="0.10000000000000001" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EJShoppingMallTableViewCell" id="KGk-i7-Jjw" customClass="EJShoppingMallTableViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="278"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="278"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZC-VF-xRm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="278"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="오늘같은 날 추천" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABp-ZO-hcF">
+                        <rect key="frame" x="20" y="20" width="97" height="20"/>
+                        <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="날씨에 맞는 스타일을 발견하세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgQ-qp-vn4">
+                        <rect key="frame" x="20" y="45" width="147" height="15"/>
+                        <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Uo8-Bn-jA1">
+                        <rect key="frame" x="0.0" y="128" width="320" height="150"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="wEU-MA-pMw"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dyF-lQ-HBs">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Uo8-Bn-jA1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1G8-hB-Y9a"/>
+                    <constraint firstAttribute="bottom" secondItem="yZC-VF-xRm" secondAttribute="bottom" id="2Za-jf-t71"/>
+                    <constraint firstAttribute="trailing" secondItem="Uo8-Bn-jA1" secondAttribute="trailing" id="8of-3j-Sst"/>
+                    <constraint firstAttribute="bottom" secondItem="Uo8-Bn-jA1" secondAttribute="bottom" id="BiB-F9-6bY"/>
+                    <constraint firstItem="CgQ-qp-vn4" firstAttribute="top" secondItem="ABp-ZO-hcF" secondAttribute="bottom" constant="5" id="Z7U-yO-EYJ"/>
+                    <constraint firstItem="CgQ-qp-vn4" firstAttribute="leading" secondItem="ABp-ZO-hcF" secondAttribute="leading" id="dSm-ZT-cHe"/>
+                    <constraint firstItem="ABp-ZO-hcF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="dXO-dv-SkF"/>
+                    <constraint firstItem="yZC-VF-xRm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="f8K-MQ-1rU"/>
+                    <constraint firstItem="Uo8-Bn-jA1" firstAttribute="top" secondItem="CgQ-qp-vn4" secondAttribute="bottom" constant="18" id="iCw-9v-DfN"/>
+                    <constraint firstAttribute="trailing" secondItem="yZC-VF-xRm" secondAttribute="trailing" id="nI3-FM-0mf"/>
+                    <constraint firstItem="yZC-VF-xRm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="neq-gr-MQQ"/>
+                    <constraint firstItem="ABp-ZO-hcF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="sU9-Xv-WCo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="collectionView" destination="Uo8-Bn-jA1" id="sGE-EL-PGd"/>
+                <outlet property="subTitleLabel" destination="CgQ-qp-vn4" id="keF-uL-1Sj"/>
+                <outlet property="titleLabel" destination="ABp-ZO-hcF" id="wFq-7f-yZq"/>
+            </connections>
+            <point key="canvasLocation" x="-146.37681159420291" y="56.919642857142854"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

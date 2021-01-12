@@ -25,7 +25,6 @@ class EJHomeViewController: EJBaseViewController {
     @IBOutlet weak var pulldownImage: UIImageView!
     
     // MARK: Properties
-    var cellOpened = false
     var didUsedSkeleton = false
     
     lazy var viewModel: EJHomeViewModel = {
@@ -232,7 +231,6 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if EJLocationManager.shared.isKorea() && cellOpened && section == EJHomeSectionType.showClothSection.rawValue { return 2 }
         return 1
     }
     
@@ -264,6 +262,9 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
 
                 return cell
             }
+        case .mallSection:
+            let cell = tableView.dequeueReusableCell(withIdentifier: EJShoppingMallTableViewCell.id, for: indexPath) as! EJShoppingMallTableViewCell
+            return cell
         case .timelyWeatherSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
 
@@ -302,6 +303,7 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
         guard let sectionType = EJHomeSectionType(rawValue: indexPath.section) else { return "" }
         switch sectionType {
         case .showClothSection:     return ShowClothTableViewCell.identifier
+        case .mallSection:          return EJShoppingMallTableViewCell.id
         case .timelyWeatherSection: return TimeWeahtherTableViewCell.identifier
         case .weekelyWeatherSection:return WeekWeatherTableViewCell.identifier
         case .admobSection:         return AdmobTableViewCell.identifier
@@ -318,21 +320,14 @@ extension EJHomeViewController: UITableViewDelegate {
         
         switch sectionType {
         case .showClothSection:
-            if indexPath.row == 0 {
-                if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
-                    return EJSizeHeight(400.0)
-                } else if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
-                    return EJSizeHeight(420.0)
-                } else {
-                    return EJSizeHeight(350.0)
-                }
+            if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {
+                return EJSizeHeight(400.0)
+            } else if EJ_SCREEN_HEIGHT == EJ_SCREEN_7 {
+                return EJSizeHeight(420.0)
             } else {
-                if EJ_SCREEN_HEIGHT == EJ_SCREEN_HEIGHT_812 {
-                    return EJSizeHeight(150.0)
-                } else {
-                    return EJSizeHeight(180.0)
-                }
+                return EJSizeHeight(350.0)
             }
+        case .mallSection:      return UITableView.automaticDimension
         case .timelyWeatherSection:
             return EJSizeHeight(290.0)
         case .weekelyWeatherSection:
@@ -354,30 +349,13 @@ extension EJHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard EJLocationManager.shared.isKorea() else { return }
-        
-        if indexPath.section == EJHomeSectionType.showClothSection.rawValue, indexPath.row == EJShowClothRowType.closeClothsCell.rawValue {
-            if cellOpened {
-                cellOpened = false
-                tableView.beginUpdates()
-                tableView.deleteRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
-                tableView.endUpdates()
-            } else {
-                cellOpened = true
-                tableView.beginUpdates()
-                tableView.insertRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
-                tableView.endUpdates()
-            }
-        }
-    }
 }
 
 // MARK: - Private Methods
 private extension EJHomeViewController {
     
     private func registerNibs() {
+        mainTableView.register(UINib(nibName: EJShoppingMallTableViewCell.id, bundle: nil), forCellReuseIdentifier: EJShoppingMallTableViewCell.id)
         mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
         mainTableView.register(UINib.init(nibName: "WeekWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekWeatherTableViewCell.identifier)

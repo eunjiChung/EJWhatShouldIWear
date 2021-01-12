@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EJProductCollectionViewCell" id="gTV-IL-0wX" customClass="EJProductCollectionViewCell" customModule="EJWhatShouldIWear" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="301"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="240" height="301"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="다운 JP" translatesAutoresizingMaskIntoConstraints="NO" id="x19-KO-eMv">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="245"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="x19-KO-eMv" secondAttribute="height" multiplier="48:49" id="Vvk-gw-SGc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다운JP" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyr-F2-LUD">
+                        <rect key="frame" x="0.0" y="253" width="40.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="x19-KO-eMv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4kZ-dw-pTg"/>
+                <constraint firstItem="kyr-F2-LUD" firstAttribute="top" secondItem="x19-KO-eMv" secondAttribute="bottom" constant="8" id="9rf-e6-ZX9"/>
+                <constraint firstItem="x19-KO-eMv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="D33-8g-Xo5"/>
+                <constraint firstItem="kyr-F2-LUD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="P6l-XA-Dtm"/>
+                <constraint firstAttribute="trailing" secondItem="x19-KO-eMv" secondAttribute="trailing" id="fYg-rh-kik"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kyr-F2-LUD" secondAttribute="bottom" constant="10" id="wx4-Ps-JNd"/>
+            </constraints>
+            <size key="customSize" width="240" height="301"/>
+            <connections>
+                <outlet property="imageView" destination="x19-KO-eMv" id="vne-j1-H8N"/>
+                <outlet property="productLabel" destination="kyr-F2-LUD" id="FNJ-er-lQM"/>
+            </connections>
+            <point key="canvasLocation" x="275.36231884057975" y="230.02232142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="다운 JP" width="213.33332824707031" height="213.33332824707031"/>
+    </resources>
+</document>

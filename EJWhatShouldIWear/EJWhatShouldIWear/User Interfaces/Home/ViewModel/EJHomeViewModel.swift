@@ -10,6 +10,7 @@ import Foundation
 
 enum EJHomeSectionType: Int, CaseIterable {
     case showClothSection       = 0
+    case mallSection
     case timelyWeatherSection
     case weekelyWeatherSection
     case admobSection

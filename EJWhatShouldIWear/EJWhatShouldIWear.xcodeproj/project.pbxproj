@@ -78,6 +78,10 @@
 		B637591D244B81BE0076FE2C /* EJHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591C244B81BE0076FE2C /* EJHomeViewModel.swift */; };
 		B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591E244BA2B40076FE2C /* EJLayoutManager.swift */; };
 		B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375921244BB7610076FE2C /* EJAPIService.swift */; };
+		B655BD4B25ADAE9000966E31 /* EJShoppingMallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B655BD4925ADAE9000966E31 /* EJShoppingMallTableViewCell.swift */; };
+		B655BD4C25ADAE9000966E31 /* EJShoppingMallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B655BD4A25ADAE9000966E31 /* EJShoppingMallTableViewCell.xib */; };
+		B655BD5325ADB07300966E31 /* EJProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B655BD5125ADB07300966E31 /* EJProductCollectionViewCell.swift */; };
+		B655BD5425ADB07300966E31 /* EJProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B655BD5225ADB07300966E31 /* EJProductCollectionViewCell.xib */; };
 		B657269F247D130E00D836D7 /* EJConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657269E247D130E00D836D7 /* EJConvertHelper.swift */; };
 		B65726A1247D211E00D836D7 /* EJKisangBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A0247D211E00D836D7 /* EJKisangBaseModel.swift */; };
 		B65726A3247D27D800D836D7 /* EJKisangWeekelyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65726A2247D27D800D836D7 /* EJKisangWeekelyModel.swift */; };
@@ -258,6 +262,10 @@
 		B637591E244BA2B40076FE2C /* EJLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLayoutManager.swift; sourceTree = "<group>"; };
 		B6375921244BB7610076FE2C /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
 		B637E2B7251053EB00B61239 /* EJWhatShouldIWear.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EJWhatShouldIWear.entitlements; sourceTree = "<group>"; };
+		B655BD4925ADAE9000966E31 /* EJShoppingMallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJShoppingMallTableViewCell.swift; sourceTree = "<group>"; };
+		B655BD4A25ADAE9000966E31 /* EJShoppingMallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EJShoppingMallTableViewCell.xib; sourceTree = "<group>"; };
+		B655BD5125ADB07300966E31 /* EJProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		B655BD5225ADB07300966E31 /* EJProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EJProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		B657269E247D130E00D836D7 /* EJConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJConvertHelper.swift; sourceTree = "<group>"; };
 		B65726A0247D211E00D836D7 /* EJKisangBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangBaseModel.swift; sourceTree = "<group>"; };
 		B65726A2247D27D800D836D7 /* EJKisangWeekelyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKisangWeekelyModel.swift; sourceTree = "<group>"; };
@@ -708,6 +716,7 @@
 		B6375923244BCB6D0076FE2C /* TableView Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B655BD5025ADB05900966E31 /* 쇼핑몰 */,
 				72A5D5702340C56A0068D33D /* Custom View */,
 				B67A15A3244C525100F17C6D /* KRWeekelyCollectionViewCell.swift */,
 				B67A15A4244C525100F17C6D /* KRWeekelyCollectionViewCell.xib */,
@@ -741,6 +750,18 @@
 				B6AF9B5024852CF8009C14B1 /* EJShowClothViewModel.swift */,
 			);
 			path = "TableView Cell";
+			sourceTree = "<group>";
+		};
+		B655BD5025ADB05900966E31 /* 쇼핑몰 */ = {
+			isa = PBXGroup;
+			children = (
+				B655BD4925ADAE9000966E31 /* EJShoppingMallTableViewCell.swift */,
+				B655BD4A25ADAE9000966E31 /* EJShoppingMallTableViewCell.xib */,
+				B655BD5125ADB07300966E31 /* EJProductCollectionViewCell.swift */,
+				B655BD5225ADB07300966E31 /* EJProductCollectionViewCell.xib */,
+			);
+			name = "쇼핑몰";
+			path = "쇼핑몰";
 			sourceTree = "<group>";
 		};
 		B657269D247D108E00D836D7 /* Korea Weather */ = {
@@ -1046,10 +1067,12 @@
 			files = (
 				724A173922D77C9B008FDCB6 /* tshirt.png in Resources */,
 				724A174E22D7817F008FDCB6 /* muffler.png in Resources */,
+				B655BD5425ADB07300966E31 /* EJProductCollectionViewCell.xib in Resources */,
 				B658E0872482701D00F55430 /* regionId.json in Resources */,
 				990E595B22D71598000728A1 /* GoogleService-Info.plist in Resources */,
 				992B0A3522BFE72900FF94B7 /* Localizable.strings in Resources */,
 				B689A71A24B4F76C00F8B1F0 /* Bazzi OTF.otf in Resources */,
+				B655BD4C25ADAE9000966E31 /* EJShoppingMallTableViewCell.xib in Resources */,
 				B6E088E2245AD2B7006C6665 /* Local.storyboard in Resources */,
 				999B20A922029E670073A0D9 /* LaunchScreen.storyboard in Resources */,
 				B689A71824B4F76100F8B1F0 /* Maplestory OTF Light.otf in Resources */,
@@ -1230,6 +1253,7 @@
 				992B098F22BD53C200FF94B7 /* EJFiveDaysCity.swift in Sources */,
 				99A0567D228E9CE2002D3B7A /* EJLibrary.swift in Sources */,
 				998B82A3228D67710099B71A /* AdmobTableViewCell.swift in Sources */,
+				B655BD5325ADB07300966E31 /* EJProductCollectionViewCell.swift in Sources */,
 				992B098D22BD53C200FF94B7 /* EJFiveDaysList.swift in Sources */,
 				B689A71F24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift in Sources */,
 				B6A6B280255C2A2A00CBFE0B /* EJUserInfo.swift in Sources */,
@@ -1240,6 +1264,7 @@
 				B6E088E9245B0E5E006C6665 /* EJKoreaNeighborViewController.swift in Sources */,
 				B637591D244B81BE0076FE2C /* EJHomeViewModel.swift in Sources */,
 				B6E088DB245AC7C6006C6665 /* EJKoreaLocalModel.swift in Sources */,
+				B655BD4B25ADAE9000966E31 /* EJShoppingMallTableViewCell.swift in Sources */,
 				99A05687228EAE10002D3B7A /* SideMenuLogoTableViewCell.swift in Sources */,
 				B6E088DD245AD03E006C6665 /* EJMyLocalListViewController.swift in Sources */,
 				B63758E62448EE800076FE2C /* EJClothManager.swift in Sources */,
