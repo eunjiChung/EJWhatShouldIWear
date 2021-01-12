@@ -43,6 +43,6 @@ extension EJShoppingMallTableViewCell: UICollectionViewDataSource {
 extension EJShoppingMallTableViewCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100.0, height: collectionView.bounds.height)
+        return CGSize(width: 110.0, height: collectionView.bounds.height)
     }
 }
