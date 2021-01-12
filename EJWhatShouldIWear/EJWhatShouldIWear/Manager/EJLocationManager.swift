@@ -59,7 +59,6 @@ public class EJLocationManager: CLLocationManager {
     }
     
     var country: String? {
-//        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) { return nil }
         if let country = mainLocation?[EJLocationMainKey.country] as? String { return country }
         return selectedCountry.rawValue
     }
@@ -128,7 +127,7 @@ public class EJLocationManager: CLLocationManager {
     var didSuccessUpdateLocationsClosure: (() -> Void)?
     var didFailUpdateLocationClosure: ((String)->Void)?
     var didRestrictLocationAuthorizationClosure: (()->())?
-    var didRestrictAbroadAuthorizationClosure: (()->())?
+//    var didRestrictAbroadAuthorizationClosure: (()->())? // TODO: - 외국 권한 플로우 해결 못함
     func checkAuth() {
         switch authStatus {
         case .notDetermined:

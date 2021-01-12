@@ -35,7 +35,7 @@ class ClothsCollectionTableViewCell: UITableViewCell {
     // MARK: - Public Method
     public func clothList() {
         if let models = models {
-            let weather = EJWeatherManager.shared.todayTempInfo(with: models)
+            let weather = EJWeatherManager.todayTempInfo(with: models)
             self.clothesList = EJClothManager.shared.getClothList(weather.minTemp, weather.maxTemp)
         }
     }

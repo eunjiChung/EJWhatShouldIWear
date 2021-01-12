@@ -78,21 +78,12 @@ class EJHomeViewController: EJBaseViewController {
         }
         
         EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
-            guard myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) else { return }
-            
-//            guard let vc = UIStoryboard(name: "Local", bundle: nil).instantiateViewController(withIdentifier: "EJMyLocalListViewController") as? EJMyLocalListViewController else { return }
-//            self.show(vc, sender: self)
-//            vc.performSegue(withIdentifier: "showLocalList", sender: vc)
-        }
-        
-        EJLocationManager.shared.didRestrictAbroadAuthorizationClosure = {
-            self.popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
-            self.viewModel.requestFiveDaysWeatherList()
+            // TODO: - 여기서는 이제 뭘해주지?
         }
         
         viewModel.didrequestForeignWeatherInfoSuccessClosure = {
             guard let model = self.viewModel.FiveDaysWeatherModel else { return }
-            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.generateBackgroundView(by: model))
+            self.backgroundView.changeBackGround(with: EJWeatherManager.generateBackgroundView(by: model))
             
             self.stopPullToRefresh(toScrollView: self.mainTableView)
 
@@ -109,7 +100,7 @@ class EJHomeViewController: EJBaseViewController {
         
         // MARK: - Kisang Weather
         viewModel.didRequestKisangWeatherInfoSuccessClosure = {
-            self.backgroundView.changeBackGround(with: EJWeatherManager.shared.koreaBackgroundImage(by: self.viewModel.kisangTimeModel))
+            self.backgroundView.changeBackGround(with: EJWeatherManager.koreaBackgroundImage(by: self.viewModel.kisangTimeModel))
             self.menuButton.tintColor = titleColor
             self.addButton.tintColor = titleColor
             self.myLocationField.setTitleColor(titleColor, for: .normal)

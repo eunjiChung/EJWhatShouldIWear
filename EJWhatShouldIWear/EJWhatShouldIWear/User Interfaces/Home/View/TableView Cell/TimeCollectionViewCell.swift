@@ -54,7 +54,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     // MARK: - Kisang
     private func setView() {
         guard let model = model else { return }
-        tempLabel.text = "\(model.temperature)" + EJWeatherManager.shared.getValidUnit()
+        tempLabel.text = "\(model.temperature)" + EJWeatherManager.unit
         setDate(model.fcstDate)
         setTime(model.fcstTime)
         setDress()
@@ -65,7 +65,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
         guard let model = model else { return }
         var dress = EJClothManager.shared.setItem(by: model.weatherCode.value.type)
         if dress == "outer" {
-            dress = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(model.fcstDate, model.temperature, model.temperature))
+            dress = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.properSeasonValue(model.fcstDate, model.temperature, model.temperature))
         }
         clothImageView.image = UIImage(named: dress)
     }
@@ -107,11 +107,10 @@ class TimeCollectionViewCell: UICollectionViewCell {
             let time = date.todayHourString()
             hourLabel.text = "\(time) \(hour)"
         }
-        
-        let unit = EJWeatherManager.shared.getValidUnit()
+
         if let weatherInfo = item.main, let floatTemp = weatherInfo.temp {
-            let temp = EJWeatherManager.shared.getValidTemperature(by: floatTemp)
-            tempLabel.text = "\(temp)\(unit)"
+            let temp = EJWeatherManager.getValidTemperature(by: floatTemp)
+            tempLabel.text = "\(temp)\(EJWeatherManager.unit)"
             
             let style = EJClothManager.shared.setTopCloth(by: temp)
             clothImageView.image = UIImage.init(named: style)

@@ -27,18 +27,26 @@ enum WeatherCondition: Int {
     case fog = 9
     case cloud = 10
     case clear = 11
+
+    var desc: String {
+        switch self {
+        case .clear:                            return "sunny".localized
+        case .rain, .haze, .drizzle, .squall:   return "rainy".localized
+        case .cloud, .fog:                      return "cloudy".localized
+        case .snow:                             return "snowy".localized
+        default:                                return ""
+        }
+    }
 }
 
-final class EJWeatherManager: NSObject {
-    
-    static let shared = EJWeatherManager()
+final class EJWeatherManager {
     
     // MARK: - Properties
     var country: String = ""
-    let WeatherClass = EJWeatherMainModel()
+    static var weather = EJWeatherMainModel()
     
     // MARK: - Publi Methods
-    public func generateWeatherCondition(by list: [EJFiveDaysList]) -> EJWeatherMainModel {
+    static func generateWeatherCondition(by list: [EJFiveDaysList]) -> EJWeatherMainModel {
         var maxTemp:Float = -1000
         var minTemp:Float = 1000
         var totalTemp:Float = 0
@@ -52,27 +60,27 @@ final class EJWeatherManager: NSObject {
             totalTemp += tempDictionary["total"]!
         }
         
-        WeatherClass.criticCondition = weatherType
+        weather.criticCondition = weatherType
         
         let averageTemp = totalTemp / Float(list.count)
-        WeatherClass.mainTemp = getValidTemperature(by: averageTemp)
-        WeatherClass.minTemp = getValidTemperature(by: minTemp)
-        WeatherClass.maxTemp = getValidTemperature(by: maxTemp)
+        weather.mainTemp = getValidTemperature(by: averageTemp)
+        weather.minTemp = getValidTemperature(by: minTemp)
+        weather.maxTemp = getValidTemperature(by: maxTemp)
         
         if weatherType != .clear && weatherType != .cloud {
-            WeatherClass.criticCloth = EJClothManager.shared.setClothByCondition(weatherType)
+            weather.criticCloth = EJClothManager.shared.setClothByCondition(weatherType)
         } else {
-            WeatherClass.criticCloth = EJClothManager.shared.setOuterCloth(by: WeatherClass.mainTemp)
+            weather.criticCloth = EJClothManager.shared.setOuterCloth(by: weather.mainTemp)
         }
         
-        WeatherClass.maxCloth = EJClothManager.shared.setTopCloth(by: WeatherClass.maxTemp)
-        WeatherClass.minCloth = EJClothManager.shared.setBottomCloth(by: WeatherClass.minTemp)
-        WeatherClass.weatherDescription = weatherDescription(WeatherClass.criticCondition)
+        weather.maxCloth = EJClothManager.shared.setTopCloth(by: weather.maxTemp)
+        weather.minCloth = EJClothManager.shared.setBottomCloth(by: weather.minTemp)
+        weather.weatherDescription = weatherDescription(weather.criticCondition)
         
-        return WeatherClass
+        return weather
     }
     
-    public func generateBackgroundView(by model: EJFiveDaysWeatherModel) -> UIImage {
+    static func generateBackgroundView(by model: EJFiveDaysWeatherModel) -> UIImage {
         guard let city = model.city, let timezone = city.timezone, let list = model.list else { return UIImage(named: "background")! }
         
         let date = Date()
@@ -112,7 +120,7 @@ final class EJWeatherManager: NSObject {
         return UIImage(named: "background")!
     }
     
-    public func weatherDescription(_ condition: WeatherCondition) -> String {
+    static func weatherDescription(_ condition: WeatherCondition) -> String {
         var description = "desc_tody".localized + " "
         
         switch condition {
@@ -141,18 +149,18 @@ final class EJWeatherManager: NSObject {
         }
         description += "\n"
         
-        if WeatherClass.maxTemp < 15 {
-            EJLogger.d("Description : 따뜻하게 입으세요 \(WeatherClass.maxTemp)도")
+        if weather.maxTemp < 15 {
+            EJLogger.d("Description : 따뜻하게 입으세요 \(weather.maxTemp)도")
             description += "desc_add_warm".localized
-        } else if WeatherClass.minTemp > 23 {
+        } else if weather.minTemp > 23 {
             EJLogger.d("Description : 더위 조심하세요")
             description += "desc_add_cool".localized
-        } else if WeatherClass.maxTemp - WeatherClass.minTemp >= 8 {
+        } else if weather.maxTemp - weather.minTemp >= 8 {
             EJLogger.d("Description : 일교차가 큰 날이에요")
             description = description + "desc_add_cross".localized + "\n"
             
             // TODO: 몇 도씨 미만이고, 일교차가 크면 겉옷을 챙기도록 추천!
-            let cloth = WeatherClass.criticCloth.localized
+            let cloth = weather.criticCloth.localized
             description = description + " \(cloth) " + "desc_add_cloth".localized
         }
         
@@ -160,12 +168,9 @@ final class EJWeatherManager: NSObject {
     }
     
     // TODO: - 지명 지역화
-    public func getValidUnit() -> String {
-        if self.country == "South Korea" { return "℃" }
-        return "temp".localized
-    }
+    static var unit: String { return "temp".localized }
     
-    public func getValidTemperature(by temperature:Float) -> Int {
+    static func getValidTemperature(by temperature:Float) -> Int {
         var temp = Int(temperature)
         
         if !Library.systemLanguage.contains("en") {
@@ -175,7 +180,7 @@ final class EJWeatherManager: NSObject {
         return temp
     }
     
-    public func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
+    static func compareWeatherCode(_ currentCode:String, _ originalCode: Int) -> Int {
         var resultCode = originalCode
         let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "S"]).joined()
         let currentCodeNum = Int(codeNumber)!
@@ -187,7 +192,7 @@ final class EJWeatherManager: NSObject {
         return resultCode
     }
     
-    public func compareKRWeatherCode(_ currentCode: String, _ originalCode: Int) -> Int {
+    static func compareKRWeatherCode(_ currentCode: String, _ originalCode: Int) -> Int {
         var resultCode = originalCode
         let codeNumber = currentCode.components(separatedBy: ["S", "K", "Y", "_", "W"]).joined()
         let currentCodeNum = Int(codeNumber)!
@@ -199,7 +204,7 @@ final class EJWeatherManager: NSObject {
         return resultCode
     }
     
-    public func generateKRWeatherCondition(of code: Int) -> WeatherCondition {
+    static func generateKRWeatherCondition(of code: Int) -> WeatherCondition {
         var type: WeatherCondition
         
         switch code {
@@ -221,7 +226,7 @@ final class EJWeatherManager: NSObject {
     }
     
     // MARK: - Private Method
-    private func weatherTemp(of originMaxTemp: Float, _ originMinTemp: Float, _ item: EJFiveDaysList) -> [String:Float] {
+    static func weatherTemp(of originMaxTemp: Float, _ originMinTemp: Float, _ item: EJFiveDaysList) -> [String:Float] {
         var maxTemp: Float = originMaxTemp
         var minTemp: Float = originMinTemp
         var totalTemp: Float = 0.0
@@ -236,7 +241,7 @@ final class EJWeatherManager: NSObject {
     }
     
     // desc : 위험한 날씨(호우, 황사, 태풍, 폭염 등) 경보가 있을 경우 그 정보를 리턴한다
-    private func criticalWeather(_ originType: WeatherCondition, _ item: EJFiveDaysList) -> WeatherCondition {
+    static func criticalWeather(_ originType: WeatherCondition, _ item: EJFiveDaysList) -> WeatherCondition {
         var resultType:WeatherCondition = originType
         
         if let weather = item.weather, let id = weather.first?.id
@@ -251,7 +256,7 @@ final class EJWeatherManager: NSObject {
         return resultType
     }
     
-    private func weatherCondition(of id: Int) -> WeatherCondition {
+    static func weatherCondition(of id: Int) -> WeatherCondition {
         
         let result = id / 100
         var type: WeatherCondition
@@ -280,7 +285,7 @@ final class EJWeatherManager: NSObject {
         return type
     }
     
-    private func atmosphereCondition(of id: Int) -> WeatherCondition {
+    static func atmosphereCondition(of id: Int) -> WeatherCondition {
         switch id {
         case 701, 741:
             return .fog
@@ -306,7 +311,7 @@ final class EJWeatherManager: NSObject {
 var titleColor: UIColor = .white
 
 extension EJWeatherManager {
-    public func koreaBackgroundImage(by models: [EJKisangTimeModel]?) -> UIImage {
+    static func koreaBackgroundImage(by models: [EJKisangTimeModel]?) -> UIImage {
         guard let models = models else { return UIImage() }
         let currentHour = Calendar.current.component(.hour, from: Date())
         switch currentHour {
@@ -330,7 +335,7 @@ extension EJWeatherManager {
         }
     }
     
-    func generateTodayTimelyWeather(_ models: [EJKisangTimelyModel]?) -> [EJKisangTimelyModel] {
+    static func generateTodayTimelyWeather(_ models: [EJKisangTimelyModel]?) -> [EJKisangTimelyModel] {
         guard let models = models else { return [] }
         
         var todayModels: [EJKisangTimelyModel] = []
@@ -351,7 +356,7 @@ extension EJWeatherManager {
         return todayModels
     }
     
-    public func properSeasonValue(_ date: String, _ min: Int, _ max: Int) -> Int {
+    static func properSeasonValue(_ date: String, _ min: Int, _ max: Int) -> Int {
         guard let month = EJMonth(rawValue: date.extractMonth()) else { return 0 }
         switch month {
         case .dec, .jan, .feb:       return min
@@ -361,7 +366,7 @@ extension EJWeatherManager {
         }
     }
     
-    public func priority(of weathers: [EJKisangTimeModel]?) -> EJWeatherType {
+    static func priority(of weathers: [EJKisangTimeModel]?) -> EJWeatherType {
         guard let items = weathers else { return .no }
         guard let baseDate = items.first?.fcstDate else { return .no }
         
@@ -374,7 +379,7 @@ extension EJWeatherManager {
         return originType
     }
     
-    public func todayTempInfo(with items: [EJKisangTimeModel]?) -> (date: String, minTemp: Int, maxTemp: Int) {
+    static func todayTempInfo(with items: [EJKisangTimeModel]?) -> (date: String, minTemp: Int, maxTemp: Int) {
         guard let items = items else { return ("", 0, 0) }
         guard let baseDate = items.first?.fcstDate else { return ("", 0, 0) }
         

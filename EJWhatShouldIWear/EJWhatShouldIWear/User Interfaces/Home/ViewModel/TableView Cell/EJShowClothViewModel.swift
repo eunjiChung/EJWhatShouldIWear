@@ -118,12 +118,12 @@ final class EJShowClothViewModel {
 
     private func generateClothDescription(_ models: [EJKisangTimeModel]) -> String {
         var dressDesc = ""
-        let info = EJWeatherManager.shared.todayTempInfo(with: models)
-        let outer = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+        let info = EJWeatherManager.todayTempInfo(with: models)
+        let outer = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp))
         if (info.minTemp - info.maxTemp).magnitude >= 10, info.maxTemp < 23 {
             dressDesc = "일교차가 크니 " + outer.localized + " 챙기세요!"
         } else {
-            let todayTemp = EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp)
+            let todayTemp = EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp)
             switch todayTemp {
             case TempRange.temp_28, TempRange.temp_23_27:
                 dressDesc = "엄청 더워요!"
@@ -141,20 +141,20 @@ final class EJShowClothViewModel {
     }
     
     public func generatePointCloth(with items: [EJKisangTimeModel]?) -> String {
-        let type = EJWeatherManager.shared.priority(of: items)
+        let type = EJWeatherManager.priority(of: items)
         let point = EJClothManager.shared.setItem(by: type)
-        if point == "outer" { return generateCloth(type: .outer, EJWeatherManager.shared.todayTempInfo(with: items)) }
+        if point == "outer" { return generateCloth(type: .outer, EJWeatherManager.todayTempInfo(with: items)) }
         return point
     }
     
     public func generateCloth(type: EJShowClothType, _ info: (date: String, minTemp: Int, maxTemp: Int)) -> String {
         switch type {
         case .outer:
-            return EJClothManager.shared.setOuterCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+            return EJClothManager.shared.setOuterCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp))
         case .top:
-            return EJClothManager.shared.setTopCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+            return EJClothManager.shared.setTopCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp))
         case .bottom:
-            return EJClothManager.shared.setBottomCloth(by: EJWeatherManager.shared.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+            return EJClothManager.shared.setBottomCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp))
         }
     }
 }

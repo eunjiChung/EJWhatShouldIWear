@@ -73,14 +73,16 @@ class WeekelyCollectionViewCell: UICollectionViewCell {
     }
     
     private func tellWeatherCondition(of index: Int) -> String {
-//        let day = getDay(from: index)
-//        guard let oneDayWeather = weatherInfo(which: "weather", of: day) else { return "" }
-//        let oneDay = oneDayWeather as? EJFiveDaysWeather
-//        if let weatherID = oneDay?.id {
-//            return EJWeatherManager.shared.weatherCondition(of: weatherID)
-//        }
+        var result: WeatherCondition = .clear
+
+        let day = getDay(from: index)
+        guard let oneDayWeather = weatherInfo(which: "weather", of: day) else { return "" }
+        let oneDay = oneDayWeather as? EJFiveDaysWeather
+        if let weatherID = oneDay?.id {
+            result = EJWeatherManager.weatherCondition(of: weatherID)
+        }
         
-        return ""
+        return result.desc
     }
     
     private func returnCertainWeather(of index: Int) -> EJFiveDaysMain? {
