@@ -33,7 +33,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9/24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-Gc-h03">
-                                <rect key="frame" x="0.0" y="0.0" width="66.5" height="13.5"/>
+                                <rect key="frame" x="23.5" y="0.0" width="20.5" height="13.5"/>
                                 <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="12"/>
                                 <color key="textColor" systemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,8 +42,8 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00시" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDy-ir-MrN">
-                                <rect key="frame" x="0.0" y="16.5" width="67" height="14.5"/>
-                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="13"/>
+                                <rect key="frame" x="21.5" y="16.5" width="24.5" height="17"/>
+                                <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -51,7 +51,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-qE-yWx">
-                                <rect key="frame" x="0.0" y="38" width="66.5" height="22.5"/>
+                                <rect key="frame" x="17.5" y="40.5" width="32" height="22.5"/>
                                 <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="맑아요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-wm-86z">
-                                <rect key="frame" x="0.0" y="63.5" width="66.5" height="18"/>
+                                <rect key="frame" x="15.5" y="66" width="36.5" height="18"/>
                                 <fontDescription key="fontDescription" name="BazziOTFRegular" family="Bazzi OTF" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" image="big_hot_pants_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TRs-tS-ggl">
-                                <rect key="frame" x="0.0" y="93.5" width="66.5" height="63.5"/>
+                                <rect key="frame" x="0.0" y="96" width="66.5" height="61"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -79,22 +79,18 @@
                         <constraints>
                             <constraint firstItem="gDy-ir-MrN" firstAttribute="top" secondItem="ZM7-Gc-h03" secondAttribute="bottom" constant="3" id="1Hb-ge-bSt"/>
                             <constraint firstItem="TRs-tS-ggl" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="6oq-Rd-kmW"/>
-                            <constraint firstItem="1Kn-Aw-y72" firstAttribute="leading" secondItem="ZM7-Gc-h03" secondAttribute="trailing" id="BYo-Cm-CE5"/>
+                            <constraint firstItem="gDy-ir-MrN" firstAttribute="centerX" secondItem="ZM7-Gc-h03" secondAttribute="centerX" id="ATv-UD-wEk"/>
                             <constraint firstItem="1Kn-Aw-y72" firstAttribute="top" secondItem="uNK-z9-CNr" secondAttribute="top" id="Jih-Ez-iLg"/>
-                            <constraint firstAttribute="trailing" secondItem="gDy-ir-MrN" secondAttribute="trailing" id="Oof-gV-Edh"/>
+                            <constraint firstItem="WGh-wm-86z" firstAttribute="centerX" secondItem="ZM7-Gc-h03" secondAttribute="centerX" id="Jsy-im-W7e"/>
                             <constraint firstAttribute="trailing" secondItem="1Kn-Aw-y72" secondAttribute="trailing" id="S4a-EK-Uho"/>
-                            <constraint firstItem="gDy-ir-MrN" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="W1e-XN-fa6"/>
                             <constraint firstItem="ZM7-Gc-h03" firstAttribute="top" secondItem="uNK-z9-CNr" secondAttribute="top" id="WUq-8b-pwq"/>
                             <constraint firstItem="bF7-qE-yWx" firstAttribute="top" secondItem="gDy-ir-MrN" secondAttribute="bottom" constant="7" id="WvY-c7-fbP"/>
-                            <constraint firstItem="1Kn-Aw-y72" firstAttribute="leading" secondItem="WGh-wm-86z" secondAttribute="trailing" id="cAJ-be-WCM"/>
-                            <constraint firstItem="bF7-qE-yWx" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="dV8-mQ-XY2"/>
+                            <constraint firstItem="bF7-qE-yWx" firstAttribute="centerX" secondItem="ZM7-Gc-h03" secondAttribute="centerX" id="bYR-VO-Rxm"/>
                             <constraint firstItem="TRs-tS-ggl" firstAttribute="top" secondItem="WGh-wm-86z" secondAttribute="bottom" constant="12" id="eaq-z6-mRu"/>
                             <constraint firstAttribute="bottom" secondItem="TRs-tS-ggl" secondAttribute="bottom" constant="7" id="i5q-MO-bhS"/>
-                            <constraint firstItem="1Kn-Aw-y72" firstAttribute="leading" secondItem="bF7-qE-yWx" secondAttribute="trailing" id="mSs-IZ-aon"/>
                             <constraint firstAttribute="bottom" secondItem="1Kn-Aw-y72" secondAttribute="bottom" id="oD1-38-gsp"/>
+                            <constraint firstItem="ZM7-Gc-h03" firstAttribute="centerX" secondItem="uNK-z9-CNr" secondAttribute="centerX" id="qGP-gH-FjN"/>
                             <constraint firstItem="1Kn-Aw-y72" firstAttribute="leading" secondItem="TRs-tS-ggl" secondAttribute="trailing" id="qSQ-v0-gQM"/>
-                            <constraint firstItem="WGh-wm-86z" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="rv1-cx-eXX"/>
-                            <constraint firstItem="ZM7-Gc-h03" firstAttribute="leading" secondItem="uNK-z9-CNr" secondAttribute="leading" id="ySG-SX-Bv7"/>
                             <constraint firstItem="WGh-wm-86z" firstAttribute="top" secondItem="bF7-qE-yWx" secondAttribute="bottom" constant="3" id="yst-Ta-vgf"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

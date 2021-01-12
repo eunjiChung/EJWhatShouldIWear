@@ -74,11 +74,17 @@ class EJHomeViewController: EJBaseViewController {
     private func initViewModel() {
         EJLocationManager.shared.didSuccessUpdateLocationsClosure = {
             self.myLocationField.setTitle(EJLocationManager.shared.currentLocation, for: .normal)
-            self.viewModel.requestWeather()
+//            self.viewModel.requestWeather()
+            self.viewModel.requestKoreaWeather()
         }
         
         EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
             // TODO: - 여기서는 이제 뭘해주지?
+            print("Do nothing...")
+
+            if EJLocationManager.shared.hasMainLocations {
+                EJLocationManager.shared.updateMainLocation(EJLocationManager.shared.currentLocation)
+            }
         }
         
         viewModel.didrequestForeignWeatherInfoSuccessClosure = {

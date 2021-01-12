@@ -146,14 +146,18 @@ public class EJLocationManager: CLLocationManager {
         if let address = newLocation {
             CLGeocoder().geocodeAddressString(address) { placemarks, error in
                 if error != nil { return }
-                self.setDefaultLocation(placemarks?.first)
-                self.selectedCountry = self.isKorea ? .korea : .foreign
-                self.didSuccessUpdateLocationsClosure?()
+                self.updateLocation(placemarks?.first ?? CLPlacemark())
             }
         } else {
             myUserDefaults.removeObject(forKey: UserDefaultKey.mainLocation)
             checkAuth()
         }
+    }
+
+    func updateLocation(_ placemark: CLPlacemark) {
+        self.setDefaultLocation(placemark)
+        self.selectedCountry = self.isKorea ? .korea : .foreign
+        self.didSuccessUpdateLocationsClosure?()
     }
 }
 
@@ -198,10 +202,7 @@ extension EJLocationManager: CLLocationManagerDelegate {
         guard let current = locations.last else { return }
         CLGeocoder().reverseGeocodeLocation(current) { placemark, error in
             if let error = error { self.didFailUpdateLocationClosure?(error.localizedDescription) }
-
-            self.setDefaultLocation(placemark?.first)
-            self.selectedCountry = self.isKorea ? .korea : .foreign
-            self.didSuccessUpdateLocationsClosure?()
+            self.updateLocation(placemark?.first ?? CLPlacemark())
             self.stopUpdatingLocation()
         }
     }
