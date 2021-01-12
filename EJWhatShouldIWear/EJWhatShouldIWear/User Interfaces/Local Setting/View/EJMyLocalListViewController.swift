@@ -135,17 +135,18 @@ extension EJMyLocalListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
         
-        guard let selectedSection = EJMyLocalListIndexType(rawValue: indexPath.section) else { return }
-        switch selectedSection {
-        case .current:
+        if let selectedSection = EJMyLocalListIndexType(rawValue: indexPath.section),
+           selectedSection == .current {
             switch EJLocationManager.shared.authStatus {
             case .authorizedAlways, .authorizedWhenInUse:
                 EJLocationManager.shared.updateMainLocation(nil)
             default:
-                popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized)
+                popAlertVC(self, title: "Alert".localized, message: "Allow location access".localized) {
+                    self.dismissViewController()
+                }
             }
-        case .other:
-            EJLocationManager.shared.updateMainLocation(locations[selectedIndex])
+        } else {
+            EJLocationManager.shared.updateMainLocation(locations[indexPath.row])
         }
 
         dismissViewController()
