@@ -101,7 +101,7 @@ class ShowClothTableViewCell: UITableViewCell {
         let pointCloth = viewModel.generatePointCloth(with: timeModels)
         firstClothImageView.image = UIImage(named: pointCloth)
         firstClothLabel.text = pointCloth.localized
-        let tempInfo = EJWeatherManager.shared.todayTempInfo(with: timeModels)
+        let tempInfo = EJWeatherManager.todayTempInfo(with: timeModels)
         let topCloth = viewModel.generateCloth(type: .top, tempInfo)
         secondClothImageview.image = UIImage(named: topCloth)
         secondClothLabel.text = topCloth.localized
@@ -126,10 +126,10 @@ class ShowClothTableViewCell: UITableViewCell {
             return false
         }
         
-        let weather = EJWeatherManager.shared.generateWeatherCondition(by: todayWeatherList)
+        let weather = EJWeatherManager.generateWeatherCondition(by: todayWeatherList)
         
         currentTempLabel.text = "\(weather.mainTemp)"
-        unitLabel.text = EJWeatherManager.shared.getValidUnit()
+        unitLabel.text = EJWeatherManager.unit
         generateClothRecommendation(weather)
     }
     

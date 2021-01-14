@@ -108,6 +108,6 @@ extension TimeWeahtherTableViewCell: SkeletonCollectionViewDataSource {
 // MARK: - CollectionView FlowLayout Delegate
 extension TimeWeahtherTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: EJSize(80.0), height: EJSizeHeight(160.0))
+        return CGSize(width: EJSize(80.0), height: EJSizeHeight(160.0))
     }
 }

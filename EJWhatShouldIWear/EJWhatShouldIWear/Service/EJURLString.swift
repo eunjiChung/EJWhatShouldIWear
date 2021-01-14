@@ -32,3 +32,8 @@ public let kisangAppKey                         =   "LeBnEReXhgadmPwRkbb0aHyqsiT
 //public let kisangWeekForcastAPI                 =   "1360000/MidFcstInfoService/getMidLandFcst"
 
 public let weatherNuri                          =   "https://m.kma.go.kr/m/image/sat.jsp"
+
+// MARK: - 종효님 서버
+public let wsiwBaseAPI                          =   "http://ljhserver.synology.me:3020/"
+public let wsiwTodayAPI                         =   "today"
+public let wsiwWeekAPI                          =   "week"

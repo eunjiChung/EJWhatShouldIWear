@@ -62,7 +62,7 @@ final class EJSideMenuViewController: EJBaseViewController {
 // MARK: - TableView Data Source
 extension EJSideMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if EJLocationManager.shared.isKorea() {
+        if EJLocationManager.shared.isKorea {
             return EJSideMenuSectionType.allCases.count
         } else {
             return EJForeignSideMenuType.allCases.count
@@ -70,7 +70,7 @@ extension EJSideMenuViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if EJLocationManager.shared.isKorea() {
+        if EJLocationManager.shared.isKorea {
             guard let sectionType = EJSideMenuSectionType(rawValue: indexPath.row) else { return UITableViewCell() }
             switch sectionType {
             case .logo:
@@ -119,7 +119,7 @@ extension EJSideMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
         
-        if EJLocationManager.shared.isKorea() {
+        if EJLocationManager.shared.isKorea {
             guard let sectionType = EJSideMenuSectionType(rawValue: indexPath.row) else { return }
             switch sectionType {
             case .location:

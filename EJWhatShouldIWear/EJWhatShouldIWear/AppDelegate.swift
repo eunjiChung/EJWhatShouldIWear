@@ -31,11 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Initialize Google Mobile Ads SDK
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        // 한국 지역 런칭
-        EJLocationManager.shared.setDefaultKoreaLocationList()
-        EJLocationManager.shared.setRegionId()
-        
-        setInitialView()
+        initKorea()
+        showInitialView()
         
         return true
     }
@@ -45,8 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.overrideUserInterfaceStyle = .light
         }
     }
+
+    private func initKorea() {
+        EJLocationManager.shared.initKoreaLocation()
+        EJLocationManager.shared.initRegionId()
+    }
     
-    private func setInitialView() {
+    private func showInitialView() {
         guard let splashVC = UIStoryboard(name: "Welcome", bundle: nil).instantiateInitialViewController() as? EJSplashViewController else { return }
         window?.rootViewController = splashVC
         window?.makeKeyAndVisible()

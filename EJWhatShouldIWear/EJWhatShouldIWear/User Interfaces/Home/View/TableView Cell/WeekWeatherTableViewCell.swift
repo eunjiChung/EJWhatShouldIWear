@@ -99,7 +99,7 @@ extension WeekWeatherTableViewCell: UICollectionViewDelegateFlowLayout {
         var width:CGFloat = EJSize(100.0)
         var height: CGFloat = EJSizeHeight(80.0)
         
-        if EJLocationManager.shared.isKorea() {
+        if EJLocationManager.shared.isKorea {
             width = EJSize(100.0)
             
             if EJ_SCREEN_HEIGHT == EJ_SCREEN_7_PLUS {

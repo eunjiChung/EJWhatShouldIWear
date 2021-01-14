@@ -22,19 +22,17 @@ final class EJIntroViewController: EJBaseViewController {
         super.viewDidLoad()
         
         titleLabel.text = "setting_country".localized
+
         closeButton.setTitle("complete".localized, for: .normal)
+        closeButton.isHidden = !EJLocationManager.shared.hasMainLocations
+
         tableView.tableFooterView = UIView(frame: .zero)
-        
-        if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
-            closeButton.isHidden = true
-        }
     }
     
     @IBAction func didTouchCloseButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
-
 
 // MARK: - TableView Data Source
 extension EJIntroViewController: UITableViewDataSource {
@@ -53,22 +51,7 @@ extension EJIntroViewController: UITableViewDataSource {
 extension EJIntroViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHapticFeedback()
-        
         EJLocationManager.shared.selectedCountry = EJCountryType.allCases[indexPath.row]
-        myUserDefaults.set(EJCountryType.allCases[indexPath.row].rawValue.localized, forKey: UserDefaultKey.countryType)
-
-        didSelectCountryClosure?()
-        dismiss(animated: true) {
-            if !myUserDefaults.bool(forKey: UserDefaultKey.isExistingUser) {
-                myUserDefaults.set(true, forKey: UserDefaultKey.isExistingUser)
-                
-                switch EJCountryType.allCases[indexPath.row] {
-                case .korea:
-                    EJLocationManager.shared.checkAuthorization(nil)
-                case .foreign:
-                    EJLocationManager.shared.checkAbroadAuthorization()
-                }
-            }
-        }
+        dismiss(animated: true) { self.didSelectCountryClosure?() }
     }
 }

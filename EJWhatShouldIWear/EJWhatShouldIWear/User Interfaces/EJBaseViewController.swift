@@ -11,6 +11,7 @@ import MessageUI
 import ESPullToRefresh
 import Firebase
 import SwiftyJSON
+import CoreLocation
 
 // MARK : - Define Segue Identifier
 let EJSegueSetting                      = "setting_segue"
@@ -53,16 +54,18 @@ class EJBaseViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     // MARK: - Alert Controller
-    func popAlertVC(_ controller: UIViewController, title:String, message: String) {
+    func popAlertVC(_ controller: UIViewController, title:String, message: String, handler: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "btn_ok".localized, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "btn_ok".localized, style: .default, handler: { _ in
+            handler?()
+        }))
         controller.present(alert, animated: true, completion: nil)
     }
     
     // MARK: Firebase Remote Config
     func requestAppVersionInfo() {
         self.firebaseRemote({ (success) in
-            
             if success {
                 self.successCompletionOfReqAppVersionInfoWithResult()
             } else {
