@@ -63,7 +63,7 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
     
     private func setDress() {
         guard let weekModel = weekelyModel else { return }
-        let dressString = EJClothManager.shared.setOuterCloth(by: weekModel.minTemp)
+        let dressString = EJClothManager.shared.setCloth(by: weekModel.minTemp, category: Outer())
         clothImageView.image = UIImage(named: dressString)
         descriptionLabel.text = ""
     }
@@ -79,7 +79,7 @@ final class KRWeekelyCollectionViewCell: UICollectionViewCell {
         if condition != .clear && condition != .cloud {
             clothName = EJClothManager.shared.setClothByCondition(condition)
         } else {
-            clothName = EJClothManager.shared.setOuterCloth(by: temp)
+            clothName = EJClothManager.shared.setCloth(by: temp, category: Outer())
         }
         
         clothImageView.image = UIImage(named: clothName)

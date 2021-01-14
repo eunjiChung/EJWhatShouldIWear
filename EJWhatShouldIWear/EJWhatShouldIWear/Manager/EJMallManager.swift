@@ -35,10 +35,6 @@ final class EJMallManager {
 
     var stores: [EJStoreModel] = []
 
-    init() {
-        
-    }
-
     func requestLook(_ level: EJWeatherLevel, completion: (() -> Void)?) {
         EJFireStoreManager.shared.getStoreID { stores in
             self.stores = stores

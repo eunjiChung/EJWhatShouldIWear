@@ -119,7 +119,7 @@ final class EJShowClothViewModel {
     private func generateClothDescription(_ models: [EJKisangTimeModel]) -> String {
         var dressDesc = ""
         let info = EJWeatherManager.todayTempInfo(with: models)
-        let outer = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+        let outer = EJClothManager.shared.setCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp), category: Outer())
         if (info.minTemp - info.maxTemp).magnitude >= 10, info.maxTemp < 23 {
             dressDesc = "일교차가 크니 " + outer.localized + " 챙기세요!"
         } else {
@@ -150,11 +150,14 @@ final class EJShowClothViewModel {
     public func generateCloth(type: EJShowClothType, _ info: (date: String, minTemp: Int, maxTemp: Int)) -> String {
         switch type {
         case .outer:
-            return EJClothManager.shared.setOuterCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+            let temp = EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp)
+            return EJClothManager.shared.setCloth(by: temp, category: Outer())
         case .top:
-            return EJClothManager.shared.setTopCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+            let temp = EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp)
+            return EJClothManager.shared.setCloth(by: temp, category: Top())
         case .bottom:
-            return EJClothManager.shared.setBottomCloth(by: EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp))
+            let temp = EJWeatherManager.properSeasonValue(info.date, info.minTemp, info.maxTemp)
+            return EJClothManager.shared.setCloth(by: temp, category: Bottom())
         }
     }
 }

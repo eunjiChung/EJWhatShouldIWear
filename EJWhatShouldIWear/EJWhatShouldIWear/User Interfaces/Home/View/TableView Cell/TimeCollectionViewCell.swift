@@ -65,7 +65,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
         guard let model = model else { return }
         var dress = EJClothManager.shared.setItem(by: model.weatherCode.value.type)
         if dress == "outer" {
-            dress = EJClothManager.shared.setOuterCloth(by: EJWeatherManager.properSeasonValue(model.fcstDate, model.temperature, model.temperature))
+            let temp = EJWeatherManager.properSeasonValue(model.fcstDate, model.temperature, model.temperature)
+            dress = EJClothManager.shared.setCloth(by: temp, category: Outer())
         }
         clothImageView.image = UIImage(named: dress)
     }
@@ -111,10 +112,9 @@ class TimeCollectionViewCell: UICollectionViewCell {
         if let weatherInfo = item.main, let floatTemp = weatherInfo.temp {
             let temp = EJWeatherManager.getValidTemperature(by: floatTemp)
             tempLabel.text = "\(temp)\(EJWeatherManager.unit)"
-            
-            let style = EJClothManager.shared.setTopCloth(by: temp)
-            clothImageView.image = UIImage.init(named: style)
-            
+
+            let style = EJClothManager.shared.setCloth(by: temp, category: Top())
+            clothImageView.image = UIImage(named: style)
         }
     }
 }

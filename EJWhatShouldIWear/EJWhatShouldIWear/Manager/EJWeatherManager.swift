@@ -70,11 +70,11 @@ final class EJWeatherManager {
         if weatherType != .clear && weatherType != .cloud {
             weather.criticCloth = EJClothManager.shared.setClothByCondition(weatherType)
         } else {
-            weather.criticCloth = EJClothManager.shared.setOuterCloth(by: weather.mainTemp)
+            weather.criticCloth = EJClothManager.shared.setCloth(by: weather.mainTemp, category: Outer())
         }
         
-        weather.maxCloth = EJClothManager.shared.setTopCloth(by: weather.maxTemp)
-        weather.minCloth = EJClothManager.shared.setBottomCloth(by: weather.minTemp)
+        weather.maxCloth = EJClothManager.shared.setCloth(by: weather.maxTemp, category: Top())
+        weather.minCloth = EJClothManager.shared.setCloth(by: weather.minTemp, category: Bottom())
         weather.weatherDescription = weatherDescription(weather.criticCondition)
         
         return weather
@@ -393,5 +393,19 @@ extension EJWeatherManager {
         }
         
         return (baseDate, minTemp, maxTemp)
+    }
+
+    static func generateAverageTemp(_ models: [EJKisangTimeModel]?) -> EJWeatherLevel {
+        guard let models = models else { return ._12_16 }
+        let date = models.first?.fcstDate
+
+        var totalTemp = 0
+        var count = 0
+        for model in models where model.fcstDate == date {
+            totalTemp += model.temperature
+            count += 1
+        }
+        let temp = totalTemp / count
+        return temp.level
     }
 }
