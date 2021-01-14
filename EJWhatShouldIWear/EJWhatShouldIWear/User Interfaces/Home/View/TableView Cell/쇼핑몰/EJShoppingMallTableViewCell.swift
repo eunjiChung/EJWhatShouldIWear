@@ -16,6 +16,14 @@ final class EJShoppingMallTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
 
+    var models: [EJItemModel]? {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -31,11 +39,12 @@ final class EJShoppingMallTableViewCell: UITableViewCell {
 
 extension EJShoppingMallTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return models?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EJProductCollectionViewCell.id, for: indexPath) as? EJProductCollectionViewCell else { return UICollectionViewCell() }
+        cell.model = models?[indexPath.item]
         return cell
     }
 }

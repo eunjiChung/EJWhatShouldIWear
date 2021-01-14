@@ -63,16 +63,21 @@ final class EJHomeViewModel {
                 }
             }
             self.clothGroup.notify(queue: self.clothQueue) {
+                self.pickRandomItems()
                 self.didRequestKisangWeatherInfoSuccessClosure?()
             }
         }
     }
 
     private func pickRandomItems() {
+        var items: [EJItemModel] = []
         let stores = EJMallManager.shared.stores
         for store in stores {
-            store.items.
+            let shuffled = store.items?.shuffled()
+            let choosed = shuffled?[randomPick: 3]
+            choosed?.forEach({ items.append($0) })
         }
+        clothItems = items.shuffled()
     }
 
     private func finishRequest() {

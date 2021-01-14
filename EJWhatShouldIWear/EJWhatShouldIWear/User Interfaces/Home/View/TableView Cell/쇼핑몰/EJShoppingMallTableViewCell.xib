@@ -39,9 +39,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="ewS-lw-8CQ">
-                        <rect key="frame" x="159" y="14" width="161" height="28"/>
-                    </pageControl>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Uo8-Bn-jA1">
                         <rect key="frame" x="0.0" y="128" width="320" height="150"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,13 +59,11 @@
                     <constraint firstAttribute="bottom" secondItem="yZC-VF-xRm" secondAttribute="bottom" id="2Za-jf-t71"/>
                     <constraint firstAttribute="trailing" secondItem="Uo8-Bn-jA1" secondAttribute="trailing" id="8of-3j-Sst"/>
                     <constraint firstAttribute="bottom" secondItem="Uo8-Bn-jA1" secondAttribute="bottom" id="BiB-F9-6bY"/>
-                    <constraint firstItem="ewS-lw-8CQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="CBr-aF-nNA"/>
                     <constraint firstItem="CgQ-qp-vn4" firstAttribute="top" secondItem="ABp-ZO-hcF" secondAttribute="bottom" constant="5" id="Z7U-yO-EYJ"/>
                     <constraint firstItem="CgQ-qp-vn4" firstAttribute="leading" secondItem="ABp-ZO-hcF" secondAttribute="leading" id="dSm-ZT-cHe"/>
                     <constraint firstItem="ABp-ZO-hcF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="dXO-dv-SkF"/>
                     <constraint firstItem="yZC-VF-xRm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="f8K-MQ-1rU"/>
                     <constraint firstItem="Uo8-Bn-jA1" firstAttribute="top" secondItem="CgQ-qp-vn4" secondAttribute="bottom" constant="18" id="iCw-9v-DfN"/>
-                    <constraint firstAttribute="trailing" secondItem="ewS-lw-8CQ" secondAttribute="trailing" id="mdP-39-wcl"/>
                     <constraint firstAttribute="trailing" secondItem="yZC-VF-xRm" secondAttribute="trailing" id="nI3-FM-0mf"/>
                     <constraint firstItem="yZC-VF-xRm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="neq-gr-MQQ"/>
                     <constraint firstItem="ABp-ZO-hcF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="sU9-Xv-WCo"/>

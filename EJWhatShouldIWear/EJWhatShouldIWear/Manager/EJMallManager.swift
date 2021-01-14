@@ -61,7 +61,7 @@ final class EJMallManager {
                    let type = document[EJMallModelKey.type] as? String,
                    let category = EJClothCategory(rawValue: type),
                    let url = document[EJMallModelKey.url] as? String,
-                   let imageUrl = document[EJMallModelKey.url] as? String {
+                   let imageUrl = document[EJMallModelKey.imageUrl] as? String {
                     items.append(EJItemModel(id: document.documentID, name: name, type: category, subtype: nil, url: url, imageUrl: imageUrl))
                 }
             }

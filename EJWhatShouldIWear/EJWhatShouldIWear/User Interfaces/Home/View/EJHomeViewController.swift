@@ -73,7 +73,8 @@ class EJHomeViewController: EJBaseViewController {
         EJLocationManager.shared.didSuccessUpdateLocationsClosure = {
             self.myLocationField.setTitle(EJLocationManager.shared.currentLocation, for: .normal)
 //            self.viewModel.requestWeather()
-            self.viewModel.requestKoreaWeather()
+//            self.viewModel.requestKoreaWeather()
+            self.viewModel.requestMainInfo()
         }
         
         EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
@@ -101,18 +102,21 @@ class EJHomeViewController: EJBaseViewController {
         
         // MARK: - Kisang Weather
         viewModel.didRequestKisangWeatherInfoSuccessClosure = {
-            self.backgroundView.changeBackGround(with: EJWeatherManager.koreaBackgroundImage(by: self.viewModel.kisangTimeModel))
-            self.menuButton.tintColor = titleColor
-            self.addButton.tintColor = titleColor
-            self.myLocationField.setTitleColor(titleColor, for: .normal)
-            self.pulldownImage.tintColor = titleColor
 
-            self.tableView.stopSkeletonAnimation()
-            self.view.hideSkeleton()
+            DispatchQueue.main.async {
+                self.backgroundView.changeBackGround(with: EJWeatherManager.koreaBackgroundImage(by: self.viewModel.kisangTimeModel))
+                self.menuButton.tintColor = titleColor
+                self.addButton.tintColor = titleColor
+                self.myLocationField.setTitleColor(titleColor, for: .normal)
+                self.pulldownImage.tintColor = titleColor
 
-            self.tableView.reloadData()
+                self.tableView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
 
-            self.stopPullToRefresh(toScrollView: self.tableView)
+                self.tableView.reloadData()
+
+                self.stopPullToRefresh(toScrollView: self.tableView)
+            }
         }
         
         viewModel.didRequestKisangWeatherInfoFailureClosure = { error in
@@ -121,7 +125,8 @@ class EJHomeViewController: EJBaseViewController {
         }
 
 //        self.viewModel.requestWeather()
-        self.viewModel.requestKoreaWeather()
+//        self.viewModel.requestKoreaWeather()
+        self.viewModel.requestMainInfo()
     }
     
     // MARK: - Button Action
@@ -192,7 +197,9 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
             }
         case .mallSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: EJShoppingMallTableViewCell.id, for: indexPath) as! EJShoppingMallTableViewCell
+            cell.models = viewModel.clothItems
             return cell
+
         case .timelyWeatherSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimeWeahtherTableViewCell.identifier, for: indexPath) as! TimeWeahtherTableViewCell
 

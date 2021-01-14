@@ -21,9 +21,10 @@ final class EJProductCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let model = model else { return }
 
-            if let url = URL(string: model.imageUrl) {
-                imageView.sd_setImage(with: url, completed: nil)
+            EJFireStorageManager.shared.downloadImageURL(urlString: model.imageUrl) { url in
+                self.imageView.sd_setImage(with: url, completed: nil)
             }
+
             productLabel.text = model.name
         }
     }

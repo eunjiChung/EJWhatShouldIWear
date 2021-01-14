@@ -19,13 +19,12 @@ final class EJFireStorageManager: NSObject {
         super.init()
     }
 
-    func downloadImage(url: String, success: ((UIImage?) -> Void)?) {
-        storage.reference(forURL: url).downloadURL { (url, err) in
+    func downloadImageURL(urlString: String, success: ((URL) -> Void)?) {
+        storage.reference(forURL: urlString).downloadURL { (url, err) in
             if let error = err {
-                print("❤️", error.localizedDescription)
+                EJLogger.e(error.localizedDescription)
             } else if let url = url {
-                let data = NSData(contentsOf: url)
-                success?(UIImage(data: data! as Data))
+                success?(url)
             }
         }
     }
