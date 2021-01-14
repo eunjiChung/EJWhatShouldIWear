@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class EJProductCollectionViewCell: UICollectionViewCell {
 
@@ -15,6 +16,17 @@ final class EJProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var mallLabel: UILabel!
+
+    var model: EJItemModel? {
+        didSet {
+            guard let model = model else { return }
+
+            if let url = URL(string: model.imageUrl) {
+                imageView.sd_setImage(with: url, completed: nil)
+            }
+            productLabel.text = model.name
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

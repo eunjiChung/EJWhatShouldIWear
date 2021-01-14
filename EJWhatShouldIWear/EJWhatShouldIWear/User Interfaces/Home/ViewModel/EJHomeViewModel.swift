@@ -31,6 +31,7 @@ final class EJHomeViewModel {
     var kisangTimeModel: [EJKisangTimeModel]?
     var kisangWeekelyModel: (date: String, model: [EJWeekelyCellModel]) = ("", model: [])
     var kisangForecastModel: [EJKisangWeekForecastModel]?
+    var clothItems: [EJItemModel]?
     
     // MARK: - Closures
     var didrequestForeignWeatherInfoSuccessClosure: (() -> Void)?
@@ -42,6 +43,44 @@ final class EJHomeViewModel {
     
     
     // MARK: - Public Methods
+
+    // TODO: - 이 많은 그룹을 어떻게 정리할 지,...강의 듣기
+    let weatherQueue = DispatchQueue(label: "weather info request", qos: .background, attributes: .concurrent)
+    let weatherGroup = DispatchGroup()
+
+    let clothQueue = DispatchQueue(label: "cloth info request", qos: .background, attributes: .concurrent)
+    let clothGroup = DispatchGroup()
+
+    func requestMainInfo() {
+        weatherGroup.enter()
+        requestKoreaWeather()
+        weatherGroup.notify(queue: weatherQueue) {
+            self.clothGroup.enter()
+            let level = EJWeatherManager.generateAverageTemp(self.kisangTimeModel) // enter하는 시점에는 kisanTimeModel이 없다...finish된 후에 비로소 가능 -> request를 한번에 보내는게 아니라, 한 개가 끝나서 finish가 찍혀야 requestLook을 해줘야 한다
+            EJMallManager.shared.requestLook(level) {
+                self.clothQueue.async(group: self.clothGroup) {
+                    self.clothGroup.leave()
+                }
+            }
+            self.clothGroup.notify(queue: self.clothQueue) {
+                self.didRequestKisangWeatherInfoSuccessClosure?()
+            }
+        }
+    }
+
+    private func pickRandomItems() {
+        let stores = EJMallManager.shared.stores
+        for store in stores {
+            store.items.
+        }
+    }
+
+    private func finishRequest() {
+        weatherQueue.async(group: weatherGroup) {
+            self.weatherGroup.leave()
+        }
+    }
+
     func requestWeather() {
         if EJLocationManager.shared.isKorea {
             requestWeatherDispatchGroup()
@@ -96,7 +135,6 @@ final class EJHomeViewModel {
                     switch resultCode {
                     case .NORMAL_SERVICE:
                         self.kisangTimeModel = self.generateTimeModels(model.response.body)
-                        print("❤️시간 모델:", self.kisangTimeModel)
                         success()
                     default:
                         self.requestKoreaWeather()
@@ -140,7 +178,8 @@ final class EJHomeViewModel {
 
     func requestKoreaWeather() {
         callKisangWeatherInfo(success: {
-            self.didRequestKisangWeatherInfoSuccessClosure?()
+//            self.didRequestKisangWeatherInfoSuccessClosure?()
+            self.finishRequest()
         }) { error in
             self.didRequestKisangWeatherInfoFailureClosure?(error.localizedDescription)
         }
