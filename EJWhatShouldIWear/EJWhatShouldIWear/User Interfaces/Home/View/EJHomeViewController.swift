@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAnalytics
 import SideMenu
-import CoreLocation
 import SkeletonView
 
 class EJHomeViewController: EJBaseViewController {

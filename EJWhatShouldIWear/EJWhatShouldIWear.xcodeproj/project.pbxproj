@@ -107,6 +107,8 @@
 		B689A71D24B5016200F8B1F0 /* Drawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B689A71C24B5016200F8B1F0 /* Drawer.storyboard */; };
 		B689A71F24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A71E24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift */; };
 		B689A72124B503BC00F8B1F0 /* EJDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */; };
+		B69373F125B0681400C1804A /* EJFireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69373F025B0681400C1804A /* EJFireStoreManager.swift */; };
+		B69373F725B0683E00C1804A /* EJFireStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69373F625B0683E00C1804A /* EJFireStorageManager.swift */; };
 		B694C79B2590B38500758391 /* EJWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694C79A2590B38500758391 /* EJWeatherAPI.swift */; };
 		B694C7A02590B39100758391 /* EJForeignWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694C79F2590B39100758391 /* EJForeignWeatherAPI.swift */; };
 		B6A6B280255C2A2A00CBFE0B /* EJUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B27F255C2A2A00CBFE0B /* EJUserInfo.swift */; };
@@ -294,6 +296,8 @@
 		B689A71C24B5016200F8B1F0 /* Drawer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Drawer.storyboard; sourceTree = "<group>"; };
 		B689A71E24B503AC00F8B1F0 /* EJDrawerBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDrawerBackgroundViewController.swift; sourceTree = "<group>"; };
 		B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDrawerViewController.swift; sourceTree = "<group>"; };
+		B69373F025B0681400C1804A /* EJFireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJFireStoreManager.swift; sourceTree = "<group>"; };
+		B69373F625B0683E00C1804A /* EJFireStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJFireStorageManager.swift; sourceTree = "<group>"; };
 		B694C79A2590B38500758391 /* EJWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherAPI.swift; sourceTree = "<group>"; };
 		B694C79F2590B39100758391 /* EJForeignWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJForeignWeatherAPI.swift; sourceTree = "<group>"; };
 		B6A6B27F255C2A2A00CBFE0B /* EJUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJUserInfo.swift; sourceTree = "<group>"; };
@@ -459,7 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */,
-				728069212448A4FB00522019 /* EJFirebaseDBManager.swift */,
 				B63758E52448EE800076FE2C /* EJClothManager.swift */,
 				B6375912244B7F270076FE2C /* EJLocationManager.swift */,
 				B637591E244BA2B40076FE2C /* EJLayoutManager.swift */,
@@ -470,6 +473,7 @@
 				B689A71324B4F27000F8B1F0 /* EJImageHelper.swift */,
 				B67A15A7244C567900F17C6D /* EJLogger.swift */,
 				B6868045256D087500301CEC /* EJDateManager.swift */,
+				B69373F525B0682600C1804A /* Firebase */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -817,6 +821,16 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		B69373F525B0682600C1804A /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				B69373F025B0681400C1804A /* EJFireStoreManager.swift */,
+				728069212448A4FB00522019 /* EJFirebaseDBManager.swift */,
+				B69373F625B0683E00C1804A /* EJFireStorageManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		B6A6B28D255C2C3B00CBFE0B /* Cloth */ = {
 			isa = PBXGroup;
 			children = (
@@ -983,6 +997,7 @@
 				999B209922029E660073A0D9 /* Resources */,
 				999B20BE2202A1F90073A0D9 /* Auto Increment Build Version */,
 				5EA92727452C7BAEEDF5AA48 /* [CP] Embed Pods Frameworks */,
+				5A4306877D05BF447EA88E32 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1122,6 +1137,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5A4306877D05BF447EA88E32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EJWhatShouldIWear/Pods-EJWhatShouldIWear-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5EA92727452C7BAEEDF5AA48 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -1270,6 +1302,7 @@
 				B6375917244B807A0076FE2C /* EJHomeViewController.swift in Sources */,
 				B62E8B8E22F9464C00055A0E /* Date.swift in Sources */,
 				B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */,
+				B69373F125B0681400C1804A /* EJFireStoreManager.swift in Sources */,
 				B6E088E9245B0E5E006C6665 /* EJKoreaNeighborViewController.swift in Sources */,
 				B637591D244B81BE0076FE2C /* EJHomeViewModel.swift in Sources */,
 				B6E088DB245AC7C6006C6665 /* EJKoreaLocalModel.swift in Sources */,
@@ -1311,6 +1344,7 @@
 				99F0AD3422952A1D0096E0CA /* EJWeatherManager.swift in Sources */,
 				B602935B230FD5F3002BDA5E /* EJDeveloperTableViewCell.swift in Sources */,
 				997533B3228EE17E003DAF97 /* HeaderTableViewCell.swift in Sources */,
+				B69373F725B0683E00C1804A /* EJFireStorageManager.swift in Sources */,
 				B6F85D4224CC6B2D0051D765 /* EJSplashViewModel.swift in Sources */,
 				B6E088E7245B0E52006C6665 /* EJKoreaDistrictViewController.swift in Sources */,
 				7280691E2448A35D00522019 /* EJNoticeViewController.swift in Sources */,

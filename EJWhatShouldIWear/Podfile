@@ -10,9 +10,13 @@ target 'EJWhatShouldIWear' do
    pod 'Firebase/Analytics'
    pod 'Firebase/Messaging'
    pod 'Firebase/RemoteConfig'
-   pod 'Firebase/InAppMessagingDisplay'
    pod 'Firebase/Database'
    pod 'Firebase/CoreOnly'
+   pod 'Firebase/Firestore'
+   # Optionally, include the Swift extensions if you're using Swift.
+   # pod 'FirebaseFirestoreSwift'
+   pod 'Firebase/Storage'
+   pod 'FirebaseInAppMessaging'
 
    pod 'Alamofire', '~> 5.4.0'
    pod 'SideMenu', '~> 5.0.3'
