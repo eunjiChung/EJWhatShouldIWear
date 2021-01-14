@@ -14,7 +14,7 @@ target 'EJWhatShouldIWear' do
    pod 'Firebase/CoreOnly'
    pod 'Firebase/Firestore'
    # Optionally, include the Swift extensions if you're using Swift.
-   # pod 'FirebaseFirestoreSwift'
+   pod 'FirebaseFirestoreSwift'
    pod 'Firebase/Storage'
    pod 'FirebaseInAppMessaging'
 

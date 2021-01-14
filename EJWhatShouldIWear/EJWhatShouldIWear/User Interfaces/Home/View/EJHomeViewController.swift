@@ -13,7 +13,7 @@ import SkeletonView
 
 class EJHomeViewController: EJBaseViewController {
     // MARK: IBOutlets
-    @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var myLocationField: UIButton!
     @IBOutlet weak var menuButton: UIButton!
@@ -49,8 +49,8 @@ class EJHomeViewController: EJBaseViewController {
         super.viewDidAppear(animated)
 
         if !didUsedSkeleton {
-            mainTableView.isSkeletonable = true
-            mainTableView.visibleCells.forEach({ $0.showAnimatedGradientSkeleton() })
+            tableView.isSkeletonable = true
+            tableView.visibleCells.forEach({ $0.showAnimatedGradientSkeleton() })
             didUsedSkeleton = true
         }
     }
@@ -63,9 +63,9 @@ class EJHomeViewController: EJBaseViewController {
 
         myLocationField.setTitle(EJLocationManager.shared.currentLocation, for: .normal)
         
-        addPullToRefreshControl(toScrollView: self.mainTableView) {
+        addPullToRefreshControl(toScrollView: self.tableView) {
             EJLocationManager.shared.checkAuth()
-            self.mainTableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -86,17 +86,17 @@ class EJHomeViewController: EJBaseViewController {
             guard let model = self.viewModel.FiveDaysWeatherModel else { return }
             self.backgroundView.changeBackGround(with: EJWeatherManager.generateBackgroundView(by: model))
             
-            self.stopPullToRefresh(toScrollView: self.mainTableView)
+            self.stopPullToRefresh(toScrollView: self.tableView)
 
-            self.mainTableView.stopSkeletonAnimation()
+            self.tableView.stopSkeletonAnimation()
             self.view.hideSkeleton()
 
-            self.mainTableView.reloadData()
+            self.tableView.reloadData()
         }
         
         viewModel.didrequestForeignWeatherInfoFailureClosure = { error in
             self.popAlertVC(self, title: "network_error".localized, message: error.localizedDescription)
-            self.stopPullToRefresh(toScrollView: self.mainTableView)
+            self.stopPullToRefresh(toScrollView: self.tableView)
         }
         
         // MARK: - Kisang Weather
@@ -107,17 +107,17 @@ class EJHomeViewController: EJBaseViewController {
             self.myLocationField.setTitleColor(titleColor, for: .normal)
             self.pulldownImage.tintColor = titleColor
 
-            self.mainTableView.stopSkeletonAnimation()
+            self.tableView.stopSkeletonAnimation()
             self.view.hideSkeleton()
 
-            self.mainTableView.reloadData()
+            self.tableView.reloadData()
 
-            self.stopPullToRefresh(toScrollView: self.mainTableView)
+            self.stopPullToRefresh(toScrollView: self.tableView)
         }
         
         viewModel.didRequestKisangWeatherInfoFailureClosure = { error in
             self.popAlertVC(self, title: "network_error".localized, message: error)
-            self.stopPullToRefresh(toScrollView: self.mainTableView)
+            self.stopPullToRefresh(toScrollView: self.tableView)
         }
 
 //        self.viewModel.requestWeather()
@@ -318,14 +318,14 @@ extension EJHomeViewController {
 private extension EJHomeViewController {
     
     private func registerNibs() {
-        mainTableView.register(UINib(nibName: EJShoppingMallTableViewCell.id, bundle: nil), forCellReuseIdentifier: EJShoppingMallTableViewCell.id)
-        mainTableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "WeekWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekWeatherTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
-        mainTableView.register(UINib.init(nibName: ClothsCollectionTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ClothsCollectionTableViewCell.identifier)
+        tableView.register(UINib(nibName: EJShoppingMallTableViewCell.id, bundle: nil), forCellReuseIdentifier: EJShoppingMallTableViewCell.id)
+        tableView.register(UINib.init(nibName: "ShowClothTableViewCell", bundle: nil), forCellReuseIdentifier: ShowClothTableViewCell.identifier)
+        tableView.register(UINib.init(nibName: "TimeWeahtherTableViewCell", bundle: nil), forCellReuseIdentifier: TimeWeahtherTableViewCell.identifier)
+        tableView.register(UINib.init(nibName: "WeekWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeekWeatherTableViewCell.identifier)
+        tableView.register(UINib.init(nibName: "AdmobTableViewCell", bundle: nil), forCellReuseIdentifier: AdmobTableViewCell.identifier)
+        tableView.register(UINib.init(nibName: "DummyTableViewCell", bundle: nil), forCellReuseIdentifier: DummyTableViewCell.identifier)
+        tableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
+        tableView.register(UINib.init(nibName: ClothsCollectionTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ClothsCollectionTableViewCell.identifier)
     }
     
     private func layout() {

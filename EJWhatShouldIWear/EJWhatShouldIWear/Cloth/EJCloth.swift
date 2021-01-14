@@ -8,11 +8,22 @@
 
 import Foundation
 
-enum ClothCategory {
+enum EJClothCategory: String, Decodable {
     case TOP
     case BOTTOM
     case OUTER
     case ACCESSORY
+}
+
+enum EJWeatherLevel: Int, Decodable {
+    case _4 = 0
+    case _5_8
+    case _9_11
+    case _12_16
+    case _17_19
+    case _20_22
+    case _23_27
+    case _28
 }
 
 protocol Cloth {

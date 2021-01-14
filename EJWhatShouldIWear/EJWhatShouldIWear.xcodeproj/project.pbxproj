@@ -109,6 +109,8 @@
 		B689A72124B503BC00F8B1F0 /* EJDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */; };
 		B69373F125B0681400C1804A /* EJFireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69373F025B0681400C1804A /* EJFireStoreManager.swift */; };
 		B69373F725B0683E00C1804A /* EJFireStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69373F625B0683E00C1804A /* EJFireStorageManager.swift */; };
+		B693742E25B0760900C1804A /* EJMallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B693742D25B0760900C1804A /* EJMallManager.swift */; };
+		B693746325B0898300C1804A /* EJStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B693746225B0898300C1804A /* EJStoreModel.swift */; };
 		B694C79B2590B38500758391 /* EJWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694C79A2590B38500758391 /* EJWeatherAPI.swift */; };
 		B694C7A02590B39100758391 /* EJForeignWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694C79F2590B39100758391 /* EJForeignWeatherAPI.swift */; };
 		B6A6B280255C2A2A00CBFE0B /* EJUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B27F255C2A2A00CBFE0B /* EJUserInfo.swift */; };
@@ -298,6 +300,8 @@
 		B689A72024B503BC00F8B1F0 /* EJDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJDrawerViewController.swift; sourceTree = "<group>"; };
 		B69373F025B0681400C1804A /* EJFireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJFireStoreManager.swift; sourceTree = "<group>"; };
 		B69373F625B0683E00C1804A /* EJFireStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJFireStorageManager.swift; sourceTree = "<group>"; };
+		B693742D25B0760900C1804A /* EJMallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJMallManager.swift; sourceTree = "<group>"; };
+		B693746225B0898300C1804A /* EJStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJStoreModel.swift; sourceTree = "<group>"; };
 		B694C79A2590B38500758391 /* EJWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJWeatherAPI.swift; sourceTree = "<group>"; };
 		B694C79F2590B39100758391 /* EJForeignWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJForeignWeatherAPI.swift; sourceTree = "<group>"; };
 		B6A6B27F255C2A2A00CBFE0B /* EJUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJUserInfo.swift; sourceTree = "<group>"; };
@@ -474,6 +478,7 @@
 				B67A15A7244C567900F17C6D /* EJLogger.swift */,
 				B6868045256D087500301CEC /* EJDateManager.swift */,
 				B69373F525B0682600C1804A /* Firebase */,
+				B693742D25B0760900C1804A /* EJMallManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 				B6A6B27F255C2A2A00CBFE0B /* EJUserInfo.swift */,
 				B689A72224B50C9B00F8B1F0 /* Weather */,
 				B6A6B28D255C2C3B00CBFE0B /* Cloth */,
+				B693746225B0898300C1804A /* EJStoreModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -824,8 +830,8 @@
 		B69373F525B0682600C1804A /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				B69373F025B0681400C1804A /* EJFireStoreManager.swift */,
 				728069212448A4FB00522019 /* EJFirebaseDBManager.swift */,
+				B69373F025B0681400C1804A /* EJFireStoreManager.swift */,
 				B69373F625B0683E00C1804A /* EJFireStorageManager.swift */,
 			);
 			path = Firebase;
@@ -1314,6 +1320,7 @@
 				728069282448C46700522019 /* EJURLString.swift in Sources */,
 				99FC4AC122DDCED9002DD721 /* EJInfoTableViewCell.swift in Sources */,
 				B6F85D4724CC9B8E0051D765 /* EJWebViewController.swift in Sources */,
+				B693746325B0898300C1804A /* EJStoreModel.swift in Sources */,
 				991F22A32289752E00FDBC98 /* EJSideMenuViewController.swift in Sources */,
 				99A0568B228EAE2D002D3B7A /* SideMenuSettingTableViewCell.swift in Sources */,
 				992B099022BD53C200FF94B7 /* EJFiveDaysMain.swift in Sources */,
@@ -1350,6 +1357,7 @@
 				7280691E2448A35D00522019 /* EJNoticeViewController.swift in Sources */,
 				B6F85D3F24CC68F40051D765 /* EJSplashViewController.swift in Sources */,
 				99A05689228EAE21002D3B7A /* SideMenuFeedbackTableViewCell.swift in Sources */,
+				B693742E25B0760900C1804A /* EJMallManager.swift in Sources */,
 				B6F10261233B4870000C3DCD /* ImageView.swift in Sources */,
 				72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */,
 				B694C7A02590B39100758391 /* EJForeignWeatherAPI.swift in Sources */,

@@ -21,14 +21,41 @@ final class EJFireStoreManager: NSObject {
         super.init()
     }
 
-    /*
-     새 컬렉션과 문서 만듦
-     [
-         "first": "Ada",
-         "last": "Lovelace",
-         "born": 1815
-     ]
-     */
+    func getStoreID(success: (([EJStoreModel]) -> Void)?) {
+        db.collection(EJMallCollection.store).getDocuments { (snapshot, error) in
+            guard error == nil else {
+                EJLogger.e(error?.localizedDescription ?? "")
+                return
+            }
+
+            // TODO: - 위치 고민..
+            guard let documents = snapshot?.documents else { return }
+            var stores: [EJStoreModel] = []
+            for document in documents {
+                let dictionary = document.data()
+                if let name = dictionary[EJMallModelKey.name] as? String,
+                   let type = dictionary[EJMallModelKey.type] as? String,
+                   let url = dictionary[EJMallModelKey.url] as? String {
+                    stores.append(EJStoreModel(id: document.documentID, name: name, type: type, url: url))
+                }
+            }
+            success?(stores)
+        }
+    }
+
+    func getItems(document id: String, _ level: Int, success: ((QuerySnapshot?) -> Void)?) {
+
+        let items = db.collection(EJMallCollection.store).document(id).collection(EJMallCollection.items)
+
+        items.whereField(EJMallField.level, arrayContains: level).getDocuments { (snapShot, error) in
+            if let error = error {
+                EJLogger.e(error.localizedDescription)
+            } else {
+                success?(snapShot)
+            }
+        }
+    }
+
     func create(collection name: String, param: Dictionary) {
         // Add a new document with a generated ID
         var ref: DocumentReference? = nil
@@ -47,22 +74,10 @@ final class EJFireStoreManager: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 success?(querySnapshot)
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
             }
         }
     }
-
-    /*
-     컬렉션에 다른 문서 추가
-     [
-        "first": "Alan",
-        "middle": "Mathison",
-        "last": "Turing",
-        "born": 1912
-     ]
-     */
+    
     func add(collection name: String, param: Dictionary) {
         var ref: DocumentReference? = nil
         // Add a second document with a generated ID.
