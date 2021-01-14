@@ -78,9 +78,6 @@ class EJHomeViewController: EJBaseViewController {
         }
         
         EJLocationManager.shared.didRestrictLocationAuthorizationClosure = {
-            // TODO: - 여기서는 이제 뭘해주지?
-            print("Do nothing...")
-
             if EJLocationManager.shared.hasMainLocations {
                 EJLocationManager.shared.updateMainLocation(EJLocationManager.shared.currentLocation)
             }
