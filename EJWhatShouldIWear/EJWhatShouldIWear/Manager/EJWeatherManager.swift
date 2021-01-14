@@ -322,8 +322,8 @@ extension EJWeatherManager {
             titleColor = #colorLiteral(red: 0.167342931, green: 0.1078223065, blue: 0.04166871309, alpha: 0.9996261597)
             return UIImage(named: "sunset")!
         case 6...18:
-            guard var value = models.first?.weatherCode.value else { return UIImage() }
-            models.forEach { model in
+            guard var value = models.first?.weatherCode.value, let baseDate = models.first?.fcstDate else { return UIImage() }
+            for model in models where baseDate == model.fcstDate {
                 if value.type.rawValue < model.weatherCode.value.type.rawValue {
                     value = model.weatherCode.value
                 }
