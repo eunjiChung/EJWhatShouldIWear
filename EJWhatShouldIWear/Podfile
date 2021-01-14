@@ -26,6 +26,7 @@ target 'EJWhatShouldIWear' do
    pod 'Protobuf', :inhibit_warnings => true
    pod 'SkeletonView'
    pod 'Moya', '~> 15.0.0-alpha.1'
+   pod 'SDWebImage', '~> 5.10.0'
 
    target 'EJWhatShouldIWearTests' do
     inherit! :search_paths
