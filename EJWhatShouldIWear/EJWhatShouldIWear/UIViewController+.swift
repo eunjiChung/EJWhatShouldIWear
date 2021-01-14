@@ -20,3 +20,20 @@ extension UIViewController {
         }
     }
 }
+
+extension Int {
+
+    var level: EJWeatherLevel {
+        switch self {
+        case TempRange.temp_28:         return ._28
+        case TempRange.temp_23_27:      return ._23_27
+        case TempRange.temp_20_22:      return ._20_22
+        case TempRange.temp_17_19:      return ._17_19
+        case TempRange.temp_12_16:      return ._12_16
+        case TempRange.temp_9_11:       return ._9_11
+        case TempRange.temp_5_8:        return ._5_8
+        case TempRange.temp_4:          return ._4
+        default:                        return ._12_16
+        }
+    }
+}
