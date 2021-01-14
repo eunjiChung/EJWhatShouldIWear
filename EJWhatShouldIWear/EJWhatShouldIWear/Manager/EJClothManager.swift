@@ -38,29 +38,6 @@ final class EJClothManager {
         }
     }
     
-    public func setTopCloth(by temp: Int) -> String {
-        switch temp {
-        case TempRange.temp_28:
-            return Top._28.randomElement()!
-        case TempRange.temp_23_27:
-            return Top._23_27.randomElement()!
-        case TempRange.temp_20_22:
-            return Top._20_22.randomElement()!
-        case TempRange.temp_17_19:
-            return Top._17_19.randomElement()!
-        case TempRange.temp_12_16:
-            return Top._12_16.randomElement()!
-        case TempRange.temp_9_11:
-            return Top._9_11.randomElement()!
-        case TempRange.temp_5_8:
-            return Top._5_8.randomElement()!
-        case TempRange.temp_4:
-            return Top._4.randomElement()!
-        default:
-            return Top._23_27.randomElement()!
-        }
-    }
-    
     public func getClothList(_ minTemp: Int, _ maxTemp: Int) -> [String] {
         var list = [String]()
         
@@ -94,51 +71,18 @@ final class EJClothManager {
         }
         return list
     }
-    
-    
-    public func setBottomCloth(by temp: Int) -> String {
+
+    func setCloth<T: Cloth>(by temp: Int, category: T) -> String {
         switch temp {
-        case TempRange.temp_28:
-            return Bottom._28.randomElement()!
-        case TempRange.temp_23_27:
-            return Bottom._23_27.randomElement()!
-        case TempRange.temp_20_22:
-            return Bottom._20_22.randomElement()!
-        case TempRange.temp_17_19:
-            return Bottom._17_19.randomElement()!
-        case TempRange.temp_12_16:
-            return Bottom._12_16.randomElement()!
-        case TempRange.temp_9_11:
-            return Bottom._9_11.randomElement()!
-        case TempRange.temp_5_8:
-            return Bottom._5_8.randomElement()!
-        case TempRange.temp_4:
-            return Bottom._4.randomElement()!
-        default:
-            return Bottom._23_27.randomElement()!
-        }
-    }
-    
-    public func setOuterCloth(by temp: Int) -> String {
-        switch temp {
-        case TempRange.temp_28:
-            return Top._28.randomElement()!
-        case TempRange.temp_23_27:
-            return Top._23_27.randomElement()!
-        case TempRange.temp_20_22:
-            return Outer._20_22.randomElement()!
-        case TempRange.temp_17_19:
-            return Outer._17_19.randomElement()!
-        case TempRange.temp_12_16:
-            return Outer._12_16.randomElement()!
-        case TempRange.temp_9_11:
-            return Outer._9_11.randomElement()!
-        case TempRange.temp_5_8:
-            return Outer._5_8.randomElement()!
-        case TempRange.temp_4:
-            return Outer._4.randomElement()!
-        default:
-            return Outer._20_22.randomElement()!
+        case TempRange.temp_28:         return T._28.randomElement()!
+        case TempRange.temp_23_27:      return T._23_27.randomElement()!
+        case TempRange.temp_20_22:      return T._20_22.randomElement()!
+        case TempRange.temp_17_19:      return T._17_19.randomElement()!
+        case TempRange.temp_12_16:      return T._12_16.randomElement()!
+        case TempRange.temp_9_11:       return T._9_11.randomElement()!
+        case TempRange.temp_5_8:        return T._5_8.randomElement()!
+        case TempRange.temp_4:          return T._4.randomElement()!
+        default:                        return T._20_22.randomElement()!
         }
     }
 }
