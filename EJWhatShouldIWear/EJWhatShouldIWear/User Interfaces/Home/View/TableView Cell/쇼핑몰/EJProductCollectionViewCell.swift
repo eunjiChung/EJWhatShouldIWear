@@ -21,7 +21,8 @@ final class EJProductCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let model = model else { return }
 
-            EJFireStorageManager.shared.downloadImageURL(urlString: model.imageUrl) { url in
+            let urlString = model.imageUrl
+            EJFireStorageManager.shared.downloadImageURL(urlString: urlString) { url in
                 self.imageView.sd_setImage(with: url, completed: nil)
             }
 
@@ -31,8 +32,14 @@ final class EJProductCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         productLabel.textColor = titleColor
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        imageView.image = nil
+        productLabel.text = nil
     }
 
 }
