@@ -77,9 +77,104 @@
             </objects>
             <point key="canvasLocation" x="122" y="162"/>
         </scene>
+        <!--Mall Web View View Controller-->
+        <scene sceneID="1Xi-EF-6BL">
+            <objects>
+                <viewController storyboardIdentifier="EJMallWebViewViewController" id="0cZ-f9-pDp" customClass="EJMallWebViewViewController" customModule="EJWhatShouldIWear" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gD7-zK-NMN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzu-ul-pkj">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FEI-LZ-5xq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mzu-ul-pkj" firstAttribute="leading" secondItem="FEI-LZ-5xq" secondAttribute="leading" id="djp-Ac-uXH"/>
+                            <constraint firstItem="FEI-LZ-5xq" firstAttribute="bottom" secondItem="Mzu-ul-pkj" secondAttribute="bottom" id="etG-cB-8oV"/>
+                            <constraint firstItem="FEI-LZ-5xq" firstAttribute="trailing" secondItem="Mzu-ul-pkj" secondAttribute="trailing" id="oZJ-8p-hlr"/>
+                            <constraint firstItem="Mzu-ul-pkj" firstAttribute="top" secondItem="FEI-LZ-5xq" secondAttribute="top" id="vYj-up-Kjc"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem image="arrow.left" catalog="system" id="UOX-Sd-tcb">
+                            <color key="tintColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="touchBack:" destination="0cZ-f9-pDp" id="1eC-Nk-S6R"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eHu-dr-ejL"/>
+                        <barButtonItem image="arrow.forward" catalog="system" id="P1N-CV-ph3">
+                            <color key="tintColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="touchForward:" destination="0cZ-f9-pDp" id="I1l-1O-Ryw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="yqC-g3-vb8"/>
+                        <barButtonItem image="square.and.arrow.up" catalog="system" id="IHO-5d-iXz">
+                            <color key="tintColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="touchShsare:" destination="0cZ-f9-pDp" id="zxs-Sg-6m9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="XBy-KO-T9v"/>
+                        <barButtonItem image="arrow.clockwise" catalog="system" id="VYh-JH-2t9">
+                            <color key="tintColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="touchRefresh:" destination="0cZ-f9-pDp" id="R4x-sb-Zjc"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="9xW-qc-ScZ">
+                        <barButtonItem key="rightBarButtonItem" image="multiply" catalog="system" id="3bC-Od-jIT">
+                            <color key="tintColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="touchClose:" destination="0cZ-f9-pDp" id="CMU-CD-V4X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="webContentView" destination="Mzu-ul-pkj" id="9te-Vp-6gM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHU-fI-EtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1899" y="161"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l9N-dh-PXK">
+            <objects>
+                <navigationController storyboardIdentifier="EJMallNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" toolbarHidden="NO" id="YE0-9Z-9Kq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ips-GB-IUL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V9h-Oy-tbQ">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="0cZ-f9-pDp" kind="relationship" relationship="rootViewController" id="W7r-iM-lCi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xy-Eh-cBh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1101" y="161"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="close_icon" width="24" height="24"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

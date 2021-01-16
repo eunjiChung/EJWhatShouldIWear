@@ -79,6 +79,7 @@
 		B637591D244B81BE0076FE2C /* EJHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591C244B81BE0076FE2C /* EJHomeViewModel.swift */; };
 		B637591F244BA2B40076FE2C /* EJLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637591E244BA2B40076FE2C /* EJLayoutManager.swift */; };
 		B6375922244BB7610076FE2C /* EJAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6375921244BB7610076FE2C /* EJAPIService.swift */; };
+		B653712C25B31F4400241D76 /* EJMallWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B653712B25B31F4400241D76 /* EJMallWebViewViewController.swift */; };
 		B655BD4B25ADAE9000966E31 /* EJShoppingMallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B655BD4925ADAE9000966E31 /* EJShoppingMallTableViewCell.swift */; };
 		B655BD4C25ADAE9000966E31 /* EJShoppingMallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B655BD4A25ADAE9000966E31 /* EJShoppingMallTableViewCell.xib */; };
 		B655BD5325ADB07300966E31 /* EJProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B655BD5125ADB07300966E31 /* EJProductCollectionViewCell.swift */; };
@@ -270,6 +271,7 @@
 		B637591E244BA2B40076FE2C /* EJLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJLayoutManager.swift; sourceTree = "<group>"; };
 		B6375921244BB7610076FE2C /* EJAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJAPIService.swift; sourceTree = "<group>"; };
 		B637E2B7251053EB00B61239 /* EJWhatShouldIWear.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EJWhatShouldIWear.entitlements; sourceTree = "<group>"; };
+		B653712B25B31F4400241D76 /* EJMallWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJMallWebViewViewController.swift; sourceTree = "<group>"; };
 		B655BD4925ADAE9000966E31 /* EJShoppingMallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJShoppingMallTableViewCell.swift; sourceTree = "<group>"; };
 		B655BD4A25ADAE9000966E31 /* EJShoppingMallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EJShoppingMallTableViewCell.xib; sourceTree = "<group>"; };
 		B655BD5125ADB07300966E31 /* EJProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -959,6 +961,7 @@
 			children = (
 				B6F85D4424CC9AD70051D765 /* WebView.storyboard */,
 				B6F85D4624CC9B8E0051D765 /* EJWebViewController.swift */,
+				B653712B25B31F4400241D76 /* EJMallWebViewViewController.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -1361,6 +1364,7 @@
 				B6F10261233B4870000C3DCD /* ImageView.swift in Sources */,
 				72CA9B1222D21C7A00EFA227 /* WeekelyCollectionViewCell.swift in Sources */,
 				B694C7A02590B39100758391 /* EJForeignWeatherAPI.swift in Sources */,
+				B653712C25B31F4400241D76 /* EJMallWebViewViewController.swift in Sources */,
 				B658E0902482CA9300F55430 /* EJKisangInfoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

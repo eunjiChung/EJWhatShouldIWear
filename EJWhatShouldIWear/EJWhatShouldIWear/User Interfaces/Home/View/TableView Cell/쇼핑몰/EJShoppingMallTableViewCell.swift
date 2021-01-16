@@ -16,6 +16,8 @@ final class EJShoppingMallTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
 
+    var didSelectProduct: ((String) -> Void)?
+
     var models: [EJItemModel]? {
         didSet {
             DispatchQueue.main.async {
@@ -53,5 +55,9 @@ extension EJShoppingMallTableViewCell: UICollectionViewDelegate, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 110.0, height: collectionView.bounds.height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectProduct?(models?[indexPath.item].url ?? "")
     }
 }

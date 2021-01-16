@@ -197,6 +197,10 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
             }
         case .mallSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: EJShoppingMallTableViewCell.id, for: indexPath) as! EJShoppingMallTableViewCell
+            cell.didSelectProduct = { [weak self] urlString in
+                guard let self = self else { return }
+                self.showWebView(urlString)
+            }
             cell.models = viewModel.clothItems
             return cell
 
