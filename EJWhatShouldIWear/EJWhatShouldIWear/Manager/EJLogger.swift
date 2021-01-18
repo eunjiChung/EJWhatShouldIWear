@@ -50,7 +50,7 @@ final class EJLogger {
         #endif
     }
     
-    private class func sourceFileName(filePath: String) -> String {
+    class func sourceFileName(filePath: String) -> String {
         let components = filePath.components(separatedBy: "/")
         return components.isEmpty ? "" : components.last!
     }

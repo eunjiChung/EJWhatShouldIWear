@@ -16,7 +16,7 @@ final class EJShoppingMallTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
 
-    var didSelectProduct: ((String) -> Void)?
+    var didSelectProduct: ((EJItemModel?) -> Void)?
 
     var models: [EJItemModel]? {
         didSet {
@@ -58,6 +58,6 @@ extension EJShoppingMallTableViewCell: UICollectionViewDelegate, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didSelectProduct?(models?[indexPath.item].url ?? "")
+        didSelectProduct?(models?[indexPath.item])
     }
 }

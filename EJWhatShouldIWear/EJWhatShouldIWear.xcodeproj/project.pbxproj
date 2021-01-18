@@ -122,6 +122,8 @@
 		B6BCD7E62455A7CC003436D6 /* korea_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BCD7E52455A7CC003436D6 /* korea_data.json */; };
 		B6BCD7E92455D965003436D6 /* Data+JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BCD7E82455D965003436D6 /* Data+JSONFile.swift */; };
 		B6BCD7EC2455DAA0003436D6 /* korea_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BCD7EB2455DAA0003436D6 /* korea_data.json */; };
+		B6C19E8025B599540086C9AF /* EJFirebaseAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C19E7F25B599540086C9AF /* EJFirebaseAnalyticsManager.swift */; };
+		B6C19E8525B59CE70086C9AF /* EJFirebaseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C19E8425B59CE70086C9AF /* EJFirebaseEvent.swift */; };
 		B6E088D7245AC791006C6665 /* korea.json in Resources */ = {isa = PBXBuildFile; fileRef = B6E088D6245AC791006C6665 /* korea.json */; };
 		B6E088D9245AC7A8006C6665 /* korea.json in Resources */ = {isa = PBXBuildFile; fileRef = B6E088D8245AC7A8006C6665 /* korea.json */; };
 		B6E088DB245AC7C6006C6665 /* EJKoreaLocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E088DA245AC7C6006C6665 /* EJKoreaLocalModel.swift */; };
@@ -314,6 +316,8 @@
 		B6BCD7E52455A7CC003436D6 /* korea_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea_data.json; sourceTree = "<group>"; };
 		B6BCD7E82455D965003436D6 /* Data+JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSONFile.swift"; sourceTree = "<group>"; };
 		B6BCD7EB2455DAA0003436D6 /* korea_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea_data.json; sourceTree = "<group>"; };
+		B6C19E7F25B599540086C9AF /* EJFirebaseAnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJFirebaseAnalyticsManager.swift; sourceTree = "<group>"; };
+		B6C19E8425B59CE70086C9AF /* EJFirebaseEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJFirebaseEvent.swift; sourceTree = "<group>"; };
 		B6E088D6245AC791006C6665 /* korea.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea.json; sourceTree = "<group>"; };
 		B6E088D8245AC7A8006C6665 /* korea.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = korea.json; sourceTree = "<group>"; };
 		B6E088DA245AC7C6006C6665 /* EJKoreaLocalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJKoreaLocalModel.swift; sourceTree = "<group>"; };
@@ -468,6 +472,7 @@
 		728069202448A4D000522019 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				B69373F525B0682600C1804A /* Firebase */,
 				99F0AD3322952A1D0096E0CA /* EJWeatherManager.swift */,
 				B63758E52448EE800076FE2C /* EJClothManager.swift */,
 				B6375912244B7F270076FE2C /* EJLocationManager.swift */,
@@ -479,7 +484,6 @@
 				B689A71324B4F27000F8B1F0 /* EJImageHelper.swift */,
 				B67A15A7244C567900F17C6D /* EJLogger.swift */,
 				B6868045256D087500301CEC /* EJDateManager.swift */,
-				B69373F525B0682600C1804A /* Firebase */,
 				B693742D25B0760900C1804A /* EJMallManager.swift */,
 			);
 			path = Manager;
@@ -610,6 +614,7 @@
 				99CC5119229D2F8700192450 /* Model */,
 				B62E8B8C22F9463A00055A0E /* Extension */,
 				991F229F228973C000FDBC98 /* Supporting Files */,
+				B6C19E8425B59CE70086C9AF /* EJFirebaseEvent.swift */,
 			);
 			path = EJWhatShouldIWear;
 			sourceTree = "<group>";
@@ -835,6 +840,7 @@
 				728069212448A4FB00522019 /* EJFirebaseDBManager.swift */,
 				B69373F025B0681400C1804A /* EJFireStoreManager.swift */,
 				B69373F625B0683E00C1804A /* EJFireStorageManager.swift */,
+				B6C19E7F25B599540086C9AF /* EJFirebaseAnalyticsManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -1289,6 +1295,7 @@
 				9987A7662293FE0700EFDC05 /* EJHTTPClient.swift in Sources */,
 				B6F1025F233B4479000C3DCD /* UserDefaults+Key.swift in Sources */,
 				B6A6B28F255C2C5100CBFE0B /* EJClothString.swift in Sources */,
+				B6C19E8525B59CE70086C9AF /* EJFirebaseEvent.swift in Sources */,
 				992B098E22BD53C200FF94B7 /* EJFiveDaysSys.swift in Sources */,
 				B689A71424B4F27000F8B1F0 /* EJImageHelper.swift in Sources */,
 				728069222448A4FB00522019 /* EJFirebaseDBManager.swift in Sources */,
@@ -1331,6 +1338,7 @@
 				998B829B228D67540099B71A /* TimeWeahtherTableViewCell.swift in Sources */,
 				B65726A5247D2B0F00D836D7 /* EJKisangWeekForecastModel.swift in Sources */,
 				B65726A3247D27D800D836D7 /* EJKisangWeekelyModel.swift in Sources */,
+				B6C19E8025B599540086C9AF /* EJFirebaseAnalyticsManager.swift in Sources */,
 				B673625F2314FFEF003B07AE /* EJBlogTableViewCell.swift in Sources */,
 				B602935D230FD5FD002BDA5E /* EJInstagramTableViewCell.swift in Sources */,
 				B6FA52CD233B1982006E03A6 /* ClothsCollectionTableViewCell.swift in Sources */,

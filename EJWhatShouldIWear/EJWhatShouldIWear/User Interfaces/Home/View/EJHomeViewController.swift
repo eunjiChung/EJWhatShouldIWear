@@ -197,9 +197,10 @@ extension EJHomeViewController: SkeletonTableViewDataSource {
             }
         case .mallSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: EJShoppingMallTableViewCell.id, for: indexPath) as! EJShoppingMallTableViewCell
-            cell.didSelectProduct = { [weak self] urlString in
-                guard let self = self else { return }
-                self.showWebView(urlString)
+            cell.didSelectProduct = { [weak self] item in
+                guard let self = self, let item = item else { return }
+                self.showWebView(item.url)
+                self.sendClickMallEvent(item)
             }
             cell.models = viewModel.clothItems
             return cell
@@ -353,5 +354,16 @@ private extension EJHomeViewController {
         SideMenuManager.default.menuAnimationFadeStrength = 0.7
         SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
         SideMenuManager.default.menuShadowColor = UIColor.clear
+    }
+}
+
+// MARK: - Firebase Analytics
+extension EJHomeViewController {
+
+    private func sendClickMallEvent(_ item: EJItemModel) {
+        let mall = EJMallManager.shared.mallType(item.url)
+        let param: [String: Any] = [EJFirebaseParamKey.name: mall.rawValue,
+                                    EJFirebaseParamKey.product_name: item.name]
+        EJFirebaseAnalyticsManager.firebaseLogEvent(EJFirebaseEventName.click_mall, param: param)
     }
 }

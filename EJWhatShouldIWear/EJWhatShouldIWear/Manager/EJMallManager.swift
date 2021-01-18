@@ -77,4 +77,23 @@ final class EJMallManager {
             self.networkGroup.leave()
         }
     }
+
+    enum EJMall: String {
+        case ainiu
+        case deeplyin = "deeply-in"
+        case inyourmind
+        case none
+    }
+
+    func mallType(_ urlString: String) -> EJMall {
+        if urlString.contains(EJMall.ainiu.rawValue) {
+            return .ainiu
+        } else if urlString.contains(EJMall.deeplyin.rawValue) {
+            return .deeplyin
+        } else if urlString.contains(EJMall.inyourmind.rawValue) {
+            return .inyourmind
+        } else {
+            return .none
+        }
+    }
 }
